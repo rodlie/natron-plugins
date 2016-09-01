@@ -1,5 +1,5 @@
 # Natron Community Plugins
-### A Repository to gather cool PyPlugs for Natron made by the comunity
+### A Repository to gather cool PyPlugs for Natron made by the community
 
 ### Time
 - FrameStamp : a very simple stamp that show the current frame in the corner of the image.
