@@ -1,0 +1,5 @@
+tmp
+utils
+*.bin
+*.exe
+packages
