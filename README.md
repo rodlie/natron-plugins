@@ -3,10 +3,10 @@
 
 ## Availables plugins :
 ### Time
--FrameStamp : a very simple stamp that show the current frame in the corner of the image.
+-- FrameStamp : a very simple stamp that show the current frame in the corner of the image.
 
 ### Filter
--Chromatic Aberration : a Chromatic Aberration similar to the one found in blender
+- Chromatic Aberration : a Chromatic Aberration similar to the one found in blender
 
 ## How to install :
 Just download the files and copy them to your pyplug/plugin dir.
