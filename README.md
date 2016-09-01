@@ -1,5 +1,6 @@
 # Natron Community Plugins
-### A Repository to gather cool PyPlugs for Natron made by the community
+![Image](Resources/natron-community.png)
+### A collection of plugins for Natron made by the community
 
 ### Filter
 - Chromatic Aberration : a Chromatic Aberration similar to the one found in Blender
@@ -10,13 +11,15 @@
 ### Transform
 - Shaker_NPG : add camera shake to the image
 
-## How to install :
+## How to install
 Just download the files and copy them to your pyplug/plugin dir.
 more info here : 
 
 http://natron.readthedocs.io/en/master/devel/natronpath.html
 
-## Want to add your Pyplug ?
+*A installer will soon be made available*
+
+## Contribute?
 You can make a Pull Request or if you're not comfortable with that just tell us here :
 
 https://forum.natron.fr/t/what-about-having-a-pyplug-repository/1027
