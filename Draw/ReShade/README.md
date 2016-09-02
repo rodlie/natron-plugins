@@ -1,6 +1,6 @@
 # ReShade
 
-GPU Normal Based Relighting Pyplug using a ShaderToy node.
+GPU Normal Based Relighting Pyplug using ShaderToy.
 
 Input should be a normal pass (ZXY), based on Blender defaults.
 You can set Diffuse , Specular (Phong) and Ambiant color separately.
