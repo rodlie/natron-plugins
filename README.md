@@ -1,21 +1,19 @@
 # Natron Community Plugins
 ![Image](Resources/natron-community.png)
-### A collection of plugins for Natron made by the community
+### A collection of Natron plugins made by the community
 
 ### Draw
-- ReShade : GPU Relighting of 3D renders using a normal pass
+- **ReShade** : GPU Relighting of 3D renders using a normal pass
+- **FrameStamp** : a very simple stamp that show the current frame in the corner of the image
 
 ### Filter
-- Chromatic Aberration : a Chromatic Aberration filter similar to Blender's one
+- **Chromatic Aberration** : a Chromatic Aberration filter similar to Blender's one
 
 ### Merge
-- ZCombine : Merge two images according to their Zpass
-
-### Time
-- FrameStamp : a very simple stamp that show the current frame in the corner of the image
+- **ZCombine** : Merge two images according to their Zpass
 
 ### Transform
-- Shaker_NPG : add camera shaking effect to the input image
+- **Shaker_NPG** : add camera shaking effect to the input image
 
 ## How to install
 Just download the files and copy them to your pyplug/plugin dir.
