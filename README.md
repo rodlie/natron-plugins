@@ -5,6 +5,9 @@
 ### Filter
 - Chromatic Aberration : a Chromatic Aberration similar to the one found in Blender
 
+### Merge
+- ZCombine : Merge two images according to their Zpass
+
 ### Time
 - FrameStamp : a very simple stamp that show the current frame in the corner of the image
 
