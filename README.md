@@ -7,7 +7,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png" height="32"> [FrameStamp](Draw/FrameStamp/README.md)** : a very simple stamp that show the current frame in the corner of the image
 
 ### Filter
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberation/Chromatic_Aberation.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : a Chromatic Aberration filter similar to Blender's one
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberation/Chromatic_Aberation.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberation/README.md)** : a Chromatic Aberration filter similar to Blender's one
 
 ### Merge
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
