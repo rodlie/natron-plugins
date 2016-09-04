@@ -8,9 +8,13 @@ If the guide image has sharp transitions the effect may not look natural.
 Typicall use case can be to blur the bakground image in a composite to match the blur of the foreground.
 
 Credits :
+
 Orginal Shader by David Hoskins
+
 License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+
 https://www.shadertoy.com/view/4d2Xzw
+
 Adaptation to Natron : Alessandro Dalla Fontana
 
 ![Screenshot](Resources/Screenshot.png)
