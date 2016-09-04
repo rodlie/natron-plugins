@@ -8,6 +8,7 @@
 
 ### Filter
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberation/Chromatic_Aberation.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberation/README.md)** : a Chromatic Aberration filter similar to Blender's one
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png" height="32"> [Defocus](Filter/Defocus/README.md)** : Add a bokeh blur to the image
 
 ### Merge
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
