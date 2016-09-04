@@ -17,4 +17,4 @@ https://www.shadertoy.com/view/4d2Xzw
 
 Adaptation to Natron : Alessandro Dalla Fontana
 
-![Screenshot](Resources/Screenshot.png)
+![Screenshot](Resources/Screenshot.jpg)
