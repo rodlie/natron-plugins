@@ -4,6 +4,7 @@
 
 ### Draw
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReShade/ReShade.png" height="32"> [ReShade](Draw/ReShade/README.md)** : GPU Relighting of 3D renders using a normal pass
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/SSAO/SSAO.png" height="32"> [SSAO](Draw/SSAO/README.md)** : Generate ScreenSpace Ambiant Occlusion from a Z pass
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png" height="32"> [FrameStamp](Draw/FrameStamp/README.md)** : a very simple stamp that show the current frame in the corner of the image
 
 ### Filter
