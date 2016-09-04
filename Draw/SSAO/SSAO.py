@@ -25,7 +25,7 @@ def getVersion():
     return 1
 
 def getIconPath():
-    return "ssao.png"
+    return "SSAO.png"
 
 def getGrouping():
     return "Draw"
