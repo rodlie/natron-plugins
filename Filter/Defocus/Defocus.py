@@ -22,7 +22,7 @@ def getLabel():
     return "Defocus"
 
 def getVersion():
-    return 1
+    return 1.1
 
 def getIconPath():
     return "Defocus.png"
@@ -103,7 +103,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    param.set("A.r")
+    #param.set("A.r")
     lastNode.Shuffle1outputA = param
     del param
 
@@ -468,27 +468,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("outputRChoice")
     if param is not None:
-        param.setValue("A.r")
+    #    param.setValue("A.r")
         del param
 
     param = lastNode.getParam("outputGChoice")
     if param is not None:
-        param.setValue("A.g")
+    #    param.setValue("A.g")
         del param
 
     param = lastNode.getParam("outputBChoice")
     if param is not None:
-        param.setValue("A.b")
+    #    param.setValue("A.b")
         del param
 
     param = lastNode.getParam("outputA")
     if param is not None:
-        param.set("A.r")
+    #    param.set("A.r")
         del param
 
     param = lastNode.getParam("outputAChoice")
     if param is not None:
-        param.setValue("A.r")
+    #    param.setValue("A.r")
         del param
 
     del lastNode
