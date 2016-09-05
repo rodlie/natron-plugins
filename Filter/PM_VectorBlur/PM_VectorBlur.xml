@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>PM_VectorBlur</DisplayName>
+    <Description>Poor Man\'s Vector Blur.\nBlur an image according to a Vector/Motion Pass.\n\nIt works but it\'s very basic so things like good occlusions or way to prevent bleeding is not supported.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Z2Normal</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
