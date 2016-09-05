@@ -7,6 +7,8 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Z2Normal/Z2Normal.png" height="32"> [Z2Normal](Draw/Z2Normal/README.md)** : Z to Normal, create a Normal pass from any grascale image to be used with ReShade PyPlug
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/SSAO/SSAO.png" height="32"> [SSAO](Draw/SSAO/README.md)** : Generate ScreenSpace Ambiant Occlusion from a Z pass
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png" height="32"> [FrameStamp](Draw/FrameStamp/README.md)** : a very simple stamp that show the current frame in the corner of the image
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Vignette/Vignette.png" height="32"> [Vignette](Draw/Vignette/README.md)** : Darken the Edge of the image to mimic camera vignetting
+
 
 ### Filter
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberation/Chromatic_Aberation.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberation/README.md)** : a Chromatic Aberration filter similar to Blender's one
