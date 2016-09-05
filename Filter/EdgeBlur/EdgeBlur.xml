@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>EdgeBlur</DisplayName>
+    <Description>Blur the image according to the edges of the Alpha provided.\n\nUseful to better integrate an image over another in a compositing.\nThis can help also to fix artifacts caused by a DOF filter....</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.EdgeBlur</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
