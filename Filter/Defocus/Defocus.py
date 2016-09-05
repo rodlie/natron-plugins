@@ -22,7 +22,7 @@ def getLabel():
     return "Defocus"
 
 def getVersion():
-    return 1.1
+    return 1.2
 
 def getIconPath():
     return "Defocus.png"
@@ -53,8 +53,10 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(0.5, 0)
     lastNode.DefocusparamValueFloat0 = param
     del param
 
@@ -70,6 +72,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.DefocusparamValueFloat1 = param
@@ -87,6 +90,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.DefocusparamValueInt2 = param
@@ -100,10 +104,10 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    #param.set("A.r")
     lastNode.Shuffle1outputA = param
     del param
 
@@ -126,6 +130,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
     lastNode.Merge1enableMask_Mask = param
@@ -139,6 +144,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.Merge1maskChannel_Mask = param
@@ -150,6 +156,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.Merge1maskInvert = param
@@ -167,6 +174,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Merge1mix = param
@@ -213,17 +221,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueInt2")
-    if param is not None:
-        param.setValue(256, 0)
+        param.setValue(0.5, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -388,10 +386,15 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("ZDepth")
     lastNode.setLabel("ZDepth")
-    lastNode.setPosition(340, 80)
+    lastNode.setPosition(19, 75)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupZDepth = lastNode
+
+    param = lastNode.getParam("optional")
+    if param is not None:
+        param.setValue(True)
+        del param
 
     del lastNode
     # End of node "ZDepth"
@@ -405,14 +408,9 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
 
-    param = lastNode.getParam("maskInvert")
+    param = lastNode.getParam("userTextArea")
     if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("enableMask_Mask")
-    if param is not None:
-        param.setValue(False)
+        param.setValue("<Natron>(over)</Natron>")
         del param
 
     del lastNode
@@ -456,7 +454,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(340, 297)
+    lastNode.setPosition(19, 297)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1 = lastNode
@@ -468,42 +466,81 @@ def createInstance(app,group):
 
     param = lastNode.getParam("outputRChoice")
     if param is not None:
-    #    param.setValue("A.r")
+        param.setValue("A.r")
         del param
 
     param = lastNode.getParam("outputGChoice")
     if param is not None:
-    #    param.setValue("A.g")
+        param.setValue("A.g")
         del param
 
     param = lastNode.getParam("outputBChoice")
     if param is not None:
-    #    param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputA")
-    if param is not None:
-    #    param.set("A.r")
+        param.setValue("A.b")
         del param
 
     param = lastNode.getParam("outputAChoice")
     if param is not None:
-    #    param.setValue("A.r")
+        param.setValue("A.a")
         del param
 
     del lastNode
     # End of node "Shuffle1"
 
+    # Start of node "White"
+    lastNode = app.createNode("net.sf.openfx.ConstantPlugin", 1, group)
+    lastNode.setScriptName("White")
+    lastNode.setLabel("White")
+    lastNode.setPosition(308, 85)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupWhite = lastNode
+
+    param = lastNode.getParam("color")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
+        param.setValue(1, 3)
+        del param
+
+    del lastNode
+    # End of node "White"
+
+    # Start of node "Merge2"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge2")
+    lastNode.setLabel("Merge2")
+    lastNode.setPosition(308, 285)
+    lastNode.setSize(104, 66)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamStringSublabelName")
+    if param is not None:
+        param.setValue("multiply")
+        del param
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("multiply")
+        del param
+
+    del lastNode
+    # End of node "Merge2"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupMerge1)
     groupDefocus.connectInput(0, groupSource)
-    groupDefocus.connectInput(1, groupShuffle1)
+    groupDefocus.connectInput(1, groupMerge2)
     groupMerge1.connectInput(0, groupDot1)
     groupMerge1.connectInput(1, groupDefocus)
     groupMerge1.connectInput(2, groupMask)
     groupDot1.connectInput(0, groupSource)
     groupShuffle1.connectInput(0, groupZDepth)
     groupShuffle1.connectInput(1, groupZDepth)
+    groupMerge2.connectInput(0, groupWhite)
+    groupMerge2.connectInput(1, groupShuffle1)
 
     param = groupDefocus.getParam("paramValueFloat0")
     group.getParam("DefocusparamValueFloat0").setAsAlias(param)
