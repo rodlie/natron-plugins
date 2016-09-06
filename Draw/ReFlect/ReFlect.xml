@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>ReFlect</DisplayName>
+    <Description>Take a Normal pass and an image and map it to reflection, similar to matcap in 3D render</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.ReFlect</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
