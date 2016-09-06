@@ -40,7 +40,7 @@ def createInstance(app,group):
     lastNode = group
 
     # Create the user parameters
-    lastNode.userNatron = lastNode.createPageParam("userNatron", "User")
+    lastNode.userNatron = lastNode.createPageParam("Controls", "Controls")
     param = lastNode.createDoubleParam("Merge2mix", "Mix")
     param.setMinimum(0, 0)
     param.setMaximum(1, 0)
@@ -59,7 +59,7 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Node', 'Settings', 'Info', 'userNatron'])
+    lastNode.setPagesOrder(['Controls','Node', 'Settings', 'Info'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 

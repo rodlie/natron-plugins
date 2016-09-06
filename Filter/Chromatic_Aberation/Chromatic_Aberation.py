@@ -106,7 +106,7 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Settings', 'Info', 'Controls'])
+    lastNode.setPagesOrder(['userNatron', 'Controls', 'Node', 'Settings', 'Info'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
