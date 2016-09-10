@@ -21,7 +21,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
 
 ### Transform
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Shaker_NPG/Shaker_NPG.png" height="32"> [Shaker_NPG](Transform/Shaker_NPG/README.md)** : add camera shaking effect to the input image
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Shaker/Shaker.png" height="32"> [Shaker](Transform/Shaker/README.md)** : Add a shaking effect to the input image
 
 ## How to install
 Just download the files and copy them to your pyplug/plugin dir.
