@@ -94,7 +94,7 @@ def createInstance(app,group):
     # Set param properties
     param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistant(False)
+    param.setPersistent(False)
     param.setEvaluateOnChange(False)
     lastNode.Sep = param
     del param
