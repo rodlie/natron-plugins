@@ -13,6 +13,7 @@
 
 ### Filter
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : a Chromatic Aberration filter similar to Blender's one
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png" height="32"> [ChromaticAberrationPP](Filter/ChromaticAberrationPP/README.md)** : a Chromatic Aberration filter with lot's of options to fine tune. It supports both axial and lateral chromatic aberration which can be adjusted separately. While the Plugin above is more artistically, this one should work fine for matching already existing chromatic abberations in your images.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png" height="32"> [Defocus](Filter/Defocus/README.md)** : Add a bokeh blur to the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/EdgeBlur/EdgeBlur.png" height="32"> [EdgeBlur](Filter/EdgeBlur/README.md)** : Blur the image according to the edges of an Alpha mask
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PM_VectorBlur/PM_VectorBlur.png" height="32"> [PM_VectorBlur](Filter/PM_VectorBlur/README.md)** : Blur the image according to a vector/motion pass. Very simple implementation so it may not work in all cases.
