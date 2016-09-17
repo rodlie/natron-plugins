@@ -72,7 +72,7 @@ def createInstance(app,group):
     param.setHelp("Filtering algorithm - Impulse work in most cases , and is way faster than the others")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.set("Impulse")
+    param.set(0)
     lastNode.STMap1filter = param
     del param
 
