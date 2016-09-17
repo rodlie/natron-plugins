@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>lp_ColourSmear</DisplayName>
+    <Description>Smears the colors around a given Alpha.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.lp_ColourSmear</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

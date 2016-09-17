@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>lp_Despot</DisplayName>
+    <Description>Despots for black or white pixels.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.lp_Despot</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

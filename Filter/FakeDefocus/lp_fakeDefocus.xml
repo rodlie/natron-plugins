@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>lp_fakeDefocus</DisplayName>
+    <Description>A very faky Defocus. Very faky. Not very good. Might work for tiny things.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.lp_fakeDefocus</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
