@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>LightWrap_Simple</DisplayName>
+    <Description>An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect</Description>
+    <Version>3.1</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.LightWrap_Simple</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
