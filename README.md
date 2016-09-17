@@ -2,6 +2,9 @@
 ![Image](Resources/natron-community.png)
 ### A collection of Natron plugins made by the community
 
+### Color
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Color/Tweaky/lp_Tweaky.png" height="32"> [lp_Tweaky](Color/Tweaky/README.md)** : Brings a variety of little tweaking-options, like a Vibrance, WB-Slider, Tint, etc
+
 ### Draw
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Z2Normal/Z2Normal.png" height="32"> [Z2Normal](Draw/Z2Normal/README.md)** : Z to Normal, create a Normal pass from any grascale image to be used with ReShade PyPlug
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReShade/ReShade.png" height="32"> [ReShade](Draw/ReShade/README.md)** : GPU Relighting of 3D renders using a Normal pass
@@ -10,6 +13,11 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png" height="32"> [FrameStamp](Draw/FrameStamp/README.md)** : a very simple stamp that show the current frame in the corner of the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Vignette/Vignette.png" height="32"> [Vignette](Draw/Vignette/README.md)** : Darken the Edge of the image to mimic camera vignetting
 
+### Keyer
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/CleanScreen/lp_CleanScreen.png" height="32"> [lp_CleanScreen](Keyer/CleanScreen/README.md)** : Evens out your Chroma-Screen with the help of a Cleanplate.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/Despill/lp_Despill.png" height="32"> [lp_Despill](Keyer/Despill/README.md)** : An alternative to built-in Despill node that is quick and easy to setup.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/HairKey/lp_HairKey.png" height="32"> [lp_HairKey](Keyer/HairKey/README.md)** : A keyless Keyer for fine detail like hair which is hard to come by with a matte.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/SimpleKeyer/lp_SimpleKeyer.png" height="32"> [lp_SimpleKeyer](Keyer/SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node
 
 ### Filter
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : a Chromatic Aberration filter similar to Blender's one
