@@ -19,3 +19,6 @@ Actually there are two types of chromatic aberration:
 
 
 ![Schematic](Resources/chromatic_aberration_schematic.png)
+
+
+![Screenshot](Resources/Screenshot.jpg)
