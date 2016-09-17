@@ -24,6 +24,8 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png" height="32"> [ChromaticAberrationPP](Filter/ChromaticAberrationPP/README.md)** : a Chromatic Aberration filter with lot's of options to fine tune. It supports both axial and lateral chromatic aberration which can be adjusted separately. While the Plugin above is more artistically, this one should work fine for matching already existing chromatic abberations in your images.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png" height="32"> [Defocus](Filter/Defocus/README.md)** : Add a bokeh blur to the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/EdgeBlur/EdgeBlur.png" height="32"> [EdgeBlur](Filter/EdgeBlur/README.md)** : Blur the image according to the edges of an Alpha mask
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ColourSmear/lp_ColourSmear.png" height="32"> [lp_ColourSmear](Filter/ColourSmear/README.md)** : Smears the colors around a given Alpha
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Despot/lp_Despot.png" height="32"> [lp_Despot](Filter/Despot/README.md)** : Despots for black or white pixels
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PM_VectorBlur/PM_VectorBlur.png" height="32"> [PM_VectorBlur](Filter/PM_VectorBlur/README.md)** : Blur the image according to a vector/motion pass. Very simple implementation so it may not work in all cases.
 
 ### Merge
@@ -34,7 +36,7 @@
 
 ## How to install
 Just download the files and copy them to your pyplug/plugin dir.
-more info here : 
+more info here :
 
 http://natron.readthedocs.io/en/master/devel/natronpath.html
 

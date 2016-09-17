@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>lp_CleanScreen</DisplayName>
+    <Description>Evens out your Chroma-Screen with the help of a Cleanplate.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.lp_CleanScreen</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
