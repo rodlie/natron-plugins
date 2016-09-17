@@ -1,26 +1,9 @@
-# ReFlect
+# LightWrap_Simple
 
-this plugin take a Normal Pass and a reflection image as 
-an input and generate fake reflections, like when using a matcap in 3D render.
+An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect.
 
-You can then set the roughness / glossiness and Fresnel value.
+Built-in Pyplug as a lot of options to tweak colors of the wrap and add glow effects, 
 
-This can be used with the Reshade plugin to add reflections to a relighted object.
-
-Few tips : 
-- You don't need big images for the reflection map. 
-Generally 512*512 is way enough and will render faster.
-
-- The impulse filter is the fastest and will work in many cases.
-
-- you may have to set very low Gamma (~0.18) and very High Gain (70)  for the fresnel to look good.\
-
-- The reflection image can be any image , 
-try with different images to see what effect they provide. 
-You can search for ZBrush matcaps to get nice images to play with.
+if you just want to blend the edges of the forground over the background this Pyplug may just be enough.
 
 ![Screenshot](Resources/Screenshot.jpg)
-
-Another example using a noise as a reflection map
-
-![Screenshot](Resources/Screenshot2.jpg)
