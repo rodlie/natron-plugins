@@ -28,7 +28,7 @@ def getIconPath():
     return "Z2Normal.png"
 
 def getGrouping():
-    return "Draw"
+    return "Draw/Relight"
 
 def getPluginDescription():
     return "Convert a Zpass or any Grayscale image ( black = near, white = far ) To a ViewSpace Normal Pass.\n\nThis can be used with the ReShade pyplug to do relighting effects.\n"

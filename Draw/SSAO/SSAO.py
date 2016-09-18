@@ -28,7 +28,7 @@ def getIconPath():
     return "SSAO.png"
 
 def getGrouping():
-    return "Draw"
+    return "Draw/Relight"
 
 def getPluginDescription():
     return "Generate an AO pass from a Z pass.\n\n-Use the Near and Far plane to map the Z pass roughly bettween 0 and 1 value.\n\n-Set Radius and Falloff\n\n-Set the sample value (may need to go to 1000 iteration for a very smooth result)\n\n-as you increase the samples, you\'ll need to lower the sample noise value to something like 0.05\n\n-Finally you can blur the AO a little bit to get rid of the final noise/artifacts...\n\nThe original code is taken from here :\ntheorangeduck.com/page/pure-depth-ssao"
