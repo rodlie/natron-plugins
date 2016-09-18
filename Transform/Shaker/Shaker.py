@@ -181,7 +181,7 @@ def createInstance(app,group):
     # Set param properties
     param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistant(False)
+    param.setPersistent(False)
     param.setEvaluateOnChange(False)
     lastNode.separator5 = param
     del param
@@ -240,7 +240,7 @@ def createInstance(app,group):
     # Set param properties
     param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistant(False)
+    param.setPersistent(False)
     param.setEvaluateOnChange(False)
     lastNode.separator3 = param
     del param
@@ -296,7 +296,7 @@ def createInstance(app,group):
     # Set param properties
     param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistant(False)
+    param.setPersistent(False)
     param.setEvaluateOnChange(False)
     lastNode.separator4 = param
     del param
