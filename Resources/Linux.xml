@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Installer>
 	<Name>Natron Community Plugins</Name>
-	<Version>2016.09-1</Version>
+	<Version>1.0</Version>
 	<Title>Natron Community Plugins</Title>
 	<Publisher>Natron Community</Publisher>
 	<StartMenuDir>Natron Community Plugins</StartMenuDir>

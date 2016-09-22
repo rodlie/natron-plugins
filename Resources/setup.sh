@@ -1,22 +1,43 @@
 #!/bin/sh
+VERSION=1.0beta1
+DATE=`date +%Y-%m-%d`
 BIT=${1:-}
 OS=`uname -s`
-DATE=`date +%Y-%m-%d`
 CWD=`pwd`
 TMP="$CWD/tmp"
 RESOURCES="$CWD/Resources"
 PACKAGES="$TMP/packages"
 DOMAIN="natron.community.plugins"
 
-BINARY="NCP-${DATE}"
+BINARY="NCP-${VERSION}"
 if [ "$OS" != "Linux" ] && [ "$OS" != "Darwin" ]; then
   BINARY="${BINARY}.exe"
   OS="Windows"
 fi
 
 PLUGINS="
-Filter/Chromatic_Aberation
-Time/FrameStamp
+Color/lp_Tweaky
+Draw/FrameStamp
+Draw/LightWrap_Simple
+Draw/ReFlect
+Draw/ReShade
+Draw/SSAO
+Draw/Vignette
+Draw/Z2Normal
+Filter/Chromatic_Aberration
+Filter/ChromaticAberrationPP
+Filter/Defocus
+Filter/EdgeBlur
+Filter/lp_ColourSmear
+Filter/lp_Despot
+Filter/lp_fakeDefocus
+Filter/PM_VectorBlur
+Keyer/lp_CleanScreen
+Keyer/lp_Despill
+Keyer/lp_HairKey
+Keyer/lp_SimpleKeyer
+Merge/ZCombine
+Transform/Shaker
 "
 
 if [ -d "$TMP" ]; then
@@ -33,7 +54,7 @@ for PLUGINPATH in $PLUGINS; do
 done
 
 if [ -f "$RESOURCES"/${OS}.xml ]; then
-  PATH="$RESOURCES"/utils/${OS}${BIT}:$PATH binarycreator -v -f -p "$PACKAGES" -c "$RESOURCES"/${OS}.xml
+  PATH="$RESOURCES"/utils/${OS}${BIT}:$PATH binarycreator -v -f -p "$PACKAGES" -c "$RESOURCES"/${OS}.xml "$BINARY"
 else
   echo "Setup file don't exist, failed!"
   exit 1
