@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Core</DisplayName>
+    <Description>Meta package</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.core</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+    <Licenses>
+        <License name="GPL" file="GPL-2.0" />
+        <License name="CC-BY" file="CC-BY-2.0" />
+    </Licenses>
+</Package>
