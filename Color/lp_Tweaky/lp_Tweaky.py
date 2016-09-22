@@ -28,7 +28,7 @@ def getGrouping():
     return "Color"
 
 def getPluginDescription():
-    return "A little set of little helpers :)"
+    return "Brings a variety of little tweaking-options, like a Vibrance, WB-Slider, Tint, etc."
 
 def createInstance(app,group):
     # Create all nodes in the group
