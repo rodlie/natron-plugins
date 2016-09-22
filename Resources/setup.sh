@@ -51,8 +51,6 @@ for PLUGINPATH in $PLUGINS; do
   cp "$PLUGINPATH"/${PLUGINNAME}.p* "$PACKAGES"/${DOMAIN}.$PLUGINNAME/data/ || exit 1
   cat "$PLUGINPATH"/${PLUGINNAME}.xml | sed 's/@DATE@/'${DATE}'/;s#</Package>#<Dependencies>'${DOMAIN}'.core</Dependencies></Package>#' > "$PACKAGES"/${DOMAIN}.$PLUGINNAME/meta/package.xml || exit 1
   cat "$RESOURCES"/package.qs > "$PACKAGES"/${DOMAIN}.$PLUGINNAME/meta/installscript.qs || exit 1
-  cp "$CWD"/Licenses/GPL-2.0 "$PACKAGES"/${DOMAIN}.$PLUGINNAME/meta/ || exit 1
-  cp "$CWD"/Licenses/CC-BY-2.0 "$PACKAGES"/${DOMAIN}.$PLUGINNAME/meta/ || exit 1
 done
 
 mkdir -p "$PACKAGES"/${DOMAIN}.core/{data,meta} || exit 1
