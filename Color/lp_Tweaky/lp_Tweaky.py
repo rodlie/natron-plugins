@@ -28,7 +28,7 @@ def getGrouping():
     return "Color"
 
 def getPluginDescription():
-    return "Brings a variety of little tweaking-options, like a Vibrance, WB-Slider, Tint, etc."
+    return "A little set of little helpers :)"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -162,6 +162,19 @@ def createInstance(app,group):
     lastNode.contrastclarity = param
     del param
 
+    param = lastNode.createSeparatorParam("sep03", " ")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp(" ")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sep03 = param
+    del param
+
     param = lastNode.createBooleanParam("invmask", "invert mask")
 
     # Add the param to the page
@@ -189,7 +202,7 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Settings', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'Node', 'Info'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -300,58 +313,6 @@ def createInstance(app,group):
     del lastNode
     # End of node "Invert1"
 
-    # Start of node "Shuffle1"
-    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
-    lastNode.setScriptName("Shuffle1")
-    lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(1460, 2190)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.6, 0.24, 0.39)
-    groupShuffle1 = lastNode
-
-    param = lastNode.getParam("outputChannelsChoice")
-    if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputR")
-    if param is not None:
-        param.set("B.r")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("B.r")
-        del param
-
-    param = lastNode.getParam("outputG")
-    if param is not None:
-        param.set("B.g")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("B.g")
-        del param
-
-    param = lastNode.getParam("outputB")
-    if param is not None:
-        param.set("B.b")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
-        del param
-
-    del lastNode
-    # End of node "Shuffle1"
-
     # Start of node "Dot1"
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1")
@@ -380,7 +341,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot3")
     lastNode.setLabel("Dot3")
-    lastNode.setPosition(984, 2204)
+    lastNode.setPosition(984, 2434)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot3 = lastNode
@@ -392,14 +353,29 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
-    lastNode.setPosition(1879, 2622)
+    lastNode.setPosition(1879, 2408)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
 
+    param = lastNode.getParam("NatronOfxParamStringSublabelName")
+    if param is not None:
+        param.setValue("copy")
+        del param
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("copy")
+        del param
+
     param = lastNode.getParam("OutputChannelsA")
     if param is not None:
         param.setValue(False)
+        del param
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(True)
         del param
 
     del lastNode
@@ -866,42 +842,29 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot13"
 
-    # Start of node "Premult1"
-    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
-    lastNode.setScriptName("Premult1")
-    lastNode.setLabel("Premult1")
-    lastNode.setPosition(1460, 2410)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupPremult1 = lastNode
-
-    del lastNode
-    # End of node "Premult1"
-
-    # Start of node "Dot15"
+    # Start of node "Dot4"
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
-    lastNode.setScriptName("Dot15")
-    lastNode.setLabel("Dot15")
-    lastNode.setPosition(1505, 2648)
+    lastNode.setScriptName("Dot4")
+    lastNode.setLabel("Dot4")
+    lastNode.setPosition(1527, 2116)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupDot15 = lastNode
+    groupDot4 = lastNode
 
     del lastNode
-    # End of node "Dot15"
+    # End of node "Dot4"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupMerge1)
     groupRGBToHSV1.connectInput(0, groupXYZToRGB7091)
     groupVIBRANCE.connectInput(0, groupRGBToHSV1)
     groupInvert1.connectInput(0, groupMerge2)
-    groupShuffle1.connectInput(0, groupDot5)
-    groupShuffle1.connectInput(1, groupDot3)
     groupDot1.connectInput(0, groupimg)
     groupDot2.connectInput(0, groupDot1)
     groupDot3.connectInput(0, groupInvert1)
     groupMerge1.connectInput(0, groupSHADOW)
-    groupMerge1.connectInput(1, groupDot15)
+    groupMerge1.connectInput(1, groupDot4)
+    groupMerge1.connectInput(2, groupDot3)
     groupHSVToRGB1.connectInput(0, groupOCIOLogConvert2_2)
     groupSharpenInvDiff1.connectInput(0, groupDot11)
     groupBlur1.connectInput(0, groupShuffle2)
@@ -930,8 +893,7 @@ def createInstance(app,group):
     groupMerge2.connectInput(0, groupmask)
     groupMerge2.connectInput(1, groupDot13)
     groupDot13.connectInput(0, groupConstant1)
-    groupPremult1.connectInput(0, groupShuffle1)
-    groupDot15.connectInput(0, groupPremult1)
+    groupDot4.connectInput(0, groupDot5)
 
     param = groupVIBRANCE.getParam("gamma")
     param.setExpression("if thisGroup.colourvibrance.get() > 0:\n\tret = (1+thisGroup.colourvibrance.get()*2)\nelse:\n\tret = 1+thisGroup.colourvibrance.get()", True, 1)
