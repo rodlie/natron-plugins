@@ -13,6 +13,9 @@ BINARY="NCP-${VERSION}-${OS}-${BIT}"
 if [ "$OS" != "Linux" ] && [ "$OS" != "Darwin" ]; then
   BINARY="${BINARY}.exe"
   OS="Windows"
+  BIT=""
+else
+  BINARY="${BINARY}.bin"
 fi
 
 PLUGINS="
@@ -31,6 +34,7 @@ Filter/EdgeBlur
 Filter/lp_ColourSmear
 Filter/lp_Despot
 Filter/lp_fakeDefocus
+Filter/lp_NoiseDistort
 Filter/PM_VectorBlur
 Keyer/lp_CleanScreen
 Keyer/lp_Despill

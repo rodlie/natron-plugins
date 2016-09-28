@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>lp_NoiseDistort</DisplayName>
+    <Description>Distorts an image based on two different noise-layer for a more dynamic feel.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.lp_NoiseDistort</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
