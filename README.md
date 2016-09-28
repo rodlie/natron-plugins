@@ -30,7 +30,9 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ColourSmear/lp_ColourSmear.png" height="32"> [lp_ColourSmear](Filter/lp_ColourSmear/README.md)** : Smears the colors around a given Alpha
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_Despot/lp_Despot.png" height="32"> [lp_Despot](Filter/lp_Despot/README.md)** : Despots for black or white pixels
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_fakeDefocus/lp_fakeDefocus.png" height="32"> [lp_fakeDefocus](Filter/lp_fakeDefocus/README.md)** : A very faky Defocus. Very faky. Not very good. Might work for tiny things.
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PM_VectorBlur/PM_VectorBlur.png" height="32"> [PM_VectorBlur](Filter/PM_VectorBlur/README.md)** : Blur the image according to a vector/motion pass. Very simple implementation so it may not work in all cases.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_NoiseDistort/lp_NoiseDistort.png" height="32">[lp_NoiseDistort](Filter/lp_NoiseDistort/README.md)** : Distorts an image based on two different noise-layer for a more dynamic feel.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PM_VectorBlur/PM_VectorBlur.png" height="32"> 
+[PM_VectorBlur](Filter/PM_VectorBlur/README.md)** : Blur the image according to a vector/motion pass. Very simple implementation so it may not work in all cases.
 
 ### Merge
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
