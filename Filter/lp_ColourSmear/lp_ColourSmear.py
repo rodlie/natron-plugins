@@ -72,7 +72,7 @@ def createInstance(app,group):
 
     # Set param properties
     param.setHelp("Sets the filter for the main-operation.")
-    param.setAddNewLine(True)
+    param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.main_smearfilter = param
     del param
@@ -87,6 +87,19 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.precision = param
+    del param
+
+    param = lastNode.createSeparatorParam("sep01", " ")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp(" ")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sep01 = param
     del param
 
     param = lastNode.createDouble2DParam("edge_blursize", "edge blur")
@@ -107,6 +120,26 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.edge_blursize = param
+    del param
+
+    param = lastNode.createDouble2DParam("centerblursize", "center blur")
+    param.setMinimum(0, 0)
+    param.setMaximum(1000, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(100, 0)
+    param.setMinimum(0, 1)
+    param.setMaximum(1000, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(100, 1)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Blurs the smeared area.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.centerblursize = param
     del param
 
     param = lastNode.createSeparatorParam("filler02", "matte correct")
@@ -208,8 +241,215 @@ def createInstance(app,group):
     lastNode.copyright = param
     del param
 
+    lastNode.grain_ctrl = lastNode.createPageParam("grain_ctrl", "Grain")
+    param = lastNode.createBooleanParam("grainactivation", "activate")
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setHelp("Activates Grain for the smeared area.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.grainactivation = param
+    del param
+
+    param = lastNode.createSeparatorParam("sep01g", " ")
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setHelp(" ")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sep01g = param
+    del param
+
+    param = lastNode.createDoubleParam("SeGrain1grainSizeAll", "size all")
+    param.setMinimum(0, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(10, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setHelp("Global factor on grain size.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.SeGrain1grainSizeAll = param
+    del param
+
+    param = lastNode.createColorParam("grainsize", "size", False)
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(7, 0)
+    param.setDefaultValue(3, 0)
+    param.restoreDefaultValue(0)
+    param.setMinimum(-2147483648, 1)
+    param.setMaximum(2147483647, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(7, 1)
+    param.setDefaultValue(3, 1)
+    param.restoreDefaultValue(1)
+    param.setMinimum(-2147483648, 2)
+    param.setMaximum(2147483647, 2)
+    param.setDisplayMinimum(0, 2)
+    param.setDisplayMaximum(7, 2)
+    param.setDefaultValue(3, 2)
+    param.restoreDefaultValue(2)
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setHelp("Sets the size of the Grain for RGB individually.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.grainsize = param
+    del param
+
+    param = lastNode.createColorParam("grainirregularity", "irregularity", False)
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(0.6, 0)
+    param.restoreDefaultValue(0)
+    param.setMinimum(-2147483648, 1)
+    param.setMaximum(2147483647, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(1, 1)
+    param.setDefaultValue(0.6, 1)
+    param.restoreDefaultValue(1)
+    param.setMinimum(-2147483648, 2)
+    param.setMaximum(2147483647, 2)
+    param.setDisplayMinimum(0, 2)
+    param.setDisplayMaximum(1, 2)
+    param.setDefaultValue(0.6, 2)
+    param.restoreDefaultValue(2)
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setHelp("Increases or decreases the random quality of the Grain.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.grainirregularity = param
+    del param
+
+    param = lastNode.createColorParam("grainintensity", "intensity", False)
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(0.1, 0)
+    param.restoreDefaultValue(0)
+    param.setMinimum(-2147483648, 1)
+    param.setMaximum(2147483647, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(1, 1)
+    param.setDefaultValue(0.1, 1)
+    param.restoreDefaultValue(1)
+    param.setMinimum(-2147483648, 2)
+    param.setMaximum(2147483647, 2)
+    param.setDisplayMinimum(0, 2)
+    param.setDisplayMaximum(1, 2)
+    param.setDefaultValue(0.1, 2)
+    param.restoreDefaultValue(2)
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setHelp("Sets the intensity of the Grain individually for R, G and B.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.grainintensity = param
+    del param
+
+    param = lastNode.createSeparatorParam("sep02g", " ")
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setHelp(" ")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sep02g = param
+    del param
+
+    param = lastNode.createDoubleParam("SeGrain1colorCorr", "Correlation")
+    param.setMinimum(-1, 0)
+    param.setMaximum(1, 0)
+    param.setDisplayMinimum(-1, 0)
+    param.setDisplayMaximum(1, 0)
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.SeGrain1colorCorr = param
+    del param
+
+    param = lastNode.createColorParam("SeGrain1grainBlack", "Black", False)
+    param.setMinimum(-1.79769e+308, 0)
+    param.setMaximum(1.79769e+308, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setMinimum(-1.79769e+308, 1)
+    param.setMaximum(1.79769e+308, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(1, 1)
+    param.setMinimum(-1.79769e+308, 2)
+    param.setMaximum(1.79769e+308, 2)
+    param.setDisplayMinimum(0, 2)
+    param.setDisplayMaximum(1, 2)
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.SeGrain1grainBlack = param
+    del param
+
+    param = lastNode.createColorParam("SeGrain1grainMinimum", "Minimum", False)
+    param.setMinimum(-1.79769e+308, 0)
+    param.setMaximum(1.79769e+308, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(0.01, 0)
+    param.setMinimum(-1.79769e+308, 1)
+    param.setMaximum(1.79769e+308, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(0.01, 1)
+    param.setMinimum(-1.79769e+308, 2)
+    param.setMaximum(1.79769e+308, 2)
+    param.setDisplayMinimum(0, 2)
+    param.setDisplayMaximum(0.01, 2)
+
+    # Add the param to the page
+    lastNode.grain_ctrl.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.SeGrain1grainMinimum = param
+    del param
+
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Settings', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'grain_ctrl', 'Node', 'Info'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -229,7 +469,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("img")
     lastNode.setLabel("img")
-    lastNode.setPosition(1730, -423)
+    lastNode.setPosition(1708, -415)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupimg = lastNode
@@ -241,7 +481,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
     lastNode.setScriptName("Erode1")
     lastNode.setLabel("Erode1")
-    lastNode.setPosition(2496, 414)
+    lastNode.setPosition(2496, 595)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErode1 = lastNode
@@ -336,7 +576,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
-    lastNode.setPosition(1775, 95)
+    lastNode.setPosition(1753, 95)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
@@ -365,7 +605,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
-    lastNode.setPosition(2496, 547)
+    lastNode.setPosition(2496, 744)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
@@ -382,7 +622,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("disableNode")
     if param is not None:
-        param.setValue(True)
+        param.setValue(False)
         del param
 
     del lastNode
@@ -404,7 +644,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
-    lastNode.setPosition(2496, 294)
+    lastNode.setPosition(2496, 256)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
@@ -416,17 +656,37 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Grade1")
     lastNode.setLabel("Grade1")
-    lastNode.setPosition(2496, 734)
+    lastNode.setPosition(2496, 424)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade1 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
 
     param = lastNode.getParam("clampWhite")
     if param is not None:
         param.setValue(True)
         del param
 
-    param = lastNode.getParam("premult")
+    param = lastNode.getParam("premultChanged")
     if param is not None:
         param.setValue(True)
         del param
@@ -438,7 +698,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
-    lastNode.setPosition(2240, 1189)
+    lastNode.setPosition(2240, 1291)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
@@ -450,7 +710,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot3")
     lastNode.setLabel("Dot3")
-    lastNode.setPosition(1753, 1184)
+    lastNode.setPosition(1753, 1078)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot3 = lastNode
@@ -462,15 +722,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
     lastNode.setScriptName("Unpremult1")
     lastNode.setLabel("Unpremult1")
-    lastNode.setPosition(2194, 1544)
+    lastNode.setPosition(2194, 1564)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupUnpremult1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
-        del param
 
     del lastNode
     # End of node "Unpremult1"
@@ -479,7 +734,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge2")
     lastNode.setLabel("Merge2")
-    lastNode.setPosition(2556, 1859)
+    lastNode.setPosition(2556, 1865)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge2 = lastNode
@@ -491,7 +746,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot4")
     lastNode.setLabel("Dot4")
-    lastNode.setPosition(2601, 1772)
+    lastNode.setPosition(2601, 1803)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot4 = lastNode
@@ -503,7 +758,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot5")
     lastNode.setLabel("Dot5")
-    lastNode.setPosition(2240, 1772)
+    lastNode.setPosition(2240, 1803)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot5 = lastNode
@@ -543,7 +798,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot6")
     lastNode.setLabel("Dot6")
-    lastNode.setPosition(3213, 1189)
+    lastNode.setPosition(3199, 1291)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot6 = lastNode
@@ -567,7 +822,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge3")
     lastNode.setLabel("Merge3")
-    lastNode.setPosition(2546, 2840)
+    lastNode.setPosition(2546, 2844)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge3 = lastNode
@@ -579,7 +834,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("Switch2")
     lastNode.setLabel("Switch2")
-    lastNode.setPosition(2066, 2861)
+    lastNode.setPosition(2072, 2856)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupSwitch2 = lastNode
@@ -591,28 +846,6 @@ def createInstance(app,group):
 
     del lastNode
     # End of node "Switch2"
-
-    # Start of node "Merge4"
-    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
-    lastNode.setScriptName("Merge4")
-    lastNode.setLabel("Merge4")
-    lastNode.setPosition(1688, 2849)
-    lastNode.setSize(104, 66)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupMerge4 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("under")
-        del param
-
-    param = lastNode.getParam("operation")
-    if param is not None:
-        param.set("under")
-        del param
-
-    del lastNode
-    # End of node "Merge4"
 
     # Start of node "Premult2"
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
@@ -789,28 +1022,6 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot13"
 
-    # Start of node "Merge5"
-    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
-    lastNode.setScriptName("Merge5")
-    lastNode.setLabel("Merge5")
-    lastNode.setPosition(1702, 4295)
-    lastNode.setSize(104, 66)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupMerge5 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("matte")
-        del param
-
-    param = lastNode.getParam("operation")
-    if param is not None:
-        param.set("matte")
-        del param
-
-    del lastNode
-    # End of node "Merge5"
-
     # Start of node "matte"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("matte")
@@ -878,7 +1089,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge6")
     lastNode.setLabel("Merge6")
-    lastNode.setPosition(2546, 2688)
+    lastNode.setPosition(2546, 2692)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge6 = lastNode
@@ -958,7 +1169,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge8")
     lastNode.setLabel("Merge8")
-    lastNode.setPosition(2553, 2392)
+    lastNode.setPosition(2553, 2396)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge8 = lastNode
@@ -970,7 +1181,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge9")
     lastNode.setLabel("Merge9")
-    lastNode.setPosition(2556, 2001)
+    lastNode.setPosition(2556, 1996)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge9 = lastNode
@@ -1166,7 +1377,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 3, group)
     lastNode.setScriptName("precision_8")
     lastNode.setLabel("precision_8")
-    lastNode.setPosition(2921, 1877)
+    lastNode.setPosition(2922, 1882)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupprecision_8 = lastNode
@@ -1288,14 +1499,14 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot21"
 
-    # Start of node "Shuffle4"
+    # Start of node "Shuffle5"
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
-    lastNode.setScriptName("Shuffle4")
-    lastNode.setLabel("Shuffle4")
-    lastNode.setPosition(1384, 4307)
+    lastNode.setScriptName("Shuffle5")
+    lastNode.setLabel("Shuffle5")
+    lastNode.setPosition(1702, 3176)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
-    groupShuffle4 = lastNode
+    groupShuffle5 = lastNode
 
     param = lastNode.getParam("outputChannelsChoice")
     if param is not None:
@@ -1338,104 +1549,7 @@ def createInstance(app,group):
         del param
 
     del lastNode
-    # End of node "Shuffle4"
-
-    # Start of node "Shuffle5"
-    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
-    lastNode.setScriptName("Shuffle5")
-    lastNode.setLabel("Shuffle5")
-    lastNode.setPosition(1688, 3176)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.6, 0.24, 0.39)
-    groupShuffle5 = lastNode
-
-    param = lastNode.getParam("outputChannelsChoice")
-    if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputR")
-    if param is not None:
-        param.set("B.r")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("B.r")
-        del param
-
-    param = lastNode.getParam("outputG")
-    if param is not None:
-        param.set("B.g")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("B.g")
-        del param
-
-    param = lastNode.getParam("outputB")
-    if param is not None:
-        param.set("B.b")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputA")
-    if param is not None:
-        param.set("A.r")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    del lastNode
     # End of node "Shuffle5"
-
-    # Start of node "Clamp1"
-    lastNode = app.createNode("net.sf.openfx.Clamp", 2, group)
-    lastNode.setScriptName("Clamp1")
-    lastNode.setLabel("Clamp1")
-    lastNode.setPosition(2178, 3042)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.48, 0.66, 1)
-    groupClamp1 = lastNode
-
-    param = lastNode.getParam("minimumEnable")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("maximum")
-    if param is not None:
-        param.setValue(0.001, 0)
-        param.setValue(0.001, 1)
-        param.setValue(0.001, 2)
-        param.setValue(0.001, 3)
-        del param
-
-    param = lastNode.getParam("minClampToEnable")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("maxClampToEnable")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("premultChanged")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    del lastNode
-    # End of node "Clamp1"
 
     # Start of node "Dot22"
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
@@ -1453,7 +1567,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult3")
     lastNode.setLabel("Premult3")
-    lastNode.setPosition(1942, 1170)
+    lastNode.setPosition(2194, 1160)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult3 = lastNode
@@ -1465,7 +1579,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 3, group)
     lastNode.setScriptName("edge_blur")
     lastNode.setLabel("edge_blur")
-    lastNode.setPosition(1706, 1498)
+    lastNode.setPosition(1708, 1498)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupedge_blur = lastNode
@@ -1490,6 +1604,12 @@ def createInstance(app,group):
         param.setValue(True)
         del param
 
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
     del lastNode
     # End of node "edge_blur"
 
@@ -1497,7 +1617,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult4")
     lastNode.setLabel("Premult1")
-    lastNode.setPosition(1706, 1686)
+    lastNode.setPosition(1708, 1626)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult4 = lastNode
@@ -1521,7 +1641,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Grade2")
     lastNode.setLabel("Grade2")
-    lastNode.setPosition(2194, 1416)
+    lastNode.setPosition(2194, 1484)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade2 = lastNode
@@ -1631,7 +1751,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot27")
     lastNode.setLabel("Dot27")
-    lastNode.setPosition(2153, 320)
+    lastNode.setPosition(2153, 282)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot27 = lastNode
@@ -1643,7 +1763,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 3, group)
     lastNode.setScriptName("Blur3")
     lastNode.setLabel("smear")
-    lastNode.setPosition(2194, 1297)
+    lastNode.setPosition(2194, 1390)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur3 = lastNode
@@ -1655,8 +1775,8 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(0, 0)
-        param.setValue(0, 1)
+        param.setValue(43.6644, 0)
+        param.setValue(43.6644, 1)
         del param
 
     param = lastNode.getParam("expandRoD")
@@ -1676,7 +1796,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Grade3")
     lastNode.setLabel("Grade3")
-    lastNode.setPosition(2194, 1651)
+    lastNode.setPosition(2194, 1643)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade3 = lastNode
@@ -1689,9 +1809,174 @@ def createInstance(app,group):
     del lastNode
     # End of node "Grade3"
 
+    # Start of node "Merge13"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge13")
+    lastNode.setLabel("Merge13")
+    lastNode.setPosition(1706, 2844)
+    lastNode.setSize(104, 66)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge13 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamStringSublabelName")
+    if param is not None:
+        param.setValue("under")
+        del param
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("under")
+        del param
+
+    del lastNode
+    # End of node "Merge13"
+
+    # Start of node "Dot30"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot30")
+    lastNode.setLabel("Dot30")
+    lastNode.setPosition(2240, 1078)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot30 = lastNode
+
+    del lastNode
+    # End of node "Dot30"
+
+    # Start of node "centerblur"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("centerblur")
+    lastNode.setLabel("centerblur")
+    lastNode.setPosition(2194, 1729)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupcenterblur = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("filter")
+    if param is not None:
+        param.set("Quasi-Gaussian")
+        del param
+
+    del lastNode
+    # End of node "centerblur"
+
+    # Start of node "Grade4"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("Grade4")
+    lastNode.setLabel("Grade4")
+    lastNode.setPosition(2180, 2985)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupGrade4 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("whitePoint")
+    if param is not None:
+        param.setValue(0.0001, 0)
+        param.setValue(0.0001, 1)
+        param.setValue(0.0001, 2)
+        param.setValue(0.0001, 3)
+        del param
+
+    param = lastNode.getParam("clampWhite")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Grade4"
+
+    # Start of node "KeyMix1"
+    lastNode = app.createNode("net.sf.openfx.KeyMix", 1, group)
+    lastNode.setScriptName("KeyMix1")
+    lastNode.setLabel("KeyMix1")
+    lastNode.setPosition(1717, 4307)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupKeyMix1 = lastNode
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "KeyMix1"
+
+    # Start of node "SeGrain1"
+    lastNode = app.createNode("net.sf.openfx.SeGrain", 1, group)
+    lastNode.setScriptName("SeGrain1")
+    lastNode.setLabel("SeGrain1")
+    lastNode.setPosition(1910, 2844)
+    lastNode.setSize(80, 66)
+    lastNode.setColor(0.75, 0.75, 0.75)
+    groupSeGrain1 = lastNode
+
+    param = lastNode.getParam("grainSizeAll")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("colorCorr")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("grainBlack")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        param.setValue(0, 2)
+        del param
+
+    param = lastNode.getParam("grainMinimum")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        param.setValue(0, 2)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "SeGrain1"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupMerge5)
-    groupErode1.connectInput(0, groupMerge1)
+    groupOutput1.connectInput(0, groupKeyMix1)
+    groupErode1.connectInput(0, groupGrade1)
     groupShuffle1.connectInput(0, groupDot1)
     groupShuffle1.connectInput(1, groupDot11)
     groupDot1.connectInput(0, groupimg)
@@ -1701,14 +1986,14 @@ def createInstance(app,group):
     groupConstant1.connectInput(0, groupDot23)
     groupMerge1.connectInput(0, groupSwitch1)
     groupMerge1.connectInput(1, groupDot27)
-    groupGrade1.connectInput(0, groupInvert1)
+    groupGrade1.connectInput(0, groupMerge1)
     groupDot2.connectInput(0, groupPremult3)
     groupDot3.connectInput(0, groupShuffle1)
     groupUnpremult1.connectInput(0, groupGrade2)
     groupMerge2.connectInput(0, groupDot4)
     groupMerge2.connectInput(1, groupprecision_8)
     groupDot4.connectInput(0, groupDot5)
-    groupDot5.connectInput(0, groupGrade3)
+    groupDot5.connectInput(0, groupcenterblur)
     groupprecision_1.connectInput(0, groupDot7)
     groupDot6.connectInput(0, groupDot2)
     groupDot7.connectInput(0, groupDot14)
@@ -1716,8 +2001,6 @@ def createInstance(app,group):
     groupMerge3.connectInput(1, groupprecision_1)
     groupSwitch2.connectInput(0, groupMerge3)
     groupSwitch2.connectInput(1, groupDot24)
-    groupMerge4.connectInput(0, groupPremult4)
-    groupMerge4.connectInput(1, groupSwitch2)
     groupPremult2.connectInput(0, groupShuffle5)
     groupMerge4_2.connectInput(0, groupPremult2)
     groupMerge4_2.connectInput(1, groupDot9)
@@ -1728,11 +2011,9 @@ def createInstance(app,group):
     groupDot10.connectInput(0, groupDot9)
     groupSwitch3.connectInput(0, groupShuffle2)
     groupSwitch3.connectInput(1, groupDot13)
-    groupDot11.connectInput(0, groupGrade1)
+    groupDot11.connectInput(0, groupInvert1)
     groupDot12.connectInput(0, groupDot11)
     groupDot13.connectInput(0, groupmatte_preview)
-    groupMerge5.connectInput(0, groupSwitch3)
-    groupMerge5.connectInput(1, groupShuffle4)
     groupDot14.connectInput(0, groupDot15)
     groupDot15.connectInput(0, groupDot16)
     groupMerge6.connectInput(0, groupMerge7)
@@ -1762,13 +2043,10 @@ def createInstance(app,group):
     groupmatte_preview.connectInput(1, groupDot12)
     groupInvert2.connectInput(0, groupMerge12)
     groupDot21.connectInput(0, groupInvert2)
-    groupShuffle4.connectInput(0, groupDot10)
-    groupShuffle4.connectInput(1, groupDot21)
-    groupShuffle5.connectInput(0, groupMerge4)
+    groupShuffle5.connectInput(0, groupMerge13)
     groupShuffle5.connectInput(1, groupDot22)
-    groupClamp1.connectInput(0, groupDot24)
-    groupDot22.connectInput(0, groupClamp1)
-    groupPremult3.connectInput(0, groupDot3)
+    groupDot22.connectInput(0, groupGrade4)
+    groupPremult3.connectInput(0, groupDot30)
     groupedge_blur.connectInput(0, groupDot3)
     groupPremult4.connectInput(0, groupedge_blur)
     groupDot23.connectInput(0, groupDot1)
@@ -1782,6 +2060,15 @@ def createInstance(app,group):
     groupDot27.connectInput(0, groupConstant1)
     groupBlur3.connectInput(0, groupDot2)
     groupGrade3.connectInput(0, groupUnpremult1)
+    groupMerge13.connectInput(0, groupPremult4)
+    groupMerge13.connectInput(1, groupSeGrain1)
+    groupDot30.connectInput(0, groupDot3)
+    groupcenterblur.connectInput(0, groupGrade3)
+    groupGrade4.connectInput(0, groupDot24)
+    groupKeyMix1.connectInput(0, groupSwitch3)
+    groupKeyMix1.connectInput(1, groupDot10)
+    groupKeyMix1.connectInput(2, groupDot21)
+    groupSeGrain1.connectInput(0, groupSwitch2)
 
     param = groupErode1.getParam("size")
     group.getParam("Erode1size").setAsAlias(param)
@@ -1839,6 +2126,24 @@ def createInstance(app,group):
     param = groupBlur3.getParam("size")
     param.setExpression("thisGroup.smear.get()[dimension]*.54", False, 0)
     param.setExpression("thisGroup.smear.get()[dimension]*.54", False, 1)
+    del param
+    param = groupcenterblur.getParam("size")
+    group.getParam("centerblursize").setAsAlias(param)
+    del param
+    param = groupSeGrain1.getParam("grainSizeAll")
+    group.getParam("SeGrain1grainSizeAll").setAsAlias(param)
+    del param
+    param = groupSeGrain1.getParam("colorCorr")
+    group.getParam("SeGrain1colorCorr").setAsAlias(param)
+    del param
+    param = groupSeGrain1.getParam("grainBlack")
+    group.getParam("SeGrain1grainBlack").setAsAlias(param)
+    del param
+    param = groupSeGrain1.getParam("grainMinimum")
+    group.getParam("SeGrain1grainMinimum").setAsAlias(param)
+    del param
+    param = groupSeGrain1.getParam("disableNode")
+    param.setExpression("1-thisGroup.grainactivation.get()", False, 0)
     del param
 
     try:
