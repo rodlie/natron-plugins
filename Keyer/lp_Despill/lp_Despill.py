@@ -22,7 +22,7 @@ def getLabel():
     return "lp_Despill"
 
 def getVersion():
-    return 0
+    return 1
 
 def getGrouping():
     return "Keyer"
@@ -76,10 +76,10 @@ def createInstance(app,group):
 
     param = lastNode.createChoiceParam("linlog", "process in")
     entries = [ ("log", ""),
-    ("lin", "")]
+    ("linear", "")]
     param.setOptions(entries)
     del entries
-    param.setDefaultValue("lin")
+    param.setDefaultValue("linear")
     param.restoreDefaultValue()
 
     # Add the param to the page
@@ -344,7 +344,7 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Settings', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'Node', 'Info'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -352,7 +352,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
-    lastNode.setPosition(2605, 4962)
+    lastNode.setPosition(2605, 4590)
     lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
@@ -376,7 +376,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_minB")
     lastNode.setLabel("SeExprSimple_minB")
-    lastNode.setPosition(3817, 619)
+    lastNode.setPosition(3697, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_minB = lastNode
@@ -418,7 +418,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_maxB")
     lastNode.setLabel("SeExprSimple_maxB")
-    lastNode.setPosition(3507, 637)
+    lastNode.setPosition(3507, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_maxB = lastNode
@@ -465,7 +465,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_avgB")
     lastNode.setLabel("SeExprSimple_avgB")
-    lastNode.setPosition(3122, 630)
+    lastNode.setPosition(3220, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_avgB = lastNode
@@ -529,7 +529,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_minG")
     lastNode.setLabel("SeExprSimple_minG")
-    lastNode.setPosition(2920, 611)
+    lastNode.setPosition(2798, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_minG = lastNode
@@ -576,7 +576,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_maxG")
     lastNode.setLabel("SeExprSimple_maxG")
-    lastNode.setPosition(2639, 625)
+    lastNode.setPosition(2639, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_maxG = lastNode
@@ -623,7 +623,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_avgG")
     lastNode.setLabel("SeExprSimple_avgG")
-    lastNode.setPosition(2236, 634)
+    lastNode.setPosition(2314, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_avgG = lastNode
@@ -699,7 +699,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("alg_B")
     lastNode.setLabel("alg_B")
-    lastNode.setPosition(3495, 857)
+    lastNode.setPosition(3495, 832)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupalg_B = lastNode
@@ -716,7 +716,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("alg_G")
     lastNode.setLabel("alg_G")
-    lastNode.setPosition(2627, 859)
+    lastNode.setPosition(2627, 832)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupalg_G = lastNode
@@ -762,7 +762,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_minR")
     lastNode.setLabel("SeExprSimple_minR")
-    lastNode.setPosition(2004, 592)
+    lastNode.setPosition(1862, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_minR = lastNode
@@ -809,7 +809,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_maxR")
     lastNode.setLabel("SeExprSimple_maxR")
-    lastNode.setPosition(1707, 607)
+    lastNode.setPosition(1707, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_maxR = lastNode
@@ -856,7 +856,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_avgR")
     lastNode.setLabel("SeExprSimple_avgR")
-    lastNode.setPosition(1302, 605)
+    lastNode.setPosition(1400, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_avgR = lastNode
@@ -1375,7 +1375,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot19")
     lastNode.setLabel("Dot19")
-    lastNode.setPosition(1143, 3341)
+    lastNode.setPosition(1143, 3391)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot19 = lastNode
@@ -1387,19 +1387,24 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("keymix")
     lastNode.setLabel("keymix")
-    lastNode.setPosition(2605, 3817)
+    lastNode.setPosition(2605, 3732)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupkeymix = lastNode
 
     param = lastNode.getParam("NatronOfxParamStringSublabelName")
     if param is not None:
-        param.setValue("matte")
+        param.setValue("copy")
         del param
 
     param = lastNode.getParam("operation")
     if param is not None:
-        param.set("matte")
+        param.set("copy")
+        del param
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(True)
         del param
 
     del lastNode
@@ -1409,7 +1414,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
-    lastNode.setPosition(452, 3731)
+    lastNode.setPosition(452, 3668)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
@@ -1449,63 +1454,11 @@ def createInstance(app,group):
     del lastNode
     # End of node "mask"
 
-    # Start of node "Shuffle3"
-    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
-    lastNode.setScriptName("Shuffle3")
-    lastNode.setLabel("Shuffle3")
-    lastNode.setPosition(1511, 3829)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.6, 0.24, 0.39)
-    groupShuffle3 = lastNode
-
-    param = lastNode.getParam("outputChannelsChoice")
-    if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputR")
-    if param is not None:
-        param.set("B.r")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("B.r")
-        del param
-
-    param = lastNode.getParam("outputG")
-    if param is not None:
-        param.set("B.g")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("B.g")
-        del param
-
-    param = lastNode.getParam("outputB")
-    if param is not None:
-        param.set("B.b")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
-        del param
-
-    del lastNode
-    # End of node "Shuffle3"
-
     # Start of node "Dot20"
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot20")
     lastNode.setLabel("Dot20")
-    lastNode.setPosition(497, 3843)
+    lastNode.setPosition(497, 3758)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot20 = lastNode
@@ -1517,7 +1470,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot21")
     lastNode.setLabel("Dot21")
-    lastNode.setPosition(1556, 3341)
+    lastNode.setPosition(2284, 3391)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot21 = lastNode
@@ -1529,7 +1482,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ConstantPlugin", 1, group)
     lastNode.setScriptName("Constant2")
     lastNode.setLabel("Constant2")
-    lastNode.setPosition(807, 3447)
+    lastNode.setPosition(807, 3494)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupConstant2 = lastNode
@@ -1553,7 +1506,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot23")
     lastNode.setLabel("Dot23")
-    lastNode.setPosition(852, 3341)
+    lastNode.setPosition(852, 3391)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot23 = lastNode
@@ -1577,7 +1530,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ColorCorrectPlugin", 2, group)
     lastNode.setScriptName("ColorCorrect1")
     lastNode.setLabel("ColorCorrect1")
-    lastNode.setPosition(2605, 2806)
+    lastNode.setPosition(2605, 2811)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupColorCorrect1 = lastNode
@@ -1871,6 +1824,11 @@ def createInstance(app,group):
         param.set("Lin to Log")
         del param
 
+    param = lastNode.getParam("premult")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("disableNode")
     if param is not None:
         param.setValue(True)
@@ -1905,7 +1863,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Log2Lin", 1, group)
     lastNode.setScriptName("Log2Lin3")
     lastNode.setLabel("Log2Lin3")
-    lastNode.setPosition(2617, 4539)
+    lastNode.setPosition(2617, 3364)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupLog2Lin3 = lastNode
@@ -1922,7 +1880,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_avgG_2")
     lastNode.setLabel("SeExprSimple_avgG_2")
-    lastNode.setPosition(2437, 640)
+    lastNode.setPosition(2497, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_avgG_2 = lastNode
@@ -1969,7 +1927,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_avgR_2")
     lastNode.setLabel("SeExprSimple_avgR_2")
-    lastNode.setPosition(1512, 600)
+    lastNode.setPosition(1567, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_avgR_2 = lastNode
@@ -2016,7 +1974,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("SeExprSimple_avgB_2")
     lastNode.setLabel("SeExprSimple_avgB_2")
-    lastNode.setPosition(3316, 638)
+    lastNode.setPosition(3376, 605)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSeExprSimple_avgB_2 = lastNode
@@ -2063,7 +2021,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("bypass_B")
     lastNode.setLabel("bypass_B")
-    lastNode.setPosition(3204, 753)
+    lastNode.setPosition(3308, 737)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupbypass_B = lastNode
@@ -2080,7 +2038,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("bypass_G")
     lastNode.setLabel("bypass_G")
-    lastNode.setPosition(2324, 774)
+    lastNode.setPosition(2379, 737)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupbypass_G = lastNode
@@ -2097,7 +2055,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("bypass_R")
     lastNode.setLabel("bypass_R")
-    lastNode.setPosition(1388, 733)
+    lastNode.setPosition(1469, 735)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupbypass_R = lastNode
@@ -2110,8 +2068,32 @@ def createInstance(app,group):
     del lastNode
     # End of node "bypass_R"
 
+    # Start of node "Dot32"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot32")
+    lastNode.setLabel("Dot32")
+    lastNode.setPosition(2419, 2825)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot32 = lastNode
+
+    del lastNode
+    # End of node "Dot32"
+
+    # Start of node "Dot33"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot33")
+    lastNode.setLabel("Dot33")
+    lastNode.setPosition(2419, 3004)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot33 = lastNode
+
+    del lastNode
+    # End of node "Dot33"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupLog2Lin3)
+    groupOutput1.connectInput(0, groupShuffle2)
     groupSeExprSimple_minB.connectInput(0, groupDot1)
     groupSeExprSimple_maxB.connectInput(0, groupDot1)
     groupSeExprSimple_avgB.connectInput(0, groupDot1)
@@ -2172,11 +2154,10 @@ def createInstance(app,group):
     groupShuffle2.connectInput(1, groupDot16)
     groupDot16.connectInput(0, groupSwitch4)
     groupDot19.connectInput(0, groupDot25)
-    groupkeymix.connectInput(0, groupSaturation1)
-    groupkeymix.connectInput(1, groupShuffle3)
+    groupkeymix.connectInput(0, groupLog2Lin3)
+    groupkeymix.connectInput(1, groupDot21)
+    groupkeymix.connectInput(2, groupDot20)
     groupInvert1.connectInput(0, groupMerge2_2)
-    groupShuffle3.connectInput(0, groupDot21)
-    groupShuffle3.connectInput(1, groupDot20)
     groupDot20.connectInput(0, groupInvert1)
     groupDot21.connectInput(0, groupDot19)
     groupConstant2.connectInput(0, groupDot23)
@@ -2185,10 +2166,10 @@ def createInstance(app,group):
     groupMerge2_2.connectInput(0, groupmask)
     groupMerge2_2.connectInput(1, groupDot22)
     groupColorCorrect1.connectInput(0, groupSwitch5)
-    groupColorCorrect1.connectInput(1, groupDot24)
+    groupColorCorrect1.connectInput(1, groupDot32)
     groupDot24.connectInput(0, groupDot29)
     groupSaturation1.connectInput(0, groupColorCorrect1)
-    groupSaturation1.connectInput(1, groupDot24)
+    groupSaturation1.connectInput(1, groupDot33)
     groupMerge2.connectInput(0, groupDot26)
     groupMerge2.connectInput(1, groupDot25)
     groupDot25.connectInput(0, groupDot9)
@@ -2209,7 +2190,7 @@ def createInstance(app,group):
     groupSaturation2.connectInput(0, groupMerge2)
     groupLog2Lin1.connectInput(0, groupimg)
     groupLog2Lin2.connectInput(0, groupSwitch1)
-    groupLog2Lin3.connectInput(0, groupShuffle2)
+    groupLog2Lin3.connectInput(0, groupSaturation1)
     groupSeExprSimple_avgG_2.connectInput(0, groupDot1_2)
     groupSeExprSimple_avgR_2.connectInput(0, groupDot1_2_2)
     groupSeExprSimple_avgB_2.connectInput(0, groupDot1)
@@ -2219,6 +2200,8 @@ def createInstance(app,group):
     groupbypass_G.connectInput(1, groupSeExprSimple_avgG_2)
     groupbypass_R.connectInput(0, groupSeExprSimple_avgR)
     groupbypass_R.connectInput(1, groupSeExprSimple_avgR_2)
+    groupDot32.connectInput(0, groupDot24)
+    groupDot33.connectInput(0, groupDot32)
 
     param = groupSeExprSimple_avgB.getParam("x1")
     param.setExpression("thisGroup.rto.get()", False, 0)
