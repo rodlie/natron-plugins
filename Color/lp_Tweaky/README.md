@@ -1,3 +1,3 @@
 #lp_Tweaky
 
-Brings a variety of little tweaking-options, like a Vibrance, WB-Slider, Tint, etc
+Provides a variety of little tweaking-options, like Vibrance, WB-Slider, Tint, etc.

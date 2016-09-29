@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>lp_Tweaky</DisplayName>
-    <Description>Brings a variety of little tweaking-options, like a Vibrance, WB-Slider, Tint, etc.</Description>
+    <Description>Provides a variety of little tweaking-options, like Vibrance, WB-Slider, Tint, etc.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.lp_Tweaky</Name>
