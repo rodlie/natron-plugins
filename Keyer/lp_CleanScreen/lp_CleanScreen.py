@@ -24,11 +24,14 @@ def getLabel():
 def getVersion():
     return 1
 
+def getIconPath():
+    return "lp_CleanScreen.png"
+
 def getGrouping():
     return "Keyer"
 
 def getPluginDescription():
-    return "CleanScreen helps you to even out chroma-background (R, G or B) with the help of a cleanplate.\n\nNote that while you can hook up generated ones, it usually makes more sense to only use the real thing :)\n"
+    return "CleanScreen helps you to even out chroma-background (R, G or B) with the help of a cleanplate.\n\nNote that while you can hook up generated ones, it usually makes more sense to only use real clean plates. For good results the clean plate should be as exact as possible, so it works best with locked cameras. Moving cloth screens won't do the trick...  \n"
 
 def createInstance(app,group):
     # Create all nodes in the group
