@@ -22,13 +22,13 @@ def getLabel():
     return "lp_Despot"
 
 def getVersion():
-    return 1
+    return 2
 
 def getGrouping():
     return "Filter"
 
 def getPluginDescription():
-    return "Eliminates black and white spots in alpha channel. Can harm edge-detail."
+    return "Eliminates black and white spots in channels. Can harm edge-detail.\n\nINPUTS\nimg = Connect the image (or alpha) you want to despot\nmask = A connected alpha will mask the operation, leaving the original alpha of the img-input\n\nHOW TO USE IT\nJust connect any source you want to despot in any way. Usually this only used on alpha channels, therefore it will only work on that one by default; a positive value will despot white pixels, a negative value is targeted for black pixels.\nStill, you can also activate the RGB channels in case you want to utilize it for some retouching or beauty work.\nBecause of the nature of this tool, it can easily harm edge-detail, so use it with caution and don\'t over use :)\n\nHOW DOES IT WORK\nEssentially the tool erodes and afterwards dilates a channel by the same value (and vice versa, depending if you despot for white or black). This will maintain the same shape overall, but get rid of fine detail; spots as well as edges, so be careful."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -38,6 +38,57 @@ def createInstance(app,group):
 
     # Create the user parameters
     lastNode.userNatron = lastNode.createPageParam("userNatron", "Controls")
+    param = lastNode.createBooleanParam("Erode1NatronOfxParamProcessR", "R")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Process red component. It\'s not recommended to process RGB and A at the same time.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    param.setValue(False)
+    lastNode.Erode1NatronOfxParamProcessR = param
+    del param
+
+    param = lastNode.createBooleanParam("Erode1NatronOfxParamProcessG", "G")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Process green component. It\'s not recommended to process RGB and A at the same time.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Erode1NatronOfxParamProcessG = param
+    del param
+
+    param = lastNode.createBooleanParam("Erode1NatronOfxParamProcessB", "B")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Process blue component. It\'s not recommended to process RGB and A at the same time.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Erode1NatronOfxParamProcessB = param
+    del param
+
+    param = lastNode.createBooleanParam("Erode1NatronOfxParamProcessA", "A")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Process alpha component. It\'s not recommended to process RGB and A at the same time.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Erode1NatronOfxParamProcessA = param
+    del param
+
     param = lastNode.createInt2DParam("Erode1size", "despot")
     param.setMinimum(-1000, 0)
     param.setMaximum(1000, 0)
@@ -73,7 +124,7 @@ def createInstance(app,group):
 
     # Set param properties
     param.setHelp("Sets the filter for the operation.\n\n\'default\' is the default filter of the Erode-Node. No idea what that is; Box? Gaussian? Anyways, it\'s that.")
-    param.setAddNewLine(True)
+    param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.filterselect = param
     del param
@@ -89,6 +140,52 @@ def createInstance(app,group):
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
     lastNode.sep01 = param
+    del param
+
+    param = lastNode.createDouble2DParam("Blur1size", "blur")
+    param.setMinimum(0, 0)
+    param.setMaximum(1000, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(100, 0)
+    param.setMinimum(0, 1)
+    param.setMaximum(1000, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(100, 1)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Blurs the result of despot operation")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Blur1size = param
+    del param
+
+    param = lastNode.createChoiceParam("Blur1filter", "blur filter")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Blur1filter = param
+    del param
+
+    param = lastNode.createSeparatorParam("sep02", " ")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp(" ")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sep02 = param
     del param
 
     param = lastNode.createBooleanParam("invmask", "invert mask")
@@ -170,6 +267,11 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("size")
     if param is not None:
         param.setValue(0, 0)
@@ -211,6 +313,11 @@ def createInstance(app,group):
     param = lastNode.getParam("NatronOfxParamProcessB")
     if param is not None:
         param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("size")
@@ -406,6 +513,26 @@ def createInstance(app,group):
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErodeBlur1 = lastNode
 
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("size")
     if param is not None:
         param.setValue(0, 0)
@@ -435,6 +562,26 @@ def createInstance(app,group):
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErodeBlur1_2 = lastNode
 
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("size")
     if param is not None:
         param.setValue(0, 0)
@@ -447,7 +594,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("Switch1")
     lastNode.setLabel("Switch1")
-    lastNode.setPosition(1393, 412)
+    lastNode.setPosition(1393, 371)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupSwitch1 = lastNode
@@ -460,12 +607,39 @@ def createInstance(app,group):
     del lastNode
     # End of node "Switch1"
 
+    # Start of node "Blur1"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("Blur1")
+    lastNode.setLabel("Blur1")
+    lastNode.setPosition(1393, 492)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlur1 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    del lastNode
+    # End of node "Blur1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupMerge1)
     groupErode1.connectInput(0, groupDot2)
     groupErode1_2.connectInput(0, groupErode1)
     groupDot2.connectInput(0, groupimg)
-    groupMerge1.connectInput(0, groupSwitch1)
+    groupMerge1.connectInput(0, groupBlur1)
     groupMerge1.connectInput(1, groupDot4)
     groupMerge1.connectInput(2, groupDot1)
     groupDot1.connectInput(0, groupInvert1)
@@ -481,9 +655,34 @@ def createInstance(app,group):
     groupErodeBlur1_2.connectInput(0, groupErodeBlur1)
     groupSwitch1.connectInput(0, groupErode1_2)
     groupSwitch1.connectInput(1, groupErodeBlur1_2)
+    groupBlur1.connectInput(0, groupSwitch1)
 
+    param = groupErode1.getParam("NatronOfxParamProcessR")
+    group.getParam("Erode1NatronOfxParamProcessR").setAsAlias(param)
+    del param
+    param = groupErode1.getParam("NatronOfxParamProcessG")
+    group.getParam("Erode1NatronOfxParamProcessG").setAsAlias(param)
+    del param
+    param = groupErode1.getParam("NatronOfxParamProcessB")
+    group.getParam("Erode1NatronOfxParamProcessB").setAsAlias(param)
+    del param
+    param = groupErode1.getParam("NatronOfxParamProcessA")
+    group.getParam("Erode1NatronOfxParamProcessA").setAsAlias(param)
+    del param
     param = groupErode1.getParam("size")
     group.getParam("Erode1size").setAsAlias(param)
+    del param
+    param = groupErode1_2.getParam("NatronOfxParamProcessR")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessR"), 0, 0)
+    del param
+    param = groupErode1_2.getParam("NatronOfxParamProcessG")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessG"), 0, 0)
+    del param
+    param = groupErode1_2.getParam("NatronOfxParamProcessB")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessB"), 0, 0)
+    del param
+    param = groupErode1_2.getParam("NatronOfxParamProcessA")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessA"), 0, 0)
     del param
     param = groupErode1_2.getParam("size")
     param.setExpression("thisGroup.Erode1.size.get()[dimension]*-1", False, 0)
@@ -492,14 +691,56 @@ def createInstance(app,group):
     param = groupInvert1.getParam("disableNode")
     param.setExpression("1-thisGroup.invmask.get()", False, 0)
     del param
+    param = groupErodeBlur1.getParam("NatronOfxParamProcessR")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessR"), 0, 0)
+    del param
+    param = groupErodeBlur1.getParam("NatronOfxParamProcessG")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessG"), 0, 0)
+    del param
+    param = groupErodeBlur1.getParam("NatronOfxParamProcessB")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessB"), 0, 0)
+    del param
+    param = groupErodeBlur1.getParam("NatronOfxParamProcessA")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessA"), 0, 0)
+    del param
     param = groupErodeBlur1.getParam("size")
     param.setExpression("Erode1.size.get()[dimension]", False, 0)
+    del param
+    param = groupErodeBlur1_2.getParam("NatronOfxParamProcessR")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessR"), 0, 0)
+    del param
+    param = groupErodeBlur1_2.getParam("NatronOfxParamProcessG")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessG"), 0, 0)
+    del param
+    param = groupErodeBlur1_2.getParam("NatronOfxParamProcessB")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessB"), 0, 0)
+    del param
+    param = groupErodeBlur1_2.getParam("NatronOfxParamProcessA")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessA"), 0, 0)
     del param
     param = groupErodeBlur1_2.getParam("size")
     param.setExpression("Erode1.size.get()[dimension]*-1", False, 0)
     del param
     param = groupSwitch1.getParam("which")
     param.setExpression("thisGroup.filterselect.get()", False, 0)
+    del param
+    param = groupBlur1.getParam("NatronOfxParamProcessR")
+    param.slaveTo(groupErodeBlur1_2.getParam("NatronOfxParamProcessR"), 0, 0)
+    del param
+    param = groupBlur1.getParam("NatronOfxParamProcessG")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessG"), 0, 0)
+    del param
+    param = groupBlur1.getParam("NatronOfxParamProcessB")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessB"), 0, 0)
+    del param
+    param = groupBlur1.getParam("NatronOfxParamProcessA")
+    param.slaveTo(groupErode1.getParam("NatronOfxParamProcessA"), 0, 0)
+    del param
+    param = groupBlur1.getParam("size")
+    group.getParam("Blur1size").setAsAlias(param)
+    del param
+    param = groupBlur1.getParam("filter")
+    group.getParam("Blur1filter").setAsAlias(param)
     del param
 
     try:
