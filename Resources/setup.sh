@@ -42,6 +42,7 @@ Keyer/lp_HairKey
 Keyer/lp_SimpleKeyer
 Merge/ZCombine
 Transform/Shaker
+Filter/Orton
 "
 
 if [ -d "$TMP" ]; then
