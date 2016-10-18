@@ -8,12 +8,10 @@ TMP="$CWD/tmp"
 RESOURCES="$CWD/Resources"
 PACKAGES="$TMP/packages"
 DOMAIN="natron.community.plugins"
-
 BINARY="NCP-${VERSION}-${OS}-${BIT}"
 if [ "$OS" != "Linux" ] && [ "$OS" != "Darwin" ]; then
-  BINARY="${BINARY}.exe"
+  BINARY="NCP-$VERSION-Windows.exe"
   OS="Windows"
-  BIT=""
 else
   BINARY="${BINARY}.bin"
 fi
@@ -34,7 +32,7 @@ Filter/EdgeBlur
 Filter/lp_ColourSmear
 Filter/lp_Despot
 Filter/lp_fakeDefocus
-Filter/lp_NoiseDistort
+Transform/lp_NoiseDistort
 Filter/PM_VectorBlur
 Keyer/lp_CleanScreen
 Keyer/lp_Despill
