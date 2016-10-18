@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+	<Name>Natron Community Plugins</Name>
+	<Version>1.0</Version>
+	<Title>Natron Community Plugins</Title>
+	<Publisher>Natron Community</Publisher>
+	<ProductUrl>https://github.com/NatronVFX/natron-plugins</ProductUrl>
+	<RemoveTargetDir>true</RemoveTargetDir>
+	<AllowSpaceInPath>true</AllowSpaceInPath>
+	<UninstallerName>NCP-Setup</UninstallerName>
+	<InstallerWindowIcon>icon.png</InstallerWindowIcon>
+	<Logo>logo.png</Logo>
+	<Watermark>natron-community-small.png</Watermark>
+        <AdminTargetDir>C:/Program Files/Common Files/Natron/Plugins</AdminTargetDir>
+	<TargetDir>C:/Program Files/Common Files/Natron/Plugins</TargetDir>
+</Installer>
