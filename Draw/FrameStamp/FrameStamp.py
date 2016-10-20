@@ -22,16 +22,16 @@ def getLabel():
     return "FrameStamp"
 
 def getVersion():
-    return 2
+    return 3
 
 def getIconPath():
     return "FrameStamp.png"
 
 def getGrouping():
-    return "Time"
+    return "Draw"
 
 def getPluginDescription():
-    return "A very simple Frame Stamp drawn at the bottom of the screen"
+    return "A very simple Frame Stamp drawn at the bottom of the screen."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -40,7 +40,25 @@ def createInstance(app,group):
     lastNode = group
 
     # Create the user parameters
-    lastNode.userNatron = lastNode.createPageParam("Controls", "Controls")
+    lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
+    param = lastNode.createIntParam("textSize", "Size")
+    param.setMinimum(0, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(100, 0)
+    param.setDefaultValue(30, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Adjust size")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    param.setValue(26, 0)
+    lastNode.textSize = param
+    del param
+
     param = lastNode.createDoubleParam("Merge2mix", "Mix")
     param.setMinimum(0, 0)
     param.setMaximum(1, 0)
@@ -50,16 +68,17 @@ def createInstance(app,group):
     param.restoreDefaultValue(0)
 
     # Add the param to the page
-    lastNode.userNatron.addParam(param)
+    lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Merge2mix = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Controls','Node', 'Settings', 'Info'])
+    lastNode.setPagesOrder(['Controls', 'Node', 'Info'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -67,8 +86,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
-    lastNode.setPosition(713, 401)
-    lastNode.setSize(104, 30)
+    lastNode.setPosition(713, 497)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -79,36 +98,19 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Input1")
     lastNode.setLabel("Input1")
-    lastNode.setPosition(713, 64)
-    lastNode.setSize(104, 30)
+    lastNode.setPosition(713, 312)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupInput1 = lastNode
 
     del lastNode
     # End of node "Input1"
 
-    # Start of node "Merge2"
-    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
-    lastNode.setScriptName("Merge2")
-    lastNode.setLabel("Merge2")
-    lastNode.setPosition(713, 276)
-    lastNode.setSize(104, 66)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupMerge2 = lastNode
-
-    param = lastNode.getParam("mix")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    del lastNode
-    # End of node "Merge2"
-
     # Start of node "Text2"
     lastNode = app.createNode("net.fxarena.openfx.Text", 6, group)
     lastNode.setScriptName("Text2")
     lastNode.setLabel("Text2")
-    lastNode.setPosition(953, 168)
+    lastNode.setPosition(577, 404)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupText2 = lastNode
@@ -119,9 +121,24 @@ def createInstance(app,group):
         param.setValue(50, 1)
         del param
 
+    param = lastNode.getParam("transform")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("autoSize")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("markup")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("text")
     if param is not None:
-        param.setValue("Frame: 00000479")
+        param.setValue("<span bgcolor=\'black\'>Frame: 00019988</span>")
         del param
 
     param = lastNode.getParam("font")
@@ -131,7 +148,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(30, 0)
+        param.setValue(26, 0)
         del param
 
     param = lastNode.getParam("weight")
@@ -147,42 +164,33 @@ def createInstance(app,group):
     del lastNode
     # End of node "Text2"
 
-    # Start of node "Rectangle1"
-    lastNode = app.createNode("net.sf.openfx.Rectangle", 2, group)
-    lastNode.setScriptName("Rectangle1")
-    lastNode.setLabel("Rectangle1")
-    lastNode.setPosition(951, 288)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupRectangle1 = lastNode
+    # Start of node "Merge1"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge1")
+    lastNode.setLabel("Merge1")
+    lastNode.setPosition(713, 392)
+    lastNode.setSize(104, 66)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge1 = lastNode
 
-    param = lastNode.getParam("size")
+    param = lastNode.getParam("BChannelsA")
     if param is not None:
-        param.setValue(400, 0)
-        param.setValue(60, 1)
-        del param
-
-    param = lastNode.getParam("color1")
-    if param is not None:
-        param.setValue(0, 0)
-        param.setValue(0, 1)
-        param.setValue(0, 2)
+        param.setValue(False)
         del param
 
     del lastNode
-    # End of node "Rectangle1"
+    # End of node "Merge1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupMerge2)
-    groupMerge2.connectInput(0, groupInput1)
-    groupMerge2.connectInput(1, groupRectangle1)
-    groupMerge2.connectInput(3, groupText2)
+    groupOutput1.connectInput(0, groupMerge1)
+    groupMerge1.connectInput(0, groupInput1)
+    groupMerge1.connectInput(1, groupText2)
 
-    param = groupMerge2.getParam("mix")
-    group.getParam("Merge2mix").setAsAlias(param)
-    del param
     param = groupText2.getParam("text")
-    param.setExpression("\"Frame: \"+str(frame).zfill(8)", False, 0)
+    param.setExpression("\"<span bgcolor=\'black\'>Frame: \"+str(frame).zfill(8)+\"</span>\"", False, 0)
+    del param
+    param = groupText2.getParam("size")
+    param.slaveTo(group.getParam("textSize"), 0, 0)
     del param
 
     try:
