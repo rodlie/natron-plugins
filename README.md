@@ -30,6 +30,8 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_ColourSmear/lp_ColourSmear.png" height="32"> [lp_ColourSmear](Filter/lp_ColourSmear/README.md)** : Smears the colors around a given Alpha
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_Despot/lp_Despot.png" height="32"> [lp_Despot](Filter/lp_Despot/README.md)** : Despots for black or white pixels
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_fakeDefocus/lp_fakeDefocus.png" height="32"> [lp_fakeDefocus](Filter/lp_fakeDefocus/README.md)** : A very faky Defocus. Very faky. Not very good. Might work for tiny things.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Orton/Orton.png" height="32"> 
+[Orton](Filter/Orton/README.md)** : Apply the Orton effect.  The result is a glowing, fairytale-like style.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PM_VectorBlur/PM_VectorBlur.png" height="32"> 
 [PM_VectorBlur](Filter/PM_VectorBlur/README.md)** : Blur the image according to a vector/motion pass. Very simple implementation so it may not work in all cases.
 

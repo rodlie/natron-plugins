@@ -28,7 +28,7 @@ def getGrouping():
     return "Filter"
 
 def getPluginDescription():
-    return "Orton effect."
+    return "Apply the Orton effect. The result is a glowing, fairytale-like style.\n\nThe original technique was invented by Michael Orton. It worked by overlaying two or more images of an identical scene with very different exposures on slide film. One image was sharply focused and the others were very out of focus."
 
 def createInstance(app,group):
     # Create all nodes in the group
