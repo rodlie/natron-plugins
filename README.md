@@ -43,12 +43,10 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/lp_NoiseDistort/lp_NoiseDistort.png" height="32">[lp_NoiseDistort](Transform/lp_NoiseDistort/README.md)** : Distorts an image based on two different noise-layer for a more dynamic feel.
 
 ## How to install
-Just download the files and copy them to your pyplug/plugin dir.
-more info here :
 
-http://natron.readthedocs.io/en/master/devel/natronpath.html
-
-*An installer will soon be made available*
+ * [Download version 2.1.7](https://github.com/NatronVFX/natron-plugins/releases/tag/2.1.7)
+ 
+Use the installer or download the zip file.
 
 ## Contribute?
 You can make a Pull Request or if you're not comfortable with that just tell us here :
