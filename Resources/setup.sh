@@ -68,7 +68,7 @@ cp "$CWD"/Licenses/GPL-2.0 "$PACKAGES"/${DOMAIN}.core/meta/ || exit 1
 cp "$CWD"/Licenses/CC-BY-2.0 "$PACKAGES"/${DOMAIN}.core/meta/ || exit 1
 
 if [ -f "$RESOURCES"/${OS}.xml ]; then
-	PATH="$RESOURCES"/utils/${OS}${BIT}:$PATH binarycreator -v -f -p "$PACKAGES" -c "$RESOURCES"/${OS}.xml "$TMP/$BINARY"
+	PATH="$RESOURCES"/utils/${OS}${BIT}:$PATH binarycreator -v -f -p "$PACKAGES" -c "$RESOURCES"/${OS}.xml "$TMP/$BINARY" || exit 1
 else
 	echo "Setup file don't exist, failed!"
 	exit 1
@@ -77,8 +77,12 @@ fi
 if [ "$OS" = "Darwin" ]; then
 	mkdir -p "$TMP/dmg" || exit 1
 	mv "$TMP/$BINARY.app" "$TMP/dmg/" || exit 1
-	hdiutil create -volname $PKG -srcfolder "$TMP"/dmg -ov -format UDZO $PKG.dmg
+	hdiutil create -volname $PKG -srcfolder "$TMP"/dmg -ov -format UDZO $PKG.dmg || exit 1
 else
 	mv "$TMP/$BINARY" .
+	if [ "$OS" = "Linux" ]; then
+		tar cvvzf $BINARY.tgz $BINARY || exit 1
+		rm -f $BINARY || true
+	fi
 fi
 
