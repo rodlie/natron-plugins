@@ -8,9 +8,9 @@ TMP="$CWD/tmp"
 RESOURCES="$CWD/Resources"
 PACKAGES="$TMP/packages"
 DOMAIN="natron.community.plugins"
-BINARY="NCP-${VERSION}-${OS}-${BIT}"
+BINARY="Natron-Community-Plugins-${VERSION}-${OS}-${BIT}"
 if [ "$OS" != "Linux" ] && [ "$OS" != "Darwin" ]; then
-  BINARY="NCP-$VERSION-Windows.exe"
+  BINARY="Natron-Community-Plugins-$VERSION-Windows.exe"
   OS="Windows"
 else
   BINARY="${BINARY}.bin"
@@ -22,7 +22,6 @@ Draw/FrameStamp
 Draw/LightWrap_Simple
 Draw/ReFlect
 Draw/ReShade
-Draw/SSAO
 Draw/Vignette
 Draw/Z2Normal
 Filter/Chromatic_Aberration
@@ -42,6 +41,7 @@ Merge/ZCombine
 Transform/Shaker
 Filter/Orton
 "
+#Draw/SSAO
 
 if [ -d "$TMP" ]; then
   rm -rf "$TMP"
