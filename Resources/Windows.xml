@@ -5,7 +5,7 @@
 	<Title>Natron Community Plugins</Title>
 	<Publisher>Natron Community</Publisher>
 	<ProductUrl>https://github.com/NatronVFX/natron-plugins</ProductUrl>
-	<RemoveTargetDir>true</RemoveTargetDir>
+	<RemoveTargetDir>false</RemoveTargetDir>
 	<AllowSpaceInPath>true</AllowSpaceInPath>
 	<UninstallerName>NCP-Setup</UninstallerName>
 	<InstallerWindowIcon>icon.png</InstallerWindowIcon>
