@@ -15,7 +15,7 @@ if [ "$OS" != "Linux" ] && [ "$OS" != "Darwin" ]; then
 	OS="Windows"
 else
 	if [ "$OS" = "Linux" ]; then
-		BINARY="${BINARY}-Linux$BIT.bin"
+		BINARY="${BINARY}-$BIT.bin"
 	else
 		BINARY="$PKG"
 	fi
