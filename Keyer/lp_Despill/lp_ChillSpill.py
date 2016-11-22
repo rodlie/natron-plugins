@@ -22,13 +22,13 @@ def getLabel():
     return "lp_ChillSpill"
 
 def getVersion():
-    return 2
+    return 3
 
 def getGrouping():
     return "Keyer"
 
 def getPluginDescription():
-    return "lp_ChillSpill\n\nv 2\n\n\nAdvanced, yet easy to use despill with a variety of algorithms, working in R, G and B.\n\nINPUTS\nimg = connect the main plate you want to despill\nbg = connect a background image to use its colourinformation in the despill-process\nmask = masks the effect by a connected alpha-channel\n\nHOW TO USE IT\nConnect an image and set the appropriate screen-colour, the tool defaults to green. To get the best out of your material, you can try to alter the algorithm or replacement-method; the default luma restore tries to give the most neutral result (yet might be a bit bright, too). You can weight the average-operation towards one of the replacement channels (e.g. either red or blue for a greenscreen). You can also amp the replacement channels up or down before the algorithm, this can help tackling some nasty edges and other shortcomings of the technique.\nYou can connect the background-image to apply the colours of it to the despilled areas, adjusting the pre-blur might be important. A handful correcting-parameters are build-in too.\nLast but not least, the tool enables you to shuffle a spillmatte into the alpha channel, in case you need it for further adjustments (or for an entire key).\n\nHOW DOES IT WORK\nPure, boring math of channels."
+    return "Advanced, yet easy to use despill with a variety of algorithms, working in R, G and B.\n\nINPUTS\nimg = connect the main plate you want to despill\nbg = connect a background image to use its colourinformation in the despill-process\nmask = masks the effect by a connected alpha-channel\n\nHOW TO USE IT\nConnect an image and set the appropriate screen-colour, the tool defaults to green. To get the best out of your material, you can try to alter the algorithm or replacement-method; the default luma restore tries to give the most neutral result (yet might be a bit bright, too). You can weight the average-operation towards one of the replacement channels (e.g. either red or blue for a greenscreen). You can also amp the replacement channels up or down before the algorithm, this can help tackling some nasty edges and other shortcomings of the technique.\nYou can connect the background-image to apply the colours of it to the despilled areas, adjusting the pre-blur might be important. A handful correcting-parameters are build-in too.\nLast but not least, the tool enables you to shuffle a spillmatte into the alpha channel, in case you need it for further adjustments (or for an entire key).\n\nHOW DOES IT WORK\nPure, boring math of channels."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -350,13 +350,12 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
     lastNode.setPosition(2605, 4590)
     lastNode.setSize(104, 31)
@@ -1835,7 +1834,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("outputAChoice")
     if param is not None:
-        param.setValue("B.r")
+        param.setValue("B.g")
         del param
 
     del lastNode
@@ -2284,7 +2283,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot34")
     lastNode.setLabel("Dot34")
-    lastNode.setPosition(1632, 1226)
+    lastNode.setPosition(1634, 1254)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot34 = lastNode
