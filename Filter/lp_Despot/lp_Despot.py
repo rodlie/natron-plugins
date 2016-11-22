@@ -22,16 +22,13 @@ def getLabel():
     return "lp_Despot"
 
 def getVersion():
-    return 2
-
-def getIconPath():
-    return "lp_Despot.png"
+    return 5
 
 def getGrouping():
     return "Filter"
 
 def getPluginDescription():
-    return "Eliminates black and white spots in channels. Can harm edge-detail.\n\nINPUTS\nimg = Connect the image (or alpha) you want to despot\nmask = A connected alpha will mask the operation, leaving the original alpha of the img-input\n\nHOW TO USE IT\nJust connect any source you want to despot in any way. Usually this only used on alpha channels, therefore it will only work on that one by default; a positive value will despot white pixels, a negative value is targeted for black pixels.\nStill, you can also activate the RGB channels in case you want to utilize it for some retouching or beauty work.\nBecause of the nature of this tool, it can easily harm edge-detail, so use it with caution and don\'t over use :)\n\nHOW DOES IT WORK\nEssentially the tool erodes and afterwards dilates a channel by the same value (and vice versa, depending if you despot for white or black). This will maintain the same shape overall, but get rid of fine detail; spots as well as edges, so be careful."
+    return "Eliminates black and white spots in channels.\n\nINPUTS\nimg = Connect the image you want to despot; despot will only happen in the alpha channel \nmask = A connected alpha will mask the operation, leaving the original alpha of the img-input\n\nHOW TO USE IT\nJust connect any source you want to despot int the alpha channel. There are individual controls for despotting either black or white pixels; as both operations can\'t happen at the same time, you can choose the order of operation yourself :) Because of the nature of this tool, it can easily harm edge-detail, so use it with caution and don\'t over use :) to come by this limitation, you can try to enable the edge protect-function: this will enable a basic edge matte based on the despot result which is then used to keymix with the original alpha and its detail. You can adjust the thickness and softness of the edge matte with the given sliders.\n\nHOW DOES IT WORK\nEssentially the tool erodes and afterwards dilates a channel by the same value (and vice versa, depending if you despot for white or black). This will maintain the same shape overall, but get rid of fine detail. The edge matte works by using an eroded version of the matte as a stencil for a dilated one, blurring it afterwards; a simple keymix with the original does the rest."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -41,68 +38,33 @@ def createInstance(app,group):
 
     # Create the user parameters
     lastNode.userNatron = lastNode.createPageParam("userNatron", "Controls")
-    param = lastNode.createBooleanParam("Erode1NatronOfxParamProcessR", "R")
+    param = lastNode.createChoiceParam("despotorder", "despot order")
+    entries = [ ("white before black", ""),
+    ("black before white", "")]
+    param.setOptions(entries)
+    del entries
 
     # Add the param to the page
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Process red component. It\'s not recommended to process RGB and A at the same time.")
+    param.setHelp("Sets in which order it\'s despotted first; so far, I found no way to do both at the same time (if there is one)")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    param.setValue(False)
-    lastNode.Erode1NatronOfxParamProcessR = param
+    param.setAnimationEnabled(True)
+    lastNode.despotorder = param
     del param
 
-    param = lastNode.createBooleanParam("Erode1NatronOfxParamProcessG", "G")
-
-    # Add the param to the page
-    lastNode.userNatron.addParam(param)
-
-    # Set param properties
-    param.setHelp("Process green component. It\'s not recommended to process RGB and A at the same time.")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Erode1NatronOfxParamProcessG = param
-    del param
-
-    param = lastNode.createBooleanParam("Erode1NatronOfxParamProcessB", "B")
-
-    # Add the param to the page
-    lastNode.userNatron.addParam(param)
-
-    # Set param properties
-    param.setHelp("Process blue component. It\'s not recommended to process RGB and A at the same time.")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Erode1NatronOfxParamProcessB = param
-    del param
-
-    param = lastNode.createBooleanParam("Erode1NatronOfxParamProcessA", "A")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.userNatron.addParam(param)
-
-    # Set param properties
-    param.setHelp("Process alpha component. It\'s not recommended to process RGB and A at the same time.")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Erode1NatronOfxParamProcessA = param
-    del param
-
-    param = lastNode.createInt2DParam("Erode1size", "despot")
-    param.setMinimum(-1000, 0)
+    param = lastNode.createInt2DParam("Erode1size", "despot white")
+    param.setMinimum(0, 0)
     param.setMaximum(1000, 0)
-    param.setDisplayMinimum(-25, 0)
-    param.setDisplayMaximum(25, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(40, 0)
     param.setDefaultValue(0, 0)
     param.restoreDefaultValue(0)
-    param.setMinimum(-1000, 1)
+    param.setMinimum(0, 1)
     param.setMaximum(1000, 1)
-    param.setDisplayMinimum(-25, 1)
-    param.setDisplayMaximum(25, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(40, 1)
     param.setDefaultValue(0, 1)
     param.restoreDefaultValue(1)
 
@@ -110,7 +72,7 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Negative values despot for black, positive values despot for white")
+    param.setHelp("Despots for white pixels.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Erode1size = param
@@ -126,10 +88,52 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Sets the filter for the operation.\n\n\'default\' is the default filter of the Erode-Node. No idea what that is; Box? Gaussian? Anyways, it\'s that.")
+    param.setHelp("Sets the filter for the white despot.\n\n\'default\' is the default filter of the Erode node. No idea what that is; maybeBox? Anyways, it\'s that. \n\'round\' utilizes ErodeBlur.")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.filterselect = param
+    del param
+
+    param = lastNode.createInt2DParam("Erode1_3size", "despot black")
+    param.setMinimum(0, 0)
+    param.setMaximum(1000, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(40, 0)
+    param.setDefaultValue(0, 0)
+    param.restoreDefaultValue(0)
+    param.setMinimum(0, 1)
+    param.setMaximum(1000, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(40, 1)
+    param.setDefaultValue(0, 1)
+    param.restoreDefaultValue(1)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Despots for black pixels.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    param.setEnabled(False, 0)
+    param.setEnabled(False, 1)
+    lastNode.Erode1_3size = param
+    del param
+
+    param = lastNode.createChoiceParam("filterselectB", "filter")
+    entries = [ ("default", ""),
+    ("round", "")]
+    param.setOptions(entries)
+    del entries
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Sets the filter for black despot.\n\n\'default\' is the default filter of the Erode node. No idea what that is; maybeBox? Anyways, it\'s that. \n\'round\' utilizes ErodeBlur.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.filterselectB = param
     del param
 
     param = lastNode.createSeparatorParam("sep01", " ")
@@ -159,7 +163,7 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Blurs the result of despot operation")
+    param.setHelp("Blurs the result of despot operation.\n\nThis is meant for auxiliary mattes and makes not too much sense with enabled edge-protection.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Blur1size = param
@@ -191,42 +195,125 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
+    param = lastNode.createBooleanParam("edgeprotect", "edge protect")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Enables a simple edge-matte based on the finished despot to keymix with the original matte to protect the edges; set the thickness and blur of this edge matte below.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.edgeprotect = param
+    del param
+
+    param = lastNode.createBooleanParam("prevedge", "preview")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Gives a preview of the edge protected area for easier setup. Preview happens in RGB as well as in the Alpha.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.prevedge = param
+    del param
+
+    param = lastNode.createInt2DParam("edgethickness", "thickness")
+    param.setMinimum(0, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(50, 0)
+    param.setDefaultValue(25, 0)
+    param.restoreDefaultValue(0)
+    param.setMinimum(0, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(50, 1)
+    param.setDefaultValue(25, 1)
+    param.restoreDefaultValue(1)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Expands the edge-matte for the edge protection. \n\nHit \'2\' to adjust the inner and outer edge seperately.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.edgethickness = param
+    del param
+
+    param = lastNode.createDouble2DParam("BlurEdgesize", "blur")
+    param.setMinimum(0, 0)
+    param.setMaximum(1000, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(40, 0)
+    param.setDefaultValue(10, 0)
+    param.restoreDefaultValue(0)
+    param.setMinimum(0, 1)
+    param.setMaximum(1000, 1)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(40, 1)
+    param.setDefaultValue(10, 1)
+    param.restoreDefaultValue(1)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Blurs the edge-matte for the edge protection.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.BlurEdgesize = param
+    del param
+
+    param = lastNode.createSeparatorParam("sep03", " ")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp(" ")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sep03 = param
+    del param
+
     param = lastNode.createBooleanParam("invmask", "invert mask")
 
     # Add the param to the page
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Inverts the connected mask.")
+    param.setHelp("Inverts the connected mask.\n\nMake sure to uncheck when no mask is connected.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
     lastNode.invmask = param
     del param
 
-    param = lastNode.createStringParam("copyright", "")
+    param = lastNode.createStringParam("credit", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("lp_Despot v1.0\n(c) 2016 by lucas pfaff")
+    param.setHelp("lp_Despot v5.0\n(c)2016 by lucas pfaff")
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.copyright = param
+    param.setVisibleByDefault(False)
+    lastNode.credit = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
-    lastNode.setPosition(1393, 787)
+    lastNode.setPosition(1393, 1585)
     lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
@@ -238,7 +325,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("img")
     lastNode.setLabel("img")
-    lastNode.setPosition(1393, -116)
+    lastNode.setPosition(1395, -1506)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupimg = lastNode
@@ -250,7 +337,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
     lastNode.setScriptName("Erode1")
     lastNode.setLabel("Erode1")
-    lastNode.setPosition(1393, 120)
+    lastNode.setPosition(1395, -1000)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErode1 = lastNode
@@ -268,11 +355,6 @@ def createInstance(app,group):
     param = lastNode.getParam("NatronOfxParamProcessB")
     if param is not None:
         param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
         del param
 
     param = lastNode.getParam("size")
@@ -298,7 +380,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
     lastNode.setScriptName("Erode1_2")
     lastNode.setLabel("Erode1_2")
-    lastNode.setPosition(1393, 288)
+    lastNode.setPosition(1395, -830)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErode1_2 = lastNode
@@ -316,11 +398,6 @@ def createInstance(app,group):
     param = lastNode.getParam("NatronOfxParamProcessB")
     if param is not None:
         param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
         del param
 
     param = lastNode.getParam("size")
@@ -346,7 +423,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
-    lastNode.setPosition(1438, 26)
+    lastNode.setPosition(1440, -1091)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
@@ -358,7 +435,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("mask")
     lastNode.setLabel("mask")
-    lastNode.setPosition(803, 214)
+    lastNode.setPosition(803, 663)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupmask = lastNode
@@ -380,7 +457,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
-    lastNode.setPosition(1393, 578)
+    lastNode.setPosition(1393, 1221)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
@@ -407,7 +484,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
-    lastNode.setPosition(849, 604)
+    lastNode.setPosition(848, 1247)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
@@ -419,10 +496,20 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ConstantPlugin", 1, group)
     lastNode.setScriptName("Constant1")
     lastNode.setLabel("Constant1")
-    lastNode.setPosition(1054, 424)
+    lastNode.setPosition(1054, 804)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupConstant1 = lastNode
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("HD 1920x1080")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        del param
 
     del lastNode
     # End of node "Constant1"
@@ -431,7 +518,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot3")
     lastNode.setLabel("Dot3")
-    lastNode.setPosition(1248, 26)
+    lastNode.setPosition(1248, -1254)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot3 = lastNode
@@ -443,7 +530,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot4")
     lastNode.setLabel("Dot4")
-    lastNode.setPosition(1248, 315)
+    lastNode.setPosition(1248, 695)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot4 = lastNode
@@ -455,7 +542,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot5")
     lastNode.setLabel("Dot5")
-    lastNode.setPosition(1099, 315)
+    lastNode.setPosition(1099, 695)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot5 = lastNode
@@ -467,7 +554,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge2")
     lastNode.setLabel("Merge2")
-    lastNode.setPosition(803, 412)
+    lastNode.setPosition(803, 792)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge2 = lastNode
@@ -489,7 +576,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
-    lastNode.setPosition(803, 520)
+    lastNode.setPosition(803, 946)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
@@ -511,30 +598,10 @@ def createInstance(app,group):
     lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
     lastNode.setScriptName("ErodeBlur1")
     lastNode.setLabel("ErodeBlur1")
-    lastNode.setPosition(1588, 120)
+    lastNode.setPosition(1589, -997)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErodeBlur1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamProcessR")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessG")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessB")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
-        del param
 
     param = lastNode.getParam("size")
     if param is not None:
@@ -548,7 +615,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot6")
     lastNode.setLabel("Dot6")
-    lastNode.setPosition(1621, 26)
+    lastNode.setPosition(1622, -1091)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot6 = lastNode
@@ -560,30 +627,10 @@ def createInstance(app,group):
     lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
     lastNode.setScriptName("ErodeBlur1_2")
     lastNode.setLabel("ErodeBlur1_2")
-    lastNode.setPosition(1588, 285)
+    lastNode.setPosition(1589, -832)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErodeBlur1_2 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamProcessR")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessG")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessB")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
-        del param
 
     param = lastNode.getParam("size")
     if param is not None:
@@ -597,7 +644,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("Switch1")
     lastNode.setLabel("Switch1")
-    lastNode.setPosition(1393, 371)
+    lastNode.setPosition(1394, -711)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupSwitch1 = lastNode
@@ -614,7 +661,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(1393, 492)
+    lastNode.setPosition(1395, 337)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
@@ -634,20 +681,966 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
     del lastNode
     # End of node "Blur1"
 
+    # Start of node "ErodeEdge"
+    lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
+    lastNode.setScriptName("ErodeEdge")
+    lastNode.setLabel("ErodeEdge")
+    lastNode.setPosition(1652, 782)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErodeEdge = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(25, 0)
+        param.setValue(25, 1)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("premult")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "ErodeEdge"
+
+    # Start of node "ErodeEdge2"
+    lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
+    lastNode.setScriptName("ErodeEdge2")
+    lastNode.setLabel("ErodeEdge2")
+    lastNode.setPosition(1891, 780)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErodeEdge2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(-25, 0)
+        param.setValue(-25, 1)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("premult")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "ErodeEdge2"
+
+    # Start of node "Merge3"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge3")
+    lastNode.setLabel("Merge3")
+    lastNode.setPosition(1777, 887)
+    lastNode.setSize(104, 66)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge3 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamStringSublabelName")
+    if param is not None:
+        param.setValue("stencil")
+        del param
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("stencil")
+        del param
+
+    del lastNode
+    # End of node "Merge3"
+
+    # Start of node "Dot7"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot7")
+    lastNode.setLabel("Dot7")
+    lastNode.setPosition(1813, 727)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot7 = lastNode
+
+    del lastNode
+    # End of node "Dot7"
+
+    # Start of node "Dot8"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot8")
+    lastNode.setLabel("Dot8")
+    lastNode.setPosition(1813, 574)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot8 = lastNode
+
+    del lastNode
+    # End of node "Dot8"
+
+    # Start of node "BlurEdge"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("BlurEdge")
+    lastNode.setLabel("BlurEdge")
+    lastNode.setPosition(1777, 994)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlurEdge = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(10, 0)
+        param.setValue(10, 1)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    del lastNode
+    # End of node "BlurEdge"
+
+    # Start of node "Grade1"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("Grade1")
+    lastNode.setLabel("Grade1")
+    lastNode.setPosition(1768, 641)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupGrade1 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("blackPoint")
+    if param is not None:
+        param.setValue(0.45, 0)
+        param.setValue(0.45, 1)
+        param.setValue(0.45, 2)
+        param.setValue(0.45, 3)
+        del param
+
+    param = lastNode.getParam("whitePoint")
+    if param is not None:
+        param.setValue(0.5, 0)
+        param.setValue(0.5, 1)
+        param.setValue(0.5, 2)
+        param.setValue(0.5, 3)
+        del param
+
+    param = lastNode.getParam("clampWhite")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Grade1"
+
+    # Start of node "Dot9"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot9")
+    lastNode.setLabel("Dot9")
+    lastNode.setPosition(1438, 574)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot9 = lastNode
+
+    del lastNode
+    # End of node "Dot9"
+
+    # Start of node "Merge1_2"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge1_2")
+    lastNode.setLabel("Merge1_2")
+    lastNode.setPosition(1393, 1068)
+    lastNode.setSize(104, 66)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge1_2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamStringSublabelName")
+    if param is not None:
+        param.setValue("copy")
+        del param
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("copy")
+        del param
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Merge1_2"
+
+    # Start of node "Dot10"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot10")
+    lastNode.setLabel("Dot10")
+    lastNode.setPosition(1248, 1094)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot10 = lastNode
+
+    del lastNode
+    # End of node "Dot10"
+
+    # Start of node "Dot11"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot11")
+    lastNode.setLabel("Dot11")
+    lastNode.setPosition(1822, 1094)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot11 = lastNode
+
+    del lastNode
+    # End of node "Dot11"
+
+    # Start of node "Erode1_3"
+    lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
+    lastNode.setScriptName("Erode1_3")
+    lastNode.setLabel("Erode1_3")
+    lastNode.setPosition(1395, -201)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErode1_3 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Erode1_3"
+
+    # Start of node "Erode1_2_2"
+    lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
+    lastNode.setScriptName("Erode1_2_2")
+    lastNode.setLabel("Erode1_2_2")
+    lastNode.setPosition(1395, -385)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErode1_2_2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Erode1_2_2"
+
+    # Start of node "ErodeBlur1_3"
+    lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
+    lastNode.setScriptName("ErodeBlur1_3")
+    lastNode.setLabel("ErodeBlur1_3")
+    lastNode.setPosition(1603, -207)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErodeBlur1_3 = lastNode
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    del lastNode
+    # End of node "ErodeBlur1_3"
+
+    # Start of node "ErodeBlur1_2_2"
+    lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
+    lastNode.setScriptName("ErodeBlur1_2_2")
+    lastNode.setLabel("ErodeBlur1_2_2")
+    lastNode.setPosition(1603, -381)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErodeBlur1_2_2 = lastNode
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "ErodeBlur1_2_2"
+
+    # Start of node "Switch1_2"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch1_2")
+    lastNode.setLabel("Switch1_2")
+    lastNode.setPosition(1395, -43)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitch1_2 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch1_2"
+
+    # Start of node "Dot12"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot12")
+    lastNode.setLabel("Dot12")
+    lastNode.setPosition(1440, -466)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot12 = lastNode
+
+    del lastNode
+    # End of node "Dot12"
+
+    # Start of node "Dot13"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot13")
+    lastNode.setLabel("Dot13")
+    lastNode.setPosition(1636, -466)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot13 = lastNode
+
+    del lastNode
+    # End of node "Dot13"
+
+    # Start of node "Backdrop1"
+    lastNode = app.createNode("fr.inria.built-in.BackDrop", 1, group)
+    lastNode.setScriptName("Backdrop1")
+    lastNode.setLabel("Backdrop1")
+    lastNode.setPosition(1307, -554)
+    lastNode.setSize(463, 602)
+    lastNode.setColor(0.09804, 0.09804, 0.09804)
+    groupBackdrop1 = lastNode
+
+    del lastNode
+    # End of node "Backdrop1"
+
+    # Start of node "Dot14"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot14")
+    lastNode.setLabel("Dot14")
+    lastNode.setPosition(1440, -1254)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot14 = lastNode
+
+    del lastNode
+    # End of node "Dot14"
+
+    # Start of node "Backdrop2"
+    lastNode = app.createNode("fr.inria.built-in.BackDrop", 1, group)
+    lastNode.setScriptName("Backdrop2")
+    lastNode.setLabel("Backdrop2")
+    lastNode.setPosition(1307, -1179)
+    lastNode.setSize(450, 559)
+    lastNode.setColor(0.9412, 0.9412, 0.9412)
+    groupBackdrop2 = lastNode
+
+    del lastNode
+    # End of node "Backdrop2"
+
+    # Start of node "p1"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("p1")
+    lastNode.setLabel("1")
+    lastNode.setPosition(1395, 186)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupp1 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "p1"
+
+    # Start of node "Erode1_4"
+    lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
+    lastNode.setScriptName("Erode1_4")
+    lastNode.setLabel("Erode1_4")
+    lastNode.setPosition(2120, -358)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErode1_4 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Erode1_4"
+
+    # Start of node "Erode1_2_3"
+    lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
+    lastNode.setScriptName("Erode1_2_3")
+    lastNode.setLabel("Erode1_2_3")
+    lastNode.setPosition(2120, -188)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErode1_2_3 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Erode1_2_3"
+
+    # Start of node "Dot2_2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2_2")
+    lastNode.setLabel("Dot2_2")
+    lastNode.setPosition(2165, -449)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2_2 = lastNode
+
+    del lastNode
+    # End of node "Dot2_2"
+
+    # Start of node "ErodeBlur1_4"
+    lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
+    lastNode.setScriptName("ErodeBlur1_4")
+    lastNode.setLabel("ErodeBlur1_4")
+    lastNode.setPosition(2310, -356)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErodeBlur1_4 = lastNode
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "ErodeBlur1_4"
+
+    # Start of node "Dot6_2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot6_2")
+    lastNode.setLabel("Dot6_2")
+    lastNode.setPosition(2343, -449)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot6_2 = lastNode
+
+    del lastNode
+    # End of node "Dot6_2"
+
+    # Start of node "ErodeBlur1_2_3"
+    lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
+    lastNode.setScriptName("ErodeBlur1_2_3")
+    lastNode.setLabel("ErodeBlur1_2_3")
+    lastNode.setPosition(2310, -191)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErodeBlur1_2_3 = lastNode
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "ErodeBlur1_2_3"
+
+    # Start of node "Switch1_3"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch1_3")
+    lastNode.setLabel("Switch1_3")
+    lastNode.setPosition(2120, -69)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitch1_3 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch1_3"
+
+    # Start of node "Backdrop2_2"
+    lastNode = app.createNode("fr.inria.built-in.BackDrop", 1, group)
+    lastNode.setScriptName("Backdrop2_2")
+    lastNode.setLabel("Backdrop2_2")
+    lastNode.setPosition(2027, -537)
+    lastNode.setSize(450, 559)
+    lastNode.setColor(0.9412, 0.9412, 0.9412)
+    groupBackdrop2_2 = lastNode
+
+    del lastNode
+    # End of node "Backdrop2_2"
+
+    # Start of node "Erode1_3_2"
+    lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
+    lastNode.setScriptName("Erode1_3_2")
+    lastNode.setLabel("Erode1_3_2")
+    lastNode.setPosition(2120, -847)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErode1_3_2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Erode1_3_2"
+
+    # Start of node "Erode1_2_2_2"
+    lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
+    lastNode.setScriptName("Erode1_2_2_2")
+    lastNode.setLabel("Erode1_2_2_2")
+    lastNode.setPosition(2120, -1027)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErode1_2_2_2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Erode1_2_2_2"
+
+    # Start of node "ErodeBlur1_3_2"
+    lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
+    lastNode.setScriptName("ErodeBlur1_3_2")
+    lastNode.setLabel("ErodeBlur1_3_2")
+    lastNode.setPosition(2328, -853)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErodeBlur1_3_2 = lastNode
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "ErodeBlur1_3_2"
+
+    # Start of node "ErodeBlur1_2_2_2"
+    lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
+    lastNode.setScriptName("ErodeBlur1_2_2_2")
+    lastNode.setLabel("ErodeBlur1_2_2_2")
+    lastNode.setPosition(2328, -1027)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupErodeBlur1_2_2_2 = lastNode
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "ErodeBlur1_2_2_2"
+
+    # Start of node "Switch1_2_2"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch1_2_2")
+    lastNode.setLabel("Switch1_2_2")
+    lastNode.setPosition(2120, -690)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitch1_2_2 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch1_2_2"
+
+    # Start of node "Dot12_2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot12_2")
+    lastNode.setLabel("Dot12_2")
+    lastNode.setPosition(2165, -1113)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot12_2 = lastNode
+
+    del lastNode
+    # End of node "Dot12_2"
+
+    # Start of node "Dot13_2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot13_2")
+    lastNode.setLabel("Dot13_2")
+    lastNode.setPosition(2361, -1113)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot13_2 = lastNode
+
+    del lastNode
+    # End of node "Dot13_2"
+
+    # Start of node "Backdrop1_2"
+    lastNode = app.createNode("fr.inria.built-in.BackDrop", 1, group)
+    lastNode.setScriptName("Backdrop1_2")
+    lastNode.setLabel("Backdrop1_2")
+    lastNode.setPosition(2032, -1200)
+    lastNode.setSize(463, 602)
+    lastNode.setColor(0.09804, 0.09804, 0.09804)
+    groupBackdrop1_2 = lastNode
+
+    del lastNode
+    # End of node "Backdrop1_2"
+
+    # Start of node "Dot15"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot15")
+    lastNode.setLabel("Dot15")
+    lastNode.setPosition(2165, -1254)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot15 = lastNode
+
+    del lastNode
+    # End of node "Dot15"
+
+    # Start of node "Dot16"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot16")
+    lastNode.setLabel("Dot16")
+    lastNode.setPosition(2165, 212)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot16 = lastNode
+
+    del lastNode
+    # End of node "Dot16"
+
+    # Start of node "preview_edge"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("preview_edge")
+    lastNode.setLabel("preview_edge")
+    lastNode.setPosition(1393, 1410)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    grouppreview_edge = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("white")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        param.setValue(0, 2)
+        param.setValue(0, 3)
+        del param
+
+    param = lastNode.getParam("offset")
+    if param is not None:
+        param.setValue(0.5, 0)
+        param.setValue(0.1, 1)
+        param.setValue(0.2, 2)
+        param.setValue(0.5, 3)
+        del param
+
+    param = lastNode.getParam("clampWhite")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("mix")
+    if param is not None:
+        param.setValue(0.5, 0)
+        del param
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "preview_edge"
+
+    # Start of node "Dot17"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot17")
+    lastNode.setLabel("Dot17")
+    lastNode.setPosition(1822, 1424)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot17 = lastNode
+
+    del lastNode
+    # End of node "Dot17"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupMerge1)
+    groupOutput1.connectInput(0, grouppreview_edge)
     groupErode1.connectInput(0, groupDot2)
     groupErode1_2.connectInput(0, groupErode1)
-    groupDot2.connectInput(0, groupimg)
-    groupMerge1.connectInput(0, groupBlur1)
-    groupMerge1.connectInput(1, groupDot4)
+    groupDot2.connectInput(0, groupDot14)
+    groupMerge1.connectInput(0, groupMerge1_2)
+    groupMerge1.connectInput(1, groupDot10)
     groupMerge1.connectInput(2, groupDot1)
     groupDot1.connectInput(0, groupInvert1)
     groupConstant1.connectInput(0, groupDot5)
-    groupDot3.connectInput(0, groupDot2)
+    groupDot3.connectInput(0, groupDot14)
     groupDot4.connectInput(0, groupDot3)
     groupDot5.connectInput(0, groupDot4)
     groupMerge2.connectInput(0, groupmask)
@@ -658,20 +1651,54 @@ def createInstance(app,group):
     groupErodeBlur1_2.connectInput(0, groupErodeBlur1)
     groupSwitch1.connectInput(0, groupErode1_2)
     groupSwitch1.connectInput(1, groupErodeBlur1_2)
-    groupBlur1.connectInput(0, groupSwitch1)
+    groupBlur1.connectInput(0, groupp1)
+    groupErodeEdge.connectInput(0, groupDot7)
+    groupErodeEdge2.connectInput(0, groupDot7)
+    groupMerge3.connectInput(0, groupErodeEdge2)
+    groupMerge3.connectInput(1, groupErodeEdge)
+    groupDot7.connectInput(0, groupGrade1)
+    groupDot8.connectInput(0, groupDot9)
+    groupBlurEdge.connectInput(0, groupMerge3)
+    groupGrade1.connectInput(0, groupDot8)
+    groupDot9.connectInput(0, groupBlur1)
+    groupMerge1_2.connectInput(0, groupDot9)
+    groupMerge1_2.connectInput(1, groupDot10)
+    groupMerge1_2.connectInput(2, groupDot11)
+    groupDot10.connectInput(0, groupDot4)
+    groupDot11.connectInput(0, groupBlurEdge)
+    groupErode1_3.connectInput(0, groupErode1_2_2)
+    groupErode1_2_2.connectInput(0, groupDot12)
+    groupErodeBlur1_3.connectInput(0, groupErodeBlur1_2_2)
+    groupErodeBlur1_2_2.connectInput(0, groupDot13)
+    groupSwitch1_2.connectInput(0, groupErode1_3)
+    groupSwitch1_2.connectInput(1, groupErodeBlur1_3)
+    groupDot12.connectInput(0, groupSwitch1)
+    groupDot13.connectInput(0, groupDot12)
+    groupDot14.connectInput(0, groupimg)
+    groupp1.connectInput(0, groupSwitch1_2)
+    groupp1.connectInput(1, groupDot16)
+    groupErode1_4.connectInput(0, groupDot2_2)
+    groupErode1_2_3.connectInput(0, groupErode1_4)
+    groupDot2_2.connectInput(0, groupSwitch1_2_2)
+    groupErodeBlur1_4.connectInput(0, groupDot6_2)
+    groupDot6_2.connectInput(0, groupDot2_2)
+    groupErodeBlur1_2_3.connectInput(0, groupErodeBlur1_4)
+    groupSwitch1_3.connectInput(0, groupErode1_2_3)
+    groupSwitch1_3.connectInput(1, groupErodeBlur1_2_3)
+    groupErode1_3_2.connectInput(0, groupErode1_2_2_2)
+    groupErode1_2_2_2.connectInput(0, groupDot12_2)
+    groupErodeBlur1_3_2.connectInput(0, groupErodeBlur1_2_2_2)
+    groupErodeBlur1_2_2_2.connectInput(0, groupDot13_2)
+    groupSwitch1_2_2.connectInput(0, groupErode1_3_2)
+    groupSwitch1_2_2.connectInput(1, groupErodeBlur1_3_2)
+    groupDot12_2.connectInput(0, groupDot15)
+    groupDot13_2.connectInput(0, groupDot12_2)
+    groupDot15.connectInput(0, groupDot14)
+    groupDot16.connectInput(0, groupSwitch1_3)
+    grouppreview_edge.connectInput(0, groupMerge1)
+    grouppreview_edge.connectInput(1, groupDot17)
+    groupDot17.connectInput(0, groupDot11)
 
-    param = groupErode1.getParam("NatronOfxParamProcessR")
-    group.getParam("Erode1NatronOfxParamProcessR").setAsAlias(param)
-    del param
-    param = groupErode1.getParam("NatronOfxParamProcessG")
-    group.getParam("Erode1NatronOfxParamProcessG").setAsAlias(param)
-    del param
-    param = groupErode1.getParam("NatronOfxParamProcessB")
-    group.getParam("Erode1NatronOfxParamProcessB").setAsAlias(param)
-    del param
-    param = groupErode1.getParam("NatronOfxParamProcessA")
-    group.getParam("Erode1NatronOfxParamProcessA").setAsAlias(param)
-    del param
     param = groupErode1.getParam("size")
     group.getParam("Erode1size").setAsAlias(param)
     del param
@@ -745,7 +1772,73 @@ def createInstance(app,group):
     param = groupBlur1.getParam("filter")
     group.getParam("Blur1filter").setAsAlias(param)
     del param
+    param = groupErodeEdge.getParam("size")
+    param.setExpression("thisGroup.edgethickness.get()[0]", False, 0)
+    param.setExpression("thisGroup.edgethickness.get()[0]", False, 1)
+    del param
+    param = groupErodeEdge2.getParam("size")
+    param.setExpression("thisGroup.edgethickness.get()[1] * -1", False, 0)
+    param.setExpression("thisGroup.edgethickness.get()[1] * -1", False, 1)
+    del param
+    param = groupBlurEdge.getParam("size")
+    group.getParam("BlurEdgesize").setAsAlias(param)
+    del param
+    param = groupMerge1_2.getParam("disableNode")
+    param.setExpression("1-thisGroup.edgeprotect.get()", False, 0)
+    del param
+    param = groupErode1_3.getParam("size")
+    group.getParam("Erode1_3size").setAsAlias(param)
+    del param
+    param = groupErode1_2_2.getParam("size")
+    param.setExpression("thisGroup.Erode1_3.size.get()[dimension]*-1", False, 0)
+    param.setExpression("thisGroup.Erode1_3.size.get()[dimension]*-1", False, 1)
+    del param
+    param = groupErodeBlur1_3.getParam("size")
+    param.setExpression("Erode1_3.size.get()[dimension]", False, 0)
+    del param
+    param = groupErodeBlur1_2_2.getParam("size")
+    param.setExpression("Erode1_3.size.get()[dimension]*-1", False, 0)
+    del param
+    param = groupSwitch1_2.getParam("which")
+    param.setExpression("thisGroup.filterselectB.get()", False, 0)
+    del param
+    param = groupp1.getParam("which")
+    param.setExpression("thisGroup.despotorder.get()", False, 0)
+    del param
+    param = groupErode1_2_3.getParam("size")
+    param.setExpression("thisGroup.Erode1_4.size.get()[dimension]*-1", False, 0)
+    param.setExpression("thisGroup.Erode1_4.size.get()[dimension]*-1", False, 1)
+    del param
+    param = groupErodeBlur1_4.getParam("size")
+    param.setExpression("Erode1_4.size.get()[dimension]", False, 0)
+    del param
+    param = groupErodeBlur1_2_3.getParam("size")
+    param.setExpression("Erode1_4.size.get()[dimension]*-1", False, 0)
+    del param
+    param = groupSwitch1_3.getParam("which")
+    param.setExpression("thisGroup.filterselect.get()", False, 0)
+    del param
+    param = groupErode1_2_2_2.getParam("size")
+    param.setExpression("thisGroup.Erode1_3_2.size.get()[dimension]*-1", False, 0)
+    param.setExpression("thisGroup.Erode1_3_2.size.get()[dimension]*-1", False, 1)
+    del param
+    param = groupErodeBlur1_3_2.getParam("size")
+    param.setExpression("Erode1_3_2.size.get()[dimension]", False, 0)
+    del param
+    param = groupErodeBlur1_2_2_2.getParam("size")
+    param.setExpression("Erode1_3_2.size.get()[dimension]*-1", False, 0)
+    del param
+    param = groupSwitch1_2_2.getParam("which")
+    param.setExpression("thisGroup.filterselectB.get()", False, 0)
+    del param
+    param = grouppreview_edge.getParam("disableNode")
+    param.setExpression("1-thisGroup.prevedge.get()", False, 0)
+    del param
 
+    param = group.getParam("Erode1_3size")
+    param.slaveTo(group.getParam("Erode1size"), 0, 0)
+    param.slaveTo(group.getParam("Erode1size"), 1, 1)
+    del param
     try:
         extModule = sys.modules["lp_DespotExt"]
     except KeyError:
