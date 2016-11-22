@@ -1,4 +1,4 @@
-#lp_Despill
+#lp_ChillSpill
 
 Advanced, yet easy to use despill with a variety of algorithms, working in R, G and B.
 
