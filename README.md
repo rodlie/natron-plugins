@@ -34,8 +34,8 @@
 [Orton](Filter/Orton/README.md)** : Apply the Orton effect.  The result is a glowing, fairytale-like style.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PM_VectorBlur/PM_VectorBlur.png" height="32"> 
 [PM_VectorBlur](Filter/PM_VectorBlur/README.md)** : Blur the image according to a vector/motion pass. Very simple implementation so it may not work in all cases.
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_Feather/lp_Feather.png" height="32"> 
-[lp_Feather](Filter/lp_Feather/README.md)** : Feathers the alpha channel, with advanced control over the feather type as well as the falloff.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_FeatherAdvanced/lp_FeatherAdvanced.png" height="32"> 
+[lp_FeatherAdvanced](Filter/lp_FeatherAdvanced/README.md)** : Feathers the alpha channel, with advanced control over the feather type as well as the falloff.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_roughenEdges/lp_roughenEdges.png" height="32"> 
 [lp_roughenEdges](Filter/roughenEdges/README.md)** : Roughens the edges of a given alpha channel based on an adjustable noise.
 
