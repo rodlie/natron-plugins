@@ -1,4 +1,4 @@
-#lp_FeatherAdvanced
+#lp_Feather
 
 Feathers your alpha channel, with advanced control over the feather type as well as the falloff. Works only on the alpha. 
 
