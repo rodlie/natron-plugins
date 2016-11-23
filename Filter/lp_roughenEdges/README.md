@@ -14,3 +14,6 @@ Play with the roughen and size to get a desired amount and look for your edges. 
 
 ### HOW DOES IT WORK
 A simple noise hooks up to an iDistort node, so the roughen is basically a distortion of the edges.
+
+
+![Screenshot](roughenedge_bsp.jpg)
