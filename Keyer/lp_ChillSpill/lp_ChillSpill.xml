@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>lp_Despill</DisplayName>
+    <DisplayName>lp_ChillSpill</DisplayName>
     <Description>An alternative to buit-in Despill node that is quick and easy to setup.</Description>
-    <Version>1.0</Version>
+    <Version>3.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.lp_Despill</Name>
+    <Name>natron.community.plugins.lp_ChillSpill</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>

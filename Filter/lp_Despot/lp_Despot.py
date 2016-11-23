@@ -24,6 +24,9 @@ def getLabel():
 def getVersion():
     return 5
 
+def getIconPath():
+    return "lp_Despot.png"
+
 def getGrouping():
     return "Filter"
 
