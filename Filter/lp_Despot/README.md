@@ -18,4 +18,4 @@ HOW DOES IT WORK
 Essentially the tool erodes and afterwards dilates a channel by the same value (and vice versa, depending if you despot for white or black). This will maintain the same shape overall, but get rid of fine detail. The edge matte works by using an eroded version of the matte as a stencil for a dilated one, blurring it afterwards; a simple keymix with the original does the rest.
 
 
-![Screenshot](despot_bsp.png)
+![Screenshot](despot_bsp.jpg)
