@@ -22,13 +22,13 @@ def getLabel():
     return "lp_Feather"
 
 def getVersion():
-    return 1
+    return 2
 
 def getGrouping():
     return "Filter"
 
 def getPluginDescription():
-    return "Feathers your alpha channel, with advanced control over the feather type as well as the falloff. Works only on the alpha.\n\nINPUTS\nimg = Connect the image you want to despot; despot will only happen in the alpha channel mask = A connected alpha will mask the operation, leaving the original alpha of the img-input\nmask = A connected alpha channel will mask out the operation\n\nHOW TO USE IT\nIt\'s pretty straight forward, just play with the erode- and feather-sliders as you need. The feather-type will determine if your feather goes omnidirectional or outwards/inwards of your shape (like the feather inside the Roto node). Different filters for both operations can be used.\nFurther, you can control the falloff. The smooth-operations work the same as in Nuke, with an added option to alter the operation manually.\n\nHOW DOES IT WORK\nThe \'omni\' feather is a simple, common blur which works best with eroding the alpha before to get a nice and even feather. The \'classic\' mode is enabled by an adjusted black respectively white point to maintain the original shape, so the blur only heads in one direction.\nThe falloff-operations are directly inspired from Nuke, where \'smooth0\' and \'smooth1\' have a bezier-curve going towards a linear black/white point (\'smooth0\' goes smooth from black, \'smooth1\' goes smooth from white); \'smooth\' has a bezier-curve for both points, forming a slight s-curve. The \'manual\' option is nothing more than a simple gamma-adjustment :)"
+    return "Feathers your alpha channel, with advanced control over the feather type as well as the falloff. Works only on the alpha.\n\nINPUTS\nimg = Connect the image you want to despot; despot will only happen in the alpha channel mask = A connected alpha will mask the operation, leaving the original alpha of the img-input\nmask = A connected alpha channel will mask out the operation\n\nHOW TO USE IT\nIt\'s pretty straight forward, just play with the erode- and feather-sliders as you need. The feather-type will determine if your feather goes omnidirectional or outwards/inwards of your shape (like the feather inside the Roto node). Different filters for both operations can be used.\nFurther, you can control the falloff. The smooth-operations work the same as in Nuke, with an added option to alter the operation manually.\n\nHOW DOES IT WORK\nThe \'omni\' feather is a simple, common blur which works best with eroding the alpha before to get a nice and even feather. The \'classic\' mode is enabled by an adjusted black respectively white point to maintain the original shape, so the blur only heads in one direction. This works best with roto shapes; for more detailed mattes with grey values etc you can use \'classic_detailed\' which tries to bypass clipping details. This mode is a bit heavier on the machine and works not as good with roto shapes.\nThe falloff-operations are directly inspired from Nuke, where \'smooth0\' and \'smooth1\' have a bezier-curve going towards a linear black/white point (\'smooth0\' goes smooth from black, \'smooth1\' goes smooth from white); \'smooth\' has a bezier-curve for both points, forming a slight s-curve. The \'manual\' option is nothing more than a simple gamma-adjustment :)"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -40,7 +40,8 @@ def createInstance(app,group):
     lastNode.controls = lastNode.createPageParam("controls", "Controls")
     param = lastNode.createChoiceParam("feathertype", "feather type")
     entries = [ ("omni", ""),
-    ("classic", "")]
+    ("classic", ""),
+    ("classic_detailed", "")]
     param.setOptions(entries)
     del entries
 
@@ -48,7 +49,7 @@ def createInstance(app,group):
     lastNode.controls.addParam(param)
 
     # Set param properties
-    param.setHelp("\'omni\' will blur in all directions. Positive and negative values deliver the same result.\n\n\'classic\' will only feather outwards or inwards of the original shape, just like the feather-function inside a roto.")
+    param.setHelp("\'omni\' will blur in all directions. Positive and negative values deliver the same result. \n\n\'classic\' will only feather outwards or inwards of the original shape, just like the feather-function inside a roto; this works best with rotoshapes and other mattes without grey values.\n\n\'classic_detailed\' should be used for detailed mattes with grey values which would get clipped by \'classic\'-type.")
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(True)
@@ -68,17 +69,21 @@ def createInstance(app,group):
     lastNode.sep01 = param
     del param
 
-    param = lastNode.createDoubleParam("erodesize", "erode")
+    param = lastNode.createDouble2DParam("erodesize", "erode")
     param.setMinimum(-2147483648, 0)
     param.setMaximum(2147483647, 0)
     param.setDisplayMinimum(-50, 0)
     param.setDisplayMaximum(50, 0)
+    param.setMinimum(-2147483648, 1)
+    param.setMaximum(2147483647, 1)
+    param.setDisplayMinimum(-50, 1)
+    param.setDisplayMaximum(50, 1)
 
     # Add the param to the page
     lastNode.controls.addParam(param)
 
     # Set param properties
-    param.setHelp("Erodes or dilates the edges of the alpha before the feather takes place.")
+    param.setHelp("Erodes or dilates the edges of the alpha before the feather takes place.\n\nnote: \'round\' filter can\'t erode/dilate on both axis seperately, but \'default\' only works integer.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.erodesize = param
@@ -114,7 +119,7 @@ def createInstance(app,group):
     lastNode.controls.addParam(param)
 
     # Set param properties
-    param.setHelp("Size of the feather. \nFor \'classic\' feather type, the scale is effectively half; where \'omni\' gives you 50px of feather at a size of 50, it would give you 25 (in either direction).\n\nnote: if \'classic\' feather is selected the individual control for horizontal and vertical feather might not work as anticipated. The sum of both values will determine if it feathers in (negative) or out (positive). You can not feather in and out seperately for the horizontal and vertical axis.")
+    param.setHelp("Size of the feather. \nFor \'classic\' feather type, the scale is effectively half; where \'omni\' gives you 50px of feather at a size of 50, it would give you 25 (in either direction).\n\nnote: if \'classic\' or \'classic_detailed\' feather is selected the individual control for horizontal and vertical feather might not work as anticipated. The sum of both values will determine if it feathers in (negative) or out (positive). You can not feather in and out seperately for the horizontal and vertical axis.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.feathersize = param
@@ -221,6 +226,20 @@ def createInstance(app,group):
     lastNode.invmask = param
     del param
 
+    param = lastNode.createStringParam("credit", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("lp_Feather v2.0\n(c)2016 lucas pfaff\nbased on a little Nuke-gizmo by Andrei Dimitriu, with some added pop. Ich danke Dir fuer alles, mein Freund")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.credit = param
+    del param
+
     # Refresh the GUI with the newly created parameters
     lastNode.setPagesOrder(['controls', 'Node'])
     lastNode.refreshUserParamsGUI()
@@ -230,7 +249,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(459, 277)
+    lastNode.setPosition(459, 328)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
@@ -273,7 +292,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Grade1")
     lastNode.setLabel("Grade1")
-    lastNode.setPosition(459, 369)
+    lastNode.setPosition(459, 667)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade1 = lastNode
@@ -324,11 +343,6 @@ def createInstance(app,group):
         param.setValue(True)
         del param
 
-    param = lastNode.getParam("disableNode")
-    if param is not None:
-        param.setValue(True)
-        del param
-
     del lastNode
     # End of node "Grade1"
 
@@ -336,7 +350,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("img")
     lastNode.setLabel("img")
-    lastNode.setPosition(459, -218)
+    lastNode.setPosition(459, -373)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupimg = lastNode
@@ -347,7 +361,7 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1")
-    lastNode.setPosition(459, 1113)
+    lastNode.setPosition(459, 1531)
     lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
@@ -359,7 +373,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ColorLookupPlugin", 1, group)
     lastNode.setScriptName("smooth")
     lastNode.setLabel("smooth")
-    lastNode.setPosition(924, 543)
+    lastNode.setPosition(924, 962)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupsmooth = lastNode
@@ -430,7 +444,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
-    lastNode.setPosition(504, 485)
+    lastNode.setPosition(504, 904)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
@@ -442,7 +456,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
-    lastNode.setPosition(697, 485)
+    lastNode.setPosition(697, 904)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
@@ -454,7 +468,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("manual")
     lastNode.setLabel("manual")
-    lastNode.setPosition(1058, 543)
+    lastNode.setPosition(1058, 962)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupmanual = lastNode
@@ -504,7 +518,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ColorLookupPlugin", 1, group)
     lastNode.setScriptName("smooth0")
     lastNode.setLabel("smooth0")
-    lastNode.setPosition(652, 543)
+    lastNode.setPosition(652, 961)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupsmooth0 = lastNode
@@ -575,7 +589,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ColorLookupPlugin", 1, group)
     lastNode.setScriptName("ColorLookup1")
     lastNode.setLabel("smooth1")
-    lastNode.setPosition(794, 539)
+    lastNode.setPosition(794, 968)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupColorLookup1 = lastNode
@@ -646,7 +660,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot3")
     lastNode.setLabel("Dot3")
-    lastNode.setPosition(839, 485)
+    lastNode.setPosition(839, 904)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot3 = lastNode
@@ -658,7 +672,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot4")
     lastNode.setLabel("Dot4")
-    lastNode.setPosition(969, 485)
+    lastNode.setPosition(969, 904)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot4 = lastNode
@@ -670,7 +684,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("Switch1")
     lastNode.setLabel("Switch1")
-    lastNode.setPosition(459, 725)
+    lastNode.setPosition(459, 1149)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupSwitch1 = lastNode
@@ -687,7 +701,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot5")
     lastNode.setLabel("Dot5")
-    lastNode.setPosition(1103, 485)
+    lastNode.setPosition(1103, 904)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot5 = lastNode
@@ -699,7 +713,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgErode", 2, group)
     lastNode.setScriptName("Erode1")
     lastNode.setLabel("Erode1")
-    lastNode.setPosition(459, 39)
+    lastNode.setPosition(459, -25)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErode1 = lastNode
@@ -737,7 +751,7 @@ def createInstance(app,group):
     lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
     lastNode.setScriptName("ErodeBlur1")
     lastNode.setLabel("ErodeBlur1")
-    lastNode.setPosition(633, 40)
+    lastNode.setPosition(633, -24)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErodeBlur1 = lastNode
@@ -759,7 +773,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot6")
     lastNode.setLabel("Dot6")
-    lastNode.setPosition(504, -27)
+    lastNode.setPosition(504, -91)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot6 = lastNode
@@ -771,7 +785,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("erodefilterswitch")
     lastNode.setLabel("erodefilterswitch")
-    lastNode.setPosition(459, 188)
+    lastNode.setPosition(459, 124)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     grouperodefilterswitch = lastNode
@@ -788,7 +802,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
     lastNode.setScriptName("Unpremult1")
     lastNode.setLabel("Unpremult1")
-    lastNode.setPosition(459, -116)
+    lastNode.setPosition(459, -223)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupUnpremult1 = lastNode
@@ -805,7 +819,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult1")
     lastNode.setLabel("Premult1")
-    lastNode.setPosition(459, 995)
+    lastNode.setPosition(459, 1413)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1 = lastNode
@@ -822,7 +836,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("mask")
     lastNode.setLabel("mask")
-    lastNode.setPosition(711, 766)
+    lastNode.setPosition(711, 1199)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupmask = lastNode
@@ -844,7 +858,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
-    lastNode.setPosition(459, 853)
+    lastNode.setPosition(459, 1271)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
@@ -876,7 +890,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot7")
     lastNode.setLabel("Dot7")
-    lastNode.setPosition(327, 879)
+    lastNode.setPosition(-320, 1297)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot7 = lastNode
@@ -888,7 +902,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot8")
     lastNode.setLabel("Dot8")
-    lastNode.setPosition(327, -27)
+    lastNode.setPosition(-320, -91)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot8 = lastNode
@@ -900,7 +914,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot9")
     lastNode.setLabel("Dot9")
-    lastNode.setPosition(756, 879)
+    lastNode.setPosition(756, 1297)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot9 = lastNode
@@ -912,7 +926,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot10")
     lastNode.setLabel("Dot10")
-    lastNode.setPosition(666, -27)
+    lastNode.setPosition(666, -91)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot10 = lastNode
@@ -924,7 +938,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot11")
     lastNode.setLabel("Dot11")
-    lastNode.setPosition(666, 202)
+    lastNode.setPosition(666, 138)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot11 = lastNode
@@ -932,12 +946,486 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot11"
 
+    # Start of node "Dot12"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot12")
+    lastNode.setLabel("Dot12")
+    lastNode.setPosition(504, 236)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot12 = lastNode
+
+    del lastNode
+    # End of node "Dot12"
+
+    # Start of node "Blur2"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("Blur2")
+    lastNode.setLabel("Blur2")
+    lastNode.setPosition(191, 323)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlur2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("filter")
+    if param is not None:
+        param.set("Quadratic")
+        del param
+
+    del lastNode
+    # End of node "Blur2"
+
+    # Start of node "Dot13"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot13")
+    lastNode.setLabel("Dot13")
+    lastNode.setPosition(236, 236)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot13 = lastNode
+
+    del lastNode
+    # End of node "Dot13"
+
+    # Start of node "Grade2"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("Grade2")
+    lastNode.setLabel("Grade2")
+    lastNode.setPosition(339, 607)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupGrade2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("whitePoint")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
+        param.setValue(1, 3)
+        del param
+
+    param = lastNode.getParam("clampWhite")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Grade2"
+
+    # Start of node "Dot14"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot14")
+    lastNode.setLabel("Dot14")
+    lastNode.setPosition(504, 564)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot14 = lastNode
+
+    del lastNode
+    # End of node "Dot14"
+
+    # Start of node "Dot15"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot15")
+    lastNode.setLabel("Dot15")
+    lastNode.setPosition(384, 564)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot15 = lastNode
+
+    del lastNode
+    # End of node "Dot15"
+
+    # Start of node "Merge2"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge2")
+    lastNode.setLabel("Merge2")
+    lastNode.setPosition(191, 655)
+    lastNode.setSize(104, 66)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamStringSublabelName")
+    if param is not None:
+        param.setValue("screen")
+        del param
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("screen")
+        del param
+
+    param = lastNode.getParam("BChannelsR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("BChannelsG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("BChannelsB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("mix")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "Merge2"
+
+    # Start of node "Dot16"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot16")
+    lastNode.setLabel("Dot16")
+    lastNode.setPosition(384, 681)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot16 = lastNode
+
+    del lastNode
+    # End of node "Dot16"
+
+    # Start of node "Switch2"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch2")
+    lastNode.setLabel("Switch2")
+    lastNode.setPosition(459, 810)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitch2 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch2"
+
+    # Start of node "Dot17"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot17")
+    lastNode.setLabel("Dot17")
+    lastNode.setPosition(236, 824)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot17 = lastNode
+
+    del lastNode
+    # End of node "Dot17"
+
+    # Start of node "Dot19"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot19")
+    lastNode.setLabel("Dot19")
+    lastNode.setPosition(659, 824)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot19 = lastNode
+
+    del lastNode
+    # End of node "Dot19"
+
+    # Start of node "Switch3"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch3")
+    lastNode.setLabel("Switch3")
+    lastNode.setPosition(191, 759)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitch3 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch3"
+
+    # Start of node "Clamp1"
+    lastNode = app.createNode("net.sf.openfx.Clamp", 2, group)
+    lastNode.setScriptName("Clamp1")
+    lastNode.setLabel("Clamp1")
+    lastNode.setPosition(-30, 285)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupClamp1 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("maximum")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        param.setValue(0, 2)
+        param.setValue(0, 3)
+        del param
+
+    param = lastNode.getParam("maxClampToEnable")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Clamp1"
+
+    # Start of node "Dot20"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot20")
+    lastNode.setLabel("Dot20")
+    lastNode.setPosition(15, 236)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot20 = lastNode
+
+    del lastNode
+    # End of node "Dot20"
+
+    # Start of node "Blur2_2"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("Blur2_2")
+    lastNode.setLabel("Blur3")
+    lastNode.setPosition(-30, 365)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlur2_2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("filter")
+    if param is not None:
+        param.set("Quadratic")
+        del param
+
+    del lastNode
+    # End of node "Blur2_2"
+
+    # Start of node "Grade3"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("Grade3")
+    lastNode.setLabel("Grade3")
+    lastNode.setPosition(-30, 452)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupGrade3 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("blackPoint")
+    if param is not None:
+        param.setValue(0.5, 0)
+        param.setValue(0.5, 1)
+        param.setValue(0.5, 2)
+        param.setValue(0.5, 3)
+        del param
+
+    del lastNode
+    # End of node "Grade3"
+
+    # Start of node "Merge3"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge3")
+    lastNode.setLabel("Merge3")
+    lastNode.setPosition(-30, 538)
+    lastNode.setSize(104, 66)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge3 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamStringSublabelName")
+    if param is not None:
+        param.setValue("multiply")
+        del param
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("multiply")
+        del param
+
+    param = lastNode.getParam("AChannelsR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("AChannelsG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("AChannelsB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("BChannelsR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("BChannelsG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("BChannelsB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("OutputChannelsR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("OutputChannelsG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("OutputChannelsB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("aChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("bChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Merge3"
+
+    # Start of node "Dot18"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot18")
+    lastNode.setLabel("Dot18")
+    lastNode.setPosition(15, 773)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot18 = lastNode
+
+    del lastNode
+    # End of node "Dot18"
+
+    # Start of node "Dot21"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot21")
+    lastNode.setLabel("Dot21")
+    lastNode.setPosition(659, 564)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot21 = lastNode
+
+    del lastNode
+    # End of node "Dot21"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupBlur1.connectInput(0, grouperodefilterswitch)
-    groupGrade1.connectInput(0, groupBlur1)
+    groupBlur1.connectInput(0, groupDot12)
+    groupGrade1.connectInput(0, groupDot14)
     groupOutput1.connectInput(0, groupPremult1)
     groupsmooth.connectInput(0, groupDot4)
-    groupDot1.connectInput(0, groupGrade1)
+    groupDot1.connectInput(0, groupSwitch2)
     groupDot2.connectInput(0, groupDot1)
     groupmanual.connectInput(0, groupDot5)
     groupsmooth0.connectInput(0, groupDot2)
@@ -965,6 +1453,30 @@ def createInstance(app,group):
     groupDot9.connectInput(0, groupmask)
     groupDot10.connectInput(0, groupDot6)
     groupDot11.connectInput(0, groupErodeBlur1)
+    groupDot12.connectInput(0, grouperodefilterswitch)
+    groupBlur2.connectInput(0, groupDot13)
+    groupDot13.connectInput(0, groupDot12)
+    groupGrade2.connectInput(0, groupDot15)
+    groupDot14.connectInput(0, groupBlur1)
+    groupDot15.connectInput(0, groupDot14)
+    groupMerge2.connectInput(0, groupBlur2)
+    groupMerge2.connectInput(1, groupDot16)
+    groupDot16.connectInput(0, groupGrade2)
+    groupSwitch2.connectInput(0, groupDot19)
+    groupSwitch2.connectInput(1, groupGrade1)
+    groupSwitch2.connectInput(2, groupDot17)
+    groupDot17.connectInput(0, groupSwitch3)
+    groupDot19.connectInput(0, groupDot21)
+    groupSwitch3.connectInput(0, groupMerge2)
+    groupSwitch3.connectInput(1, groupDot18)
+    groupClamp1.connectInput(0, groupDot20)
+    groupDot20.connectInput(0, groupDot13)
+    groupBlur2_2.connectInput(0, groupClamp1)
+    groupGrade3.connectInput(0, groupBlur2_2)
+    groupMerge3.connectInput(0, groupGrade3)
+    groupMerge3.connectInput(1, groupDot15)
+    groupDot18.connectInput(0, groupMerge3)
+    groupDot21.connectInput(0, groupDot14)
 
     param = groupBlur1.getParam("size")
     param.setExpression("if thisGroup.feathersize.get()[dimension] < 0:\n\tret = thisGroup.feathersize.get()[dimension]*-1\nelse:\n\tret = thisGroup.feathersize.get()[dimension]", True, 0)
@@ -985,9 +1497,6 @@ def createInstance(app,group):
     param.setExpression("plusminusw = thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1]\nif plusminusw > 0:\n\tret = .5\nelse:\n\tret = 1", True, 2)
     param.setExpression("plusminusw = thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1]\nif plusminusw > 0:\n\tret = .5\nelse:\n\tret = 1", True, 3)
     del param
-    param = groupGrade1.getParam("disableNode")
-    param.setExpression("1-thisGroup.feathertype.get()", False, 0)
-    del param
     param = groupmanual.getParam("gamma")
     param.setExpression("thisGroup.manualfalloff.get()", False, 0)
     param.setExpression("thisGroup.manualfalloff.get()", False, 1)
@@ -998,11 +1507,11 @@ def createInstance(app,group):
     param.setExpression("thisGroup.falloff.get()", False, 0)
     del param
     param = groupErode1.getParam("size")
-    param.setExpression("thisGroup.erodesize.get()", False, 0)
-    param.setExpression("thisGroup.erodesize.get()", False, 1)
+    param.setExpression("thisGroup.erodesize.get()[dimension]", False, 0)
+    param.setExpression("thisGroup.erodesize.get()[dimension]", False, 1)
     del param
     param = groupErodeBlur1.getParam("size")
-    param.setExpression("thisGroup.Erode1.size.get()[dimension]", False, 0)
+    param.setExpression("thisGroup.erodesize.get()[dimension]", False, 0)
     del param
     param = grouperodefilterswitch.getParam("which")
     param.setExpression("thisGroup.erodefilter.get()", False, 0)
@@ -1015,6 +1524,35 @@ def createInstance(app,group):
     del param
     param = groupMerge1.getParam("maskInvert")
     param.setExpression("thisGroup.invmask.get()", False, 0)
+    del param
+    param = groupBlur2.getParam("size")
+    param.setExpression("thisGroup.Blur1.size.get()[dimension]*.1", False, 0)
+    param.setExpression("thisGroup.Blur1.size.get()[dimension]*.1", False, 1)
+    del param
+    param = groupGrade2.getParam("whitePoint")
+    param.setExpression("plusminuswp = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminuswp > 50:\n\tret = 0.5\nelse:\n\tret = 1-(plusminuswp/100)", True, 0)
+    param.setExpression("plusminuswp = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminuswp > 50:\n\tret = 0.5\nelse:\n\tret = 1-(plusminuswp/100)", True, 1)
+    param.setExpression("plusminuswp = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminuswp > 50:\n\tret = 0.5\nelse:\n\tret = 1-(plusminuswp/100)", True, 2)
+    param.setExpression("plusminuswp = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminuswp > 50:\n\tret = 0.5\nelse:\n\tret = 1-(plusminuswp/100)", True, 3)
+    del param
+    param = groupMerge2.getParam("mix")
+    param.setExpression("plusminusscr = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminusscr > 5:\n\tret = 1\nelse:\n\tret = plusminusscr/5", True, 0)
+    del param
+    param = groupSwitch2.getParam("which")
+    param.setExpression("thisGroup.feathertype.get()", False, 0)
+    del param
+    param = groupSwitch3.getParam("which")
+    param.setExpression("plusminusdet = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminusdet > 0:\n\tret = 0\nelse:\n\tret = 1", True, 0)
+    del param
+    param = groupClamp1.getParam("maximum")
+    param.setExpression("plusminuscl = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminuscl < -50:\n\tret = 1\nelse:\n\tret = (plusminuscl/50)*-1", True, 0)
+    param.setExpression("plusminuscl = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminuscl < -50:\n\tret = 1\nelse:\n\tret = (plusminuscl/50)*-1", True, 1)
+    param.setExpression("plusminuscl = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminuscl < -50:\n\tret = 1\nelse:\n\tret = (plusminuscl/50)*-1", True, 2)
+    param.setExpression("plusminuscl = (thisGroup.feathersize.get()[0] + thisGroup.feathersize.get()[1])*.5\nif plusminuscl < -50:\n\tret = 1\nelse:\n\tret = (plusminuscl/50)*-1", True, 3)
+    del param
+    param = groupBlur2_2.getParam("size")
+    param.setExpression("thisGroup.Blur1.size.get()[dimension]*.3", False, 0)
+    param.setExpression("thisGroup.Blur1.size.get()[dimension]*.3", False, 1)
     del param
 
     try:
