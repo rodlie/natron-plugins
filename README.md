@@ -18,7 +18,7 @@
 
 ### Keyer
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_CleanScreen/lp_CleanScreen.png" height="32"> [lp_CleanScreen](Keyer/lp_CleanScreen/README.md)** : Evens out your Chroma-Screen with the help of a Cleanplate.
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_Despill/lp_Despill.png" height="32"> [lp_Despill](Keyer/lp_Despill/README.md)** : An alternative to built-in Despill node that is quick and easy to setup.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_ChillSpill/lp_ChillSpill.png" height="32"> [lp_ChillSpill](Keyer/lp_ChillSpill/README.md)** : An alternative to built-in Despill node that is quick and easy to setup.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_HairKey/lp_HairKey.png" height="32"> [lp_HairKey](Keyer/lp_HairKey/README.md)** : A keyless Keyer for fine detail like hair which is hard to come by with a matte.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png" height="32"> [lp_SimpleKeyer](Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node
 
