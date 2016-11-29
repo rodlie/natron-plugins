@@ -2,7 +2,7 @@
 <Package>
     <DisplayName>Vignette</DisplayName>
     <Description>This effect adds a vignette to the image. \nA vignette is a reduction of the images brightness at the peripherie compared to the image center.</Description>
-    <Version>1.0</Version>
+    <Version>2.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>PostPollux.Vignette</Name>
     <Default>script</Default>
