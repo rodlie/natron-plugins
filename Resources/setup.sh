@@ -32,7 +32,6 @@ Draw/Z2Normal
 Filter/Chromatic_Aberration
 Filter/ChromaticAberrationPP
 Filter/Defocus
-Filter/EdgeBlur
 Filter/lp_ColourSmear
 Filter/lp_Despot
 Filter/lp_fakeDefocus
