@@ -22,13 +22,13 @@ def getLabel():
     return "lp_Tweaky"
 
 def getVersion():
-    return 1
+    return 2
 
 def getGrouping():
     return "Color"
 
 def getPluginDescription():
-    return "Provides a variety of little tweaking-options, like Vibrance, WB-Slider, Tint, etc."
+    return "A little set of little helpers :)"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -38,6 +38,34 @@ def createInstance(app,group):
 
     # Create the user parameters
     lastNode.userNatron = lastNode.createPageParam("userNatron", "Controls")
+    param = lastNode.createColorParam("Grade1whitePoint", "wb picker", True)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(1, 1)
+    param.setDefaultValue(1, 1)
+    param.restoreDefaultValue(1)
+    param.setDisplayMinimum(0, 2)
+    param.setDisplayMaximum(1, 2)
+    param.setDefaultValue(1, 2)
+    param.restoreDefaultValue(2)
+    param.setDisplayMinimum(0, 3)
+    param.setDisplayMaximum(1, 3)
+    param.setDefaultValue(1, 3)
+    param.restoreDefaultValue(3)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Pick a colour (preferably something white/grey) you want to balance the shot to.\n\nThe picked colour will be set to a neutral grey, based on the average RGB values of the picked colour.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Grade1whitePoint = param
+    del param
+
     param = lastNode.createDoubleParam("whitebalance", "white balance")
     param.setMinimum(-2147483648, 0)
     param.setMaximum(2147483647, 0)
@@ -48,7 +76,7 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("adjust white balance (ratio of yellow/orange to blue)")
+    param.setHelp("Adjust white balance (ratio of yellow/orange to blue).\nBest is to start with the picker above, and then work from there.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.whitebalance = param
@@ -84,6 +112,22 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.colourvibrance = param
+    del param
+
+    param = lastNode.createDoubleParam("hueshift", "hue shift")
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(-360, 0)
+    param.setDisplayMaximum(360, 0)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("Shifts the hue of the image.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.hueshift = param
     del param
 
     param = lastNode.createSeparatorParam("sep01", "")
@@ -202,13 +246,12 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
     lastNode.setPosition(1877, 2872)
     lastNode.setSize(104, 31)
@@ -222,7 +265,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("img")
     lastNode.setLabel("img")
-    lastNode.setPosition(1879, -643)
+    lastNode.setPosition(1879, -868)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupimg = lastNode
@@ -234,7 +277,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.RGBToHSV", 1, group)
     lastNode.setScriptName("RGBToHSV1")
     lastNode.setLabel("RGBToHSV1")
-    lastNode.setPosition(1879, 305)
+    lastNode.setPosition(1884, 214)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupRGBToHSV1 = lastNode
@@ -317,7 +360,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
-    lastNode.setPosition(1924, -500)
+    lastNode.setPosition(1924, -710)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
@@ -329,7 +372,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
-    lastNode.setPosition(1527, -500)
+    lastNode.setPosition(1527, -710)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
@@ -385,7 +428,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.HSVToRGB", 1, group)
     lastNode.setScriptName("HSVToRGB1")
     lastNode.setLabel("HSVToRGB1")
-    lastNode.setPosition(1879, 1633)
+    lastNode.setPosition(1879, 576)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupHSVToRGB1 = lastNode
@@ -630,7 +673,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MultiplyPlugin", 2, group)
     lastNode.setScriptName("Multiply3")
     lastNode.setLabel("TINT")
-    lastNode.setPosition(1879, -128)
+    lastNode.setPosition(1879, -176)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupMultiply3 = lastNode
@@ -657,7 +700,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.OCIOLogConvert", 1, group)
     lastNode.setScriptName("OCIOLogConvert1")
     lastNode.setLabel("OCIOLogConvert1")
-    lastNode.setPosition(1879, 621)
+    lastNode.setPosition(1879, 701)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupOCIOLogConvert1 = lastNode
@@ -696,19 +739,9 @@ def createInstance(app,group):
         param.setValue("Color.RGBA")
         del param
 
-    param = lastNode.getParam("outputR")
-    if param is not None:
-        param.set("B.r")
-        del param
-
     param = lastNode.getParam("outputRChoice")
     if param is not None:
         param.setValue("B.r")
-        del param
-
-    param = lastNode.getParam("outputG")
-    if param is not None:
-        param.set("B.g")
         del param
 
     param = lastNode.getParam("outputGChoice")
@@ -721,14 +754,9 @@ def createInstance(app,group):
         param.setValue("A.b")
         del param
 
-    param = lastNode.getParam("outputA")
-    if param is not None:
-        param.set("0")
-        del param
-
     param = lastNode.getParam("outputAChoice")
     if param is not None:
-        param.setValue("0")
+        param.setValue("B.a")
         del param
 
     del lastNode
@@ -786,7 +814,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.XYZToRGB709", 1, group)
     lastNode.setScriptName("XYZToRGB7091")
     lastNode.setLabel("XYZToRGB7091")
-    lastNode.setPosition(1879, 50)
+    lastNode.setPosition(1884, 101)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupXYZToRGB7091 = lastNode
@@ -854,10 +882,60 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot4"
 
+    # Start of node "Grade1"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("Grade1")
+    lastNode.setLabel("Grade1")
+    lastNode.setPosition(1879, -593)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupGrade1 = lastNode
+
+    param = lastNode.getParam("white")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
+        param.setValue(1, 3)
+        del param
+
+    del lastNode
+    # End of node "Grade1"
+
+    # Start of node "HUESHIFT"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("HUESHIFT")
+    lastNode.setLabel("HUESHIFT")
+    lastNode.setPosition(1884, 325)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupHUESHIFT = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("offset")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        param.setValue(0, 2)
+        param.setValue(0, 3)
+        del param
+
+    del lastNode
+    # End of node "HUESHIFT"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupMerge1)
     groupRGBToHSV1.connectInput(0, groupXYZToRGB7091)
-    groupVIBRANCE.connectInput(0, groupRGBToHSV1)
+    groupVIBRANCE.connectInput(0, groupHUESHIFT)
     groupInvert1.connectInput(0, groupMerge2)
     groupDot1.connectInput(0, groupimg)
     groupDot2.connectInput(0, groupDot1)
@@ -865,13 +943,13 @@ def createInstance(app,group):
     groupMerge1.connectInput(0, groupSHADOW)
     groupMerge1.connectInput(1, groupDot4)
     groupMerge1.connectInput(2, groupDot3)
-    groupHSVToRGB1.connectInput(0, groupOCIOLogConvert2_2)
+    groupHSVToRGB1.connectInput(0, groupVIBRANCE)
     groupSharpenInvDiff1.connectInput(0, groupDot11)
     groupBlur1.connectInput(0, groupShuffle2)
     groupDot5.connectInput(0, groupDot2)
     groupDot6.connectInput(0, groupDot5)
     groupSaturation1.connectInput(0, groupDot6)
-    groupHIGHLIGHT.connectInput(0, groupHSVToRGB1)
+    groupHIGHLIGHT.connectInput(0, groupOCIOLogConvert2_2)
     groupHIGHLIGHT.connectInput(1, groupDot7)
     groupDot7.connectInput(0, groupSaturation1)
     groupSHADOW.connectInput(0, groupHIGHLIGHT)
@@ -879,14 +957,14 @@ def createInstance(app,group):
     groupDot8.connectInput(0, groupDot7)
     groupMultiply2.connectInput(0, groupRGB709ToXYZ1)
     groupMultiply3.connectInput(0, groupMultiply2)
-    groupOCIOLogConvert1.connectInput(0, groupVIBRANCE)
+    groupOCIOLogConvert1.connectInput(0, groupHSVToRGB1)
     groupOCIOLogConvert2_2.connectInput(0, groupBlur1)
     groupShuffle2.connectInput(0, groupDot10)
     groupShuffle2.connectInput(1, groupDot9)
     groupDot9.connectInput(0, groupSharpenInvDiff1)
     groupDot10.connectInput(0, groupOCIOLogConvert1)
     groupDot11.connectInput(0, groupDot10)
-    groupRGB709ToXYZ1.connectInput(0, groupDot1)
+    groupRGB709ToXYZ1.connectInput(0, groupGrade1)
     groupXYZToRGB7091.connectInput(0, groupMultiply3)
     groupConstant1.connectInput(0, groupDot12)
     groupDot12.connectInput(0, groupDot5)
@@ -894,6 +972,8 @@ def createInstance(app,group):
     groupMerge2.connectInput(1, groupDot13)
     groupDot13.connectInput(0, groupConstant1)
     groupDot4.connectInput(0, groupDot5)
+    groupGrade1.connectInput(0, groupDot1)
+    groupHUESHIFT.connectInput(0, groupRGBToHSV1)
 
     param = groupVIBRANCE.getParam("gamma")
     param.setExpression("if thisGroup.colourvibrance.get() > 0:\n\tret = (1+thisGroup.colourvibrance.get()*2)\nelse:\n\tret = 1+thisGroup.colourvibrance.get()", True, 1)
@@ -931,6 +1011,21 @@ def createInstance(app,group):
     del param
     param = groupMultiply3.getParam("value")
     param.setExpression("1-thisGroup.colourtint.get()", False, 1)
+    del param
+    param = groupGrade1.getParam("whitePoint")
+    group.getParam("Grade1whitePoint").setAsAlias(param)
+    del param
+    param = groupGrade1.getParam("white")
+    param.setExpression("channelsum = thisGroup.Grade1.whitePoint.get()[0]+thisGroup.Grade1.whitePoint.get()[1]+thisGroup.Grade1.whitePoint.get()[2]\nret = channelsum / 3", True, 0)
+    param.setExpression("channelsum = thisGroup.Grade1.whitePoint.get()[0]+thisGroup.Grade1.whitePoint.get()[1]+thisGroup.Grade1.whitePoint.get()[2]\nret = channelsum / 3", True, 1)
+    param.setExpression("channelsum = thisGroup.Grade1.whitePoint.get()[0]+thisGroup.Grade1.whitePoint.get()[1]+thisGroup.Grade1.whitePoint.get()[2]\nret = channelsum / 3", True, 2)
+    param.setExpression("channelsum = thisGroup.Grade1.whitePoint.get()[0]+thisGroup.Grade1.whitePoint.get()[1]+thisGroup.Grade1.whitePoint.get()[2]\nret = channelsum / 3", True, 3)
+    del param
+    param = groupHUESHIFT.getParam("offset")
+    param.setExpression("thisGroup.hueshift.get()/360", False, 0)
+    param.setExpression("thisGroup.hueshift.get()/360", False, 1)
+    param.setExpression("thisGroup.hueshift.get()/360", False, 2)
+    param.setExpression("thisGroup.hueshift.get()/360", False, 3)
     del param
 
     try:
