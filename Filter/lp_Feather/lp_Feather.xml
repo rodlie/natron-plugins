@@ -4,7 +4,7 @@
     <Description>Feathers your alpha channel</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.Defocus</Name>
+    <Name>natron.community.plugins.lp_Feather</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>

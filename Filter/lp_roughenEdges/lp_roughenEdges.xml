@@ -4,7 +4,7 @@
     <Description>Roughens the edges of a given alpha channel based on an adjustable noise.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.lp_fakeDefocus</Name>
+    <Name>natron.community.plugins.lp_roughenEdges</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>
