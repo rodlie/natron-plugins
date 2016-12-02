@@ -22,7 +22,7 @@ def getLabel():
     return "FrameStamp"
 
 def getVersion():
-    return 3
+    return 2
 
 def getIconPath():
     return "FrameStamp.png"
@@ -55,11 +55,10 @@ def createInstance(app,group):
     param.setHelp("Adjust size")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
-    param.setValue(26, 0)
     lastNode.textSize = param
     del param
 
-    param = lastNode.createDoubleParam("Merge2mix", "Mix")
+    param = lastNode.createDoubleParam("Merge1mix", "Mix")
     param.setMinimum(0, 0)
     param.setMaximum(1, 0)
     param.setDisplayMinimum(0, 0)
@@ -71,20 +70,18 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Merge2mix = param
+    lastNode.Merge1mix = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Controls', 'Node', 'Info'])
+    lastNode.setPagesOrder(['Controls', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
     lastNode.setPosition(713, 497)
     lastNode.setSize(104, 31)
@@ -138,7 +135,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("text")
     if param is not None:
-        param.setValue("<span bgcolor=\'black\'>Frame: 00019988</span>")
+        param.setValue("<span bgcolor=\'black\'>Frame: 00000001</span>")
         del param
 
     param = lastNode.getParam("font")
@@ -148,7 +145,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(26, 0)
+        param.setValue(30, 0)
         del param
 
     param = lastNode.getParam("weight")
@@ -178,6 +175,16 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("bChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("mix")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
     del lastNode
     # End of node "Merge1"
 
@@ -191,6 +198,9 @@ def createInstance(app,group):
     del param
     param = groupText2.getParam("size")
     param.slaveTo(group.getParam("textSize"), 0, 0)
+    del param
+    param = groupMerge1.getParam("mix")
+    group.getParam("Merge1mix").setAsAlias(param)
     del param
 
     try:
