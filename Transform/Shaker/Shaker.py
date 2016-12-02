@@ -22,7 +22,7 @@ def getLabel():
     return "Shaker"
 
 def getVersion():
-    return 1
+    return 2
 
 def getIconPath():
     return "Shaker.png"
@@ -232,6 +232,20 @@ def createInstance(app,group):
     lastNode.complexity = param
     del param
 
+    param = lastNode.createChoiceParam("shakingfilter", "Filter")
+    param.setDefaultValue(2)
+    param.restoreDefaultValue()
+
+    # Add the param to the group, no need to add it to the page
+    lastNode.options.addParam(param)
+
+    # Set param properties
+    param.setHelp("Filtering algorithm used in the transform node of the Shaker plugin.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.shakingfilter = param
+    del param
+
     param = lastNode.createSeparatorParam("separator3", "")
 
     # Add the param to the group, no need to add it to the page
@@ -255,6 +269,7 @@ def createInstance(app,group):
     lastNode.options.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.MotionBlur = param
@@ -272,6 +287,7 @@ def createInstance(app,group):
     lastNode.options.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.shutter = param
@@ -283,6 +299,7 @@ def createInstance(app,group):
     lastNode.options.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.DirectionalBlur = param
@@ -318,6 +335,44 @@ def createInstance(app,group):
     lastNode.imgExt = param
     del param
 
+    param = lastNode.createDouble2DParam("Scalescale", "Zoom")
+    param.setMinimum(-10000, 0)
+    param.setMaximum(10000, 0)
+    param.setDisplayMinimum(0.1, 0)
+    param.setDisplayMaximum(10, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+    param.setMinimum(-10000, 1)
+    param.setMaximum(10000, 1)
+    param.setDisplayMinimum(0.1, 1)
+    param.setDisplayMaximum(10, 1)
+    param.setDefaultValue(1, 1)
+    param.restoreDefaultValue(1)
+
+    # Add the param to the group, no need to add it to the page
+    lastNode.options.addParam(param)
+
+    # Set param properties
+    param.setHelp("Zoom in to get rid of the black borders that may occur while shaking.\n\nAlternatively you can use one of the image extension methods above or a combination of both.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Scalescale = param
+    del param
+
+    param = lastNode.createChoiceParam("Scalefilter", "Zoom Filter")
+    param.setDefaultValue(2)
+    param.restoreDefaultValue()
+
+    # Add the param to the group, no need to add it to the page
+    lastNode.options.addParam(param)
+
+    # Set param properties
+    param.setHelp("Filtering algorithm used for the transform node that controls the zoom.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Scalefilter = param
+    del param
+
     param = lastNode.createBooleanParam("cropRoD", "Crop RoD")
     param.setDefaultValue(True)
     param.restoreDefaultValue()
@@ -333,16 +388,15 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['controls', 'Node', 'Settings', 'Info'])
+    lastNode.setPagesOrder(['controls', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
-    lastNode.setPosition(519, 2689)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(506, 2695)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -353,7 +407,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Input1")
     lastNode.setLabel("Input1")
-    lastNode.setPosition(505, -241)
+    lastNode.setPosition(505, -291)
     lastNode.setSize(104, 31)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupInput1 = lastNode
@@ -365,10 +419,25 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.TransformPlugin", 1, group)
     lastNode.setScriptName("Transform1")
     lastNode.setLabel("Transform1")
-    lastNode.setPosition(-1378, 493)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(505, -98)
+    lastNode.setSize(104, 78)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupTransform1 = lastNode
+
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(783.5, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("userTextArea")
+    if param is not None:
+        param.setValue("<font size=\"6\" color=\"#000000\" face=\"Droid Sans\">Do not delete. It\'s used for expressions</font>")
+        del param
 
     del lastNode
     # End of node "Transform1"
@@ -378,7 +447,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mirror_v")
     lastNode.setLabel("Mirror_v")
     lastNode.setPosition(-1910, 597)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupMirror_v = lastNode
 
@@ -400,9 +469,14 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
     lastNode.setPosition(-1378, 1317)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(104, 74)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
+
+    param = lastNode.getParam("userTextArea")
+    if param is not None:
+        param.setValue("<Natron>(over)</Natron>")
+        del param
 
     del lastNode
     # End of node "Merge1"
@@ -424,13 +498,13 @@ def createInstance(app,group):
     lastNode.setScriptName("bottom")
     lastNode.setLabel("bottom")
     lastNode.setPosition(-2130, 742)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupbottom = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(-858, 1)
+        param.setValue(-1080, 1)
         del param
 
     del lastNode
@@ -441,13 +515,13 @@ def createInstance(app,group):
     lastNode.setScriptName("top")
     lastNode.setLabel("top")
     lastNode.setPosition(-1709, 742)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     grouptop = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(858, 1)
+        param.setValue(1080, 1)
         del param
 
     del lastNode
@@ -486,7 +560,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(-2048, 0)
+        param.setValue(-1920, 0)
         del param
 
     del lastNode
@@ -497,13 +571,13 @@ def createInstance(app,group):
     lastNode.setScriptName("right")
     lastNode.setLabel("right")
     lastNode.setPosition(-726, 718)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupright = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(2048, 0)
+        param.setValue(1920, 0)
         del param
 
     del lastNode
@@ -514,7 +588,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mirror_h_2")
     lastNode.setLabel("Mirror_h_2")
     lastNode.setPosition(-2130, 887)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupMirror_h_2 = lastNode
 
@@ -536,13 +610,13 @@ def createInstance(app,group):
     lastNode.setScriptName("bottom_left")
     lastNode.setLabel("bottom_left")
     lastNode.setPosition(-2226, 1059)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupbottom_left = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(-2048, 0)
+        param.setValue(-1920, 0)
         del param
 
     del lastNode
@@ -553,13 +627,13 @@ def createInstance(app,group):
     lastNode.setScriptName("bottom_right")
     lastNode.setLabel("bottom_right")
     lastNode.setPosition(-1983, 1062)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupbottom_right = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(2048, 0)
+        param.setValue(1920, 0)
         del param
 
     del lastNode
@@ -570,7 +644,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mirror_h_3")
     lastNode.setLabel("Mirror_h_3")
     lastNode.setPosition(-1705, 896)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupMirror_h_3 = lastNode
 
@@ -592,13 +666,13 @@ def createInstance(app,group):
     lastNode.setScriptName("top_left")
     lastNode.setLabel("top_left")
     lastNode.setPosition(-1790, 1063)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     grouptop_left = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(-2048, 0)
+        param.setValue(-1920, 0)
         del param
 
     del lastNode
@@ -609,13 +683,13 @@ def createInstance(app,group):
     lastNode.setScriptName("top_right")
     lastNode.setLabel("top_right")
     lastNode.setPosition(-1609, 1069)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     grouptop_right = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(2048, 0)
+        param.setValue(1920, 0)
         del param
 
     del lastNode
@@ -625,7 +699,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.TransformPlugin", 1, group)
     lastNode.setScriptName("shaking")
     lastNode.setLabel("shaking")
-    lastNode.setPosition(519, 2162)
+    lastNode.setPosition(505, 1984)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupshaking = lastNode
@@ -638,13 +712,29 @@ def createInstance(app,group):
 
     param = lastNode.getParam("rotate")
     if param is not None:
-        param.setValue(-0.6015450781376792, 0)
+        param.setValue(0.7699420255123107, 0)
         del param
 
     param = lastNode.getParam("scale")
     if param is not None:
         param.setValue(1, 0)
         param.setValue(1, 1)
+        del param
+
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(960, 0)
+        param.setValue(540, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("filter")
+    if param is not None:
+        param.set("Cubic")
         del param
 
     param = lastNode.getParam("black_outside")
@@ -659,7 +749,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("crop_rod")
     lastNode.setLabel("crop_rod")
-    lastNode.setPosition(519, 2424)
+    lastNode.setPosition(506, 2430)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupcrop_rod = lastNode
@@ -689,6 +779,16 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("aChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("bChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("disableNode")
     if param is not None:
         param.setValue(False)
@@ -714,7 +814,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Switch1")
     lastNode.setLabel("Switch1")
     lastNode.setPosition(505, 1731)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupSwitch1 = lastNode
 
@@ -766,7 +866,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot7")
     lastNode.setLabel("Dot7")
-    lastNode.setPosition(1697, 2441)
+    lastNode.setPosition(1697, 2456)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot7 = lastNode
@@ -779,13 +879,18 @@ def createInstance(app,group):
     lastNode.setScriptName("Crop_bottom")
     lastNode.setLabel("Crop_bottom")
     lastNode.setPosition(-155, 549)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_bottom = lastNode
 
     param = lastNode.getParam("rectangleInteractEnable")
     if param is not None:
         param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
         del param
 
     param = lastNode.getParam("bottomLeft")
@@ -796,7 +901,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(2048, 0)
+        param.setValue(1920, 0)
         param.setValue(1, 1)
         del param
 
@@ -813,7 +918,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Scale_smear_v")
     lastNode.setLabel("Scale_smear_v")
     lastNode.setPosition(-155, 635)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupScale_smear_v = lastNode
 
@@ -824,13 +929,18 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(429, 1)
+        param.setValue(540, 1)
         del param
 
     param = lastNode.getParam("center")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("filter")
@@ -851,14 +961,14 @@ def createInstance(app,group):
     lastNode.setScriptName("bottom_2")
     lastNode.setLabel("bottom_2")
     lastNode.setPosition(-155, 717)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupbottom_2 = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
         param.setValue(0, 0)
-        param.setValue(-429, 1)
+        param.setValue(-540, 1)
         del param
 
     del lastNode
@@ -869,9 +979,14 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge2")
     lastNode.setLabel("Merge2")
     lastNode.setPosition(503, 850)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(104, 74)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge2 = lastNode
+
+    param = lastNode.getParam("userTextArea")
+    if param is not None:
+        param.setValue("<Natron>(over)</Natron>")
+        del param
 
     del lastNode
     # End of node "Merge2"
@@ -881,7 +996,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Crop_top")
     lastNode.setLabel("Crop_top")
     lastNode.setPosition(24, 550)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_top = lastNode
 
@@ -890,15 +1005,20 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
+        del param
+
     param = lastNode.getParam("bottomLeft")
     if param is not None:
         param.setValue(0, 0)
-        param.setValue(858, 1)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(2048, 0)
+        param.setValue(1920, 0)
         param.setValue(1, 1)
         del param
 
@@ -915,7 +1035,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Scale_smear_v_2")
     lastNode.setLabel("Scale_smear_v_2")
     lastNode.setPosition(24, 634)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupScale_smear_v_2 = lastNode
 
@@ -926,13 +1046,18 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(429, 1)
+        param.setValue(540, 1)
         del param
 
     param = lastNode.getParam("center")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("black_outside")
@@ -948,14 +1073,14 @@ def createInstance(app,group):
     lastNode.setScriptName("top_2")
     lastNode.setLabel("top_2")
     lastNode.setPosition(24, 722)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     grouptop_2 = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
         param.setValue(0, 0)
-        param.setValue(858, 1)
+        param.setValue(1080, 1)
         del param
 
     del lastNode
@@ -966,13 +1091,18 @@ def createInstance(app,group):
     lastNode.setScriptName("Crop_left")
     lastNode.setLabel("Crop_left")
     lastNode.setPosition(196, 549)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_left = lastNode
 
     param = lastNode.getParam("rectangleInteractEnable")
     if param is not None:
         param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
         del param
 
     param = lastNode.getParam("bottomLeft")
@@ -984,7 +1114,7 @@ def createInstance(app,group):
     param = lastNode.getParam("size")
     if param is not None:
         param.setValue(1, 0)
-        param.setValue(858, 1)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("reformat")
@@ -1000,7 +1130,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Scale_smear_h")
     lastNode.setLabel("Scale_smear_h")
     lastNode.setPosition(196, 636)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupScale_smear_h = lastNode
 
@@ -1011,13 +1141,18 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(1024, 0)
+        param.setValue(960, 0)
         del param
 
     param = lastNode.getParam("center")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("black_outside")
@@ -1033,13 +1168,13 @@ def createInstance(app,group):
     lastNode.setScriptName("left_2")
     lastNode.setLabel("left_2")
     lastNode.setPosition(196, 719)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupleft_2 = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(-1024, 0)
+        param.setValue(-960, 0)
         param.setValue(0, 1)
         del param
 
@@ -1051,7 +1186,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Crop_right")
     lastNode.setLabel("Crop_right")
     lastNode.setPosition(406, 552)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_right = lastNode
 
@@ -1060,16 +1195,21 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
+        del param
+
     param = lastNode.getParam("bottomLeft")
     if param is not None:
-        param.setValue(2047, 0)
+        param.setValue(1919, 0)
         param.setValue(0, 1)
         del param
 
     param = lastNode.getParam("size")
     if param is not None:
         param.setValue(1, 0)
-        param.setValue(858, 1)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("reformat")
@@ -1085,7 +1225,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Scale_smear_h_2")
     lastNode.setLabel("Scale_smear_h_2")
     lastNode.setPosition(406, 635)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupScale_smear_h_2 = lastNode
 
@@ -1097,13 +1237,18 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(1024, 0)
+        param.setValue(960, 0)
         del param
 
     param = lastNode.getParam("center")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("black_outside")
@@ -1119,13 +1264,13 @@ def createInstance(app,group):
     lastNode.setScriptName("right_2")
     lastNode.setLabel("right_2")
     lastNode.setPosition(406, 727)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupright_2 = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(2048, 0)
+        param.setValue(1920, 0)
         param.setValue(0, 1)
         del param
 
@@ -1137,7 +1282,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Crop_top_left")
     lastNode.setLabel("Crop_top_left")
     lastNode.setPosition(596, 553)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_top_left = lastNode
 
@@ -1146,10 +1291,15 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
+        del param
+
     param = lastNode.getParam("bottomLeft")
     if param is not None:
         param.setValue(0, 0)
-        param.setValue(858, 1)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("size")
@@ -1171,7 +1321,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Scale_smear_h_v")
     lastNode.setLabel("Scale_smear_h_v")
     lastNode.setPosition(596, 640)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupScale_smear_h_v = lastNode
 
@@ -1183,14 +1333,19 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(1024, 0)
-        param.setValue(429, 1)
+        param.setValue(960, 0)
+        param.setValue(540, 1)
         del param
 
     param = lastNode.getParam("center")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("black_outside")
@@ -1206,14 +1361,14 @@ def createInstance(app,group):
     lastNode.setScriptName("top_left_2")
     lastNode.setLabel("top_left_2")
     lastNode.setPosition(595, 730)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     grouptop_left_2 = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(-1024, 0)
-        param.setValue(858, 1)
+        param.setValue(-960, 0)
+        param.setValue(1080, 1)
         del param
 
     del lastNode
@@ -1284,7 +1439,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Crop_top_right")
     lastNode.setLabel("Crop_top_right")
     lastNode.setPosition(803, 550)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_top_right = lastNode
 
@@ -1293,10 +1448,15 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
+        del param
+
     param = lastNode.getParam("bottomLeft")
     if param is not None:
-        param.setValue(2047, 0)
-        param.setValue(858, 1)
+        param.setValue(1919, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("size")
@@ -1318,7 +1478,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Scale_smear_h_v_2")
     lastNode.setLabel("Scale_smear_h_v_2")
     lastNode.setPosition(803, 632)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupScale_smear_h_v_2 = lastNode
 
@@ -1330,14 +1490,19 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(1024, 0)
-        param.setValue(429, 1)
+        param.setValue(960, 0)
+        param.setValue(540, 1)
         del param
 
     param = lastNode.getParam("center")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("black_outside")
@@ -1353,14 +1518,14 @@ def createInstance(app,group):
     lastNode.setScriptName("top_right_2")
     lastNode.setLabel("top_right_2")
     lastNode.setPosition(803, 730)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     grouptop_right_2 = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(2048, 0)
-        param.setValue(858, 1)
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     del lastNode
@@ -1383,13 +1548,18 @@ def createInstance(app,group):
     lastNode.setScriptName("Crop_bottom_left")
     lastNode.setLabel("Crop_bottom_left")
     lastNode.setPosition(1030, 547)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_bottom_left = lastNode
 
     param = lastNode.getParam("rectangleInteractEnable")
     if param is not None:
         param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
         del param
 
     param = lastNode.getParam("bottomLeft")
@@ -1417,7 +1587,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Scale_smear_h_v_3")
     lastNode.setLabel("Scale_smear_h_v_3")
     lastNode.setPosition(1030, 628)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupScale_smear_h_v_3 = lastNode
 
@@ -1429,14 +1599,19 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(1024, 0)
-        param.setValue(429, 1)
+        param.setValue(960, 0)
+        param.setValue(540, 1)
         del param
 
     param = lastNode.getParam("center")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("black_outside")
@@ -1452,14 +1627,14 @@ def createInstance(app,group):
     lastNode.setScriptName("bottom_left_2")
     lastNode.setLabel("bottom_left_2")
     lastNode.setPosition(1030, 729)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupbottom_left_2 = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(-1024, 0)
-        param.setValue(-429, 1)
+        param.setValue(-960, 0)
+        param.setValue(-540, 1)
         del param
 
     del lastNode
@@ -1482,7 +1657,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Crop_bottom_right")
     lastNode.setLabel("Crop_bottom_right")
     lastNode.setPosition(1237, 532)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_bottom_right = lastNode
 
@@ -1491,9 +1666,14 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
+        del param
+
     param = lastNode.getParam("bottomLeft")
     if param is not None:
-        param.setValue(2047, 0)
+        param.setValue(1919, 0)
         param.setValue(0, 1)
         del param
 
@@ -1516,7 +1696,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Scale_smear_h_v_4")
     lastNode.setLabel("Scale_smear_h_v_4")
     lastNode.setPosition(1237, 624)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupScale_smear_h_v_4 = lastNode
 
@@ -1528,14 +1708,19 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(1024, 0)
-        param.setValue(429, 1)
+        param.setValue(960, 0)
+        param.setValue(540, 1)
         del param
 
     param = lastNode.getParam("center")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("black_outside")
@@ -1551,14 +1736,14 @@ def createInstance(app,group):
     lastNode.setScriptName("bottom_right_2")
     lastNode.setLabel("bottom_right_2")
     lastNode.setPosition(1237, 729)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupbottom_right_2 = lastNode
 
     param = lastNode.getParam("translate")
     if param is not None:
-        param.setValue(2048, 0)
-        param.setValue(-429, 1)
+        param.setValue(1920, 0)
+        param.setValue(-540, 1)
         del param
 
     del lastNode
@@ -1624,14 +1809,70 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot2"
 
-    # Start of node "must_stay_disabled"
+    # Start of node "Scale"
     lastNode = app.createNode("net.sf.openfx.TransformPlugin", 1, group)
-    lastNode.setScriptName("must_stay_disabled")
+    lastNode.setScriptName("Scale")
+    lastNode.setLabel("Scale")
+    lastNode.setPosition(505, 2289)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupScale = lastNode
+
+    param = lastNode.getParam("scale")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        del param
+
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(960, 0)
+        param.setValue(540, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("filter")
+    if param is not None:
+        param.set("Cubic")
+        del param
+
+    del lastNode
+    # End of node "Scale"
+
+    # Start of node "Grade1"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("Grade1")
+    lastNode.setLabel("Grade1")
+    lastNode.setPosition(505, 2075)
+    lastNode.setSize(104, 146)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupGrade1 = lastNode
+
+    param = lastNode.getParam("premult")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("userTextArea")
+    if param is not None:
+        param.setValue("<font size=\"6\" color=\"#000000\" face=\"Droid Sans\">Doesn\'t grade, but it\'s important to interrupt the transformation cascade. Otherwise the extension can just dissapear in \"smear\" mode.</font>")
+        del param
+
+    del lastNode
+    # End of node "Grade1"
+
+    # Start of node "Transform2"
+    lastNode = app.createNode("net.sf.openfx.TransformPlugin", 1, group)
+    lastNode.setScriptName("Transform2")
     lastNode.setLabel("must_stay_disabled")
-    lastNode.setPosition(503, 954)
+    lastNode.setPosition(505, 975)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.7, 0.3, 0.1)
-    groupmust_stay_disabled = lastNode
+    groupTransform2 = lastNode
 
     param = lastNode.getParam("disableNode")
     if param is not None:
@@ -1639,11 +1880,11 @@ def createInstance(app,group):
         del param
 
     del lastNode
-    # End of node "must_stay_disabled"
+    # End of node "Transform2"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupcrop_rod)
-    groupTransform1.connectInput(0, groupDot15)
+    groupTransform1.connectInput(0, groupInput1)
     groupMirror_v.connectInput(0, groupDot1)
     groupMerge1.connectInput(0, groupDot1)
     groupMerge1.connectInput(1, groupbottom)
@@ -1654,7 +1895,7 @@ def createInstance(app,group):
     groupMerge1.connectInput(7, groupbottom_right)
     groupMerge1.connectInput(8, grouptop_left)
     groupMerge1.connectInput(9, grouptop_right)
-    groupDot1.connectInput(0, groupTransform1)
+    groupDot1.connectInput(0, groupDot15)
     groupbottom.connectInput(0, groupMirror_v)
     grouptop.connectInput(0, groupMirror_v)
     groupMirror_h.connectInput(0, groupDot1)
@@ -1667,12 +1908,12 @@ def createInstance(app,group):
     grouptop_left.connectInput(0, groupMirror_h_3)
     grouptop_right.connectInput(0, groupMirror_h_3)
     groupshaking.connectInput(0, groupSwitch1)
-    groupcrop_rod.connectInput(0, groupshaking)
+    groupcrop_rod.connectInput(0, groupScale)
     groupcrop_rod.connectInput(1, groupDot7)
     groupSwitch1.connectInput(0, groupDot6)
     groupSwitch1.connectInput(1, groupDot2)
-    groupSwitch1.connectInput(2, groupmust_stay_disabled)
-    groupDot4.connectInput(0, groupInput1)
+    groupSwitch1.connectInput(2, groupTransform2)
+    groupDot4.connectInput(0, groupTransform1)
     groupDot5.connectInput(0, groupDot4)
     groupDot6.connectInput(0, groupDot5)
     groupDot7.connectInput(0, groupDot6)
@@ -1720,7 +1961,9 @@ def createInstance(app,group):
     groupDot15.connectInput(0, groupDot4)
     groupDot16.connectInput(0, groupDot4)
     groupDot2.connectInput(0, groupMerge1)
-    groupmust_stay_disabled.connectInput(0, groupMerge2)
+    groupScale.connectInput(0, groupGrade1)
+    groupGrade1.connectInput(0, groupshaking)
+    groupTransform2.connectInput(0, groupMerge2)
 
     param = groupbottom.getParam("translate")
     param.setExpression("rod = thisGroup.Transform1.getRegionOfDefinition(frame, 0)\nret = -rod.height()", True, 1)
@@ -1756,6 +1999,13 @@ def createInstance(app,group):
     param = groupshaking.getParam("scale")
     param.setExpression("frequency = thisGroup.scaleFreq.get()\namplitude = thisGroup.scaleAmp.get()\ncomplexity = thisGroup.complexity.get()\nseed = thisGroup.seed.get() + dimension*20\nfps = 24\n\nimport random\nvalue = 0\n\n# Wiggle Expression\nfor x in range(1,complexity):\n\trandom.seed(seed)\n\toffset = random.randint(1,1000)\n\tt = (offset+float(frame))/fps\n\tfactor = 0.8**x\n\tvalue += sin(t*factor*frequency)*amplitude/complexity\nret = 1+ value", True, 0)
     param.setExpression("frequency = thisGroup.scaleFreq.get()\namplitude = thisGroup.scaleAmp.get()\ncomplexity = thisGroup.complexity.get()\nseed = thisGroup.seed.get() + dimension*20\nfps = 24\n\nimport random\nvalue = 0\n\n# Wiggle Expression\nfor x in range(1,complexity):\n\trandom.seed(seed)\n\toffset = random.randint(1,1000)\n\tt = (offset+float(frame))/fps\n\tfactor = 0.8**x\n\tvalue += sin(t*factor*frequency)*amplitude/complexity\nret = 1+ value", True, 1)
+    del param
+    param = groupshaking.getParam("center")
+    param.setExpression("rod = thisGroup.Transform1.getRegionOfDefinition(frame, 0)\nret = rod.width()/2", True, 0)
+    param.setExpression("rod = thisGroup.Transform1.getRegionOfDefinition(frame, 0)\nret = rod.height()/2", True, 1)
+    del param
+    param = groupshaking.getParam("filter")
+    group.getParam("shakingfilter").setAsAlias(param)
     del param
     param = groupshaking.getParam("black_outside")
     param.setExpression("if thisGroup.imgExt.get() == 0:\n\tret = True\nelse:\n\tret = False", True, 0)
@@ -1939,6 +2189,16 @@ def createInstance(app,group):
     param = groupbottom_right_2.getParam("translate")
     param.setExpression("rod = thisGroup.Transform1.getRegionOfDefinition(frame, 0)\nret = rod.left() + rod.width()", True, 0)
     param.setExpression("rod = thisGroup.Transform1.getRegionOfDefinition(frame, 0)\nret = rod.bottom() - rod.height()/2", True, 1)
+    del param
+    param = groupScale.getParam("scale")
+    group.getParam("Scalescale").setAsAlias(param)
+    del param
+    param = groupScale.getParam("center")
+    param.setExpression("rod = thisGroup.Transform1.getRegionOfDefinition(frame, 0)\nret = rod.width()/2", True, 0)
+    param.setExpression("rod = thisGroup.Transform1.getRegionOfDefinition(frame, 0)\nret = rod.height()/2", True, 1)
+    del param
+    param = groupScale.getParam("filter")
+    group.getParam("Scalefilter").setAsAlias(param)
     del param
 
     try:
