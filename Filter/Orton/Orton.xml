@@ -2,7 +2,7 @@
 <Package>
     <DisplayName>Orton</DisplayName>
     <Description>Orton Effect.</Description>
-    <Version>1.0</Version>
+    <Version>2.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.Orton</Name>
     <Default>script</Default>

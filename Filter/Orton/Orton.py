@@ -22,7 +22,7 @@ def getLabel():
     return "Orton"
 
 def getVersion():
-    return 1
+    return 2
 
 def getGrouping():
     return "Filter"
@@ -74,16 +74,27 @@ def createInstance(app,group):
     lastNode.opacity = param
     del param
 
+    param = lastNode.createBooleanParam("applyOnAlpha", "apply on alpha")
+
+    # Add the param to the page
+    lastNode.controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Apply the Orton effect to the alpha channel.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.applyOnAlpha = param
+    del param
+
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['controls', 'Node', 'Info',])
+    lastNode.setPagesOrder(['controls', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output")
-    lastNode.setPosition(567, 318)
+    lastNode.setPosition(567, 529)
     lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
@@ -95,7 +106,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Input1")
     lastNode.setLabel("Input1")
-    lastNode.setPosition(567, 34)
+    lastNode.setPosition(567, -60)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupInput1 = lastNode
@@ -127,6 +138,11 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("bChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     del lastNode
     # End of node "Merge1"
 
@@ -134,7 +150,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(751, 129)
+    lastNode.setPosition(790, 129)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
@@ -172,6 +188,16 @@ def createInstance(app,group):
         param.set("multiply")
         del param
 
+    param = lastNode.getParam("aChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("bChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("mix")
     if param is not None:
         param.setValue(1, 0)
@@ -180,13 +206,110 @@ def createInstance(app,group):
     del lastNode
     # End of node "Merge2"
 
+    # Start of node "Shuffle1"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
+    lastNode.setScriptName("Shuffle1")
+    lastNode.setLabel("Shuffle1")
+    lastNode.setPosition(404, 239)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupShuffle1 = lastNode
+
+    param = lastNode.getParam("outputChannelsChoice")
+    if param is not None:
+        param.setValue("Color.RGBA")
+        del param
+
+    param = lastNode.getParam("outputRChoice")
+    if param is not None:
+        param.setValue("A.r")
+        del param
+
+    param = lastNode.getParam("outputGChoice")
+    if param is not None:
+        param.setValue(".g")
+        del param
+
+    param = lastNode.getParam("outputBChoice")
+    if param is not None:
+        param.setValue(".b")
+        del param
+
+    param = lastNode.getParam("outputAChoice")
+    if param is not None:
+        param.setValue("B.a")
+        del param
+
+    del lastNode
+    # End of node "Shuffle1"
+
+    # Start of node "Dot1"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot1")
+    lastNode.setLabel("Dot1")
+    lastNode.setPosition(612, 46)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot1 = lastNode
+
+    del lastNode
+    # End of node "Dot1"
+
+    # Start of node "Dot2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2")
+    lastNode.setLabel("Dot2")
+    lastNode.setPosition(449, 46)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2 = lastNode
+
+    del lastNode
+    # End of node "Dot2"
+
+    # Start of node "Dot3"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot3")
+    lastNode.setLabel("Dot3")
+    lastNode.setPosition(449, 435)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot3 = lastNode
+
+    del lastNode
+    # End of node "Dot3"
+
+    # Start of node "Switch1"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch1")
+    lastNode.setLabel("Switch1")
+    lastNode.setPosition(567, 421)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitch1 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch1"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupMerge2)
-    groupMerge1.connectInput(0, groupInput1)
-    groupMerge1.connectInput(1, groupInput1)
+    groupOutput1.connectInput(0, groupSwitch1)
+    groupMerge1.connectInput(0, groupDot1)
+    groupMerge1.connectInput(1, groupDot1)
     groupBlur1.connectInput(0, groupMerge1)
     groupMerge2.connectInput(0, groupMerge1)
     groupMerge2.connectInput(1, groupBlur1)
+    groupShuffle1.connectInput(0, groupDot2)
+    groupShuffle1.connectInput(1, groupMerge2)
+    groupDot1.connectInput(0, groupInput1)
+    groupDot2.connectInput(0, groupDot1)
+    groupDot3.connectInput(0, groupShuffle1)
+    groupSwitch1.connectInput(0, groupDot3)
+    groupSwitch1.connectInput(1, groupMerge2)
 
     param = groupBlur1.getParam("size")
     param.setExpression("thisGroup.blur.get()", False, 0)
@@ -194,6 +317,9 @@ def createInstance(app,group):
     del param
     param = groupMerge2.getParam("mix")
     param.setExpression("thisGroup.opacity.get()", False, 0)
+    del param
+    param = groupSwitch1.getParam("which")
+    param.setExpression("thisGroup.applyOnAlpha.get()", False, 0)
     del param
 
     try:
