@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSION=2.1.7
+VERSION=2.1.9
 DATE=`date +%Y-%m-%d`
 BIT=${1:-}
 OS=`uname -s`
@@ -35,17 +35,18 @@ Filter/Defocus
 Filter/lp_ColourSmear
 Filter/lp_Despot
 Filter/lp_fakeDefocus
-Transform/lp_NoiseDistort
+Filter/lp_Feather
+Filter/lp_roughenEdges
+Filter/Orton
 Filter/PM_VectorBlur
+Keyer/lp_ChillSpill
 Keyer/lp_CleanScreen
-Keyer/lp_Despill
 Keyer/lp_HairKey
 Keyer/lp_SimpleKeyer
 Merge/ZCombine
+Transform/lp_NoiseDistort
 Transform/Shaker
-Filter/Orton
 "
-#Draw/SSAO
 
 if [ -d "$TMP" ]; then
 	rm -rf "$TMP"
@@ -71,6 +72,14 @@ if [ -f "$RESOURCES"/${OS}.xml ]; then
 else
 	echo "Setup file don't exist, failed!"
 	exit 1
+fi
+
+if [ "$OS" = "Linux" ]; then
+	REPO=$CWD/repo
+	if [ ! -d "$REPO" ]; then
+		mkdir -p "$REPO" || exit 1
+	fi
+	PATH="$RESOURCES"/utils/${OS}${BIT}:$PATH repogen -v --update-new-components -p "$PACKAGES" -c "$RESOURCES"/${OS}.xml "$REPO"
 fi
 
 if [ "$OS" = "Darwin" ]; then

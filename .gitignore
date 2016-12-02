@@ -99,3 +99,9 @@ utils
 *.bin
 *.exe
 packages
+*.tgz
+*.dmg
+*.pkg
+*.zip
+repo
+

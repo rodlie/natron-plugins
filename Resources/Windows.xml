@@ -13,4 +13,11 @@
 	<Watermark>natron-community-small.png</Watermark>
         <AdminTargetDir>C:/Program Files/Common Files/Natron/Plugins</AdminTargetDir>
 	<TargetDir>C:/Program Files/Common Files/Natron/Plugins</TargetDir>
+        <RemoteRepositories>
+                <Repository>
+                        <Url>http://fxarena.net/natron/plugins/packages</Url>
+                        <Enabled>1</Enabled>
+                        <DisplayName>Natron Community Repository</DisplayName>
+                </Repository>
+        </RemoteRepositories>
 </Installer>
