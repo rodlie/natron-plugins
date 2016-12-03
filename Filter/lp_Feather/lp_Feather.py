@@ -24,6 +24,9 @@ def getLabel():
 def getVersion():
     return 2
 
+def getIconPath():
+    return "lp_Feather.png"
+
 def getGrouping():
     return "Filter"
 
