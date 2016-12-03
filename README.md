@@ -12,7 +12,7 @@
 
 ###Draw/Relight
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReShade/ReShade.png" height="32"> [ReShade](Draw/ReShade/README.md)** : GPU Relighting of 3D renders using a Normal pass
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReFlect/ReFlect.png" height="32"> [ReFlect](Draw/ReFlect/README.md)** : take a Normal pass and an image and output a fake reflection pass .
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReFlect/ReFlect.png" height="32"> [ReFlect](Draw/ReFlect/README.md)** : Take a Normal pass and an image and output a fake reflection pass .
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/SSAO/SSAO.png" height="32"> [SSAO](Draw/SSAO/README.md)** : Generate ScreenSpace Ambiant Occlusion from a Z pass
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Z2Normal/Z2Normal.png" height="32"> [Z2Normal](Draw/Z2Normal/README.md)** : Z to Normal, create a Normal pass from any grascale image to be used with ReShade PyPlug
 
@@ -24,7 +24,7 @@
 
 ### Filter
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : A Chromatic Aberration filter similar to Blender's one
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png" height="32"> [ChromaticAberrationPP](Filter/ChromaticAberrationPP/README.md)** : An alternative Chromatic Aberration filter.It supports both axial and lateral chromatic aberration.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png" height="32"> [ChromaticAberrationPP](Filter/ChromaticAberrationPP/README.md)** : An alternative Chromatic Aberration filter. It supports both axial and lateral chromatic aberration.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png" height="32"> [Defocus](Filter/Defocus/README.md)** : Add a bokeh blur to the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_ColourSmear/lp_ColourSmear.png" height="32"> [lp_ColourSmear](Filter/lp_ColourSmear/README.md)** : Smears the colors around a given Alpha
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_Despot/lp_Despot.png" height="32"> [lp_Despot](Filter/lp_Despot/README.md)** : Despots for black or white pixels
