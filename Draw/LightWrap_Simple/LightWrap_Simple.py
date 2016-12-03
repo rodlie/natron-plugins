@@ -25,7 +25,7 @@ def getVersion():
     return 3.1
 
 def getIconPath():
-    return "LightWrap.png"
+    return "LightWrap_Simple.png"
 
 def getGrouping():
     return "Draw"
