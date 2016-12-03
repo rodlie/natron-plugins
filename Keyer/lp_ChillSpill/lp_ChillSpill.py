@@ -24,6 +24,9 @@ def getLabel():
 def getVersion():
     return 4
 
+def getIconPath():
+    return "lp_ChillSpill.png"
+
 def getGrouping():
     return "Keyer"
 
