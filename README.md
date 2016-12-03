@@ -7,7 +7,7 @@
 
 ### Draw
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/LightWrap_Simple/LightWrap_Simple.png" height="32"> [LightWrap_Simple](Draw/LightWrap_Simple/README.md)** : An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png" height="32"> [FrameStamp](Draw/FrameStamp/README.md)** : a very simple stamp that show the current frame in the corner of the image
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png" height="32"> [FrameStamp](Draw/FrameStamp/README.md)** : A very simple stamp that show the current frame in the corner of the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Vignette/Vignette.png" height="32"> [Vignette](Draw/Vignette/README.md)** : Darken the Edge of the image to mimic camera vignetting
 
 ###Draw/Relight
@@ -23,8 +23,8 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png" height="32"> [lp_SimpleKeyer](Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node
 
 ### Filter
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : a Chromatic Aberration filter similar to Blender's one
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png" height="32"> [ChromaticAberrationPP](Filter/ChromaticAberrationPP/README.md)** : a Chromatic Aberration filter with lot's of options to fine tune. It supports both axial and lateral chromatic aberration which can be adjusted separately. While the Plugin above is more artistically, this one should work fine for matching already existing chromatic abberations in your images.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : A Chromatic Aberration filter similar to Blender's one
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png" height="32"> [ChromaticAberrationPP](Filter/ChromaticAberrationPP/README.md)** : An alternative Chromatic Aberration filter.It supports both axial and lateral chromatic aberration.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png" height="32"> [Defocus](Filter/Defocus/README.md)** : Add a bokeh blur to the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_ColourSmear/lp_ColourSmear.png" height="32"> [lp_ColourSmear](Filter/lp_ColourSmear/README.md)** : Smears the colors around a given Alpha
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_Despot/lp_Despot.png" height="32"> [lp_Despot](Filter/lp_Despot/README.md)** : Despots for black or white pixels
