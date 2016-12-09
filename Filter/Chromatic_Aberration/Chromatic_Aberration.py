@@ -22,7 +22,7 @@ def getLabel():
     return "Chromatic_Aberration"
 
 def getVersion():
-    return 3
+    return 4
 
 def getIconPath():
     return "Chromatic_Aberration.png"
@@ -47,6 +47,8 @@ def createInstance(app,group):
     param.setMaximum(10, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(0.2, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -55,7 +57,6 @@ def createInstance(app,group):
     param.setHelp("Strength of the chromatic aberration effect")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(0.2, 0)
     lastNode.disp = param
     del param
 
@@ -64,6 +65,8 @@ def createInstance(app,group):
     param.setMaximum(5, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(0.0001, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -72,7 +75,6 @@ def createInstance(app,group):
     param.setHelp("Sampling of the effect, increase value to get rid of the noise at cost of time calculation")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(0.0001, 0)
     lastNode.sample = param
     del param
 
@@ -93,6 +95,8 @@ def createInstance(app,group):
     param.setMaximum(20, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(0.2, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -101,18 +105,16 @@ def createInstance(app,group):
     param.setHelp("This parameter blurs more on the borders.\nBy setting a lower Dispertion value and increasing this parameter , you can have the center of the image more cleaner.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(0.2, 0)
     lastNode.border = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Controls', 'Node', 'Settings', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'Controls', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
     lastNode.setPosition(1255, 1236)
     lastNode.setSize(104, 43)
@@ -153,19 +155,9 @@ def createInstance(app,group):
         param.setValue("A.r")
         del param
 
-    param = lastNode.getParam("outputG")
-    if param is not None:
-        param.set("A.r")
-        del param
-
     param = lastNode.getParam("outputGChoice")
     if param is not None:
         param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputB")
-    if param is not None:
-        param.set("A.r")
         del param
 
     param = lastNode.getParam("outputBChoice")
@@ -207,11 +199,6 @@ def createInstance(app,group):
         param.setValue("Color.RGBA")
         del param
 
-    param = lastNode.getParam("outputR")
-    if param is not None:
-        param.set("A.g")
-        del param
-
     param = lastNode.getParam("outputRChoice")
     if param is not None:
         param.setValue("A.g")
@@ -220,11 +207,6 @@ def createInstance(app,group):
     param = lastNode.getParam("outputGChoice")
     if param is not None:
         param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputB")
-    if param is not None:
-        param.set("A.g")
         del param
 
     param = lastNode.getParam("outputBChoice")
@@ -254,19 +236,9 @@ def createInstance(app,group):
         param.setValue("Color.RGBA")
         del param
 
-    param = lastNode.getParam("outputR")
-    if param is not None:
-        param.set("A.b")
-        del param
-
     param = lastNode.getParam("outputRChoice")
     if param is not None:
         param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputG")
-    if param is not None:
-        param.set("A.b")
         del param
 
     param = lastNode.getParam("outputGChoice")
@@ -314,7 +286,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("motionBlur")
     if param is not None:
-        param.setValue(0.1, 0)
+        param.setValue(0.0001, 0)
         del param
 
     del lastNode
@@ -347,7 +319,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("motionBlur")
     if param is not None:
-        param.setValue(0.1, 0)
+        param.setValue(0.0001, 0)
         del param
 
     del lastNode
@@ -357,7 +329,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge3")
     lastNode.setLabel("Merge3")
-    lastNode.setPosition(1253, 644)
+    lastNode.setPosition(1255, 648)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge3 = lastNode
@@ -375,11 +347,6 @@ def createInstance(app,group):
     param = lastNode.getParam("bbox")
     if param is not None:
         param.set("B")
-        del param
-
-    param = lastNode.getParam("maskInvert")
-    if param is not None:
-        param.setValue(True)
         del param
 
     del lastNode
@@ -408,7 +375,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("k1")
     if param is not None:
-        param.setValue(-0.05, 0)
+        param.setValue(-0.02, 0)
         del param
 
     param = lastNode.getParam("black_outside")
@@ -435,13 +402,13 @@ def createInstance(app,group):
 
     param = lastNode.getParam("k2")
     if param is not None:
-        param.setValue(-0.005, 0)
+        param.setValue(-0.002, 0)
         del param
 
     param = lastNode.getParam("asymmetricDistortion")
     if param is not None:
-        param.setValue(-0.0025, 0)
-        param.setValue(-0.0025, 1)
+        param.setValue(-0.001, 0)
+        param.setValue(-0.001, 1)
         del param
 
     del lastNode
@@ -612,11 +579,6 @@ def createInstance(app,group):
         param.setValue("A.r")
         del param
 
-    param = lastNode.getParam("outputG")
-    if param is not None:
-        param.set("B.g")
-        del param
-
     param = lastNode.getParam("outputGChoice")
     if param is not None:
         param.setValue("B.g")
@@ -659,11 +621,6 @@ def createInstance(app,group):
         param.setValue("A.g")
         del param
 
-    param = lastNode.getParam("outputB")
-    if param is not None:
-        param.set("B.b")
-        del param
-
     param = lastNode.getParam("outputBChoice")
     if param is not None:
         param.setValue("B.b")
@@ -677,6 +634,28 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shuffle3"
 
+    # Start of node "mask"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("mask")
+    lastNode.setLabel("mask")
+    lastNode.setPosition(1587, 660)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupmask = lastNode
+
+    param = lastNode.getParam("optional")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("isMask")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "mask"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupMerge3)
     groupShuffle1.connectInput(1, groupDot2)
@@ -687,6 +666,7 @@ def createInstance(app,group):
     groupDirBlur1_1.connectInput(0, groupShuffle1_1_1)
     groupMerge3.connectInput(0, groupDot5)
     groupMerge3.connectInput(1, groupSwitch1_1)
+    groupMerge3.connectInput(2, groupmask)
     groupDot5.connectInput(0, groupDot6)
     groupLensDistortion1.connectInput(0, groupDot6)
     groupLensDistortion2.connectInput(0, groupDot7)
@@ -739,8 +719,6 @@ def createInstance(app,group):
     del param
     param = groupDirBlur1_1_1.getParam("scale")
     param.setExpression("1+(thisGroup.disp.get()/10)", False, 0)
-    param.slaveTo(groupDirBlur1_1.getParam("scale"), 0, 0)
-    param.slaveTo(groupDirBlur1_1.getParam("scale"), 1, 1)
     del param
     param = groupDirBlur1_1_1.getParam("uniform")
     param.slaveTo(groupDirBlur1_1.getParam("uniform"), 0, 0)
@@ -775,7 +753,6 @@ def createInstance(app,group):
     del param
     param = groupDirBlur1_1_1.getParam("motionBlur")
     param.setExpression("thisGroup.sample.get()", False, 0)
-    param.slaveTo(groupDirBlur1_1.getParam("motionBlur"), 0, 0)
     del param
     param = groupDirBlur1_1_1.getParam("maskInvert")
     param.slaveTo(groupDirBlur1_1.getParam("maskInvert"), 0, 0)
@@ -798,9 +775,7 @@ def createInstance(app,group):
     del param
     param = groupDirBlur1_2.getParam("scale")
     param.setExpression("1-(thisGroup.disp.get()/10)", False, 0)
-    param.slaveTo(groupDirBlur1.getParam("scale"), 0, 0)
     param.setExpression("1+(thisGroup.disp.get()/10)", False, 1)
-    param.slaveTo(groupDirBlur1.getParam("scale"), 1, 1)
     del param
     param = groupDirBlur1_2.getParam("uniform")
     param.slaveTo(groupDirBlur1.getParam("uniform"), 0, 0)
@@ -835,7 +810,6 @@ def createInstance(app,group):
     del param
     param = groupDirBlur1_2.getParam("motionBlur")
     param.setExpression("thisGroup.sample.get()", False, 0)
-    param.slaveTo(groupDirBlur1.getParam("motionBlur"), 0, 0)
     del param
     param = groupDirBlur1_2.getParam("maskInvert")
     param.slaveTo(groupDirBlur1.getParam("maskInvert"), 0, 0)
