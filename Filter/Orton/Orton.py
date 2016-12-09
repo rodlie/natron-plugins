@@ -150,7 +150,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(790, 129)
+    lastNode.setPosition(773, 129)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
@@ -296,13 +296,37 @@ def createInstance(app,group):
     del lastNode
     # End of node "Switch1"
 
+    # Start of node "mask"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("mask")
+    lastNode.setLabel("mask")
+    lastNode.setPosition(917, 239)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupmask = lastNode
+
+    param = lastNode.getParam("optional")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("isMask")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "mask"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupSwitch1)
     groupMerge1.connectInput(0, groupDot1)
     groupMerge1.connectInput(1, groupDot1)
+    groupMerge1.connectInput(2, groupmask)
     groupBlur1.connectInput(0, groupMerge1)
     groupMerge2.connectInput(0, groupMerge1)
     groupMerge2.connectInput(1, groupBlur1)
+    groupMerge2.connectInput(2, groupmask)
     groupShuffle1.connectInput(0, groupDot2)
     groupShuffle1.connectInput(1, groupMerge2)
     groupDot1.connectInput(0, groupInput1)
