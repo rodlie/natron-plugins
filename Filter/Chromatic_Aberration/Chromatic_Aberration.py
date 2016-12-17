@@ -22,7 +22,7 @@ def getLabel():
     return "Chromatic_Aberration"
 
 def getVersion():
-    return 4
+    return 5
 
 def getIconPath():
     return "Chromatic_Aberration.png"
@@ -263,7 +263,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.DirBlur", 1, group)
     lastNode.setScriptName("DirBlur1")
     lastNode.setLabel("Blur_R")
-    lastNode.setPosition(144, 473)
+    lastNode.setPosition(146, 473)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupDirBlur1 = lastNode
@@ -275,6 +275,17 @@ def createInstance(app,group):
         del param
 
     param = lastNode.getParam("uniform")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(960, 0)
+        param.setValue(540, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
     if param is not None:
         param.setValue(True)
         del param
@@ -312,6 +323,17 @@ def createInstance(app,group):
         param.setValue(True)
         del param
 
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(960, 0)
+        param.setValue(540, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("filter")
     if param is not None:
         param.set("Impulse")
@@ -330,7 +352,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge3")
     lastNode.setLabel("Merge3")
     lastNode.setPosition(1255, 648)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(104, 74)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge3 = lastNode
 
@@ -347,6 +369,11 @@ def createInstance(app,group):
     param = lastNode.getParam("bbox")
     if param is not None:
         param.set("B")
+        del param
+
+    param = lastNode.getParam("userTextArea")
+    if param is not None:
+        param.setValue("<Natron>(copy)</Natron>")
         del param
 
     del lastNode
@@ -439,6 +466,17 @@ def createInstance(app,group):
         param.set("XY")
         del param
 
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(960, 0)
+        param.setValue(540, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("filter")
     if param is not None:
         param.set("Impulse")
@@ -475,6 +513,17 @@ def createInstance(app,group):
     param = lastNode.getParam("skewOrder")
     if param is not None:
         param.set("XY")
+        del param
+
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(960, 0)
+        param.setValue(540, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("filter")
@@ -688,11 +737,19 @@ def createInstance(app,group):
     param.setExpression("1-(thisGroup.disp.get()/10)", False, 0)
     param.setExpression("1+(thisGroup.disp.get()/10)", False, 1)
     del param
+    param = groupDirBlur1.getParam("center")
+    param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame, 0)\nret = rod.width()/2", True, 0)
+    param.setExpression("rod = Shuffle1_1_1.getRegionOfDefinition(frame, 0)\nret = rod.height()/2", True, 1)
+    del param
     param = groupDirBlur1.getParam("motionBlur")
     param.setExpression("thisGroup.sample.get()", False, 0)
     del param
     param = groupDirBlur1_1.getParam("scale")
     param.setExpression("1+(thisGroup.disp.get()/10)", False, 0)
+    del param
+    param = groupDirBlur1_1.getParam("center")
+    param.setExpression("rod = Shuffle1_1_1.getRegionOfDefinition(frame, 0)\nret = rod.width()/2", True, 0)
+    param.setExpression("rod = Shuffle1_1_1.getRegionOfDefinition(frame, 0)\nret = rod.height()/2", True, 1)
     del param
     param = groupDirBlur1_1.getParam("motionBlur")
     param.setExpression("thisGroup.sample.get()", False, 0)
@@ -733,7 +790,9 @@ def createInstance(app,group):
     param.slaveTo(groupDirBlur1_1.getParam("skewOrder"), 0, 0)
     del param
     param = groupDirBlur1_1_1.getParam("center")
+    param.setExpression("rod = Shuffle1_1_1.getRegionOfDefinition(frame, 0)\nret = rod.width()/2", True, 0)
     param.slaveTo(groupDirBlur1_1.getParam("center"), 0, 0)
+    param.setExpression("rod = Shuffle1_1_1.getRegionOfDefinition(frame, 0)\nret = rod.height()/2", True, 1)
     param.slaveTo(groupDirBlur1_1.getParam("center"), 1, 1)
     del param
     param = groupDirBlur1_1_1.getParam("interactive")
@@ -790,7 +849,9 @@ def createInstance(app,group):
     param.slaveTo(groupDirBlur1.getParam("skewOrder"), 0, 0)
     del param
     param = groupDirBlur1_2.getParam("center")
+    param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame, 0)\nret = rod.width()/2", True, 0)
     param.slaveTo(groupDirBlur1.getParam("center"), 0, 0)
+    param.setExpression("rod = Shuffle1_1_1.getRegionOfDefinition(frame, 0)\nret = rod.height()/2", True, 1)
     param.slaveTo(groupDirBlur1.getParam("center"), 1, 1)
     del param
     param = groupDirBlur1_2.getParam("interactive")

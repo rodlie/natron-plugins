@@ -2,7 +2,7 @@
 <Package>
     <DisplayName>Chromatic Aberration</DisplayName>
     <Description>Create a Chromatic Aberration effect, similar to the one found in Blender.</Description>
-    <Version>4.0</Version>
+    <Version>5.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.Chromatic_Aberration</Name>
     <Default>script</Default>
