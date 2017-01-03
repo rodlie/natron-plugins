@@ -16,13 +16,13 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "community.plugins.ssao"
+    return "natron.community.plugins.SSAO"
 
 def getLabel():
     return "SSAO"
 
 def getVersion():
-    return 1
+    return 2
 
 def getIconPath():
     return "SSAO.png"
@@ -31,7 +31,7 @@ def getGrouping():
     return "Draw/Relight"
 
 def getPluginDescription():
-    return "Generate an AO pass from a Z pass.\n\n-Use the Near and Far plane to map the Z pass roughly bettween 0 and 1 value.\n\n-Set Radius and Falloff\n\n-Set the sample value (may need to go to 1000 iteration for a very smooth result)\n\n-as you increase the samples, you\'ll need to lower the sample noise value to something like 0.05\n\n-Finally you can blur the AO a little bit to get rid of the final noise/artifacts...\n\nThe original code is taken from here :\ntheorangeduck.com/page/pure-depth-ssao"
+    return "Generate a Screen Space Ambiant Occlusion pass from a Z pass. \nMay need a bit of time tweaking the parameters to get good results as it changes a lot depending on the original Z values.\nTo use it : \nSet Near and Far plane (minimum and maximum Z Value) to map the Z pass roughly bettween 0 and 1 value.\nSet Radius and Falloff to get good shadows\nSet the sample value (may need up to 1000 iterations for a very smooth result)\nas you increase the samples, you\'ll need to lower the sample noise value to something like 0.05\nFinally you can blur the AO a little bit to get rid of the final noise/artifacts... \nIf you have high samples and high noise sample value, the result is still noisy. \nIf you have low samples and low noise Value , the result as artifacts. \nCredits : \nThe original code by Daniel Holden is taken from here : http://theorangeduck.com/page/pure-depth-ssao \nthe sampling sphere fonction by John Chapman is taken from here : http://john-chapman-graphics.blogspot.fr/2013/01/ssao-tutorial.html "
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -58,15 +58,67 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createChoiceParam("Shuffle1outputR", "Z Channel")
+    entries = [ ("A.r", "Red channel from input A"),
+    ("A.g", "Green channel from input A"),
+    ("A.b", "Blue channel from input A"),
+    ("A.a", "Alpha channel from input A"),
+    ("0", "0 constant channel"),
+    ("1", "1 constant channel"),
+    ("B.r", "Red channel from input B"),
+    ("B.g", "Green channel from input B"),
+    ("B.b", "Blue channel from input B"),
+    ("B.a", "Alpha channel from input B"),
+    ("B.Backward.Motion.U", "U channel from layer/view Backward.Motion of input A"),
+    ("B.Backward.Motion.V", "V channel from layer/view Backward.Motion of input A"),
+    ("A.Composite.Combined.R", "R channel from layer/view Composite.Combined of input A"),
+    ("A.Composite.Combined.G", "G channel from layer/view Composite.Combined of input A"),
+    ("A.Composite.Combined.B", "B channel from layer/view Composite.Combined of input A"),
+    ("A.Composite.Combined.A", "A channel from layer/view Composite.Combined of input A"),
+    ("B.DisparityLeft.Disparity.X", "X channel from layer/view DisparityLeft.Disparity of input A"),
+    ("B.DisparityLeft.Disparity.Y", "Y channel from layer/view DisparityLeft.Disparity of input A"),
+    ("B.DisparityRight.Disparity.X", "X channel from layer/view DisparityRight.Disparity of input A"),
+    ("B.DisparityRight.Disparity.Y", "Y channel from layer/view DisparityRight.Disparity of input A"),
+    ("B.Forward.Motion.U", "U channel from layer/view Forward.Motion of input A"),
+    ("B.Forward.Motion.V", "V channel from layer/view Forward.Motion of input A"),
+    ("A.RenderLayer.Combined.R", "R channel from layer/view RenderLayer.Combined of input A"),
+    ("A.RenderLayer.Combined.G", "G channel from layer/view RenderLayer.Combined of input A"),
+    ("A.RenderLayer.Combined.B", "B channel from layer/view RenderLayer.Combined of input A"),
+    ("A.RenderLayer.Combined.A", "A channel from layer/view RenderLayer.Combined of input A"),
+    ("A.RenderLayer.Depth.Z", "Z channel from layer/view RenderLayer.Depth of input A"),
+    ("A.RenderLayer.Normal.Z", "Z channel from layer/view RenderLayer.Normal of input A"),
+    ("A.RenderLayer.Normal.X", "X channel from layer/view RenderLayer.Normal of input A"),
+    ("A.RenderLayer.Normal.Y", "Y channel from layer/view RenderLayer.Normal of input A"),
+    ("B.Backward.Motion.U", "U channel from layer/view Backward.Motion of input B"),
+    ("B.Backward.Motion.V", "V channel from layer/view Backward.Motion of input B"),
+    ("B.Composite.Combined.R", "R channel from layer/view Composite.Combined of input B"),
+    ("B.Composite.Combined.G", "G channel from layer/view Composite.Combined of input B"),
+    ("B.Composite.Combined.B", "B channel from layer/view Composite.Combined of input B"),
+    ("B.Composite.Combined.A", "A channel from layer/view Composite.Combined of input B"),
+    ("B.DisparityLeft.Disparity.X", "X channel from layer/view DisparityLeft.Disparity of input B"),
+    ("B.DisparityLeft.Disparity.Y", "Y channel from layer/view DisparityLeft.Disparity of input B"),
+    ("B.DisparityRight.Disparity.X", "X channel from layer/view DisparityRight.Disparity of input B"),
+    ("B.DisparityRight.Disparity.Y", "Y channel from layer/view DisparityRight.Disparity of input B"),
+    ("B.Forward.Motion.U", "U channel from layer/view Forward.Motion of input B"),
+    ("B.Forward.Motion.V", "V channel from layer/view Forward.Motion of input B"),
+    ("B.RenderLayer.Combined.R", "R channel from layer/view RenderLayer.Combined of input B"),
+    ("B.RenderLayer.Combined.G", "G channel from layer/view RenderLayer.Combined of input B"),
+    ("B.RenderLayer.Combined.B", "B channel from layer/view RenderLayer.Combined of input B"),
+    ("B.RenderLayer.Combined.A", "A channel from layer/view RenderLayer.Combined of input B"),
+    ("B.RenderLayer.Depth.Z", "Z channel from layer/view RenderLayer.Depth of input B"),
+    ("B.RenderLayer.Normal.Z", "Z channel from layer/view RenderLayer.Normal of input B"),
+    ("B.RenderLayer.Normal.X", "X channel from layer/view RenderLayer.Normal of input B"),
+    ("B.RenderLayer.Normal.Y", "Y channel from layer/view RenderLayer.Normal of input B")]
+    param.setOptions(entries)
+    del entries
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("Input channel for the output red channel")
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    param.set("A.RenderLayer.Depth.Z")
     lastNode.Shuffle1outputR = param
     del param
 
@@ -84,7 +136,6 @@ def createInstance(app,group):
     param.setHelp("the closest Z value")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(265, 0)
     lastNode.np = param
     del param
 
@@ -102,7 +153,6 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(330, 0)
     lastNode.fp = param
     del param
 
@@ -160,7 +210,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(1.4, 0)
+    param.setValue(0.5, 0)
     lastNode.radius = param
     del param
 
@@ -177,7 +227,7 @@ def createInstance(app,group):
     param.setHelp("Increase this Value soften the shadows")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(0.15, 0)
+    param.setValue(1, 0)
     lastNode.falloff = param
     del param
 
@@ -195,7 +245,7 @@ def createInstance(app,group):
     param.setHelp("Number of iteration to get the AO\n\nfor a very smooth AO you may need to increase this value to 1000  and lower the Sample noise value to 0.02")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(25, 0)
+    param.setValue(10, 0)
     lastNode.samples = param
     del param
 
@@ -212,7 +262,7 @@ def createInstance(app,group):
     param.setHelp("To calculate AO some noise is needed to get the samples correctly .\nIf the samples number is very high , then lower this value to something like 0.05 . ")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(0.5, 0)
+    param.setValue(1, 0)
     lastNode.sample_noise = param
     del param
 
@@ -224,7 +274,7 @@ def createInstance(app,group):
     # Set param properties
     param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistant(False)
+    param.setPersistent(False)
     param.setEvaluateOnChange(False)
     lastNode.sepd = param
     del param
@@ -256,18 +306,16 @@ def createInstance(app,group):
     param.setHelp("Blur slightly the image to get rid of the remaining noise/artifacts")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(True)
     lastNode.filter = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Controls', 'Node', 'Settings', 'Info'])
+    lastNode.setPagesOrder(['Controls', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
     lastNode.setPosition(907, 349)
     lastNode.setSize(104, 30)
@@ -293,12 +341,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat1")
     if param is not None:
-        param.setValue(0.00153, 0)
+        param.setValue(0.01, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValue(0.05, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueInt3")
@@ -308,12 +356,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValue(0.01473, 0)
+        param.setValue(0.005, 0)
         del param
 
     param = lastNode.getParam("paramValueInt4")
     if param is not None:
-        param.setValue(1000, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat5")
@@ -323,7 +371,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("uniform float total_strength = 1.0;\nuniform float base = 0.2;\nuniform float area = 0.01 ;\nuniform float falloff = 0.1;\nuniform float radius = 4.0;\nuniform int samples = 10;\nuniform float noise_amt = 1.0;\n\nfloat nrand( vec2 n )\n{\n  float rnd = fract(sin(dot(n.xy, vec2(12.9898, 78.233)))* 43758.5453);\n  rnd=(rnd*2)-1;\n\treturn rnd ;\n}\n\nvec3 gen_rnd_vec(vec2 co){\n  float x = nrand( co ) ;\n  float y = nrand( co+0.25464853 ) ;\n  float z = nrand( co-0.16498 ) ;\n  return vec3 (x,y,z)*noise_amt ;\n}\n\nvec3 normal_from_depth(vec3 depth, vec2 Coord) {\n\n  const vec2 offset1 = vec2(0.0,0.001);\n  const vec2 offset2 = vec2(0.001,0.0);\n  float depth1 = texture2D(iChannel0, Coord.xy / iResolution.xy + offset1).r;\n  float depth2 = texture2D(iChannel0, Coord.xy / iResolution.xy + offset2).r;\n  vec3 p1 = vec3(offset1, depth1 - depth.r);\n  vec3 p2 = vec3(offset2, depth2 - depth.r);\n  vec3 normal = cross(p1, p2);\n  normal.z = -normal.z;\n  return normalize(normal);\n\n};\n\nvec3 sample_sphere_trash(int id, vec2 fragCoord){\n  vec2 coord= vec2(fragCoord.x+(id),fragCoord.y+(id));\n  vec3 vector = gen_rnd_vec(coord) ;\n  float scale = float(id) / radius ;\n  scale = mix(0.1, 1.0, scale * scale);\n  vector *=scale ;\n  vector = normalize(vector);\n  return(vector) ;\n};\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  vec2 uv = fragCoord.xy / iResolution.xy;\n  vec3 random = gen_rnd_vec(uv);\n  vec3 depth    = texture2D(iChannel0, uv).rgb ;\n  vec3 position = vec3(uv,depth);\n  vec3 normal   = normal_from_depth(depth, fragCoord);\n  float radius_depth = radius/depth.r;\n  float occlusion = 0.0;\n  for(int i=0; i < samples; i++) {\n    vec3 ray         = radius_depth * reflect(sample_sphere_trash(i,fragCoord/iRenderScale) , random);\n    vec3 hemi_ray    = position + sign(dot(ray,normal)) * ray;\n    vec2 hrl=clamp(hemi_ray.xy,vec2(0.,0.),vec2(1.,1.));\n    float occ_depth  = texture2D(iChannel0, hrl).r;\n    float difference = depth.r - occ_depth;\n    occlusion += (1.0-smoothstep(falloff, area, difference));\n  }\n\n  float ao = 1.0 - total_strength * occlusion * (1.0 / samples);\n  fragColor = vec4(ao,ao,ao,1.0);\n}\n")
+        param.setValue("uniform float total_strength = 1.0;\nuniform float base = 0.2;\nuniform float area = 0.01 ;\nuniform float falloff = 0.1;\nuniform float radius = 4.0;\nuniform int samples = 10;\nuniform float noise_amt = 1.0;\n\nfloat nrand( vec2 n )\n{\n  float rnd = fract(sin(dot(n.xy, vec2(12.9898, 78.233)))* 43758.5453);\n  rnd=(rnd*2)-1;\n\treturn rnd ;\n}\n\nvec3 gen_rnd_vec(vec2 co){\n  float x = nrand( co ) ;\n  float y = nrand( co+0.25464853 ) ;\n  float z = nrand( co-0.16498 ) ;\n  return vec3 (x,y,z)*noise_amt ;\n}\n\nvec3 normal_from_depth(vec3 depth, vec2 Coord) {\n  const vec2 offset1 = vec2(0.0,0.001);\n  const vec2 offset2 = vec2(0.001,0.0);\n  float depth1 = texture2D(iChannel0, Coord.xy / iResolution.xy + offset1).r;\n  float depth2 = texture2D(iChannel0, Coord.xy / iResolution.xy + offset2).r;\n  vec3 p1 = vec3(offset1, depth1 - depth.r);\n  vec3 p2 = vec3(offset2, depth2 - depth.r);\n  vec3 normal = cross(p1, p2);\n  normal.z = -normal.z;\n  return normalize(normal);\n}\n\nvec3 sample_sphere_trash(int id, vec2 fragCoord){\n  vec2 coord= vec2(fragCoord.x+(id),fragCoord.y+(id));\n  vec3 vector = gen_rnd_vec(coord) ;\n  float scale = float(id) / radius ;\n  scale = mix(0.1, 1.0, scale * scale);\n  vector *=scale ;\n  vector = normalize(vector);\n  return(vector) ;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  vec2 uv = fragCoord.xy / iResolution.xy;\n  vec3 random = gen_rnd_vec(uv);\n  vec3 depth    = texture2D(iChannel0, uv).rgb ;\n  vec3 position = vec3(uv,depth);\n  vec3 normal   = normal_from_depth(depth, fragCoord);\n  float radius_depth = radius/depth.r;\n  float occlusion = 0.0;\n  for(int i=0; i < samples; i++) {\n    vec3 ray         = radius_depth * reflect(sample_sphere_trash(i,fragCoord/iRenderScale) , random);\n    vec3 hemi_ray    = position + sign(dot(ray,normal)) * ray;\n    vec2 hrl=clamp(hemi_ray.xy,vec2(0.,0.),vec2(1.,1.));\n    float occ_depth  = texture2D(iChannel0, hrl).r;\n    float difference = depth.r - occ_depth;\n    occlusion += (1.0-smoothstep(falloff, area, difference));\n  }\n\n  float ao = 1.0 - total_strength * occlusion * (1.0 / samples);\n  fragColor = vec4(ao,ao,ao,1.0);\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -344,6 +392,16 @@ def createInstance(app,group):
     param = lastNode.getParam("inputEnable3")
     if param is not None:
         param.setValue(False)
+        del param
+
+    param = lastNode.getParam("bbox")
+    if param is not None:
+        param.set("iChannel0")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("square_2K 2048x2048")
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -493,29 +551,24 @@ def createInstance(app,group):
         param.setValue("Color.RGBA")
         del param
 
-    param = lastNode.getParam("outputR")
-    if param is not None:
-        param.set("A.RenderLayer.Depth.Z")
-        del param
-
     param = lastNode.getParam("outputRChoice")
     if param is not None:
-        param.setValue("A.RenderLayer.Depth.Z")
+        param.setValue("A.r")
         del param
 
     param = lastNode.getParam("outputGChoice")
     if param is not None:
-        param.setValue("A.g")
+        param.setValue(".g")
         del param
 
     param = lastNode.getParam("outputBChoice")
     if param is not None:
-        param.setValue("A.b")
+        param.setValue(".b")
         del param
 
     param = lastNode.getParam("outputAChoice")
     if param is not None:
-        param.setValue("A.a")
+        param.setValue(".a")
         del param
 
     del lastNode
@@ -532,12 +585,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("blackPoint")
     if param is not None:
-        param.setValue(265, 0)
+        param.setValue(0, 0)
         del param
 
     param = lastNode.getParam("whitePoint")
     if param is not None:
-        param.setValue(330, 0)
+        param.setValue(1, 0)
         param.setValue(0, 1)
         param.setValue(0, 2)
         param.setValue(0, 3)
@@ -619,7 +672,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("disableNode")
     if param is not None:
-        param.setValue(False)
+        param.setValue(True)
         del param
 
     del lastNode
@@ -651,9 +704,6 @@ def createInstance(app,group):
     param = groupSSAO_Shader.getParam("paramValueFloat5")
     param.setExpression("thisGroup.strength.get()", False, 0)
     del param
-    param = groupShuffle1.getParam("outputR")
-    group.getParam("Shuffle1outputR").setAsAlias(param)
-    del param
     param = groupZRemap.getParam("blackPoint")
     param.setExpression("thisGroup.np.get()", False, 0)
     del param
@@ -673,3 +723,4 @@ def createInstance(app,group):
         extModule = None
     if extModule is not None and hasattr(extModule ,"createInstanceExt") and hasattr(extModule.createInstanceExt,"__call__"):
         extModule.createInstanceExt(app,group)
+
