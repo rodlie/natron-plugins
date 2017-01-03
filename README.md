@@ -9,6 +9,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/LightWrap_Simple/LightWrap_Simple.png" height="32"> [LightWrap_Simple](Draw/LightWrap_Simple/README.md)** : An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png" height="32"> [FrameStamp](Draw/FrameStamp/README.md)** : A very simple stamp that show the current frame in the corner of the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Vignette/Vignette.png" height="32"> [Vignette](Draw/Vignette/README.md)** : Darken the Edge of the image to mimic camera vignetting
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/WaveForm/WaveForm.png" height="32"> [Waveform](Draw/WaveForm/README.md)** :Draw a Luminance Waveform of the input image
 
 ###Draw/Relight
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReShade/ReShade.png" height="32"> [ReShade](Draw/ReShade/README.md)** : GPU Relighting of 3D renders using a Normal pass
