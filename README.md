@@ -22,6 +22,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_ChillSpill/lp_ChillSpill.png" height="32"> [lp_ChillSpill](Keyer/lp_ChillSpill/README.md)** : An alternative to built-in Despill node that is quick and easy to setup.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_HairKey/lp_HairKey.png" height="32"> [lp_HairKey](Keyer/lp_HairKey/README.md)** : A keyless Keyer for fine detail like hair which is hard to come by with a matte.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png" height="32"> [lp_SimpleKeyer](Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/PIKDespill/PIKDespill.png" height="32"> [PIKDespill](Keyer/PIKDespill/README.md)** : Despill tool based on the PIK Keyer.
 
 ### Filter
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : A Chromatic Aberration filter similar to Blender's one
@@ -38,6 +39,12 @@
 [lp_Feather](Filter/lp_Feather/README.md)** : Feathers the alpha channel, with advanced control over the feather type as well as the falloff.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_roughenEdges/lp_roughenEdges.png" height="32"> 
 [lp_roughenEdges](Filter/roughenEdges/README.md)** : Roughens the edges of a given alpha channel based on an adjustable noise.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png" height="32"> 
+[DUCK_Alpha_Edge](Filter/DUCK_Alpha_Edge/README.md)** : Dilate, erode blur or multiply the edge of a roto or a key
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Skin_Cleaner/DUCK_Skin_Cleaner.png" height="32"> 
+[DUCK_Skin_Cleaner](Filter/DUCK_Skin_Cleaner/README.md)** : A tool developped to clean up models skin in common beauty/fashion shots
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Smart_Blur/DUCK_Smart_Blur.png" height="32"> 
+[DUCK_Smart_Blur](Filter/DUCK_Smart_Blur/README.md)** : blur images with heavy grain, surface imperfections, noises, render problems, etc. keeping the boundary and the edges, and restoring details in highlights and dark regions of the image
 
 ### Merge
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
