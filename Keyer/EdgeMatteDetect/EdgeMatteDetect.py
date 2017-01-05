@@ -443,6 +443,18 @@ def createInstance(app,group):
     lastNode.line08 = param
     del param
 
+    param = lastNode.createBooleanParam("Use_mask", "Use alpha mask")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Use_mask = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("separator19", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -1095,8 +1107,13 @@ def createInstance(app,group):
     lastNode.setLabel("Switch1")
     lastNode.setPosition(3299, 1870)
     lastNode.setSize(104, 43)
-    lastNode.setColor(0.3, 0.37, 0.776)
+    lastNode.setColor(1, 1, 1)
     groupSwitch1 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
 
     del lastNode
     # End of node "Switch1"
@@ -1390,6 +1407,9 @@ def createInstance(app,group):
     param = groupTransform1.getParam("center")
     param.setExpression("(thisNode.getInput(0).getRegionOfDefinition(frame, view).width())/2", False, 0)
     param.setExpression("(thisNode.getInput(0).getRegionOfDefinition(frame, view).height())/2", False, 1)
+    del param
+    param = groupSwitch1.getParam("which")
+    param.setExpression("thisGroup.Use_mask.get()", False, 0)
     del param
     param = groupGLOBAL_blur.getParam("size")
     group.getParam("GLOBAL_blursize").setAsAlias(param)
