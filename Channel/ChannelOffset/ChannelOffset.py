@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "ChannelOffset"
+    return "natron.community.plugins.ChannelOffset"
 
 def getLabel():
     return "ChannelOffset"
@@ -29,6 +29,9 @@ def getIconPath():
 
 def getGrouping():
     return "Channel"
+
+def getPluginDescription():
+    return "Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -438,7 +441,7 @@ def createInstance(app,group):
     lastNode.separator24 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Jason M. Bergman")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Jason M. Bergman")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

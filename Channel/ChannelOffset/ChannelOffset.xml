@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>ChannelOffset</DisplayName>
+    <Description>Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.ChannelOffset</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
