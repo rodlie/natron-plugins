@@ -5,6 +5,9 @@
 ### Color
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Color/Tweaky/lp_Tweaky.png" height="32"> [lp_Tweaky](Color/lp_Tweaky/README.md)** : Brings a variety of little tweaking-options, like a Vibrance, WB-Slider, Tint, etc
 
+### Channel
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Channel/ChannelOffset/ChannelOffset.png" height="32"> [ChannelOffset](Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
+
 ### Draw
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/LightWrap_Simple/LightWrap_Simple.png" height="32"> [LightWrap_Simple](Draw/LightWrap_Simple/README.md)** : An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png" height="32"> [FrameStamp](Draw/FrameStamp/README.md)** : A very simple stamp that show the current frame in the corner of the image
