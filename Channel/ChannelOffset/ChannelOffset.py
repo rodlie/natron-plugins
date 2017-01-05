@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "natron.community.plugins.ChannelOffset"
+    return "ChannelOffset"
 
 def getLabel():
     return "ChannelOffset"
@@ -29,9 +29,6 @@ def getIconPath():
 
 def getGrouping():
     return "Channel"
-
-def getPluginDescription():
-    return "Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -69,7 +66,7 @@ def createInstance(app,group):
     lastNode.separator02 = param
     del param
 
-    param = lastNode.createSeparatorParam("ChannelOffset_v1_1", "ChannelOffset_v1.1")
+    param = lastNode.createSeparatorParam("ChannelOffset", "ChannelOffset")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -79,7 +76,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.ChannelOffset_v1_1 = param
+    lastNode.ChannelOffset = param
     del param
 
     param = lastNode.createStringParam("separator03", "")
@@ -359,7 +356,7 @@ def createInstance(app,group):
     lastNode.separator20 = param
     del param
 
-    param = lastNode.createSeparatorParam("line02", "ChannelOffset_v1.1")
+    param = lastNode.createSeparatorParam("line02", "ChannelOffset")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -441,7 +438,7 @@ def createInstance(app,group):
     lastNode.separator24 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Jason M. Bergman")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Jason M. Bergman")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
