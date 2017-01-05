@@ -26,6 +26,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_HairKey/lp_HairKey.png" height="32"> [lp_HairKey](Keyer/lp_HairKey/README.md)** : A keyless Keyer for fine detail like hair which is hard to come by with a matte.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png" height="32"> [lp_SimpleKeyer](Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/PIKDespill/PIKDespill.png" height="32"> [PIKDespill](Keyer/PIKDespill/README.md)** : Despill tool based on the PIK Keyer.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/IDKeyer/IDKeyer.png" height="32"> [IDKeyer](Keyer/IDKeyer/README.md)** : Extract an alpha matte from a ID-Pass to be used as a mask.
 
 ### Filter
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : A Chromatic Aberration filter similar to Blender's one
