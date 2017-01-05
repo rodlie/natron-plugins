@@ -401,19 +401,52 @@ def createInstance(app,group):
     lastNode.line07 = param
     del param
 
-    param = lastNode.createDouble2DParam("Transform1translate", "Translate")
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 1)
-    param.setDisplayMaximum(10000, 1)
+    param = lastNode.createStringParam("XY_transform", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+    param.setDefaultValue("XY transform")
+    param.restoreDefaultValue()
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.XY_transform = param
+    del param
+
+    param = lastNode.createDoubleParam("translate_X", "x")
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(-10, 0)
+    param.setDisplayMaximum(10, 0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
     param.setAnimationEnabled(True)
-    lastNode.Transform1translate = param
+    lastNode.translate_X = param
+    del param
+
+    param = lastNode.createDoubleParam("translate_Y", "y")
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(-10, 0)
+    param.setDisplayMaximum(10, 0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.translate_Y = param
     del param
 
     param = lastNode.createStringParam("sep09", "")
@@ -1400,9 +1433,6 @@ def createInstance(app,group):
     del param
     param = groupGamma_Gain_EXT.getParam("gamma")
     group.getParam("Gamma_Gain_EXTgamma").setAsAlias(param)
-    del param
-    param = groupTransform1.getParam("translate")
-    group.getParam("Transform1translate").setAsAlias(param)
     del param
     param = groupTransform1.getParam("center")
     param.setExpression("(thisNode.getInput(0).getRegionOfDefinition(frame, view).width())/2", False, 0)
