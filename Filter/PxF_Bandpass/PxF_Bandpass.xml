@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>PxF_Bandpass</DisplayName>
+    <Description>Extract detail from an image. Useful to make plates easier to track.</Description>
+    <Version>2.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.PxF_Bandpass</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

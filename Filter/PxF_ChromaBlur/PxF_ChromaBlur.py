@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "PxF_ChromaBlur"
+    return "natron.community.plugins.PxF_ChromaBlur"
 
 def getLabel():
     return "PxF_ChromaBlur"
@@ -28,7 +28,10 @@ def getIconPath():
     return "PxF_ChromaBlur.png"
 
 def getGrouping():
-    return "Pixelfudger"
+    return "/Filter/Pixelfudger"
+
+def getPluginDescription():
+    return "To be written"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -399,7 +402,7 @@ def createInstance(app,group):
     lastNode.sep18 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Xavier Bourque")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Xavier Bourque")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

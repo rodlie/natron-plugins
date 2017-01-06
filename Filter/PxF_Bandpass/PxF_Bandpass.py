@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "PxF_Bandpass"
+    return "natron.community.plugins.PxF_Bandpass"
 
 def getLabel():
     return "PxF_Bandpass"
@@ -28,7 +28,7 @@ def getIconPath():
     return "PxF_Bandpass.png"
 
 def getGrouping():
-    return "Pixelfudger"
+    return "Filter/Pixelfudger"
 
 def getPluginDescription():
     return "Extract detail from an image. Useful to make plates easier to track."
@@ -449,7 +449,7 @@ def createInstance(app,group):
     lastNode.sep12 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Xavier Bourque")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Xavier Bourque")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

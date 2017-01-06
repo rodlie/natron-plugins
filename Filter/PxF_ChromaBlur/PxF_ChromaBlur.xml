@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>PxF_ChromaBlur</DisplayName>
+    <Description>To be written</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.PxF_ChromaBlur</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
