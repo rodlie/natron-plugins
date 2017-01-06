@@ -28,7 +28,7 @@ def getIconPath():
     return "PxF_ChromaBlur.png"
 
 def getGrouping():
-    return "/Filter/Pixelfudger"
+    return "Filter/Pixelfudger"
 
 def getPluginDescription():
     return "To be written"
