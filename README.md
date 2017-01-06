@@ -51,6 +51,8 @@
 [DUCK_Smart_Blur](Filter/DUCK_Smart_Blur/README.md)** : blur images with heavy grain, surface imperfections, noises, render problems, etc. keeping the boundary and the edges, and restoring details in highlights and dark regions of the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DePepper/DePepper.png" height="32"> 
 [DePepper](Filter/DePepper/README.md)** : Remove Salt and Pepper noise
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/fxT_Glowy/fxT_Glowy.png" height="32"> 
+[fxT_Glowy](Filter/fxT_Glowy/README.md)** : Glow Effect
 
 ### Merge
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
