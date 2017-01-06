@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "DUCK_Denoise"
+    return "natron.community.plugins.DUCK_Denoise"
 
 def getLabel():
     return "DUCK_Denoise"
@@ -29,6 +29,9 @@ def getIconPath():
 
 def getGrouping():
     return "Filter/Duck"
+
+def getPluginDescription():
+    return "To be written"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -542,7 +545,7 @@ def createInstance(app,group):
     lastNode.separator40 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Niccolo Barbero")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Niccolo Barbero")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
