@@ -69,7 +69,7 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createSeparatorParam("line01", "PxF_Bandpass_v2.0.3")
+    param = lastNode.createSeparatorParam("line01", "PxF_Bandpass")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -367,7 +367,7 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
-    param = lastNode.createSeparatorParam("line02", "PxF_Bandpass 2.0.3")
+    param = lastNode.createSeparatorParam("line02", "PxF_Bandpass")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

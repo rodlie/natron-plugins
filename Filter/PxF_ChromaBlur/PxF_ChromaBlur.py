@@ -320,7 +320,7 @@ def createInstance(app,group):
     lastNode.sep14 = param
     del param
 
-    param = lastNode.createSeparatorParam("PxF_Chroma_Blur", "PxF_ChromaBlur 2.0.3")
+    param = lastNode.createSeparatorParam("PxF_Chroma_Blur", "PxF_ChromaBlur")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
