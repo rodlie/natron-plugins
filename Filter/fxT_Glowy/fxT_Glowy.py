@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "fxT_Glowy"
+    return "natron.community.plugins.fxT_Glowy"
 
 def getLabel():
     return "fxT_Glowy"
@@ -661,7 +661,7 @@ def createInstance(app,group):
     lastNode.sep19 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développées par Tor Andreassen")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½es par Tor Andreassen")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
