@@ -2,7 +2,7 @@
 <Package>
     <DisplayName>fxT_Glowy</DisplayName>
     <Description>to be written</Description>
-    <Version>2.0</Version>
+    <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.fxT_Glowy</Name>
     <Default>script</Default>
