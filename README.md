@@ -45,6 +45,8 @@
 [lp_roughenEdges](Filter/lp_roughenEdges/README.md)** : Roughens the edges of a given alpha channel based on an adjustable noise.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png" height="32"> 
 [DUCK_Alpha_Edge](Filter/DUCK_Alpha_Edge/README.md)** : Dilate, erode blur or multiply the edge of a roto or a key
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Denoise/DUCK_Denoise.png" height="32"> 
+[DUCK_Denoise](Filter/DUCK_Denoise/README.md)** : Denoise
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Skin_Cleaner/DUCK_Skin_Cleaner.png" height="32"> 
 [DUCK_Skin_Cleaner](Filter/DUCK_Skin_Cleaner/README.md)** : A tool developped to clean up models skin in common beauty/fashion shots
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Smart_Blur/DUCK_Smart_Blur.png" height="32"> 
