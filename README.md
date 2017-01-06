@@ -42,7 +42,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_Feather/lp_Feather.png" height="32"> 
 [lp_Feather](Filter/lp_Feather/README.md)** : Feathers the alpha channel, with advanced control over the feather type as well as the falloff.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_roughenEdges/lp_roughenEdges.png" height="32"> 
-[lp_roughenEdges](Filter/roughenEdges/README.md)** : Roughens the edges of a given alpha channel based on an adjustable noise.
+[lp_roughenEdges](Filter/lp_roughenEdges/README.md)** : Roughens the edges of a given alpha channel based on an adjustable noise.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png" height="32"> 
 [DUCK_Alpha_Edge](Filter/DUCK_Alpha_Edge/README.md)** : Dilate, erode blur or multiply the edge of a roto or a key
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Skin_Cleaner/DUCK_Skin_Cleaner.png" height="32"> 
@@ -51,6 +51,8 @@
 [DUCK_Smart_Blur](Filter/DUCK_Smart_Blur/README.md)** : blur images with heavy grain, surface imperfections, noises, render problems, etc. keeping the boundary and the edges, and restoring details in highlights and dark regions of the image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DePepper/DePepper.png" height="32"> 
 [DePepper](Filter/DePepper/README.md)** : Remove Salt and Pepper noise
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/fxT_Glowy/fxT_Glowy.png" height="32"> 
+[fxT_Glowy](Filter/fxT_Glowy/README.md)** : Glow Effect
 
 ### Merge
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
