@@ -12,4 +12,4 @@ key = alpha from keyed plate
 
 
 ### HOW TO USE IT
-Grain : mix the restored grain ( 1 = full restore , 0 = no restore).
+Grain : mix the restored grain (1 = full restore , 0 = no restore).
