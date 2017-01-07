@@ -63,7 +63,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_Bandpass/PxF_Bandpass.png" height="32">
 [PxF_Bandpass](Filter/PxF_Bandpass/README.md)** : Extract detail from an image. Useful to make plates easier to track.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png" height="32">
-[PxF_ChromaBlur](Filter/PxF_ChromaBlur/README.md)** : ChromaBlur
+[PxF_ChromaBlur](Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### Merge
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
