@@ -10,7 +10,7 @@ mask = the mask you want to apply the blur through.
 
 
 ### HOW TO USE IT
-Size : the size of your glow.
+Size : the size of your blur.
 
 Y : Luminance.
 

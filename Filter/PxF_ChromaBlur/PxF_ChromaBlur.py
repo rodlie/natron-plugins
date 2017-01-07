@@ -31,7 +31,7 @@ def getGrouping():
     return "Filter/Pixelfudger"
 
 def getPluginDescription():
-    return "To be written"
+    return "Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -208,7 +208,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("blur the luma component")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Y = param
@@ -220,7 +220,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("blur the blue-difference chroma component")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     param.setValue(True)
@@ -233,7 +233,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("blur the red-difference chroma component")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     param.setValue(True)
