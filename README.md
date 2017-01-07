@@ -19,6 +19,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReFlect/ReFlect.png" height="32"> [ReFlect](Draw/ReFlect/README.md)** : Take a Normal pass and an image and output a fake reflection pass .
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/SSAO/SSAO.png" height="32"> [SSAO](Draw/SSAO/README.md)** : Generate ScreenSpace Ambiant Occlusion from a Z pass
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Z2Normal/Z2Normal.png" height="32"> [Z2Normal](Draw/Z2Normal/README.md)** : Z to Normal, create a Normal pass from any grascale image to be used with ReShade PyPlug
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/PositionMask/PositionMask.png" height="32"> [PositionMask](Draw/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
 ### Keyer
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_CleanScreen/lp_CleanScreen.png" height="32"> [lp_CleanScreen](Keyer/lp_CleanScreen/README.md)** : Evens out your Chroma-Screen with the help of a Cleanplate.

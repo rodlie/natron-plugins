@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>mS_MarkerRemoval_Advanced</DisplayName>
+    <Description>mS_MarkerRemoval_Advanced</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.mS_MarkerRemoval_Advanced</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>BS_AlphaGrainEdge</DisplayName>
+    <Description>BS_AlphaGrainEdge</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.BS_AlphaGrainEdge</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
