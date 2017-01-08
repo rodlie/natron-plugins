@@ -14,3 +14,30 @@ fg = connect the bluescreen/greenscreen image.
 bg = connect the background image
 
 mask = connect the key from your bluescreen/greenscreen.
+
+
+### HOW TO USE IT
+
+User Color : select the color of your bluescreen/greenscreen.
+
+Enable Color : enable user color.
+
+----------------------------------------------------------------------------------------------------------------------
+
+High Pass : boost up the low value of the fg.
+
+Low Pass : boost up the high value of the fg.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Adjust background : grade the input bg.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Overall gain : grade the final result.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Use mask : use additional mask input.
+
+Invert mask : invert mask input.

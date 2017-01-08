@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "AdditiveKeyer"
+    return "natron.community.plugins.AdditiveKeyer"
 
 def getLabel():
     return "AdditiveKeyer"
@@ -29,6 +29,9 @@ def getIconPath():
 
 def getGrouping():
     return "Keyer"
+
+def getPluginDescription():
+    return "This is not a keyer, as it does not create a matte that is of use. It is more of a \'relative mixer\' or image blending tool. It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting. \nTo get it to work requires a lot of prep work on the screen and reference to work with uneven screens. \nIt is used in combination with normal keyer that provides the main core of the comp and the additive keyer generates only the subtle soft edges."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -1085,7 +1088,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge2_3")
     lastNode.setLabel("Merge2_3")
-    lastNode.setPosition(2291, 1821)
+    lastNode.setPosition(2291, 1807)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge2_3 = lastNode
@@ -1112,7 +1115,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge2_2_2")
     lastNode.setLabel("Merge2_2_2")
-    lastNode.setPosition(2580, 1807)
+    lastNode.setPosition(2577, 1807)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge2_2_2 = lastNode
@@ -1283,7 +1286,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Grade")
     lastNode.setLabel("Grade")
-    lastNode.setPosition(2818, 2628)
+    lastNode.setPosition(2818, 2959)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade = lastNode
@@ -1954,15 +1957,15 @@ def createInstance(app,group):
     groupMerge3_2_2.connectInput(0, groupbg_tweak)
     groupMerge3_2_2.connectInput(1, groupDot2)
     groupBG_compensation_2.connectInput(0, groupMerge3_2_2)
-    groupGrade.connectInput(0, groupBG_compensation_2)
+    groupGrade.connectInput(0, groupSwitchMask)
     groupFill1.connectInput(0, groupShuffle1_2)
     groupShuffle1_2.connectInput(1, groupDot2_3)
-    groupMerge1.connectInput(0, groupGrade)
+    groupMerge1.connectInput(0, groupBG_compensation_2)
     groupMerge1.connectInput(1, groupDot1)
     groupInvert.connectInput(0, groupShuffle1)
     groupDot1.connectInput(0, groupInvert)
     groupShuffle1.connectInput(1, groupmask)
-    groupOutput1.connectInput(0, groupSwitchMask)
+    groupOutput1.connectInput(0, groupGrade)
     groupDot2.connectInput(0, groupMerge_LoPass)
     groupSwitchMask.connectInput(0, groupBG_compensation_2)
     groupSwitchMask.connectInput(1, groupMerge1)
