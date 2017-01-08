@@ -66,7 +66,7 @@ def createInstance(app,group):
     lastNode.separator02 = param
     del param
 
-    param = lastNode.createSeparatorParam("AdditiveKeyer_v1", "AdditiveKeyer_v1")
+    param = lastNode.createSeparatorParam("AdditiveKeyer", "AdditiveKeyer")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -76,7 +76,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.AdditiveKeyer_v1 = param
+    lastNode.AdditiveKeyer = param
     del param
 
     param = lastNode.createStringParam("separator03", "")
@@ -611,7 +611,7 @@ def createInstance(app,group):
     lastNode.separator20 = param
     del param
 
-    param = lastNode.createSeparatorParam("line02", "AdditiveKeyer_v1")
+    param = lastNode.createSeparatorParam("line02", "AdditiveKeyer")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
