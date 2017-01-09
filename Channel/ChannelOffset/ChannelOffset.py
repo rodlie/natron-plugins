@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "ChannelOffset"
+    return "natron.community.plugins.ChannelOffset"
 
 def getLabel():
     return "ChannelOffset"
