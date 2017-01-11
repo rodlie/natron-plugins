@@ -22,6 +22,9 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/PositionMask/PositionMask.png" height="32"> [PositionMask](Draw/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
 ### Keyer
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/AdditiveKeyer/AdditiveKeyer.png" height="32"> [AdditiveKeyer](Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/BS_AlphaGrainEdge/BS_AlphaGrainEdge.png" height="32"> [BS_AlphaGrainEdge](Keyer/BS_AlphaGrainEdge/README.md)** : This basic PyPlug simply adds some noise to your alphas around the areas that aren't solid.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/EdgeMatteDetect/EdgeMatteDetect.png" height="32"> [EdgeMatteDetect](Keyer/EdgeMatteDetect/README.md)** : Description to be added...
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_CleanScreen/lp_CleanScreen.png" height="32"> [lp_CleanScreen](Keyer/lp_CleanScreen/README.md)** : Evens out your Chroma-Screen with the help of a Cleanplate.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_ChillSpill/lp_ChillSpill.png" height="32"> [lp_ChillSpill](Keyer/lp_ChillSpill/README.md)** : An alternative to built-in Despill node that is quick and easy to setup.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_HairKey/lp_HairKey.png" height="32"> [lp_HairKey](Keyer/lp_HairKey/README.md)** : A keyless Keyer for fine detail like hair which is hard to come by with a matte.
@@ -30,6 +33,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/IDKeyer/IDKeyer.png" height="32"> [IDKeyer](Keyer/IDKeyer/README.md)** : Extract an alpha matte from a ID-Pass to be used as a mask.
 
 ### Filter
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Antialiasing/AntiAliasing.png" height="32"> [Antialiasing](Filter/Antialiasing/README.md)** : Apply a Fast Approximate Anti-Aliasing (FXAA) to the input image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : A Chromatic Aberration filter similar to Blender's one
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png" height="32"> [ChromaticAberrationPP](Filter/ChromaticAberrationPP/README.md)** : An alternative Chromatic Aberration filter. It supports both axial and lateral chromatic aberration.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png" height="32"> [Defocus](Filter/Defocus/README.md)** : Add a bokeh blur to the image
