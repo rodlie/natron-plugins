@@ -1,6 +1,6 @@
 # DUCK_Alpha_Edge
 
-It gives edge of a roto or a key, you have the possibility to dilate or erode ,
+It gives edge of a roto or a key, you have the possibility to dilate or erode,
 
 blur or multiply the edge differently inside and outside.
 

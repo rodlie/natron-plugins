@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "ChannelOffset"
+    return "natron.community.plugins.ChannelOffset"
 
 def getLabel():
     return "ChannelOffset"
@@ -29,6 +29,9 @@ def getIconPath():
 
 def getGrouping():
     return "Channel"
+
+def getPluginDescription():
+    return "Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature."
 
 def createInstance(app,group):
     # Create all nodes in the group

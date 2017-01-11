@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "mS_MarkerRemoval_Advanced"
+    return "natron.community.plugins.mS_MarkerRemoval_Advanced"
 
 def getLabel():
     return "mS_MarkerRemoval_Advanced"

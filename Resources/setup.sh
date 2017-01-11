@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSION=2.1.9
+VERSION=2.2
 DATE=`date +%Y-%m-%d`
 BIT=${1:-}
 OS=`uname -s`
@@ -46,6 +46,24 @@ Keyer/lp_SimpleKeyer
 Merge/ZCombine
 Transform/lp_NoiseDistort
 Transform/Shaker
+Channel/ChannelOffset
+Draw/PositionMask
+Draw/WaveForm
+Filter/DUCK_Alpha_Edge
+Filter/DUCK_Denoise
+Filter/DUCK_Skin_Cleaner
+Filter/DUCK_Smart_Blur
+Filter/DePepper
+Filter/PxF_Bandpass
+Filter/PxF_ChromaBlur
+Filter/fxT_Glowy
+Keyer/AdditiveKeyer
+Keyer/BS_AlphaGrainEdge
+Keyer/EdgeMatteDetect
+Keyer/IDKeyer
+Keyer/PIKDespill
+mS/mS_MarkerRemoval_Advanced
+mS/mS_RestoreGrain
 "
 
 if [ -d "$TMP" ]; then

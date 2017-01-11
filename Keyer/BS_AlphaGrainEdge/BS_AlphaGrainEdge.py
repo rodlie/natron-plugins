@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "BS_AlphaGrainEdge"
+    return "natron.community.plugins.BS_AlphaGrainEdge"
 
 def getLabel():
     return "BS_AlphaGrainEdge"

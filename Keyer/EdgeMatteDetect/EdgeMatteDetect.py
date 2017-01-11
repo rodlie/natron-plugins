@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "EdgeMatteDetect"
+    return "natron.community.plugins.EdgeMatteDetect"
 
 def getLabel():
     return "EdgeMatteDetect"

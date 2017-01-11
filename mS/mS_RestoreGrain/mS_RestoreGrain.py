@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "mS_RestoreGrain"
+    return "natron.community.plugins.mS_RestoreGrain"
 
 def getLabel():
     return "mS_RestoreGrain"

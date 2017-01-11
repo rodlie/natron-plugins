@@ -22,6 +22,9 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Draw/PositionMask/PositionMask.png" height="32"> [PositionMask](Draw/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
 ### Keyer
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/AdditiveKeyer/AdditiveKeyer.png" height="32"> [AdditiveKeyer](Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/BS_AlphaGrainEdge/BS_AlphaGrainEdge.png" height="32"> [BS_AlphaGrainEdge](Keyer/BS_AlphaGrainEdge/README.md)** : This basic PyPlug simply adds some noise to your alphas around the areas that aren't solid.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/EdgeMatteDetect/EdgeMatteDetect.png" height="32"> [EdgeMatteDetect](Keyer/EdgeMatteDetect/README.md)** : Description to be added...
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_CleanScreen/lp_CleanScreen.png" height="32"> [lp_CleanScreen](Keyer/lp_CleanScreen/README.md)** : Evens out your Chroma-Screen with the help of a Cleanplate.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_ChillSpill/lp_ChillSpill.png" height="32"> [lp_ChillSpill](Keyer/lp_ChillSpill/README.md)** : An alternative to built-in Despill node that is quick and easy to setup.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_HairKey/lp_HairKey.png" height="32"> [lp_HairKey](Keyer/lp_HairKey/README.md)** : A keyless Keyer for fine detail like hair which is hard to come by with a matte.
@@ -63,7 +66,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_Bandpass/PxF_Bandpass.png" height="32">
 [PxF_Bandpass](Filter/PxF_Bandpass/README.md)** : Extract detail from an image. Useful to make plates easier to track.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png" height="32">
-[PxF_ChromaBlur](Filter/PxF_ChromaBlur/README.md)** : ChromaBlur
+[PxF_ChromaBlur](Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### Merge
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
