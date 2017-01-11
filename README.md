@@ -33,6 +33,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/IDKeyer/IDKeyer.png" height="32"> [IDKeyer](Keyer/IDKeyer/README.md)** : Extract an alpha matte from a ID-Pass to be used as a mask.
 
 ### Filter
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Antialiasing/AntiAliasing.png" height="32"> [Antialiasing](Filter/Antialiasing/README.md)** : Apply a Fast Approximate Anti-Aliasing (FXAA) to the input image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Chromatic_Aberration/Chromatic_Aberration.png" height="32"> [Chromatic Aberration](Filter/Chromatic_Aberration/README.md)** : A Chromatic Aberration filter similar to Blender's one
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png" height="32"> [ChromaticAberrationPP](Filter/ChromaticAberrationPP/README.md)** : An alternative Chromatic Aberration filter. It supports both axial and lateral chromatic aberration.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png" height="32"> [Defocus](Filter/Defocus/README.md)** : Add a bokeh blur to the image
