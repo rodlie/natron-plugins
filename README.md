@@ -3,7 +3,7 @@
 ### A collection of Natron plugins made by the community
 
 ### Image
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Image/Gradient/Gradient.png" height="32"> [Gradient](Image/Gradient/README.md)** : A 3-Way gradient.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Image/Gradient/Gradient.png" height="32"> [Gradient](Image/Gradient/README.md)** : A 3-4 Way gradient.
 
 ### Color
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Color/Tweaky/lp_Tweaky.png" height="32"> [lp_Tweaky](Color/lp_Tweaky/README.md)** : Brings a variety of little tweaking-options, like a Vibrance, WB-Slider, Tint, etc
