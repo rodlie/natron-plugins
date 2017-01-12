@@ -89,3 +89,6 @@ Use the installer or download the zip file.
 You can make a Pull Request or if you're not comfortable with that just tell us here :
 
 https://forum.natron.fr/t/what-about-having-a-pyplug-repository/1027
+
+Also you can look at our guidelines for Pyplug submission :
+https://github.com/NatronVFX/natron-plugins/wiki/Guidelines-for-plugins
