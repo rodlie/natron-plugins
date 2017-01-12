@@ -308,19 +308,6 @@ def createInstance(app,group):
     lastNode.line05 = param
     del param
 
-    param = lastNode.createDoubleParam("Transformrotate", "Rotate")
-    param.setDisplayMinimum(-180, 0)
-    param.setDisplayMaximum(180, 0)
-
-    # Add the param to the group, no need to add it to the page
-    lastNode.Three_colors.addParam(param)
-
-    # Set param properties
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Transformrotate = param
-    del param
-
     param = lastNode.createDoubleParam("Amplitude", "Amplitude")
     param.setMinimum(0.1, 0)
     param.setMaximum(1, 0)
@@ -519,19 +506,6 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Amplitude2 = param
-    del param
-
-    param = lastNode.createDoubleParam("Transform2rotate", "Rotate")
-    param.setDisplayMinimum(-180, 0)
-    param.setDisplayMaximum(180, 0)
-
-    # Add the param to the group, no need to add it to the page
-    lastNode.Four_colors.addParam(param)
-
-    # Set param properties
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Transform2rotate = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -1349,9 +1323,6 @@ def createInstance(app,group):
     param = groupbg.getParam("NatronParamFormatChoice")
     group.getParam("bgNatronParamFormatChoice").setAsAlias(param)
     del param
-    param = groupTransform.getParam("rotate")
-    group.getParam("Transformrotate").setAsAlias(param)
-    del param
     param = groupTransform.getParam("center")
     param.setExpression("rod =  bg.getRegionOfDefinition(frame,view)\nret = (rod.width())/2", True, 0)
     param.setExpression("rod =  bg.getRegionOfDefinition(frame,view)\nret = (rod.height())/2", True, 1)
@@ -1399,9 +1370,6 @@ def createInstance(app,group):
     param = groupRamp2_2.getParam("point1")
     param.setExpression("rod = bg.getRegionOfDefinition(frame,view)\nret = rod.width() - (rod.width() * thisGroup.Amplitude2.get() )", True, 0)
     param.setExpression("rod = bg.getRegionOfDefinition(frame,view)\nret = rod.height() - (rod.height() * thisGroup.Amplitude2.get() )", True, 1)
-    del param
-    param = groupTransform2.getParam("rotate")
-    group.getParam("Transform2rotate").setAsAlias(param)
     del param
     param = groupTransform2.getParam("center")
     param.setExpression("rod =  bg.getRegionOfDefinition(frame,view)\nret = (rod.width())/2", True, 0)
