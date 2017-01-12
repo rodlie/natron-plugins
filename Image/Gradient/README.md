@@ -1,3 +1,3 @@
 #Gradient
 
-A 3-Way gradient.
+A 3-4 Way gradient.
