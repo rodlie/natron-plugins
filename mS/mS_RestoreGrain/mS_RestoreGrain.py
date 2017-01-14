@@ -30,6 +30,9 @@ def getIconPath():
 def getGrouping():
     return "mS"
 
+def getPluginDescription():
+    return "This PyPlug lets you preserve the original grain from your plate after keying."
+
 def createInstance(app,group):
     # Create all nodes in the group
 
