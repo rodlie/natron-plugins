@@ -29,7 +29,7 @@ def getIconPath():
 
 def getGrouping():
     return "Transform"
-    
+
 def getPluginDescription():
     return "Tiling effect that extends image size."
 
@@ -275,8 +275,78 @@ def createInstance(app,group):
     lastNode.sep10 = param
     del param
 
+    lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
+    param = lastNode.createStringParam("sep11", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep11 = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    param = lastNode.createSeparatorParam("conversion", "(Fabrice Fernandez - 2017)")
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.conversion = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Controls', 'Node'])
+    lastNode.setPagesOrder(['Controls', 'Credits', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
