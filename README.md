@@ -76,6 +76,7 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
 
 ### Transform
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Repeat/Repeat.png" height="32"> [Repeat](Transform/Repeat/README.md)** : Tiling effect that extends image size
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Shaker/Shaker.png" height="32"> [Shaker](Transform/Shaker/README.md)** : Add a shaking effect to the input image
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/lp_NoiseDistort/lp_NoiseDistort.png" height="32">[lp_NoiseDistort](Transform/lp_NoiseDistort/README.md)** : Distorts an image based on two different noise-layer for a more dynamic feel.
 
