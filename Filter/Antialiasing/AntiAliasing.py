@@ -68,7 +68,7 @@ def createInstance(app,group):
     lastNode.A = param
     del param
 
-    param = lastNode.createBooleanParam("Blur", "Blur Filter")
+    param = lastNode.createBooleanParam("blurfilter", "Blur Filter")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -77,7 +77,7 @@ def createInstance(app,group):
     param.setHelp("Apply a second AntiAliasing filter by scaling the image , bluring and downscaling to the original scale , might help to give an extra smoothing at the cost of much more calculations")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
-    lastNode.Blur = param
+    lastNode.blurfilter = param
     del param
 
     param = lastNode.createSeparatorParam("sep", "")
@@ -117,6 +117,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
     lastNode.Merge1enableMask_Mask = param
@@ -130,6 +131,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.Merge1maskChannel_Mask = param
@@ -141,6 +143,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.Merge1maskInvert = param
@@ -158,6 +161,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Merge1mix = param
@@ -188,6 +192,7 @@ def createInstance(app,group):
     lastNode.FXAA_Extra.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.FXAA_RGBparamValueFloat1 = param
@@ -201,6 +206,7 @@ def createInstance(app,group):
     lastNode.FXAA_Extra.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.FXAA_RGBparamValueFloat2 = param
@@ -220,9 +226,19 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupFXAA_RGB = lastNode
 
-    param = lastNode.getParam("imageShaderFileName")
+    param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.setValue("/home/sozap/Bureau/NATRON/FXAA/fxaa_05.frag.glsl")
+        param.setValue(8, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(8, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(128, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -338,39 +354,6 @@ def createInstance(app,group):
     del lastNode
     # End of node "FXAA_RGB"
 
-    # Start of node "Blur1"
-    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
-    lastNode.setScriptName("Blur1")
-    lastNode.setLabel("Blur1")
-    lastNode.setPosition(878, 444)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.8, 0.5, 0.3)
-    groupBlur1 = lastNode
-
-    param = lastNode.getParam("size")
-    if param is not None:
-        param.setValue(2, 0)
-        param.setValue(2, 1)
-        del param
-
-    param = lastNode.getParam("filter")
-    if param is not None:
-        param.set("Quasi-Gaussian")
-        del param
-
-    param = lastNode.getParam("expandRoD")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("disableNode")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    del lastNode
-    # End of node "Blur1"
-
     # Start of node "Input"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Input")
@@ -403,9 +386,19 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupFXAA_Alpha = lastNode
 
-    param = lastNode.getParam("imageShaderFileName")
+    param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.setValue("/home/sozap/Bureau/NATRON/FXAA/fxaa_05.frag.glsl")
+        param.setValue(8, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(8, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(128, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -680,7 +673,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
     lastNode.setPosition(520, 608)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(104, 56)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
 
@@ -692,6 +685,11 @@ def createInstance(app,group):
     param = lastNode.getParam("operation")
     if param is not None:
         param.set("copy")
+        del param
+
+    param = lastNode.getParam("userTextArea")
+    if param is not None:
+        param.setValue("<Natron>(copy)</Natron>")
         del param
 
     del lastNode
@@ -719,9 +717,36 @@ def createInstance(app,group):
     del lastNode
     # End of node "Mask"
 
+    # Start of node "Blur2"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("Blur2")
+    lastNode.setLabel("Blur2")
+    lastNode.setPosition(878, 429)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlur2 = lastNode
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(2, 0)
+        param.setValue(2, 1)
+        del param
+
+    param = lastNode.getParam("expandRoD")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Blur2"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupFXAA_RGB.connectInput(0, groupInput)
-    groupBlur1.connectInput(0, groupTransform1)
     groupOutput1.connectInput(0, groupMerge1)
     groupFXAA_Alpha.connectInput(0, groupA_2_RGB)
     groupDot1.connectInput(0, groupFXAA_RGB)
@@ -730,10 +755,11 @@ def createInstance(app,group):
     groupA_2_RGB.connectInput(1, groupDot1)
     groupDot2.connectInput(0, groupDot1)
     groupTransform1.connectInput(0, groupShuffle1)
-    groupTransform2.connectInput(0, groupBlur1)
+    groupTransform2.connectInput(0, groupBlur2)
     groupMerge1.connectInput(0, groupInput)
     groupMerge1.connectInput(1, groupTransform2)
     groupMerge1.connectInput(2, groupMask)
+    groupBlur2.connectInput(0, groupTransform1)
 
     param = groupFXAA_RGB.getParam("paramValueFloat0")
     group.getParam("FXAA_RGBparamValueFloat0").setAsAlias(param)
@@ -746,13 +772,6 @@ def createInstance(app,group):
     del param
     param = groupFXAA_RGB.getParam("disableNode")
     param.setExpression("1-thisGroup.RGB.get()", False, 0)
-    del param
-    param = groupBlur1.getParam("size")
-    param.setExpression("thisGroup.scale.get()", False, 0)
-    param.setExpression("thisGroup.scale.get()", False, 1)
-    del param
-    param = groupBlur1.getParam("disableNode")
-    param.setExpression("1-thisGroup.Blur.get()", False, 0)
     del param
     param = groupFXAA_Alpha.getParam("paramValueFloat0")
     param.slaveTo(groupFXAA_RGB.getParam("paramValueFloat0"), 0, 0)
@@ -777,14 +796,14 @@ def createInstance(app,group):
     param.setExpression("thisGroup.scale.get()", False, 1)
     del param
     param = groupTransform1.getParam("disableNode")
-    param.setExpression("1-thisGroup.Blur.get()", False, 0)
+    param.setExpression("1-thisGroup.blurfilter.get()", False, 0)
     del param
     param = groupTransform2.getParam("scale")
     param.setExpression("1.0/thisGroup.scale.get()", False, 0)
     param.setExpression("1.0/thisGroup.scale.get()", False, 1)
     del param
     param = groupTransform2.getParam("disableNode")
-    param.setExpression("1-thisGroup.Blur.get()", False, 0)
+    param.setExpression("1-thisGroup.blurfilter.get()", False, 0)
     del param
     param = groupMerge1.getParam("maskInvert")
     group.getParam("Merge1maskInvert").setAsAlias(param)
@@ -797,6 +816,13 @@ def createInstance(app,group):
     del param
     param = groupMerge1.getParam("maskChannel_Mask")
     group.getParam("Merge1maskChannel_Mask").setAsAlias(param)
+    del param
+    param = groupBlur2.getParam("size")
+    param.setExpression("thisGroup.scale.get()", False, 0)
+    param.setExpression("thisGroup.scale.get()", False, 1)
+    del param
+    param = groupBlur2.getParam("disableNode")
+    param.setExpression("1-thisGroup.blurfilter.get()", False, 0)
     del param
 
     try:
