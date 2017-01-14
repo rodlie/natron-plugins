@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "Repeat"
+    return "natron.community.plugins.Repeat"
 
 def getLabel():
     return "Repeat"
@@ -29,6 +29,9 @@ def getIconPath():
 
 def getGrouping():
     return "Transform"
+    
+def getPluginDescription():
+    return "Tiling effect that extends image size."
 
 def createInstance(app,group):
     # Create all nodes in the group
