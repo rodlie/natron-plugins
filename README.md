@@ -58,13 +58,13 @@
 
 ### Filter/Duck
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png" height="32">
-[DUCK_Alpha_Edge](Filter/DUCK_Alpha_Edge/README.md)** : Dilate, erode blur or multiply the edge of a roto or a key
+[DUCK_Alpha_Edge](Filter/DUCK_Alpha_Edge/README.md)** : Dilate, erode blur or multiply the edge of a roto or a key.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Denoise/DUCK_Denoise.png" height="32">
-[DUCK_Denoise](Filter/DUCK_Denoise/README.md)** : Denoise
+[DUCK_Denoise](Filter/DUCK_Denoise/README.md)** : Denoise.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Skin_Cleaner/DUCK_Skin_Cleaner.png" height="32">
-[DUCK_Skin_Cleaner](Filter/DUCK_Skin_Cleaner/README.md)** : A tool developped to clean up models skin in common beauty/fashion shots
+[DUCK_Skin_Cleaner](Filter/DUCK_Skin_Cleaner/README.md)** : A tool developped to clean up models skin in common beauty/fashion shots.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Smart_Blur/DUCK_Smart_Blur.png" height="32">
-[DUCK_Smart_Blur](Filter/DUCK_Smart_Blur/README.md)** : blur images with heavy grain, surface imperfections, noises, render problems, etc. keeping the boundary and the edges, and restoring details in highlights and dark regions of the image
+[DUCK_Smart_Blur](Filter/DUCK_Smart_Blur/README.md)** : blur images with heavy grain, surface imperfections, noises, render problems, etc. keeping the boundary and the edges, and restoring details in highlights and dark regions of the image.
 
 ### Filter/Pixelfudger
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_Bandpass/PxF_Bandpass.png" height="32">
@@ -73,12 +73,17 @@
 [PxF_ChromaBlur](Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### Merge
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png" height="32"> [ZCombine](Merge/ZCombine/README.md)** : Merge two images according to their Zpass.
 
 ### Transform
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Repeat/Repeat.png" height="32"> [Repeat](Transform/Repeat/README.md)** : Tiling effect that extends image size
-- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Shaker/Shaker.png" height="32"> [Shaker](Transform/Shaker/README.md)** : Add a shaking effect to the input image
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Repeat/Repeat.png" height="32"> [Repeat](Transform/Repeat/README.md)** : Tiling effect that extends image size.
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Shaker/Shaker.png" height="32"> [Shaker](Transform/Shaker/README.md)** : Add a shaking effect to the input image.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/lp_NoiseDistort/lp_NoiseDistort.png" height="32">[lp_NoiseDistort](Transform/lp_NoiseDistort/README.md)** : Distorts an image based on two different noise-layer for a more dynamic feel.
+
+### mS
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/mS/mS_MarkerRemoval_Advanced/mS_MarkerRemoval_Advanced.png" height="32"> [mS_MarkerRemoval_Advanced](mS/mS_MarkerRemoval_Advanced/README.md)** : This PyPlug lets you easily remove tracking markers from backing screens without the hassle of painting, even when they intersect with the foreground elements.
+
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/mS/mS_RestoreGrain/mS_RestoreGrain.png" height="32"> [mS_RestoreGrain](mS/mS_RestoreGrain/README.md)** : This PyPlug lets you preserve the original grain from your plate after keying.
 
 ## How to install
 
