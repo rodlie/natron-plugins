@@ -6,7 +6,7 @@ Lets you easily remove tracking markers from backing screens without the hassle 
 ### INPUTS
 Plate = your plate.
 
-Markers_Matte = The mask that isolated the markers of the plate..
+Markers_Matte = the mask that isolates the markers of the plate..
 
 
 ![Screenshot](mS_MarkerRemoval_Advanced_snap.png)
