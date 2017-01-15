@@ -49,3 +49,6 @@ clamp black : obvious.
 ------------------------------------------------------------------------------------------------------------
 
 glow opacity : adjusts the glow opacity
+
+
+![Screenshot](snap_fxT_Glowyv.png)
