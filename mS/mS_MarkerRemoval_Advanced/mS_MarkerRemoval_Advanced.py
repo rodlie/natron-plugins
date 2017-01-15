@@ -31,7 +31,7 @@ def getGrouping():
     return "mS"
 
 def getPluginDescription():
-    return "This PyPlug lets you easily remove tracking markers from backing screens without the hassle of painting, even when they intersect with the foreground elements."
+    return "Lets you easily remove tracking markers from backing screens without the hassle of painting, even when they intersect with the foreground elements."
 
 def createInstance(app,group):
     # Create all nodes in the group
