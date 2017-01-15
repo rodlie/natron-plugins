@@ -123,8 +123,8 @@ def createInstance(app,group):
     lastNode.line01 = param
     del param
 
-    param = lastNode.createIntParam("X_repeat", "x repeat")
-    param.setDisplayMinimum(0, 0)
+    param = lastNode.createIntParam("X_repeat", "repeat")
+    param.setDisplayMinimum(1, 0)
     param.setDisplayMaximum(10, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
@@ -222,8 +222,6 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createChoiceParam("Reformat2filter", "Filter")
-    param.setDefaultValue(2)
-    param.restoreDefaultValue()
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -458,6 +456,11 @@ def createInstance(app,group):
         param.setValue(True)
         del param
 
+    param = lastNode.getParam("filter")
+    if param is not None:
+        param.set("Impulse")
+        del param
+
     del lastNode
     # End of node "Reformat2"
 
@@ -487,9 +490,7 @@ def createInstance(app,group):
     del param
     param = groupReformat1.getParam("reformatScale")
     param.setExpression("thisGroup.X_repeat.get()", False, 0)
-    param.slaveTo(groupTile.getParam("rows"), 0, 0)
     param.setExpression("thisGroup.X_repeat.get()", False, 1)
-    param.slaveTo(groupTile.getParam("cols"), 1, 0)
     del param
     param = groupReformat2.getParam("NatronParamFormatChoice")
     group.getParam("Reformat2NatronParamFormatChoice").setAsAlias(param)
