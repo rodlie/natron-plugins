@@ -7,4 +7,4 @@ blur or multiply the edge differently inside and outside.
 Simply the best alpha edge you can find for free.
 
 
-![Screenshot](Alpha_Edge_snap.png)
+![Screenshot](DUCK_Alpha_Edge_snap.png)
