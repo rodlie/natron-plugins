@@ -1191,48 +1191,6 @@ def createInstance(app,group):
     del lastNode
     # End of node "rgba"
 
-    # Start of node "Read1"
-    lastNode = app.createNode("fr.inria.built-in.Read", 1, group)
-    lastNode.setScriptName("Read1")
-    lastNode.setLabel("Read1")
-    lastNode.setPosition(3734, 613)
-    lastNode.setSize(128, 78)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupRead1 = lastNode
-
-    param = lastNode.getParam("decodingPluginID")
-    if param is not None:
-        param.setValue("fr.inria.openfx.ReadOIIO")
-        del param
-
-    param = lastNode.getParam("filename")
-    if param is not None:
-        param.setValue("C:/Users/Administrateur/Desktop/masque1.tga")
-        del param
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("masque1.tga")
-        del param
-
-    param = lastNode.getParam("ParamExistingInstance")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("outputLayerChoice")
-    if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("ocioInputSpace")
-    if param is not None:
-        param.setValue("sRGB")
-        del param
-
-    del lastNode
-    # End of node "Read1"
-
     # Start of node "Premult1"
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult1")
@@ -1525,8 +1483,8 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(720, 0)
-        param.setValue(576, 1)
+        param.setValue(0, 0)
+        param.setValue(0, 1)
         del param
 
     param = lastNode.getParam("color0")
@@ -2042,7 +2000,7 @@ def createInstance(app,group):
     # End of node "Merge3"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupPremult1.connectInput(0, groupRead1)
+    groupPremult1.connectInput(0, grouprgba)
     groupKeyer1.connectInput(0, groupPremult1)
     groupInvert1_2.connectInput(0, groupKeyer1)
     groupPremult2.connectInput(0, groupInvert1_2)
