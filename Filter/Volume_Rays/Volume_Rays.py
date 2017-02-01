@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 1
+    return 2.1
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -872,13 +872,13 @@ def createInstance(app,group):
     param.setMaximum(10000, 0)
     param.setDisplayMinimum(0.1, 0)
     param.setDisplayMaximum(10, 0)
-    param.setDefaultValue(2, 0)
+    param.setDefaultValue(1.1, 0)
     param.restoreDefaultValue(0)
     param.setMinimum(-10000, 1)
     param.setMaximum(10000, 1)
     param.setDisplayMinimum(0.1, 1)
     param.setDisplayMaximum(10, 1)
-    param.setDefaultValue(2, 1)
+    param.setDefaultValue(1.1, 1)
     param.restoreDefaultValue(1)
 
     # Add the param to the page
@@ -1378,7 +1378,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("Shuffle1_2")
     lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(3995, 1336)
+    lastNode.setPosition(3995, 1338)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1_2 = lastNode
@@ -1390,22 +1390,22 @@ def createInstance(app,group):
 
     param = lastNode.getParam("outputRChoice")
     if param is not None:
-        param.setValue("A.a")
+        param.setValue("A.r")
         del param
 
     param = lastNode.getParam("outputGChoice")
     if param is not None:
-        param.setValue("A.a")
+        param.setValue("A.r")
         del param
 
     param = lastNode.getParam("outputBChoice")
     if param is not None:
-        param.setValue("A.a")
+        param.setValue("A.r")
         del param
 
     param = lastNode.getParam("outputAChoice")
     if param is not None:
-        param.setValue("A.a")
+        param.setValue("A.r")
         del param
 
     del lastNode
@@ -1501,25 +1501,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert2")
     lastNode.setLabel("Invert2")
-    lastNode.setPosition(3995, 1661)
+    lastNode.setPosition(3995, 1658)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert2 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamProcessR")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessG")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessB")
-    if param is not None:
-        param.setValue(False)
-        del param
 
     del lastNode
     # End of node "Invert2"
@@ -1587,7 +1572,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Clamp", 2, group)
     lastNode.setScriptName("Clamp")
     lastNode.setLabel("Clamp")
-    lastNode.setPosition(4501, 1719)
+    lastNode.setPosition(4501, 1718)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupClamp = lastNode
@@ -1661,7 +1646,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.SaturationPlugin", 2, group)
     lastNode.setScriptName("Saturation1")
     lastNode.setLabel("Saturation1")
-    lastNode.setPosition(4501, 1917)
+    lastNode.setPosition(4501, 1919)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupSaturation1 = lastNode
@@ -1737,7 +1722,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GodRays", 1, group)
     lastNode.setScriptName("GodRays1")
     lastNode.setLabel("GodRays1")
-    lastNode.setPosition(4503, 2514)
+    lastNode.setPosition(4501, 2511)
     lastNode.setSize(104, 43)
     lastNode.setColor(1, 1, 1)
     groupGodRays1 = lastNode
@@ -2067,11 +2052,6 @@ def createInstance(app,group):
         param.set("multiply")
         del param
 
-    param = lastNode.getParam("bbox")
-    if param is not None:
-        param.set("A")
-        del param
-
     param = lastNode.getParam("disableNode")
     if param is not None:
         param.setValue(True)
@@ -2091,8 +2071,8 @@ def createInstance(app,group):
 
     param = lastNode.getParam("scale")
     if param is not None:
-        param.setValue(2, 0)
-        param.setValue(2, 1)
+        param.setValue(1.1, 0)
+        param.setValue(1.1, 1)
         del param
 
     param = lastNode.getParam("center")
