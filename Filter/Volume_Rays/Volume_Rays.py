@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 2.1
+    return 2.2
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -1976,7 +1976,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
-    lastNode.setPosition(4774, 2227)
+    lastNode.setPosition(4774, 2099)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
@@ -2106,6 +2106,63 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot2"
 
+    # Start of node "Reformat1"
+    lastNode = app.createNode("net.sf.openfx.Reformat", 1, group)
+    lastNode.setScriptName("Reformat1")
+    lastNode.setLabel("Reformat1")
+    lastNode.setPosition(4774, 2195)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupReformat1 = lastNode
+
+    param = lastNode.getParam("reformatType")
+    if param is not None:
+        param.set("To Box")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
+        del param
+
+    param = lastNode.getParam("boxSize")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("resize")
+    if param is not None:
+        param.set("Distort")
+        del param
+
+    del lastNode
+    # End of node "Reformat1"
+
+    # Start of node "cc1"
+    lastNode = app.createNode("net.sf.openfx.ColorCorrectPlugin", 2, group)
+    lastNode.setScriptName("cc1")
+    lastNode.setLabel("cc1")
+    lastNode.setPosition(3741, 673)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupcc1 = lastNode
+
+    param = lastNode.getParam("toneRanges")
+    if param is not None:
+        param.setCurveColor(0, 0.6, 0.4, 0.6)
+        param.deleteAllControlPoints(0)
+        param.addControlPoint(0, 0, 1, 0, 0, NatronEngine.Natron.KeyframeTypeEnum.eKeyframeTypeHorizontal)
+        param.addControlPoint(0, 0.09, 0, 0, 0, NatronEngine.Natron.KeyframeTypeEnum.eKeyframeTypeHorizontal)
+        param.setCurveColor(1, 0.8, 0.7, 0.6)
+        param.deleteAllControlPoints(1)
+        param.addControlPoint(1, 0.5, 0, 0, 0, NatronEngine.Natron.KeyframeTypeEnum.eKeyframeTypeHorizontal)
+        param.addControlPoint(1, 1, 1, 0, 0, NatronEngine.Natron.KeyframeTypeEnum.eKeyframeTypeHorizontal)
+        del param
+
+    del lastNode
+    # End of node "cc1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupKeyer1.connectInput(0, groupDot2)
     groupInvert1_2.connectInput(0, groupKeyer1)
@@ -2145,12 +2202,14 @@ def createInstance(app,group):
     groupSwitch_noise.connectInput(1, groupSeNoise1_2)
     groupRadial1.connectInput(0, groupShuffle4)
     groupOutput1.connectInput(0, groupMerge1)
-    groupShuffle1.connectInput(1, groupMask)
+    groupShuffle1.connectInput(1, groupReformat1)
     groupBlur_Mask.connectInput(0, groupShuffle1)
     groupMerge3.connectInput(0, groupBlur_Mask)
     groupMerge3.connectInput(1, groupBlur1)
     groupDirBlur1.connectInput(0, groupColorCorrect)
-    groupDot2.connectInput(0, grouprgba)
+    groupDot2.connectInput(0, groupcc1)
+    groupReformat1.connectInput(0, groupMask)
+    groupcc1.connectInput(0, grouprgba)
 
     param = groupKeyer1.getParam("softnessLower")
     group.getParam("Luma_tolerance").setAsAlias(param)
@@ -2265,6 +2324,10 @@ def createInstance(app,group):
     del param
     param = groupDirBlur1.getParam("disableNode")
     param.setExpression("not thisGroup.Enable_Blur.get()", False, 0)
+    del param
+    param = groupReformat1.getParam("boxSize")
+    param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.width()", True, 0)
+    param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.height()", True, 1)
     del param
 
     try:
