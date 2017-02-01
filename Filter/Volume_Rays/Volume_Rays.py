@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 2.2
+    return 2.3
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -1361,6 +1361,26 @@ def createInstance(app,group):
     lastNode.setColor(0.8, 0.5, 0.3)
     groupEdgeDetect = lastNode
 
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("filter")
     if param is not None:
         param.set("Sobel")
@@ -1378,7 +1398,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("Shuffle1_2")
     lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(3995, 1338)
+    lastNode.setPosition(3995, 1339)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1_2 = lastNode
@@ -1390,22 +1410,22 @@ def createInstance(app,group):
 
     param = lastNode.getParam("outputRChoice")
     if param is not None:
-        param.setValue("A.r")
+        param.setValue("A.a")
         del param
 
     param = lastNode.getParam("outputGChoice")
     if param is not None:
-        param.setValue("A.r")
+        param.setValue("A.a")
         del param
 
     param = lastNode.getParam("outputBChoice")
     if param is not None:
-        param.setValue("A.r")
+        param.setValue("A.a")
         del param
 
     param = lastNode.getParam("outputAChoice")
     if param is not None:
-        param.setValue("A.r")
+        param.setValue("A.a")
         del param
 
     del lastNode
