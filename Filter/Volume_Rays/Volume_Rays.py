@@ -327,15 +327,13 @@ def createInstance(app,group):
     lastNode.sep11 = param
     del param
 
-    param = lastNode.createDouble2DParam("GodRays1center", "Volumetrics Center")
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param = lastNode.createDoubleParam("Vol_Center_X", "Volumetrics Center x:")
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1000, 0)
     param.setDefaultValue(100, 0)
     param.restoreDefaultValue(0)
-    param.setDisplayMinimum(-10000, 1)
-    param.setDisplayMaximum(10000, 1)
-    param.setDefaultValue(100, 1)
-    param.restoreDefaultValue(1)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -344,7 +342,25 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.GodRays1center = param
+    lastNode.Vol_Center_X = param
+    del param
+
+    param = lastNode.createDoubleParam("Vol_Center_Y", "y:")
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1000, 0)
+    param.setDefaultValue(100, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.Vol_Center_Y = param
     del param
 
     param = lastNode.createDouble2DParam("Ray_Lengh", "Ray Lengh")
@@ -2073,7 +2089,8 @@ def createInstance(app,group):
     group.getParam("Ray_Lengh").setAsAlias(param)
     del param
     param = groupGodRays1.getParam("center")
-    group.getParam("GodRays1center").setAsAlias(param)
+    param.slaveTo(group.getParam("Vol_Center_X"), 0, 0)
+    param.slaveTo(group.getParam("Vol_Center_Y"), 1, 0)
     del param
     param = groupGodRays1.getParam("fromColor")
     param.setExpression("(thisGroup.Initial_Color.getValue(0))*50", False, 0)
