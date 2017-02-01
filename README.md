@@ -55,6 +55,7 @@
 [DePepper](Filter/DePepper/README.md)** : Remove Salt and Pepper noise
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/fxT_Glowy/fxT_Glowy.png" height="32">
 [fxT_Glowy](Filter/fxT_Glowy/README.md)** : Glow Effect
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Volume_Rays/Volume_Rays.png" height="32"> [Volume_Rays](Filter/Volume_Rays/README.md)** : Enhanced version of Natron's native GodRays, featuring advanced options.
 
 ### Filter/Duck
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png" height="32">
