@@ -22,16 +22,13 @@ def getLabel():
     return "lp_HairKey"
 
 def getVersion():
-    return 1
-
-def getIconPath():
-    return "lp_HairKey.png"
+    return 2
 
 def getGrouping():
     return "Keyer"
 
 def getPluginDescription():
-    return "Create key-less keys of hair and other fine detail which are hard to matte. Requires a cleanplate (generated ones do work better usually) but can also be utilized with a single color. Works for bright and dark hair."
+    return "A keyless Keyer for fine detail like hair which is hard to come by with a matte.\nExtracts the information with the help of a Cleanplate; a Constant can also be utilized with perfectly even screens.\nAlongside this description, please also mind the tooltips inside the tool :)\n\nINPUTS\nbg = connect your given background you want to apply the effect to\nimg = connect the main plate you want to smear pixel on\ncleanplate = connect a cleanplate of your shot (either a shot one, or a generated one, e.g. by PIKcolor)\nmask = masks the effect by a connected alpha-channel\n\nHOW TO USE IT\nbg, img and cleanplate-inputs are mandatory, the use of a mask is strongly suggested though.\nThe tool should already work without much setup; basic inputs should be the hair type and and screen colour (the latter becomes obsolete if you set the \'despill\' to none). Adjust intensity and saturation as needed, use the intensity non-uniform if you need to adjust the colour of the output.\n\nHOW DOES IT WORK\nIn all modes but \'universal\', this tool with subtract the cleanplate from the original image and either add, screen or multiply it on top. \'dark\', the mode that multiplies, is also treated by a few operations for this to work out right (inverting and shifting the hue 180°, for instace). \'intensity\' adjusts the output of the subtraction by adjusting the gain. \'universal\' also multiplies on top of the background, but in this case the img and cleanplate get divided, not subtracted from each other.\nIn many cases, it makes a lot of sense to despill the inputs before the operation; as a SeExprSimple-node is used, you may find the operation a bit slow so despill manually before and setting the operation to \'none\' might benefit the performance (lp_Despill works faster because of the setup, the same tech is not implemented here for the sake simplicity)"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -44,7 +41,8 @@ def createInstance(app,group):
     param = lastNode.createChoiceParam("hairtype", "hair type")
     entries = [ ("bright 1", ""),
     ("bright 2", ""),
-    ("dark", "")]
+    ("dark", ""),
+    ("universal", "")]
     param.setOptions(entries)
     del entries
 
@@ -52,7 +50,7 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Choose which tone of hair you are trying to key; \'bright 1\' equals a plus, \'bright 2\' a screen and \'dark\' a multiply-operation")
+    param.setHelp("Choose which tone of hair you are trying to key; \'bright 1\' equals a plus, \'bright 2\' a screen and \'dark\' a multiply-operation, all operations follow a former screen subtraction.\n\'universal\' works also by multiplying, but follows a former divide.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.hairtype = param
@@ -212,7 +210,7 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -582,7 +580,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.HSVToolPlugin", 1, group)
     lastNode.setScriptName("HSVTool1")
     lastNode.setLabel("HSVTool1")
-    lastNode.setPosition(2283, 807)
+    lastNode.setPosition(2283, 780)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupHSVTool1 = lastNode
@@ -792,6 +790,11 @@ def createInstance(app,group):
         param.set("multiply")
         del param
 
+    param = lastNode.getParam("mix")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
     del lastNode
     # End of node "Merge1_2"
 
@@ -828,10 +831,28 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MultiplyPlugin", 2, group)
     lastNode.setScriptName("Multiply1")
     lastNode.setLabel("Multiply1")
-    lastNode.setPosition(2283, 1089)
+    lastNode.setPosition(2283, 1168)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupMultiply1 = lastNode
+
+    param = lastNode.getParam("value")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
+        param.setValue(1, 3)
+        del param
+
+    param = lastNode.getParam("premult")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(False)
+        del param
 
     del lastNode
     # End of node "Multiply1"
@@ -840,7 +861,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
-    lastNode.setPosition(2283, 1244)
+    lastNode.setPosition(2283, 1297)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
@@ -904,7 +925,6 @@ def createInstance(app,group):
 
     # Start of node "Output3"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output3")
     lastNode.setLabel("Output3")
     lastNode.setPosition(1812, 2727)
     lastNode.setSize(104, 43)
@@ -968,6 +988,11 @@ def createInstance(app,group):
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupConstant2 = lastNode
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("HD 1920x1080")
+        del param
 
     param = lastNode.getParam("size")
     if param is not None:
@@ -1041,29 +1066,14 @@ def createInstance(app,group):
         param.setValue("Color.RGBA")
         del param
 
-    param = lastNode.getParam("outputR")
-    if param is not None:
-        param.set("B.r")
-        del param
-
     param = lastNode.getParam("outputRChoice")
     if param is not None:
         param.setValue("B.r")
         del param
 
-    param = lastNode.getParam("outputG")
-    if param is not None:
-        param.set("B.g")
-        del param
-
     param = lastNode.getParam("outputGChoice")
     if param is not None:
         param.setValue("B.g")
-        del param
-
-    param = lastNode.getParam("outputB")
-    if param is not None:
-        param.set("B.b")
         del param
 
     param = lastNode.getParam("outputBChoice")
@@ -1129,7 +1139,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot10")
     lastNode.setLabel("Dot10")
-    lastNode.setPosition(2118, 2131)
+    lastNode.setPosition(2118, 2050)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot10 = lastNode
@@ -1725,6 +1735,93 @@ def createInstance(app,group):
     del lastNode
     # End of node "Saturation1"
 
+    # Start of node "Merge5"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge5")
+    lastNode.setLabel("Merge5")
+    lastNode.setPosition(2433, 1025)
+    lastNode.setSize(104, 66)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge5 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamStringSublabelName")
+    if param is not None:
+        param.setValue("divide")
+        del param
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("divide")
+        del param
+
+    del lastNode
+    # End of node "Merge5"
+
+    # Start of node "Dot2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2")
+    lastNode.setLabel("Dot2")
+    lastNode.setPosition(2328, 877)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2 = lastNode
+
+    del lastNode
+    # End of node "Dot2"
+
+    # Start of node "Dot3"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot3")
+    lastNode.setLabel("Dot3")
+    lastNode.setPosition(2478, 877)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot3 = lastNode
+
+    del lastNode
+    # End of node "Dot3"
+
+    # Start of node "Dot26"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot26")
+    lastNode.setLabel("Dot26")
+    lastNode.setPosition(3148, 1051)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot26 = lastNode
+
+    del lastNode
+    # End of node "Dot26"
+
+    # Start of node "Switch2"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch2")
+    lastNode.setLabel("Switch2")
+    lastNode.setPosition(2283, 1037)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitch2 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch2"
+
+    # Start of node "Dot27"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot27")
+    lastNode.setLabel("Dot27")
+    lastNode.setPosition(2118, 2131)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot27 = lastNode
+
+    del lastNode
+    # End of node "Dot27"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupavgR.connectInput(0, groupDot1)
     groupavgG.connectInput(0, groupDot1)
@@ -1741,7 +1838,7 @@ def createInstance(app,group):
     groupSwitch1_2.connectInput(1, groupavgGc)
     groupSwitch1_2.connectInput(2, groupavgBc)
     groupDot1_2.connectInput(0, groupDot16)
-    groupMerge3.connectInput(0, groupHSVTool1)
+    groupMerge3.connectInput(0, groupDot2)
     groupMerge3.connectInput(1, groupDot6)
     groupDot6.connectInput(0, groupHSVTool1_2)
     groupHSVTool1.connectInput(0, groupSwitch5)
@@ -1760,7 +1857,8 @@ def createInstance(app,group):
     groupSwitch3.connectInput(0, groupMerge1)
     groupSwitch3.connectInput(1, groupDot11)
     groupSwitch3.connectInput(2, groupDot10)
-    groupMultiply1.connectInput(0, groupMerge3)
+    groupSwitch3.connectInput(3, groupDot27)
+    groupMultiply1.connectInput(0, groupSwitch2)
     groupInvert1.connectInput(0, groupMultiply1)
     groupHSVTool1_2.connectInput(0, groupSwitch4)
     groupOutput3.connectInput(0, groupShuffle1)
@@ -1815,6 +1913,14 @@ def createInstance(app,group):
     groupSwitch5.connectInput(1, groupSwitch1)
     groupSwitch5.connectInput(2, groupSwitch1_3)
     groupSaturation1.connectInput(0, groupHSVToRGB1)
+    groupMerge5.connectInput(0, groupDot26)
+    groupMerge5.connectInput(1, groupDot3)
+    groupDot2.connectInput(0, groupHSVTool1)
+    groupDot3.connectInput(0, groupDot2)
+    groupDot26.connectInput(0, groupDot6)
+    groupSwitch2.connectInput(0, groupMerge3)
+    groupSwitch2.connectInput(1, groupMerge5)
+    groupDot27.connectInput(0, groupDot10)
 
     param = groupimg.getParam("cp_connected")
     param.setExpression("thisNode.getInput", True, 0)
@@ -1840,11 +1946,17 @@ def createInstance(app,group):
     param = groupLog2Lin1_2_3.getParam("disableNode")
     param.setExpression("thisGroup.linlog.get()", False, 0)
     del param
+    param = groupMerge1_2.getParam("mix")
+    param.setExpression("if thisGroup.hairtype.get() == 3:\n\tret = thisGroup.Multiply1value.get()[dimension]\nelse:\n\tret = 1", True, 0)
+    del param
     param = groupSwitch3.getParam("which")
     param.setExpression("thisGroup.hairtype.get()", False, 0)
     del param
     param = groupMultiply1.getParam("value")
     group.getParam("Multiply1value").setAsAlias(param)
+    del param
+    param = groupMultiply1.getParam("disableNode")
+    param.setExpression("if thisGroup.hairtype.get() == 3:\n\tret = 1\nelse:\n\tret = 0", True, 0)
     del param
     param = groupInvert1.getParam("disableNode")
     param.setExpression("if thisGroup.hairtype.get() == 2:\n\tret = 0\nelse:\n\tret = 1", True, 0)
@@ -1878,6 +1990,9 @@ def createInstance(app,group):
     del param
     param = groupSaturation1.getParam("saturation")
     group.getParam("Saturation1saturation").setAsAlias(param)
+    del param
+    param = groupSwitch2.getParam("which")
+    param.setExpression("if thisGroup.hairtype.get() < 3:\n\tret = 0\nelse:\n\tret = 1", True, 0)
     del param
 
     try:
