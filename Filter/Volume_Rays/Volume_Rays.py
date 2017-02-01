@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 1
+    return 2
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -814,6 +814,33 @@ def createInstance(app,group):
     lastNode.Radial1softness = param
     del param
 
+    param = lastNode.createStringParam("sep24", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep24 = param
+    del param
+
+    param = lastNode.createSeparatorParam("Blur_Options", "Blur Options")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.Blur_Options = param
+    del param
+
     param = lastNode.createStringParam("sep18", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -826,6 +853,56 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep18 = param
+    del param
+
+    param = lastNode.createBooleanParam("Enable_Blur", "Enable Additional Blur")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.Enable_Blur = param
+    del param
+
+    param = lastNode.createDouble2DParam("DirBlur1scale", "Additional Blur")
+    param.setMinimum(-10000, 0)
+    param.setMaximum(10000, 0)
+    param.setDisplayMinimum(0.1, 0)
+    param.setDisplayMaximum(10, 0)
+    param.setDefaultValue(2, 0)
+    param.restoreDefaultValue(0)
+    param.setMinimum(-10000, 1)
+    param.setMaximum(10000, 1)
+    param.setDisplayMinimum(0.1, 1)
+    param.setDisplayMaximum(10, 1)
+    param.setDefaultValue(2, 1)
+    param.restoreDefaultValue(1)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.DirBlur1scale = param
+    del param
+
+    param = lastNode.createStringParam("sep25", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep25 = param
     del param
 
     param = lastNode.createSeparatorParam("Mask_Options", "Mask Options")
@@ -1765,7 +1842,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(4503, 2286)
+    lastNode.setPosition(4501, 2284)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
@@ -1806,7 +1883,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
-    lastNode.setPosition(4503, 2735)
+    lastNode.setPosition(4504, 2828)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
@@ -1828,7 +1905,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
-    lastNode.setPosition(3804, 2761)
+    lastNode.setPosition(3806, 2854)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
@@ -2015,6 +2092,40 @@ def createInstance(app,group):
     del lastNode
     # End of node "Merge3"
 
+    # Start of node "DirBlur1"
+    lastNode = app.createNode("net.sf.openfx.DirBlur", 1, group)
+    lastNode.setScriptName("DirBlur1")
+    lastNode.setLabel("DirBlur1")
+    lastNode.setPosition(4503, 2717)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupDirBlur1 = lastNode
+
+    param = lastNode.getParam("scale")
+    if param is not None:
+        param.setValue(2, 0)
+        param.setValue(2, 1)
+        del param
+
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(100, 0)
+        param.setValue(100, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "DirBlur1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupPremult1.connectInput(0, grouprgba)
     groupKeyer1.connectInput(0, groupPremult1)
@@ -2047,7 +2158,7 @@ def createInstance(app,group):
     groupDot6.connectInput(0, groupRadial1)
     groupBlur1.connectInput(0, groupMerge2)
     groupColorCorrect.connectInput(0, groupGodRays1)
-    groupMerge1.connectInput(0, groupColorCorrect)
+    groupMerge1.connectInput(0, groupDirBlur1)
     groupMerge1.connectInput(3, groupDot1)
     groupDot1.connectInput(0, groupDot5)
     groupSeNoise1_2.connectInput(0, groupRectangle)
@@ -2059,6 +2170,7 @@ def createInstance(app,group):
     groupBlur_Mask.connectInput(0, groupShuffle1)
     groupMerge3.connectInput(0, groupBlur_Mask)
     groupMerge3.connectInput(1, groupBlur1)
+    groupDirBlur1.connectInput(0, groupColorCorrect)
 
     param = groupKeyer1.getParam("softnessLower")
     group.getParam("Luma_tolerance").setAsAlias(param)
@@ -2163,6 +2275,16 @@ def createInstance(app,group):
     del param
     param = groupMerge3.getParam("disableNode")
     param.setExpression("not thisGroup.Enable_Mask.get()", False, 0)
+    del param
+    param = groupDirBlur1.getParam("scale")
+    group.getParam("DirBlur1scale").setAsAlias(param)
+    del param
+    param = groupDirBlur1.getParam("center")
+    param.slaveTo(groupGodRays1.getParam("center"), 0, 0)
+    param.slaveTo(groupGodRays1.getParam("center"), 1, 1)
+    del param
+    param = groupDirBlur1.getParam("disableNode")
+    param.setExpression("not thisGroup.Enable_Blur.get()", False, 0)
     del param
 
     try:
