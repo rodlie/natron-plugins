@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 2
+    return 1
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -1276,25 +1276,13 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("rgba")
     lastNode.setLabel("rgba")
-    lastNode.setPosition(3753, 506)
+    lastNode.setPosition(3746, 508)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouprgba = lastNode
 
     del lastNode
     # End of node "rgba"
-
-    # Start of node "Premult1"
-    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
-    lastNode.setScriptName("Premult1")
-    lastNode.setLabel("Premult1")
-    lastNode.setPosition(3746, 902)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupPremult1 = lastNode
-
-    del lastNode
-    # End of node "Premult1"
 
     # Start of node "Keyer1"
     lastNode = app.createNode("net.sf.openfx.KeyerPlugin", 1, group)
@@ -1842,7 +1830,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(4501, 2284)
+    lastNode.setPosition(4501, 2282)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
@@ -1854,7 +1842,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ColorCorrectPlugin", 2, group)
     lastNode.setScriptName("ColorCorrect")
     lastNode.setLabel("ColorCorrect")
-    lastNode.setPosition(4503, 2616)
+    lastNode.setPosition(4503, 2615)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupColorCorrect = lastNode
@@ -2064,7 +2052,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge3")
     lastNode.setLabel("Merge3")
-    lastNode.setPosition(4503, 2392)
+    lastNode.setPosition(4501, 2392)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge3 = lastNode
@@ -2126,9 +2114,20 @@ def createInstance(app,group):
     del lastNode
     # End of node "DirBlur1"
 
+    # Start of node "Dot2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2")
+    lastNode.setLabel("Dot2")
+    lastNode.setPosition(3791, 916)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2 = lastNode
+
+    del lastNode
+    # End of node "Dot2"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupPremult1.connectInput(0, grouprgba)
-    groupKeyer1.connectInput(0, groupPremult1)
+    groupKeyer1.connectInput(0, groupDot2)
     groupInvert1_2.connectInput(0, groupKeyer1)
     groupPremult2.connectInput(0, groupInvert1_2)
     groupSwitch1.connectInput(0, groupPremult2)
@@ -2137,7 +2136,7 @@ def createInstance(app,group):
     groupSwitch1.connectInput(3, groupInvert2)
     groupEdgeDetect.connectInput(0, groupDot1_3)
     groupShuffle1_2.connectInput(1, groupEdgeDetect)
-    groupDot1_3.connectInput(0, groupPremult1)
+    groupDot1_3.connectInput(0, groupDot2)
     groupShuffle2_2.connectInput(1, groupDot3)
     groupShuffle3.connectInput(1, groupDot2_3)
     groupInvert2.connectInput(0, groupShuffle3)
@@ -2171,6 +2170,7 @@ def createInstance(app,group):
     groupMerge3.connectInput(0, groupBlur_Mask)
     groupMerge3.connectInput(1, groupBlur1)
     groupDirBlur1.connectInput(0, groupColorCorrect)
+    groupDot2.connectInput(0, grouprgba)
 
     param = groupKeyer1.getParam("softnessLower")
     group.getParam("Luma_tolerance").setAsAlias(param)
