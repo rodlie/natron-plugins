@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Mosaic</DisplayName>
+    <Description>A basic mosaic effect.</Description>
+    <Version>1</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Mosaic</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
