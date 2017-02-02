@@ -31,7 +31,7 @@ def getGrouping():
     return "Merge"
 
 def getPluginDescription():
-    return "Advanced blending and lightwrap tool developed by Luma Pictures."
+    return "Fuse is a replacement for the merge(over) node."
 
 def createInstance(app,group):
     # Create all nodes in the group

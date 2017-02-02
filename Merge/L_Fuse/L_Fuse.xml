@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>L_Fuse</DisplayName>
-    <Description>Blending/lightwrap tool originaly developed by Luma Pictures for Nuke.</Description>
+    <Description>Fuse is a replacement for the merge(over) node.</Description>
     <Version>1</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.L_Fuse</Name>
