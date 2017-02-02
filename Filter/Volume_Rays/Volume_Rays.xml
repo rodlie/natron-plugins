@@ -2,7 +2,7 @@
 <Package>
     <DisplayName>Volume_Rays</DisplayName>
     <Description>Enhanced version of Natron's native GodRays, featuring advanced options.</Description>
-    <Version>1.0</Version>
+    <Version>2.4</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.Volume_Rays</Name>
     <Default>script</Default>

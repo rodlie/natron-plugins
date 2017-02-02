@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 2.3
+    return 2.4
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -1361,21 +1361,6 @@ def createInstance(app,group):
     lastNode.setColor(0.8, 0.5, 0.3)
     groupEdgeDetect = lastNode
 
-    param = lastNode.getParam("NatronOfxParamProcessR")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessG")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessB")
-    if param is not None:
-        param.setValue(False)
-        del param
-
     param = lastNode.getParam("NatronOfxParamProcessA")
     if param is not None:
         param.setValue(True)
@@ -1398,7 +1383,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("Shuffle1_2")
     lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(3995, 1339)
+    lastNode.setPosition(3995, 1335)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1_2 = lastNode
@@ -1525,6 +1510,11 @@ def createInstance(app,group):
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(False)
+        del param
 
     del lastNode
     # End of node "Invert2"
@@ -1984,7 +1974,7 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1")
-    lastNode.setPosition(4503, 2990)
+    lastNode.setPosition(4504, 3203)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
@@ -2180,8 +2170,46 @@ def createInstance(app,group):
         param.addControlPoint(1, 1, 1, 0, 0, NatronEngine.Natron.KeyframeTypeEnum.eKeyframeTypeHorizontal)
         del param
 
+    param = lastNode.getParam("premult")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     del lastNode
     # End of node "cc1"
+
+    # Start of node "Crop1"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop1")
+    lastNode.setLabel("Crop1")
+    lastNode.setPosition(4504, 2985)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop1 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video 640x480")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop1"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupKeyer1.connectInput(0, groupDot2)
@@ -2221,7 +2249,7 @@ def createInstance(app,group):
     groupSwitch_noise.connectInput(0, groupSeNoise1)
     groupSwitch_noise.connectInput(1, groupSeNoise1_2)
     groupRadial1.connectInput(0, groupShuffle4)
-    groupOutput1.connectInput(0, groupMerge1)
+    groupOutput1.connectInput(0, groupCrop1)
     groupShuffle1.connectInput(1, groupReformat1)
     groupBlur_Mask.connectInput(0, groupShuffle1)
     groupMerge3.connectInput(0, groupBlur_Mask)
@@ -2230,6 +2258,7 @@ def createInstance(app,group):
     groupDot2.connectInput(0, groupcc1)
     groupReformat1.connectInput(0, groupMask)
     groupcc1.connectInput(0, grouprgba)
+    groupCrop1.connectInput(0, groupMerge1)
 
     param = groupKeyer1.getParam("softnessLower")
     group.getParam("Luma_tolerance").setAsAlias(param)
@@ -2346,6 +2375,10 @@ def createInstance(app,group):
     param.setExpression("not thisGroup.Enable_Blur.get()", False, 0)
     del param
     param = groupReformat1.getParam("boxSize")
+    param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.width()", True, 0)
+    param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.height()", True, 1)
+    del param
+    param = groupCrop1.getParam("size")
     param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.width()", True, 0)
     param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.height()", True, 1)
     del param
