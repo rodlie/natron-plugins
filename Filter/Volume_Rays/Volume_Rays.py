@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 2.4
+    return 2.5
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -2062,9 +2062,9 @@ def createInstance(app,group):
         param.set("multiply")
         del param
 
-    param = lastNode.getParam("disableNode")
+    param = lastNode.getParam("mix")
     if param is not None:
-        param.setValue(True)
+        param.setValue(0, 0)
         del param
 
     del lastNode
@@ -2120,7 +2120,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Reformat", 1, group)
     lastNode.setScriptName("Reformat1")
     lastNode.setLabel("Reformat1")
-    lastNode.setPosition(4774, 2195)
+    lastNode.setPosition(4774, 2197)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupReformat1 = lastNode
@@ -2143,7 +2143,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("resize")
     if param is not None:
-        param.set("Distort")
+        param.set("Fill")
         del param
 
     del lastNode
@@ -2252,8 +2252,8 @@ def createInstance(app,group):
     groupOutput1.connectInput(0, groupCrop1)
     groupShuffle1.connectInput(1, groupReformat1)
     groupBlur_Mask.connectInput(0, groupShuffle1)
-    groupMerge3.connectInput(0, groupBlur_Mask)
-    groupMerge3.connectInput(1, groupBlur1)
+    groupMerge3.connectInput(0, groupBlur1)
+    groupMerge3.connectInput(1, groupBlur_Mask)
     groupDirBlur1.connectInput(0, groupColorCorrect)
     groupDot2.connectInput(0, groupcc1)
     groupReformat1.connectInput(0, groupMask)
@@ -2361,8 +2361,8 @@ def createInstance(app,group):
     param = groupBlur_Mask.getParam("size")
     group.getParam("Blur_Masksize").setAsAlias(param)
     del param
-    param = groupMerge3.getParam("disableNode")
-    param.setExpression("not thisGroup.Enable_Mask.get()", False, 0)
+    param = groupMerge3.getParam("mix")
+    param.setExpression("thisGroup.Enable_Mask.get()", False, 0)
     del param
     param = groupDirBlur1.getParam("scale")
     group.getParam("DirBlur1scale").setAsAlias(param)
