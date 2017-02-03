@@ -30,9 +30,6 @@ def getIconPath():
 def getGrouping():
     return "Merge"
 
-def getPluginDescription():
-    return "Fuse is a replacement for the merge(over) node."
-
 def createInstance(app,group):
     # Create all nodes in the group
 
@@ -687,7 +684,7 @@ def createInstance(app,group):
     lastNode.sep21 = param
     del param
 
-    param = lastNode.createSeparatorParam("Render_Output", "Output")
+    param = lastNode.createSeparatorParam("Render_Output", "View")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -714,10 +711,10 @@ def createInstance(app,group):
     lastNode.sep22 = param
     del param
 
-    param = lastNode.createChoiceParam("Output", "Output")
+    param = lastNode.createChoiceParam("display", "Display")
     entries = [ ("Composite", ""),
     ("Front", ""),
-    ("Color Bleed", ""),
+    ("Color", ""),
     ("Wrap", ""),
     ("Flare", "")]
     param.setOptions(entries)
@@ -730,7 +727,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
-    lastNode.Output = param
+    lastNode.display = param
     del param
 
     param = lastNode.createStringParam("sep24", "")
@@ -1012,17 +1009,6 @@ def createInstance(app,group):
     del lastNode
     # End of node "FG"
 
-    # Start of node "Output1"
-    lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setLabel("Output1")
-    lastNode.setPosition(7546, 5547)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput1 = lastNode
-
-    del lastNode
-    # End of node "Output1"
-
     # Start of node "Lin2Log_FG"
     lastNode = app.createNode("net.sf.openfx.Log2Lin", 1, group)
     lastNode.setScriptName("Lin2Log_FG")
@@ -1224,7 +1210,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MultiplyPlugin", 2, group)
     lastNode.setScriptName("Multiply3")
     lastNode.setLabel("Multiply3")
-    lastNode.setPosition(4106, 2683)
+    lastNode.setPosition(4106, 2684)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupMultiply3 = lastNode
@@ -3364,28 +3350,6 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shuffle3"
 
-    # Start of node "Multiply3_2"
-    lastNode = app.createNode("net.sf.openfx.MultiplyPlugin", 2, group)
-    lastNode.setScriptName("Multiply3_2")
-    lastNode.setLabel("Multiply3_2")
-    lastNode.setPosition(4796, 3149)
-    lastNode.setSize(104, 43)
-    lastNode.setColor(0.48, 0.66, 1)
-    groupMultiply3_2 = lastNode
-
-    param = lastNode.getParam("mix")
-    if param is not None:
-        param.setValue(0.3, 0)
-        del param
-
-    param = lastNode.getParam("premultChanged")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    del lastNode
-    # End of node "Multiply3_2"
-
     # Start of node "Merge3"
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge3")
@@ -3493,7 +3457,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
     lastNode.setScriptName("Crop1")
     lastNode.setLabel("Crop1")
-    lastNode.setPosition(7546, 5422)
+    lastNode.setPosition(7546, 5425)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop1 = lastNode
@@ -3551,8 +3515,35 @@ def createInstance(app,group):
     del lastNode
     # End of node "cc1"
 
+    # Start of node "Multiply11"
+    lastNode = app.createNode("net.sf.openfx.MultiplyPlugin", 2, group)
+    lastNode.setScriptName("Multiply11")
+    lastNode.setLabel("Multiply11")
+    lastNode.setPosition(4796, 3237)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupMultiply11 = lastNode
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Multiply11"
+
+    # Start of node "Output1"
+    lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
+    lastNode.setLabel("Output1")
+    lastNode.setPosition(7546, 5589)
+    lastNode.setSize(104, 43)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupOutput1 = lastNode
+
+    del lastNode
+    # End of node "Output1"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupCrop1)
     groupLin2Log_FG.connectInput(0, groupFG)
     groupLin2Log_BG.connectInput(0, groupcc1)
     groupShuffleCopy1.connectInput(0, groupDot3_2)
@@ -3661,7 +3652,7 @@ def createInstance(app,group):
     groupLin2Log_BG_2.connectInput(0, groupSwitch_Output)
     groupSwitch_Output.connectInput(0, groupoverallMix)
     groupSwitch_Output.connectInput(1, groupPremult3)
-    groupSwitch_Output.connectInput(2, groupMultiply3_2)
+    groupSwitch_Output.connectInput(2, groupMultiply11)
     groupSwitch_Output.connectInput(3, groupMerge3)
     groupSwitch_Output.connectInput(4, groupMerge3_2)
     groupShuffle2.connectInput(0, groupDot4_2)
@@ -3671,7 +3662,6 @@ def createInstance(app,group):
     groupMerge2.connectInput(0, groupDissolve1)
     groupMerge2.connectInput(1, groupShuffle3)
     groupShuffle3.connectInput(1, groupClamp1)
-    groupMultiply3_2.connectInput(0, groupPremult2)
     groupMerge3.connectInput(0, groupGradeBgWrapAmount)
     groupMerge3.connectInput(1, groupShuffle4)
     groupShuffle4.connectInput(1, groupDot19)
@@ -3680,6 +3670,8 @@ def createInstance(app,group):
     groupDot19.connectInput(0, groupDot4_2)
     groupCrop1.connectInput(0, groupLin2Log_BG_2)
     groupcc1.connectInput(0, groupBG)
+    groupMultiply11.connectInput(0, groupPremult2)
+    groupOutput1.connectInput(0, groupCrop1)
 
     param = groupLin2Log_FG.getParam("disableNode")
     param.setExpression("not thisGroup.Log.get()", False, 0)
@@ -3789,47 +3781,20 @@ def createInstance(app,group):
     param.setExpression("not thisGroup.Log.get()", False, 0)
     del param
     param = groupSwitch_Output.getParam("which")
-    param.setExpression("thisGroup.Output.get()", False, 0)
+    param.setExpression("thisGroup.display.get()", False, 0)
     del param
     param = groupDissolve1.getParam("which")
     param.slaveTo(groupMultiply4.getParam("mix"), 0, 0)
     del param
-    param = groupMultiply3_2.getParam("NatronOfxParamProcessR")
-    param.slaveTo(groupMultiply3.getParam("NatronOfxParamProcessR"), 0, 0)
+    param = groupCrop1.getParam("size")
+    param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.width()", True, 0)
+    param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.height()", True, 1)
     del param
-    param = groupMultiply3_2.getParam("NatronOfxParamProcessG")
-    param.slaveTo(groupMultiply3.getParam("NatronOfxParamProcessG"), 0, 0)
-    del param
-    param = groupMultiply3_2.getParam("NatronOfxParamProcessB")
-    param.slaveTo(groupMultiply3.getParam("NatronOfxParamProcessB"), 0, 0)
-    del param
-    param = groupMultiply3_2.getParam("NatronOfxParamProcessA")
-    param.slaveTo(groupMultiply3.getParam("NatronOfxParamProcessA"), 0, 0)
-    del param
-    param = groupMultiply3_2.getParam("value")
+    param = groupMultiply11.getParam("value")
     param.slaveTo(groupMultiply3.getParam("value"), 0, 0)
     param.slaveTo(groupMultiply3.getParam("value"), 1, 1)
     param.slaveTo(groupMultiply3.getParam("value"), 2, 2)
     param.slaveTo(groupMultiply3.getParam("value"), 3, 3)
-    del param
-    param = groupMultiply3_2.getParam("premult")
-    param.slaveTo(groupMultiply3.getParam("premult"), 0, 0)
-    del param
-    param = groupMultiply3_2.getParam("premultChannel")
-    param.slaveTo(groupMultiply3.getParam("premultChannel"), 0, 0)
-    del param
-    param = groupMultiply3_2.getParam("maskInvert")
-    param.slaveTo(groupMultiply3.getParam("maskInvert"), 0, 0)
-    del param
-    param = groupMultiply3_2.getParam("mix")
-    param.slaveTo(groupMultiply3.getParam("mix"), 0, 0)
-    del param
-    param = groupMultiply3_2.getParam("premultChanged")
-    param.slaveTo(groupMultiply3.getParam("premultChanged"), 0, 0)
-    del param
-    param = groupCrop1.getParam("size")
-    param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.width()", True, 0)
-    param.setExpression("rod = cc1.getRegionOfDefinition(frame,view)\nret = rod.height()", True, 1)
     del param
 
     try:
