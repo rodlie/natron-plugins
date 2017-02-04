@@ -81,6 +81,9 @@
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Shaker/Shaker.png" height="32"> [Shaker](Transform/Shaker/README.md)** : Add a shaking effect to the input image.
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Transform/lp_NoiseDistort/lp_NoiseDistort.png" height="32">[lp_NoiseDistort](Transform/lp_NoiseDistort/README.md)** : Distorts an image based on two different noise-layer for a more dynamic feel.
 
+### Time
+- **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/Time/TimeLoop/TimeLoop.png" height="32"> [TimeLoop](Time/TimeLoop/README.md)** : Create looping animation from the input source
+
 ### mS
 - **<img src="https://github.com/NatronVFX/natron-plugins/raw/master/mS/mS_MarkerRemoval_Advanced/mS_MarkerRemoval_Advanced.png" height="32"> [mS_MarkerRemoval_Advanced](mS/mS_MarkerRemoval_Advanced/README.md)** : This PyPlug lets you easily remove tracking markers from backing screens without the hassle of painting, even when they intersect with the foreground elements.
 
