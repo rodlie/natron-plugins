@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Refraction</DisplayName>
+    <Description>Glass distorsion using a UV pass.</Description>
+    <Version>1</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Refraction</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
