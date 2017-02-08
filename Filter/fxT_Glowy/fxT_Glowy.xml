@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>fxT_Glowy</DisplayName>
-    <Description>This is an alternative glow gizmo to Nuke's standard glow node. Features include: blending modes, glow size with more realistic-looking falloff, mask input, reformat settings, anamorphic look, color tinting, tolerance, gain, saturation, and more options to control the glow look. The glow falloff is created by exponentially increasing the blur value to create the more realistic look.</Description>
+    <Description>This is an alternative glow effect that mimics the feature of the same gizmo in Nuke, more info on the description.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.fxT_Glowy</Name>
