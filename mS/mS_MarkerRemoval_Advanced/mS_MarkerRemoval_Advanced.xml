@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>mS_MarkerRemoval_Advanced</DisplayName>
-    <Description>mS_MarkerRemoval_Advanced</Description>
+    <Description>This PyPlug lets you easily remove tracking markers from backing screens without the hassle of painting, even when they intersect with the foreground elements.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.mS_MarkerRemoval_Advanced</Name>
