@@ -44,7 +44,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DePepper/DePepper.png'height='32'> [DePepper](/Filter/DePepperREADME.md)** : Remove Salt and Pepper noise 
 
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png'height='32'> [Defocus](/Filter/DefocusREADME.md)** : Add a bokeh blur to the image. You can use an image to guide blur size, note that it's not intended to act as a ZBlur plugin /Description
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png'height='32'> [Defocus](/Filter/DefocusREADME.md)** : Add a bokeh blur to the image. You can use an image to guide blur size, note that it's not intended to act as a ZBlur plugin 
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Mosaic/Mosaic.png'height='32'> [Mosaic](/Filter/MosaicREADME.md)** : No description found
 
@@ -124,14 +124,18 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/mS/mS_RestoreGrain/mS_RestoreGrain.png'height='32'> [mS_RestoreGrain](/mS/mS_RestoreGrainREADME.md)** : This PyPlug lets you preserve the original grain from your plate after keying.
 
+
+
 ## How to Contribute to this repository ?
 We'd love to add your own Pyplugs to this repository so everyone can benefit from them.
 
 You can make a Pull Request or if you're not comfortable with git just tell us here :
+
 https://forum.natron.fr/t/what-about-having-a-pyplug-repository/1027
 
 
 Also you can look at our guidelines for Pyplug submission :
+
 https://github.com/NatronVFX/natron-plugins/wiki/Guidelines-for-plugins
 
 
