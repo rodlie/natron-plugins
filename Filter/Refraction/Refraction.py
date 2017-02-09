@@ -24,6 +24,9 @@ def getLabel():
 def getVersion():
     return 1
 
+def getIconPath():
+    return "Refraction.png"
+
 def getGrouping():
     return "Filter"
 
@@ -457,7 +460,7 @@ def createInstance(app,group):
     lastNode.sep25 = param
     del param
 
-    param = lastNode.createSeparatorParam("FF", "(Fabrice Fernandez - 2016)")
+    param = lastNode.createSeparatorParam("FF", "(Fabrice Fernandez - 2017)")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
