@@ -28,7 +28,7 @@ def getIconPath():
     return "IDKeyer.png"
 
 def getGrouping():
-    return "Keyer"
+    return "Community/Keyer"
 
 def getPluginDescription():
     return "Extract an alpha matte from a ID-Pass to be used as a mask\nThe color should be exact match to be keyed (there are no tolerance slider) so if your image has noise or is antialiased it won\'t work.\nPure Black color is ignored."

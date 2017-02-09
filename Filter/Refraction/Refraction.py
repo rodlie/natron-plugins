@@ -25,7 +25,7 @@ def getVersion():
     return 1
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def createInstance(app,group):
     # Create all nodes in the group

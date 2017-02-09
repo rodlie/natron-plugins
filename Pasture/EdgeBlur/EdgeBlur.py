@@ -28,7 +28,7 @@ def getIconPath():
     return "EdgeBlur.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "Blur the image according to the edges of the Alpha provided.\n\nUseful to better integrate an image over another in a compositing.\nThis can help also to fix artifacts caused by a DOF filter..."

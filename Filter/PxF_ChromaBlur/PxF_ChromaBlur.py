@@ -28,7 +28,7 @@ def getIconPath():
     return "PxF_ChromaBlur.png"
 
 def getGrouping():
-    return "Filter/Pixelfudger"
+    return "Community/Filter/Pixelfudger"
 
 def getPluginDescription():
     return "Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video."

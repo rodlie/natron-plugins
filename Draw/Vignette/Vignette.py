@@ -28,7 +28,7 @@ def getIconPath():
     return "Vignette.png"
 
 def getGrouping():
-    return "Draw"
+    return "Community/Draw"
 
 def getPluginDescription():
     return "This effect adds a vignette to the image. \nA vignette is a reduction of the images brightness at the peripherie compared to the image center."

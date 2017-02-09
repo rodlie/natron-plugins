@@ -28,7 +28,7 @@ def getIconPath():
     return "FrameStamp.png"
 
 def getGrouping():
-    return "Draw"
+    return "Community/Draw"
 
 def getPluginDescription():
     return "A very simple Frame Stamp drawn at the bottom of the screen."

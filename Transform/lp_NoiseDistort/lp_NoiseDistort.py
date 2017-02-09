@@ -28,7 +28,7 @@ def getIconPath():
     return "lp_NoiseDistort.png"
 
 def getGrouping():
-    return "Transform"
+    return "Community/Transform"
 
 def getPluginDescription():
     return "Distorts an image based on two different noise-layer for a more dynamic feel.\nCan bring dead background photos (plants, water, etc) to life :)"

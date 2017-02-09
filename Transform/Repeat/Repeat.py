@@ -28,7 +28,7 @@ def getIconPath():
     return "Repeat.png"
 
 def getGrouping():
-    return "Transform"
+    return "Community/Transform"
 
 def getPluginDescription():
     return "Tiling effect that extends image size."

@@ -25,7 +25,7 @@ def getVersion():
     return 2
 
 def getGrouping():
-    return "Keyer"
+    return "Community/Keyer"
 
 def getPluginDescription():
     return "A very simple keyer with a big variety of different operations inspired by Nukes most simple Keyer-node.\n\nINPUTS\nimg = Connect the image you want to key from\n\nHOW TO USE IT\nConnect an image and choose the operation you want to use to create your key. You can adjust white- and black-point as needed to key the you want. You can also enable range-controls for added functionality.\n\nHOW DOES IT WORK\nSimply put, this tool copies channels (from different colourspaces or other operations) into the alpha channel, a following Grade-node helps with adjusting the levels. The red-, green- and bluescreen operations are the most simple colour-difference setups.\nThe range-control is build with a 2nd yet inverted Grade-node, the difference between the two is the resulting range.\n"

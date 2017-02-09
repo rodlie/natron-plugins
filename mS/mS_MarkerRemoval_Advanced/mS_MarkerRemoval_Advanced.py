@@ -28,7 +28,7 @@ def getIconPath():
     return "mS_MarkerRemoval_Advanced.png"
 
 def getGrouping():
-    return "mS"
+    return "Community/mS"
 
 def getPluginDescription():
     return "Lets you easily remove tracking markers from backing screens without the hassle of painting, even when they intersect with the foreground elements."
@@ -691,7 +691,7 @@ def createInstance(app,group):
     lastNode.sep19 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développées par Mohamed Selim")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½es par Mohamed Selim")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

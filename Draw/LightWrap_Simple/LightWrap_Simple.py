@@ -28,7 +28,7 @@ def getIconPath():
     return "LightWrap_Simple.png"
 
 def getGrouping():
-    return "Draw"
+    return "Community/Draw"
 
 def getPluginDescription():
     return "Alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect..."

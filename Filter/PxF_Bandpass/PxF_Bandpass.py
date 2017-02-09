@@ -28,7 +28,7 @@ def getIconPath():
     return "PxF_Bandpass.png"
 
 def getGrouping():
-    return "Filter/Pixelfudger"
+    return "Community/Filter/Pixelfudger"
 
 def getPluginDescription():
     return "Extract detail from an image. Useful to make plates easier to track."

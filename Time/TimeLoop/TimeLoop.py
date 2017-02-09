@@ -28,7 +28,7 @@ def getIconPath():
     return "TimeLoop.png"
 
 def getGrouping():
-    return "Time"
+    return "Community/Time"
 
 def getPluginDescription():
     return "This Pyplug create loops from the input clip, set the start value for the first frame of the loop, then the loop duration (length)"

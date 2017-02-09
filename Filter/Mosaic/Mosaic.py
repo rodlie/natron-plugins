@@ -28,7 +28,7 @@ def getIconPath():
     return "Mosaic.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "A basic mosaic effect."

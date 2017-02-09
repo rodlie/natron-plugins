@@ -28,7 +28,7 @@ def getIconPath():
     return "AntiAliasing.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "Smooth the edges of pixaleted images by applying an Fast Approximate Anti-Aliasing filtering. \n\nAlternatively this Pyplug can also apply another way of filtering by scaling ,bluring and downscaling the image.\nBooth methods can be combined , but the second one is much slower.\n\nFXAA implementation is based on this code : \nhttps://github.com/mattdesl/glsl-fxaa\nThe MIT License (MIT) Copyright (c) 2014 Matt DesLauriers \n"

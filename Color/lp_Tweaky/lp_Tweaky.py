@@ -25,7 +25,7 @@ def getVersion():
     return 2
 
 def getGrouping():
-    return "Color"
+    return "Community/Color"
 
 def getPluginDescription():
     return "A little set of little helpers :)"

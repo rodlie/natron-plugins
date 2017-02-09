@@ -28,7 +28,7 @@ def getIconPath():
     return "Defocus.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "Add a bokeh blur to the image. You can use an image to guide blur size. \nIt\'s not suited to act as a ZBlur plugin ( to fake DOF using a Zpass ) . But in some cases it can work.\nTypicall use case can be to blur the bakground image in a composite to match the blur of the foreground.\n\nCredits : \nOrginal Shader by David Hoskins\nLicense Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.\nhttps://www.shadertoy.com/view/4d2Xzw"

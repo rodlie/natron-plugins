@@ -28,7 +28,7 @@ def getIconPath():
     return "PIKDespill.png"
 
 def getGrouping():
-    return "Keyer"
+    return "Community/Keyer"
 
 def getPluginDescription():
     return "Despill tool based on the PIK Keyer."

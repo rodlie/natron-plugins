@@ -18,22 +18,13 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### Draw
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/FrameStamp/FrameStamp.png'height='32'> [FrameStamp](/Draw/FrameStamp/README.md)** : A very simple stamp that show the current frame in the corner of the image.
 
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Gradient/Gradient.png'height='32'> [Gradient](/Draw/Gradient/README.md)** : A 3-4 Way gradient.
+
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/LightWrap_Simple/LightWrap_Simple.png'height='32'> [LightWrap_Simple](/Draw/LightWrap_Simple/README.md)** : An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Vignette/Vignette.png'height='32'> [Vignette](/Draw/Vignette/README.md)** : This effect reduce the images brightness at the peripherie compared to the image center.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/WaveForm/WaveForm.png'height='32'> [WaveForm](/Draw/WaveForm/README.md)** : Draw a Luminance Waveform of the input image
-
-### Draw/Relight
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/PositionMask/PositionMask.png'height='32'> [PositionMask](/Draw/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
-
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReFlect/ReFlect.png'height='32'> [ReFlect](/Draw/ReFlect/README.md)** : Take a Normal pass and an image and map it to reflection, similar to matcap in 3D render
-
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/ReShade/ReShade.png'height='32'> [ReShade](/Draw/ReShade/README.md)** : GPU Relighting of 3D renders using a normal pass.
-
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/SSAO/SSAO.png'height='32'> [SSAO](/Draw/SSAO/README.md)** : Generate an AO pass from a Z pass.
-
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Draw/Z2Normal/Z2Normal.png'height='32'> [Z2Normal](/Draw/Z2Normal/README.md)** : Generate a Normal Pass from a Z pass
 
 ### Filter
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Antialiasing/AntiAliasing.png'height='32'> [AntiAliasing](/Filter/Antialiasing/README.md)** : Antialiasing filter based on FXAA
@@ -82,9 +73,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png'height='32'> [PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : To be written
 
-### Image
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Image/Gradient/Gradient.png'height='32'> [Gradient](/Image/Gradient/README.md)** : A 3-4 Way gradient.
-
 ### Keyer
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/AdditiveKeyer/AdditiveKeyer.png'height='32'> [AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
 
@@ -95,6 +83,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/IDKeyer/IDKeyer.png'height='32'> [IDKeyer](/Keyer/IDKeyer/README.md)** : Extract an alpha matte from a ID-Pass to be used as a mask.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/PIKDespill/PIKDespill.png'height='32'> [PIKDespill](/Keyer/PIKDespill/README.md)** : Despill tool based on the PIK Keyer.
+
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/PositionMask/PositionMask.png'height='32'> [PositionMask](/Keyer/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_ChillSpill/lp_ChillSpill.png'height='32'> [lp_ChillSpill](/Keyer/lp_ChillSpill/README.md)** : An alternative to buit-in Despill node that is quick and easy to setup.
 
@@ -108,6 +98,15 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Merge/L_Fuse/L_Fuse.png'height='32'> [L_Fuse](/Merge/L_Fuse/README.md)** : Fuse is a replacement for the merge(over) node.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Merge/ZCombine/ZCombine.png'height='32'> [ZCombine](/Merge/ZCombine/README.md)** : Mix two images according to their Zbuffer.
+
+### Relight
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Relight/ReFlect/ReFlect.png'height='32'> [ReFlect](/Relight/ReFlect/README.md)** : Take a Normal pass and an image and map it to reflection, similar to matcap in 3D render
+
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Relight/ReShade/ReShade.png'height='32'> [ReShade](/Relight/ReShade/README.md)** : GPU Relighting of 3D renders using a normal pass.
+
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Relight/SSAO/SSAO.png'height='32'> [SSAO](/Relight/SSAO/README.md)** : Generate an AO pass from a Z pass.
+
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Relight/Z2Normal/Z2Normal.png'height='32'> [Z2Normal](/Relight/Z2Normal/README.md)** : Generate a Normal Pass from a Z pass
 
 ### Time
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Time/TimeLoop/TimeLoop.png'height='32'> [TimeLoop](/Time/TimeLoop/README.md)** : generate loops from input image

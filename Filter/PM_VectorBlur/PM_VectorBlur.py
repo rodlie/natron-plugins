@@ -28,7 +28,7 @@ def getIconPath():
     return "PM_VectorBlur.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "Poor Man\'s Vector Blur.\nBlur an image according to a Vector/Motion Pass.\n\nIt works but it\'s very basic so things like good occlusions or way to prevent bleeding is not supported.\n\nBased on a John Chapman tutorial .\nYou can find more info on the original shader page : http://john-chapman-graphics.blogspot.fr/2013/01/per-object-motion-blur.html"
