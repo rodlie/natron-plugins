@@ -28,7 +28,7 @@ def getIconPath():
     return "fxT_Glowy.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def createInstance(app,group):
     # Create all nodes in the group

@@ -28,7 +28,7 @@ def getIconPath():
     return "SSAO.png"
 
 def getGrouping():
-    return "Draw/Relight"
+    return "Community/Relight"
 
 def getPluginDescription():
     return "Generate a Screen Space Ambiant Occlusion pass from a Z pass. \nMay need a bit of time tweaking the parameters to get good results as it changes a lot depending on the original Z values.\nTo use it : \nSet Near and Far plane (minimum and maximum Z Value) to map the Z pass roughly bettween 0 and 1 value.\nSet Radius and Falloff to get good shadows\nSet the sample value (may need up to 1000 iterations for a very smooth result)\nas you increase the samples, you\'ll need to lower the sample noise value to something like 0.05\nFinally you can blur the AO a little bit to get rid of the final noise/artifacts... \nIf you have high samples and high noise sample value, the result is still noisy. \nIf you have low samples and low noise Value , the result as artifacts. \nCredits : \nThe original code by Daniel Holden is taken from here : http://theorangeduck.com/page/pure-depth-ssao \nthe sampling sphere fonction by John Chapman is taken from here : http://john-chapman-graphics.blogspot.fr/2013/01/ssao-tutorial.html "
@@ -723,4 +723,3 @@ def createInstance(app,group):
         extModule = None
     if extModule is not None and hasattr(extModule ,"createInstanceExt") and hasattr(extModule.createInstanceExt,"__call__"):
         extModule.createInstanceExt(app,group)
-

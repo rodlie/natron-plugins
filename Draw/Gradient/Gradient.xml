@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>ChormaticAberrationPP</DisplayName>
-    <Description>A filter designed to match real camera chromatic aberration </Description>
+    <DisplayName>Gradient</DisplayName>
+    <Description>A 3-4 Way gradient.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>PostPollux.ChromaticAberration</Name>
+    <Name>natron.community.plugins.Gradient</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>

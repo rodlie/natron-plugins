@@ -28,7 +28,7 @@ def getIconPath():
     return "Shaker.png"
 
 def getGrouping():
-    return "Transform"
+    return "Community/Transform"
 
 def getPluginDescription():
     return "This PyPlug adds a shaking effect to the input image. \nIt\'s based on an expression similar to the \'wiggle\' expression known from After Effects.\n\nIt also supports two methods to extend the image and get rid of the black areas which normally occure while shaking."

@@ -28,7 +28,7 @@ def getIconPath():
     return "ReShade.png"
 
 def getGrouping():
-    return "Draw/Relight"
+    return "Community/Relight"
 
 def getPluginDescription():
     return "Normal Based Relighting based on a ShaderToy node.\nYou can set Diffuse , Specular (Phong) and Ambiant color separately.\n\nNote that you need to have an Alpha Channel for ambiant color to work properly.\n\nThanks to Alessandro Dalla Fontana for the initial SeExpr code. "

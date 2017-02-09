@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>Chromatic Aberration</DisplayName>
-    <Description>Create a Chromatic Aberration effect, similar to the one found in Blender.</Description>
+    <Description>Create a stylised Chromatic Aberration effect, similar to the one found in Blender.</Description>
     <Version>5.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.Chromatic_Aberration</Name>

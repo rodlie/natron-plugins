@@ -28,7 +28,7 @@ def getIconPath():
     return "BS_AlphaGrainEdge.png"
 
 def getGrouping():
-    return "Keyer"
+    return "Community/Keyer"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -322,7 +322,7 @@ def createInstance(app,group):
     lastNode.sep12 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Ben Sumner")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Ben Sumner")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

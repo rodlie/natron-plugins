@@ -28,7 +28,7 @@ def getIconPath():
     return "ReFlect.png"
 
 def getGrouping():
-    return "Draw/Relight"
+    return "Community/Relight"
 
 def getPluginDescription():
     return "this plugin take a Normal Pass and a reflection image as an input and generate fake reflections , like when using a matcap.\n\nYou can then set the roughness / glossiness and Fresnel value.\n\nThis can be used with the Reshade plugin to add detail or metallic look to a relighted object.\n\nFew tips : \n-You don\'t need big images for the reflection map. Generally 512*512 is way enough and will render faster.\n\n- The impulse filter is the fastest and will work in many cases.\n\n- you may have to set very low Gamma (~0.18) and very High Gain (70)  for the fresnel to look good.\n\n-The reflection image can be any image , try with different images to see what effect they provide. You can search for ZBrush matcaps to get nice images to play with.\n"

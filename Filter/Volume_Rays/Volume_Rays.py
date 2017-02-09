@@ -28,7 +28,7 @@ def getIconPath():
     return "Volume_Rays.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "Enhanced version of Natron's native GodRays, featuring advanced options."
@@ -1144,7 +1144,7 @@ def createInstance(app,group):
     lastNode.sep93 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON du Gizmo Nuke développé par The Foundry")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON du Gizmo Nuke dï¿½veloppï¿½ par The Foundry")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

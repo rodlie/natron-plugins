@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>Shaker</DisplayName>
-    <Description>This PyPlug adds a shaking effect to the input image. \nIt\'s based on an expression similar to the \'wiggle\' expression known from After Effects.\n\nIt also supports two methods to extend the image and get rid of the black areas which normally occure while shaking.</Description>
+    <Description>Adds a shaking effect to the input image.It's based on an expression similar to wiggle expression in After Effects</Description>
     <Version>2.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>PostPollux.Shaker</Name>

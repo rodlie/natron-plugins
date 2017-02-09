@@ -28,7 +28,7 @@ def getIconPath():
     return "PositionMask.png"
 
 def getGrouping():
-    return "Draw/Relight"
+    return "Community/Keyer"
 
 def getPluginDescription():
     return "Take a world position pass and generate a rounded mask from it."

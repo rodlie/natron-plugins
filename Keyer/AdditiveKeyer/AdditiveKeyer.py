@@ -28,7 +28,7 @@ def getIconPath():
     return "AdditiveKeyer.png"
 
 def getGrouping():
-    return "Keyer"
+    return "Community/Keyer"
 
 def getPluginDescription():
     return "This is not a keyer, as it does not create a matte that is of use. It is more of a \'relative mixer\' or image blending tool. It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting. \nTo get it to work requires a lot of prep work on the screen and reference to work with uneven screens. \nIt is used in combination with normal keyer that provides the main core of the comp and the additive keyer generates only the subtle soft edges."
@@ -696,7 +696,7 @@ def createInstance(app,group):
     lastNode.separator24 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Tyler Lockard")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Tyler Lockard")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

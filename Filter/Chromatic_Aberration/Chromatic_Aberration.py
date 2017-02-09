@@ -28,7 +28,7 @@ def getIconPath():
     return "Chromatic_Aberration.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "This PyPlug create a chromatic aberration effect, similar to the one found in Blender."

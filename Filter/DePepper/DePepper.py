@@ -28,7 +28,7 @@ def getIconPath():
     return "DePepper.png"
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "Remove Salt and Pepper Noise\nTest images can be found at http://www.fit.vutbr.cz/~vasicek/imagedb/23 \nNote: of course, if would be better to use the median of neighbor values rather than the average to replace the color. \nIf the noise covers several neighboring pixels, apply it two times."

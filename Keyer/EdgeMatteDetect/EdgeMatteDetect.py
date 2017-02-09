@@ -28,7 +28,7 @@ def getIconPath():
     return "EdgeMatteDetect.png"
 
 def getGrouping():
-    return "Keyer"
+    return "Community/Keyer"
 
 def createInstance(app,group):
     # Create all nodes in the group

@@ -28,7 +28,7 @@ def getIconPath():
     return "WaveForm.png"
 
 def getGrouping():
-    return "Draw"
+    return "Community/Draw"
 
 def getPluginDescription():
     return "Display a Luminance Waveform of the input.\nYou can also display RGB channels separately.\n\nAs Natron works in linear colorspace , there is an option to specify you display gamma. "

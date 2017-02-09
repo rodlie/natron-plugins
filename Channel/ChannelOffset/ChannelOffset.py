@@ -28,7 +28,7 @@ def getIconPath():
     return "ChannelOffset.png"
 
 def getGrouping():
-    return "Channel"
+    return "Community/Channel"
 
 def getPluginDescription():
     return "Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature."
@@ -441,7 +441,7 @@ def createInstance(app,group):
     lastNode.separator24 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Jason M. Bergman")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Jason M. Bergman")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

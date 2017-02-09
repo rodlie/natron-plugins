@@ -28,7 +28,7 @@ def getIconPath():
     return "DUCK_Alpha_Edge.png"
 
 def getGrouping():
-    return "Filter/Duck"
+    return "Community/Filter/Duck"
 
 def getPluginDescription():
     return "It gives edge of a roto or a key, you have the possibility to dilate or erode , blur or multiply the edge differently inside and outside. Simply the best alpha edge you can find for free."

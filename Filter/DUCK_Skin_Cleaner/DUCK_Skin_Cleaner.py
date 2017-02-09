@@ -28,7 +28,7 @@ def getIconPath():
     return "DUCK_Skin_Cleaner.png"
 
 def getGrouping():
-    return "Filter/Duck"
+    return "Community/Filter/Duck"
 
 def getPluginDescription():
     return "A tool developped to clean up models skin in common beauty/fashion shots."

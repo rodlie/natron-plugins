@@ -28,7 +28,7 @@ def getIconPath():
     return "mS_RestoreGrain.png"
 
 def getGrouping():
-    return "mS"
+    return "Community/mS"
 
 def getPluginDescription():
     return "Lets you preserve the original grain from your plate after keying."
@@ -307,7 +307,7 @@ def createInstance(app,group):
     lastNode.sep19 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développées par Mohamed Selim")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½es par Mohamed Selim")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

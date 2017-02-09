@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>mS_RestoreGrain</DisplayName>
-    <Description>mS_RestoreGrain</Description>
+    <Description>This PyPlug lets you preserve the original grain from your plate after keying.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.mS_RestoreGrain</Name>

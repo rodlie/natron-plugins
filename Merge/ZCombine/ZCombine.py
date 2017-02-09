@@ -28,7 +28,7 @@ def getIconPath():
     return "ZCombine.png"
 
 def getGrouping():
-    return "Merge"
+    return "Community/Merge"
 
 def getPluginDescription():
     return "Merge Color A and Color B according to their Z pass.\nUse the Z channel Selector to define were to pick Z from. \nYou can output the combined Z pass, note that won\'t work if you\'re using mask or mix."

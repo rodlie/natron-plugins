@@ -28,7 +28,7 @@ def getIconPath():
     return "L_Fuse.png"
 
 def getGrouping():
-    return "Merge"
+    return "Community/Merge"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -869,7 +869,7 @@ def createInstance(app,group):
     lastNode.sep93 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON du Gizmo Nuke développé par Luma Pictures")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON du Gizmo Nuke dï¿½veloppï¿½ par Luma Pictures")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
