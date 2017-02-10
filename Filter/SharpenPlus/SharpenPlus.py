@@ -25,7 +25,7 @@ def getVersion():
     return 1
 
 def getGrouping():
-    return "Filter"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "Image sharper."
