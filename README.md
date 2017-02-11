@@ -45,6 +45,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Refraction/Refraction.png'height='32'> [Refraction](/Filter/Refraction/README.md)** : No description found
 
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/SharpenPlus/SharpenPlus.png'height='32'> [SharpenPlus](/Filter/SharpenPlus/README.md)** : Image sharper.
+
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Volume_Rays/Volume_Rays.png'height='32'> [Volume_Rays](/Filter/Volume_Rays/README.md)** : Enhanced version of Natron's native GodRays, featuring advanced options.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/fxT_Glowy/fxT_Glowy.png'height='32'> [fxT_Glowy](/Filter/fxT_Glowy/README.md)** : This is an alternative glow effect that mimics the feature of the same gizmo in Nuke, more info on the description.
