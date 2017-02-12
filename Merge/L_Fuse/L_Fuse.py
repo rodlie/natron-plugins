@@ -25,7 +25,7 @@ def getVersion():
     return 2.2
 
 def getIconPath():
-    return "L_Fuse"
+    return "L_Fuse.png"
 
 def getGrouping():
     return "Community/Merge"
