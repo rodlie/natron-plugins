@@ -73,7 +73,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### Filter/Pixelfudger
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_Bandpass/PxF_Bandpass.png'height='32'> [PxF_Bandpass](/Filter/PxF_Bandpass/README.md)** : Extract detail from an image. Useful to make plates easier to track.
 
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png'height='32'> [PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : To be written
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png'height='32'> [PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### Keyer
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/AdditiveKeyer/AdditiveKeyer.png'height='32'> [AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
