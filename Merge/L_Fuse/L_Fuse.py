@@ -22,16 +22,16 @@ def getLabel():
     return "L_Fuse"
 
 def getVersion():
-    return 2.1
+    return 2.2
 
 def getIconPath():
-    return "L_Fuse.png"
+    return "L_Fuse"
 
 def getGrouping():
     return "Community/Merge"
 
 def getPluginDescription():
-    return "Image sharper"
+    return "Fuse is a replacement for the merge (over) node."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -720,7 +720,8 @@ def createInstance(app,group):
     ("Front", ""),
     ("Color", ""),
     ("Wrap", ""),
-    ("Flare", "")]
+    ("Flare", ""),
+    ("EdgeBlur", "")]
     param.setOptions(entries)
     del entries
 
@@ -2208,6 +2209,16 @@ def createInstance(app,group):
         param.set("B")
         del param
 
+    param = lastNode.getParam("BChannelsA")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("bChannelsChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     del lastNode
     # End of node "Merge7"
 
@@ -2227,7 +2238,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("BG")
     lastNode.setLabel("BG")
-    lastNode.setPosition(7554, 654)
+    lastNode.setPosition(7554, 648)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupBG = lastNode
@@ -2304,7 +2315,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("Switch1")
     lastNode.setLabel("Switch1")
-    lastNode.setPosition(7547, 4738)
+    lastNode.setPosition(7550, 4745)
     lastNode.setSize(104, 43)
     lastNode.setColor(1, 1, 1)
     groupSwitch1 = lastNode
@@ -2321,7 +2332,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur11")
     lastNode.setLabel("Blur11")
-    lastNode.setPosition(7353, 4449)
+    lastNode.setPosition(7354, 4368)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur11 = lastNode
@@ -2339,7 +2350,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot5")
     lastNode.setLabel("Dot5")
-    lastNode.setPosition(7595, 4459)
+    lastNode.setPosition(7596, 4378)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot5 = lastNode
@@ -2351,7 +2362,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
-    lastNode.setPosition(7353, 4544)
+    lastNode.setPosition(7353, 4450)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
@@ -2378,7 +2389,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Grade1")
     lastNode.setLabel("Grade1")
-    lastNode.setPosition(7357, 4650)
+    lastNode.setPosition(7353, 4554)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade1 = lastNode
@@ -3174,7 +3185,7 @@ def createInstance(app,group):
     lastNode.setScriptName("EdgeDetect1")
     lastNode.setLabel("EdgeDetect1")
     lastNode.setPosition(908, 181)
-    lastNode.setSize(80, 34)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupgroupEdgeDetect1 = lastNode
 
@@ -3198,11 +3209,6 @@ def createInstance(app,group):
         param.setValue(True)
         del param
 
-    param = lastNode.getParam("filter")
-    if param is not None:
-        param.set("Gaussian")
-        del param
-
     param = lastNode.getParam("multiChannel")
     if param is not None:
         param.set("Separate")
@@ -3221,7 +3227,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Gamma1")
     lastNode.setLabel("Gamma1")
     lastNode.setPosition(895, 285)
-    lastNode.setSize(104, 34)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.48, 0.66, 1)
     groupgroupGamma1 = lastNode
 
@@ -3261,44 +3267,14 @@ def createInstance(app,group):
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
     lastNode.setPosition(676, 349)
-    lastNode.setSize(104, 34)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupgroupBlur1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamProcessR")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessG")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessB")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
-        del param
 
     param = lastNode.getParam("size")
     if param is not None:
         param.setValue(2, 0)
         param.setValue(2, 1)
-        del param
-
-    param = lastNode.getParam("cropToFormat")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("mix")
-    if param is not None:
-        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("enableMask_Mask")
@@ -3314,7 +3290,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
     lastNode.setPosition(768, 104)
-    lastNode.setSize(104, 34)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupgroupShuffle1 = lastNode
 
@@ -3368,7 +3344,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(676, 50)
-    lastNode.setSize(104, 34)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupgroupSource = lastNode
 
@@ -3379,7 +3355,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, groupgroup)
     lastNode.setLabel("Output1")
     lastNode.setPosition(676, 430)
-    lastNode.setSize(104, 34)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupgroupOutput1 = lastNode
 
@@ -3391,7 +3367,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
     lastNode.setPosition(1084, 349)
-    lastNode.setSize(104, 34)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupgroupMask = lastNode
 
@@ -3432,11 +3408,6 @@ def createInstance(app,group):
         param.set("A")
         del param
 
-    param = lastNode.getParam("maskInvert")
-    if param is not None:
-        param.setValue(False)
-        del param
-
     param = lastNode.getParam("userTextArea")
     if param is not None:
         param.setValue("<Natron>(over)</Natron>")
@@ -3455,7 +3426,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Switch1")
     lastNode.setLabel("Switch1")
     lastNode.setPosition(896, 104)
-    lastNode.setSize(104, 34)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupgroupSwitch1 = lastNode
 
@@ -3472,7 +3443,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Matte")
     lastNode.setLabel("Matte")
     lastNode.setPosition(896, 51)
-    lastNode.setSize(104, 34)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupgroupMatte = lastNode
 
@@ -3584,535 +3555,33 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shuffle1"
 
-    # Start of node "EdgeBlur1_2"
-    lastNode = app.createNode("fr.inria.EdgeBlur", 1, group)
-    lastNode.setScriptName("EdgeBlur1_2")
-    lastNode.setLabel("EdgeBlur1_2")
-    lastNode.setPosition(7934, 4651)
+    # Start of node "Shuffle5"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
+    lastNode.setScriptName("Shuffle5")
+    lastNode.setLabel("Shuffle5")
+    lastNode.setPosition(7353, 4650)
     lastNode.setSize(104, 43)
-    lastNode.setColor(0.8, 0.5, 0.3)
-    groupEdgeBlur1_2 = lastNode
-
-
-    # Create the user parameters
-    lastNode.controlsPage = lastNode.createPageParam("controlsPage", "Controls")
-    param = lastNode.createBooleanParam("Blur1NatronOfxParamProcessR", "R")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    lastNode.Blur1NatronOfxParamProcessR = param
-    del param
-
-    param = lastNode.createBooleanParam("Blur1NatronOfxParamProcessG", "G")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Blur1NatronOfxParamProcessG = param
-    del param
-
-    param = lastNode.createBooleanParam("Blur1NatronOfxParamProcessB", "B")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Blur1NatronOfxParamProcessB = param
-    del param
-
-    param = lastNode.createBooleanParam("Blur1NatronOfxParamProcessA", "A")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Blur1NatronOfxParamProcessA = param
-    del param
-
-    param = lastNode.createBooleanParam("externalMatte", "External Matte")
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("Use the edges from the Matte input instead of the alpha channel of the source image.")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.externalMatte = param
-    del param
-
-    param = lastNode.createDoubleParam("size", "Size")
-    param.setMinimum(0, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(100, 0)
-    param.setDefaultValue(3, 0)
-    param.restoreDefaultValue(0)
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    param.setValue(2, 0)
-    param.setEnabled(False, 0)
-    lastNode.size = param
-    del param
-
-    param = lastNode.createChoiceParam("filter", "Filter")
-    param.setDefaultValue(4)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    lastNode.filter = param
-    del param
-
-    param = lastNode.createBooleanParam("cropToFormat", "Crop To Format")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.cropToFormat = param
-    del param
-
-    param = lastNode.createDoubleParam("edgeMult", "Edge Mult")
-    param.setMinimum(0, 0)
-    param.setMaximum(2147483647, 0)
-    param.setDisplayMinimum(0.1, 0)
-    param.setDisplayMaximum(10, 0)
-    param.setDefaultValue(2, 0)
-    param.restoreDefaultValue(0)
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("Sharpness of the borders of the blur area.")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.edgeMult = param
-    del param
-
-    param = lastNode.createBooleanParam("Merge1maskInvert", "Invert Mask")
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    lastNode.Merge1maskInvert = param
-    del param
-
-    param = lastNode.createDoubleParam("Blur1mix", "Mix")
-    param.setMinimum(0, 0)
-    param.setMaximum(1, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1, 0)
-    param.setDefaultValue(1, 0)
-    param.restoreDefaultValue(0)
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Blur1mix = param
-    del param
-
-    # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['controlsPage', 'Node'])
-    lastNode.refreshUserParamsGUI()
-    del lastNode
-    # End of node "EdgeBlur1_2"
-
-    groupgroup = groupEdgeBlur1_2
-    # Create all nodes in the group
-
-    # Create the parameters of the group node the same way we did for all internal nodes
-    lastNode = groupgroup
-
-    # Create the user parameters
-    lastNode.controlsPage = lastNode.createPageParam("controlsPage", "Controls")
-    param = lastNode.createBooleanParam("Blur1NatronOfxParamProcessR", "R")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    lastNode.Blur1NatronOfxParamProcessR = param
-    del param
-
-    param = lastNode.createBooleanParam("Blur1NatronOfxParamProcessG", "G")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Blur1NatronOfxParamProcessG = param
-    del param
-
-    param = lastNode.createBooleanParam("Blur1NatronOfxParamProcessB", "B")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Blur1NatronOfxParamProcessB = param
-    del param
-
-    param = lastNode.createBooleanParam("Blur1NatronOfxParamProcessA", "A")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.Blur1NatronOfxParamProcessA = param
-    del param
-
-    param = lastNode.createBooleanParam("externalMatte", "External Matte")
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("Use the edges from the Matte input instead of the alpha channel of the source image.")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.externalMatte = param
-    del param
-
-    param = lastNode.createDoubleParam("size", "Size")
-    param.setMinimum(0, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(100, 0)
-    param.setDefaultValue(3, 0)
-    param.restoreDefaultValue(0)
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    param.setValue(2, 0)
-    param.setEnabled(False, 0)
-    lastNode.size = param
-    del param
-
-    param = lastNode.createChoiceParam("filter", "Filter")
-    param.setDefaultValue(4)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    lastNode.filter = param
-    del param
-
-    param = lastNode.createBooleanParam("cropToFormat", "Crop To Format")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(False)
-    lastNode.cropToFormat = param
-    del param
-
-    param = lastNode.createDoubleParam("edgeMult", "Edge Mult")
-    param.setMinimum(0, 0)
-    param.setMaximum(2147483647, 0)
-    param.setDisplayMinimum(0.1, 0)
-    param.setDisplayMaximum(10, 0)
-    param.setDefaultValue(2, 0)
-    param.restoreDefaultValue(0)
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("Sharpness of the borders of the blur area.")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.edgeMult = param
-    del param
-
-    param = lastNode.createBooleanParam("Merge1maskInvert", "Invert Mask")
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    lastNode.Merge1maskInvert = param
-    del param
-
-    param = lastNode.createDoubleParam("Blur1mix", "Mix")
-    param.setMinimum(0, 0)
-    param.setMaximum(1, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1, 0)
-    param.setDefaultValue(1, 0)
-    param.restoreDefaultValue(0)
-
-    # Add the param to the page
-    lastNode.controlsPage.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Blur1mix = param
-    del param
-
-    # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['controlsPage', 'Node'])
-    lastNode.refreshUserParamsGUI()
-    del lastNode
-
-    # Start of node "EdgeDetect1"
-    lastNode = app.createNode("eu.cimg.EdgeDetect", 4, groupgroup)
-    lastNode.setScriptName("EdgeDetect1")
-    lastNode.setLabel("EdgeDetect1")
-    lastNode.setPosition(908, 181)
-    lastNode.setSize(80, 34)
-    lastNode.setColor(0.8, 0.5, 0.3)
-    groupgroupEdgeDetect1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamProcessR")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessG")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessB")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("filter")
-    if param is not None:
-        param.set("Gaussian")
-        del param
-
-    param = lastNode.getParam("multiChannel")
-    if param is not None:
-        param.set("Separate")
-        del param
-
-    param = lastNode.getParam("blurSize")
-    if param is not None:
-        param.setValue(2, 0)
-        del param
-
-    del lastNode
-    # End of node "EdgeDetect1"
-
-    # Start of node "Gamma1"
-    lastNode = app.createNode("net.sf.openfx.GammaPlugin", 2, groupgroup)
-    lastNode.setScriptName("Gamma1")
-    lastNode.setLabel("Gamma1")
-    lastNode.setPosition(895, 285)
-    lastNode.setSize(104, 34)
-    lastNode.setColor(0.48, 0.66, 1)
-    groupgroupGamma1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamProcessR")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessG")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessB")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("value")
-    if param is not None:
-        param.setValue(2, 0)
-        param.setValue(2, 1)
-        param.setValue(2, 2)
-        param.setValue(2, 3)
-        del param
-
-    del lastNode
-    # End of node "Gamma1"
-
-    # Start of node "Blur1"
-    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, groupgroup)
-    lastNode.setScriptName("Blur1")
-    lastNode.setLabel("Blur1")
-    lastNode.setPosition(676, 349)
-    lastNode.setSize(104, 34)
-    lastNode.setColor(0.8, 0.5, 0.3)
-    groupgroupBlur1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamProcessR")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessG")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessB")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("NatronOfxParamProcessA")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("size")
-    if param is not None:
-        param.setValue(2, 0)
-        param.setValue(2, 1)
-        del param
-
-    param = lastNode.getParam("cropToFormat")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("mix")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("enableMask_Mask")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    del lastNode
-    # End of node "Blur1"
-
-    # Start of node "Shuffle1"
-    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, groupgroup)
-    lastNode.setScriptName("Shuffle1")
-    lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(768, 104)
-    lastNode.setSize(104, 34)
     lastNode.setColor(0.6, 0.24, 0.39)
-    groupgroupShuffle1 = lastNode
+    groupShuffle5 = lastNode
 
     param = lastNode.getParam("outputChannelsChoice")
     if param is not None:
         param.setValue("Color.RGBA")
         del param
 
-    param = lastNode.getParam("outputComponents")
-    if param is not None:
-        param.set("Alpha")
-        del param
-
     param = lastNode.getParam("outputRChoice")
     if param is not None:
-        param.setValue("A.r")
+        param.setValue("A.a")
         del param
 
     param = lastNode.getParam("outputGChoice")
     if param is not None:
-        param.setValue("A.g")
+        param.setValue("A.a")
         del param
 
     param = lastNode.getParam("outputBChoice")
     if param is not None:
-        param.setValue("A.b")
+        param.setValue("A.a")
         del param
 
     param = lastNode.getParam("outputAChoice")
@@ -4121,198 +3590,7 @@ def createInstance(app,group):
         del param
 
     del lastNode
-    # End of node "Shuffle1"
-
-    # Start of node "Dot1"
-    lastNode = app.createNode("fr.inria.built-in.Dot", 1, groupgroup)
-    lastNode.setScriptName("Dot1")
-    lastNode.setLabel("Dot1")
-    lastNode.setPosition(721, 114)
-    lastNode.setSize(15, 15)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupgroupDot1 = lastNode
-
-    del lastNode
-    # End of node "Dot1"
-
-    # Start of node "Source"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, groupgroup)
-    lastNode.setScriptName("Source")
-    lastNode.setLabel("Source")
-    lastNode.setPosition(676, 50)
-    lastNode.setSize(104, 34)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupgroupSource = lastNode
-
-    del lastNode
-    # End of node "Source"
-
-    # Start of node "Output1"
-    lastNode = app.createNode("fr.inria.built-in.Output", 1, groupgroup)
-    lastNode.setLabel("Output1")
-    lastNode.setPosition(676, 430)
-    lastNode.setSize(104, 34)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupgroupOutput1 = lastNode
-
-    del lastNode
-    # End of node "Output1"
-
-    # Start of node "Mask"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, groupgroup)
-    lastNode.setScriptName("Mask")
-    lastNode.setLabel("Mask")
-    lastNode.setPosition(1084, 349)
-    lastNode.setSize(104, 34)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupgroupMask = lastNode
-
-    param = lastNode.getParam("optional")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("isMask")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    del lastNode
-    # End of node "Mask"
-
-    # Start of node "Merge1"
-    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, groupgroup)
-    lastNode.setScriptName("Merge1")
-    lastNode.setLabel("Merge1")
-    lastNode.setPosition(895, 341)
-    lastNode.setSize(104, 56)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupgroupMerge1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("copy")
-        del param
-
-    param = lastNode.getParam("operation")
-    if param is not None:
-        param.set("copy")
-        del param
-
-    param = lastNode.getParam("bbox")
-    if param is not None:
-        param.set("A")
-        del param
-
-    param = lastNode.getParam("maskInvert")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("userTextArea")
-    if param is not None:
-        param.setValue("<Natron>(copy)</Natron>")
-        del param
-
-    del lastNode
-    # End of node "Merge1"
-
-    # Start of node "Switch1"
-    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, groupgroup)
-    lastNode.setScriptName("Switch1")
-    lastNode.setLabel("Switch1")
-    lastNode.setPosition(896, 104)
-    lastNode.setSize(104, 34)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupgroupSwitch1 = lastNode
-
-    param = lastNode.getParam("which")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    del lastNode
-    # End of node "Switch1"
-
-    # Start of node "Matte"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, groupgroup)
-    lastNode.setScriptName("Matte")
-    lastNode.setLabel("Matte")
-    lastNode.setPosition(896, 51)
-    lastNode.setSize(104, 34)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupgroupMatte = lastNode
-
-    param = lastNode.getParam("optional")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("isMask")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    del lastNode
-    # End of node "Matte"
-
-    # Now that all nodes are created we can connect them together, restore expressions
-    groupgroupEdgeDetect1.connectInput(0, groupgroupSwitch1)
-    groupgroupGamma1.connectInput(0, groupgroupEdgeDetect1)
-    groupgroupBlur1.connectInput(0, groupgroupDot1)
-    groupgroupBlur1.connectInput(1, groupgroupMerge1)
-    groupgroupShuffle1.connectInput(1, groupgroupDot1)
-    groupgroupDot1.connectInput(0, groupgroupSource)
-    groupgroupOutput1.connectInput(0, groupgroupBlur1)
-    groupgroupMerge1.connectInput(1, groupgroupGamma1)
-    groupgroupMerge1.connectInput(2, groupgroupMask)
-    groupgroupSwitch1.connectInput(0, groupgroupShuffle1)
-    groupgroupSwitch1.connectInput(1, groupgroupMatte)
-
-    param = groupgroupEdgeDetect1.getParam("filter")
-    groupgroup.getParam("filter").setAsAlias(param)
-    del param
-    param = groupgroupEdgeDetect1.getParam("blurSize")
-    groupgroup.getParam("size").setAsAlias(param)
-    del param
-    param = groupgroupGamma1.getParam("value")
-    param.setExpression("thisGroup.edgeMult.get()", False, 0)
-    param.setExpression("thisGroup.edgeMult.get()", False, 1)
-    param.setExpression("thisGroup.edgeMult.get()", False, 2)
-    param.setExpression("thisGroup.edgeMult.get()", False, 3)
-    del param
-    param = groupgroupBlur1.getParam("NatronOfxParamProcessR")
-    groupgroup.getParam("Blur1NatronOfxParamProcessR").setAsAlias(param)
-    del param
-    param = groupgroupBlur1.getParam("NatronOfxParamProcessG")
-    groupgroup.getParam("Blur1NatronOfxParamProcessG").setAsAlias(param)
-    del param
-    param = groupgroupBlur1.getParam("NatronOfxParamProcessB")
-    groupgroup.getParam("Blur1NatronOfxParamProcessB").setAsAlias(param)
-    del param
-    param = groupgroupBlur1.getParam("NatronOfxParamProcessA")
-    groupgroup.getParam("Blur1NatronOfxParamProcessA").setAsAlias(param)
-    del param
-    param = groupgroupBlur1.getParam("size")
-    param.slaveTo(groupgroupEdgeDetect1.getParam("blurSize"), 0, 0)
-    param.slaveTo(groupgroupEdgeDetect1.getParam("blurSize"), 1, 0)
-    del param
-    param = groupgroupBlur1.getParam("cropToFormat")
-    groupgroup.getParam("cropToFormat").setAsAlias(param)
-    del param
-    param = groupgroupBlur1.getParam("mix")
-    groupgroup.getParam("Blur1mix").setAsAlias(param)
-    del param
-    param = groupgroupMerge1.getParam("maskInvert")
-    groupgroup.getParam("Merge1maskInvert").setAsAlias(param)
-    del param
-    param = groupgroupSwitch1.getParam("which")
-    param.setExpression("thisGroup.externalMatte.get()", False, 0)
-    del param
-
-    param = groupgroup.getParam("size")
-    param.slaveTo(group.getParam("EdgeBlur"), 0, 0)
-    del param
+    # End of node "Shuffle5"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupLin2Log_FG.connectInput(0, groupFG)
@@ -4424,6 +3702,7 @@ def createInstance(app,group):
     groupSwitch_Output.connectInput(2, groupMultiply11)
     groupSwitch_Output.connectInput(3, groupMerge3)
     groupSwitch_Output.connectInput(4, groupMerge3_2)
+    groupSwitch_Output.connectInput(5, groupShuffle5)
     groupShuffle2.connectInput(0, groupDot4_2)
     groupShuffle2.connectInput(1, groupSeExprSimple1)
     groupPremult2.connectInput(0, groupMerge2)
@@ -4443,8 +3722,9 @@ def createInstance(app,group):
     groupMultiply11.connectInput(0, groupPremult2)
     groupOutput1.connectInput(0, groupCrop1)
     groupEdgeBlur1.connectInput(0, groupDot5)
-    groupEdgeBlur1.connectInput(1, groupGrade1)
+    groupEdgeBlur1.connectInput(1, groupShuffle5)
     groupShuffle1.connectInput(1, groupShuffle2)
+    groupShuffle5.connectInput(1, groupGrade1)
 
     param = groupLin2Log_FG.getParam("disableNode")
     param.setExpression("not thisGroup.Log.get()", False, 0)
@@ -4567,9 +3847,6 @@ def createInstance(app,group):
     param.slaveTo(groupMultiply3.getParam("value"), 3, 3)
     del param
     param = groupEdgeBlur1.getParam("size")
-    param.slaveTo(group.getParam("EdgeBlur"), 0, 0)
-    del param
-    param = groupEdgeBlur1_2.getParam("size")
     param.slaveTo(group.getParam("EdgeBlur"), 0, 0)
     del param
 
