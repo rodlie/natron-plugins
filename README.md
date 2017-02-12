@@ -37,7 +37,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Defocus/Defocus.png'height='32'> [Defocus](/Filter/Defocus/README.md)** : Add a bokeh blur to the image. You can use an image to guide blur size, note that it's not intended to act as a ZBlur plugin 
 
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Mosaic/Mosaic.png'height='32'> [Mosaic](/Filter/Mosaic/README.md)** : No description found
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Mosaic/Mosaic.png'height='32'> [Mosaic](/Filter/Mosaic/README.md)** : A basic mosaic effect.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Orton/Orton.png'height='32'> [Orton](/Filter/Orton/README.md)** : Orton Effect.
 
