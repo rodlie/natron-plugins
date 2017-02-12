@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 2.5
+    return 2.6
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -494,19 +494,13 @@ def createInstance(app,group):
     lastNode.Use_Flickering = param
     del param
 
-    param = lastNode.createDouble2DParam("Flicker_Speed", "Flicker Speed")
+    param = lastNode.createDoubleParam("Flicker_Speed", "Flicker Speed")
     param.setMinimum(-2147483648, 0)
     param.setMaximum(2147483647, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(10, 0)
     param.setDefaultValue(2, 0)
     param.restoreDefaultValue(0)
-    param.setMinimum(-2147483648, 1)
-    param.setMaximum(2147483647, 1)
-    param.setDisplayMinimum(0, 1)
-    param.setDisplayMaximum(10, 1)
-    param.setDefaultValue(2, 1)
-    param.restoreDefaultValue(1)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -1144,7 +1138,7 @@ def createInstance(app,group):
     lastNode.sep93 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON du Gizmo Nuke dï¿½veloppï¿½ par The Foundry")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON du Gizmo Nuke développé par The Foundry")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -1599,7 +1593,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.SeNoise", 1, group)
     lastNode.setScriptName("SeNoise1")
     lastNode.setLabel("SeNoise1")
-    lastNode.setPosition(4412, 1529)
+    lastNode.setPosition(4413, 1529)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.75, 0.75, 0.75)
     groupSeNoise1 = lastNode
@@ -1608,6 +1602,11 @@ def createInstance(app,group):
     if param is not None:
         param.setValue(40, 0)
         param.setValue(40, 1)
+        del param
+
+    param = lastNode.getParam("noiseZ")
+    if param is not None:
+        param.setValue(0.02, 0)
         del param
 
     del lastNode
@@ -1900,7 +1899,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.SeNoise", 1, group)
     lastNode.setScriptName("SeNoise1_2")
     lastNode.setLabel("SeNoise1_2")
-    lastNode.setPosition(4611, 1527)
+    lastNode.setPosition(4604, 1535)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.75, 0.75, 0.75)
     groupSeNoise1_2 = lastNode
@@ -1911,15 +1910,15 @@ def createInstance(app,group):
         param.setValue(40, 1)
         del param
 
+    param = lastNode.getParam("noiseZ")
+    if param is not None:
+        param.setValue(0.02, 0)
+        del param
+
     param = lastNode.getParam("transformTranslate")
     if param is not None:
         param.setValue(100, 0)
         param.setValue(100, 1)
-        del param
-
-    param = lastNode.getParam("transformInteractOpen")
-    if param is not None:
-        param.setValue(True)
         del param
 
     del lastNode
@@ -2279,6 +2278,9 @@ def createInstance(app,group):
     param = groupSeNoise1.getParam("noiseSize")
     group.getParam("Flicker_Size").setAsAlias(param)
     del param
+    param = groupSeNoise1.getParam("noiseZ")
+    param.setExpression("ret = (thisGroup.Flicker_Speed.get())/100", False, 0)
+    del param
     param = groupMerge1_4.getParam("disableNode")
     param.setExpression("not thisGroup.Use_Flickering.get()", False, 0)
     del param
@@ -2323,6 +2325,7 @@ def createInstance(app,group):
     param.slaveTo(groupSeNoise1.getParam("noiseSize"), 1, 1)
     del param
     param = groupSeNoise1_2.getParam("noiseZ")
+    param.setExpression("ret = (thisGroup.Flicker_Speed.get())/100", False, 0)
     param.slaveTo(groupSeNoise1.getParam("noiseZ"), 0, 0)
     del param
     param = groupSeNoise1_2.getParam("noiseZSlope")
