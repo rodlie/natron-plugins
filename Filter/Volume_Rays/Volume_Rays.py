@@ -1604,7 +1604,7 @@ def createInstance(app,group):
         param.setValue(40, 1)
         del param
 
-    param = lastNode.getParam("noiseZ")
+    param = lastNode.getParam("noiseZSlope")
     if param is not None:
         param.setValue(0.02, 0)
         del param
@@ -1911,6 +1911,11 @@ def createInstance(app,group):
         del param
 
     param = lastNode.getParam("noiseZ")
+    if param is not None:
+        param.setValue(0.02, 0)
+        del param
+
+    param = lastNode.getParam("noiseZSlope")
     if param is not None:
         param.setValue(0.02, 0)
         del param
@@ -2325,6 +2330,7 @@ def createInstance(app,group):
     param.slaveTo(groupSeNoise1.getParam("noiseSize"), 1, 1)
     del param
     param = groupSeNoise1_2.getParam("noiseZ")
+    param.setExpression("ret = (thisGroup.Flicker_Speed.get())/100", False, 0)
     param.slaveTo(groupSeNoise1.getParam("noiseZ"), 0, 0)
     del param
     param = groupSeNoise1_2.getParam("noiseZSlope")
