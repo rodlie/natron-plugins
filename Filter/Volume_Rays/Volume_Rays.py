@@ -22,7 +22,7 @@ def getLabel():
     return "Volume_Rays"
 
 def getVersion():
-    return 2.6
+    return 2.7
 
 def getIconPath():
     return "Volume_Rays.png"
@@ -2278,7 +2278,7 @@ def createInstance(app,group):
     param = groupSeNoise1.getParam("noiseSize")
     group.getParam("Flicker_Size").setAsAlias(param)
     del param
-    param = groupSeNoise1.getParam("noiseZ")
+    param = groupSeNoise1.getParam("noiseZSlope")
     param.setExpression("ret = (thisGroup.Flicker_Speed.get())/100", False, 0)
     del param
     param = groupMerge1_4.getParam("disableNode")
@@ -2325,10 +2325,10 @@ def createInstance(app,group):
     param.slaveTo(groupSeNoise1.getParam("noiseSize"), 1, 1)
     del param
     param = groupSeNoise1_2.getParam("noiseZ")
-    param.setExpression("ret = (thisGroup.Flicker_Speed.get())/100", False, 0)
     param.slaveTo(groupSeNoise1.getParam("noiseZ"), 0, 0)
     del param
     param = groupSeNoise1_2.getParam("noiseZSlope")
+    param.setExpression("ret = (thisGroup.Flicker_Speed.get())/100", False, 0)
     param.slaveTo(groupSeNoise1.getParam("noiseZSlope"), 0, 0)
     del param
     param = groupSeNoise1_2.getParam("noiseType")

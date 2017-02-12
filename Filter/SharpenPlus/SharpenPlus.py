@@ -24,6 +24,9 @@ def getLabel():
 def getVersion():
     return 1
 
+def getIconPath():
+    return "SharpenPlus.png"
+
 def getGrouping():
     return "Community/Filter"
 
