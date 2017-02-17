@@ -11,6 +11,8 @@ Internally it use an STMap node to do the texturing.
 
 Filter : The filtering algorithm, by default it's set to impulse that is the fastest but is aliased. Use another one if you have jagged edges.
 
+Backface culling : if checked one side of the plane will be rendered transparent. 
+
 UV Offset and Scale : manipulates the texture coordinates.
 
 ### Motion blur
