@@ -25,6 +25,6 @@ This Pyplug create the camera coordinates(matrix) and send it to a Card3D node u
 
 more information on the Card3D page
 
-![Screenshot](Resources/3DCard_01.jpg)
+![Screenshot](Resources/3Dcard_01.jpg)
 
 plugin original implementation by Sozap, with many help from this site : https://www.scratchapixel.com/

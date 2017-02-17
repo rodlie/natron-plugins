@@ -59,11 +59,11 @@ Obviously it would have been better to come up with a more optimised solution bu
 ## some screenshots
 A simple setup with a camera and a card :
 
-![Screenshot](Resources/3DCard_01.jpg)
+![Screenshot](Resources/3Dcard_01.jpg)
 
 A more advanced setup , two card are added to the image using some Zcombine nodes. Of course you can also use a regular merge node if you don't want to use the Zpass.
 In this example the image as grain in the Z because of blender/cycles output with motion blur. But otherwise it should work as expected.
 
-![Screenshot](Resources/3DCard_02.jpg)
+![Screenshot](Resources/3Dcard_02.jpg)
 
 plugin original implementation by Sozap, with many help from this site : https://www.scratchapixel.com/
