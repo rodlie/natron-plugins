@@ -73,7 +73,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### Filter/Pixelfudger
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_Bandpass/PxF_Bandpass.png'height='32'> [PxF_Bandpass](/Filter/PxF_Bandpass/README.md)** : Extract detail from an image. Useful to make plates easier to track.
 
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png'height='32'> [PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png'height='32'> [PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : To be written
 
 ### Keyer
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/AdditiveKeyer/AdditiveKeyer.png'height='32'> [AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
@@ -114,6 +114,10 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Time/TimeLoop/TimeLoop.png'height='32'> [TimeLoop](/Time/TimeLoop/README.md)** : generate loops from input image
 
 ### Transform
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Transform/PM_Camera/PM_Camera.png'height='32'> [PM_Camera](/Transform/PM_Camera/README.md)** : Poor's Man 3D Camera, can import .chan data to be used with the PM_Card3D
+
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Transform/3D_Card/PM_Card3D.png'height='32'> [PM_Card3D](/Transform/3D_Card/README.md)** : Poor's Man Card3D, create a 3D plane , to be used with PM_Camera
+
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Repeat/Repeat.png'height='32'> [Repeat](/Transform/Repeat/README.md)** : Tiling effect that extends image size.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Transform/Shaker/Shaker.png'height='32'> [Shaker](/Transform/Shaker/README.md)** : Adds a shaking effect to the input image.It's based on an expression similar to wiggle expression in After Effects
