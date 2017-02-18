@@ -88,6 +88,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/PositionMask/PositionMask.png'height='32'> [PositionMask](/Keyer/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
+- **<img src=''height='32'> [lp_ChannelContactsheet](/Keyer/lp_ChannelContactsheet/README.md)** : Generate a Contactsheet to find a suitable channel for keying.
+
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_ChillSpill/lp_ChillSpill.png'height='32'> [lp_ChillSpill](/Keyer/lp_ChillSpill/README.md)** : An alternative to buit-in Despill node that is quick and easy to setup.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_CleanScreen/lp_CleanScreen.png'height='32'> [lp_CleanScreen](/Keyer/lp_CleanScreen/README.md)** : Evens out your Chroma-Screen with the help of a Cleanplate.
