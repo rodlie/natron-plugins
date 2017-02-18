@@ -8,6 +8,8 @@ Connect an image and look out for a good, high-contrast channel you want to work
 ### HOW DOES IT WORK
 The input-channel gets reformatted to a smaller version of itself and then split into various different colourspaces, arranged into a grid. For the Keyer-mode, the same happens without the reformatting, with added controls for adjusting the key; the same controls are also found in lp_SimpleKeyer.
 
+This tool is based on Tyler Lockards great Nuke Gizmo: http://www.nukepedia.com/gizmos/keyer/channelcontactsheet
+
 ![Screenshot](Resources/channelcontactsheet_small.jpg)
 
 A preview of the generated contactsheet. Footage taken from Tears of Steel, (CC) Blender Foundation | mango.blender.org
