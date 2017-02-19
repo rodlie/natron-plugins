@@ -22,10 +22,10 @@ def getLabel():
     return "lp_SimpleKeyer"
 
 def getVersion():
-    return 2
+    return 3
 
 def getGrouping():
-    return "Community/Keyer"
+    return "Keyer"
 
 def getPluginDescription():
     return "A very simple keyer with a big variety of different operations inspired by Nukes most simple Keyer-node.\n\nINPUTS\nimg = Connect the image you want to key from\n\nHOW TO USE IT\nConnect an image and choose the operation you want to use to create your key. You can adjust white- and black-point as needed to key the you want. You can also enable range-controls for added functionality.\n\nHOW DOES IT WORK\nSimply put, this tool copies channels (from different colourspaces or other operations) into the alpha channel, a following Grade-node helps with adjusting the levels. The red-, green- and bluescreen operations are the most simple colour-difference setups.\nThe range-control is build with a 2nd yet inverted Grade-node, the difference between the two is the resulting range.\n"
@@ -62,7 +62,7 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Plenty of operations to choose from :)")
+    param.setHelp("Plenty of operations to choose from :)\n\nnote: luminance is based on REC709 math.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.keyoperation = param
@@ -74,9 +74,10 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Inverts the created Alpha.")
+    param.setHelp("Inverts the created matte.")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
+    param.setValue(False)
     lastNode.Invert1NatronOfxParamProcessA = param
     del param
 
@@ -126,7 +127,7 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("Adjusts the gamma of the generated matte.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.gam01 = param
@@ -168,7 +169,7 @@ def createInstance(app,group):
     lastNode.rangecntrl.addParam(param)
 
     # Set param properties
-    param.setHelp("Set the end of the core-selection in a range. \nimagine all points (black, white, white range and baclk range) would sit on one line. Everything left of black point will be black, fade between black point and white point, everything between white point and white range will be solid white, fade between white range and black range, and again everything right of black range will be black. Hope that makes sense.")
+    param.setHelp("Set the end of the core-selection in a range. \nImagine all points (black, white, white range and black range) would sit on one line. Everything left of black point will be black, fade between black point and white point, everything between white point and white range will be solid white, fade between white range and black range, and again everything right of black range will be black. Hope that makes sense.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.whtrng = param
@@ -186,7 +187,7 @@ def createInstance(app,group):
     lastNode.rangecntrl.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("Set the hard-end of the range. \nImagine all points (black, white, white range and black range) would sit on one line: everything left of black point will be black, fade between black point and white point, everything between white point and white range will be solid white, fade between white range and black range, and again everything right of black range will be black. Hope that makes sense.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.blkrng = param
@@ -204,7 +205,7 @@ def createInstance(app,group):
     lastNode.rangecntrl.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("Adjusts the gamma of the range.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.gam02 = param
@@ -255,13 +256,13 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("Premultiplies the image by the created Alpha.")
+    param.setHelp("Premultiplies the image by the created alpha.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.prmlt = param
     del param
 
-    param = lastNode.createStringParam("copyright", "")
+    param = lastNode.createStringParam("credit", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -272,17 +273,17 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.copyright = param
+    param.setVisibleByDefault(False)
+    lastNode.credit = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node', 'Info'])
+    lastNode.setPagesOrder(['userNatron', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setScriptName("Output1")
     lastNode.setLabel("Output1")
     lastNode.setPosition(3261, 2161)
     lastNode.setSize(104, 31)
@@ -1727,12 +1728,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("NatronOfxParamStringSublabelName")
     if param is not None:
-        param.setValue("plus")
+        param.setValue("max")
         del param
 
     param = lastNode.getParam("operation")
     if param is not None:
-        param.set("plus")
+        param.set("max")
         del param
 
     del lastNode
