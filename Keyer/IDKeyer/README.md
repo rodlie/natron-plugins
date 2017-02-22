@@ -2,7 +2,9 @@
 
 Extract an alpha matte from a ID-Pass to be used as a mask
 
-The color should be exact match to be keyed (there are no tolerance slider) so if your image has noise or is antialiased it won't work.
+To use :
+
+Select one or more color to be keyed.If the color is not an exact match, or if you use 8bits images for the ID pass, then increase the tolerance factor.
 
 Pure Black color is ignored.
 

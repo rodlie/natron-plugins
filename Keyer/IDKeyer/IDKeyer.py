@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/Keyer"
 
 def getPluginDescription():
-    return "Extract an alpha matte from a ID-Pass to be used as a mask\nThe color should be exact match to be keyed (there are no tolerance slider) so if your image has noise or is antialiased it won\'t work.\nPure Black color is ignored."
+    return "Extract an alpha matte from a ID-Pass to be used as a mask\n\nSelect one or more color to be keyed.\nIf the color is not an exact match, or if you use 8bits images for the ID pass, then increase the tolerance factor.\n\nNote that pure Black color is ignored."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -47,6 +47,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.IDKEYparamValueVec40 = param
@@ -58,6 +59,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.IDKEYparamValueVec41 = param
@@ -69,6 +71,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.IDKEYparamValueVec42 = param
@@ -80,6 +83,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.IDKEYparamValueVec43 = param
@@ -91,6 +95,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.IDKEYparamValueVec44 = param
@@ -102,6 +107,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.IDKEYparamValueVec45 = param
@@ -113,6 +119,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.IDKEYparamValueVec46 = param
@@ -129,6 +136,35 @@ def createInstance(app,group):
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
     lastNode.sep = param
+    del param
+
+    param = lastNode.createDoubleParam("tol", "Tolerance")
+    param.setMinimum(0, 0)
+    param.setMaximum(10, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(0.2, 0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("The tolerance factor for the key to work,\nIf the ID pass is in 8bit then value of 0.01 or 0.02 can help to match the color better...")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.tol = param
+    del param
+
+    param = lastNode.createSeparatorParam("sepb", "")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sepb = param
     del param
 
     param = lastNode.createBooleanParam("alphaout", "Mask in RGBA")
@@ -169,52 +205,25 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupIDKEY = lastNode
 
+    param = lastNode.getParam("mousePosition")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
     param = lastNode.getParam("paramValueVec30")
     if param is not None:
         param.setValue(1, 0)
         param.setValue(0.068035848, 2)
         del param
 
-    param = lastNode.getParam("paramValueVec40")
+    param = lastNode.getParam("imageShaderPresetDir")
     if param is not None:
-        param.setValue(0, 0)
-        param.setValue(0, 1)
-        param.setValue(0, 2)
-        param.setValue(0, 3)
-        del param
-
-    param = lastNode.getParam("paramValueVec41")
-    if param is not None:
-        param.setValue(0, 0)
-        param.setValue(0, 1)
-        param.setValue(0, 2)
-        param.setValue(0, 3)
-        del param
-
-    param = lastNode.getParam("paramValueVec42")
-    if param is not None:
-        param.setValue(0, 0)
-        param.setValue(0, 1)
-        param.setValue(0, 2)
-        param.setValue(0, 3)
-        del param
-
-    param = lastNode.getParam("paramValueVec43")
-    if param is not None:
-        param.setValue(0, 0)
-        param.setValue(0, 1)
-        param.setValue(0, 2)
-        param.setValue(0, 3)
-        del param
-
-    param = lastNode.getParam("imageShaderFileName")
-    if param is not None:
-        param.setValue("/home/sozap/Bureau/NATRON/IDKEYER/IdKeyer.glsl")
+        param.setValue("")
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("uniform\tvec4 colA=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colB=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colC=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colD=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colE=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colF=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colG=vec4(0.0,0.0,0.0,0.0);\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  float A = 0.0;\n  vec3 col = texture2D(iChannel0, fragCoord.xy / iResolution.xy).rgb;\n\n  if (colA != vec4(0.0,0.0,0.0,0.0)){\n    if (colA.rgb==col){\n    A=1.0 ;};};\n\n  if (colB != vec4(0.0,0.0,0.0,0.0)){\n    if (colB.rgb==col){\n    A=1.0 ;};};\n\n  if (colC != vec4(0.0,0.0,0.0,0.0)){\n    if (colC.rgb==col){\n    A=1.0 ;};};\n\n  if (colD != vec4(0.0,0.0,0.0,0.0)){\n    if (colD.rgb==col){\n    A=1.0 ;};};\n\n  if (colE != vec4(0.0,0.0,0.0,0.0)){\n    if (colE.rgb==col){\n    A=1.0 ;};};\n\n  if (colE != vec4(0.0,0.0,0.0,0.0)){\n    if (colE.rgb==col){\n    A=1.0 ;};};\n\n  if (colF != vec4(0.0,0.0,0.0,0.0)){\n    if (colF.rgb==col){\n    A=1.0 ;};};\n\n  if (colG != vec4(0.0,0.0,0.0,0.0)){\n    if (colG.rgb==col){\n    A=1.0 ;};};\n\n  fragColor = vec4(col.xyz,A);\n}\n")
+        param.setValue("uniform\tvec4 colA=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colB=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colC=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colD=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colE=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colF=vec4(0.0,0.0,0.0,0.0);\nuniform\tvec4 colG=vec4(0.0,0.0,0.0,0.0);\n\nbool check(in vec3 src, in vec3 tgt)\n  {\n  int chk = 0;\n  bool ret = false ;\n  if (src.r <= tgt.r+iMouse.x){\n    if (src.r >= tgt.r-iMouse.x){\n      chk += 1;};};\n  if (src.g <= tgt.g+iMouse.x){\n    if (src.g >= tgt.g-iMouse.x){\n      chk += 1;};};\n  if (src.b <= tgt.b+iMouse.x){\n    if (src.b >= tgt.b-iMouse.x){\n      chk += 1;};};\n  if (chk == 3){ret=true;};\n  return ret ;\n  }\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  float A = 0.0;\n  vec3 col = texture2D(iChannel0, fragCoord.xy / iResolution.xy).rgb;\n\nif (colA != vec4(0.0,0.0,0.0,0.0)){\n  if (check(colA.rgb,col.rgb) == true){A=1.0;};};\n\nif (colB != vec4(0.0,0.0,0.0,0.0)){\n  if (check(colB.rgb,col.rgb) == true){A=1.0;};};\n\nif (colC != vec4(0.0,0.0,0.0,0.0)){\n  if (check(colC.rgb,col.rgb) == true){A=1.0;};};\n\nif (colD != vec4(0.0,0.0,0.0,0.0)){\n  if (check(colD.rgb,col.rgb) == true){A=1.0;};};\n\nif (colE != vec4(0.0,0.0,0.0,0.0)){\n  if (check(colE.rgb,col.rgb) == true){A=1.0;};};\n\nif (colF != vec4(0.0,0.0,0.0,0.0)){\n  if (check(colF.rgb,col.rgb) == true){A=1.0;};};\n\nif (colG != vec4(0.0,0.0,0.0,0.0)){\n  if (check(colG.rgb,col.rgb) == true){A=1.0;};};\n    \n\n  fragColor = vec4(col.xyz,A);\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -250,11 +259,6 @@ def createInstance(app,group):
     param = lastNode.getParam("NatronParamFormatChoice")
     if param is not None:
         param.set("PC_Video 640x480")
-        del param
-
-    param = lastNode.getParam("mouseParams")
-    if param is not None:
-        param.setValue(False)
         del param
 
     param = lastNode.getParam("paramCount")
@@ -439,8 +443,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Cumulate_Alpha")
     lastNode.setLabel("Cumulate Alpha")
-    lastNode.setPosition(1748, 1687)
-    lastNode.setSize(104, 66)
+    lastNode.setPosition(1748, 1692)
+    lastNode.setSize(104, 56)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupCumulate_Alpha = lastNode
 
@@ -504,6 +508,11 @@ def createInstance(app,group):
         param.setValue(True)
         del param
 
+    param = lastNode.getParam("userTextArea")
+    if param is not None:
+        param.setValue("<Natron>(screen)</Natron>")
+        del param
+
     param = lastNode.getParam("disableNode")
     if param is not None:
         param.setValue(True)
@@ -532,6 +541,9 @@ def createInstance(app,group):
     groupCumulate_Alpha.connectInput(1, groupDot1)
     groupDot1.connectInput(0, groupID_Pass)
 
+    param = groupIDKEY.getParam("mousePosition")
+    param.setExpression("thisGroup.tol.get()", False, 0)
+    del param
     param = groupIDKEY.getParam("paramValueVec40")
     group.getParam("IDKEYparamValueVec40").setAsAlias(param)
     del param
