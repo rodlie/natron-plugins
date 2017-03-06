@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>DUCK_Denoise</DisplayName>
-    <Description>It gives edge of a roto or a key, you have the possibility to dilate or erode, blur or multiply the edge differently inside and outside. Simply the best alpha edge you can find for free.</Description>
+    <Description>It helps to denoise a footage, since it is  not based on analisys: it just provides a denoise for black/white and coloured dots.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.DUCK_Denoise</Name>

@@ -43,7 +43,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PM_VectorBlur/PM_VectorBlur.png'height='32'> [PM_VectorBlur](/Filter/PM_VectorBlur/README.md)** : Poor Man's Vector Blur. Blur an image according to a Vector/Motion Pass, read the doc to know more about limitation
 
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Refraction/Refraction.png'height='32'> [Refraction](/Filter/Refraction/README.md)** : No description found
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/Refraction/Refraction.png'height='32'> [Refraction](/Filter/Refraction/README.md)** : Glass distorsion using a UV pass.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/SharpenPlus/SharpenPlus.png'height='32'> [SharpenPlus](/Filter/SharpenPlus/README.md)** : Image sharper.
 
@@ -62,18 +62,18 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/lp_roughenEdges/lp_roughenEdges.png'height='32'> [lp_roughenEdges](/Filter/lp_roughenEdges/README.md)** : Roughens the edges of a given alpha channel based on an adjustable noise.
 
 ### Filter/Duck
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png'height='32'> [DUCK_Alpha_Edge](/Filter/DUCK_Alpha_Edge/README.md)** : It gives edge of a roto or a key, you have the possibility to dilate or erode , blur or multiply the edge differently inside and outside. Simply the best alpha edge you can find for free."
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png'height='32'> [DUCK_Alpha_Edge](/Filter/DUCK_Alpha_Edge/README.md)** : It gives edge of a roto or a key, you have the possibility to dilate or erode , blur or multiply the edge differently inside and outside. Simply the best alpha edge you can find for free.
 
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Denoise/DUCK_Denoise.png'height='32'> [DUCK_Denoise](/Filter/DUCK_Denoise/README.md)** : It gives edge of a roto or a key, you have the possibility to dilate or erode, blur or multiply the edge differently inside and outside. Simply the best alpha edge you can find for free.
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Denoise/DUCK_Denoise.png'height='32'> [DUCK_Denoise](/Filter/DUCK_Denoise/README.md)** : It helps to denoise a footage, since it is  not based on analisys: it just provides a denoise for black/white and coloured dots.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Skin_Cleaner/DUCK_Skin_Cleaner.png'height='32'> [DUCK_Skin_Cleaner](/Filter/DUCK_Skin_Cleaner/README.md)** : A tool developped to clean up models skin in common beauty/fashion shots.
 
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Smart_Blur/DUCK_Smart_Blur.png'height='32'> [DUCK_Smart_Blur](/Filter/DUCK_Smart_Blur/README.md)** : Smart Blur isn't a common blur, it helps to blur images with heavy grain, surface imperfections, noises, render problems, etc. keeping the boundary and the edges, and restoring details in highlights and dark regions of the image."
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/DUCK_Smart_Blur/DUCK_Smart_Blur.png'height='32'> [DUCK_Smart_Blur](/Filter/DUCK_Smart_Blur/README.md)** : Smart Blur isn't a common blur, it helps to blur images with heavy grain, surface imperfections, noises, render problems, etc. keeping the boundary and the edges, and restoring details in highlights and dark regions of the image.
 
 ### Filter/Pixelfudger
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_Bandpass/PxF_Bandpass.png'height='32'> [PxF_Bandpass](/Filter/PxF_Bandpass/README.md)** : Extract detail from an image. Useful to make plates easier to track.
 
-- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png'height='32'> [PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : To be written
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png'height='32'> [PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### Keyer
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/AdditiveKeyer/AdditiveKeyer.png'height='32'> [AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
@@ -88,7 +88,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/PositionMask/PositionMask.png'height='32'> [PositionMask](/Keyer/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
-- **<img src=''height='32'> [lp_ChannelContactsheet](/Keyer/lp_ChannelContactsheet/README.md)** : Generate a Contactsheet to find a suitable channel for keying.
+- **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_ChannelContactsheet/lp_ChannelContactsheet.png'height='32'> [lp_ChannelContactsheet](/Keyer/lp_ChannelContactsheet/README.md)** : Generate a Contactsheet to find a suitable channel for keying.
 
 - **<img src='https://github.com/NatronVFX/natron-plugins/raw/master/Keyer/lp_ChillSpill/lp_ChillSpill.png'height='32'> [lp_ChillSpill](/Keyer/lp_ChillSpill/README.md)** : An alternative to buit-in Despill node that is quick and easy to setup.
 
