@@ -75,6 +75,17 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png' width='32'> **[PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
+### GLSL
+- <img src='/GLSL/Bilateral_GL/Bilateral_GL.png' width='32'> **[Bilateral_GL](/GLSL/Bilateral_GL/README.md)** : GPU accelerated Bilateral blur based on Shadertoy.
+
+- <img src='/GLSL/Bloom_GL/Bloom_GL.png' width='32'> **[Bloom_GL](/GLSL/Bloom_GL/README.md)** : GPU accelerated Bloom effect based on Shadertoy.
+
+- <img src='/GLSL/BokehDisc_GL/BokehDisc_GL.png' width='32'> **[BokehDisc_GL](/GLSL/BokehDisc_GL/README.md)** : GPU accelerated Defocus blur based on Shadertoy.
+
+- <img src='/GLSL/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL/Mipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur based on Shadertoy.
+
+- <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur based on Shadertoy.
+
 ### Keyer
 - <img src='/Keyer/AdditiveKeyer/AdditiveKeyer.png' width='32'> **[AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
 
