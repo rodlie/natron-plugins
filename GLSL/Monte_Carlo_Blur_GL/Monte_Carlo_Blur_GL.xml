@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Monte_Carlo_Blur_GL</DisplayName>
+    <Description>GPU accelerated Monte-Carlo blur based on Shadertoy.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Monte_Carlo_Blur_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
