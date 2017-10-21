@@ -421,17 +421,17 @@ def createInstance(app,group):
     del lastNode
     # End of node "Output2"
 
-    # Start of node "rgb"
+    # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("rgb")
-    lastNode.setLabel("rgb")
-    lastNode.setPosition(4139, 3697)
+    lastNode.setScriptName("Source")
+    lastNode.setLabel("Source")
+    lastNode.setPosition(4139, 3698)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
-    grouprgb = lastNode
+    groupSource = lastNode
 
     del lastNode
-    # End of node "rgb"
+    # End of node "Source"
 
     # Start of node "Mask"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
@@ -619,7 +619,7 @@ def createInstance(app,group):
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupShadertoy2)
-    groupShadertoy2.connectInput(0, grouprgb)
+    groupShadertoy2.connectInput(0, groupSource)
     groupShadertoy2.connectInput(1, groupMask)
 
     param = groupShadertoy2.getParam("paramValueFloat0")
