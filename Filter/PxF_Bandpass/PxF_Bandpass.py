@@ -669,7 +669,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur2")
     lastNode.setLabel("Blur2")
-    lastNode.setPosition(946, 664)
+    lastNode.setPosition(946, 666)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur2 = lastNode
@@ -969,6 +969,14 @@ def createInstance(app,group):
     groupShuffle2.connectInput(1, groupSaturation1)
     groupOCIOColorSpace1.connectInput(0, groupDot1)
 
+    param = groupBlur1.getParam("size")
+    param.slaveTo(group.getParam("Blur1size"), 0, 0)
+    param.slaveTo(group.getParam("Blur1size"), 1, 0)
+    del param
+    param = groupBlur2.getParam("size")
+    param.slaveTo(group.getParam("Blur2size"), 0, 0)
+    param.slaveTo(group.getParam("Blur2size"), 1, 0)
+    del param
     param = groupGrade1.getParam("white")
     group.getParam("Grade1white").setAsAlias(param)
     del param
