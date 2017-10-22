@@ -1,3 +1,3 @@
-# Bleepy_Blocks_GL
+# Noise_GL
 
 GPU accelerated noise generator based on Shadertoy.
