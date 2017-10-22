@@ -29,6 +29,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### Filter
 - <img src='/Filter/Antialiasing/AntiAliasing.png' width='32'> **[AntiAliasing](/Filter/Antialiasing/README.md)** : Antialiasing filter based on FXAA
 
+- <img src='/Filter/Beauty/Beauty.png' width='32'> **[Beauty](/Filter/Beauty/README.md)** : Tool designed to achieve skin cleaning jobs.
+
 - <img src='/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png' width='32'> **[ChromaticAberrationPP](/Filter/ChromaticAberrationPP/README.md)** : A filter designed to match real camera chromatic aberration 
 
 - <img src='/Filter/Chromatic_Aberration/Chromatic_Aberration.png' width='32'> **[Chromatic_Aberration](/Filter/Chromatic_Aberration/README.md)** : Create a stylised Chromatic Aberration effect, similar to the one found in Blender.

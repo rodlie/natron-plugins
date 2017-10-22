@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Beauty</DisplayName>
+    <Description>Tool designed to achieve skin cleaning jobs.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Beauty</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
