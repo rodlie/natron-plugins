@@ -25,7 +25,7 @@ def getVersion():
     return 1
 
 def getIconPath():
-    return "Noise_G.png"
+    return "Noise_GL.png"
 
 def getGrouping():
     return "Community/GLSL/Source"
