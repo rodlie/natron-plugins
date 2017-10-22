@@ -69,7 +69,7 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createSeparatorParam("line01", "PxF_Bandpass")
+    param = lastNode.createSeparatorParam("PxF_Bandpass", "PxF_Bandpass")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -79,7 +79,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.line01 = param
+    lastNode.PxF_Bandpass = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -135,46 +135,79 @@ def createInstance(app,group):
     lastNode.OCIOColorSpace1ocioOutputSpaceIndex = param
     del param
 
-    param = lastNode.createDouble2DParam("Blur1size", "Blur amount 1")
-    param.setMinimum(0, 0)
-    param.setMaximum(1000, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(100, 0)
-    param.setMinimum(0, 1)
-    param.setMaximum(1000, 1)
-    param.setDisplayMinimum(0, 1)
-    param.setDisplayMaximum(100, 1)
+    param = lastNode.createStringParam("sep15", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep15 = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
+    del param
+
+    param = lastNode.createDoubleParam("Blur1size", "Blur amount 1")
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(100, 0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Blur1size = param
     del param
 
-    param = lastNode.createDouble2DParam("Blur2size", "Blur amount 2")
-    param.setMinimum(0, 0)
-    param.setMaximum(1000, 0)
+    param = lastNode.createDoubleParam("Blur2size", "Blur amount 2")
+    param.setMinimum(-2147483648, 0)
+    param.setMaximum(2147483647, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(100, 0)
     param.setDefaultValue(20, 0)
     param.restoreDefaultValue(0)
-    param.setMinimum(0, 1)
-    param.setMaximum(1000, 1)
-    param.setDisplayMinimum(0, 1)
-    param.setDisplayMaximum(100, 1)
-    param.setDefaultValue(20, 1)
-    param.restoreDefaultValue(1)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Blur2size = param
+    del param
+
+    param = lastNode.createSeparatorParam("line05", "")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.line05 = param
     del param
 
     param = lastNode.createColorParam("Grade1white", "Gain", True)
@@ -199,6 +232,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("Colors corresponding to the whitepoint are set to this value")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Grade1white = param
@@ -240,6 +274,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("Adds this value to the result (this applies to black and white)")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Grade1offset = param
@@ -286,34 +321,6 @@ def createInstance(app,group):
     lastNode.line04 = param
     del param
 
-    param = lastNode.createStringParam("sep19", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep19 = param
-    del param
-
-    param = lastNode.createStringParam("sep20", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep20 = param
-    del param
-
     param = lastNode.createBooleanParam("Grade1clampBlack", "black clamp")
     param.setDefaultValue(True)
     param.restoreDefaultValue()
@@ -336,6 +343,34 @@ def createInstance(app,group):
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Grade1clampWhite = param
+    del param
+
+    param = lastNode.createStringParam("sep21", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep21 = param
+    del param
+
+    param = lastNode.createStringParam("sep22", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep22 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -367,7 +402,7 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
-    param = lastNode.createSeparatorParam("line02", "PxF_Bandpass")
+    param = lastNode.createSeparatorParam("line02", "PxF_Bandpass 2.0.4")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -449,7 +484,7 @@ def createInstance(app,group):
     lastNode.sep12 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dÃ©veloppÃ©s par Xavier Bourque")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Xavier Bourque")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -460,88 +495,6 @@ def createInstance(app,group):
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
     lastNode.FR = param
-    del param
-
-    param = lastNode.createStringParam("sep13", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Credits.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep13 = param
-    del param
-
-    param = lastNode.createStringParam("sep14", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Credits.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep14 = param
-    del param
-
-    param = lastNode.createSeparatorParam("ENG", "NATRON version of Nuke Gizmos developed by Xavier Bourque")
-
-    # Add the param to the page
-    lastNode.Credits.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.ENG = param
-    del param
-
-    param = lastNode.createStringParam("sep15", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Credits.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep15 = param
-    del param
-
-    param = lastNode.createStringParam("sep16", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Credits.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep16 = param
-    del param
-
-    param = lastNode.createSeparatorParam("credits", "www.pixelfudger.com")
-
-    # Add the param to the page
-    lastNode.Credits.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.credits = param
     del param
 
     param = lastNode.createStringParam("sep17", "")
@@ -572,7 +525,7 @@ def createInstance(app,group):
     lastNode.sep18 = param
     del param
 
-    param = lastNode.createSeparatorParam("line05", "(Fabrice Fernandez - 2016)")
+    param = lastNode.createSeparatorParam("ENG", "NATRON version of Nuke Gizmos developed by Xavier Bourque")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -582,11 +535,121 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.line05 = param
+    lastNode.ENG = param
+    del param
+
+    param = lastNode.createStringParam("sep19", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep19 = param
+    del param
+
+    param = lastNode.createStringParam("sep20", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep20 = param
+    del param
+
+    param = lastNode.createSeparatorParam("credits", "www.pixelfudger.com")
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.credits = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
+    param = lastNode.createSeparatorParam("FF", "(Fabrice Fernandez - 2017)")
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.FF = param
+    del param
+
+    param = lastNode.createStringParam("sep23", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep23 = param
+    del param
+
+    param = lastNode.createStringParam("sep24", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep24 = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Controls', 'Credits', 'Node'])
+    lastNode.setPagesOrder(['Controls', 'Credits', 'Node', 'Settings'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -594,8 +657,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(559, 664)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(559, 666)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
 
@@ -607,7 +670,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Blur2")
     lastNode.setLabel("Blur2")
     lastNode.setPosition(946, 664)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur2 = lastNode
 
@@ -625,14 +688,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
     lastNode.setPosition(757, 654)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("minus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -657,7 +715,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Grade1")
     lastNode.setLabel("Grade1")
     lastNode.setPosition(756, 794)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade1 = lastNode
 
@@ -690,7 +748,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Saturation1")
     lastNode.setLabel("Saturation1")
     lastNode.setPosition(756, 900)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupSaturation1 = lastNode
 
@@ -723,8 +781,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Input1")
     lastNode.setLabel("Input1")
-    lastNode.setPosition(761, 125)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(773, 97)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupInput1 = lastNode
 
@@ -734,8 +792,8 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1")
-    lastNode.setPosition(198, 1359)
-    lastNode.setSize(104, 30)
+    lastNode.setPosition(198, 1369)
+    lastNode.setSize(80, 31)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -758,8 +816,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask1")
     lastNode.setLabel("Mask1")
-    lastNode.setPosition(440, 1144)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(452, 1249)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask1 = lastNode
 
@@ -775,15 +833,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge3")
     lastNode.setLabel("Merge3")
-    lastNode.setPosition(440, 1002)
-    lastNode.setSize(104, 66)
+    lastNode.setPosition(452, 1002)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge3 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("matte")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -808,33 +861,13 @@ def createInstance(app,group):
     lastNode.setScriptName("a")
     lastNode.setLabel("a")
     lastNode.setPosition(198, 1014)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupa = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.a")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.A")
         del param
 
     del lastNode
@@ -844,7 +877,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
-    lastNode.setPosition(243, 348)
+    lastNode.setPosition(231, 348)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
@@ -857,33 +890,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
     lastNode.setPosition(559, 433)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("0")
+        param.set("0")
         del param
 
     del lastNode
@@ -894,33 +907,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle1_3")
     lastNode.setLabel("Shuffle1_3")
     lastNode.setPosition(946, 433)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1_3 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("0")
+        param.set("0")
         del param
 
     del lastNode
@@ -931,33 +924,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle2")
     lastNode.setLabel("Shuffle2")
     lastNode.setPosition(756, 1014)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle2 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("1")
+        param.set("1")
         del param
 
     del lastNode
@@ -968,7 +941,7 @@ def createInstance(app,group):
     lastNode.setScriptName("OCIOColorSpace1")
     lastNode.setLabel("OCIOColorSpace1")
     lastNode.setPosition(765, 438)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupOCIOColorSpace1 = lastNode
 
@@ -996,12 +969,6 @@ def createInstance(app,group):
     groupShuffle2.connectInput(1, groupSaturation1)
     groupOCIOColorSpace1.connectInput(0, groupDot1)
 
-    param = groupBlur1.getParam("size")
-    group.getParam("Blur1size").setAsAlias(param)
-    del param
-    param = groupBlur2.getParam("size")
-    group.getParam("Blur2size").setAsAlias(param)
-    del param
     param = groupGrade1.getParam("white")
     group.getParam("Grade1white").setAsAlias(param)
     del param
