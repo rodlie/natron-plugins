@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>Anaglyphic_GL</DisplayName>
-    <Description>GPU accelerated anaglyphic effect based on Shadertoy.</Description>
+    <Description>GPU accelerated Anaglyphic effect based on Shadertoy.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.Anaglyphic_GL</Name>
