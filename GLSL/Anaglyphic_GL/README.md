@@ -1,3 +1,3 @@
-# Monte_Carlo_Blur_GL
+# Anaglyphic_GL
 
 GPU accelerated Anaglyphic effect based on Shadertoy.
