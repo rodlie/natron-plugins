@@ -98,6 +98,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Bubbles_GL/Bubbles_GL.png' width='32'> **[Bubbles_GL](/GLSL/Bubbles_GL/README.md)** : GPU accelerated bubbles generator based on Shadertoy.
 
+- <img src='/GLSL/Cellular_GL/Cellular_GL.png' width='32'> **[Cellular_GL](/GLSL/Cellular_GL/README.md)** : GPU accelerated cell generator based on Shadertoy.
+
 - <img src='/GLSL/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Noise_GL/README.md)** : GPU accelerated noise generator based on Shadertoy.
 
 ### Keyer
