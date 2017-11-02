@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "FXAA_GL"
+    return "natron.community.plugins.FXAA_GL"
 
 def getLabel():
     return "FXAA_GL"
@@ -24,8 +24,14 @@ def getLabel():
 def getVersion():
     return 1
 
+def getIconPath():
+    return "FXAA_GL.png"
+
 def getGrouping():
-    return ""
+    return "Community/GLSL/Effect"
+
+def getPluginDescription():
+    return "Bubbles generator."
 
 def createInstance(app,group):
     # Create all nodes in the group

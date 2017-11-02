@@ -522,7 +522,7 @@ def createInstance(app,group):
     lastNode.GLOW_OPACITY = param
     del param
 
-    param = lastNode.createStringParam("sep26", "")
+    param = lastNode.createStringParam("sep12", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -533,10 +533,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep26 = param
+    lastNode.sep12 = param
     del param
 
-    param = lastNode.createStringParam("sep27", "")
+    param = lastNode.createStringParam("sep13", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -547,7 +547,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep27 = param
+    lastNode.sep13 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -661,7 +661,7 @@ def createInstance(app,group):
     lastNode.sep19 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dÃ©veloppÃ©s par Tor Andreassen")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développées par Tor Andreassen")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -797,8 +797,36 @@ def createInstance(app,group):
     lastNode.FF = param
     del param
 
+    param = lastNode.createStringParam("sep26", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep26 = param
+    del param
+
+    param = lastNode.createStringParam("sep27", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Credits.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep27 = param
+    del param
+
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Controls', 'Credits', 'Node'])
+    lastNode.setPagesOrder(['Controls', 'Credits', 'Node', 'Settings'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -806,8 +834,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("tolerance_and_falloff")
     lastNode.setLabel("tolerance_and_falloff")
-    lastNode.setPosition(2009, 885)
-    lastNode.setSize(104, 66)
+    lastNode.setPosition(2021, 890)
+    lastNode.setSize(80, 66)
     lastNode.setColor(1, 0.6667, 0)
     grouptolerance_and_falloff = lastNode
 
@@ -840,7 +868,7 @@ def createInstance(app,group):
     lastNode.setScriptName("glowController")
     lastNode.setLabel("glowController")
     lastNode.setPosition(1035, 1076)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupglowController = lastNode
 
@@ -863,7 +891,7 @@ def createInstance(app,group):
     lastNode.setScriptName("anamorphicValue")
     lastNode.setLabel("anamorphicValue")
     lastNode.setPosition(1035, 915)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupanamorphicValue = lastNode
 
@@ -886,7 +914,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Blur1_2")
     lastNode.setLabel("Blur1_2")
     lastNode.setPosition(1742, 1435)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2 = lastNode
 
@@ -992,7 +1020,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot8_2")
     lastNode.setLabel("Dot8_2")
-    lastNode.setPosition(845, 1216)
+    lastNode.setPosition(837, 1217)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot8_2 = lastNode
@@ -1004,7 +1032,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot9_2")
     lastNode.setLabel("Dot9_2")
-    lastNode.setPosition(697, 1214)
+    lastNode.setPosition(685, 1216)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot9_2 = lastNode
@@ -1016,7 +1044,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot10")
     lastNode.setLabel("Dot10")
-    lastNode.setPosition(546, 1216)
+    lastNode.setPosition(534, 1214)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot10 = lastNode
@@ -1028,8 +1056,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2")
     lastNode.setLabel("Blur2")
-    lastNode.setPosition(1584, 1439)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(1596, 1440)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2 = lastNode
 
@@ -1051,8 +1079,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2")
     lastNode.setLabel("Blur3")
-    lastNode.setPosition(1426, 1443)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(1438, 1443)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2 = lastNode
 
@@ -1074,8 +1102,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2")
     lastNode.setLabel("Blur4")
-    lastNode.setPosition(1274, 1446)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(1286, 1447)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2 = lastNode
 
@@ -1098,7 +1126,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Blur1_2_2_2_2_2")
     lastNode.setLabel("Blur5")
     lastNode.setPosition(1115, 1444)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2 = lastNode
 
@@ -1120,8 +1148,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2_2_2")
     lastNode.setLabel("Blur6")
-    lastNode.setPosition(962, 1442)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(974, 1444)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2_2 = lastNode
 
@@ -1143,8 +1171,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2_2_2_2")
     lastNode.setLabel("Blur7")
-    lastNode.setPosition(804, 1437)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(804, 1438)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2_2_2 = lastNode
 
@@ -1167,7 +1195,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Blur1_2_2_2_2_2_2_2_2")
     lastNode.setLabel("Blur8")
     lastNode.setPosition(652, 1440)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2_2_2_2 = lastNode
 
@@ -1189,8 +1217,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2_2_2_2_2_2")
     lastNode.setLabel("Blur9")
-    lastNode.setPosition(501, 1433)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(501, 1447)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2_2_2_2_2 = lastNode
 
@@ -1213,14 +1241,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1_2")
     lastNode.setLabel("Merge1_2")
     lastNode.setPosition(652, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_2 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1229,7 +1252,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1239,7 +1262,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot11")
     lastNode.setLabel("Dot11")
-    lastNode.setPosition(546, 1580)
+    lastNode.setPosition(534, 1580)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot11 = lastNode
@@ -1252,14 +1275,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1_2_2")
     lastNode.setLabel("Merge1_2_2")
     lastNode.setPosition(804, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_2_2 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1268,7 +1286,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1279,14 +1297,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1_3")
     lastNode.setLabel("Merge1_3")
     lastNode.setPosition(962, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_3 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1295,7 +1308,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1306,14 +1319,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1_3_2")
     lastNode.setLabel("Merge1_3_2")
     lastNode.setPosition(1115, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_3_2 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1322,7 +1330,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1333,14 +1341,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1_3_3")
     lastNode.setLabel("Merge1_3_3")
     lastNode.setPosition(1265, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_3_3 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1349,7 +1352,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1360,14 +1363,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1_3_4")
     lastNode.setLabel("Merge1_3_4")
     lastNode.setPosition(1426, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_3_4 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1376,7 +1374,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1387,14 +1385,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1_3_5")
     lastNode.setLabel("Merge1_3_5")
     lastNode.setPosition(1584, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_3_5 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1403,7 +1396,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1414,14 +1407,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1_3_6")
     lastNode.setLabel("Merge1_3_6")
     lastNode.setPosition(1742, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_3_6 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1430,7 +1418,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1441,7 +1429,7 @@ def createInstance(app,group):
     lastNode.setScriptName("glow_saturation")
     lastNode.setLabel("glow_saturation")
     lastNode.setPosition(1742, 1863)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(1, 0.6667, 0)
     groupglow_saturation = lastNode
 
@@ -1458,14 +1446,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Glow")
     lastNode.setLabel("Glow")
     lastNode.setPosition(2009, 1963)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupGlow = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1474,7 +1457,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1497,7 +1480,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Gain_and_Tint")
     lastNode.setLabel("Gain_and_Tint")
     lastNode.setPosition(2009, 2213)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(1, 0.6667, 0)
     groupGain_and_Tint = lastNode
 
@@ -1530,33 +1513,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Kill_alpha")
     lastNode.setLabel("Kill_alpha")
     lastNode.setPosition(2009, 2344)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3098, 0.3098, 0.3098)
     groupKill_alpha = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("0")
+        param.set("0")
         del param
 
     del lastNode
@@ -1566,7 +1529,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1_2")
     lastNode.setPosition(2404, 4105)
-    lastNode.setSize(104, 30)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1_2 = lastNode
 
@@ -1577,8 +1540,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("rgba")
     lastNode.setLabel("rgba")
-    lastNode.setPosition(2009, 427)
-    lastNode.setSize(104, 43)
+    lastNode.setPosition(2021, 454)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouprgba = lastNode
 
@@ -1590,14 +1553,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Glow_plus")
     lastNode.setLabel("Glow_plus")
     lastNode.setPosition(2406, 2463)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupGlow_plus = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1606,7 +1564,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1641,14 +1599,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Glow_screen")
     lastNode.setLabel("Glow_screen")
     lastNode.setPosition(2302, 2616)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupGlow_screen = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("screen")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1657,7 +1610,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1704,14 +1657,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Glow_screen_2")
     lastNode.setLabel("Glow_screen_2")
     lastNode.setPosition(2196, 2744)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupGlow_screen_2 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("under")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1720,7 +1668,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1755,7 +1703,7 @@ def createInstance(app,group):
     lastNode.setScriptName("operation_switch")
     lastNode.setLabel("operation_switch")
     lastNode.setPosition(2406, 2756)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(1, 1, 1)
     groupoperation_switch = lastNode
 
@@ -1772,7 +1720,7 @@ def createInstance(app,group):
     lastNode.setScriptName("GlowOpacity")
     lastNode.setLabel("GlowOpacity")
     lastNode.setPosition(2672, 2630)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(1, 1, 1)
     groupGlowOpacity = lastNode
 
@@ -1789,33 +1737,23 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
     lastNode.setPosition(1222, 2198)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.A")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("A.a")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.A")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("A.a")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.a")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.A")
         del param
 
     del lastNode
@@ -1826,7 +1764,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Clamp1")
     lastNode.setLabel("Clamp1")
     lastNode.setPosition(1222, 2309)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupClamp1 = lastNode
 
@@ -1838,33 +1776,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle2")
     lastNode.setLabel("Shuffle2")
     lastNode.setPosition(1636, 3176)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle2 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.a")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.A")
         del param
 
     del lastNode
@@ -1875,7 +1793,7 @@ def createInstance(app,group):
     lastNode.setScriptName("effect_only")
     lastNode.setLabel("effect_only")
     lastNode.setPosition(2404, 3413)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(1, 1, 1)
     groupeffect_only = lastNode
 
@@ -1904,7 +1822,7 @@ def createInstance(app,group):
     lastNode.setScriptName("alpha_switch")
     lastNode.setLabel("alpha_switch")
     lastNode.setPosition(2404, 3750)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(1, 1, 1)
     groupalpha_switch = lastNode
 
@@ -1933,7 +1851,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Grade1")
     lastNode.setLabel("Clamp_BW")
     lastNode.setPosition(2406, 3176)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade1 = lastNode
 
@@ -1955,7 +1873,7 @@ def createInstance(app,group):
     lastNode.setScriptName("mask")
     lastNode.setLabel("mask")
     lastNode.setPosition(1755, 2264)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupmask = lastNode
 
@@ -1967,7 +1885,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
     lastNode.setPosition(1755, 2366)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
 
@@ -2011,14 +1929,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
     lastNode.setPosition(2009, 2449)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("stencil")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -2027,7 +1940,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -2132,39 +2045,39 @@ def createInstance(app,group):
     param.setExpression("AnamorphicY = thisGroup.ANAMORPHIC.get()\nret = AnamorphicY/15", True, 1)
     del param
     param = groupBlur1_2.getParam("size")
-    param.setExpression("Blur1_2_2_2_2_2_2_2_2_2xValue = glowController.size.get()[0]\nret = Blur1_2_2_2_2_2_2_2_2_2xValue*128", True, 0)
+    param.setExpression("Blur1_2_2_2_2_2_2_2_2_2yValue = glowController.size.get()[1]\nret = Blur1_2_2_2_2_2_2_2_2_2yValue*128", True, 0)
     param.setExpression("Blur1_2_2_2_2_2_2_2_2_2yValue = glowController.size.get()[1]\nret = Blur1_2_2_2_2_2_2_2_2_2yValue*128", True, 1)
     del param
     param = groupBlur1_2_2.getParam("size")
-    param.setExpression("Blur2xValue = glowController.size.get()[0]\nret = Blur2xValue*64", True, 0)
+    param.setExpression("Blur2yValue = glowController.size.get()[1]\nret = Blur2yValue*64", True, 0)
     param.setExpression("Blur2yValue = glowController.size.get()[1]\nret = Blur2yValue*64", True, 1)
     del param
     param = groupBlur1_2_2_2.getParam("size")
-    param.setExpression("Blur3xValue = glowController.size.get()[0]\nret = Blur3xValue*32", True, 0)
+    param.setExpression("Blur3yValue = glowController.size.get()[1]\nret = Blur3yValue*32", True, 0)
     param.setExpression("Blur3yValue = glowController.size.get()[1]\nret = Blur3yValue*32", True, 1)
     del param
     param = groupBlur1_2_2_2_2.getParam("size")
-    param.setExpression("Blur4xValue = glowController.size.get()[0]\nret = Blur4xValue*16", True, 0)
+    param.setExpression("Blur4yValue = glowController.size.get()[1]\nret = Blur3yValue*16", True, 0)
     param.setExpression("Blur4yValue = glowController.size.get()[1]\nret = Blur3yValue*16", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur5xValue = glowController.size.get()[0]\nret = Blur5xValue*8", True, 0)
+    param.setExpression("Blur5yValue = glowController.size.get()[1]\nret = Blur5yValue*8", True, 0)
     param.setExpression("Blur5yValue = glowController.size.get()[1]\nret = Blur5yValue*8", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur6xValue = glowController.size.get()[0]\nret = Blur6xValue*4", True, 0)
+    param.setExpression("Blur6yValue = glowController.size.get()[1]\nret = Blur6yValue*4", True, 0)
     param.setExpression("Blur6yValue = glowController.size.get()[1]\nret = Blur6yValue*4", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur7xValue = glowController.size.get()[0]\nret = Blur7xValue*2", True, 0)
+    param.setExpression("Blur7yValue = glowController.size.get()[1]\nret = Blur7yValue*2", True, 0)
     param.setExpression("Blur7yValue = glowController.size.get()[1]\nret = Blur7yValue*2", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur8xValue = glowController.size.get()[0]\nret = Blur8xValue*1", True, 0)
+    param.setExpression("Blur8yValue = glowController.size.get()[1]\nret = Blur8yValue*1", True, 0)
     param.setExpression("Blur8yValue = glowController.size.get()[1]\nret = Blur8yValue*1", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur9xValue = glowController.size.get()[0]\nret = Blur9xValue*0.5", True, 0)
+    param.setExpression("Blur9yValue = glowController.size.get()[1]\nret = Blur9yValue*0.5", True, 0)
     param.setExpression("Blur9yValue = glowController.size.get()[1]\nret = Blur9yValue*0.5", True, 1)
     del param
     param = groupglow_saturation.getParam("saturation")
