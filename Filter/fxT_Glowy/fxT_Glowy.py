@@ -867,7 +867,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("glowController")
     lastNode.setLabel("glowController")
-    lastNode.setPosition(1035, 1076)
+    lastNode.setPosition(1035, 1074)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupglowController = lastNode
@@ -890,7 +890,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("anamorphicValue")
     lastNode.setLabel("anamorphicValue")
-    lastNode.setPosition(1035, 915)
+    lastNode.setPosition(1035, 916)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupanamorphicValue = lastNode
@@ -913,7 +913,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2")
     lastNode.setLabel("Blur1_2")
-    lastNode.setPosition(1742, 1435)
+    lastNode.setPosition(1754, 1441)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2 = lastNode
@@ -1056,7 +1056,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2")
     lastNode.setLabel("Blur2")
-    lastNode.setPosition(1596, 1440)
+    lastNode.setPosition(1596, 1443)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2 = lastNode
@@ -1079,7 +1079,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2")
     lastNode.setLabel("Blur3")
-    lastNode.setPosition(1438, 1443)
+    lastNode.setPosition(1438, 1444)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2 = lastNode
@@ -1102,7 +1102,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2")
     lastNode.setLabel("Blur4")
-    lastNode.setPosition(1286, 1447)
+    lastNode.setPosition(1286, 1448)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2 = lastNode
@@ -1125,7 +1125,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2_2")
     lastNode.setLabel("Blur5")
-    lastNode.setPosition(1115, 1444)
+    lastNode.setPosition(1127, 1444)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2 = lastNode
@@ -1148,7 +1148,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2_2_2")
     lastNode.setLabel("Blur6")
-    lastNode.setPosition(974, 1444)
+    lastNode.setPosition(974, 1446)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2_2 = lastNode
@@ -1171,7 +1171,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2_2_2_2")
     lastNode.setLabel("Blur7")
-    lastNode.setPosition(804, 1438)
+    lastNode.setPosition(804, 1440)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2_2_2 = lastNode
@@ -1194,7 +1194,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2_2_2_2_2")
     lastNode.setLabel("Blur8")
-    lastNode.setPosition(652, 1440)
+    lastNode.setPosition(652, 1439)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2_2_2_2 = lastNode
@@ -1217,7 +1217,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2_2_2_2_2_2_2_2_2")
     lastNode.setLabel("Blur9")
-    lastNode.setPosition(501, 1447)
+    lastNode.setPosition(501, 1435)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2_2_2_2_2_2_2_2_2 = lastNode
@@ -1406,7 +1406,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1_3_6")
     lastNode.setLabel("Merge1_3_6")
-    lastNode.setPosition(1742, 1554)
+    lastNode.setPosition(1754, 1554)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1_3_6 = lastNode
@@ -1428,7 +1428,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.SaturationPlugin", 2, group)
     lastNode.setScriptName("glow_saturation")
     lastNode.setLabel("glow_saturation")
-    lastNode.setPosition(1742, 1863)
+    lastNode.setPosition(2021, 2550)
     lastNode.setSize(80, 43)
     lastNode.setColor(1, 0.6667, 0)
     groupglow_saturation = lastNode
@@ -1445,7 +1445,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Glow")
     lastNode.setLabel("Glow")
-    lastNode.setPosition(2009, 1963)
+    lastNode.setPosition(2021, 1963)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupGlow = lastNode
@@ -1467,7 +1467,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot12")
     lastNode.setLabel("Dot12")
-    lastNode.setPosition(1787, 1989)
+    lastNode.setPosition(1775, 1989)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot12 = lastNode
@@ -1479,7 +1479,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Gain_and_Tint")
     lastNode.setLabel("Gain_and_Tint")
-    lastNode.setPosition(2009, 2213)
+    lastNode.setPosition(2021, 2136)
     lastNode.setSize(80, 43)
     lastNode.setColor(1, 0.6667, 0)
     groupGain_and_Tint = lastNode
@@ -1512,7 +1512,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("Kill_alpha")
     lastNode.setLabel("Kill_alpha")
-    lastNode.setPosition(2009, 2344)
+    lastNode.setPosition(2021, 2352)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.3098, 0.3098, 0.3098)
     groupKill_alpha = lastNode
@@ -1644,7 +1644,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot17")
     lastNode.setLabel("Dot17")
-    lastNode.setPosition(2054, 2642)
+    lastNode.setPosition(2040, 2640)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot17 = lastNode
@@ -1690,7 +1690,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot19")
     lastNode.setLabel("Dot19")
-    lastNode.setPosition(2054, 2770)
+    lastNode.setPosition(2040, 2768)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot19 = lastNode
@@ -1736,7 +1736,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(1222, 2198)
+    lastNode.setPosition(1645, 2367)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1 = lastNode
@@ -1763,7 +1763,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Clamp", 2, group)
     lastNode.setScriptName("Clamp1")
     lastNode.setLabel("Clamp1")
-    lastNode.setPosition(1222, 2309)
+    lastNode.setPosition(1645, 2464)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupClamp1 = lastNode
@@ -1775,7 +1775,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("Shuffle2")
     lastNode.setLabel("Shuffle2")
-    lastNode.setPosition(1636, 3176)
+    lastNode.setPosition(1648, 3176)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle2 = lastNode
@@ -1809,7 +1809,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
-    lastNode.setPosition(2054, 3427)
+    lastNode.setPosition(2040, 3427)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
@@ -1872,7 +1872,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("mask")
     lastNode.setLabel("mask")
-    lastNode.setPosition(1755, 2264)
+    lastNode.setPosition(1838, 2254)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupmask = lastNode
@@ -1884,7 +1884,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
-    lastNode.setPosition(1755, 2366)
+    lastNode.setPosition(1838, 2360)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
@@ -1916,7 +1916,7 @@ def createInstance(app,group):
     lastNode = app.createNode("eu.cimg.ErodeBlur", 4, group)
     lastNode.setScriptName("ErodeBlur1")
     lastNode.setLabel("ErodeBlur1")
-    lastNode.setPosition(1767, 2461)
+    lastNode.setPosition(1838, 2461)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupErodeBlur1 = lastNode
@@ -1928,7 +1928,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
-    lastNode.setPosition(2009, 2449)
+    lastNode.setPosition(2021, 2449)
     lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
@@ -1985,22 +1985,22 @@ def createInstance(app,group):
     groupMerge1_3_5.connectInput(1, groupBlur1_2_2)
     groupMerge1_3_6.connectInput(0, groupMerge1_3_5)
     groupMerge1_3_6.connectInput(1, groupBlur1_2)
-    groupglow_saturation.connectInput(0, groupMerge1_3_6)
+    groupglow_saturation.connectInput(0, groupMerge1)
     groupGlow.connectInput(0, groupDot2_2)
     groupGlow.connectInput(1, groupDot12)
-    groupDot12.connectInput(0, groupglow_saturation)
+    groupDot12.connectInput(0, groupMerge1_3_6)
     groupGain_and_Tint.connectInput(0, groupGlow)
     groupKill_alpha.connectInput(1, groupGain_and_Tint)
     groupOutput1_2.connectInput(0, groupalpha_switch)
     groupGlow_plus.connectInput(0, groupDot15)
-    groupGlow_plus.connectInput(1, groupMerge1)
+    groupGlow_plus.connectInput(1, groupglow_saturation)
     groupDot13.connectInput(0, grouprgba)
     groupDot14.connectInput(0, groupDot13)
     groupGlow_screen.connectInput(0, groupDot16)
     groupGlow_screen.connectInput(1, groupDot17)
     groupDot15.connectInput(0, groupDot14)
     groupDot16.connectInput(0, groupDot15)
-    groupDot17.connectInput(0, groupMerge1)
+    groupDot17.connectInput(0, groupglow_saturation)
     groupGlow_screen_2.connectInput(0, groupDot18)
     groupGlow_screen_2.connectInput(1, groupDot19)
     groupDot18.connectInput(0, groupDot16)
@@ -2037,7 +2037,7 @@ def createInstance(app,group):
     param.setExpression("BP = thisGroup.TOLERANCE.get()\nWP = thisGroup.FALLOFF.get()\nret = BP+WP+1", True, 3)
     del param
     param = groupglowController.getParam("size")
-    param.setExpression("AnamorphicX = anamorphicValue.size.get()[0]\nret = AnamorphicX+1", True, 0)
+    param.setExpression("AnamorphicX = anamorphicValue.size.get()[0]\nret = thisGroup.GLOW_RADIUS.get()+AnamorphicX", True, 0)
     param.setExpression("ret = thisGroup.GLOW_RADIUS.get()", True, 1)
     del param
     param = groupanamorphicValue.getParam("size")
@@ -2045,40 +2045,40 @@ def createInstance(app,group):
     param.setExpression("AnamorphicY = thisGroup.ANAMORPHIC.get()\nret = AnamorphicY/15", True, 1)
     del param
     param = groupBlur1_2.getParam("size")
-    param.setExpression("Blur1_2_2_2_2_2_2_2_2_2yValue = glowController.size.get()[1]\nret = Blur1_2_2_2_2_2_2_2_2_2yValue*128", True, 0)
-    param.setExpression("Blur1_2_2_2_2_2_2_2_2_2yValue = glowController.size.get()[1]\nret = Blur1_2_2_2_2_2_2_2_2_2yValue*128", True, 1)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*128", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[1]\nret = BlurByValue*128", True, 1)
     del param
     param = groupBlur1_2_2.getParam("size")
-    param.setExpression("Blur2yValue = glowController.size.get()[1]\nret = Blur2yValue*64", True, 0)
-    param.setExpression("Blur2yValue = glowController.size.get()[1]\nret = Blur2yValue*64", True, 1)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*64", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[1]\nret = BlurByValue*64", True, 1)
     del param
     param = groupBlur1_2_2_2.getParam("size")
-    param.setExpression("Blur3yValue = glowController.size.get()[1]\nret = Blur3yValue*32", True, 0)
-    param.setExpression("Blur3yValue = glowController.size.get()[1]\nret = Blur3yValue*32", True, 1)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*32", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[1]\nret = BlurByValue*32", True, 1)
     del param
     param = groupBlur1_2_2_2_2.getParam("size")
-    param.setExpression("Blur4yValue = glowController.size.get()[1]\nret = Blur3yValue*16", True, 0)
-    param.setExpression("Blur4yValue = glowController.size.get()[1]\nret = Blur3yValue*16", True, 1)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*16", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[1]\nret = BlurByValue*16", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur5yValue = glowController.size.get()[1]\nret = Blur5yValue*8", True, 0)
-    param.setExpression("Blur5yValue = glowController.size.get()[1]\nret = Blur5yValue*8", True, 1)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*8", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[1]\nret = BlurByValue*8", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur6yValue = glowController.size.get()[1]\nret = Blur6yValue*4", True, 0)
-    param.setExpression("Blur6yValue = glowController.size.get()[1]\nret = Blur6yValue*4", True, 1)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*4", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[1]\nret = BlurByValue*4", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur7yValue = glowController.size.get()[1]\nret = Blur7yValue*2", True, 0)
-    param.setExpression("Blur7yValue = glowController.size.get()[1]\nret = Blur7yValue*2", True, 1)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*2", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[1]\nret = BlurByValue*2", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur8yValue = glowController.size.get()[1]\nret = Blur8yValue*1", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*1", True, 0)
     param.setExpression("Blur8yValue = glowController.size.get()[1]\nret = Blur8yValue*1", True, 1)
     del param
     param = groupBlur1_2_2_2_2_2_2_2_2_2.getParam("size")
-    param.setExpression("Blur9yValue = glowController.size.get()[1]\nret = Blur9yValue*0.5", True, 0)
-    param.setExpression("Blur9yValue = glowController.size.get()[1]\nret = Blur9yValue*0.5", True, 1)
+    param.setExpression("BlurByValue = glowController.size.get()[0]\nret = BlurByValue*0.5", True, 0)
+    param.setExpression("BlurByValue = glowController.size.get()[1]\nret = BlurByValue*0.5", True, 1)
     del param
     param = groupglow_saturation.getParam("saturation")
     group.getParam("glow_saturationsaturation").setAsAlias(param)
