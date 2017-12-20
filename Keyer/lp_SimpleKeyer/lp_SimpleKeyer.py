@@ -22,13 +22,13 @@ def getLabel():
     return "lp_SimpleKeyer"
 
 def getVersion():
-    return 3
+    return 4
 
 def getGrouping():
     return "Community/Keyer"
 
 def getPluginDescription():
-    return "A very simple keyer with a big variety of different operations inspired by Nukes most simple Keyer-node.\n\nINPUTS\nimg = Connect the image you want to key from\n\nHOW TO USE IT\nConnect an image and choose the operation you want to use to create your key. You can adjust white- and black-point as needed to key the you want. You can also enable range-controls for added functionality.\n\nHOW DOES IT WORK\nSimply put, this tool copies channels (from different colourspaces or other operations) into the alpha channel, a following Grade-node helps with adjusting the levels. The red-, green- and bluescreen operations are the most simple colour-difference setups.\nThe range-control is build with a 2nd yet inverted Grade-node, the difference between the two is the resulting range.\n"
+    return "A very simple keyer with a big variety of different operations inspired by Nukes most simple Keyer-node.\n\nINPUTS\nimg = Connect the image you want to key from\n\nHOW TO USE IT\nConnect an image and choose the operation you want to use to create your key. You can adjust white- and black-point as needed to key the you want. You can also enable range-controls for added functionality.\n\nHOW DOES IT WORK\nSimply put, this tool copies channels (from different colourspaces or other operations) into the alpha channel, a following Grade-node helps with adjusting the levels. The red-, green- and bluescreen operations are the most simple colour-difference setups.\nThe range-control is build with a 2nd yet inverted Grade-node, the difference between the two is the resulting range."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -77,7 +77,6 @@ def createInstance(app,group):
     param.setHelp("Inverts the created matte.")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
-    param.setValue(False)
     lastNode.Invert1NatronOfxParamProcessA = param
     del param
 
@@ -273,19 +272,18 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    param.setVisibleByDefault(False)
     lastNode.credit = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['userNatron', 'Node'])
+    lastNode.setPagesOrder(['userNatron', 'Node', 'Settings'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1")
-    lastNode.setPosition(3261, 2161)
+    lastNode.setPosition(3261, 2159)
     lastNode.setSize(104, 31)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
@@ -321,7 +319,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("luminanceMath")
     if param is not None:
-        param.set("Max")
+        param.set("max")
         del param
 
     param = lastNode.getParam("clampBlack")
@@ -341,7 +339,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.RGBToHSL", 1, group)
     lastNode.setScriptName("Saturation")
     lastNode.setLabel("Saturation")
-    lastNode.setPosition(2532, 510)
+    lastNode.setPosition(2530, 510)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupSaturation = lastNode
@@ -454,29 +452,24 @@ def createInstance(app,group):
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleLum = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.r")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -503,29 +496,24 @@ def createInstance(app,group):
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleMax = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.r")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -552,29 +540,24 @@ def createInstance(app,group):
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleMin = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.r")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -596,34 +579,29 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("ShuffleSat")
     lastNode.setLabel("ShuffleSat")
-    lastNode.setPosition(2620, 627)
+    lastNode.setPosition(2620, 628)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleSat = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.g")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
     del lastNode
@@ -650,29 +628,24 @@ def createInstance(app,group):
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleLight = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.b")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
     del lastNode
@@ -726,29 +699,24 @@ def createInstance(app,group):
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleHue = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.r")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -770,34 +738,29 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("ShuffleVal")
     lastNode.setLabel("ShuffleVal")
-    lastNode.setPosition(3261, 630)
+    lastNode.setPosition(3261, 629)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleVal = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.b")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
     del lastNode
@@ -819,34 +782,29 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("ShuffleR")
     lastNode.setLabel("ShuffleR")
-    lastNode.setPosition(235, 591)
+    lastNode.setPosition(-317, 592)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleR = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -856,34 +814,29 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("ShuffleB")
     lastNode.setLabel("ShuffleB")
-    lastNode.setPosition(556, 587)
+    lastNode.setPosition(5, 589)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleB = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.b")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
     del lastNode
@@ -893,34 +846,29 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("ShuffleG")
     lastNode.setLabel("ShuffleG")
-    lastNode.setPosition(392, 591)
+    lastNode.setPosition(-160, 598)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleG = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
     del lastNode
@@ -930,7 +878,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
-    lastNode.setPosition(601, 368)
+    lastNode.setPosition(50, 369)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
@@ -942,7 +890,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot3")
     lastNode.setLabel("Dot3")
-    lastNode.setPosition(280, 368)
+    lastNode.setPosition(-272, 369)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot3 = lastNode
@@ -954,7 +902,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot4")
     lastNode.setLabel("Dot4")
-    lastNode.setPosition(437, 368)
+    lastNode.setPosition(-115, 369)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot4 = lastNode
@@ -966,7 +914,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("Switch1")
     lastNode.setLabel("Switch1")
-    lastNode.setPosition(3261, 993)
+    lastNode.setPosition(3261, 994)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupSwitch1 = lastNode
@@ -1032,11 +980,6 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
 
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("min")
-        del param
-
     param = lastNode.getParam("operation")
     if param is not None:
         param.set("min")
@@ -1054,29 +997,14 @@ def createInstance(app,group):
     lastNode.setColor(0.6, 0.24, 0.39)
     groupred = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -1086,34 +1014,19 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("green")
     lastNode.setLabel("green")
-    lastNode.setPosition(2009, 473)
+    lastNode.setPosition(2009, 454)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupgreen = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
     del lastNode
@@ -1140,29 +1053,14 @@ def createInstance(app,group):
     lastNode.setColor(0.6, 0.24, 0.39)
     groupblue = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
     del lastNode
@@ -1172,7 +1070,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Grade1")
     lastNode.setLabel("Grade1")
-    lastNode.setPosition(3261, 1260)
+    lastNode.setPosition(3261, 1264)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade1 = lastNode
@@ -1219,6 +1117,11 @@ def createInstance(app,group):
         param.setValue(1, 1)
         param.setValue(1, 2)
         param.setValue(1, 3)
+        del param
+
+    param = lastNode.getParam("clampBlack")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("clampWhite")
@@ -1323,11 +1226,6 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge2 = lastNode
 
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("difference")
-        del param
-
     param = lastNode.getParam("operation")
     if param is not None:
         param.set("difference")
@@ -1406,29 +1304,24 @@ def createInstance(app,group):
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleVal_2 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("B.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.g")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
     del lastNode
@@ -1477,34 +1370,19 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("red_2")
     lastNode.setLabel("red_2")
-    lastNode.setPosition(811, 439)
+    lastNode.setPosition(604, 476)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupred_2 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -1514,34 +1392,19 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("green_2")
     lastNode.setLabel("green_2")
-    lastNode.setPosition(976, 439)
+    lastNode.setPosition(976, 529)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupgreen_2 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
     del lastNode
@@ -1563,34 +1426,19 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("blue_2")
     lastNode.setLabel("blue_2")
-    lastNode.setPosition(1144, 436)
+    lastNode.setPosition(1264, 465)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupblue_2 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("A.a")
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
     del lastNode
@@ -1600,15 +1448,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("gb")
     lastNode.setLabel("g+b")
-    lastNode.setPosition(1090, 491)
+    lastNode.setPosition(1264, 619)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupgb = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1622,15 +1465,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("reddiff")
     lastNode.setLabel("reddiff")
-    lastNode.setPosition(811, 596)
+    lastNode.setPosition(604, 738)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupreddiff = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("minus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1699,15 +1537,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("rg")
     lastNode.setLabel("r+g")
-    lastNode.setPosition(864, 491)
+    lastNode.setPosition(604, 611)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     grouprg = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1721,19 +1554,14 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("rb")
     lastNode.setLabel("r+b")
-    lastNode.setPosition(976, 491)
+    lastNode.setPosition(964, 628)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     grouprb = lastNode
 
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("max")
-        del param
-
     param = lastNode.getParam("operation")
     if param is not None:
-        param.set("max")
+        param.set("plus")
         del param
 
     del lastNode
@@ -1743,15 +1571,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("greendiff")
     lastNode.setLabel("greendiff")
-    lastNode.setPosition(976, 591)
+    lastNode.setPosition(976, 770)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupgreendiff = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("minus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1820,15 +1643,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("bluediff")
     lastNode.setLabel("bluediff")
-    lastNode.setPosition(1144, 579)
+    lastNode.setPosition(1264, 739)
     lastNode.setSize(104, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupbluediff = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("minus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1897,7 +1715,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("invRS")
     lastNode.setLabel("invRS")
-    lastNode.setPosition(811, 684)
+    lastNode.setPosition(604, 875)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupinvRS = lastNode
@@ -1924,7 +1742,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("invGS")
     lastNode.setLabel("invGS")
-    lastNode.setPosition(976, 675)
+    lastNode.setPosition(976, 886)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupinvGS = lastNode
@@ -1951,7 +1769,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("invBS")
     lastNode.setLabel("invBS")
-    lastNode.setPosition(1144, 671)
+    lastNode.setPosition(1264, 858)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupinvBS = lastNode
@@ -1978,34 +1796,14 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("ShuffleRS")
     lastNode.setLabel("ShuffleRS")
-    lastNode.setPosition(811, 769)
+    lastNode.setPosition(604, 994)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleRS = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -2015,34 +1813,14 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("ShuffleGS")
     lastNode.setLabel("ShuffleGS")
-    lastNode.setPosition(976, 767)
+    lastNode.setPosition(964, 994)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleGS = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -2052,34 +1830,14 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("ShuffleBS")
     lastNode.setLabel("ShuffleBS")
-    lastNode.setPosition(1144, 769)
+    lastNode.setPosition(1264, 969)
     lastNode.setSize(104, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffleBS = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -2089,7 +1847,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot10")
     lastNode.setLabel("Dot10")
-    lastNode.setPosition(280, 894)
+    lastNode.setPosition(-272, 1431)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot10 = lastNode
@@ -2101,7 +1859,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot11")
     lastNode.setLabel("Dot11")
-    lastNode.setPosition(437, 878)
+    lastNode.setPosition(-115, 1342)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot11 = lastNode
@@ -2113,7 +1871,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot12")
     lastNode.setLabel("Dot12")
-    lastNode.setPosition(601, 869)
+    lastNode.setPosition(50, 1260)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot12 = lastNode
