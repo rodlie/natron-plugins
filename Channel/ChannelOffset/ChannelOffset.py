@@ -441,7 +441,7 @@ def createInstance(app,group):
     lastNode.separator24 = param
     del param
 
-    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke dï¿½veloppï¿½s par Jason M. Bergman")
+    param = lastNode.createSeparatorParam("FR", "Version NATRON des Gizmos Nuke développés par Jason M. Bergman")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -578,7 +578,7 @@ def createInstance(app,group):
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Controls', 'Credits', 'Node'])
+    lastNode.setPagesOrder(['Controls', 'Credits', 'Node', 'Settings'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -587,7 +587,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Input1")
     lastNode.setLabel("Input1")
     lastNode.setPosition(953, 135)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupInput1 = lastNode
 
@@ -598,7 +598,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1")
     lastNode.setPosition(1461, 2167)
-    lastNode.setSize(104, 30)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -610,33 +610,28 @@ def createInstance(app,group):
     lastNode.setScriptName("RED")
     lastNode.setLabel("RED")
     lastNode.setPosition(610, 496)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupRED = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("1")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("1")
+        param.set("0")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("0")
+        param.set("0")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("0")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("0")
+        param.set("0")
         del param
 
     del lastNode
@@ -671,33 +666,28 @@ def createInstance(app,group):
     lastNode.setScriptName("GREEN")
     lastNode.setLabel("GREEN")
     lastNode.setPosition(953, 490)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupGREEN = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("0")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("0")
+        param.set("1")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("1")
+        param.set("0")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("0")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("0")
+        param.set("0")
         del param
 
     del lastNode
@@ -708,33 +698,28 @@ def createInstance(app,group):
     lastNode.setScriptName("BLUE")
     lastNode.setLabel("BLUE")
     lastNode.setPosition(1301, 494)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupBLUE = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputR")
     if param is not None:
-        param.setValue("Color.RGBA")
+        param.set("0")
         del param
 
-    param = lastNode.getParam("outputRChoice")
+    param = lastNode.getParam("outputG")
     if param is not None:
-        param.setValue("0")
+        param.set("0")
         del param
 
-    param = lastNode.getParam("outputGChoice")
+    param = lastNode.getParam("outputB")
     if param is not None:
-        param.setValue("0")
+        param.set("1")
         del param
 
-    param = lastNode.getParam("outputBChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("1")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("0")
+        param.set("0")
         del param
 
     del lastNode
@@ -757,33 +742,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle_RED")
     lastNode.setLabel("Shuffle_RED")
     lastNode.setPosition(757, 496)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle_RED = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.r")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
         del param
 
     del lastNode
@@ -794,7 +759,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Premult1")
     lastNode.setLabel("Premult1")
     lastNode.setPosition(757, 563)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1 = lastNode
 
@@ -806,33 +771,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle_GREEN")
     lastNode.setLabel("Shuffle_GREEN")
     lastNode.setPosition(1091, 490)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle_GREEN = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.g")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
         del param
 
     del lastNode
@@ -843,33 +788,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle_BLUE")
     lastNode.setLabel("Shuffle_BLUE")
     lastNode.setPosition(1454, 494)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle_BLUE = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.b")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
         del param
 
     del lastNode
@@ -880,7 +805,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Premult1_2")
     lastNode.setLabel("Premult1_2")
     lastNode.setPosition(1091, 565)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1_2 = lastNode
 
@@ -892,7 +817,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Premult1_3")
     lastNode.setLabel("Premult1_3")
     lastNode.setPosition(1454, 566)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1_3 = lastNode
 
@@ -904,7 +829,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Transform_RED")
     lastNode.setLabel("Transform_RED")
     lastNode.setPosition(757, 768)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupTransform_RED = lastNode
 
@@ -927,33 +852,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle_alpha1")
     lastNode.setLabel("Shuffle_alpha1")
     lastNode.setPosition(757, 675)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle_alpha1 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("1")
+        param.set("1")
         del param
 
     del lastNode
@@ -964,33 +869,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle_alpha2")
     lastNode.setLabel("Shuffle_alpha2")
     lastNode.setPosition(1091, 656)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle_alpha2 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("1")
+        param.set("1")
         del param
 
     del lastNode
@@ -1001,33 +886,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle_alpha13")
     lastNode.setLabel("Shuffle_alpha13")
     lastNode.setPosition(1454, 640)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle_alpha13 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("1")
+        param.set("1")
         del param
 
     del lastNode
@@ -1086,7 +951,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Transform_GREEN")
     lastNode.setLabel("Transform_GREEN")
     lastNode.setPosition(1091, 761)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupTransform_GREEN = lastNode
 
@@ -1104,7 +969,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Transform_BLUE")
     lastNode.setLabel("Transform_BLUE")
     lastNode.setPosition(1454, 750)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupTransform_BLUE = lastNode
 
@@ -1163,7 +1028,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Blur_RED")
     lastNode.setLabel("Blur_RED")
     lastNode.setPosition(757, 1320)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur_RED = lastNode
 
@@ -1174,7 +1039,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("boundary")
     if param is not None:
-        param.set("Nearest")
+        param.set("nearest")
         del param
 
     del lastNode
@@ -1185,7 +1050,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Blur_GREEN")
     lastNode.setLabel("Blur_GREEN")
     lastNode.setPosition(1091, 1318)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur_GREEN = lastNode
 
@@ -1196,7 +1061,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("boundary")
     if param is not None:
-        param.set("Nearest")
+        param.set("nearest")
         del param
 
     del lastNode
@@ -1207,7 +1072,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Blur_BLUE")
     lastNode.setLabel("Blur_BLUE")
     lastNode.setPosition(1461, 1320)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur_BLUE = lastNode
 
@@ -1218,7 +1083,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("boundary")
     if param is not None:
-        param.set("Nearest")
+        param.set("nearest")
         del param
 
     del lastNode
@@ -1229,14 +1094,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge_RG")
     lastNode.setLabel("Merge_RG")
     lastNode.setPosition(1091, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge_RG = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1245,7 +1105,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1268,14 +1128,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge_B")
     lastNode.setLabel("Merge_B")
     lastNode.setPosition(1461, 1554)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge_B = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("plus")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1284,7 +1139,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1329,7 +1184,7 @@ def createInstance(app,group):
     lastNode.setScriptName("mask")
     lastNode.setLabel("mask")
     lastNode.setPosition(357, 133)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupmask = lastNode
 
@@ -1341,14 +1196,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
     lastNode.setPosition(1462, 1893)
-    lastNode.setSize(104, 66)
+    lastNode.setSize(80, 66)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge1 = lastNode
-
-    param = lastNode.getParam("NatronOfxParamStringSublabelName")
-    if param is not None:
-        param.setValue("matte")
-        del param
 
     param = lastNode.getParam("operation")
     if param is not None:
@@ -1357,7 +1207,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("B")
+        param.set("b")
         del param
 
     del lastNode
@@ -1380,33 +1230,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
     lastNode.setPosition(357, 335)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1 = lastNode
 
-    param = lastNode.getParam("outputChannelsChoice")
+    param = lastNode.getParam("outputA")
     if param is not None:
-        param.setValue("Color.RGBA")
-        del param
-
-    param = lastNode.getParam("outputRChoice")
-    if param is not None:
-        param.setValue("A.r")
-        del param
-
-    param = lastNode.getParam("outputGChoice")
-    if param is not None:
-        param.setValue("A.g")
-        del param
-
-    param = lastNode.getParam("outputBChoice")
-    if param is not None:
-        param.setValue("A.b")
-        del param
-
-    param = lastNode.getParam("outputAChoice")
-    if param is not None:
-        param.setValue("B.a")
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.A")
         del param
 
     del lastNode
@@ -1417,7 +1247,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
     lastNode.setPosition(357, 668)
-    lastNode.setSize(104, 43)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
 
