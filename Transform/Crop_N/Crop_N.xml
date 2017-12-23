@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crop_N</DisplayName>
+    <Description>Crop node similar to Nuke's one.</Description>
+    <Version>1</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crop_N</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
