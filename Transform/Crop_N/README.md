@@ -3,5 +3,5 @@
 Crop node similar to Nuke's one.
 
 
-![Screenshot](Mosaic_snap.png)
+![Screenshot](Crop_N_snap.png)
 
