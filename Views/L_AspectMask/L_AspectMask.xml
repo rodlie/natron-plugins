@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>L_AspectMask</DisplayName>
+    <Description>Apply standard formats overlay over an image.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.L_AspectMask</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
