@@ -55,6 +55,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Filter/fxT_Glowy/fxT_Glowy.png' width='32'> **[fxT_Glowy](/Filter/fxT_Glowy/README.md)** : This is an alternative glow effect that mimics the feature of the same gizmo in Nuke, more info on the description.
 
+- <img src='/Filter/L_BlurHue/L_BlurHue.png' width='32'> **[L_BlurHue](/Filter/L_BlurHue/README.md)** : A simple hue blur filter.
+
 - <img src='/Filter/lp_ColourSmear/lp_ColourSmear.png' width='32'> **[lp_ColourSmear](/Filter/lp_ColourSmear/README.md)** : Smears the colors around a given Alpha.
 
 - <img src='/Filter/lp_Despot/lp_Despot.png' width='32'> **[lp_Despot](/Filter/lp_Despot/README.md)** : Despots for black or white pixels.
