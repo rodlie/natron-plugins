@@ -32,7 +32,7 @@ def getGrouping():
 
 def getPluginDescription():
     return "Apply standard formats overlay over an image."
-
+    
 def createInstance(app,group):
     # Create all nodes in the group
 
@@ -167,6 +167,53 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep06 = param
+    del param
+
+    param = lastNode.createColorParam("CropColorcolor", "Color", True)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(1, 1)
+    param.setDisplayMinimum(0, 2)
+    param.setDisplayMaximum(1, 2)
+    param.setDisplayMinimum(0, 3)
+    param.setDisplayMaximum(1, 3)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.CropColorcolor = param
+    del param
+
+    param = lastNode.createStringParam("sep21", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep21 = param
+    del param
+
+    param = lastNode.createStringParam("sep22", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep22 = param
     del param
 
     param = lastNode.createDoubleParam("Merge1mix", "Mix")
@@ -424,7 +471,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("getIsize")
     lastNode.setLabel("getIsize")
-    lastNode.setPosition(979, 139)
+    lastNode.setPosition(1115, 135)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupgetIsize = lastNode
@@ -436,7 +483,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(1109, 139)
+    lastNode.setPosition(1245, 135)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1 = lastNode
@@ -468,7 +515,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.TransformPlugin", 1, group)
     lastNode.setScriptName("Transform1_2")
     lastNode.setLabel("Transform1_2")
-    lastNode.setPosition(1109, 230)
+    lastNode.setPosition(1245, 226)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupTransform1_2 = lastNode
@@ -496,7 +543,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
-    lastNode.setPosition(1109, 409)
+    lastNode.setPosition(1245, 405)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
@@ -528,7 +575,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
     lastNode.setScriptName("Crop1_2")
     lastNode.setLabel("Crop1_2")
-    lastNode.setPosition(1109, 308)
+    lastNode.setPosition(1245, 304)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop1_2 = lastNode
@@ -596,6 +643,68 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot1"
 
+    # Start of node "CropColor"
+    lastNode = app.createNode("net.sf.openfx.ConstantPlugin", 1, group)
+    lastNode.setScriptName("CropColor")
+    lastNode.setLabel("CropColor")
+    lastNode.setPosition(1096, 267)
+    lastNode.setSize(104, 78)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupCropColor = lastNode
+
+    param = lastNode.getParam("extent")
+    if param is not None:
+        param.set("size")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1950, 0)
+        param.setValue(1200, 1)
+        del param
+
+    param = lastNode.getParam("hideInputs")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "CropColor"
+
+    # Start of node "Shuffle2"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
+    lastNode.setScriptName("Shuffle2")
+    lastNode.setLabel("Shuffle2")
+    lastNode.setPosition(1108, 405)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupShuffle2 = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.A")
+        del param
+
+    del lastNode
+    # End of node "Shuffle2"
+
+    # Start of node "Premult1"
+    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
+    lastNode.setScriptName("Premult1")
+    lastNode.setLabel("Premult1")
+    lastNode.setPosition(978, 405)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupPremult1 = lastNode
+
+    del lastNode
+    # End of node "Premult1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupMerge1)
     groupgetIsize.connectInput(0, groupDot1)
@@ -604,8 +713,11 @@ def createInstance(app,group):
     groupInvert1.connectInput(0, groupCrop1_2)
     groupCrop1_2.connectInput(0, groupTransform1_2)
     groupMerge1.connectInput(0, groupDot1)
-    groupMerge1.connectInput(1, groupInvert1)
+    groupMerge1.connectInput(1, groupPremult1)
     groupDot1.connectInput(0, grouprgba)
+    groupShuffle2.connectInput(0, groupInvert1)
+    groupShuffle2.connectInput(1, groupCropColor)
+    groupPremult1.connectInput(0, groupShuffle2)
 
     param = groupTransform1_2.getParam("scale")
     param.setExpression("Isize = Shuffle1.getRegionOfDefinition(frame,view)\nAspRat = Isize.width()/Isize.height()\nret = AspRat/thisGroup.Aspect.get()", True, 1)
@@ -620,6 +732,13 @@ def createInstance(app,group):
     del param
     param = groupMerge1.getParam("mix")
     group.getParam("Merge1mix").setAsAlias(param)
+    del param
+    param = groupCropColor.getParam("size")
+    param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame,view)\nret = rod.width()", True, 0)
+    param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame,view)\nret = rod.height()", True, 1)
+    del param
+    param = groupCropColor.getParam("color")
+    group.getParam("CropColorcolor").setAsAlias(param)
     del param
 
     try:
