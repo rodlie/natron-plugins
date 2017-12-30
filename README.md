@@ -12,6 +12,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### Channel
 - <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
 
+- <img src='/Channel/ChannelSolo/ChannelSolo.png' width='32'> **[ChannelSolo](/Channel/ChannelSolo/README.md)** : Easy to use channel selector.
+
 ### Color
 - <img src='/Color/lp_Tweaky/lp_Tweaky.png' width='32'> **[lp_Tweaky](/Color/lp_Tweaky/README.md)** : Provides a variety of little tweaking-options, like Vibrance, WB-Slider, Tint, etc.
 
