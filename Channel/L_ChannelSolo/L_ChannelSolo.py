@@ -30,7 +30,7 @@ def getIconPath():
 def getGrouping():
     return "Community/Channel"
 
-    def getPluginDescription():
+def getPluginDescription():
     return "Easy to use channel selector."
 
 def createInstance(app,group):
