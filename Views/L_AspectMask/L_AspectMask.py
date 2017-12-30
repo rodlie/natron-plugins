@@ -32,7 +32,7 @@ def getGrouping():
 
 def getPluginDescription():
     return "Apply standard formats overlay over an image."
-    
+
 def createInstance(app,group):
     # Create all nodes in the group
 
@@ -511,34 +511,6 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shuffle1"
 
-    # Start of node "Transform1_2"
-    lastNode = app.createNode("net.sf.openfx.TransformPlugin", 1, group)
-    lastNode.setScriptName("Transform1_2")
-    lastNode.setLabel("Transform1_2")
-    lastNode.setPosition(1245, 226)
-    lastNode.setSize(80, 48)
-    lastNode.setColor(0.7, 0.3, 0.1)
-    groupTransform1_2 = lastNode
-
-    param = lastNode.getParam("scale")
-    if param is not None:
-        param.setValue(0.6914893617021276, 1)
-        del param
-
-    param = lastNode.getParam("center")
-    if param is not None:
-        param.setValue(975, 0)
-        param.setValue(600, 1)
-        del param
-
-    param = lastNode.getParam("transformCenterChanged")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    del lastNode
-    # End of node "Transform1_2"
-
     # Start of node "Invert1"
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert1")
@@ -705,27 +677,54 @@ def createInstance(app,group):
     del lastNode
     # End of node "Premult1"
 
+    # Start of node "Transform1"
+    lastNode = app.createNode("net.sf.openfx.TransformPlugin", 1, group)
+    lastNode.setScriptName("Transform1")
+    lastNode.setLabel("Transform1")
+    lastNode.setPosition(1245, 226)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupTransform1 = lastNode
+
+    param = lastNode.getParam("scale")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(0.6914893617021276, 1)
+        del param
+
+    param = lastNode.getParam("center")
+    if param is not None:
+        param.setValue(975, 0)
+        param.setValue(600, 1)
+        del param
+
+    param = lastNode.getParam("transformCenterChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("filter")
+    if param is not None:
+        param.set("mitchell")
+        del param
+
+    del lastNode
+    # End of node "Transform1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupMerge1)
     groupgetIsize.connectInput(0, groupDot1)
     groupShuffle1.connectInput(1, groupgetIsize)
-    groupTransform1_2.connectInput(0, groupShuffle1)
     groupInvert1.connectInput(0, groupCrop1_2)
-    groupCrop1_2.connectInput(0, groupTransform1_2)
+    groupCrop1_2.connectInput(0, groupTransform1)
     groupMerge1.connectInput(0, groupDot1)
     groupMerge1.connectInput(1, groupPremult1)
     groupDot1.connectInput(0, grouprgba)
     groupShuffle2.connectInput(0, groupInvert1)
     groupShuffle2.connectInput(1, groupCropColor)
     groupPremult1.connectInput(0, groupShuffle2)
+    groupTransform1.connectInput(0, groupShuffle1)
 
-    param = groupTransform1_2.getParam("scale")
-    param.setExpression("Isize = Shuffle1.getRegionOfDefinition(frame,view)\nAspRat = Isize.width()/Isize.height()\nret = AspRat/thisGroup.Aspect.get()", True, 1)
-    del param
-    param = groupTransform1_2.getParam("center")
-    param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame,view)\nret = rod.width()/2", True, 0)
-    param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame,view)\nret = rod.height()/2", True, 1)
-    del param
     param = groupCrop1_2.getParam("size")
     param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame,view)\nret = rod.width()", True, 0)
     param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame,view)\nret = rod.height()", True, 1)
@@ -739,6 +738,14 @@ def createInstance(app,group):
     del param
     param = groupCropColor.getParam("color")
     group.getParam("CropColorcolor").setAsAlias(param)
+    del param
+    param = groupTransform1.getParam("scale")
+    param.setExpression("ret = 1", False, 0)
+    param.setExpression("Isize = Shuffle1.getRegionOfDefinition(frame,view)\nAspRat = Isize.width()/Isize.height()\nMyAspect = thisGroup.Aspect.get()\nret = AspRat/MyAspect", True, 1)
+    del param
+    param = groupTransform1.getParam("center")
+    param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame,view)\nret = rod.width()/2", True, 0)
+    param.setExpression("rod = Shuffle1.getRegionOfDefinition(frame,view)\nret = rod.height()/2", True, 1)
     del param
 
     try:
