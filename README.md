@@ -164,7 +164,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/mS/mS_RestoreGrain/mS_RestoreGrain.png' width='32'> **[mS_RestoreGrain](/mS/mS_RestoreGrain/README.md)** : This PyPlug lets you preserve the original grain from your plate after keying.
 
-
+### Views
+- <img src='/Views/L_AspectMask/L_AspectMask.png' width='32'> **[L_AspectMask](/Views/L_AspectMask/README.md)** : Apply standard formats overlay over an image.
 
 ## How to Contribute to this repository ?
 We'd love to add your own Pyplugs to this repository so everyone can benefit from them.
