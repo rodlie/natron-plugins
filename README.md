@@ -12,6 +12,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### Channel
 - <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
 
+- <img src='/Channel/ChannelMerge/ChannelMerge.png' width='32'> **[ChannelMerge](/Channel/ChannelMerge/README.md)** : ChannelMerge that mimics Nuke's one.
+
 - <img src='/Channel/L_ChannelSolo/L_ChannelSolo.png' width='32'> **[L_ChannelSolo](/Channel/L_ChannelSolo/README.md)** : Easy to use channel selector.
 
 ### Color
