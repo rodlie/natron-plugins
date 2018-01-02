@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>ChannelMerge</DisplayName>
+    <Description>ChannelMerge that mimics Nuke's one.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.ChannelMerge</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
