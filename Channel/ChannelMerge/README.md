@@ -1,4 +1,4 @@
-#ChannelMerge
+# ChannelMerge
 
 ChannelMerge that mimics Nuke's one.
 
