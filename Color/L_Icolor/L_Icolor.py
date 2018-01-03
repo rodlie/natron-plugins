@@ -15,7 +15,7 @@ try:
 except ImportError:
     pass
 
-ef getPluginID():
+def getPluginID():
     return "natron.community.plugins.L_Icolor"
 
 def getLabel():
@@ -30,7 +30,7 @@ def getIconPath():
 def getGrouping():
     return "Community/Color"
 
-    def getPluginDescription():
+def getPluginDescription():
     return "Tint an image from the A input using another one from the B input."
 
 def createInstance(app,group):
