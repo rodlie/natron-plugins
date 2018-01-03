@@ -17,6 +17,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Channel/L_ChannelSolo/L_ChannelSolo.png' width='32'> **[L_ChannelSolo](/Channel/L_ChannelSolo/README.md)** : Easy to use channel selector.
 
 ### Color
+- <img src='/Color/L_Icolor/L_Icolor.png' width='32'> **[L_Icolor](/Color/L_Icolor/README.md)** : Tint an image from the A input using another one from the B input.
+
 - <img src='/Color/lp_Tweaky/lp_Tweaky.png' width='32'> **[lp_Tweaky](/Color/lp_Tweaky/README.md)** : Provides a variety of little tweaking-options, like Vibrance, WB-Slider, Tint, etc.
 
 ### Draw
