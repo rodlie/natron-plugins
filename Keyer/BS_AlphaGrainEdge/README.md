@@ -1,4 +1,4 @@
-#BS_AlphaGrainEdge
+# BS_AlphaGrainEdge
 
 This basic PyPlug simply adds some noise to your alphas around the areas that aren't solid.
 

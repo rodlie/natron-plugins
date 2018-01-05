@@ -1,4 +1,4 @@
-#lp_ChannelContactsheet
+# lp_ChannelContactsheet
 
 Displays an input image in different colourspaces to find a suitable key. Also lets you choose and key from such a channel right away :)
 
