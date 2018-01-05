@@ -1,4 +1,4 @@
-L_ChannelSolo
+# L_ChannelSolo
 
 Easy to use channel selector.
 
