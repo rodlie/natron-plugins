@@ -1,4 +1,4 @@
-#lp_roughenEdges
+# lp_roughenEdges
 
 
 Roughens the edges of a given alpha channel based on an adjustable noise.

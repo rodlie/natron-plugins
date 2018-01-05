@@ -1,4 +1,4 @@
-#lp_ColourSmear
+# lp_ColourSmear
 
 Smears the colors around a given Alpha.
 
