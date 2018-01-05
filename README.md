@@ -16,6 +16,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Channel/L_ChannelSolo/L_ChannelSolo.png' width='32'> **[L_ChannelSolo](/Channel/L_ChannelSolo/README.md)** : Easy to use channel selector.
 
+- <img src='/Channel/Shuffle_N/Shuffle_N.png' width='32'> **[Shuffle_N](/Channel/Shuffle_N/README.md)** : Inverted Shuffle node.
+
 ### Color
 - <img src='/Color/L_Icolor/L_Icolor.png' width='32'> **[L_Icolor](/Color/L_Icolor/README.md)** : Tint an image from the A input using another one from the B input.
 
