@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Copy_N</DisplayName>
+    <Description>Nuke Copy node.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Copy_N</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
