@@ -61,7 +61,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Filter/Volume_Rays/Volume_Rays.png' width='32'> **[Volume_Rays](/Filter/Volume_Rays/README.md)** : Enhanced version of Natron's native GodRays, featuring advanced options.
 
-- <img src='/Filter/fxT_Glowy/fxT_Glowy.png' width='32'> **[fxT_Glowy](/Filter/fxT_Glowy/README.md)** : This is an alternative glow effect that mimics the feature of the same gizmo in Nuke, more info on the description.
+- <img src='/Filter/fxT_Glowy/fxT_Glowy.png' width='32'> **[fxT_Glowy](/Filter/fxT_Glowy/README.md)** : This is an alternative glow effect that mimics the feature of the same gizmo in Nuke.
 
 - <img src='/Filter/L_BlurHue/L_BlurHue.png' width='32'> **[L_BlurHue](/Filter/L_BlurHue/README.md)** : A simple hue blur filter.
 
@@ -76,7 +76,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Filter/lp_roughenEdges/lp_roughenEdges.png' width='32'> **[lp_roughenEdges](/Filter/lp_roughenEdges/README.md)** : Roughens the edges of a given alpha channel based on an adjustable noise.
 
 ### Filter/Duck
-- <img src='/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png' width='32'> **[DUCK_Alpha_Edge](/Filter/DUCK_Alpha_Edge/README.md)** : It gives edge of a roto or a key, you have the possibility to dilate or erode , blur or multiply the edge differently inside and outside. Simply the best alpha edge you can find for free.
+- <img src='/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png' width='32'> **[DUCK_Alpha_Edge](/Filter/DUCK_Alpha_Edge/README.md)** : It gives edge of a roto or a key, you have the possibility to dilate or erode, blur or multiply the edge differently inside and outside. Simply the best alpha edge you can find for free.
 
 - <img src='/Filter/DUCK_Denoise/DUCK_Denoise.png' width='32'> **[DUCK_Denoise](/Filter/DUCK_Denoise/README.md)** : It helps to denoise a footage, since it is  not based on analisys: it just provides a denoise for black/white and coloured dots.
 
@@ -139,7 +139,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Keyer/lp_HairKey/lp_HairKey.png' width='32'> **[lp_HairKey](/Keyer/lp_HairKey/README.md)** : A keyless Keyer for fine detail like hair which is hard to come by with a matte.
 
-- <img src='/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png' width='32'> **[lp_SimpleKeyer](/Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations.Inspired by Nukes Keyer-Node.
+- <img src='/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png' width='32'> **[lp_SimpleKeyer](/Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node.
 
 ### Merge
 - <img src='/Merge/L_Fuse/L_Fuse.png' width='32'> **[L_Fuse](/Merge/L_Fuse/README.md)** : Fuse is a replacement for the merge(over) node.
@@ -163,11 +163,11 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Transform/Crop_N/Crop_N.png' width='32'> **[Crop_N](/Transform/Crop_N/README.md)** : Crop node similar to Nuke's one
 
-- <img src='/Transform/3D_Card/PM_Card3D.png' width='32'> **[PM_Card3D](/Transform/3D_Card/README.md)** : Poor's Man Card3D, create a 3D plane , to be used with PM_Camera
+- <img src='/Transform/3D_Card/PM_Card3D.png' width='32'> **[PM_Card3D](/Transform/3D_Card/README.md)** : Poor's Man Card3D, create a 3D plane, to be used with PM_Camera
 
 - <img src='/Transform/Repeat/Repeat.png' width='32'> **[Repeat](/Transform/Repeat/README.md)** : Tiling effect that extends image size.
 
-- <img src='/Transform/Shaker/Shaker.png' width='32'> **[Shaker](/Transform/Shaker/README.md)** : Adds a shaking effect to the input image.It's based on an expression similar to wiggle expression in After Effects
+- <img src='/Transform/Shaker/Shaker.png' width='32'> **[Shaker](/Transform/Shaker/README.md)** : Adds a shaking effect to the input image. It's based on an expression similar to wiggle expression in After Effects
 
 - <img src='/Transform/lp_NoiseDistort/lp_NoiseDistort.png' width='32'> **[lp_NoiseDistort](/Transform/lp_NoiseDistort/README.md)** : Distorts an image based on two different noise-layer for a more dynamic feel.
 
