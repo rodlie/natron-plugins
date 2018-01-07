@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>PushPixel</DisplayName>
+    <Description>Push pixels of the RGB on the edges of the alpha channel.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.PushPixel</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
