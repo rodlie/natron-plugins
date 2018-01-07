@@ -127,10 +127,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Keyer/IDKeyer/IDKeyer.png' width='32'> **[IDKeyer](/Keyer/IDKeyer/README.md)** : Extract an alpha matte from a ID-Pass to be used as a mask.
 
-- <img src='/Keyer/PIKDespill/PIKDespill.png' width='32'> **[PIKDespill](/Keyer/PIKDespill/README.md)** : Despill tool based on the PIK Keyer.
-
-- <img src='/Keyer/PositionMask/PositionMask.png' width='32'> **[PositionMask](/Keyer/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
-
 - <img src='/Keyer/lp_ChannelContactsheet/lp_ChannelContactsheet.png' width='32'> **[lp_ChannelContactsheet](/Keyer/lp_ChannelContactsheet/README.md)** : Generate a Contactsheet to find a suitable channel for keying.
 
 - <img src='/Keyer/lp_ChillSpill/lp_ChillSpill.png' width='32'> **[lp_ChillSpill](/Keyer/lp_ChillSpill/README.md)** : An alternative to buit-in Despill node that is quick and easy to setup.
@@ -140,6 +136,10 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Keyer/lp_HairKey/lp_HairKey.png' width='32'> **[lp_HairKey](/Keyer/lp_HairKey/README.md)** : A keyless Keyer for fine detail like hair which is hard to come by with a matte.
 
 - <img src='/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png' width='32'> **[lp_SimpleKeyer](/Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node.
+
+- <img src='/Keyer/PIKDespill/PIKDespill.png' width='32'> **[PIKDespill](/Keyer/PIKDespill/README.md)** : Despill tool based on the PIK Keyer.
+
+- <img src='/Keyer/PositionMask/PositionMask.png' width='32'> **[PositionMask](/Keyer/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
 - <img src='/Keyer/PushPixel/PushPixel.png' width='32'> **[PushPixel](/Keyer/PushPixel/README.md)** : Push pixels of the RGB on the edges of the alpha channel.
 
