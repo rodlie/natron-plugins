@@ -47,7 +47,9 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Filter/DePepper/DePepper.png' width='32'> **[DePepper](/Filter/DePepper/README.md)** : Remove Salt and Pepper noise 
 
-- <img src='/Filter/Defocus/Defocus.png' width='32'> **[Defocus](/Filter/Defocus/README.md)** : Add a bokeh blur to the image. You can use an image to guide blur size, note that it's not intended to act as a ZBlur plugin 
+- <img src='/Filter/Defocus/Defocus.png' width='32'> **[Defocus](/Filter/Defocus/README.md)** : Add a bokeh blur to the image. You can use an image to guide blur size, note that it's not intended to act as a ZBlur plugin.
+
+- <img src='/Filter/FireflyKiller/FireflyKiller.png' width='32'> **[FireflyKiller](/Filter/FireflyKiller/README.md)** : Removes fireflies, very bright, nervously jumping around pixels.
 
 - <img src='/Filter/Mosaic/Mosaic.png' width='32'> **[Mosaic](/Filter/Mosaic/README.md)** : A basic mosaic effect.
 
