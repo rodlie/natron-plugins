@@ -30,7 +30,9 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Draw/Gradient/Gradient.png' width='32'> **[Gradient](/Draw/Gradient/README.md)** : A 3-4 Way gradient.
 
-- <img src='/Draw/LightWrap_Simple/LightWrap_Simple.png' width='32'> **[LightWrap_Simple](/Draw/LightWrap_Simple/README.md)** : An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect
+- <img src='/Draw/LightWrap_Simple/LightWrap_Simple.png' width='32'> **[LightWrap_Simple](/Draw/LightWrap_Simple/README.md)** : An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect.
+
+- <img src='/Draw/V_FormatUVGenerator/V_FormatUVGenerator.png' width='32'> **[V_FormatUVGenerator](/Draw/V_FormatUVGenerator/README.md)** : Generates a UV map.
 
 - <img src='/Draw/Vignette/Vignette.png' width='32'> **[Vignette](/Draw/Vignette/README.md)** : This effect reduce the images brightness at the peripherie compared to the image center.
 
@@ -143,7 +145,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Keyer/PositionMask/PositionMask.png' width='32'> **[PositionMask](/Keyer/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
-- <img src='/Keyer/PushPixel/PushPixel.png' width='32'> **[PushPixel](/Keyer/PushPixel/README.md)** : Push pixels of the RGB on the edges of the alpha channel.
+- <img src='/Keyer/PushPixel/PushPixel.png' width='32'> **[PushPixel](/Keyer/PushPixel/README.md)** : Pushes pixels of the RGB on the edges of the alpha channel.
 
 ### Merge
 - <img src='/Merge/L_Fuse/L_Fuse.png' width='32'> **[L_Fuse](/Merge/L_Fuse/README.md)** : Fuse is a replacement for the merge(over) node.
