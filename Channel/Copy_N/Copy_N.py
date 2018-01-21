@@ -541,6 +541,11 @@ def createInstance(app,group):
         param.setValue("a")
         del param
 
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(False)
+        del param
+
     param = lastNode.getParam("disableNode")
     if param is not None:
         param.setValue(True)
@@ -590,7 +595,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle_R")
     lastNode.setPosition(620, 420)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle_R = lastNode
 
     param = lastNode.getParam("outputG")
@@ -612,7 +617,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle_G")
     lastNode.setPosition(614, 519)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle_G = lastNode
 
     param = lastNode.getParam("outputR")
@@ -634,7 +639,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle_B")
     lastNode.setPosition(614, 611)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle_B = lastNode
 
     param = lastNode.getParam("outputR")
@@ -690,7 +695,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("Switch_R")
     lastNode.setLabel("Switch_R")
-    lastNode.setPosition(1124, 402)
+    lastNode.setPosition(1124, 420)
     lastNode.setSize(80, 48)
     lastNode.setColor(1, 1, 1)
     groupSwitch_R = lastNode
@@ -709,7 +714,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle_A")
     lastNode.setPosition(617, 703)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle_A = lastNode
 
     param = lastNode.getParam("outputR")
@@ -771,6 +776,11 @@ def createInstance(app,group):
         param.setValue("a")
         del param
 
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(False)
+        del param
+
     param = lastNode.getParam("disableNode")
     if param is not None:
         param.setValue(True)
@@ -823,6 +833,11 @@ def createInstance(app,group):
     param = lastNode.getParam("aExpr")
     if param is not None:
         param.setValue("a")
+        del param
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("disableNode")
@@ -896,6 +911,11 @@ def createInstance(app,group):
         param.setValue("a2")
         del param
 
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(False)
+        del param
+
     param = lastNode.getParam("disableNode")
     if param is not None:
         param.setValue(False)
@@ -910,7 +930,7 @@ def createInstance(app,group):
     lastNode.setLabel("Dissolve1")
     lastNode.setPosition(1912, 1199)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.3, 0.37, 0.776)
+    lastNode.setColor(0.2941, 0.3686, 0.7765)
     groupDissolve1 = lastNode
 
     param = lastNode.getParam("which")
@@ -1007,7 +1027,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle1")
     lastNode.setPosition(1789, 18)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle1 = lastNode
 
     param = lastNode.getParam("outputG")
@@ -1034,7 +1054,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle1_2")
     lastNode.setPosition(1930, 24)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle1_2 = lastNode
 
     param = lastNode.getParam("outputR")
@@ -1061,7 +1081,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle1_3")
     lastNode.setPosition(2067, 20)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle1_3 = lastNode
 
     param = lastNode.getParam("outputR")
@@ -1105,7 +1125,7 @@ def createInstance(app,group):
     lastNode.setLabel("Merge1")
     lastNode.setPosition(1912, 780)
     lastNode.setSize(80, 73)
-    lastNode.setColor(0.3, 0.37, 0.776)
+    lastNode.setColor(0.2941, 0.3686, 0.7765)
     groupMerge1 = lastNode
 
     param = lastNode.getParam("operation")
@@ -1132,7 +1152,7 @@ def createInstance(app,group):
     lastNode.setLabel("Merge2")
     lastNode.setPosition(2204, 835)
     lastNode.setSize(80, 73)
-    lastNode.setColor(0.3, 0.37, 0.776)
+    lastNode.setColor(0.2941, 0.3686, 0.7765)
     groupMerge2 = lastNode
 
     param = lastNode.getParam("operation")
@@ -1199,7 +1219,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle2")
     lastNode.setPosition(1912, 1032)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle2 = lastNode
 
     param = lastNode.getParam("outputA")
@@ -1216,7 +1236,7 @@ def createInstance(app,group):
     lastNode.setLabel("Shuffle3")
     lastNode.setPosition(1912, 626)
     lastNode.setSize(80, 48)
-    lastNode.setColor(0.6, 0.24, 0.39)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle3 = lastNode
 
     param = lastNode.getParam("outputA")
@@ -1299,6 +1319,9 @@ def createInstance(app,group):
     param = groupSeExpr_R.getParam("aExpr")
     param.setExpression("toto = thisGroup.Choice_Ar.get()\nif toto == 3 :\n\tret = \'a2\'\nelse :\n\tret = \'a\'", True, 0)
     del param
+    param = groupSeExpr_R.getParam("enableMask_Mask")
+    param.setExpression("thisGroup.checkM.get()", False, 0)
+    del param
     param = groupSeExpr_R.getParam("disableNode")
     param.setExpression("not thisGroup.checkR.get()", False, 0)
     del param
@@ -1317,6 +1340,9 @@ def createInstance(app,group):
     param = groupSeExpr_G.getParam("aExpr")
     param.setExpression("toto = thisGroup.Choice_Ag.get()\nif toto == 3 :\n\tret = \'a2\'\nelse :\n\tret = \'a\'", True, 0)
     del param
+    param = groupSeExpr_G.getParam("enableMask_Mask")
+    param.setExpression("thisGroup.checkM.get()", False, 0)
+    del param
     param = groupSeExpr_G.getParam("disableNode")
     param.setExpression("not thisGroup.checkG.get()", False, 0)
     del param
@@ -1334,6 +1360,9 @@ def createInstance(app,group):
     del param
     param = groupSeExprSimple1.getParam("aExpr")
     param.setExpression("toto = thisGroup.Choice_Ab.get()\nif toto == 3 :\n\tret = \'a2\'\nelse :\n\tret = \'a\'", True, 0)
+    del param
+    param = groupSeExprSimple1.getParam("enableMask_Mask")
+    param.setExpression("thisGroup.checkM.get()", False, 0)
     del param
     param = groupSeExprSimple1.getParam("disableNode")
     param.setExpression("not thisGroup.checkB.get()", False, 0)
@@ -1355,6 +1384,9 @@ def createInstance(app,group):
     del param
     param = groupSeExpr_A.getParam("aExpr")
     param.setExpression("toto = thisGroup.Choice_Ba.get()\nif toto == 3 :\n\tret = \'a2\'\nelse :\n\tret = \'a\'", True, 0)
+    del param
+    param = groupSeExpr_A.getParam("enableMask_Mask")
+    param.setExpression("thisGroup.checkM.get()", False, 0)
     del param
     param = groupSeExpr_A.getParam("disableNode")
     param.setExpression("not thisGroup.checkA.get()", False, 0)
