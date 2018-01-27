@@ -339,7 +339,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("getOverBright")
     lastNode.setLabel("getOverBright")
-    lastNode.setPosition(1140, 329)
+    lastNode.setPosition(1140, 331)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupgetOverBright = lastNode
@@ -361,7 +361,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("aExpr")
     if param is not None:
-        param.setValue("clamp( ( r*(r>1) )-1, 0 ,1)")
+        param.setValue("(clamp( ( r*(r>1) )-1, 0 ,1) + clamp( ( g*(g>1) )-1, 0 ,1) + clamp( ( b*(b>1) )-1, 0 ,1))/3")
         del param
 
     del lastNode
@@ -393,7 +393,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("aExpr")
     if param is not None:
-        param.setValue("clamp( ( r*(r<0) )+1, 0 ,1)")
+        param.setValue("( clamp( ( r*(r<0) )+1, 0 ,1) + clamp( ( g*(g<0) )+1, 0 ,1) + clamp( ( b*(b<0) )+1, 0 ,1) ) /3")
         del param
 
     del lastNode
