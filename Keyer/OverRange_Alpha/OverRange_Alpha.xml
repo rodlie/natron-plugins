@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>OverRange_Alpha</DisplayName>
+    <Description>Generates an alpha channel based on overranged values.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@27-01-2018@</ReleaseDate>
+    <Name>natron.community.plugins.OverRange_Alpha</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
