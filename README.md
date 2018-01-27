@@ -32,8 +32,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Draw/LightWrap_Simple/LightWrap_Simple.png' width='32'> **[LightWrap_Simple](/Draw/LightWrap_Simple/README.md)** : An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect.
 
-- <img src='/Draw/V_FormatUVGenerator/V_FormatUVGenerator.png' width='32'> **[V_FormatUVGenerator](/Draw/V_FormatUVGenerator/README.md)** : Generates a UV map.
-
 - <img src='/Draw/Vignette/Vignette.png' width='32'> **[Vignette](/Draw/Vignette/README.md)** : This effect reduce the images brightness at the peripherie compared to the image center.
 
 - <img src='/Draw/WaveForm/WaveForm.png' width='32'> **[WaveForm](/Draw/WaveForm/README.md)** : Draw a Luminance Waveform of the input image
