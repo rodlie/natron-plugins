@@ -30,7 +30,7 @@ def getIconPath():
 def getGrouping():
     return "Community/Filter"
 
-    def getPluginDescription():
+def getPluginDescription():
     return "A simple hue blur filter."
 
 def createInstance(app,group):
