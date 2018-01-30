@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/Keyer"
 
 def getPluginDescription():
-    return "The famous DespillMadness originaly developed for Nuke by  Andreas Frickinger."
+    return "The famous DespillMadness originaly developed for Nuke by Andreas Frickinger."
 
 def createInstance(app,group):
     # Create all nodes in the group

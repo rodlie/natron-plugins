@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>DespillMadness</DisplayName>
+    <Description>The famous DespillMadness originaly developed for Nuke by Andreas Frickinger.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@27-01-2018@</ReleaseDate>
+    <Name>natron.community.plugins.DespillMadness</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
