@@ -842,6 +842,22 @@ def createInstance(app,group):
     lastNode.setColor(0.48, 0.66, 1)
     groupCC_SpillMap = lastNode
 
+    param = lastNode.getParam("MasterGamma")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
+        param.setValue(1, 3)
+        del param
+
+    param = lastNode.getParam("MasterOffset")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        param.setValue(0, 2)
+        param.setValue(0, 3)
+        del param
+
     param = lastNode.getParam("toneRanges")
     if param is not None:
         param.setCurveColor(0, 0.6, 0.4, 0.6)
@@ -937,7 +953,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("DoubleBlueAve")
     lastNode.setLabel("DoubleBlueAve")
-    lastNode.setPosition(1599, 1530)
+    lastNode.setPosition(1599, 1532)
     lastNode.setSize(80, 48)
     lastNode.setColor(1, 1, 1)
     groupDoubleBlueAve = lastNode
@@ -1005,7 +1021,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("DoubleRedAve")
     lastNode.setLabel("DoubleRedAve")
-    lastNode.setPosition(1773, 1535)
+    lastNode.setPosition(1773, 1539)
     lastNode.setSize(80, 48)
     lastNode.setColor(1, 1, 1)
     groupDoubleRedAve = lastNode
@@ -1203,7 +1219,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("RedAndGreenLimitBlue")
     lastNode.setLabel("RedAndGreenLimitBlue")
-    lastNode.setPosition(2837, 1543)
+    lastNode.setPosition(2837, 1541)
     lastNode.setSize(80, 73)
     lastNode.setColor(1, 1, 1)
     groupRedAndGreenLimitBlue = lastNode
@@ -1235,7 +1251,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("DoubleGreenAve2")
     lastNode.setLabel("DoubleGreenAve2")
-    lastNode.setPosition(2999, 1554)
+    lastNode.setPosition(2999, 1556)
     lastNode.setSize(80, 48)
     lastNode.setColor(1, 1, 1)
     groupDoubleGreenAve2 = lastNode
@@ -1267,7 +1283,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("DoubleRedAve2")
     lastNode.setLabel("DoubleRedAve2")
-    lastNode.setPosition(3150, 1556)
+    lastNode.setPosition(3150, 1558)
     lastNode.setSize(80, 48)
     lastNode.setColor(1, 1, 1)
     groupDoubleRedAve2 = lastNode
@@ -1696,6 +1712,9 @@ def createInstance(app,group):
     groupDot8.connectInput(0, groupCC_SpillMap)
     groupDot9.connectInput(0, groupDot8)
 
+    param = groupRedAveBlueLimitsGreen.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
     param = groupCC_SpillMap.getParam("MasterSaturation")
     group.getParam("CC_SpillMapMasterSaturation").setAsAlias(param)
     del param
@@ -1708,8 +1727,35 @@ def createInstance(app,group):
     param = groupSwitchMain.getParam("which")
     param.setExpression("thisGroup.screenType.get()", False, 0)
     del param
+    param = groupBlueLimitsGreen.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
+    param = groupDoubleBlueAve.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
+    param = groupDoubleRedAve.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
     param = groupSwitchGreen.getParam("which")
     param.setExpression("thisGroup.despillAlgorithn.get()", False, 0)
+    del param
+    param = groupRedLimitsGreen.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
+    param = groupRedLimitsBlue.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
+    param = groupGreenLimitsBlue1.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
+    param = groupRedAndGreenLimitBlue.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
+    param = groupDoubleGreenAve2.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
+    del param
+    param = groupDoubleRedAve2.getParam("color1")
+    param.slaveTo(group.getParam("fineTune"), 0, 0)
     del param
     param = groupSwitchBlue.getParam("which")
     param.setExpression("thisGroup.despillAlgorithn.get()", False, 0)
