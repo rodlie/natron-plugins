@@ -249,9 +249,13 @@ def createInstance(app,group):
     lastNode.sep09 = param
     del param
 
-    param = lastNode.createBooleanParam("RestoreSL", "restore source luminance ")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
+    param = lastNode.createDoubleParam("restoreMix", "restore source luminance ")
+    param.setMinimum(0, 0)
+    param.setMaximum(1, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -260,7 +264,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.RestoreSL = param
+    lastNode.restoreMix = param
     del param
 
     param = lastNode.createStringParam("sep10", "")
@@ -842,6 +846,14 @@ def createInstance(app,group):
     lastNode.setColor(0.48, 0.66, 1)
     groupCC_SpillMap = lastNode
 
+    param = lastNode.getParam("MasterSaturation")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
+        param.setValue(1, 3)
+        del param
+
     param = lastNode.getParam("MasterGamma")
     if param is not None:
         param.setValue(1, 0)
@@ -1070,7 +1082,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
     lastNode.setScriptName("RedLimitsGreen")
     lastNode.setLabel("RedLimitsGreen")
-    lastNode.setPosition(1029, 1540)
+    lastNode.setPosition(1029, 1543)
     lastNode.setSize(80, 48)
     lastNode.setColor(1, 1, 1)
     groupRedLimitsGreen = lastNode
@@ -1405,7 +1417,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge1")
     lastNode.setLabel("Merge1")
-    lastNode.setPosition(1464, 2783)
+    lastNode.setPosition(1464, 2784)
     lastNode.setSize(80, 73)
     lastNode.setColor(0.2941, 0.3686, 0.7765)
     groupMerge1 = lastNode
@@ -1461,33 +1473,6 @@ def createInstance(app,group):
 
     del lastNode
     # End of node "Saturation1"
-
-    # Start of node "RestoreLuma"
-    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
-    lastNode.setScriptName("RestoreLuma")
-    lastNode.setLabel("RestoreLuma")
-    lastNode.setPosition(2157, 2977)
-    lastNode.setSize(80, 73)
-    lastNode.setColor(0.2941, 0.3686, 0.7765)
-    groupRestoreLuma = lastNode
-
-    param = lastNode.getParam("operation")
-    if param is not None:
-        param.set("plus")
-        del param
-
-    param = lastNode.getParam("bbox")
-    if param is not None:
-        param.set("b")
-        del param
-
-    param = lastNode.getParam("disableNode")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    del lastNode
-    # End of node "RestoreLuma"
 
     # Start of node "AlphaFix1"
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
@@ -1651,6 +1636,33 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot9"
 
+    # Start of node "Merge2"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge2")
+    lastNode.setLabel("RestoreLuma")
+    lastNode.setPosition(2151, 2977)
+    lastNode.setSize(80, 73)
+    lastNode.setColor(0.2941, 0.3686, 0.7765)
+    groupMerge2 = lastNode
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("plus")
+        del param
+
+    param = lastNode.getParam("bbox")
+    if param is not None:
+        param.set("b")
+        del param
+
+    param = lastNode.getParam("mix")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    del lastNode
+    # End of node "Merge2"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupSwitchSpillMap)
     groupRedAveBlueLimitsGreen.connectInput(0, groupDot1_2)
@@ -1693,13 +1705,11 @@ def createInstance(app,group):
     groupMerge1.connectInput(1, groupAlphaFix)
     groupClamp2.connectInput(0, groupMerge1)
     groupSaturation1.connectInput(0, groupClamp2)
-    groupRestoreLuma.connectInput(0, groupCopyAlpha)
-    groupRestoreLuma.connectInput(1, groupSaturation1)
     groupAlphaFix1.connectInput(0, groupmask)
     groupCopyMask.connectInput(0, groupAlphaFix1)
     groupCopyMask.connectInput(1, groupAlphaFix1)
     groupInvert1.connectInput(0, groupCopyMask)
-    groupKeyMix1.connectInput(0, groupRestoreLuma)
+    groupKeyMix1.connectInput(0, groupMerge2)
     groupKeyMix1.connectInput(1, groupDot6)
     groupKeyMix1.connectInput(2, groupInvert1)
     groupDot5.connectInput(0, groupAlphaFix)
@@ -1711,6 +1721,8 @@ def createInstance(app,group):
     groupSwitchSpillMap.connectInput(1, groupDot9)
     groupDot8.connectInput(0, groupCC_SpillMap)
     groupDot9.connectInput(0, groupDot8)
+    groupMerge2.connectInput(0, groupCopyAlpha)
+    groupMerge2.connectInput(1, groupSaturation1)
 
     param = groupRedAveBlueLimitsGreen.getParam("color1")
     param.slaveTo(group.getParam("fineTune"), 0, 0)
@@ -1760,9 +1772,6 @@ def createInstance(app,group):
     param = groupSwitchBlue.getParam("which")
     param.setExpression("thisGroup.despillAlgorithn.get()", False, 0)
     del param
-    param = groupRestoreLuma.getParam("disableNode")
-    param.setExpression("not thisGroup.RestoreSL.get()", False, 0)
-    del param
     param = groupKeyMix1.getParam("maskInvert")
     group.getParam("KeyMix1maskInvert").setAsAlias(param)
     del param
@@ -1777,6 +1786,9 @@ def createInstance(app,group):
     del param
     param = groupSwitchSpillMap.getParam("which")
     param.setExpression("thisGroup.spillMatteOut.get()", False, 0)
+    del param
+    param = groupMerge2.getParam("mix")
+    group.getParam("restoreMix").setAsAlias(param)
     del param
 
     try:
