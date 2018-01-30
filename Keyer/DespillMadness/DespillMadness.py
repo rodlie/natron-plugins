@@ -1570,7 +1570,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.DissolvePlugin", 1, group)
     lastNode.setScriptName("mix")
     lastNode.setLabel("mix")
-    lastNode.setPosition(2157, 3611)
+    lastNode.setPosition(2157, 3856)
     lastNode.setSize(80, 48)
     lastNode.setColor(1, 1, 1)
     groupmix = lastNode
@@ -1587,30 +1587,13 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot7")
     lastNode.setLabel("Dot7")
-    lastNode.setPosition(1272, 3628)
+    lastNode.setPosition(1272, 3873)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot7 = lastNode
 
     del lastNode
     # End of node "Dot7"
-
-    # Start of node "SwitchSpillMap"
-    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
-    lastNode.setScriptName("SwitchSpillMap")
-    lastNode.setLabel("SwitchSpillMap")
-    lastNode.setPosition(2157, 3863)
-    lastNode.setSize(80, 48)
-    lastNode.setColor(1, 1, 1)
-    groupSwitchSpillMap = lastNode
-
-    param = lastNode.getParam("which")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    del lastNode
-    # End of node "SwitchSpillMap"
 
     # Start of node "Dot8"
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
@@ -1628,7 +1611,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot9")
     lastNode.setLabel("Dot9")
-    lastNode.setPosition(2454, 3880)
+    lastNode.setPosition(2454, 3690)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot9 = lastNode
@@ -1663,8 +1646,30 @@ def createInstance(app,group):
     del lastNode
     # End of node "Merge2"
 
+    # Start of node "Shuffle1"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 2, group)
+    lastNode.setScriptName("Shuffle1")
+    lastNode.setLabel("SwitchSpillMap")
+    lastNode.setPosition(2157, 3673)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.6196, 0.2353, 0.3882)
+    groupShuffle1 = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.A")
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    del lastNode
+    # End of node "Shuffle1"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupSwitchSpillMap)
+    groupOutput1.connectInput(0, groupmix)
     groupRedAveBlueLimitsGreen.connectInput(0, groupDot1_2)
     groupCC_SpillMap.connectInput(0, groupClamp1)
     groupCC_SpillMap.connectInput(1, groupClamp1)
@@ -1715,14 +1720,14 @@ def createInstance(app,group):
     groupDot5.connectInput(0, groupAlphaFix)
     groupDot6.connectInput(0, groupDot5)
     groupmix.connectInput(0, groupDot7)
-    groupmix.connectInput(1, groupKeyMix1)
+    groupmix.connectInput(1, groupShuffle1)
     groupDot7.connectInput(0, groupDot6)
-    groupSwitchSpillMap.connectInput(0, groupmix)
-    groupSwitchSpillMap.connectInput(1, groupDot9)
     groupDot8.connectInput(0, groupCC_SpillMap)
     groupDot9.connectInput(0, groupDot8)
     groupMerge2.connectInput(0, groupCopyAlpha)
     groupMerge2.connectInput(1, groupSaturation1)
+    groupShuffle1.connectInput(0, groupDot9)
+    groupShuffle1.connectInput(1, groupKeyMix1)
 
     param = groupRedAveBlueLimitsGreen.getParam("color1")
     param.slaveTo(group.getParam("fineTune"), 0, 0)
@@ -1784,11 +1789,11 @@ def createInstance(app,group):
     param = groupmix.getParam("which")
     group.getParam("mixwhich").setAsAlias(param)
     del param
-    param = groupSwitchSpillMap.getParam("which")
-    param.setExpression("thisGroup.spillMatteOut.get()", False, 0)
-    del param
     param = groupMerge2.getParam("mix")
     group.getParam("restoreMix").setAsAlias(param)
+    del param
+    param = groupShuffle1.getParam("disableNode")
+    param.setExpression("not thisGroup.spillMatteOut.get()", False, 0)
     del param
 
     try:
