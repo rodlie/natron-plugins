@@ -150,7 +150,7 @@ def createInstance(app,group):
     param.setMinimum(-2147483648, 0)
     param.setMaximum(2147483647, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(4.5, 0)
+    param.setDisplayMaximum(1.5, 0)
     param.setDefaultValue(0.9399999999999999, 0)
     param.restoreDefaultValue(0)
 
@@ -841,30 +841,6 @@ def createInstance(app,group):
     lastNode.setSize(80, 48)
     lastNode.setColor(0.48, 0.66, 1)
     groupCC_SpillMap = lastNode
-
-    param = lastNode.getParam("MasterSaturation")
-    if param is not None:
-        param.setValue(1, 0)
-        param.setValue(1, 1)
-        param.setValue(1, 2)
-        param.setValue(1, 3)
-        del param
-
-    param = lastNode.getParam("MasterGamma")
-    if param is not None:
-        param.setValue(1, 0)
-        param.setValue(1, 1)
-        param.setValue(1, 2)
-        param.setValue(1, 3)
-        del param
-
-    param = lastNode.getParam("MasterOffset")
-    if param is not None:
-        param.setValue(0, 0)
-        param.setValue(0, 1)
-        param.setValue(0, 2)
-        param.setValue(0, 3)
-        del param
 
     param = lastNode.getParam("toneRanges")
     if param is not None:
@@ -1720,9 +1696,6 @@ def createInstance(app,group):
     groupDot8.connectInput(0, groupCC_SpillMap)
     groupDot9.connectInput(0, groupDot8)
 
-    param = groupRedAveBlueLimitsGreen.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
     param = groupCC_SpillMap.getParam("MasterSaturation")
     group.getParam("CC_SpillMapMasterSaturation").setAsAlias(param)
     del param
@@ -1735,35 +1708,8 @@ def createInstance(app,group):
     param = groupSwitchMain.getParam("which")
     param.setExpression("thisGroup.screenType.get()", False, 0)
     del param
-    param = groupBlueLimitsGreen.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
-    param = groupDoubleBlueAve.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
-    param = groupDoubleRedAve.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
     param = groupSwitchGreen.getParam("which")
     param.setExpression("thisGroup.despillAlgorithn.get()", False, 0)
-    del param
-    param = groupRedLimitsGreen.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
-    param = groupRedLimitsBlue.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
-    param = groupGreenLimitsBlue1.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
-    param = groupRedAndGreenLimitBlue.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
-    param = groupDoubleGreenAve2.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
-    del param
-    param = groupDoubleRedAve2.getParam("color1")
-    param.slaveTo(group.getParam("fineTune"), 0, 0)
     del param
     param = groupSwitchBlue.getParam("which")
     param.setExpression("thisGroup.despillAlgorithn.get()", False, 0)
