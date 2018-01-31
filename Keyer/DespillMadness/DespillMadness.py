@@ -295,6 +295,33 @@ def createInstance(app,group):
     lastNode.sep11 = param
     del param
 
+    param = lastNode.createColorParam("Grade_despilltintwhite", "tint ", True)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(4, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+    param.setDisplayMinimum(0, 1)
+    param.setDisplayMaximum(4, 1)
+    param.setDefaultValue(1, 1)
+    param.restoreDefaultValue(1)
+    param.setDisplayMinimum(0, 2)
+    param.setDisplayMaximum(4, 2)
+    param.setDefaultValue(1, 2)
+    param.restoreDefaultValue(2)
+    param.setDisplayMinimum(0, 3)
+    param.setDisplayMaximum(4, 3)
+    param.setDefaultValue(1, 3)
+    param.restoreDefaultValue(3)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Grade_despilltintwhite = param
+    del param
+
     param = lastNode.createColorParam("CC_SpillMapMasterSaturation", "Saturation ", True)
     param.setDisplayMinimum(0.2, 0)
     param.setDisplayMaximum(4, 0)
@@ -841,20 +868,12 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ColorCorrectPlugin", 2, group)
     lastNode.setScriptName("CC_SpillMap")
     lastNode.setLabel("CC_SpillMap")
-    lastNode.setPosition(2157, 2315)
+    lastNode.setPosition(2157, 2407)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.48, 0.66, 1)
     groupCC_SpillMap = lastNode
 
     param = lastNode.getParam("MasterSaturation")
-    if param is not None:
-        param.setValue(1, 0)
-        param.setValue(1, 1)
-        param.setValue(1, 2)
-        param.setValue(1, 3)
-        del param
-
-    param = lastNode.getParam("MasterGamma")
     if param is not None:
         param.setValue(1, 0)
         param.setValue(1, 1)
@@ -1599,7 +1618,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot8")
     lastNode.setLabel("Dot8")
-    lastNode.setPosition(2454, 2332)
+    lastNode.setPosition(2454, 2424)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot8 = lastNode
@@ -1623,7 +1642,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
     lastNode.setScriptName("Merge2")
     lastNode.setLabel("RestoreLuma")
-    lastNode.setPosition(2151, 2977)
+    lastNode.setPosition(2157, 3073)
     lastNode.setSize(80, 73)
     lastNode.setColor(0.2941, 0.3686, 0.7765)
     groupMerge2 = lastNode
@@ -1667,6 +1686,31 @@ def createInstance(app,group):
 
     del lastNode
     # End of node "Shuffle1"
+
+    # Start of node "Grade_despilltint"
+    lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
+    lastNode.setScriptName("Grade_despilltint")
+    lastNode.setLabel("Grade_despilltint")
+    lastNode.setPosition(1464, 3085)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupGrade_despilltint = lastNode
+
+    param = lastNode.getParam("white")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
+        param.setValue(1, 3)
+        del param
+
+    param = lastNode.getParam("premultChanged")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Grade_despilltint"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupmix)
@@ -1725,9 +1769,10 @@ def createInstance(app,group):
     groupDot8.connectInput(0, groupCC_SpillMap)
     groupDot9.connectInput(0, groupDot8)
     groupMerge2.connectInput(0, groupCopyAlpha)
-    groupMerge2.connectInput(1, groupSaturation1)
+    groupMerge2.connectInput(1, groupGrade_despilltint)
     groupShuffle1.connectInput(0, groupDot9)
     groupShuffle1.connectInput(1, groupKeyMix1)
+    groupGrade_despilltint.connectInput(0, groupSaturation1)
 
     param = groupRedAveBlueLimitsGreen.getParam("color1")
     param.slaveTo(group.getParam("fineTune"), 0, 0)
@@ -1794,6 +1839,9 @@ def createInstance(app,group):
     del param
     param = groupShuffle1.getParam("disableNode")
     param.setExpression("not thisGroup.spillMatteOut.get()", False, 0)
+    del param
+    param = groupGrade_despilltint.getParam("white")
+    group.getParam("Grade_despilltintwhite").setAsAlias(param)
     del param
 
     try:
