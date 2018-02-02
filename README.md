@@ -14,6 +14,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Channel/ChannelMerge/ChannelMerge.png' width='32'> **[ChannelMerge](/Channel/ChannelMerge/README.md)** : ChannelMerge that mimics Nuke's one.
 
+- <img src='/Channel/Copy_Layer/Copy_Layer.png' width='32'> **[Copy_N](/Channel/Copy_Layer/README.md)** : Copy channels to any layer.
+
 - <img src='/Channel/Copy_N/Copy_N.png' width='32'> **[Copy_N](/Channel/Copy_N/README.md)** : Nuke Copy node.
 
 - <img src='/Channel/L_ChannelSolo/L_ChannelSolo.png' width='32'> **[L_ChannelSolo](/Channel/L_ChannelSolo/README.md)** : Easy to use channel selector.
