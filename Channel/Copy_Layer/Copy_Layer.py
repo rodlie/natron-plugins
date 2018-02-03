@@ -1019,6 +1019,250 @@ def createInstance(app,group):
     lastNode.sep40 = param
     del param
 
+    param = lastNode.createSeparatorParam("sepLayer5", "layer 5")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sepLayer5 = param
+    del param
+
+    param = lastNode.createStringParam("sep41", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep41 = param
+    del param
+
+    param = lastNode.createStringParam("sep42", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep42 = param
+    del param
+
+    param = lastNode.createStringParam("channels5", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+    param.setDefaultValue("channels :")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.channels5 = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple5NatronOfxParamProcessR", "R")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple5NatronOfxParamProcessR = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple5NatronOfxParamProcessG", "G")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple5NatronOfxParamProcessG = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple5NatronOfxParamProcessB", "B")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple5NatronOfxParamProcessB = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple5NatronOfxParamProcessA", "A")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple5NatronOfxParamProcessA = param
+    del param
+
+    param = lastNode.createBooleanParam("layer5Check", "                   on : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.layer5Check = param
+    del param
+
+    param = lastNode.createStringParam("sep43", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep43 = param
+    del param
+
+    param = lastNode.createStringParam("sep44", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep44 = param
+    del param
+
+    param = lastNode.createStringParam("sep45", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep45 = param
+    del param
+
+    param = lastNode.createStringParam("sep46", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep46 = param
+    del param
+
+    param = lastNode.createChoiceParam("SeExprSimple5channels", "copy to Layer :")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple5channels = param
+    del param
+
+    param = lastNode.createStringParam("sep47", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep47 = param
+    del param
+
+    param = lastNode.createStringParam("sep48", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep48 = param
+    del param
+
+    param = lastNode.createStringParam("sep49", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep49 = param
+    del param
+
+    param = lastNode.createStringParam("sep50", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep50 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("separator19", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -1376,7 +1620,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("layer_4")
     lastNode.setLabel("layer 4")
-    lastNode.setPosition(4571, 1386)
+    lastNode.setPosition(4568, 1388)
     lastNode.setSize(80, 43)
     lastNode.setColor(1, 1, 1)
     grouplayer_4 = lastNode
@@ -1387,13 +1631,62 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1")
-    lastNode.setPosition(4381, 1579)
+    lastNode.setPosition(4379, 1689)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
     del lastNode
     # End of node "Output1"
+
+    # Start of node "layer_5"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("layer_5")
+    lastNode.setLabel("layer 5")
+    lastNode.setPosition(4566, 1483)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(1, 1, 1)
+    grouplayer_5 = lastNode
+
+    del lastNode
+    # End of node "layer_5"
+
+    # Start of node "SeExprSimple5"
+    lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
+    lastNode.setScriptName("SeExprSimple5")
+    lastNode.setLabel("SeExprSimple5")
+    lastNode.setPosition(4379, 1480)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupSeExprSimple5 = lastNode
+
+    param = lastNode.getParam("rExpr")
+    if param is not None:
+        param.setValue("r2")
+        del param
+
+    param = lastNode.getParam("gExpr")
+    if param is not None:
+        param.setValue("g2")
+        del param
+
+    param = lastNode.getParam("bExpr")
+    if param is not None:
+        param.setValue("b2")
+        del param
+
+    param = lastNode.getParam("aExpr")
+    if param is not None:
+        param.setValue("a2")
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "SeExprSimple5"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupSeExprSimple1.connectInput(0, groupimage)
@@ -1404,7 +1697,9 @@ def createInstance(app,group):
     groupSeExprSimple3.connectInput(1, grouplayer_3)
     groupSeExprSimple4.connectInput(0, groupSeExprSimple3)
     groupSeExprSimple4.connectInput(1, grouplayer_4)
-    groupOutput1.connectInput(0, groupSeExprSimple4)
+    groupOutput1.connectInput(0, groupSeExprSimple5)
+    groupSeExprSimple5.connectInput(0, groupSeExprSimple4)
+    groupSeExprSimple5.connectInput(1, grouplayer_5)
 
     param = groupSeExprSimple1.getParam("channels")
     group.getParam("SeExprSimplechannels").setAsAlias(param)
@@ -1477,6 +1772,24 @@ def createInstance(app,group):
     del param
     param = groupSeExprSimple4.getParam("disableNode")
     param.setExpression("not thisGroup.layer4Check.get()", False, 0)
+    del param
+    param = groupSeExprSimple5.getParam("channels")
+    group.getParam("SeExprSimple5channels").setAsAlias(param)
+    del param
+    param = groupSeExprSimple5.getParam("NatronOfxParamProcessR")
+    group.getParam("SeExprSimple5NatronOfxParamProcessR").setAsAlias(param)
+    del param
+    param = groupSeExprSimple5.getParam("NatronOfxParamProcessG")
+    group.getParam("SeExprSimple5NatronOfxParamProcessG").setAsAlias(param)
+    del param
+    param = groupSeExprSimple5.getParam("NatronOfxParamProcessB")
+    group.getParam("SeExprSimple5NatronOfxParamProcessB").setAsAlias(param)
+    del param
+    param = groupSeExprSimple5.getParam("NatronOfxParamProcessA")
+    group.getParam("SeExprSimple5NatronOfxParamProcessA").setAsAlias(param)
+    del param
+    param = groupSeExprSimple5.getParam("disableNode")
+    param.setExpression("not thisGroup.layer5Check.get()", False, 0)
     del param
 
     try:
