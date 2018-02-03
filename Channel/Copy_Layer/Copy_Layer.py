@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/Channel"
 
 def getPluginDescription():
-    return "Copy channels to any layer."
+    return "Copy RGBA channels from the A input to any layer of the B branch."
 
 def createInstance(app,group):
     # Create all nodes in the group

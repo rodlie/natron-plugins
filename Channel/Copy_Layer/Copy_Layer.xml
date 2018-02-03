@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Copy_Layer</DisplayName>
+    <Description>Copy RGBA channels from the A input to any layer of the B branch.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Copy_Layer</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
