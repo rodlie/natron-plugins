@@ -41,6 +41,19 @@ def createInstance(app,group):
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Copy_Layer")
+    param = lastNode.createSeparatorParam("sepLayer1", "layer 1")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sepLayer1 = param
+    del param
+
     param = lastNode.createStringParam("sep01", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -69,6 +82,22 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
+    param = lastNode.createStringParam("channels1", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+    param.setDefaultValue("channels :")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.channels1 = param
+    del param
+
     param = lastNode.createBooleanParam("SeExprSimpleNatronOfxParamProcessR", "R")
     param.setDefaultValue(True)
     param.restoreDefaultValue()
@@ -77,7 +106,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setAddNewLine(True)
+    param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.SeExprSimpleNatronOfxParamProcessR = param
     del param
@@ -121,6 +150,34 @@ def createInstance(app,group):
     lastNode.SeExprSimpleNatronOfxParamProcessA = param
     del param
 
+    param = lastNode.createBooleanParam("layer1Check", "                   on : ")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.layer1Check = param
+    del param
+
+    param = lastNode.createStringParam("sep05", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep05 = param
+    del param
+
     param = lastNode.createStringParam("sep03", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -149,31 +206,6 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createChoiceParam("SeExprSimplechannels", "Copy to Layer :")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    lastNode.SeExprSimplechannels = param
-    del param
-
-    param = lastNode.createStringParam("sep05", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep05 = param
-    del param
-
     param = lastNode.createStringParam("sep06", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -186,6 +218,805 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep06 = param
+    del param
+
+    param = lastNode.createChoiceParam("SeExprSimplechannels", "copy to Layer :")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimplechannels = param
+    del param
+
+    param = lastNode.createStringParam("sep07", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep07 = param
+    del param
+
+    param = lastNode.createStringParam("sep08", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep08 = param
+    del param
+
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
+    del param
+
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
+    del param
+
+    param = lastNode.createSeparatorParam("sepLayer2", "layer 2")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sepLayer2 = param
+    del param
+
+    param = lastNode.createStringParam("sep11", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep11 = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    param = lastNode.createStringParam("channels2", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+    param.setDefaultValue("channels :")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.channels2 = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple2NatronOfxParamProcessR", "R")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple2NatronOfxParamProcessR = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple2NatronOfxParamProcessG", "G")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple2NatronOfxParamProcessG = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple2NatronOfxParamProcessB", "B")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple2NatronOfxParamProcessB = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple2NatronOfxParamProcessA", "A")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple2NatronOfxParamProcessA = param
+    del param
+
+    param = lastNode.createBooleanParam("layer2Check", "                   on : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.layer2Check = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
+    param = lastNode.createStringParam("sep15", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep15 = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
+    del param
+
+    param = lastNode.createChoiceParam("SeExprSimple2channels", "copy to Layer :")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple2channels = param
+    del param
+
+    param = lastNode.createStringParam("sep17", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep17 = param
+    del param
+
+    param = lastNode.createStringParam("sep18", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep18 = param
+    del param
+
+    param = lastNode.createStringParam("sep19", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep19 = param
+    del param
+
+    param = lastNode.createStringParam("sep20", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep20 = param
+    del param
+
+    param = lastNode.createSeparatorParam("sepLayer3", "layer 3")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sepLayer3 = param
+    del param
+
+    param = lastNode.createStringParam("sep21", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep21 = param
+    del param
+
+    param = lastNode.createStringParam("sep22", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep22 = param
+    del param
+
+    param = lastNode.createStringParam("channels3", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+    param.setDefaultValue("channels :")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.channels3 = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple3NatronOfxParamProcessR", "R")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple3NatronOfxParamProcessR = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple3NatronOfxParamProcessG", "G")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple3NatronOfxParamProcessG = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple3NatronOfxParamProcessB", "B")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple3NatronOfxParamProcessB = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple3NatronOfxParamProcessA", "A")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple3NatronOfxParamProcessA = param
+    del param
+
+    param = lastNode.createBooleanParam("layer3Check", "                   on : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.layer3Check = param
+    del param
+
+    param = lastNode.createStringParam("sep23", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep23 = param
+    del param
+
+    param = lastNode.createStringParam("sep24", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep24 = param
+    del param
+
+    param = lastNode.createStringParam("sep25", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep25 = param
+    del param
+
+    param = lastNode.createStringParam("sep26", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep26 = param
+    del param
+
+    param = lastNode.createChoiceParam("SeExprSimple3channels", "copy to Layer :")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple3channels = param
+    del param
+
+    param = lastNode.createStringParam("sep27", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep27 = param
+    del param
+
+    param = lastNode.createStringParam("sep28", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep28 = param
+    del param
+
+    param = lastNode.createStringParam("sep29", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep29 = param
+    del param
+
+    param = lastNode.createStringParam("sep30", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep30 = param
+    del param
+
+    param = lastNode.createSeparatorParam("sepLayer4", "layer 4")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.sepLayer4 = param
+    del param
+
+    param = lastNode.createStringParam("sep31", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep31 = param
+    del param
+
+    param = lastNode.createStringParam("sep32", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep32 = param
+    del param
+
+    param = lastNode.createStringParam("channels4", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+    param.setDefaultValue("channels :")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.channels4 = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple4NatronOfxParamProcessR", "R")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple4NatronOfxParamProcessR = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple4NatronOfxParamProcessG", "G")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple4NatronOfxParamProcessG = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple4NatronOfxParamProcessB", "B")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple4NatronOfxParamProcessB = param
+    del param
+
+    param = lastNode.createBooleanParam("SeExprSimple4NatronOfxParamProcessA", "A")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple4NatronOfxParamProcessA = param
+    del param
+
+    param = lastNode.createBooleanParam("layer4Check", "                   on : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.layer4Check = param
+    del param
+
+    param = lastNode.createStringParam("sep33", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep33 = param
+    del param
+
+    param = lastNode.createStringParam("sep34", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep34 = param
+    del param
+
+    param = lastNode.createStringParam("sep35", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep35 = param
+    del param
+
+    param = lastNode.createStringParam("sep36", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep36 = param
+    del param
+
+    param = lastNode.createChoiceParam("SeExprSimple4channels", "copy to Layer :")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.SeExprSimple4channels = param
+    del param
+
+    param = lastNode.createStringParam("sep37", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep37 = param
+    del param
+
+    param = lastNode.createStringParam("sep38", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep38 = param
+    del param
+
+    param = lastNode.createStringParam("sep39", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep39 = param
+    del param
+
+    param = lastNode.createStringParam("sep40", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep40 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -345,37 +1176,26 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
-    lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setLabel("Output2")
-    lastNode.setPosition(4382, 1277)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
-
-    del lastNode
-    # End of node "Output2"
-
     # Start of node "image"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("image")
     lastNode.setLabel("image")
-    lastNode.setPosition(4194, 978)
+    lastNode.setPosition(4383, 902)
     lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setColor(1, 1, 1)
     groupimage = lastNode
 
     del lastNode
     # End of node "image"
 
-    # Start of node "SeExprSimple"
+    # Start of node "SeExprSimple1"
     lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
-    lastNode.setScriptName("SeExprSimple")
-    lastNode.setLabel("SeExprSimple")
-    lastNode.setPosition(4408, 1124)
+    lastNode.setScriptName("SeExprSimple1")
+    lastNode.setLabel("SeExprSimple1")
+    lastNode.setPosition(4378, 1109)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupSeExprSimple = lastNode
+    groupSeExprSimple1 = lastNode
 
     param = lastNode.getParam("rExpr")
     if param is not None:
@@ -397,40 +1217,266 @@ def createInstance(app,group):
         param.setValue("a2")
         del param
 
-    del lastNode
-    # End of node "SeExprSimple"
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(False)
+        del param
 
-    # Start of node "new_layer"
+    del lastNode
+    # End of node "SeExprSimple1"
+
+    # Start of node "layer_1"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("new_layer")
-    lastNode.setLabel("new layer")
-    lastNode.setPosition(4566, 971)
+    lastNode.setScriptName("layer_1")
+    lastNode.setLabel("layer 1")
+    lastNode.setPosition(4566, 1115)
     lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupnew_layer = lastNode
+    lastNode.setColor(1, 1, 1)
+    grouplayer_1 = lastNode
 
     del lastNode
-    # End of node "new_layer"
+    # End of node "layer_1"
+
+    # Start of node "layer_2"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("layer_2")
+    lastNode.setLabel("layer 2")
+    lastNode.setPosition(4566, 1204)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(1, 1, 1)
+    grouplayer_2 = lastNode
+
+    del lastNode
+    # End of node "layer_2"
+
+    # Start of node "SeExprSimple2"
+    lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
+    lastNode.setScriptName("SeExprSimple2")
+    lastNode.setLabel("SeExprSimple2")
+    lastNode.setPosition(4378, 1201)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupSeExprSimple2 = lastNode
+
+    param = lastNode.getParam("rExpr")
+    if param is not None:
+        param.setValue("r2")
+        del param
+
+    param = lastNode.getParam("gExpr")
+    if param is not None:
+        param.setValue("g2")
+        del param
+
+    param = lastNode.getParam("bExpr")
+    if param is not None:
+        param.setValue("b2")
+        del param
+
+    param = lastNode.getParam("aExpr")
+    if param is not None:
+        param.setValue("a2")
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "SeExprSimple2"
+
+    # Start of node "layer_3"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("layer_3")
+    lastNode.setLabel("layer 3")
+    lastNode.setPosition(4569, 1293)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(1, 1, 1)
+    grouplayer_3 = lastNode
+
+    del lastNode
+    # End of node "layer_3"
+
+    # Start of node "SeExprSimple3"
+    lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
+    lastNode.setScriptName("SeExprSimple3")
+    lastNode.setLabel("SeExprSimple3")
+    lastNode.setPosition(4383, 1290)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupSeExprSimple3 = lastNode
+
+    param = lastNode.getParam("rExpr")
+    if param is not None:
+        param.setValue("r2")
+        del param
+
+    param = lastNode.getParam("gExpr")
+    if param is not None:
+        param.setValue("g2")
+        del param
+
+    param = lastNode.getParam("bExpr")
+    if param is not None:
+        param.setValue("b2")
+        del param
+
+    param = lastNode.getParam("aExpr")
+    if param is not None:
+        param.setValue("a2")
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "SeExprSimple3"
+
+    # Start of node "SeExprSimple4"
+    lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
+    lastNode.setScriptName("SeExprSimple4")
+    lastNode.setLabel("SeExprSimple4")
+    lastNode.setPosition(4383, 1383)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupSeExprSimple4 = lastNode
+
+    param = lastNode.getParam("rExpr")
+    if param is not None:
+        param.setValue("r2")
+        del param
+
+    param = lastNode.getParam("gExpr")
+    if param is not None:
+        param.setValue("g2")
+        del param
+
+    param = lastNode.getParam("bExpr")
+    if param is not None:
+        param.setValue("b2")
+        del param
+
+    param = lastNode.getParam("aExpr")
+    if param is not None:
+        param.setValue("a2")
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "SeExprSimple4"
+
+    # Start of node "layer_4"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("layer_4")
+    lastNode.setLabel("layer 4")
+    lastNode.setPosition(4571, 1386)
+    lastNode.setSize(80, 43)
+    lastNode.setColor(1, 1, 1)
+    grouplayer_4 = lastNode
+
+    del lastNode
+    # End of node "layer_4"
+
+    # Start of node "Output1"
+    lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
+    lastNode.setLabel("Output1")
+    lastNode.setPosition(4381, 1579)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupOutput1 = lastNode
+
+    del lastNode
+    # End of node "Output1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupSeExprSimple)
-    groupSeExprSimple.connectInput(0, groupimage)
-    groupSeExprSimple.connectInput(1, groupnew_layer)
+    groupSeExprSimple1.connectInput(0, groupimage)
+    groupSeExprSimple1.connectInput(1, grouplayer_1)
+    groupSeExprSimple2.connectInput(0, groupSeExprSimple1)
+    groupSeExprSimple2.connectInput(1, grouplayer_2)
+    groupSeExprSimple3.connectInput(0, groupSeExprSimple2)
+    groupSeExprSimple3.connectInput(1, grouplayer_3)
+    groupSeExprSimple4.connectInput(0, groupSeExprSimple3)
+    groupSeExprSimple4.connectInput(1, grouplayer_4)
+    groupOutput1.connectInput(0, groupSeExprSimple4)
 
-    param = groupSeExprSimple.getParam("channels")
+    param = groupSeExprSimple1.getParam("channels")
     group.getParam("SeExprSimplechannels").setAsAlias(param)
     del param
-    param = groupSeExprSimple.getParam("NatronOfxParamProcessR")
+    param = groupSeExprSimple1.getParam("NatronOfxParamProcessR")
     group.getParam("SeExprSimpleNatronOfxParamProcessR").setAsAlias(param)
     del param
-    param = groupSeExprSimple.getParam("NatronOfxParamProcessG")
+    param = groupSeExprSimple1.getParam("NatronOfxParamProcessG")
     group.getParam("SeExprSimpleNatronOfxParamProcessG").setAsAlias(param)
     del param
-    param = groupSeExprSimple.getParam("NatronOfxParamProcessB")
+    param = groupSeExprSimple1.getParam("NatronOfxParamProcessB")
     group.getParam("SeExprSimpleNatronOfxParamProcessB").setAsAlias(param)
     del param
-    param = groupSeExprSimple.getParam("NatronOfxParamProcessA")
+    param = groupSeExprSimple1.getParam("NatronOfxParamProcessA")
     group.getParam("SeExprSimpleNatronOfxParamProcessA").setAsAlias(param)
+    del param
+    param = groupSeExprSimple1.getParam("disableNode")
+    param.setExpression("not thisGroup.layer1Check.get()", False, 0)
+    del param
+    param = groupSeExprSimple2.getParam("channels")
+    group.getParam("SeExprSimple2channels").setAsAlias(param)
+    del param
+    param = groupSeExprSimple2.getParam("NatronOfxParamProcessR")
+    group.getParam("SeExprSimple2NatronOfxParamProcessR").setAsAlias(param)
+    del param
+    param = groupSeExprSimple2.getParam("NatronOfxParamProcessG")
+    group.getParam("SeExprSimple2NatronOfxParamProcessG").setAsAlias(param)
+    del param
+    param = groupSeExprSimple2.getParam("NatronOfxParamProcessB")
+    group.getParam("SeExprSimple2NatronOfxParamProcessB").setAsAlias(param)
+    del param
+    param = groupSeExprSimple2.getParam("NatronOfxParamProcessA")
+    group.getParam("SeExprSimple2NatronOfxParamProcessA").setAsAlias(param)
+    del param
+    param = groupSeExprSimple2.getParam("disableNode")
+    param.setExpression("not thisGroup.layer2Check.get()", False, 0)
+    del param
+    param = groupSeExprSimple3.getParam("channels")
+    group.getParam("SeExprSimple3channels").setAsAlias(param)
+    del param
+    param = groupSeExprSimple3.getParam("NatronOfxParamProcessR")
+    group.getParam("SeExprSimple3NatronOfxParamProcessR").setAsAlias(param)
+    del param
+    param = groupSeExprSimple3.getParam("NatronOfxParamProcessG")
+    group.getParam("SeExprSimple3NatronOfxParamProcessG").setAsAlias(param)
+    del param
+    param = groupSeExprSimple3.getParam("NatronOfxParamProcessB")
+    group.getParam("SeExprSimple3NatronOfxParamProcessB").setAsAlias(param)
+    del param
+    param = groupSeExprSimple3.getParam("NatronOfxParamProcessA")
+    group.getParam("SeExprSimple3NatronOfxParamProcessA").setAsAlias(param)
+    del param
+    param = groupSeExprSimple3.getParam("disableNode")
+    param.setExpression("not thisGroup.layer3Check.get()", False, 0)
+    del param
+    param = groupSeExprSimple4.getParam("channels")
+    group.getParam("SeExprSimple4channels").setAsAlias(param)
+    del param
+    param = groupSeExprSimple4.getParam("NatronOfxParamProcessR")
+    group.getParam("SeExprSimple4NatronOfxParamProcessR").setAsAlias(param)
+    del param
+    param = groupSeExprSimple4.getParam("NatronOfxParamProcessG")
+    group.getParam("SeExprSimple4NatronOfxParamProcessG").setAsAlias(param)
+    del param
+    param = groupSeExprSimple4.getParam("NatronOfxParamProcessB")
+    group.getParam("SeExprSimple4NatronOfxParamProcessB").setAsAlias(param)
+    del param
+    param = groupSeExprSimple4.getParam("NatronOfxParamProcessA")
+    group.getParam("SeExprSimple4NatronOfxParamProcessA").setAsAlias(param)
+    del param
+    param = groupSeExprSimple4.getParam("disableNode")
+    param.setExpression("not thisGroup.layer4Check.get()", False, 0)
     del param
 
     try:
