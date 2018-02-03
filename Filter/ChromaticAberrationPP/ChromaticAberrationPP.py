@@ -407,12 +407,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("outputB")
     if param is not None:
-        param.set("0")
+        param.set("B.b")
         del param
 
     param = lastNode.getParam("outputBChoice")
     if param is not None:
-        param.setValue("0")
+        param.setValue("B.b")
         del param
 
     param = lastNode.getParam("outputAChoice")
