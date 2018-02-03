@@ -14,7 +14,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Channel/ChannelMerge/ChannelMerge.png' width='32'> **[ChannelMerge](/Channel/ChannelMerge/README.md)** : ChannelMerge that mimics Nuke's one.
 
-- <img src='/Channel/Copy_Layer/Copy_Layer.png' width='32'> **[Copy_N](/Channel/Copy_Layer/README.md)** : Copy RGBA channels from the A input to any layer of the B branch.
+- <img src='/Channel/Copy_Layer/Copy_Layer.png' width='32'> **[Copy_Layer](/Channel/Copy_Layer/README.md)** : Copy RGBA channels from the A input to any layer of the B branch.
 
 - <img src='/Channel/Copy_N/Copy_N.png' width='32'> **[Copy_N](/Channel/Copy_N/README.md)** : Nuke Copy node.
 
