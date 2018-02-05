@@ -104,6 +104,9 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur based on Shadertoy.
 
+### GLSL/Distort
+- <img src='/GLSL/pixelDisplace_GL/pixelDisplace_GL.png' width='32'> **[pixelDisplace_GL](/GLSL/pixelDisplace_GL/README.md)** : Image displace GPU accelerated effect for Shadertoy.
+
 ### GLSL/Effect
 - <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect based on Shadertoy.
 
