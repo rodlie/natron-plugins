@@ -1,3 +1,3 @@
 # pixelDisplace_GL
 
-Image displace GPU accelerated effect for Shadertoy.
+GPU accelerated Image displace effect for Shadertoy.

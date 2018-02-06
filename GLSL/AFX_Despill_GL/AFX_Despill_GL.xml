@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>AFX_Despill_GL</DisplayName>
-    <Description>After Effects despill GPU accelerated effect for Shadertoy.</Description>
+    <Description>GPU accelerated After Effects despill for Shadertoy.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.AFX_Despill_GL</Name>

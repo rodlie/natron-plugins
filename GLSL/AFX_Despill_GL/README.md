@@ -1,3 +1,3 @@
 # AFX_Despill_GL
 
-After Effects despill GPU accelerated effect for Shadertoy.
+GPU accelerated After Effects despill for Shadertoy.

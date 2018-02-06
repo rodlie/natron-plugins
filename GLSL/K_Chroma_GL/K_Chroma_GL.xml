@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>pixelDisplace_GL</DisplayName>
-    <Description>GPU accelerated Image displace effect for Shadertoy.</Description>
+    <DisplayName>K_Chroma_GL</DisplayName>
+    <Description>After Effects despill GPU accelerated effect for Shadertoy.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.pixelDisplace_GL</Name>
+    <Name>natron.community.plugins.K_Chroma_GL</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>

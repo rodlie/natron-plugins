@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Distort"
 
 def getPluginDescription():
-    return "Image displace GPU accelerated effect for Shadertoy."
+    return "GPU accelerated Image displace effect for Shadertoy."
 def createInstance(app,group):
     # Create all nodes in the group
 
