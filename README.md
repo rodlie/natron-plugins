@@ -94,39 +94,43 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png' width='32'> **[PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### GLSL/Blur
-- <img src='/GLSL/Bilateral_GL/Bilateral_GL.png' width='32'> **[Bilateral_GL](/GLSL/Bilateral_GL/README.md)** : GPU accelerated Bilateral blur based on Shadertoy.
+- <img src='/GLSL/Bilateral_GL/Bilateral_GL.png' width='32'> **[Bilateral_GL](/GLSL/Bilateral_GL/README.md)** : GPU accelerated Bilateral blur for Shadertoy.
 
-- <img src='/GLSL/Bloom_GL/Bloom_GL.png' width='32'> **[Bloom_GL](/GLSL/Bloom_GL/README.md)** : GPU accelerated Bloom effect based on Shadertoy.
+- <img src='/GLSL/Bloom_GL/Bloom_GL.png' width='32'> **[Bloom_GL](/GLSL/Bloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
 
-- <img src='/GLSL/BokehDisc_GL/BokehDisc_GL.png' width='32'> **[BokehDisc_GL](/GLSL/BokehDisc_GL/README.md)** : GPU accelerated Defocus blur based on Shadertoy.
+- <img src='/GLSL/BokehDisc_GL/BokehDisc_GL.png' width='32'> **[BokehDisc_GL](/GLSL/BokehDisc_GL/README.md)** : GPU accelerated Defocus blur for Shadertoy.
 
-- <img src='/GLSL/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL/Mipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur based on Shadertoy.
+- <img src='/GLSL/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL/Mipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
 
-- <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur based on Shadertoy.
+- <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
 
 ### GLSL/Distort
 - <img src='/GLSL/pixelDisplace_GL/pixelDisplace_GL.png' width='32'> **[pixelDisplace_GL](/GLSL/pixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
 
 ### GLSL/Effect
-- <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect based on Shadertoy.
+- <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
 
-- <img src='/GLSL/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL/Barrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect based on Shadertoy.
+- <img src='/GLSL/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL/Barrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
 
-- <img src='/GLSL/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/FXAA_GL/README.md)** : GPU accelerated FX anti-aliasing effect based on Shadertoy.
+- <img src='/GLSL/Crok_bleachbypas_GL/Crok_bleachbypas_GL.png' width='32'> **[Crok_bleachbypas_GL](/GLSL/Crok_bleachbypas_GL/README.md)** : GPU accelerated bleachbypass effect for Shadertoy.
 
-- <img src='/GLSL/Money_Filter_GL/Money_Filter_GL.png' width='32'> **[Money_Filter_GL](/GLSL/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect based on Shadertoy.
+- <img src='/GLSL/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/FXAA_GL/README.md)** : GPU accelerated FX anti-aliasing effect for Shadertoy.
+
+- <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='32'> **[FXAA_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
+
+- <img src='/GLSL/Money_Filter_GL/Money_Filter_GL.png' width='32'> **[Money_Filter_GL](/GLSL/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect for Shadertoy.
 
 ### GLSL/Keying
 - <img src='/GLSL/AFX_Despill_GL/AFX_Despill_GL.png' width='32'> **[AFX_Despill_GL](/GLSL/AFX_Despill_GL/README.md)** : GPU accelerated After Effects despill for Shadertoy.
 
 ### GLSL/Source
-- <img src='/GLSL/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='32'> **[Bleepy_Blocks_GL](/GLSL/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator based on Shadertoy.
+- <img src='/GLSL/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='32'> **[Bleepy_Blocks_GL](/GLSL/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
 
-- <img src='/GLSL/Bubbles_GL/Bubbles_GL.png' width='32'> **[Bubbles_GL](/GLSL/Bubbles_GL/README.md)** : GPU accelerated bubbles generator based on Shadertoy.
+- <img src='/GLSL/Bubbles_GL/Bubbles_GL.png' width='32'> **[Bubbles_GL](/GLSL/Bubbles_GL/README.md)** : GPU accelerated bubbles generator for Shadertoy.
 
-- <img src='/GLSL/Cellular_GL/Cellular_GL.png' width='32'> **[Cellular_GL](/GLSL/Cellular_GL/README.md)** : GPU accelerated cell generator based on Shadertoy.
+- <img src='/GLSL/Cellular_GL/Cellular_GL.png' width='32'> **[Cellular_GL](/GLSL/Cellular_GL/README.md)** : GPU accelerated cell generator for Shadertoy.
 
-- <img src='/GLSL/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Noise_GL/README.md)** : GPU accelerated noise generator based on Shadertoy.
+- <img src='/GLSL/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
 
 ### Keyer
 - <img src='/Keyer/AdditiveKeyer/AdditiveKeyer.png' width='32'> **[AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
