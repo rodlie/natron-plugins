@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Effect"
 
 def getPluginDescription():
-    return "Bubbles generator."
+    return "GPU accelerated FX anti-aliasing effect based on Shadertoy."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -69,7 +69,7 @@ def createInstance(app,group):
     lastNode.separator02 = param
     del param
 
-    param = lastNode.createSeparatorParam("Bubbles_GL", "Bubbles_GL")
+    param = lastNode.createSeparatorParam("FXAA_GL", "FXAA_GL")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -79,7 +79,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.Bubbles_GL = param
+    lastNode.FXAA_GL = param
     del param
 
     param = lastNode.createStringParam("separator03", "")
@@ -194,7 +194,7 @@ def createInstance(app,group):
     lastNode.separator20 = param
     del param
 
-    param = lastNode.createSeparatorParam("line02", "Bubbles_GL v1.0")
+    param = lastNode.createSeparatorParam("line02", "FXAA_GL v1.0")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
