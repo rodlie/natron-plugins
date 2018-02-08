@@ -40,7 +40,7 @@ def createInstance(app,group):
     lastNode = group
 
     # Create the user parameters
-    lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
+    lastNode.Controls = lastNode.createPageParam("Controls", "K_Chroma_GL")
     param = lastNode.createStringParam("sep01", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -67,74 +67,6 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep02 = param
-    del param
-
-    param = lastNode.createSeparatorParam("K_Chroma_GL", "K_Chroma_GL")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.K_Chroma_GL = param
-    del param
-
-    param = lastNode.createStringParam("sep03", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep03 = param
-    del param
-
-    param = lastNode.createStringParam("sep04", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep04 = param
-    del param
-
-    param = lastNode.createSeparatorParam("line01", "")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.line01 = param
-    del param
-
-    param = lastNode.createStringParam("sep05", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep05 = param
     del param
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "chromatic abberation :")
@@ -531,7 +463,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n// K_Chroma v1.1\n// Shader written by:   Kyle Obley (kyle.obley@gmail.com) & Ivar Beer\n// Shader adapted from: https://www.shadertoy.com/view/XssGz8\n//\n\n\n// iChannel0: Source, filter=linear\n\n\nuniform float chromatic_abb = 0; // chromatic abberation : (chromatic abberation), min=0., max=10.\nuniform int num_iter = 15; // iterations : (iterations), min=3., max=20.\n\nuniform float d_amount; // distorsion amount : (distorsion amount), min=0., max=10.\nuniform bool add_distortion;\nuniform vec2 center =vec2(0.5,0.5);\n\n\n\nvec2 barrelDistortion(vec2 coord, float amt) {\n\t\n\tvec2 cc = (((gl_FragCoord.xy/iResolution.xy) - center ));\n\tfloat distortion = dot(cc * d_amount * .3, cc);\n\n    if ( add_distortion )\n\t\treturn coord + cc * distortion * -1. * amt;\n\telse\n\t\treturn coord + cc * amt * -.05;\n}\n\nfloat sat( float t )\n{\n\treturn clamp( t, 0.0, 1.0 );\n}\n\nfloat linterp( float t ) {\n\treturn sat( 1.0 - abs( 2.0*t - 1.0 ) );\n}\n\nfloat remap( float t, float a, float b ) {\n\treturn sat( (t - a) / (b - a) );\n}\n\nvec3 spectrum_offset( float t ) {\n\tvec3 ret;\n\tfloat lo = step(t,0.5);\n\tfloat hi = 1.0-lo;\n\tfloat w = linterp( remap( t, 1.0/6.0, 5.0/6.0 ) );\n\tret = vec3(lo,1.0,hi) * vec3(1.0-w, w, 1.0-w);\n\n\treturn pow( ret, vec3(1.0/2.2) );\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\t\n\tvec2 uv=fragCoord.xy / iResolution.xy;\n\tvec3 sumcol = vec3(0.0);\n\tvec3 sumw = vec3(0.0);\t\n\tfor ( int i=0; i<num_iter;++i )\n\t{\n\t\tfloat t = float(i) * (1.0 / float(num_iter));\n\t\tvec3 w = spectrum_offset( t );\n\t\tsumw += w;\n\t\tsumcol += w * texture2D( iChannel0, barrelDistortion(uv, chromatic_abb * t ) ).rgb;\n\t}\n\t\t\n\tfragColor = vec4(sumcol.rgb / sumw, 1.0);\n}")
+        param.setValue("//\n// K_Chroma v1.1\n// Shader written by:   Kyle Obley (kyle.obley@gmail.com) & Ivar Beer\n// Shader adapted from: https://www.shadertoy.com/view/XssGz8\n//\n\n\n// iChannel0: Source, filter=linear\n\n\nuniform float chromatic_abb = 0; // chromatic abberation : (chromatic abberation), min=0., max=10.\nuniform int num_iter = 15; // iterations : (iterations), min=1., max=200.\n\nuniform float d_amount; // distorsion amount : (distorsion amount), min=0., max=10.\nuniform bool add_distortion;\nuniform vec2 center =vec2(0.5,0.5);\n\n\n\nvec2 barrelDistortion(vec2 coord, float amt) {\n\t\n\tvec2 cc = (((gl_FragCoord.xy/iResolution.xy) - center ));\n\tfloat distortion = dot(cc * d_amount * .3, cc);\n\n    if ( add_distortion )\n\t\treturn coord + cc * distortion * -1. * amt;\n\telse\n\t\treturn coord + cc * amt * -.05;\n}\n\nfloat sat( float t )\n{\n\treturn clamp( t, 0.0, 1.0 );\n}\n\nfloat linterp( float t ) {\n\treturn sat( 1.0 - abs( 2.0*t - 1.0 ) );\n}\n\nfloat remap( float t, float a, float b ) {\n\treturn sat( (t - a) / (b - a) );\n}\n\nvec3 spectrum_offset( float t ) {\n\tvec3 ret;\n\tfloat lo = step(t,0.5);\n\tfloat hi = 1.0-lo;\n\tfloat w = linterp( remap( t, 1.0/6.0, 5.0/6.0 ) );\n\tret = vec3(lo,1.0,hi) * vec3(1.0-w, w, 1.0-w);\n\n\treturn pow( ret, vec3(1.0/2.2) );\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\t\n\tvec2 uv=fragCoord.xy / iResolution.xy;\n\tvec3 sumcol = vec3(0.0);\n\tvec3 sumw = vec3(0.0);\t\n\tfor ( int i=0; i<num_iter;++i )\n\t{\n\t\tfloat t = float(i) * (1.0 / float(num_iter));\n\t\tvec3 w = spectrum_offset( t );\n\t\tsumw += w;\n\t\tsumcol += w * texture2D( iChannel0, barrelDistortion(uv, chromatic_abb * t ) ).rgb;\n\t}\n\t\t\n\tfragColor = vec4(sumcol.rgb / sumw, 1.0);\n}")
         del param
 
     param = lastNode.getParam("mipmap0")
