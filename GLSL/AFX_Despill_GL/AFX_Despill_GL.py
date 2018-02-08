@@ -429,15 +429,10 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("AFX_Despill")
     lastNode.setLabel("AFX_Despill")
-    lastNode.setPosition(3929, 3986)
+    lastNode.setPosition(3929, 3984)
     lastNode.setSize(80, 48)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupAFX_Despill = lastNode
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(0.5, 0)
-        del param
 
     param = lastNode.getParam("paramValueInt2")
     if param is not None:
@@ -446,7 +441,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// setting inputs names and filtering options\n// iChannel0: Source, filter=impulse\n\nuniform float amount = 1; // despill amount : (despill amount), min=0., max=1.\nuniform float fineTune = 0.5; // fine tune :, min=0, max=1.\nuniform float delta2 = 1; // delta :, min=0, max=1.\nuniform int type; // despill type (despill type: 0: green suppress, 1: blue spuuress, 2: red suppress), min=-0., max=2.\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec4 source = texture2D(iChannel0,uv);\n\n\n\tvec4 result \t\t= texture2D(iChannel0,uv);\n\tvec4 suppressed \t= texture2D(iChannel0,uv);\n\n\tif(type == 0)\n\t\tsuppressed.g \t\t= min( ( (source.r*fineTune) + (source.b*fineTune) ), suppressed.g);\t\n\telse if(type == 1)\n\t\tsuppressed.b \t\t= min( ( (source.g*fineTune) + (source.r*fineTune) ), suppressed.b);\n\telse if(type == 2)\n\t\tsuppressed.r \t\t= min( ( (source.g*fineTune) + (source.b*fineTune) ), suppressed.r);\t\n\n\tresult\t\t\t\t\t= mix( source, suppressed, amount );\n\n\tfragColor \t= \tvec4(result);\n}")
+        param.setValue("\n//                                                \n//                                                  \n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                        \n//                        MM.                          .MM                                \n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM                  \n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM     \n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM            \t   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM  \n//                     MM.  .MMM    MMMM            MMM.  .MM    \n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM      \n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM            \n//                        MM.                          .MM                 \n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                                      \n//                                                                \n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : AFX_DeSpill Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : AFX_DeSpill Matchbox for Autodesk Flame\n\n\n// setting inputs names and filtering options\n// iChannel0: Source, filter = nearest\n// BBox: iChannel0\n\nuniform float amount = 1; // despill amount : (despill amount), min=0., max=1.\nuniform float fineTune = 0.5; // fine tune :, min=0, max=1.\nuniform float delta2 = 1; // delta :, min=0, max=1.\nuniform int type; // despill type (despill type: 0: green suppress, 1: blue suppress, 2: red suppress), min=-0., max=2.\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec4 source = texture2D(iChannel0,uv);\n\n\n\tvec4 result \t\t= texture2D(iChannel0,uv);\n\tvec4 suppressed \t= texture2D(iChannel0,uv);\n\n\tif(type == 0)\n\t\tsuppressed.g \t\t= min( ( (source.r*fineTune) + (source.b*fineTune) ), suppressed.g);\t\n\telse if(type == 1)\n\t\tsuppressed.b \t\t= min( ( (source.g*fineTune) + (source.r*fineTune) ), suppressed.b);\n\telse if(type == 2)\n\t\tsuppressed.r \t\t= min( ( (source.g*fineTune) + (source.b*fineTune) ), suppressed.r);\t\n\n\tresult\t\t\t\t\t= mix( source, suppressed, amount );\n\n\tfragColor \t= \tvec4(result);\n}")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -566,7 +561,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramHint2")
     if param is not None:
-        param.setValue("despill type: 0: green suppress, 1: blue spuuress, 2: red suppress")
+        param.setValue("despill type: 0: green suppress, 1: blue suppress, 2: red suppress")
         del param
 
     param = lastNode.getParam("paramMinInt2")
