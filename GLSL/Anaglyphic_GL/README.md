@@ -1,3 +1,3 @@
 # Anaglyphic_GL
 
-GPU accelerated Anaglyphic effect based on Shadertoy.
+GPU accelerated Anaglyphic effect for Shadertoy.

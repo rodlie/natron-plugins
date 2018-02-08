@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>Barrel_Blur_Chroma_GL</DisplayName>
-    <Description>GPU accelerated Barrel chroma blur effect based on Shadertoy.</Description>
+    <Description>GPU accelerated Barrel chroma blur effect for Shadertoy.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.Barrel_Blur_Chroma_GL</Name>

@@ -128,6 +128,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### GLSL/Keying
 - <img src='/GLSL/AFX_Despill_GL/AFX_Despill_GL.png' width='32'> **[AFX_Despill_GL](/GLSL/AFX_Despill_GL/README.md)** : GPU accelerated After Effects despill for Shadertoy.
 
+- <img src='/GLSL/Crok_edge_matte_GL/Crok_edge_matte_GL.png' width='32'> **[Crok_edge_matte_GL](/GLSL/Crok_edge_matte_GL/README.md)** : GPU accelerated edge detect effect for Shadertoy.
+
 ### GLSL/Source
 - <img src='/GLSL/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='32'> **[Bleepy_Blocks_GL](/GLSL/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
 
