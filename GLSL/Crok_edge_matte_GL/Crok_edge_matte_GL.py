@@ -416,7 +416,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3646)
+    lastNode.setPosition(4139, 3647)
     lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
@@ -611,9 +611,43 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shadertoy1"
 
+    # Start of node "Crop1"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop1")
+    lastNode.setLabel("Crop1")
+    lastNode.setPosition(4139, 3743)
+    lastNode.setSize(80, 48)
+    lastNode.setColor(0.6471, 0.4784, 0.6667)
+    groupCrop1 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupShadertoy1)
-    groupShadertoy1.connectInput(0, groupSource)
+    groupShadertoy1.connectInput(0, groupCrop1)
+    groupCrop1.connectInput(0, groupSource)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
@@ -623,6 +657,10 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueFloat2")
     group.getParam("Shadertoy1paramValueFloat2").setAsAlias(param)
+    del param
+    param = groupCrop1.getParam("size")
+    param.setExpression("rod = Source.getRegionOfDefinition(frame,view)\nret = rod.width()", True, 0)
+    param.setExpression("rod = Source.getRegionOfDefinition(frame,view)\nret = rod.height()", True, 1)
     del param
 
     try:
