@@ -40,8 +40,8 @@ def createInstance(app,group):
     lastNode = group
 
     # Create the user parameters
-    lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
-    param = lastNode.createStringParam("separator01", "")
+    lastNode.Controls = lastNode.createPageParam("Controls", "AFX_Despill_GL")
+    param = lastNode.createStringParam("sep01", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -52,10 +52,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator01 = param
+    lastNode.sep01 = param
     del param
 
-    param = lastNode.createStringParam("separator02", "")
+    param = lastNode.createStringParam("sep02", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -66,7 +66,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator02 = param
+    lastNode.sep02 = param
     del param
 
     param = lastNode.createDoubleParam("AFX_DespillparamValueFloat0", "despill amount :")
@@ -86,7 +86,7 @@ def createInstance(app,group):
     lastNode.AFX_DespillparamValueFloat0 = param
     del param
 
-    param = lastNode.createStringParam("separator03", "")
+    param = lastNode.createStringParam("sep03", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -97,10 +97,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator03 = param
+    lastNode.sep03 = param
     del param
 
-    param = lastNode.createStringParam("separator04", "")
+    param = lastNode.createStringParam("sep04", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -111,7 +111,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator04 = param
+    lastNode.sep04 = param
     del param
 
     param = lastNode.createDoubleParam("AFX_DespillparamValueFloat1", "fine tune :")
@@ -131,7 +131,7 @@ def createInstance(app,group):
     lastNode.AFX_DespillparamValueFloat1 = param
     del param
 
-    param = lastNode.createStringParam("separator05", "")
+    param = lastNode.createStringParam("sep05", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -142,10 +142,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator05 = param
+    lastNode.sep05 = param
     del param
 
-    param = lastNode.createStringParam("separator06", "")
+    param = lastNode.createStringParam("sep06", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -156,27 +156,27 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator06 = param
+    lastNode.sep06 = param
     del param
 
-    param = lastNode.createIntParam("AFX_DespillparamValueInt2", "despill type")
-    param.setMinimum(0, 0)
-    param.setMaximum(2, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(2, 0)
-    param.setDefaultValue(0, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createChoiceParam("despillType", "despill type :")
+    entries = [ ("green suppress", ""),
+    ("blue suppress", ""),
+    ("red suppress", "")]
+    param.setOptions(entries)
+    del entries
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.AFX_DespillparamValueInt2 = param
+    param.setAnimationEnabled(False)
+    lastNode.despillType = param
     del param
 
-    param = lastNode.createStringParam("separator29", "")
+    param = lastNode.createStringParam("sep07", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -187,10 +187,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator29 = param
+    lastNode.sep07 = param
     del param
 
-    param = lastNode.createStringParam("separator30", "")
+    param = lastNode.createStringParam("sep08", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -201,7 +201,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator30 = param
+    lastNode.sep08 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -434,6 +434,16 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupAFX_Despill = lastNode
 
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(0.5, 0)
+        del param
+
+    param = lastNode.getParam("paramValueInt2")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
         param.setValue("// setting inputs names and filtering options\n// iChannel0: Source, filter=impulse\n\nuniform float amount = 1; // despill amount : (despill amount), min=0., max=1.\nuniform float fineTune = 0.5; // fine tune :, min=0, max=1.\nuniform float delta2 = 1; // delta :, min=0, max=1.\nuniform int type; // despill type (despill type: 0: green suppress, 1: blue spuuress, 2: red suppress), min=-0., max=2.\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec4 source = texture2D(iChannel0,uv);\n\n\n\tvec4 result \t\t= texture2D(iChannel0,uv);\n\tvec4 suppressed \t= texture2D(iChannel0,uv);\n\n\tif(type == 0)\n\t\tsuppressed.g \t\t= min( ( (source.r*fineTune) + (source.b*fineTune) ), suppressed.g);\t\n\telse if(type == 1)\n\t\tsuppressed.b \t\t= min( ( (source.g*fineTune) + (source.r*fineTune) ), suppressed.b);\n\telse if(type == 2)\n\t\tsuppressed.r \t\t= min( ( (source.g*fineTune) + (source.b*fineTune) ), suppressed.r);\t\n\n\tresult\t\t\t\t\t= mix( source, suppressed, amount );\n\n\tfragColor \t= \tvec4(result);\n}")
@@ -583,7 +593,7 @@ def createInstance(app,group):
     group.getParam("AFX_DespillparamValueFloat1").setAsAlias(param)
     del param
     param = groupAFX_Despill.getParam("paramValueInt2")
-    group.getParam("AFX_DespillparamValueInt2").setAsAlias(param)
+    param.setExpression("thisGroup.despillType.get()", False, 0)
     del param
 
     try:
