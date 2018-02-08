@@ -1,11 +1,19 @@
 # Natron Community Plugins
 ### A collection of Natron plugins made by the community
 ## Installation
- * [Download version 2.1.7](https://github.com/NatronVFX/natron-plugins/releases/tag/2.1.7)
+ To install download the Repo as a ZIP file via https://github.com/NatronVFX/natron-plugins/archive/master.zip
+ 
+ Unzip into any PyPlug folder but the recommended locations are...
+ 
+    Windows: "C:\Program Files\Common Files\Natron\Plugins"
+    
+    OSX:     "/Library/Application Support/Natron/Plugins"
+    
+    Linux:   "/usr/share/Natron/Plugins"
+    
 
-
-You can use the installer or download the zip file from github.
-Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in Natron preferences
+Finally edit the plugins location in Natron preferences to allow it to find them during startup, if it's not already.
+If you want a particular folder only you can use http://kinolien.github.io/gitzip/ and put the URL to the folder you want there. Also you can install individual .py files (and their accompanied png icon files).
 
 
 ## Available Plugins 
