@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Merge_GL</DisplayName>
+    <Description>GPU accelerated merge node for Shadertoy.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Merge_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
