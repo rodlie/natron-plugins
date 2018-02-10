@@ -186,7 +186,7 @@ vec4 screen( vec4 s, vec4 d )
 vec4 screenMode( vec4 s, vec4 d )
 {
 	vec4 c;
-	c = 1.0-((1.0-s)*(1.0-d));
+	c = 1 - (1 - s) * (1 - d);
 	return c;
 }
 
