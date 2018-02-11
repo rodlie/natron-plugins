@@ -104,6 +104,9 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
 
+### GLSL/Channel
+- <img src='/GLSL/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
+
 ### GLSL/Distort
 - <img src='/GLSL/pixelDisplace_GL/pixelDisplace_GL.png' width='32'> **[pixelDisplace_GL](/GLSL/pixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
 
