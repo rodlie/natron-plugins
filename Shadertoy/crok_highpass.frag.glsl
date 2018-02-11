@@ -32,7 +32,7 @@
 
 
 // setting inputs names and filtering options
-// iChannel0: Source, filter = nearest
+// iChannel0: Source, filter=Nearest, wrap=Clamp
 // BBox: iChannel0
 
 
@@ -106,6 +106,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     col += tmp.rgb * kernel[i];
    }
    col = col * contrast + 0.5;
+
+   col = czm_saturation(col, saturation);
    
    if ( clamp_values )
 	   col = clamp(col, 0.0, 1.0);
@@ -113,7 +115,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
    if ( comp_on_bg )
 	   col =  overlay(col, original);
    
-   col = czm_saturation(col, saturation);
-
    fragColor = vec4(col, 1.0);
 }

@@ -119,6 +119,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_cmyk_halftone_GL/Crok_cmyk_halftone_GL.png' width='32'> **[Crok_cmyk_halftone_GL](/GLSL/Crok_cmyk_halftone_GL/README.md)** : GPU accelerated CMYK halftone effect for Shadertoy.
 
+- <img src='/GLSL/Crok_highpass_GL/Crok_highpass_GL.png' width='32'> **[Crok_highpass_GL](/GLSL/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
+
 - <img src='/GLSL/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
 
 - <img src='/GLSL/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/FXAA_GL/README.md)** : GPU accelerated FX anti-aliasing effect for Shadertoy.
@@ -130,7 +132,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### GLSL/Color
 - <img src='/GLSL/Crok_2color_GL/Crok_2color_GL.png' width='32'> **[Crok_2color_GL](/GLSL/Crok_2color_GL/README.md)** : GPU accelerated duotone effect for Shadertoy.
 
-## GLSL/Merge
+### GLSL/Merge
 - <img src='/GLSL/Merge_GL/Merge_GL.png' width='32'> **[Merge_GL](/GLSL/Merge_GL/README.md)** : GPU accelerated merge node for Shadertoy.
 
 ### GLSL/Keying
