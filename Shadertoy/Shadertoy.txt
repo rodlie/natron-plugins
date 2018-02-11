@@ -10,6 +10,7 @@
 "Color/L_Mult" "L_Mult-natron.frag.glsl"
 "Color/L_Slog" "L_Slog-natron.frag.glsl"
 "Distort/pixelDisplace" "pixelDisplace.frag.glsl"
+"Effect/crok_highpass" "crok_highpass.frag.glsl"
 "Effect/Croc_pixelate" "Crok_pixelate.frag.glsl"
 "Effect/CMYK Halftone" "cmykhalftone-natron.frag.glsl"
 "Effect/FXAA" "FXAA-natron.frag.glsl"
