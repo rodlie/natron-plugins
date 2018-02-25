@@ -19,4 +19,5 @@
 "Keying/Crok_edge_matte" "Crok_edge_matte.frag.glsl"
 "Keying/OverBright" "OverBright.frag.glsl"
 "Keying/OverDark" "OverDark.frag.glsl"
+"Merge/Add" "Add_GL.frag.glsl"
 "Transform/Merge_GL" "Merge_GL.frag.glsl"
