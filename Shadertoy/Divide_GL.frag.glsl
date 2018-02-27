@@ -85,8 +85,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 		d.a = 0;
 
 		
-	vec4 result = s + d;
-
+	vec4 result = s / d;
 
 
 	if (maskCheck)
