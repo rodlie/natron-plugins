@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Screen_GL</DisplayName>
+    <Description>GPU accelerated screen merge.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Screen_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
