@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Merge"
 
 def getPluginDescription():
-    return "GPU accelerated add merge."
+    return "GPU accelerated additive merge."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -295,6 +295,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(True)
     lastNode.Shadertoy2_2paramValueBool9 = param
     del param
 
@@ -632,12 +633,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueBool9")
     if param is not None:
-        param.setValue(False)
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// iChannel0: B, filter = nearest\n// iChannel1: A, filter = nearest\n// iChannel2: Mask, filter = nearest\n// BBox: iChannel0\n\n\nuniform float opacity = 1; // Mix : (mix), min=0., max=1.\n\nuniform bool Ar = true; // R\nuniform bool Ag = true; // G\nuniform bool Ab = true; // B\nuniform bool Aa = true; // A\n\nuniform bool Br = true; // R\nuniform bool Bg = true; // G\nuniform bool Bb = true; // B\nuniform bool Ba = true; // A\n\nuniform bool maskCheck = false; // mask\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\n\t// source texture (upper layer)\n\tvec4 s = texture2D(iChannel1, uv);\n\t\n\t// destination texture (lower layer)\n\tvec4 d = texture2D(iChannel0, uv);\n\n\t// mask texture (mask entry)\n\tvec4 mask = texture2D(iChannel2, uv);\n\n\n\tif(Ar == false)\n\t\ts.r = 0;\n\n\tif(Ag == false)\n\t\ts.g = 0;\n\n\tif(Ab == false)\n\t\ts.b = 0;\n\n\tif(Aa == false)\n\t\ts.a = 0;\n\n\tif(Br == false)\n\t\td.r = 0;\n\n\tif(Bg == false)\n\t\td.g = 0;\n\n\tif(Bb == false)\n\t\td.b = 0;\n\n\tif(Ba == false)\n\t\td.a = 0;\n\n\t\t\n\tvec4 result = s + d;\n\n\n\tif(s.a == 0)\n\t\ts.a = 1;\n\n\tif (maskCheck)\n\t\ts.a = s.a*mask.a;\n\n\n\tfragColor = mix(d, result, s.a*opacity);\n}")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// iChannel0: B, filter = nearest\n// iChannel1: A, filter = nearest\n// iChannel2: Mask, filter = nearest\n// BBox: iChannel0\n\n\nuniform float opacity = 1; // Mix : (mix), min=0., max=1.\n\nuniform bool Ar = true; // R\nuniform bool Ag = true; // G\nuniform bool Ab = true; // B\nuniform bool Aa = true; // A\n\nuniform bool Br = true; // R\nuniform bool Bg = true; // G\nuniform bool Bb = true; // B\nuniform bool Ba = true; // A\n\nuniform bool maskCheck = false; // mask\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\n\t// source texture (upper layer)\n\tvec4 s = texture2D(iChannel1, uv);\n\t\n\t// destination texture (lower layer)\n\tvec4 d = texture2D(iChannel0, uv);\n\n\t// mask texture (mask entry)\n\tvec4 mask = texture2D(iChannel2, uv);\n\n\n\tif(Ar == false)\n\t\ts.r = 0;\n\n\tif(Ag == false)\n\t\ts.g = 0;\n\n\tif(Ab == false)\n\t\ts.b = 0;\n\n\tif(Aa == false)\n\t\ts.a = 0;\n\n\tif(Br == false)\n\t\td.r = 0;\n\n\tif(Bg == false)\n\t\td.g = 0;\n\n\tif(Bb == false)\n\t\td.b = 0;\n\n\tif(Ba == false)\n\t\td.a = 0;\n\n\t\t\n\tvec4 result = s + d;\n\n\n\n\n\tif (maskCheck)\n\t\ts.a = s.a*mask.a;\n\n\n\tfragColor = mix(d, result, s.a*opacity);\n}")
         del param
 
     param = lastNode.getParam("mipmap0")

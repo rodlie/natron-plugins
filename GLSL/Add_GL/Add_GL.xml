@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>Add_GL</DisplayName>
-    <Description>GPU accelerated add merge.</Description>
+    <Description>GPU accelerated additive merge.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.Add_GL</Name>
