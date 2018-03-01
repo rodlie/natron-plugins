@@ -8,7 +8,7 @@
 //                    MM.  .MMM           MMMMMM     MMM.  .MM
 //                   MM.  .MmM              MMMM      MMM.  .MM
 //                  MM.  .MMM                 MM       MMM.  .MM
-//                 MM.  .MMM            	   M        MMM.  .MM
+//                 MM.  .MMM                   M        MMM.  .MM
 //                MM.  .MMM                              MMM.  .MM
 //                 MM.  .MMM                            MMM.  .MM
 //                  MM.  .MMM       M                  MMM.  .MM
@@ -18,7 +18,9 @@
 //                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM
 //                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM
 //                        MM.                          .MM
-//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM
+//
+//
 //
 //
 // Adaptation pour Natron par F. Fernandez
@@ -28,7 +30,6 @@
 // Original code : croc_edge_matte Matchbox for Autodesk Flame
 
 
-// setting inputs names and filtering options
 // iChannel0: rgba, filter=linear, wrap=clamp
 // BBox: iChannel0
 

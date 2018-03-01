@@ -8,7 +8,7 @@
 //                    MM.  .MMM           MMMMMM     MMM.  .MM
 //                   MM.  .MmM              MMMM      MMM.  .MM
 //                  MM.  .MMM                 MM       MMM.  .MM
-//                 MM.  .MMM            	   M        MMM.  .MM
+//                 MM.  .MMM                   M        MMM.  .MM
 //                MM.  .MMM                              MMM.  .MM
 //                 MM.  .MMM                            MMM.  .MM
 //                  MM.  .MMM       M                  MMM.  .MM
@@ -19,7 +19,9 @@
 //                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM
 //                        MM.                          .MM
 //                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM
-//                                                                
+//
+//
+//
 //
 // Adaptation pour Natron par F. Fernandez
 // Code original : crok_highpass Matchbox pour Autodesk Flame
