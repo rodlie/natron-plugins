@@ -17,3 +17,9 @@
 - <img src='icons/Crok_bleachbypas.frag.png' width='40'> **[Crok_bleachbypas]** : Simulates a bleachbypass process.
 
 - <img src='icons/Crok_bw.frag.png' width='40'> **[Crok_bw]** : Creates black and white images with adjustable RGB values.
+
+- <img src='icons/Crok_cel_shading.frag.png' width='40'> **[Crok_cel_shading]** : Simulates Cel shading.
+
+- <img src='icons/Crok_cmyk_halftone.frag.png' width='40'> **[Crok_cmyk_halftone]** : Simulates CMYK Halftone patterns.
+
+- <img src='icons/Crok_convolve.png' width='40'> **[Crok_convolve]** : Simulates a Convolve Blur.
