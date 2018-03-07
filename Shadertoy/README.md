@@ -10,6 +10,10 @@
 
 - <img src='icons/AFX_ReverseGrade.frag.png' width='40'> **[AFX_ReverseGrade]** : This node is the reverse grade function found inside the Nuke Grade node. Set your black and white points from your source material (look at front view), then look at the target footage (either via the back or just a context view) and pull the blacks and whites off that plate, then look at result view and tada! they should be a pretty close match...
 
+## CPGP :
+
+- <img src='icons/CPGP_FractalCell.frag.png' width='40'> **[CPGP_FractalCell]** : Generates a fractal cell texture
+
 ## Crok :
 
 - <img src='icons/Crok_2color.frag.png' width='40'> **[Crok_2color]** : Simulates a 2 color look.
@@ -31,3 +35,7 @@
 - <img src='icons/Crok_exposure.frag.png' width='40'> **[Crok_exposure]** : Simulates an exposure node, which isn't THAT precise ;) For creative use only !
 
 - <img src='icons/Crok_highpass.frag.png' width='40'> **[Crok_highpass]** : Simulates a HighPass filter effect.
+
+## Other :
+
+- <img src='icons/Add_GL.frag.png' width='40'> **[Add_GL]** : Additive merge node.
