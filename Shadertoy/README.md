@@ -22,4 +22,12 @@
 
 - <img src='icons/Crok_cmyk_halftone.frag.png' width='40'> **[Crok_cmyk_halftone]** : Simulates CMYK Halftone patterns.
 
-- <img src='icons/Crok_convolve.png' width='40'> **[Crok_convolve]** : Simulates a Convolve Blur.
+- <img src='icons/Crok_convolve.frag.png' width='40'> **[Crok_convolve]** : Simulates a Convolve Blur.
+
+- <img src='icons/Crok_dir_blur.frag.png' width='40'> **[Crok_dir_blur]** : Creates a directional blur.
+
+- <img src='icons/Crok_edge_matte.frag.png' width='40'> **[Crok_edge_matte]** : Creates a simple edge matte.
+
+- <img src='icons/Crok_exposure.frag.png' width='40'> **[Crok_exposure]** : Simulates an exposure node, which isn't THAT precise ;) For creative use only !
+
+- <img src='icons/Crok_highpass.frag.png' width='40'> **[Crok_highpass]** : Simulates a HighPass filter effect.
