@@ -4,6 +4,8 @@
 
 ## Available presets :
 
+# AFX :
+
 - <img src='icons/AFX_DeSpill.frag.png' width='40'> **[AFX_DeSpill]** : Based on the Despill algo if green is greater than the average of the red and blue channels, then bring green down to that color... also works with blue and redscreen, this algo is excellent for maintaining skintones...
 
 - <img src='icons/AFX_Grade.frag.png' width='40'> **[AFX_Grade]** : This is based off the Nuke grade node, so people who are used to the math of this node will be right at home, this node can create negative values, but that's the point, so you will want to clamp if outputing for broadcast...
