@@ -36,6 +36,10 @@
 
 - <img src='icons/Crok_highpass.frag.png' width='40'> **[Crok_highpass]** : Simulates a HighPass filter effect.
 
+## K :
+
+- <img src='icons/K_Chroma.frag.png' width='40'> **[K_Chroma]** : Warps chroma channels with the ability to add barrel distortion.
+
 ## Other :
 
 - <img src='icons/Add_GL.frag.png' width='40'> **[Add_GL]** : Additive merge node.
