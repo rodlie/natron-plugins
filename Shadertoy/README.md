@@ -46,4 +46,8 @@
 
 - <img src='icons/Add_GL.frag.png' width='50'> **[Add_GL]** : Additive merge.
 
+- <img src='icons/Divide_GL.frag.png' width='50'> **[Divide_GL]** : Divide merge.
+
+- <img src='icons/Multiply_GL.frag.png' width='50'> **[Add_GL]** : Multiply merge.
+
 - <img src='icons/Screen_GL.frag.png' width='50'> **[Screen_GL]** : Screen merge.
