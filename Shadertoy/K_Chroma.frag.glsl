@@ -24,10 +24,10 @@
 //
 //
 // Adaptation pour Natron par F. Fernandez
-// Code original : K_Chroma v1.1 Matchbox pour Autodesk Flame
+// Code original : K_Chroma Matchbox pour Autodesk Flame
 
 // Adapted to Natron by F.Fernandez
-// Original code : K_Chroma v1.1 Matchbox for Autodesk Flame
+// Original code : K_Chroma Matchbox for Autodesk Flame
 
 // Shader written by:   Kyle Obley (kyle.obley@gmail.com) & Ivar Beer
 // Shader adapted from: https://www.shadertoy.com/view/XssGz8
