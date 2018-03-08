@@ -44,4 +44,6 @@
 
 ## Other :
 
-- <img src='icons/Add_GL.frag.png' width='50'> **[Add_GL]** : Additive merge node.
+- <img src='icons/Add_GL.frag.png' width='50'> **[Add_GL]** : Additive merge.
+
+- <img src='icons/Screen_GL.frag.png' width='50'> **[Screen_GL]** : Screen merge.
