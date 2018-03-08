@@ -42,6 +42,8 @@
 
 - <img src='icons/K_Chroma.frag.png' width='50'> **[K_Chroma]** : Warps chroma channels with the ability to add barrel distortion.
 
+- <img src='icons/K_RgbcmyMatte.frag.png' width='50'> **[K_RgbcmyMatte]** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
+
 ## Other :
 
 - <img src='icons/Add_GL.frag.png' width='50'> **[Add_GL]** : Additive merge.
