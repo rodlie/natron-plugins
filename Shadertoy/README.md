@@ -74,6 +74,20 @@
 
 - <img src='icons/K_RgbcmyMatte.png' width='66'> **[K_RgbcmyMatte]** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
 
+## L :
+
+- <img src='icons/L_AlexaLogCv3.png' width='66'> **[L_AlexaLogCv3]** : Linearise the AlexalogCv3 encoded input or go back out as the inverse using the Arri AlexaLogCv3 function for EI800.
+
+- <img src='icons/L_CanonLog.png' width='66'> **[L_CanonLog]** : Linearises the Canon Clog curve.
+
+- <img src='icons/L_Clamp.png' width='66'> **[L_Clamp]** : Clamp selected pixels to user defined minimum and maximum values.
+
+- <img src='icons/L_Fstop.png' width='66'> **[L_Fstop]** : Adjust the linear encoded front input exposure in Stops.
+
+- <img src='icons/L_Mult.png' width='66'> **[L_Mult]** : Multiplies the pixel values in the image.
+
+- <img src='icons/L_Slog.png' width='66'> **[L_Sloge]** : Linearise the SLog encoded input using the Sony S-Log function.
+
 ## Ls :
 
 - <img src='icons/Ls_NaNfix.png' width='66'> **[Ls_NaNfix]** : Fixes pixels which are stuck at NaN, like those from broken CG renders. The detected pixels are output in the matte for further treatment with PixelSpread.
