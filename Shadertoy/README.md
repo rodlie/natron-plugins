@@ -50,7 +50,11 @@
 
 - <img src='icons/Crok_kuwahara.png' width='66'> **[Crok_kuwahara]** : Simulates anisotropic kuwahara filtering.
 
-- <img src='icons/Crok_plasnoid.png' width='66'> **[Crok_plasnoid]** : Creates tons of different plasma patterns
+- <img src='icons/Crok_pixelate.png' width='66'> **[Crok_pixelate]** : Pixelates the image.
+
+- <img src='icons/Crok_plasnoid.png' width='66'> **[Crok_plasnoid]** : Creates tons of different plasma patterns.
+
+- <img src='icons/Crok_voronoi.png' width='66'> **[Crok_voronoi]** : Creates voronoi noises.
 
 ## JB :
 
