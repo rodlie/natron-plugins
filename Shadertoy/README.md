@@ -20,6 +20,8 @@
 
 - <img src='icons/Crok_bleachbypas.frag.png' width='50'> **[Crok_bleachbypas]** : Simulates a bleachbypass process.
 
+- <img src='icons/Crok_bloom.frag.png' width='50'> **[Crok_bloom]** : Simulates blooming.
+
 - <img src='icons/Crok_bw.frag.png' width='50'> **[Crok_bw]** : Creates black and white images with adjustable RGB values.
 
 - <img src='icons/Crok_cel_shading.frag.png' width='50'> **[Crok_cel_shading]** : Simulates Cel shading.
@@ -28,13 +30,27 @@
 
 - <img src='icons/Crok_convolve.frag.png' width='50'> **[Crok_convolve]** : Simulates a Convolve Blur.
 
+- <img src='icons/Crok_crosshatch.frag.png' width='50'> **[Crok_crosshatch]** : Simulates a simple pencil sketch.
+
+- <img src='icons/Crok_deband.frag.png' width='50'> **[Crok_deband]** : Reduces banding.
+
+- <img src='icons/Crok_diffuse.frag.png' width='50'> **[Crok_diffuse]** : Creates a noisy blur.
+
 - <img src='icons/Crok_dir_blur.frag.png' width='50'> **[Crok_dir_blur]** : Creates a directional blur.
 
 - <img src='icons/Crok_edge_matte.frag.png' width='50'> **[Crok_edge_matte]** : Creates a simple edge matte.
 
 - <img src='icons/Crok_exposure.frag.png' width='50'> **[Crok_exposure]** : Simulates an exposure node, which isn't THAT precise ;) For creative use only !
 
+- <img src='icons/Crok_fbm-pixels.frag.png' width='50'> **[Crok_fbm-pixels]** : Creates a fbm style pattern.
+
+- <img src='icons/Crok_flow.frag.png' width='50'> **[Crok_flow]** :  Creates a perlin noise pattern.
+
 - <img src='icons/Crok_highpass.frag.png' width='50'> **[Crok_highpass]** : Simulates a HighPass filter effect.
+
+- <img src='icons/Crok_kuwahara.frag.png' width='50'> **[Crok_kuwahara]** : Simulates anisotropic kuwahara filtering.
+
+- <img src='icons/Crok_plasnoid.frag.png' width='50'> **[Crok_plasnoid]** : Creates tons of different plasma patterns
 
 ## K :
 

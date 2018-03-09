@@ -61,6 +61,7 @@
 "Effect/C64" "c64.frag.glsl"
 "Effect/Chromatic Aberration" "chromaticaberration.frag.glsl"
 "Effect/Crok_bleachbypas" "Crok_bleachbypass.frag.glsl"
+"Effect/Crok_bloom" "Crok_bloom.frag.glsl"
 "Effect/Crok_cel_shading" "Crok_cel_shading.frag.glsl"
 "Effect/Crok_highpass" "Crok_highpass.frag.glsl"
 "Effect/Crok_kuwahara" "Crok_kuwahara.frag.glsl"
