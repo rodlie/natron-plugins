@@ -78,7 +78,7 @@
 
 - <img src='icons/Ls_NaNfix.png' width='66'> **[Ls_NaNfix]** : Fixes pixels which are stuck at NaN, like those from broken CG renders. The detected pixels are output in the matte for further treatment with PixelSpread.
 
-- <img src='icons/Ls_Posmatte.png' width='66'> **[Ls_Postmatte]** : Pulls a spherical matte from an XYZ position pass.
+- <img src='icons/Ls_Posmatte.png' width='66'> **[Ls_Posmatte]** : Pulls a spherical matte from an XYZ position pass.
 
 - <img src='icons/Ls_RndmGrade.png' width='66'> **[Ls_RndmGrade]** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
