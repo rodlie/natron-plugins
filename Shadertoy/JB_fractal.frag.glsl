@@ -27,6 +27,8 @@
 // Adapted to Natron by F.Fernandez
 // Original code : JB_fractal Matchbox for Autodesk Flame
 
+// BBox: iChannel0
+
 uniform float steps = 10.; // steps :, min=1, max=100.
 uniform float wx;
 uniform float wy;

@@ -33,6 +33,8 @@
 // Shader written by: Kyle Obley (kyle.obley@gmail.com)
 //
 
+// BBox: iChannel0
+
 uniform int selection; // Selection : (1=Red, 2=Green, 3=Blue, 4=Cyan, 5=Yellow, 6=Magenta, 7=White), min=1, max=7
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )

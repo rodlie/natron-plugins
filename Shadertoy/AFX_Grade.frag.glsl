@@ -32,7 +32,7 @@
 
 // iChannel0: source, filter = nearest, wrap0 = clamp
 // iChannel1: alpha, filter = nearest, wrap1 = clamp
-
+// BBox: iChannel0
 
 uniform vec3 s_whitePoint = vec3(1, 1, 1); // White point : (white point)
 
