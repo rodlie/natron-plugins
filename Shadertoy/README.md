@@ -60,7 +60,7 @@
 
 - <img src='icons/JB_colorRemap.png' width='66'> **[JB_colorRemap]** : Remaps RGB of input 1 using RGB of input 2. option to inverse the result as well.
 
-- <img src='icons/JB_erodeMatte.png' width='66'> **[JB_erodeMatte]** : Simple erode node
+- <img src='icons/JB_erodeMatte.png' width='66'> **[JB_erodeMatte]** : Simple erode node.
 
 - <img src='icons/JB_fractal.png' width='66'> **[JB_fractal]** : Simple fractal generator.
 
@@ -73,6 +73,18 @@
 - <img src='icons/K_Chroma.png' width='66'> **[K_Chroma]** : Warps chroma channels with the ability to add barrel distortion.
 
 - <img src='icons/K_RgbcmyMatte.png' width='66'> **[K_RgbcmyMatte]** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
+
+## Ls :
+
+- <img src='icons/Ls_NaNfix.png' width='66'> **[Ls_NaNfix]** : Fixes pixels which are stuck at NaN, like those from broken CG renders. The detected pixels are output in the matte for further treatment with PixelSpread.
+
+- <img src='icons/Ls_Postmatte.png' width='66'> **[Ls_Postmatte]** : Pulls a spherical matte from an XYZ position pass.
+
+- <img src='icons/Ls_RndmGrade.png' width='66'> **[Ls_RndmGrade]** : Generates random grades. Works best on log footage or low-contrast ungraded video.
+
+- <img src='icons/Ls_Tinyplanet.png' width='66'> **[Ls_Tinyplanet]** : Stereographic reprojection of 360 panoramas.
+
+- <img src='icons/Ls_UVewa.png' width='66'> **[Ls_UVewa]** : UV mapping with EWA filtering.
 
 ## Other :
 
