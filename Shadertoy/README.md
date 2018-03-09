@@ -52,6 +52,14 @@
 
 - <img src='icons/Crok_plasnoid.png' width='66'> **[Crok_plasnoid]** : Creates tons of different plasma patterns
 
+## JB :
+
+- <img src='icons/JB_colorRemap.png' width='66'> **[JB_colorRemap]** : Creates a black and white image based on the dominance of R-G-B channels.
+
+- <img src='icons/JB_erodeMatte.png' width='66'> **[erodeMatte]** : Warps chroma channels with the ability to add barrel distortion.
+
+- <img src='icons/JB_fractal.png' width='66'> **[JB_fractal]** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
+
 ## K :
 
 - <img src='icons/K_BW.png' width='66'> **[K_BW]** : Creates a black and white image based on the dominance of R-G-B channels.
