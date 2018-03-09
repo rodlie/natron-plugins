@@ -50,6 +50,8 @@
 
 - <img src='icons/Crok_kuwahara.png' width='66'> **[Crok_kuwahara]** : Simulates anisotropic kuwahara filtering.
 
+- <img src='icons/Crok_perlin.png' width='66'> **[Crok_perlin]** : Creates a perlin noise like pattern.
+
 - <img src='icons/Crok_pixelate.png' width='66'> **[Crok_pixelate]** : Pixelates the image.
 
 - <img src='icons/Crok_plasnoid.png' width='66'> **[Crok_plasnoid]** : Creates tons of different plasma patterns.
