@@ -90,7 +90,7 @@
 
 ## Ls :
 
-- <img src='icons/Ls_NaNfix.png' width='66'> **[Ls_NaNfix]** : Fixes pixels which are stuck at NaN, like those from broken CG renders. The detected pixels are output in the matte for further treatment with PixelSpread.
+- <img src='icons/Ls_NaNfix.png' width='66'> **[Ls_NaNfix]** : Fixes pixels which are stuck at NaN. The detected pixels are output in the matte for further treatment with PixelSpread.
 
 - <img src='icons/Ls_Posmatte.png' width='66'> **[Ls_Posmatte]** : Pulls a spherical matte from an XYZ position pass.
 
