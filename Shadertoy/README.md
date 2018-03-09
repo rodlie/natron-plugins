@@ -60,6 +60,8 @@
 
 - <img src='icons/JB_fractal.png' width='66'> **[JB_fractal]** : Simple fractal generator.
 
+- <img src='icons/JB_multiMatteManager.png' width='66'> **[JB_multiMatteManager]** : Combines up to four RGB multimatte inputs into one with combined alphas of selected channels.
+
 ## K :
 
 - <img src='icons/K_BW.png' width='66'> **[K_BW]** : Creates a black and white image based on the dominance of R-G-B channels.
