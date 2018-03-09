@@ -54,11 +54,11 @@
 
 ## JB :
 
-- <img src='icons/JB_colorRemap.png' width='66'> **[JB_colorRemap]** : Creates a black and white image based on the dominance of R-G-B channels.
+- <img src='icons/JB_colorRemap.png' width='66'> **[JB_colorRemap]** : Remaps RGB of input 1 using RGB of input 2. option to inverse the result as well.
 
-- <img src='icons/JB_erodeMatte.png' width='66'> **[JB_erodeMatte]** : Warps chroma channels with the ability to add barrel distortion.
+- <img src='icons/JB_erodeMatte.png' width='66'> **[JB_erodeMatte]** : Simple erode node
 
-- <img src='icons/JB_fractal.png' width='66'> **[JB_fractal]** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
+- <img src='icons/JB_fractal.png' width='66'> **[JB_fractal]** : Simple fractal generator.
 
 ## K :
 
