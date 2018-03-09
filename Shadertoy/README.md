@@ -100,7 +100,7 @@
 
 - <img src='icons/Ls_UVewa.png' width='66'> **[Ls_UVewa]** : UV mapping with EWA filtering.
 
-## Other :
+## Merge :
 
 - <img src='icons/Add_GL.png' width='66'> **[Add_GL]** : Additive merge.
 
