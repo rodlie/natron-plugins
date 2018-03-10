@@ -14,7 +14,7 @@
 
 - <img src='icons/Premult_GL.png' width='66'> **[Premult_GL]** : Premultiplies RGB by alpha.
 
-- <img src='icons/Shuffle_AtoRGB.png' width='66'> **[Shuffle_AtoRGB]** : Copies alpha to RGB.
+- <img src='icons/Shuffle_AtoRGB.png' width='66'> **[Shuffle_AtoRGB]** : Copy alpha to RGB.
 
 ## CPGP :
 
@@ -74,7 +74,7 @@
 
 - <img src='icons/JB_multiMatteManager.png' width='66'> **[JB_multiMatteManager]** : Combines up to four RGB multimatte inputs into one with combined alphas of selected channels.
 
-- <img src='icons/JB_PixelDisplace.png' width='66'> **[JB_PixelDisplace]** : Transforms input1 using input2 rgb values.
+- <img src='icons/JB_pixelDisplace.png' width='66'> **[JB_pixelDisplace]** : Transforms input1 using input2 rgb values.
 
 ## K :
 
