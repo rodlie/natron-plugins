@@ -84,6 +84,12 @@
 
 - <img src='icons/K_RgbcmyMatte.png' width='66'> **[K_RgbcmyMatte]** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
 
+## Keying :
+
+- <img src='icons/OverBright.png' width='66'> **[OverBright]** : Generates an alpha based on above 1 RGB values.
+
+- <img src='icons/OverDark.png' width='66'> **[OverDark]** : Generates an alpha based on negative RGB values.
+
 ## L :
 
 - <img src='icons/L_AlexaLogCv3.png' width='66'> **[L_AlexaLogCv3]** : Linearise the AlexalogCv3 encoded input or go back out as the inverse using the Arri AlexaLogCv3 function for EI800.
