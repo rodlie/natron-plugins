@@ -123,3 +123,7 @@
 - <img src='icons/Over_GL.png' width='66'> **[Over_GL]** : Over merge.
 
 - <img src='icons/Screen_GL.png' width='66'> **[Screen_GL]** : Screen merge.
+
+## Other :
+
+- <img src='icons/FXAA_GL.png' width='66'> **[FXAA_GL]** : FX antialiasing.
