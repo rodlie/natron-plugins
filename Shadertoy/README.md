@@ -10,6 +10,12 @@
 
 - <img src='icons/AFX_ReverseGrade.png' width='66'> **[AFX_ReverseGrade]** : This node is the reverse grade function found inside the Nuke Grade node. Set your black and white points from your source material (look at front view), then look at the target footage (either via the back or just a context view) and pull the blacks and whites off that plate, then look at result view and tada! they should be a pretty close match...
 
+## Channel :
+
+- <img src='icons/Premult_GL.png' width='66'> **[Premult_GL]** : Premultiplies RGB by alpha.
+
+- <img src='icons/Shuffle_AtoRGB.png' width='66'> **[Shuffle_AtoRGB]** : Copies alpha to RGB.
+
 ## CPGP :
 
 - <img src='icons/CPGP_FractalCell.png' width='66'> **[CPGP_FractalCell]** : Generates a fractal cell texture
@@ -68,6 +74,8 @@
 
 - <img src='icons/JB_multiMatteManager.png' width='66'> **[JB_multiMatteManager]** : Combines up to four RGB multimatte inputs into one with combined alphas of selected channels.
 
+- <img src='icons/JB_PixelDisplace.png' width='66'> **[JB_PixelDisplace]** : Transforms input1 using input2 rgb values.
+
 ## K :
 
 - <img src='icons/K_BW.png' width='66'> **[K_BW]** : Creates a black and white image based on the dominance of R-G-B channels.
@@ -91,6 +99,8 @@
 - <img src='icons/L_Slog.png' width='66'> **[L_Sloge]** : Linearise the SLog encoded input using the Sony S-Log function.
 
 ## Ls :
+
+- <img src='icons/Ls_FXAA.png' width='66'> **[Ls_FXAA]** : Fast cheap antialiasing, soften those crunchy edges
 
 - <img src='icons/Ls_NaNfix.png' width='66'> **[Ls_NaNfix]** : Fixes pixels which are stuck at NaN. The detected pixels are output in the matte for further treatment with PixelSpread.
 
