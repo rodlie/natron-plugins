@@ -86,6 +86,8 @@
 
 ## Keying :
 
+- <img src='icons/Despill.png' width='66'> **[Despill]** : Green screen despill.
+
 - <img src='icons/OverBright.png' width='66'> **[OverBright]** : Generates an alpha based on above 1 RGB values.
 
 - <img src='icons/OverDark.png' width='66'> **[OverDark]** : Generates an alpha based on negative RGB values.
