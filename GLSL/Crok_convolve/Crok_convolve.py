@@ -19,7 +19,7 @@ def getPluginID():
     return "natron.community.plugins.Crok_convolve"
 
 def getLabel():
-    return "Crok_convolveL"
+    return "Crok_convolve"
 
 def getVersion():
     return 1
