@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Blur"
 
 def getPluginDescription():
-    return "Simultaes a convolve blur"
+    return "Simulates a convolve blur"
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -281,7 +281,7 @@ def createInstance(app,group):
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
-    param = lastNode.createStringParam("separator19", "")
+    param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -292,10 +292,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator19 = param
+    lastNode.sep101 = param
     del param
 
-    param = lastNode.createStringParam("separator20", "")
+    param = lastNode.createStringParam("sep102", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -306,10 +306,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator20 = param
+    lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("line03", "Screen_GL v1.0")
+    param = lastNode.createSeparatorParam("NAME", "Crok_convolve v1.0")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -319,10 +319,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.line03 = param
+    lastNode.NAME = param
     del param
 
-    param = lastNode.createStringParam("separator21", "")
+    param = lastNode.createStringParam("sep103", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -333,10 +333,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator21 = param
+    lastNode.sep103 = param
     del param
 
-    param = lastNode.createStringParam("separator22", "")
+    param = lastNode.createStringParam("sep104", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -347,10 +347,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator22 = param
+    lastNode.sep104 = param
     del param
 
-    param = lastNode.createSeparatorParam("line04", "")
+    param = lastNode.createSeparatorParam("LINE02", "")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -360,10 +360,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.line04 = param
+    lastNode.LINE02 = param
     del param
 
-    param = lastNode.createStringParam("separator23", "")
+    param = lastNode.createStringParam("sep105", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -374,10 +374,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator23 = param
+    lastNode.sep105 = param
     del param
 
-    param = lastNode.createStringParam("separator24", "")
+    param = lastNode.createStringParam("sep106", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -388,7 +388,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator24 = param
+    lastNode.sep106 = param
     del param
 
     param = lastNode.createSeparatorParam("FR", "ShaderToy 0.8.8")
@@ -404,7 +404,7 @@ def createInstance(app,group):
     lastNode.FR = param
     del param
 
-    param = lastNode.createStringParam("separator25", "")
+    param = lastNode.createStringParam("sep107", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -415,10 +415,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator25 = param
+    lastNode.sep107 = param
     del param
 
-    param = lastNode.createStringParam("separator26", "")
+    param = lastNode.createStringParam("sep108", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -429,10 +429,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator26 = param
+    lastNode.sep108 = param
     del param
 
-    param = lastNode.createSeparatorParam("conversion", " (Fabrice Fernandez - 2018)")
+    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2018)")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -442,10 +442,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.conversion = param
+    lastNode.CONVERSION = param
     del param
 
-    param = lastNode.createStringParam("separator27", "")
+    param = lastNode.createStringParam("sep109", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -456,10 +456,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator27 = param
+    lastNode.sep109 = param
     del param
 
-    param = lastNode.createStringParam("separator28", "")
+    param = lastNode.createStringParam("sep110", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -470,7 +470,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator28 = param
+    lastNode.sep110 = param
     del param
 
     # Refresh the GUI with the newly created parameters
