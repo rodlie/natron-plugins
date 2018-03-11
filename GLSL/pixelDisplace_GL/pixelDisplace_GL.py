@@ -110,7 +110,7 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "global X displace")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "global X displace : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -141,7 +141,7 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "global Y displace")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "global Y displace : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -227,7 +227,7 @@ def createInstance(app,group):
     lastNode.sep09 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat2", "global X offset")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat2", "global X offset : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -256,7 +256,7 @@ def createInstance(app,group):
     lastNode.sep10 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "global Y offset")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "global Y offset : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -340,7 +340,7 @@ def createInstance(app,group):
     lastNode.sep14 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat4", "red X displace")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat4", "red X displace : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -371,7 +371,7 @@ def createInstance(app,group):
     lastNode.sep15 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat5", "red Y displace")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat5", "red Y displace : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -457,7 +457,7 @@ def createInstance(app,group):
     lastNode.sep19 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat6", "green X displace")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat6", "green X displace : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -486,7 +486,7 @@ def createInstance(app,group):
     lastNode.sep20 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat7", "green Y displace")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat7", "green Y displace : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -570,7 +570,7 @@ def createInstance(app,group):
     lastNode.sep24 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat8", "blue X displace")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat8", "blue X displace : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -599,7 +599,7 @@ def createInstance(app,group):
     lastNode.sep25 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat9", "blue Y displace")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat9", "blue Y displace : ")
     param.setMinimum(0, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -640,6 +640,58 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep27 = param
+    del param
+
+    param = lastNode.createSeparatorParam("LINE07", "")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.LINE07 = param
+    del param
+
+    param = lastNode.createStringParam("sep28", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep28 = param
+    del param
+
+    param = lastNode.createStringParam("sep29", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep29 = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edge extend : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1wrap0 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -1291,6 +1343,9 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueFloat9")
     group.getParam("Shadertoy1paramValueFloat9").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("wrap0")
+    group.getParam("Shadertoy1wrap0").setAsAlias(param)
     del param
 
     try:
