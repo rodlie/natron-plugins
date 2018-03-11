@@ -16,16 +16,22 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "Crok_2color_GL"
+    return "natron.community.plugins.Crok_2color_GL"
 
 def getLabel():
     return "Crok_2color_GL"
 
 def getVersion():
-    return 1
+    return 1.01
+
+def getIconPath():
+    return "Crok_2color_GL.png"
 
 def getGrouping():
-    return ""
+    return "Community/GLSL/Color"
+
+def getPluginDescription():
+    return "Simulates a 2 color look."
 
 def createInstance(app,group):
     # Create all nodes in the group
