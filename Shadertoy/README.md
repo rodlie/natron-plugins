@@ -34,7 +34,7 @@
 
 - <img src='icons/Crok_cmyk_halftone.png' width='66'> **[Crok_cmyk_halftone]** : Simulates CMYK Halftone patterns.
 
-- <img src='icons/Crok_convolve.png' width='66'> **[Crok_convolve]** : Simulates a Convolve Blur.
+- <img src='icons/Crok_convolve.png' width='66'> **[Crok_convolve]** : Simulates a convolve blur.
 
 - <img src='icons/Crok_crosshatch.png' width='66'> **[Crok_crosshatch]** : Simulates a simple pencil sketch.
 
