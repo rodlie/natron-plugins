@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>Crok_convolve</DisplayName>
+    <DisplayName>Crok_convolve_GL</DisplayName>
     <Description>Simulates a convolve blur.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.Crok_convolveL</Name>
+    <Name>natron.community.plugins.Crok_convolve_GL</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>
