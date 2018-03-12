@@ -131,10 +131,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
 
-- <img src='/GLSL/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
-
-- <img src='/GLSL/Crok_voronoi_GL/Crok_voronoi_GL.png' width='32'> **[Crok_voronoi_GL](/GLSL/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
-
 - <img src='/GLSL/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/FXAA_GL/README.md)** : GPU accelerated FX anti-aliasing effect for Shadertoy.
 
 - <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='32'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
@@ -160,6 +156,10 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='32'> **[Bleepy_Blocks_GL](/GLSL/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
 
 - <img src='/GLSL/Bubbles_GL/Bubbles_GL.png' width='32'> **[Bubbles_GL](/GLSL/Bubbles_GL/README.md)** : GPU accelerated bubbles generator for Shadertoy.
+
+- <img src='/GLSL/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
+
+- <img src='/GLSL/Crok_voronoi_GL/Crok_voronoi_GL.png' width='32'> **[Crok_voronoi_GL](/GLSL/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
 
 - <img src='/GLSL/Cellular_GL/Cellular_GL.png' width='32'> **[Cellular_GL](/GLSL/Cellular_GL/README.md)** : GPU accelerated cell generator for Shadertoy.
 

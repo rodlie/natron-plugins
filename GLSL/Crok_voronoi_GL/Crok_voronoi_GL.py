@@ -28,7 +28,7 @@ def getIconPath():
     return "Crok_voronoi_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Effect"
+    return "Community/GLSL/Source"
 
 def getPluginDescription():
     return "Creates voronoi noises."

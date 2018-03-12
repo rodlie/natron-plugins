@@ -28,7 +28,7 @@ def getIconPath():
     return "Crok_plasnoid_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Effect"
+    return "Community/GLSL/Source"
 
 def getPluginDescription():
     return "Creates tons of different plasma patterns."
