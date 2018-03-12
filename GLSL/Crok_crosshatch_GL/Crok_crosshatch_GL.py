@@ -28,7 +28,7 @@ def getIconPath():
     return "Crok_crosshatch_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Blur"
+    return "Community/GLSL/Effect"
 
 def getPluginDescription():
     return "Simulates a simple pencil sketch."
