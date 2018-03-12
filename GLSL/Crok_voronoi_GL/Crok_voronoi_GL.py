@@ -378,7 +378,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "Crok_voronoi_GL v1.01")
+    param = lastNode.createSeparatorParam("NAME", "Crok_voronoi_GL v1.0")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
