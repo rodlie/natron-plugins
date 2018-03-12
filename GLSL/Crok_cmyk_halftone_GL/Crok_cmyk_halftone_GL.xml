@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.01" encoding="UTF-8"?>
 <Package>
     <DisplayName>Crok_cmyk_halftone_GL</DisplayName>
     <Description>GPU accelerated CMYK halftone effect for Shadertoy..</Description>
-    <Version>1.0</Version>
+    <Version>1.01</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.Crok_cmyk_halftone_GL</Name>
     <Default>script</Default>
