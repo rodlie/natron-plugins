@@ -104,6 +104,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_diffuse_GL/Crok_diffuse_GL.png' width='32'> **[Crok_diffuse_GL](/GLSL/Crok_diffuse_GL/README.md)** : Creates a noisy blur.
 
+- <img src='/GLSL/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='32'> **[Crok_dir_blur_GL](/GLSL/Crok_dir_blur_GL/README.md)** : Creates a directional blur.
+
 - <img src='/GLSL/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL/Mipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
 
 - <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
