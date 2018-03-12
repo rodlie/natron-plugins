@@ -110,7 +110,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
 ### GLSL/Distort
-- <img src='/GLSL/pixelDisplace_GL/pixelDisplace_GL.png' width='32'> **[pixelDisplace_GL](/GLSL/pixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
+- <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='32'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
 
 ### GLSL/Effect
 - <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
