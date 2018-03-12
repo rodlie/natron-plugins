@@ -131,6 +131,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
 
+- <img src='/GLSL/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
+
 - <img src='/GLSL/Crok_voronoi_GL/Crok_voronoi_GL.png' width='32'> **[Crok_voronoi_GL](/GLSL/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
 
 - <img src='/GLSL/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/FXAA_GL/README.md)** : GPU accelerated FX anti-aliasing effect for Shadertoy.
