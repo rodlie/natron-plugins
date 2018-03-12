@@ -1,0 +1,10 @@
+<?xml version="1.01" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_exposure_GL</DisplayName>
+    <Description>Simulates an exposure node.</Description>
+    <Version>1.01</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_exposure_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
