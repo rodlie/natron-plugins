@@ -125,6 +125,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_crosshatch_GL/Crok_crosshatch_GL.png' width='32'> **[Crok_crosshatch_GL](/GLSL/Crok_crosshatch_GL/README.md)** : Simulates a simple pencil sketch
 
+- <img src='/GLSL/Crok_deband_GL/Crok_deband_GL.png' width='32'> **[Crok_deband_GL](/GLSL/Crok_deband_GL/README.md)** : Reduces banding.
+
 - <img src='/GLSL/Crok_highpass_GL/Crok_highpass_GL.png' width='32'> **[Crok_highpass_GL](/GLSL/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
 
 - <img src='/GLSL/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
