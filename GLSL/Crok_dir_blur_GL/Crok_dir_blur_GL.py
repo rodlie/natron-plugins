@@ -19,13 +19,13 @@ def getPluginID():
     return "natron.community.plugins.Crok_dir_blur_GL"
 
 def getLabel():
-    return "Crok_dir_blur_G"
+    return "Crok_dir_blur_GL"
 
 def getVersion():
     return 1.0
 
 def getIconPath():
-    return "Crok_dir_blur_G.png"
+    return "Crok_dir_blur_GL.png"
 
 def getGrouping():
     return "Community/GLSL/Blur"
