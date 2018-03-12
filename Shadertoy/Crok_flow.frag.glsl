@@ -46,7 +46,7 @@ uniform float brightness = 1.0; // Brightness : (brightness), min=0, max=10
 uniform float contrast = 0.7; // Contrast : (contrast), min=0, max=10
 uniform float gain = 0.75; // Gain : (gain), min=0, max=10
 
-uniform int itterations = 5; // Iterations : (iterations), min=100, max=100
+uniform int itterations = 5; // Iterations : (iterations), min=10, max=100
 uniform vec2 center = vec(0,0); // Center : (center)
 uniform vec3 tint = vec3(1,1,1); // Tint : (tint)
 
