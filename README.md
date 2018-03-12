@@ -113,6 +113,11 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### GLSL/Channel
 - <img src='/GLSL/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
+### GLSL/Color
+- <img src='/GLSL/Crok_2color_GL/Crok_2color_GL.png' width='32'> **[Crok_2color_GL](/GLSL/Crok_2color_GL/README.md)** : GPU accelerated duotone effect for Shadertoy.
+
+- <img src='/GLSL/Crok_exposure_GL/Crok_exposure_GL.png' width='32'> **[Crok_exposure_GL](/GLSL/Crok_exposure_GL/README.md)** : Simulates an exposure node.
+
 ### GLSL/Distort
 - <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='32'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
 
@@ -138,9 +143,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='32'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
 - <img src='/GLSL/Money_Filter_GL/Money_Filter_GL.png' width='32'> **[Money_Filter_GL](/GLSL/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect for Shadertoy.
-
-### GLSL/Color
-- <img src='/GLSL/Crok_2color_GL/Crok_2color_GL.png' width='32'> **[Crok_2color_GL](/GLSL/Crok_2color_GL/README.md)** : GPU accelerated duotone effect for Shadertoy.
 
 ### GLSL/Merge
 - <img src='/GLSL/Add_GL/Add_GL.png' width='32'> **[Add_GL](/GLSL/Add_GL/README.md)** : GPU accelerated additive merge for Shadertoy.
