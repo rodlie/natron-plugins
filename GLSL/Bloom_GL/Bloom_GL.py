@@ -22,7 +22,7 @@ def getLabel():
     return "Bloom_GL"
 
 def getVersion():
-    return 1
+    return 1.01
 
 def getIconPath():
     return "Bloom_GL.png"
