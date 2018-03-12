@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_convolve_GL"
 
 def getVersion():
-    return 1
+    return 1.01
 
 def getIconPath():
     return "Crok_convolve_GL.png"
@@ -69,17 +69,21 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createSeparatorParam("BLUR", "Blur")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Blur radius : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(20, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(20, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.BLUR = param
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -110,12 +114,12 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2_2paramValueFloat0", "Blur radius : ")
-    param.setMinimum(0, 0)
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Blur quality : ")
+    param.setMinimum(-0.09999999999999999, 0)
     param.setMaximum(20, 0)
-    param.setDisplayMinimum(0, 0)
+    param.setDisplayMinimum(-0.09999999999999999, 0)
     param.setDisplayMaximum(20, 0)
-    param.setDefaultValue(1, 0)
+    param.setDefaultValue(5, 0)
     param.restoreDefaultValue(0)
 
     # Add the param to the page
@@ -124,7 +128,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2_2paramValueFloat0 = param
+    lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -155,21 +159,17 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2_2paramValueFloat1", "Blur quality : ")
-    param.setMinimum(-0.09999999999999999, 0)
-    param.setMaximum(20, 0)
-    param.setDisplayMinimum(-0.09999999999999999, 0)
-    param.setDisplayMaximum(20, 0)
-    param.setDefaultValue(5, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createSeparatorParam("LINE01", "")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy2_2paramValueFloat1 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.LINE01 = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -200,17 +200,18 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
-    param = lastNode.createSeparatorParam("LINE01", "")
+    param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edge extend : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.LINE01 = param
+    param.setAnimationEnabled(False)
+    param.set("clamp")
+    lastNode.Shadertoy1wrap0 = param
     del param
 
     param = lastNode.createStringParam("sep09", "")
@@ -239,51 +240,6 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep10 = param
-    del param
-
-    param = lastNode.createChoiceParam("Shadertoy2_2wrap0", "Edge extend : ")
-    entries = [ ("repeat", "WRAP_S/T = GL_REPEAT"),
-    ("clamp", "WRAP_S/T = GL_CLAMP_TO_EDGE"),
-    ("mirror", "WRAP_S/T = GL_MIRRORED_REPEAT")]
-    param.setOptions(entries)
-    del entries
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("Texture wrap parameter for this input.")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    lastNode.Shadertoy2_2wrap0 = param
-    del param
-
-    param = lastNode.createStringParam("sep11", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep11 = param
-    del param
-
-    param = lastNode.createStringParam("sep12", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep12 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -315,7 +271,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "Crok_convolve_GL v1.0")
+    param = lastNode.createSeparatorParam("NAME", "Crok_convolve_GL v1.01")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -356,7 +312,7 @@ def createInstance(app,group):
     lastNode.sep104 = param
     del param
 
-    param = lastNode.createSeparatorParam("LINE02", "")
+    param = lastNode.createSeparatorParam("LINE101", "")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -366,7 +322,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.LINE02 = param
+    lastNode.LINE101 = param
     del param
 
     param = lastNode.createStringParam("sep105", "")
@@ -438,7 +394,7 @@ def createInstance(app,group):
     lastNode.sep108 = param
     del param
 
-    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2018)")
+    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2017)")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -484,25 +440,37 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output1"
+    # Start of node "Output2"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setLabel("Output1")
-    lastNode.setPosition(4139, 3994)
-    lastNode.setSize(80, 48)
+    lastNode.setLabel("Output2")
+    lastNode.setPosition(4139, 3997)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput1 = lastNode
+    groupOutput2 = lastNode
 
     del lastNode
-    # End of node "Output1"
+    # End of node "Output2"
 
-    # Start of node "Shadertoy2_2"
-    lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("Shadertoy2_2")
-    lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3842)
-    lastNode.setSize(80, 48)
+    # Start of node "Source"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Source")
+    lastNode.setLabel("Source")
+    lastNode.setPosition(4139, 3697)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupShadertoy2_2 = lastNode
+    groupSource = lastNode
+
+    del lastNode
+    # End of node "Source"
+
+    # Start of node "Shadertoy1"
+    lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
+    lastNode.setScriptName("Shadertoy1")
+    lastNode.setLabel("Shadertoy1")
+    lastNode.setPosition(4139, 3855)
+    lastNode.setSize(80, 44)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupShadertoy1 = lastNode
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
@@ -514,9 +482,9 @@ def createInstance(app,group):
         param.setValue(5, 0)
         del param
 
-    param = lastNode.getParam("paramValueBool9")
+    param = lastNode.getParam("imageShaderFileName")
     if param is not None:
-        param.setValue(True)
+        param.setValue("/users/ffernandez/Natron2-3-6/Plugins/OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/Shadertoy/Crok_convolve.frag.glsl")
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -527,6 +495,11 @@ def createInstance(app,group):
     param = lastNode.getParam("mipmap0")
     if param is not None:
         param.set("nearest")
+        del param
+
+    param = lastNode.getParam("wrap0")
+    if param is not None:
+        param.set("clamp")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -639,150 +612,21 @@ def createInstance(app,group):
         param.setValue(20, 0)
         del param
 
-    param = lastNode.getParam("paramType2")
-    if param is not None:
-        param.set("bool")
-        del param
-
-    param = lastNode.getParam("paramName2")
-    if param is not None:
-        param.setValue("Ag")
-        del param
-
-    param = lastNode.getParam("paramLabel2")
-    if param is not None:
-        param.setValue("G")
-        del param
-
-    param = lastNode.getParam("paramType3")
-    if param is not None:
-        param.set("bool")
-        del param
-
-    param = lastNode.getParam("paramName3")
-    if param is not None:
-        param.setValue("Ab")
-        del param
-
-    param = lastNode.getParam("paramLabel3")
-    if param is not None:
-        param.setValue("B")
-        del param
-
-    param = lastNode.getParam("paramType4")
-    if param is not None:
-        param.set("bool")
-        del param
-
-    param = lastNode.getParam("paramName4")
-    if param is not None:
-        param.setValue("Aa")
-        del param
-
-    param = lastNode.getParam("paramLabel4")
-    if param is not None:
-        param.setValue("A")
-        del param
-
-    param = lastNode.getParam("paramType5")
-    if param is not None:
-        param.set("bool")
-        del param
-
-    param = lastNode.getParam("paramName5")
-    if param is not None:
-        param.setValue("Br")
-        del param
-
-    param = lastNode.getParam("paramLabel5")
-    if param is not None:
-        param.setValue("R")
-        del param
-
-    param = lastNode.getParam("paramType6")
-    if param is not None:
-        param.set("bool")
-        del param
-
-    param = lastNode.getParam("paramName6")
-    if param is not None:
-        param.setValue("Bg")
-        del param
-
-    param = lastNode.getParam("paramLabel6")
-    if param is not None:
-        param.setValue("G")
-        del param
-
-    param = lastNode.getParam("paramType7")
-    if param is not None:
-        param.set("bool")
-        del param
-
-    param = lastNode.getParam("paramName7")
-    if param is not None:
-        param.setValue("Bb")
-        del param
-
-    param = lastNode.getParam("paramLabel7")
-    if param is not None:
-        param.setValue("B")
-        del param
-
-    param = lastNode.getParam("paramType8")
-    if param is not None:
-        param.set("bool")
-        del param
-
-    param = lastNode.getParam("paramName8")
-    if param is not None:
-        param.setValue("Ba")
-        del param
-
-    param = lastNode.getParam("paramLabel8")
-    if param is not None:
-        param.setValue("A")
-        del param
-
-    param = lastNode.getParam("paramType9")
-    if param is not None:
-        param.set("bool")
-        del param
-
-    param = lastNode.getParam("paramName9")
-    if param is not None:
-        param.setValue("maskCheck")
-        del param
-
-    param = lastNode.getParam("paramLabel9")
-    if param is not None:
-        param.setValue("mask")
-        del param
-
     del lastNode
-    # End of node "Shadertoy2_2"
-
-    # Start of node "Source"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Source")
-    lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3641)
-    lastNode.setSize(80, 48)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupSource = lastNode
-
-    del lastNode
-    # End of node "Source"
+    # End of node "Shadertoy1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupShadertoy2_2)
-    groupShadertoy2_2.connectInput(0, groupSource)
+    groupOutput2.connectInput(0, groupShadertoy1)
+    groupShadertoy1.connectInput(0, groupSource)
 
-    param = groupShadertoy2_2.getParam("paramValueFloat0")
-    group.getParam("Shadertoy2_2paramValueFloat0").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat0")
+    group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
     del param
-    param = groupShadertoy2_2.getParam("paramValueFloat1")
-    group.getParam("Shadertoy2_2paramValueFloat1").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat1")
+    group.getParam("Shadertoy1paramValueFloat1").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("wrap0")
+    group.getParam("Shadertoy1wrap0").setAsAlias(param)
     del param
 
     try:

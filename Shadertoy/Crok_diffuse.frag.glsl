@@ -41,7 +41,7 @@
 
 
 
-uniform int itteration = 3; // Iterations : (iterations), min=1, max=100
+uniform int itteration = 50; // Iterations : (iterations), min=1, max=500
 uniform float size = 100; // Size : (size), min=0, max=10000
 
 

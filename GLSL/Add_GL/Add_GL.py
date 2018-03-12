@@ -22,7 +22,7 @@ def getLabel():
     return "Add_GL"
 
 def getVersion():
-    return 1
+    return 1.01
 
 def getIconPath():
     return "Add_GL.png"
@@ -40,7 +40,7 @@ def createInstance(app,group):
     lastNode = group
 
     # Create the user parameters
-    lastNode.Controls = lastNode.createPageParam("Controls", "Add_GL")
+    lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
     param = lastNode.createStringParam("sep01", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -69,6 +69,19 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
+    param = lastNode.createSeparatorParam("CHANNELS", "Channels")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.CHANNELS = param
+    del param
+
     param = lastNode.createStringParam("sep03", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -95,19 +108,6 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep04 = param
-    del param
-
-    param = lastNode.createSeparatorParam("line01", "")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.line01 = param
     del param
 
     param = lastNode.createStringParam("aChannels", "")
@@ -274,7 +274,7 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createSeparatorParam("line02", "")
+    param = lastNode.createSeparatorParam("LINE01", "")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -284,7 +284,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.line02 = param
+    lastNode.LINE01 = param
     del param
 
     param = lastNode.createBooleanParam("Shadertoy2_2paramValueBool9", "mask")
@@ -295,7 +295,6 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(True)
     lastNode.Shadertoy2_2paramValueBool9 = param
     del param
 
@@ -345,7 +344,7 @@ def createInstance(app,group):
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
-    param = lastNode.createStringParam("separator19", "")
+    param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -356,10 +355,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator19 = param
+    lastNode.sep101 = param
     del param
 
-    param = lastNode.createStringParam("separator20", "")
+    param = lastNode.createStringParam("sep102", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -370,10 +369,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator20 = param
+    lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("line03", "Add_GL v1.0")
+    param = lastNode.createSeparatorParam("NAME", "Add_GL v1.01")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -383,10 +382,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.line03 = param
+    lastNode.NAME = param
     del param
 
-    param = lastNode.createStringParam("separator21", "")
+    param = lastNode.createStringParam("sep103", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -397,10 +396,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator21 = param
+    lastNode.sep103 = param
     del param
 
-    param = lastNode.createStringParam("separator22", "")
+    param = lastNode.createStringParam("sep104", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -411,10 +410,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator22 = param
+    lastNode.sep104 = param
     del param
 
-    param = lastNode.createSeparatorParam("line04", "")
+    param = lastNode.createSeparatorParam("LINE101", "")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -424,10 +423,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.line04 = param
+    lastNode.LINE101 = param
     del param
 
-    param = lastNode.createStringParam("separator23", "")
+    param = lastNode.createStringParam("sep105", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -438,10 +437,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator23 = param
+    lastNode.sep105 = param
     del param
 
-    param = lastNode.createStringParam("separator24", "")
+    param = lastNode.createStringParam("sep106", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -452,7 +451,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator24 = param
+    lastNode.sep106 = param
     del param
 
     param = lastNode.createSeparatorParam("FR", "ShaderToy 0.8.8")
@@ -468,7 +467,7 @@ def createInstance(app,group):
     lastNode.FR = param
     del param
 
-    param = lastNode.createStringParam("separator25", "")
+    param = lastNode.createStringParam("sep107", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -479,10 +478,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator25 = param
+    lastNode.sep107 = param
     del param
 
-    param = lastNode.createStringParam("separator26", "")
+    param = lastNode.createStringParam("sep108", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -493,10 +492,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator26 = param
+    lastNode.sep108 = param
     del param
 
-    param = lastNode.createSeparatorParam("conversion", " (Fabrice Fernandez - 2018)")
+    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2018)")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -506,10 +505,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.conversion = param
+    lastNode.CONVERSION = param
     del param
 
-    param = lastNode.createStringParam("separator27", "")
+    param = lastNode.createStringParam("sep109", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -520,10 +519,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator27 = param
+    lastNode.sep109 = param
     del param
 
-    param = lastNode.createStringParam("separator28", "")
+    param = lastNode.createStringParam("sep110", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -534,7 +533,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.separator28 = param
+    lastNode.sep110 = param
     del param
 
     # Refresh the GUI with the newly created parameters
@@ -547,7 +546,7 @@ def createInstance(app,group):
     lastNode.setScriptName("B")
     lastNode.setLabel("B")
     lastNode.setPosition(4139, 3647)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupB = lastNode
 
@@ -559,7 +558,7 @@ def createInstance(app,group):
     lastNode.setScriptName("A")
     lastNode.setLabel("A")
     lastNode.setPosition(4286, 3845)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupA = lastNode
 
@@ -570,7 +569,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1")
     lastNode.setPosition(4139, 3994)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -582,7 +581,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy2_2")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3842)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy2_2 = lastNode
 
@@ -633,12 +632,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueBool9")
     if param is not None:
-        param.setValue(True)
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// iChannel0: B, filter = nearest\n// iChannel1: A, filter = nearest\n// iChannel2: Mask, filter = nearest\n// BBox: iChannel0\n\n\nuniform float opacity = 1; // Mix : (mix), min=0., max=1.\n\nuniform bool Ar = true; // R\nuniform bool Ag = true; // G\nuniform bool Ab = true; // B\nuniform bool Aa = true; // A\n\nuniform bool Br = true; // R\nuniform bool Bg = true; // G\nuniform bool Bb = true; // B\nuniform bool Ba = true; // A\n\nuniform bool maskCheck = false; // mask\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\n\t// source texture (upper layer)\n\tvec4 s = texture2D(iChannel1, uv);\n\t\n\t// destination texture (lower layer)\n\tvec4 d = texture2D(iChannel0, uv);\n\n\t// mask texture (mask entry)\n\tvec4 mask = texture2D(iChannel2, uv);\n\n\n\tif(Ar == false)\n\t\ts.r = 0;\n\n\tif(Ag == false)\n\t\ts.g = 0;\n\n\tif(Ab == false)\n\t\ts.b = 0;\n\n\tif(Aa == false)\n\t\ts.a = 0;\n\n\tif(Br == false)\n\t\td.r = 0;\n\n\tif(Bg == false)\n\t\td.g = 0;\n\n\tif(Bb == false)\n\t\td.b = 0;\n\n\tif(Ba == false)\n\t\td.a = 0;\n\n\t\t\n\tvec4 result = s + d;\n\n\n\n\n\tif (maskCheck)\n\t\ts.a = s.a*mask.a;\n\n\n\tfragColor = mix(d, result, s.a*opacity);\n}")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// iChannel0: B, filter = nearest\r\n// iChannel1: A, filter = nearest\r\n// iChannel2: Mask, filter = nearest\r\n// BBox: iChannel0\r\n\r\n\r\nuniform float opacity = 1; // Mix : (mix), min=0., max=1.\r\n\r\nuniform bool Ar = true; // R\r\nuniform bool Ag = true; // G\r\nuniform bool Ab = true; // B\r\nuniform bool Aa = true; // A\r\n\r\nuniform bool Br = true; // R\r\nuniform bool Bg = true; // G\r\nuniform bool Bb = true; // B\r\nuniform bool Ba = true; // A\r\n\r\nuniform bool maskCheck = false; // mask\r\n\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\r\n\tvec2 uv = fragCoord.xy / iResolution.xy;\r\n\r\n\t// source texture (upper layer)\r\n\tvec4 s = texture2D(iChannel1, uv);\r\n\t\r\n\t// destination texture (lower layer)\r\n\tvec4 d = texture2D(iChannel0, uv);\r\n\r\n\t// mask texture (mask entry)\r\n\tvec4 mask = texture2D(iChannel2, uv);\r\n\r\n\r\n\tif(Ar == false)\r\n\t\ts.r = 0;\r\n\r\n\tif(Ag == false)\r\n\t\ts.g = 0;\r\n\r\n\tif(Ab == false)\r\n\t\ts.b = 0;\r\n\r\n\tif(Aa == false)\r\n\t\ts.a = 0;\r\n\r\n\tif(Br == false)\r\n\t\td.r = 0;\r\n\r\n\tif(Bg == false)\r\n\t\td.g = 0;\r\n\r\n\tif(Bb == false)\r\n\t\td.b = 0;\r\n\r\n\tif(Ba == false)\r\n\t\td.a = 0;\r\n\r\n\t\t\r\n\tvec4 result = s + d;\r\n\r\n\r\n\r\n\r\n\tif (maskCheck)\r\n\t\ts.a = s.a*mask.a;\r\n\r\n\r\n\tfragColor = mix(d, result, s.a*opacity);\r\n}")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -914,7 +913,7 @@ def createInstance(app,group):
     lastNode.setScriptName("mask")
     lastNode.setLabel("mask")
     lastNode.setPosition(3982, 3845)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupmask = lastNode
 

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.01" encoding="UTF-8"?>
 <Package>
     <DisplayName>JB_PixelDisplace_GL</DisplayName>
     <Description>GPU accelerated Image displace effect for Shadertoy.</Description>
-    <Version>1.0</Version>
+    <Version>1.01</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.JB_PixelDisplace_GL</Name>
     <Default>script</Default>
