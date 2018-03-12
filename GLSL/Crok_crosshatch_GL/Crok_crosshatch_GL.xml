@@ -1,0 +1,10 @@
+<?xml version="1.01" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_crosshatch_GL</DisplayName>
+    <Description>Simulates a simple pencil sketch..</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_crosshatch_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
