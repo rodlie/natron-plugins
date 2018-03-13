@@ -114,7 +114,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
 ### GLSL/Color
-- <img src='/GLSL/AFX_Grade_GL/AFX_Grade_GL.png' width='32'> **[AFX_Grade_GL](/GLSL/AFX_Grade_GL/README.md)** : Based off the Nuke grade node
+- <img src='/GLSL/AFX_Grade_GL/AFX_Grade_GL.png' width='32'> **[AFX_Grade_GL](/GLSL/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
 
 - <img src='/GLSL/Crok_2color_GL/Crok_2color_GL.png' width='32'> **[Crok_2color_GL](/GLSL/Crok_2color_GL/README.md)** : Simulates a 2 color look.
 
