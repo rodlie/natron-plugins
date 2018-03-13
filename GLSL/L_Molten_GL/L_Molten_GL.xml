@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>L_Molten_GL</DisplayName>
+    <Description>Molten Metal Texture Gradient shader.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.L_Molten_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
