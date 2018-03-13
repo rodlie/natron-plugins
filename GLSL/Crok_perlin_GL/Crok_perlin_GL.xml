@@ -1,10 +1,10 @@
 <?xml version="1.01" encoding="UTF-8"?>
 <Package>
-    <DisplayName>Crok_pixelate_GL</DisplayName>
-    <Description>GPU accelerated mosaic effect for Shadertoy.</Description>
+    <DisplayName>Crok_perlin_GL</DisplayName>
+    <Description>Creates a perlin noise like pattern.</Description>
     <Version>1.01</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.Crok_pixelate_GL</Name>
+    <Name>natron.community.plugins.Crok_perlin_GL</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>

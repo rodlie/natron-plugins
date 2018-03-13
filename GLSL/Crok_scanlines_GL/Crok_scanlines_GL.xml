@@ -1,10 +1,10 @@
 <?xml version="1.01" encoding="UTF-8"?>
 <Package>
-    <DisplayName>Crok_crosshatch_GL</DisplayName>
-    <Description>Simulates a simple pencil sketch.</Description>
+    <DisplayName>Crok_scanlines_GL</DisplayName>
+    <Description>Simulates CRT phosphor / shadow mask arrangements.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.Crok_crosshatch_GL</Name>
+    <Name>natron.community.plugins.Crok_scanlines_GL</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>

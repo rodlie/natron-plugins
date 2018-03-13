@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Effect"
 
 def getPluginDescription():
-    return "GPU accelerated FX anti-aliasing effect based on Shadertoy."
+    return "GPU accelerated FX antialiasing effect based on Shadertoy."
 
 def createInstance(app,group):
     # Create all nodes in the group

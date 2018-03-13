@@ -1,3 +1,3 @@
 # FXAA_GL
 
-GPU accelerated FX anti-aliasing effect based on Shadertoy.
+GPU accelerated FX antialiasing effect based on Shadertoy.

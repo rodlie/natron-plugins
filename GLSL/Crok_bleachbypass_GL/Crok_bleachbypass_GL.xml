@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.01" encoding="UTF-8"?>
 <Package>
-    <DisplayName>Crok_bleachbypas_GL</DisplayName>
+    <DisplayName>Crok_bleachbypass_GL</DisplayName>
     <Description>GPU accelerated bleachbypass effect for Shadertoy.</Description>
-    <Version>1.0</Version>
+    <Version>1.01</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.Crok_bleachbypas_GL</Name>
+    <Name>natron.community.plugins.Crok_bleachbypass_GL</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>

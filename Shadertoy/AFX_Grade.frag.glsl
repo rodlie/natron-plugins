@@ -52,6 +52,8 @@ uniform vec3 RGBMultiply = vec3(1, 1, 1); // RGB multiply : (RGB multiply)
 
 uniform bool premultiplied = false;
 
+uniform float mixR = 1; // Mix : (mix), min=0, max=1
+
 
 
 
@@ -67,6 +69,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec2 uv = vec2(fragCoord.xy / vec2( iResolution.x, iResolution.y ));
 	vec3 	source 	= texture2D(iChannel0, uv).rgb;
 	float 	alpha	= texture2D(iChannel1, uv).r;
+	vec4	original = texture2D(iChannel0, uv);
+	vec4	tempResult = texture2D(iChannel0, uv);
 	
 	vec3 result = source;
 	
@@ -109,10 +113,16 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	result.g = luma + t_saturation * (result.g - luma);
 	result.b = luma + t_saturation * (result.b - luma);
 
-	if(premultiplied == true)
-		fragColor = 	vec4( result*vec3(alpha), alpha);
-	else
-		fragColor = 	vec4( result, alpha);
+	if(premultiplied == true){
+		tempResult = 	vec4( result*vec3(alpha), alpha);
+		fragColor = mix(original,tempResult,mixR);
+		}
+
+	else{
+		tempResult = 	vec4( result, alpha);
+		fragColor = mix(original,tempResult,mixR);
+		}
+		
 }
 
 

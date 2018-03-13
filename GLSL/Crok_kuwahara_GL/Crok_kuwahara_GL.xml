@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>FXAA_GLL</DisplayName>
-    <Description>GPU accelerated FX antialiasing effect based on Shadertoy.</Description>
+    <DisplayName>Crok_kuwahara_GL</DisplayName>
+    <Description>Simulates anisotropic kuwahara filtering.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.FXAA_GL</Name>
+    <Name>natron.community.plugins.Crok_kuwahara_GL</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>
