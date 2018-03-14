@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Ls_Contacts_GL</DisplayName>
+    <Description>Tile inputs into a grid for impressing clients, choosing versions or checking continuity.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Ls_Contacts_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

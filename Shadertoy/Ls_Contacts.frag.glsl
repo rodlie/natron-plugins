@@ -35,17 +35,27 @@
 //  o Nonsquare pixels support... eek
 //  o Variable width borders look gross, how can we get a nice even spacing?
 
-// iChannel0: Source, filter = linear
-// iChannel1: Source, filter = linear
-// iChannel2: Source, filter = linear
-// iChannel3: Source, filter = linear
-// iChannel4: Source, filter = linear
-// iChannel5: Source, filter = linear
+// iChannel0: Source1, filter = linear
+// iChannel1: Source2, filter = linear
+// iChannel2: Source3, filter = linear
+// iChannel3: Source4, filter = linear
 // BBox: iChannel0
 
-uniform int rows, cols, randomcount, seed;
-uniform bool random, perframe, filltiles;
-uniform float scale;
+
+
+uniform int rows = 2; // Rows : (rows), min=1, max=4096
+uniform int cols = 2; // Columns : (columns), min=1, max=4096
+uniform int randomcount = 4; // Use inputs up to : (max used inputs), min=1, max=4
+uniform int seed = 1; // Seed : (seed), min=1, max=4096
+
+
+uniform bool random = false; // Random : 
+uniform bool perframe = false; // New pattern per frame : 
+uniform bool filltiles = false; // Crop edges : 
+
+uniform float scale = 100; // Scale : (scale), min=0.01, max=3000
+
+
 
 
 // Mysterious dirty random number generator
@@ -107,10 +117,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 		o = texture2D(iChannel2, tilecoords);
 	} else if(tileidx == 3) {
 		o = texture2D(iChannel3, tilecoords);
-	} else if(tileidx == 4) {
-		o = texture2D(iChannel4, tilecoords);
-	} else if(tileidx == 5) {
-		o = texture2D(iChannel5, tilecoords);
 	}
 	
 	// Draw black if we're in a border area
