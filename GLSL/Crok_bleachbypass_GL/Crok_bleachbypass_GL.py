@@ -69,7 +69,7 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "exposure :")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Exposure : ")
     param.setMinimum(-10, 0)
     param.setMaximum(10, 0)
     param.setDisplayMinimum(-10, 0)
@@ -81,7 +81,6 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("exposure")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat0 = param
@@ -101,7 +100,7 @@ def createInstance(app,group):
     lastNode.sep03 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "amount :")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Amount : ")
     param.setMinimum(-10, 0)
     param.setMaximum(10, 0)
     param.setDisplayMinimum(-10, 0)
@@ -113,7 +112,6 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("amount")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat1 = param
@@ -349,7 +347,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -361,25 +359,40 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3646)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
     del lastNode
     # End of node "Source"
 
-    # Start of node "Shadertoy2"
+    # Start of node "Shadertoy1"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("Shadertoy2")
-    lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3849)
-    lastNode.setSize(80, 44)
+    lastNode.setScriptName("Shadertoy1")
+    lastNode.setLabel("Shadertoy1_2")
+    lastNode.setPosition(4139, 3836)
+    lastNode.setSize(80, 48)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupShadertoy2 = lastNode
+    groupShadertoy1 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("imageShaderFileName")
+    if param is not None:
+        param.setValue("E:/PERSO/NATRON/GIT_DEV/natron-plugins/Shadertoy/Crok_bleachbypass.frag.glsl")
+        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//                                                \r\n//                                                  \r\n//                      MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                        \r\n//                    MM.                          .MM                                \r\n//                   MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM                  \r\n//                  MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM     \r\n//                 MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                MM.  .MMM           MMMMMM     MMM.  .MM\r\n//               MM.  .MmM              MMMM      MMM.  .MM\r\n//              MM.  .MMM                 MM       MMM.  .MM\r\n//             MM.  .MMM            \t   M        MMM.  .MM\r\n//            MM.  .MMM                              MMM.  .MM\r\n//             MM.  .MMM                            MMM.  .MM\r\n//              MM.  .MMM       M                  MMM.  .MM\r\n//               MM.  .MMM      MM                MMM.  .MM\r\n//                MM.  .MMM     MMM              MMM.  .MM  \r\n//                 MM.  .MMM    MMMM            MMM.  .MM    \r\n//                  MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM      \r\n//                   MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM            \r\n//                    MM.                          .MM                 \r\n//                      MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                                      \r\n//                                                                \r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_2color Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_2color Matchbox for Autodesk Flame\r\n\r\n\r\n// iChannel0: Source, filter=nearest\r\n// BBox: iChannel0\r\n\r\n\r\nuniform float Amount = 1; // Amount : (Amount), min = 0., max = 1.\r\nuniform float Exposure = 1; // Exposure : (Exposure), min = 0., max = 5.\r\n\r\nuniform float dark_low = 0; // Dark low : (Dark low), min = 0., max = 1.\r\nuniform float dark_high = 1; // Dark high : (Dark high), min = 0., max = 5.\r\n\r\nuniform float light_low = 0; // Light low : (Light low), min = 0., max = 1.\r\nuniform float light_high = 1; // Light high : (Light high), min = 0., max = 5.\r\n\r\nuniform float contrast = 1; // Contrast : (Contrast), min = 0., max = 5.\r\nuniform float saturation = 1; // Saturation : (Saturation), min = 0., max = 1.\r\n\r\nuniform vec3 light_tint = vec3(0.0, 1.0, 1.0); // Light tint : (Light tint)\r\nuniform vec3 dark_tint = vec3(0.5, 0.0, 1.0); // Dark tint : (Dark tint)\r\n\r\n\r\nconst vec3 lumc = vec3(0.2125, 0.7154, 0.0721);\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\tvec2 uv = fragCoord.xy / iResolution.xy;\r\n\t\r\n\tvec3 original = texture2D(iChannel0, uv).rgb;\r\n\tvec3 col = original;\r\n\r\n\tfloat bri = (col.x+col.y+col.z)/3.0;\r\n\tfloat v = smoothstep(dark_low, dark_high, bri);\r\n\tcol = mix(dark_tint * bri, col, v);\r\n\t\r\n\tv = smoothstep(light_low, light_high, bri);\r\n\tcol = mix(col, min(light_tint * col, 1.0), v);\r\n\tcol = mix(original, col, Amount);\r\n\t\r\n\tvec3 avg_lum = vec3(0.5, 0.5, 0.5);\r\n\tvec3 intensity = vec3(dot(col.rgb, lumc));\r\n\tvec3 sat_color = mix(intensity, col.rgb, saturation);\r\n\tvec3 con_color = mix(avg_lum, sat_color, contrast);\r\n\tvec3 fin_col = con_color;\r\n\t\r\n\t\r\n\tfragColor = vec4(fin_col, 1.0) * Exposure;\r\n}")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_bleachbypas Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_bleachbypas Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter = nearest\n// BBox: iChannel0\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\n\nuniform float Exposure = 1; // exposure : (exposure), min=-10., max=10.\nuniform float Amount = 1; // amount : (amount), min=-10., max=10.\nconst vec4 one = vec4(1.0);\t\nconst vec4 two = vec4(2.0);\nconst vec4 lumcoeff = vec4(0.2125,0.7154,0.0721,0.0);\n\nvec4 overlay(vec4 iChannel0, vec4 src, vec4 amount)\n\n{\n\tfloat luminance = dot(src,lumcoeff);\n\tfloat mixamount = clamp((luminance - 0.45) * 10., 0., 1.);\n\tvec4 branch1 = two * src * iChannel0;\n\tvec4 branch2 = one - (two * (one - src) * (one - iChannel0));\n\tvec4 result = mix(branch1, branch2, vec4(mixamount) );\n\treturn mix(src, result, amount);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) \n{ \t\t\n\tvec2 uv = fragCoord.xy / resolution.xy;\n\tvec4 tc = texture2D(iChannel0, uv);\n\tvec4 luma = vec4(dot(tc,lumcoeff));\n\tluma = clamp(luma, 0.0, 1.0);\n\tvec4 col = overlay(luma, tc, vec4(Amount)) * Exposure;\n\tfragColor = col;\n\t\t\n} \n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -424,7 +437,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -434,17 +447,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName0")
     if param is not None:
-        param.setValue("Amount")
+        param.setValue("Exposure")
         del param
 
     param = lastNode.getParam("paramLabel0")
     if param is not None:
-        param.setValue("Amount :")
+        param.setValue("exposure :")
         del param
 
     param = lastNode.getParam("paramHint0")
     if param is not None:
-        param.setValue("Amount")
+        param.setValue("exposure")
         del param
 
     param = lastNode.getParam("paramDefaultFloat0")
@@ -454,12 +467,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMinFloat0")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-10, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat0")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType1")
@@ -469,17 +482,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName1")
     if param is not None:
-        param.setValue("Exposure")
+        param.setValue("Amount")
         del param
 
     param = lastNode.getParam("paramLabel1")
     if param is not None:
-        param.setValue("Exposure :")
+        param.setValue("amount :")
         del param
 
     param = lastNode.getParam("paramHint1")
     if param is not None:
-        param.setValue("Exposure")
+        param.setValue("amount")
         del param
 
     param = lastNode.getParam("paramDefaultFloat1")
@@ -489,272 +502,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMinFloat1")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-10, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat1")
     if param is not None:
-        param.setValue(5, 0)
-        del param
-
-    param = lastNode.getParam("paramType2")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName2")
-    if param is not None:
-        param.setValue("dark_low")
-        del param
-
-    param = lastNode.getParam("paramLabel2")
-    if param is not None:
-        param.setValue("Dark low :")
-        del param
-
-    param = lastNode.getParam("paramHint2")
-    if param is not None:
-        param.setValue("Dark low")
-        del param
-
-    param = lastNode.getParam("paramMinFloat2")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat2")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramType3")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName3")
-    if param is not None:
-        param.setValue("dark_high")
-        del param
-
-    param = lastNode.getParam("paramLabel3")
-    if param is not None:
-        param.setValue("Dark high :")
-        del param
-
-    param = lastNode.getParam("paramHint3")
-    if param is not None:
-        param.setValue("Dark high")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat3")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat3")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat3")
-    if param is not None:
-        param.setValue(5, 0)
-        del param
-
-    param = lastNode.getParam("paramType4")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName4")
-    if param is not None:
-        param.setValue("light_low")
-        del param
-
-    param = lastNode.getParam("paramLabel4")
-    if param is not None:
-        param.setValue("Light low :")
-        del param
-
-    param = lastNode.getParam("paramHint4")
-    if param is not None:
-        param.setValue("Light low")
-        del param
-
-    param = lastNode.getParam("paramMinFloat4")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat4")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramType5")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName5")
-    if param is not None:
-        param.setValue("light_high")
-        del param
-
-    param = lastNode.getParam("paramLabel5")
-    if param is not None:
-        param.setValue("Light high :")
-        del param
-
-    param = lastNode.getParam("paramHint5")
-    if param is not None:
-        param.setValue("Light high")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat5")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat5")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat5")
-    if param is not None:
-        param.setValue(5, 0)
-        del param
-
-    param = lastNode.getParam("paramType6")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName6")
-    if param is not None:
-        param.setValue("contrast")
-        del param
-
-    param = lastNode.getParam("paramLabel6")
-    if param is not None:
-        param.setValue("Contrast :")
-        del param
-
-    param = lastNode.getParam("paramHint6")
-    if param is not None:
-        param.setValue("Contrast")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat6")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat6")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat6")
-    if param is not None:
-        param.setValue(5, 0)
-        del param
-
-    param = lastNode.getParam("paramType7")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName7")
-    if param is not None:
-        param.setValue("saturation")
-        del param
-
-    param = lastNode.getParam("paramLabel7")
-    if param is not None:
-        param.setValue("Saturation :")
-        del param
-
-    param = lastNode.getParam("paramHint7")
-    if param is not None:
-        param.setValue("Saturation")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat7")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat7")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat7")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramType8")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName8")
-    if param is not None:
-        param.setValue("light_tint")
-        del param
-
-    param = lastNode.getParam("paramLabel8")
-    if param is not None:
-        param.setValue("Light tint :")
-        del param
-
-    param = lastNode.getParam("paramHint8")
-    if param is not None:
-        param.setValue("Light tint")
-        del param
-
-    param = lastNode.getParam("paramDefaultVec38")
-    if param is not None:
-        param.setValue(1, 1)
-        param.setValue(1, 2)
-        del param
-
-    param = lastNode.getParam("paramType9")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName9")
-    if param is not None:
-        param.setValue("dark_tint")
-        del param
-
-    param = lastNode.getParam("paramLabel9")
-    if param is not None:
-        param.setValue("Dark tint :")
-        del param
-
-    param = lastNode.getParam("paramHint9")
-    if param is not None:
-        param.setValue("Dark tint")
-        del param
-
-    param = lastNode.getParam("paramDefaultVec39")
-    if param is not None:
-        param.setValue(0.5, 0)
-        param.setValue(1, 2)
+        param.setValue(10, 0)
         del param
 
     del lastNode
-    # End of node "Shadertoy2"
+    # End of node "Shadertoy1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy2)
-    groupShadertoy2.connectInput(0, groupSource)
+    groupOutput2.connectInput(0, groupShadertoy1)
+    groupShadertoy1.connectInput(0, groupSource)
+
+    param = groupShadertoy1.getParam("paramValueFloat0")
+    group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("paramValueFloat1")
+    group.getParam("Shadertoy1paramValueFloat1").setAsAlias(param)
+    del param
 
     try:
         extModule = sys.modules["Crok_bleachbypass_GLExt"]
