@@ -347,7 +347,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 50)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -358,8 +358,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3646)
-    lastNode.setSize(80, 43)
+    lastNode.setPosition(4139, 3649)
+    lastNode.setSize(90, 50)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -369,9 +369,9 @@ def createInstance(app,group):
     # Start of node "Shadertoy1"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
-    lastNode.setLabel("Shadertoy1_2")
-    lastNode.setPosition(4139, 3836)
-    lastNode.setSize(80, 48)
+    lastNode.setLabel("Shadertoy1")
+    lastNode.setPosition(4139, 3863)
+    lastNode.setSize(90, 50)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -385,14 +385,9 @@ def createInstance(app,group):
         param.setValue(1, 0)
         del param
 
-    param = lastNode.getParam("imageShaderFileName")
-    if param is not None:
-        param.setValue("E:/PERSO/NATRON/GIT_DEV/natron-plugins/Shadertoy/Crok_bleachbypass.frag.glsl")
-        del param
-
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_bleachbypas Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_bleachbypas Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter = nearest\n// BBox: iChannel0\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\n\nuniform float Exposure = 1; // exposure : (exposure), min=-10., max=10.\nuniform float Amount = 1; // amount : (amount), min=-10., max=10.\nconst vec4 one = vec4(1.0);\t\nconst vec4 two = vec4(2.0);\nconst vec4 lumcoeff = vec4(0.2125,0.7154,0.0721,0.0);\n\nvec4 overlay(vec4 iChannel0, vec4 src, vec4 amount)\n\n{\n\tfloat luminance = dot(src,lumcoeff);\n\tfloat mixamount = clamp((luminance - 0.45) * 10., 0., 1.);\n\tvec4 branch1 = two * src * iChannel0;\n\tvec4 branch2 = one - (two * (one - src) * (one - iChannel0));\n\tvec4 result = mix(branch1, branch2, vec4(mixamount) );\n\treturn mix(src, result, amount);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) \n{ \t\t\n\tvec2 uv = fragCoord.xy / resolution.xy;\n\tvec4 tc = texture2D(iChannel0, uv);\n\tvec4 luma = vec4(dot(tc,lumcoeff));\n\tluma = clamp(luma, 0.0, 1.0);\n\tvec4 col = overlay(luma, tc, vec4(Amount)) * Exposure;\n\tfragColor = col;\n\t\t\n} \n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_bleachbypas Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_bleachbypas Matchbox for Autodesk Flame\n\n\n// iChannel0: rgb, filter = nearest\n// BBox: iChannel0\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\n\n\nuniform float Exposure = 1; // exposure : (exposure), min=-10., max=10.\nuniform float Amount = 1; // amount : (amount), min=-10., max=10.\nconst vec4 one = vec4(1.0);\t\nconst vec4 two = vec4(2.0);\nconst vec4 lumcoeff = vec4(0.2125,0.7154,0.0721,0.0);\n\nvec4 overlay(vec4 source, vec4 src, vec4 amount)\n\n{\n\tfloat luminance = dot(src,lumcoeff);\n\tfloat mixamount = clamp((luminance - 0.45) * 10., 0., 1.);\n\tvec4 branch1 = two * src * source;\n\tvec4 branch2 = one - (two * (one - src) * (one - source));\n\tvec4 result = mix(branch1, branch2, vec4(mixamount) );\n\treturn mix(src, result, amount);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) \n{ \t\t\n\tvec2 uv = fragCoord.xy / resolution.xy;\n\tvec4 tc = texture2D(iChannel0, uv);\n\tvec4 luma = vec4(dot(tc,lumcoeff));\n\tluma = clamp(luma, 0.0, 1.0);\n\tvec4 col = overlay(luma, tc, vec4(Amount)) * Exposure;\n\tfragColor = col;\n\t\t\n} \n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -400,9 +395,14 @@ def createInstance(app,group):
         param.set("nearest")
         del param
 
+    param = lastNode.getParam("wrap0")
+    if param is not None:
+        param.set("clamp")
+        del param
+
     param = lastNode.getParam("inputLabel0")
     if param is not None:
-        param.setValue("Source")
+        param.setValue("rgb")
         del param
 
     param = lastNode.getParam("inputEnable1")
