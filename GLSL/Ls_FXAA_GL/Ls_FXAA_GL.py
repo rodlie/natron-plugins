@@ -28,7 +28,7 @@ def getIconPath():
     return "Ls_FXAA_GL.png"
 
 def getGrouping():
-    return "Community/Ls_GLSL/Effect"
+    return "Community/GLSL/Effect"
 
 def getPluginDescription():
     return "Fast cheap antialiasing."
