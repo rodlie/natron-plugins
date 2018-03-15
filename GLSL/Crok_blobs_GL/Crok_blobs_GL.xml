@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_blobs_GL</DisplayName>
+    <Description>Creates blob like sturctures.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_blobs_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
