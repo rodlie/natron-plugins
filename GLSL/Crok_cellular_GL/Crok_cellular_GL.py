@@ -16,7 +16,7 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "natron.community.plugins.Crok_plasnoid_GL"
+    return "natron.community.plugins.Crok_cellular_GL"
 
 def getLabel():
     return "Crok_cellular_GL"
