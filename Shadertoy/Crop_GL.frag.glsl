@@ -37,10 +37,10 @@
 // iChannel1: Mask, filter = nearest, wrap = clamp
 
 
-uniform float crop_t; // Top : (top), min=0, max=1000
-uniform float crop_b; // Bottom : (bottom), min=0, max=1000
-uniform float crop_l; // Left : (left), min=0, max=1000
-uniform float crop_r; // Right : (righ), min=0, max=1000
+uniform float crop_t; // Top : (top), min=0, max=10000
+uniform float crop_b; // Bottom : (bottom), min=0, max=10000
+uniform float crop_l; // Left : (left), min=0, max=10000
+uniform float crop_r; // Right : (righ), min=0, max=10000
 
 
 

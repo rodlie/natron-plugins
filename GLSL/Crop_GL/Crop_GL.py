@@ -69,20 +69,19 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat0", "Top : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Top : ")
     param.setMinimum(0, 0)
-    param.setMaximum(1000, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1000, 0)
+    param.setDisplayMaximum(4000, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("top crop")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueFloat0 = param
+    lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -99,20 +98,19 @@ def createInstance(app,group):
     lastNode.sep03 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat1", "Bottom : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Bottom : ")
     param.setMinimum(0, 0)
-    param.setMaximum(1000, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1000, 0)
+    param.setDisplayMaximum(4000, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("bottom crop")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueFloat1 = param
+    lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
     param = lastNode.createStringParam("sep04", "")
@@ -129,20 +127,19 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat2", "Left : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat2", "Left : ")
     param.setMinimum(0, 0)
-    param.setMaximum(1000, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1000, 0)
+    param.setDisplayMaximum(4000, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("left crop")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueFloat2 = param
+    lastNode.Shadertoy1paramValueFloat2 = param
     del param
 
     param = lastNode.createStringParam("sep06", "")
@@ -159,20 +156,19 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat3", "Right : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "Right : ")
     param.setMinimum(0, 0)
-    param.setMaximum(1000, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1000, 0)
+    param.setDisplayMaximum(4000, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("righ crop")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueFloat3 = param
+    lastNode.Shadertoy1paramValueFloat3 = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -244,7 +240,7 @@ def createInstance(app,group):
     lastNode.sep09 = param
     del param
 
-    param = lastNode.createDouble2DParam("Shadertoy2paramValueVec24", "Offset : ")
+    param = lastNode.createDouble2DParam("Shadertoy1paramValueVec24", "Offset : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -252,8 +248,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(600, 0)
-    lastNode.Shadertoy2paramValueVec24 = param
+    lastNode.Shadertoy1paramValueVec24 = param
     del param
 
     param = lastNode.createStringParam("sep10", "")
@@ -325,7 +320,7 @@ def createInstance(app,group):
     lastNode.sep13 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy2paramValueBool6", "Enable : ")
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool6", "Enable : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -333,7 +328,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueBool6 = param
+    lastNode.Shadertoy1paramValueBool6 = param
     del param
 
     param = lastNode.createStringParam("sep14", "")
@@ -350,7 +345,7 @@ def createInstance(app,group):
     lastNode.sep14 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat7", "Size : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat7", "Size : ")
     param.setMinimum(0, 0)
     param.setMaximum(5000, 0)
     param.setDisplayMinimum(0, 0)
@@ -364,7 +359,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueFloat7 = param
+    lastNode.Shadertoy1paramValueFloat7 = param
     del param
 
     param = lastNode.createStringParam("sep15", "")
@@ -381,7 +376,7 @@ def createInstance(app,group):
     lastNode.sep15 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat8", "Transparency : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat8", "Transparency : ")
     param.setMinimum(0, 0)
     param.setMaximum(99.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
@@ -395,7 +390,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueFloat8 = param
+    lastNode.Shadertoy1paramValueFloat8 = param
     del param
 
     param = lastNode.createStringParam("sep19", "")
@@ -412,16 +407,15 @@ def createInstance(app,group):
     lastNode.sep19 = param
     del param
 
-    param = lastNode.createColorParam("Shadertoy2paramValueVec39", "Color : ", False)
+    param = lastNode.createColorParam("Shadertoy1paramValueVec39", "Color : ", False)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("border color")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueVec39 = param
+    lastNode.Shadertoy1paramValueVec39 = param
     del param
 
     param = lastNode.createStringParam("sep20", "")
@@ -479,17 +473,6 @@ def createInstance(app,group):
     lastNode.sep22 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy2paramValueBool5", "Invert crop : ")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy2paramValueBool5 = param
-    del param
-
     param = lastNode.createStringParam("sep23", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -504,16 +487,15 @@ def createInstance(app,group):
     lastNode.sep23 = param
     del param
 
-    param = lastNode.createChoiceParam("Shadertoy2wrap0", "Edge extend : ")
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool5", "Invert crop : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
     param.setAddNewLine(True)
-    param.setAnimationEnabled(False)
-    param.set("clamp")
-    lastNode.Shadertoy2wrap0 = param
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueBool5 = param
     del param
 
     param = lastNode.createStringParam("sep24", "")
@@ -530,6 +512,23 @@ def createInstance(app,group):
     lastNode.sep24 = param
     del param
 
+    param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edge extend : ")
+    entries = [ ("repeat", "WRAP_S/T = GL_REPEAT"),
+    ("clamp", "WRAP_S/T = GL_CLAMP_TO_EDGE"),
+    ("mirror", "WRAP_S/T = GL_MIRRORED_REPEAT")]
+    param.setOptions(entries)
+    del entries
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Texture wrap parameter for this input.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1wrap0 = param
+    del param
+
     param = lastNode.createStringParam("sep25", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -542,6 +541,20 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep25 = param
+    del param
+
+    param = lastNode.createStringParam("sep26", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep26 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -745,22 +758,46 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4129, 4074)
-    lastNode.setSize(80, 30)
+    lastNode.setPosition(4092, 4058)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
     del lastNode
     # End of node "Output1"
 
-    # Start of node "Shadertoy2"
-    lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("Shadertoy2")
-    lastNode.setLabel("Shadertoy2")
-    lastNode.setPosition(4129, 3851)
-    lastNode.setSize(80, 44)
+    # Start of node "Source"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Source")
+    lastNode.setLabel("Source")
+    lastNode.setPosition(3989, 3684)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupShadertoy2 = lastNode
+    groupSource = lastNode
+
+    del lastNode
+    # End of node "Source"
+
+    # Start of node "Mask"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Mask")
+    lastNode.setLabel("Mask")
+    lastNode.setPosition(4171, 3683)
+    lastNode.setSize(90, 33)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupMask = lastNode
+
+    del lastNode
+    # End of node "Mask"
+
+    # Start of node "Shadertoy1"
+    lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
+    lastNode.setScriptName("Shadertoy1")
+    lastNode.setLabel("Shadertoy1")
+    lastNode.setPosition(4092, 3825)
+    lastNode.setSize(90, 50)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupShadertoy1 = lastNode
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
@@ -784,7 +821,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec24")
     if param is not None:
-        param.setValue(600, 0)
+        param.setValue(0, 0)
         param.setValue(0, 1)
         del param
 
@@ -817,17 +854,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : id_Croptastic Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : id_Croptastic Matchbox for Autodesk Flame\n\n// Croptastic (C)2017 Bob Maple\n// bobm-matchbox [at] idolum.com\n\n\n// iChannel0: Source, filter = nearest, wrap = clamp\n// iChannel1: Mask, filter = nearest, wrap = clamp\n\n\nuniform float crop_t; // Top : (top), min=0, max=1000\nuniform float crop_b; // Bottom : (bottom), min=0, max=1000\nuniform float crop_l; // Left : (left), min=0, max=1000\nuniform float crop_r; // Right : (righ), min=0, max=1000\n\n\n\nuniform vec2 offset_xy = vec(0.0,0.0);\n\n\n\nuniform bool invert = false; // Invert crop : (invert crop)\nuniform bool border = false; // Border : (border)\nbool border_overadv = false;\n\n\n\nuniform float border_size = 20.0; // Border size : (border size), min=0, max=5000\n\n\nbool aborder_l = false;\nbool aborder_r = false;\nbool aborder_t = false;\nbool aborder_b = false;\n\n\nuniform     float  aborder_lsize, aborder_rsize, aborder_tsize, aborder_bsize;\n\n\nfloat aborder_ltrans = 0;\nfloat aborder_rtrans = 0;\nfloat aborder_ttrans = 0;\nfloat aborder_btrans = 0;\n\n\nuniform float border_trans = 50; // Border transparency : (border transparency), min=0.0, max=100.0\n\n\nvec3 aborder_lcolor = vec3(0,0,0);\nvec3 aborder_rcolor = vec3(0,0,0);\nvec3 aborder_tcolor = vec3(0,0,0);\nvec3 aborder_bcolor = vec3(0,0,0);\n\n\nuniform vec3 border_color = vec3(0,0,0);\n\n\n// Global variables\n\nvec4 npx;\n\n\n//\n\nvoid do_border(vec2 fragCoord) {\n\n    if( (fragCoord.x >= crop_l && fragCoord.x <= crop_l + border_size) || (fragCoord.x <= (iResolution.x - crop_r) && fragCoord.x >= (iResolution.x - crop_r) - border_size) )\n        if( fragCoord.y >= crop_b && fragCoord.y <= iResolution.y - crop_t )\n            npx = vec4( mix( npx, vec4( border_color, 1.0 ), (border_trans / 100.0) ) );\n\n    if( (fragCoord.y >= crop_b && fragCoord.y <= crop_b + border_size) || (fragCoord.y <= (iResolution.y - crop_t) && fragCoord.y >= (iResolution.y - crop_t) - border_size) )\n        if( fragCoord.x >= crop_l + border_size && fragCoord.x <= (iResolution.x - crop_r) - border_size )\n            npx = vec4( mix( npx, vec4( border_color, 1.0 ), (border_trans / 100.0) ) );\n}\n\n//\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n    // Convert pixel coords to UV position for texture2D,\n    // fetch the fill and matte pixels and combine them into px\n\n    vec2 uv  = (fragCoord.xy - offset_xy) / vec2( iResolution.x, iResolution.y );\n    vec4 px  = vec4( texture2D( iChannel0, uv ).rgb, texture2D( iChannel1, uv ).g );\n\n    vec4 blk = vec4( 0.0, 0.0, 0.0, 0.0 );\n\n    // Initialize this pixel to either the input pixel or black\n\n    npx = invert ? blk : px;\n\n    // Do the cropping\n\n    if( fragCoord.x < crop_l )\n        npx = invert ? px : blk;\n    if( fragCoord.x > iResolution.x - crop_r )\n        npx = invert ? px : blk;\n\n    if( fragCoord.y > iResolution.y - crop_t )\n        npx = invert ? px : blk;\n    if( fragCoord.y < crop_b )\n        npx = invert ? px : blk;\n\n    // Draw standard border if it\'s supposed to be underneath\n\n    if( border && !border_overadv )\n        do_border(fragCoord);\n\n\n    // Draw Advanced Borders\n\n    if( aborder_l ) {\n\n        if( (fragCoord.x >= crop_l && fragCoord.x <= crop_l + aborder_lsize) && (fragCoord.y >= crop_b && fragCoord.y <= iResolution.y - crop_t) )\n            npx = vec4( mix( npx, vec4( aborder_lcolor, 1.0 ), (aborder_ltrans / 100.0) ) );\n    }\n\n    if( aborder_r ) {\n\n        if( (fragCoord.x <= (iResolution.x - crop_r) && fragCoord.x >= (iResolution.x - crop_r) - aborder_rsize) && (fragCoord.y >= crop_b && fragCoord.y <= iResolution.y - crop_t) )\n            npx = vec4( mix( npx, vec4( aborder_rcolor, 1.0 ), (aborder_rtrans / 100.0) ) );\n    }\n\n    if( aborder_t ) {\n\n        if( (fragCoord.y <= (iResolution.y - crop_t) && fragCoord.y >= (iResolution.y - crop_t) - aborder_tsize) && (fragCoord.x >= crop_l && fragCoord.x <= iResolution.x - crop_r) )\n            npx = vec4( mix( npx, vec4( aborder_tcolor, 1.0 ), (aborder_ttrans / 100.0) ) );\n    }\n\n    if( aborder_b ) {\n\n        if( (fragCoord.y >= crop_b && fragCoord.y <= crop_b + aborder_bsize) && (fragCoord.x >= crop_l && fragCoord.x <= iResolution.x - crop_r) )\n            npx = vec4( mix( npx, vec4( aborder_bcolor, 1.0 ), (aborder_btrans / 100.0) ) );\n    }\n\n\n    // Draw standard border if it\'s supposed to be on top\n\n    if( border && border_overadv )\n        do_border(fragCoord);\n\n    fragColor = npx;\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : id_Croptastic Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : id_Croptastic Matchbox for Autodesk Flame\n\n// Croptastic (C)2017 Bob Maple\n// bobm-matchbox [at] idolum.com\n\n\n// iChannel0: Source, filter = nearest, wrap = clamp\n// iChannel1: Mask, filter = nearest, wrap = clamp\n\n\nuniform float crop_t; // Top : (top), min=0, max=10000\nuniform float crop_b; // Bottom : (bottom), min=0, max=10000\nuniform float crop_l; // Left : (left), min=0, max=10000\nuniform float crop_r; // Right : (righ), min=0, max=10000\n\n\n\nuniform vec2 offset_xy = vec(0.0,0.0);\n\n\n\nuniform bool invert = false; // Invert crop : (invert crop)\nuniform bool border = false; // Border : (border)\nbool border_overadv = false;\n\n\n\nuniform float border_size = 20.0; // Border size : (border size), min=0, max=5000\n\n\nbool aborder_l = false;\nbool aborder_r = false;\nbool aborder_t = false;\nbool aborder_b = false;\n\n\nuniform     float  aborder_lsize, aborder_rsize, aborder_tsize, aborder_bsize;\n\n\nfloat aborder_ltrans = 0;\nfloat aborder_rtrans = 0;\nfloat aborder_ttrans = 0;\nfloat aborder_btrans = 0;\n\n\nuniform float border_trans = 50; // Border transparency : (border transparency), min=0.0, max=100.0\n\n\nvec3 aborder_lcolor = vec3(0,0,0);\nvec3 aborder_rcolor = vec3(0,0,0);\nvec3 aborder_tcolor = vec3(0,0,0);\nvec3 aborder_bcolor = vec3(0,0,0);\n\n\nuniform vec3 border_color = vec3(0,0,0);\n\n\n// Global variables\n\nvec4 npx;\n\n\n//\n\nvoid do_border(vec2 fragCoord) {\n\n    if( (fragCoord.x >= crop_l && fragCoord.x <= crop_l + border_size) || (fragCoord.x <= (iResolution.x - crop_r) && fragCoord.x >= (iResolution.x - crop_r) - border_size) )\n        if( fragCoord.y >= crop_b && fragCoord.y <= iResolution.y - crop_t )\n            npx = vec4( mix( npx, vec4( border_color, 1.0 ), (border_trans / 100.0) ) );\n\n    if( (fragCoord.y >= crop_b && fragCoord.y <= crop_b + border_size) || (fragCoord.y <= (iResolution.y - crop_t) && fragCoord.y >= (iResolution.y - crop_t) - border_size) )\n        if( fragCoord.x >= crop_l + border_size && fragCoord.x <= (iResolution.x - crop_r) - border_size )\n            npx = vec4( mix( npx, vec4( border_color, 1.0 ), (border_trans / 100.0) ) );\n}\n\n//\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n    // Convert pixel coords to UV position for texture2D,\n    // fetch the fill and matte pixels and combine them into px\n\n    vec2 uv  = (fragCoord.xy - offset_xy) / vec2( iResolution.x, iResolution.y );\n    vec4 px  = vec4( texture2D( iChannel0, uv ).rgb, texture2D( iChannel1, uv ).g );\n\n    vec4 blk = vec4( 0.0, 0.0, 0.0, 0.0 );\n\n    // Initialize this pixel to either the input pixel or black\n\n    npx = invert ? blk : px;\n\n    // Do the cropping\n\n    if( fragCoord.x < crop_l )\n        npx = invert ? px : blk;\n    if( fragCoord.x > iResolution.x - crop_r )\n        npx = invert ? px : blk;\n\n    if( fragCoord.y > iResolution.y - crop_t )\n        npx = invert ? px : blk;\n    if( fragCoord.y < crop_b )\n        npx = invert ? px : blk;\n\n    // Draw standard border if it\'s supposed to be underneath\n\n    if( border && !border_overadv )\n        do_border(fragCoord);\n\n\n    // Draw Advanced Borders\n\n    if( aborder_l ) {\n\n        if( (fragCoord.x >= crop_l && fragCoord.x <= crop_l + aborder_lsize) && (fragCoord.y >= crop_b && fragCoord.y <= iResolution.y - crop_t) )\n            npx = vec4( mix( npx, vec4( aborder_lcolor, 1.0 ), (aborder_ltrans / 100.0) ) );\n    }\n\n    if( aborder_r ) {\n\n        if( (fragCoord.x <= (iResolution.x - crop_r) && fragCoord.x >= (iResolution.x - crop_r) - aborder_rsize) && (fragCoord.y >= crop_b && fragCoord.y <= iResolution.y - crop_t) )\n            npx = vec4( mix( npx, vec4( aborder_rcolor, 1.0 ), (aborder_rtrans / 100.0) ) );\n    }\n\n    if( aborder_t ) {\n\n        if( (fragCoord.y <= (iResolution.y - crop_t) && fragCoord.y >= (iResolution.y - crop_t) - aborder_tsize) && (fragCoord.x >= crop_l && fragCoord.x <= iResolution.x - crop_r) )\n            npx = vec4( mix( npx, vec4( aborder_tcolor, 1.0 ), (aborder_ttrans / 100.0) ) );\n    }\n\n    if( aborder_b ) {\n\n        if( (fragCoord.y >= crop_b && fragCoord.y <= crop_b + aborder_bsize) && (fragCoord.x >= crop_l && fragCoord.x <= iResolution.x - crop_r) )\n            npx = vec4( mix( npx, vec4( aborder_bcolor, 1.0 ), (aborder_btrans / 100.0) ) );\n    }\n\n\n    // Draw standard border if it\'s supposed to be on top\n\n    if( border && border_overadv )\n        do_border(fragCoord);\n\n    fragColor = npx;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
     if param is not None:
         param.set("nearest")
-        del param
-
-    param = lastNode.getParam("wrap0")
-    if param is not None:
-        param.set("clamp")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -897,7 +929,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat0")
     if param is not None:
-        param.setValue(1000, 0)
+        param.setValue(10000, 0)
         del param
 
     param = lastNode.getParam("paramType1")
@@ -927,7 +959,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat1")
     if param is not None:
-        param.setValue(1000, 0)
+        param.setValue(10000, 0)
         del param
 
     param = lastNode.getParam("paramType2")
@@ -957,7 +989,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(1000, 0)
+        param.setValue(10000, 0)
         del param
 
     param = lastNode.getParam("paramType3")
@@ -987,7 +1019,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat3")
     if param is not None:
-        param.setValue(1000, 0)
+        param.setValue(10000, 0)
         del param
 
     param = lastNode.getParam("paramType4")
@@ -1131,69 +1163,42 @@ def createInstance(app,group):
         del param
 
     del lastNode
-    # End of node "Shadertoy2"
-
-    # Start of node "Source"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Source")
-    lastNode.setLabel("Source")
-    lastNode.setPosition(4056, 3680)
-    lastNode.setSize(80, 44)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupSource = lastNode
-
-    del lastNode
-    # End of node "Source"
-
-    # Start of node "Mask"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Mask")
-    lastNode.setLabel("Mask")
-    lastNode.setPosition(4202, 3674)
-    lastNode.setSize(80, 44)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupMask = lastNode
-
-    del lastNode
-    # End of node "Mask"
+    # End of node "Shadertoy1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupShadertoy2)
-    groupShadertoy2.connectInput(0, groupSource)
-    groupShadertoy2.connectInput(1, groupMask)
+    groupOutput1.connectInput(0, groupShadertoy1)
+    groupShadertoy1.connectInput(0, groupSource)
+    groupShadertoy1.connectInput(1, groupMask)
 
-    param = groupShadertoy2.getParam("paramValueFloat0")
-    group.getParam("Shadertoy2paramValueFloat0").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat0")
+    group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueFloat1")
-    group.getParam("Shadertoy2paramValueFloat1").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat1")
+    group.getParam("Shadertoy1paramValueFloat1").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueFloat2")
-    group.getParam("Shadertoy2paramValueFloat2").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat2")
+    group.getParam("Shadertoy1paramValueFloat2").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueFloat3")
-    group.getParam("Shadertoy2paramValueFloat3").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat3")
+    group.getParam("Shadertoy1paramValueFloat3").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueVec24")
-    group.getParam("Shadertoy2paramValueVec24").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueVec24")
+    group.getParam("Shadertoy1paramValueVec24").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueBool5")
-    group.getParam("Shadertoy2paramValueBool5").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueBool5")
+    group.getParam("Shadertoy1paramValueBool5").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueBool6")
-    group.getParam("Shadertoy2paramValueBool6").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueBool6")
+    group.getParam("Shadertoy1paramValueBool6").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueFloat7")
-    group.getParam("Shadertoy2paramValueFloat7").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat7")
+    group.getParam("Shadertoy1paramValueFloat7").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueFloat8")
-    group.getParam("Shadertoy2paramValueFloat8").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat8")
+    group.getParam("Shadertoy1paramValueFloat8").setAsAlias(param)
     del param
-    param = groupShadertoy2.getParam("paramValueVec39")
-    group.getParam("Shadertoy2paramValueVec39").setAsAlias(param)
-    del param
-    param = groupShadertoy2.getParam("wrap0")
-    group.getParam("Shadertoy2wrap0").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueVec39")
+    group.getParam("Shadertoy1paramValueVec39").setAsAlias(param)
     del param
 
     try:
