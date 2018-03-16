@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crop_GL</DisplayName>
+    <Description>A simple image cropper with built-in 2D texture offset and borders.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crop_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

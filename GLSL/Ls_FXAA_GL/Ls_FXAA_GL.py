@@ -19,7 +19,7 @@ def getPluginID():
     return "natron.community.plugins.Ls_FXAA_GL"
 
 def getLabel():
-    return "FXAA_GL"
+    return "Ls_FXAA_GL"
 
 def getVersion():
     return 1.0
