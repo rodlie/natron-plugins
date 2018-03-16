@@ -513,17 +513,11 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edge extend : ")
-    entries = [ ("repeat", "WRAP_S/T = GL_REPEAT"),
-    ("clamp", "WRAP_S/T = GL_CLAMP_TO_EDGE"),
-    ("mirror", "WRAP_S/T = GL_MIRRORED_REPEAT")]
-    param.setOptions(entries)
-    del entries
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("Texture wrap parameter for this input.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
     lastNode.Shadertoy1wrap0 = param
@@ -543,6 +537,18 @@ def createInstance(app,group):
     lastNode.sep25 = param
     del param
 
+    param = lastNode.createChoiceParam("Shadertoy1mipmap0", "Filter : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    param.set("nearest")
+    lastNode.Shadertoy1mipmap0 = param
+    del param
+
     param = lastNode.createStringParam("sep26", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -555,6 +561,20 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep26 = param
+    del param
+
+    param = lastNode.createStringParam("sep27", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep27 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -759,7 +779,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4092, 4058)
-    lastNode.setSize(90, 33)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -771,7 +791,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(3989, 3684)
-    lastNode.setSize(90, 33)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -783,7 +803,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
     lastNode.setPosition(4171, 3683)
-    lastNode.setSize(90, 33)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
 
@@ -795,7 +815,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4092, 3825)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 43)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -860,6 +880,11 @@ def createInstance(app,group):
     param = lastNode.getParam("mipmap0")
     if param is not None:
         param.set("nearest")
+        del param
+
+    param = lastNode.getParam("wrap0")
+    if param is not None:
+        param.set("repeat")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -1199,6 +1224,12 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueVec39")
     group.getParam("Shadertoy1paramValueVec39").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("mipmap0")
+    group.getParam("Shadertoy1mipmap0").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("wrap0")
+    group.getParam("Shadertoy1wrap0").setAsAlias(param)
     del param
 
     try:
