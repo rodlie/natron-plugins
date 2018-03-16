@@ -533,6 +533,8 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(4, 0)
+    param.setValue(1.7, 1)
     lastNode.Shadertoy1paramValueVec310 = param
     del param
 
@@ -884,7 +886,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4188)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -911,67 +913,11 @@ def createInstance(app,group):
         param.setValue(True)
         del param
 
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(49.99999999999999, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueInt4")
-    if param is not None:
-        param.setValue(10, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat5")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat6")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat7")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat8")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat9")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
     param = lastNode.getParam("paramValueVec310")
     if param is not None:
-        param.setValue(1, 0)
-        param.setValue(1, 1)
+        param.setValue(4, 0)
+        param.setValue(1.7, 1)
         param.setValue(1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec211")
-    if param is not None:
-        param.setValue(0.5, 0)
-        param.setValue(0.5, 1)
         del param
 
     param = lastNode.getParam("imageShaderSource")
