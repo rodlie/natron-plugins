@@ -113,6 +113,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### GLSL/Channel
 - <img src='/GLSL/JB_multiMatteManager_GL/JB_multiMatteManager_GL.png' width='32'> **[JB_multiMatteManager_GL](/GLSL/JB_multiMatteManager_GL/README.md)** : Manages up to four inputs RGB to output one combined mulitmatte with alpha.
 
+- <img src='/GLSL/K_RgbcmyMatte_GL/K_RgbcmyMatte_GL.png' width='32'> **[K_RgbcmyMatte_GL](/GLSL/K_RgbcmyMatte_GL/README.md)** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
+
 - <img src='/GLSL/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
 ### GLSL/Color
