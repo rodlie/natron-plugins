@@ -24,10 +24,10 @@
 //
 //
 // Adaptation pour Natron par F. Fernandez
-// Code original : Ls_Postmatte Matchbox pour Autodesk Flame
+// Code original : Ls_Posmatte Matchbox pour Autodesk Flame
 
 // Adapted to Natron by F.Fernandez
-// Original code : Ls_Postmatte Matchbox for Autodesk Flame
+// Original code : Ls_Posmatte Matchbox for Autodesk Flame
 
 // Pick an ellipsoidal area matte from an XYZ position pass
 // lewis@lewissaunders.com
@@ -37,27 +37,30 @@
 //  o Cube-shaped matte - with rounded corners?
 
 
-// iChannel0: front, filter = nearest, wrap0 = clamp
-// iChannel1: matte, filter = nearest, wrap1 = clamp
-// iChannel2: position, filter = nearest, wrap1 = clamp
+// iChannel0: Source, filter = linear, wrap0 = clamp
+// iChannel1: Mask, filter = nearest, wrap1 = clamp
+// iChannel2: Position pass, filter = nearest, wrap1 = clamp
 
 
 
-uniform vec3 pick; // Pick color
-uniform vec3 overlaycol; // Overlay color
+uniform vec3 pick; // Pick centre : 
 
-uniform float tolerance; // Tolerance
-uniform float softness; // Softness
-uniform float falloffswoop; // Falloff swoop
-uniform float offsetx; // X offset
-uniform float offsety; // Y offset
-uniform float offsetz; // Z offset
-uniform float scalex; // X scale
-uniform float scaley; // Y scale
-uniform float scalez; // Z scale
+uniform float tolerance = 0.1; // Tolerance : , min=0.0, max=10000
+uniform float softness = 1.0; // Softness : , min=0.001, max=1000000
+uniform float falloffswoop = 1.0; // Edge swoop : , min=0.0, max=1.0
 
-uniform bool overlay = false; // Overlay
-uniform bool hatch = false; // Hatch
+uniform float offsetx = 0.0; // X offset : , min=-10000, max=10000
+uniform float offsety = 0.0; // Y offset : , min=-10000, max=10000
+uniform float offsetz = 0.0; // Z offset : , min=-10000, max=10000
+
+uniform float scalex = 1.0; // X scale :  , min=-10000, max=10000
+uniform float scaley = 1.0; // Y scale :  , min=-10000, max=10000
+uniform float scalez = 1.0; // Z scale :  , min=-10000, max=10000
+
+uniform bool overlay = false; // Overlay : 
+uniform vec3 overlaycol = vec3(0.98,0.0,0.43); // Overlay color : 
+
+uniform bool hatch = false; // Crosshatch : 
 
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )

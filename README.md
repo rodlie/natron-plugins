@@ -123,6 +123,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### GLSL/Distort
 - <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='32'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
 
+- <img src='/GLSL/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='32'> **[Ls_Posmatte_GL](/GLSL/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
+
 ### GLSL/Effect
 - <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
 
