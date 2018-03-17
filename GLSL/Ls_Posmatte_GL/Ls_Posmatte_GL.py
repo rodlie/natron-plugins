@@ -139,7 +139,7 @@ def createInstance(app,group):
     param.setMinimum(0, 0)
     param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMaximum(200, 0)
     param.setDefaultValue(0.09999999999999999, 0)
     param.restoreDefaultValue(0)
 
@@ -170,7 +170,7 @@ def createInstance(app,group):
     param.setMinimum(0.001, 0)
     param.setMaximum(1000000, 0)
     param.setDisplayMinimum(0.001, 0)
-    param.setDisplayMaximum(1000000, 0)
+    param.setDisplayMaximum(200, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -286,8 +286,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat4", "Offset X : ")
     param.setMinimum(-10000, 0)
     param.setMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMinimum(-100, 0)
+    param.setDisplayMaximum(100, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -315,8 +315,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat5", "Offset Y : ")
     param.setMinimum(-10000, 0)
     param.setMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMinimum(-200, 0)
+    param.setDisplayMaximum(200, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -344,8 +344,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat6", "Offset Z : ")
     param.setMinimum(-10000, 0)
     param.setMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMinimum(-200, 0)
+    param.setDisplayMaximum(200, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -428,8 +428,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat7", "Scale X : ")
     param.setMinimum(-10000, 0)
     param.setMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMinimum(-200, 0)
+    param.setDisplayMaximum(200, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -459,8 +459,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat8", "Scale Y : ")
     param.setMinimum(-10000, 0)
     param.setMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMinimum(-200, 0)
+    param.setDisplayMaximum(200, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -490,8 +490,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat9", "Scale Z : ")
     param.setMinimum(-10000, 0)
     param.setMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMinimum(-200, 0)
+    param.setDisplayMaximum(200, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
