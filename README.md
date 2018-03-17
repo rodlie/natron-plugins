@@ -167,6 +167,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### GLSL/Merge
 - <img src='/GLSL/Add_GL/Add_GL.png' width='32'> **[Add_GL](/GLSL/Add_GL/README.md)** : GPU accelerated additive merge for Shadertoy.
 
+- <img src='/GLSL/Ls_Contacts_GL/Ls_Contacts_GL.png' width='32'> **[Ls_Contacts_GL](/GLSL/Ls_Contacts_GL/README.md)** : Tile inputs into a grid for impressing clients, choosing versions or checking continuity.
+
 - <img src='/GLSL/Merge_GL/Merge_GL.png' width='32'> **[Merge_GL](/GLSL/Merge_GL/README.md)** : GPU accelerated merge node for Shadertoy.
 
 - <img src='/GLSL/Screen_GL/Screen_GL.png' width='32'> **[Screen_GL](/GLSL/Screen_GL/README.md)** : GPU accelerated screen merge for Shadertoy.
@@ -222,6 +224,9 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/L_Molten_GL/L_Molten_GL.png' width='32'> **[L_Molten_GL](/GLSL/L_Molten_GL/README.md)** : Molten Metal Texture Gradient shader.
 
 - <img src='/GLSL/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
+
+### GLSL/Transform
+- <img src='/GLSL/Crop_GL/Crop_GL.png' width='32'> **[Crop_GL](/GLSL/Crop_GL/README.md)** : A simple image cropper with built-in 2D texture offset and borders.
 
 ### Keyer
 - <img src='/Keyer/AdditiveKeyer/AdditiveKeyer.png' width='32'> **[AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
