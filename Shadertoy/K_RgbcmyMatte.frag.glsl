@@ -33,9 +33,14 @@
 // Shader written by: Kyle Obley (kyle.obley@gmail.com)
 //
 
+
+// iChannel0: ID pass, filter=nearest, wrap=clamp
 // BBox: iChannel0
 
-uniform int selection; // Selection : (1=Red, 2=Green, 3=Blue, 4=Cyan, 5=Yellow, 6=Magenta, 7=White), min=1, max=7
+
+
+
+uniform int selection = 0; // Selection : (1=Red, 2=Green, 3=Blue, 4=Cyan, 5=Yellow, 6=Magenta, 7=White), min=0, max=6
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {	
@@ -43,43 +48,43 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec3 image = texture2D(iChannel0, st).rgb;
 	
 	// Red
-	if ( selection == 1 )
+	if ( selection == 0 )
 	{
 		fragColor = vec4( image.r * (1.0 - image.g) * (1.0 - image.b) );
 	}
 	
 	// Green
-	else if ( selection == 2 )
+	else if ( selection == 1 )
 	{
 		fragColor = vec4( (1.0 - image.r) * image.g * (1.0 - image.b) );
 	}
 	
 	// Blue
-	else if ( selection == 3 )
+	else if ( selection == 2 )
 	{
 		fragColor = vec4( (1.0 - image.r) * (1.0 - image.g) * image.b );
 	}
 	
 	// Cyan
-	else if ( selection == 4 )
+	else if ( selection == 3 )
 	{
 		fragColor = vec4( (1.0 - image.r) * image.g * image.b );
 	}
 	
 	// Yellow
-	else if ( selection == 5 )
+	else if ( selection == 4 )
 	{
 		fragColor = vec4(  image.r * image.g  * (1.0 - image.b) );
 	}
 	
 	// Magenta
-	else if ( selection == 6 )
+	else if ( selection == 5 )
 	{
 		fragColor = vec4( image.b * (1.0 - image.r ) * image.g );
 	}
 	
 	// White
-	else if ( selection == 7 )
+	else if ( selection == 6 )
 	{
 		fragColor = vec4( image.r * image.g * image.b );
 	}
