@@ -136,13 +136,25 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_deband_GL/Crok_deband_GL.png' width='32'> **[Crok_deband_GL](/GLSL/Crok_deband_GL/README.md)** : Reduces banding.
 
+- <img src='/GLSL/Crok_dithering_GL/Crok_dithering_GL.png' width='32'> **[Crok_dithering_GL](/GLSL/Crok_dithering_GL/README.md)** : Creates a dithering effect.
+
+- <img src='/GLSL/Crok_emboss_GL/Crok_emboss_GL.png' width='32'> **[Crok_emboss_GL](/GLSL/Crok_emboss_GL/README.md)** : Simulates an emboss effect.
+
+- <img src='/GLSL/Crok_flicker_GL/Crok_flicker_GL.png' width='32'> **[Crok_flicker_GL](/GLSL/Crok_flicker_GL/README.md)** : Creates a flickering effect.
+
 - <img src='/GLSL/Crok_highpass_GL/Crok_highpass_GL.png' width='32'> **[Crok_highpass_GL](/GLSL/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
 
 - <img src='/GLSL/Crok_kuwahara_GL/Crok_kuwahara_GL.png' width='32'> **[Crok_kuwahara_GL](/GLSL/Crok_kuwahara_GL/README.md)** : Simulates anisotropic kuwahara filtering.
 
+- <img src='/GLSL/Crok_lowfi_GL/Crok_lowfi_GL.png' width='32'> **[Crok_lowfi_GL](/GLSL/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
+
 - <img src='/GLSL/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
 
 - <img src='/GLSL/Crok_scanlines_GL/Crok_scanlines_GL.png' width='32'> **[Crok_scanlines_GL](/GLSL/Crok_scanlines_GL/README.md)** : Simulates CRT phosphor / shadow mask arrangements.
+
+- <img src='/GLSL/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Crok_snow_GL/README.md)** : Creates snow.
+
+- <img src='/GLSL/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='32'> **[Crok_tv_rgb_dots_GL](/GLSL/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
 
 - <img src='/GLSL/EWA_GL/EWA_GL.png' width='32'> **[EWA_GL](/GLSL/EWA_GL/README.md)** : GPU accelerated EWA antialiasing effect for Shadertoy.
 
@@ -162,6 +174,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### GLSL/Keying
 - <img src='/GLSL/AFX_Despill_GL/AFX_Despill_GL.png' width='32'> **[AFX_Despill_GL](/GLSL/AFX_Despill_GL/README.md)** : GPU accelerated After Effects despill for Shadertoy.
 
+- <img src='/GLSL/Crok_difference_GL/Crok_difference_GL.png' width='32'> **[Crok_difference_GL](/GLSL/Crok_difference_GL/README.md)** : Creates a diference matte.
+
 - <img src='/GLSL/Crok_edge_matte_GL/Crok_edge_matte_GL.png' width='32'> **[Crok_edge_matte_GL](/GLSL/Crok_edge_matte_GL/README.md)** : GPU accelerated edge detect effect for Shadertoy.
 
 ### GLSL/Source
@@ -171,19 +185,37 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Cellular_GL/Cellular_GL.png' width='32'> **[Cellular_GL](/GLSL/Cellular_GL/README.md)** : GPU accelerated cell generator for Shadertoy.
 
+- <img src='/GLSL/cr2_HEX_GL/cr2_HEX_GL.png' width='32'> **[cr2_HEX_GL](/GLSL/cr2_HEX_GL/README.md)** : Creates a Hexagon Pattern.
+
+- <img src='/GLSL/Crok_blobs_GL/Crok_blobs_GL.png' width='32'> **[Crok_blobs_GL](/GLSL/Crok_blobs_GL/README.md)** : Creates blob like sturctures.
+
 - <img src='/GLSL/Crok_block_noise_GL/Crok_block_noise_GL.png' width='32'> **[Crok_block_noise_GL](/GLSL/Crok_block_noise_GL/README.md)** : Creates blocky textures.
+
+- <img src='/GLSL/Crok_cells_GL/Crok_cells_GL.png' width='32'> **[Crok_cells_GL](/GLSL/Crok_cells_GL/README.md)** : Creates a cell pattern.
+
+- <img src='/GLSL/Crok_cellular_GL/Crok_cellular_GL.png' width='32'> **[Crok_cellular_GL](/GLSL/Crok_cellular_GL/README.md)** : Creates tons of cellular like looking patterns.
 
 - <img src='/GLSL/Crok_fbmPixels_GL/Crok_fbmPixels_GL.png' width='32'> **[Crok_fbmPixels_GL](/GLSL/Crok_fbmPixels_GL/README.md)** : Creates a fbm style pattern.
 
 - <img src='/GLSL/Crok_flow_GL/Crok_flow_GL.png' width='32'> **[Crok_flow_GL](/GLSL/Crok_flow_GL/README.md)** : Creates a perlin noise pattern.
 
+- <img src='/GLSL/Crok_gradient_GL/Crok_gradient_GL.png' width='32'> **[Crok_gradient_GL](/GLSL/Crok_gradient_GL/README.md)** : Creates a simple gradient effect.
+
 - <img src='/GLSL/Crok_lines_GL/Crok_lines_GL.png' width='32'> **[Crok_lines_GL](/GLSL/Crok_lines_GL/README.md)** : Creates lines.
+
+- <img src='/GLSL/Crok_patterns_GL/Crok_patterns_GL.png' width='32'> **[Crok_patterns_GL](/GLSL/Crok_patterns_GL/README.md)** : Creates different patterns.
 
 - <img src='/GLSL/Crok_perlin_GL/Crok_perlin_GL.png' width='32'> **[Crok_perlin_GL](/GLSL/Crok_perlin_GL/README.md)** : Creates a perlin noise like pattern.
 
 - <img src='/GLSL/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
 
+- <img src='/GLSL/Crok_stars_GL/Crok_stars_GL.png' width='32'> **[Crok_stars_GL](/GLSL/Crok_stars_GL/README.md)** : Simulates stars.
+
 - <img src='/GLSL/Crok_voronoi_GL/Crok_voronoi_GL.png' width='32'> **[Crok_voronoi_GL](/GLSL/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
+
+- <img src='/GLSL/Crok_wave_lines_GL/Crok_wave_lines_GL.png' width='32'> **[Crok_wave_lines_GL](/GLSL/Crok_wave_lines_GL/README.md)** : Creates a wave line pattern.
+
+- <img src='/GLSL/Crok_wrinkle_GL/Crok_wrinkle_GL.png' width='32'> **[Crok_wrinkle_lines_GL](/GLSL/Crok_wrinkle_GL/README.md)** : Creates wrinkled paper like sturctures.
 
 - <img src='/GLSL/JB_fractal_GL/JB_fractal_GL.png' width='32'> **[JB_fractal_GL](/GLSL/JB_fractal_GL/README.md)** : Simple fractal generator.
 
