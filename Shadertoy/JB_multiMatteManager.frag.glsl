@@ -30,34 +30,34 @@
 // Original code : JB_multiMatteManager Matchbox for Autodesk Flame
 
 
-// iChannel0: matte1, filter = nearest
-// iChannel1: matte2, filter = nearest
-// iChannel2: matte3, filter = nearest
-// iChannel3: matte4, filter = nearest
+// iChannel0: ID 1, filter = nearest
+// iChannel1: ID 2, filter = nearest
+// iChannel2: ID 3, filter = nearest
+// iChannel3: ID 4, filter = nearest
 // BBox: iChannel0
 
 
 
-
-uniform bool redChannel1 = true; // Matte1 Red
-uniform bool greenChannel1 = true; // Matte1 Green
-uniform bool blueChannel1 = true; // Matte1 Blue
 // declare the variables (switches for the channels for each input)
 
-uniform bool redChannel2 = true; // Matte2 Red
-uniform bool greenChannel2 = true; // Matte2 Green
-uniform bool blueChannel2 = true; // Matte2 Blue
+uniform bool redChannel1 = true; // ID 1 Red : 
+uniform bool greenChannel1 = true; // ID 1 Green : 
+uniform bool blueChannel1 = true; // ID 1 Blue : 
 
-uniform bool redChannel3 = true; // Matte3 Red
-uniform bool greenChannel3 = true; // Matte3 Green
-uniform bool blueChannel3 = true; // Matte3 Blue
+uniform bool redChannel2 = true; // ID 2 Red : 
+uniform bool greenChannel2 = true; // ID 2 Green : 
+uniform bool blueChannel2 = true; // ID 2 Blue : 
 
-uniform bool redChannel4 = true; // Matte4 Red
-uniform bool greenChannel4 = true; // Matte4 Green
-uniform bool blueChannel4 = true; // Matte4 Blue
+uniform bool redChannel3 = true; // ID 3 Red : 
+uniform bool greenChannel3 = true; // ID 3 Green : 
+uniform bool blueChannel3 = true; // ID 3 Blue : 
 
-uniform bool alphaToRGB = false; // Copy alpha to RGB
-uniform bool invertAlpha = false; // Invert alpha
+uniform bool redChannel4 = true; // ID 4 Red : 
+uniform bool greenChannel4 = true; // ID 4 Green : 
+uniform bool blueChannel4 = true; // ID 4 Blue : 
+
+uniform bool alphaToRGB = false; // Copy alpha to RGB : 
+uniform bool invertAlpha = false; // Invert alpha : 
 
 
 

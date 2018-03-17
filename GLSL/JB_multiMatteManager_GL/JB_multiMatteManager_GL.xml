@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>JB_multiMatteManager_GL</DisplayName>
+    <Description>Manages up to four inputs RGB to output one combined mulitmatte with alpha.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.JB_multiMatteManager_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
