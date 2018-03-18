@@ -124,6 +124,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_exposure_GL/Crok_exposure_GL.png' width='32'> **[Crok_exposure_GL](/GLSL/Crok_exposure_GL/README.md)** : Simulates an exposure node.
 
+- <img src='/GLSL/JB_colorRemap_GL/JB_colorRemap_GL.png' width='32'> **[JB_colorRemap_GL](/GLSL/JB_colorRemap_GL/README.md)** : Remaps RGB of input1 using RGB of input 2.
+
 - <img src='/GLSL/Ls_NaNfix_GL/Ls_NaNfix_GL.png' width='32'> **[Ls_NaNfix_GL](/GLSL/Ls_NaNfix_GL/README.md)** : Fixes pixels which are stuck at NaN.
 
 ### GLSL/Distort
