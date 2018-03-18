@@ -24,10 +24,10 @@
 //
 //
 // Adaptation pour Natron par F. Fernandez
-// Code original : AFX_Grade Matchbox pour Autodesk Flame
+// Code original : JB_colorRemap Matchbox pour Autodesk Flame
 
 // Adapted to Natron by F.Fernandez
-// Original code : AFX_Grade Matchbox for Autodesk Flame
+// Original code : JB_colorRemap Matchbox for Autodesk Flame
 
 
 // iChannel0: source 1, filter = nearest, wrap0 = clamp
