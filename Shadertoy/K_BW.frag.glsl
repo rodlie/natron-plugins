@@ -32,7 +32,8 @@
 // K_BW v1.0
 // Shader written by: Kyle Obley (kyle.obley@gmail.com)
 //
-
+// iChannel0: Source, filter = nearest
+// BBox: iChannel0
 
 
 uniform float red = 40; // red : (red), min=0, max=100
