@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>JB_colorRemap_GL</DisplayName>
+    <Description>Creates black and white images with adjustable RGB values.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.JB_colorRemap_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

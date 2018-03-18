@@ -22,7 +22,7 @@ def getLabel():
     return "JB_colorRemap_GL"
 
 def getVersion():
-    return 1.01
+    return 1.0
 
 def getIconPath():
     return "JB_colorRemap_GL.png"
