@@ -162,8 +162,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_scanlines_GL/Crok_scanlines_GL.png' width='32'> **[Crok_scanlines_GL](/GLSL/Crok_scanlines_GL/README.md)** : Simulates CRT phosphor / shadow mask arrangements.
 
-- <img src='/GLSL/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Crok_snow_GL/README.md)** : Creates snow.
-
 - <img src='/GLSL/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='32'> **[Crok_tv_rgb_dots_GL](/GLSL/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
 
 - <img src='/GLSL/EWA_GL/EWA_GL.png' width='32'> **[EWA_GL](/GLSL/EWA_GL/README.md)** : GPU accelerated EWA antialiasing effect for Shadertoy.
@@ -220,6 +218,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Crok_perlin_GL/Crok_perlin_GL.png' width='32'> **[Crok_perlin_GL](/GLSL/Crok_perlin_GL/README.md)** : Creates a perlin noise like pattern.
 
 - <img src='/GLSL/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
+
+- <img src='/GLSL/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Crok_snow_GL/README.md)** : Creates snow.
 
 - <img src='/GLSL/Crok_stars_GL/Crok_stars_GL.png' width='32'> **[Crok_stars_GL](/GLSL/Crok_stars_GL/README.md)** : Simulates stars.
 
