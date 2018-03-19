@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_6567_GL</DisplayName>
+    <Description>Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_6567_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

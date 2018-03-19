@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Ls_wireless_GL</DisplayName>
+    <Description>Removes wires, or other straight-ish things.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Ls_wireless_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

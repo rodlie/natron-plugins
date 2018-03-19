@@ -409,7 +409,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4127, 4061)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -421,7 +421,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4127, 3799)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -433,7 +433,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4127, 3935)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -480,6 +480,11 @@ def createInstance(app,group):
     param = lastNode.getParam("inputEnable3")
     if param is not None:
         param.setValue(False)
+        del param
+
+    param = lastNode.getParam("bbox")
+    if param is not None:
+        param.set("iChannel0")
         del param
 
     param = lastNode.getParam("NatronParamFormatChoice")

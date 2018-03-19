@@ -29,6 +29,7 @@
 // Adapted to Natron by F.Fernandez
 // Original code : Ls_FXAA Matchbox for Autodesk Flame
 
+// BBox: iChannel0
 
 // FXAA 3.11, fast cheap antialiasing
 // I've modified this to calculate luma on the fly instead of requiring a pre-pass
