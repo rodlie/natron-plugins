@@ -126,10 +126,16 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/JB_colorRemap_GL/JB_colorRemap_GL.png' width='32'> **[JB_colorRemap_GL](/GLSL/JB_colorRemap_GL/README.md)** : Remaps RGB of input1 using RGB of input 2.
 
+- <img src='/GLSL/K_BW_GL/K_BW_GL.png' width='32'> **[K_BW_GL](/GLSL/K_BW_GL/README.md)** : Creates black and white images with adjustable RGB values.
+
 - <img src='/GLSL/Ls_NaNfix_GL/Ls_NaNfix_GL.png' width='32'> **[Ls_NaNfix_GL](/GLSL/Ls_NaNfix_GL/README.md)** : Fixes pixels which are stuck at NaN.
+
+- <img src='/GLSL/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='32'> **[Ls_RndmGrade_GL](/GLSL/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
 ### GLSL/Distort
 - <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='32'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
+
+- <img src='/GLSL/Ls_nail_GL/Ls_nail_GL.png' width='32'> **[Ls_nail_GL](/GLSL/Ls_nail_GL/README.md)** : Warp an area of the Source and Mask to follow a track.
 
 - <img src='/GLSL/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='32'> **[Ls_Posmatte_GL](/GLSL/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
 
@@ -138,11 +144,19 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL/Barrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
 
+- <img src='/GLSL/Crok_6567_GL/Crok_6567_GL.png' width='32'> **[Crok_6567_GL](/GLSL/Crok_6567_GL/README.md)** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
+
+- <img src='/GLSL/Crok_beer_GL/Crok_beer_GL.png' width='32'> **[Crok_beer_GL](/GLSL/Crok_beer_GL/README.md)** : Creates a beer like structure.
+
 - <img src='/GLSL/Crok_bleachbypass_GL/Crok_bleachbypass_GL.png' width='32'> **[Crok_bleachbypass_GL](/GLSL/Crok_bleachbypass_GL/README.md)** : GPU accelerated bleachbypass effect for Shadertoy.
 
 - <img src='/GLSL/Crok_cmyk_halftone_GL/Crok_cmyk_halftone_GL.png' width='32'> **[Crok_cmyk_halftone_GL](/GLSL/Crok_cmyk_halftone_GL/README.md)** : GPU accelerated CMYK halftone effect for Shadertoy.
 
+- <img src='/GLSL/Crok_contour_GL/Crok_contour_GL.png' width='32'> **[Crok_contour_GL](/GLSL/Contour_GL/README.md)** : Creates a handdrawn style edge detect.
+
 - <img src='/GLSL/Crok_crosshatch_GL/Crok_crosshatch_GL.png' width='32'> **[Crok_crosshatch_GL](/GLSL/Crok_crosshatch_GL/README.md)** : Simulates a simple pencil sketch.
+
+- <img src='/GLSL/Crok_crt_GL/Crok_crt_GL.png' width='32'> **[Crok_crt_GL](/GLSL/Crt_GL/README.md)** : Creates a CRT style scan-line effect with additional shadowmasking.
 
 - <img src='/GLSL/Crok_deband_GL/Crok_deband_GL.png' width='32'> **[Crok_deband_GL](/GLSL/Crok_deband_GL/README.md)** : Reduces banding.
 
@@ -150,13 +164,21 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_emboss_GL/Crok_emboss_GL.png' width='32'> **[Crok_emboss_GL](/GLSL/Crok_emboss_GL/README.md)** : Simulates an emboss effect.
 
+- <img src='/GLSL/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
+
 - <img src='/GLSL/Crok_flicker_GL/Crok_flicker_GL.png' width='32'> **[Crok_flicker_GL](/GLSL/Crok_flicker_GL/README.md)** : Creates a flickering effect.
+
+- <img src='/GLSL/Crok_hexagon_GL/Crok_hexagon_GL.png' width='32'> **[Crok_hexagon_GL](/GLSL/Crok_hexagon_GL/README.md)** : Generates hexagon patterns.
 
 - <img src='/GLSL/Crok_highpass_GL/Crok_highpass_GL.png' width='32'> **[Crok_highpass_GL](/GLSL/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
 
 - <img src='/GLSL/Crok_kuwahara_GL/Crok_kuwahara_GL.png' width='32'> **[Crok_kuwahara_GL](/GLSL/Crok_kuwahara_GL/README.md)** : Simulates anisotropic kuwahara filtering.
 
 - <img src='/GLSL/Crok_lowfi_GL/Crok_lowfi_GL.png' width='32'> **[Crok_lowfi_GL](/GLSL/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
+
+- <img src='/GLSL/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='32'> **[Crok_noise_blur_GL](/GLSL/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
+
+- <img src='/GLSL/Crok_parallax_GL/Crok_parallax_GL.png' width='32'> **[Crok_parallax_GL](/GLSL/Crok_parallax_GL/README.md)** : Simulates a typical Amiga style parallax effect.
 
 - <img src='/GLSL/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
 
@@ -170,7 +192,22 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='32'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
+- <img src='/GLSL/Ls_FXAA_GL/Ls_FXAA_GL.png' width='32'> **[Ls_FXAA_GL](/GLSL/Ls_FXAA_GL/README.md)** : Fast cheap antialiasing.
+
+- <img src='/GLSL/Ls_wireless_GL/Ls_wireless_GL.png' width='32'> **[Ls_wireless_GL](/GLSL/Ls_wireless_GL/README.md)** : Fast cheap antialiasing.
+
 - <img src='/GLSL/Money_Filter_GL/Money_Filter_GL.png' width='32'> **[Money_Filter_GL](/GLSL/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect for Shadertoy.
+
+### GLSL/Keying
+- <img src='/GLSL/AFX_Despill_GL/AFX_Despill_GL.png' width='32'> **[AFX_Despill_GL](/GLSL/AFX_Despill_GL/README.md)** : GPU accelerated After Effects despill for Shadertoy.
+
+- <img src='/GLSL/Crok_chromakey_GL/Crok_chromakey_GL.png' width='32'> **[Crok_chromakey_GL](/GLSL/Crok_chromakey_GL/README.md)** : This shader does a fast chroma key.
+
+- <img src='/GLSL/Crok_difference_GL/Crok_difference_GL.png' width='32'> **[Crok_difference_GL](/GLSL/Crok_difference_GL/README.md)** : Creates a diference matte.
+
+- <img src='/GLSL/Crok_edge_matte_GL/Crok_edge_matte_GL.png' width='32'> **[Crok_edge_matte_GL](/GLSL/Crok_edge_matte_GL/README.md)** : GPU accelerated edge detect effect for Shadertoy.
+
+- <img src='/GLSL/JB_erodematte_GL/JB_erodematte_GL.png' width='32'> **[JB_erodematte_GL](/GLSL/JB_erodematte_GL/README.md)** : Simple erode node.
 
 ### GLSL/Merge
 - <img src='/GLSL/Add_GL/Add_GL.png' width='32'> **[Add_GL](/GLSL/Add_GL/README.md)** : GPU accelerated additive merge for Shadertoy.
@@ -180,13 +217,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Merge_GL/Merge_GL.png' width='32'> **[Merge_GL](/GLSL/Merge_GL/README.md)** : GPU accelerated merge node for Shadertoy.
 
 - <img src='/GLSL/Screen_GL/Screen_GL.png' width='32'> **[Screen_GL](/GLSL/Screen_GL/README.md)** : GPU accelerated screen merge for Shadertoy.
-
-### GLSL/Keying
-- <img src='/GLSL/AFX_Despill_GL/AFX_Despill_GL.png' width='32'> **[AFX_Despill_GL](/GLSL/AFX_Despill_GL/README.md)** : GPU accelerated After Effects despill for Shadertoy.
-
-- <img src='/GLSL/Crok_difference_GL/Crok_difference_GL.png' width='32'> **[Crok_difference_GL](/GLSL/Crok_difference_GL/README.md)** : Creates a diference matte.
-
-- <img src='/GLSL/Crok_edge_matte_GL/Crok_edge_matte_GL.png' width='32'> **[Crok_edge_matte_GL](/GLSL/Crok_edge_matte_GL/README.md)** : GPU accelerated edge detect effect for Shadertoy.
 
 ### GLSL/Source
 - <img src='/GLSL/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='32'> **[Bleepy_Blocks_GL](/GLSL/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
@@ -205,11 +235,19 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_cellular_GL/Crok_cellular_GL.png' width='32'> **[Crok_cellular_GL](/GLSL/Crok_cellular_GL/README.md)** : Creates tons of cellular like looking patterns.
 
+- <img src='/GLSL/Crok_checkerboard_GL/Crok_checkerboard_GL.png' width='32'> **[Crok_checkerboard_GL](/GLSL/Crok_checkerboard_GL/README.md)** : Creates a checkerboard pattern.
+
 - <img src='/GLSL/Crok_fbmPixels_GL/Crok_fbmPixels_GL.png' width='32'> **[Crok_fbmPixels_GL](/GLSL/Crok_fbmPixels_GL/README.md)** : Creates a fbm style pattern.
 
 - <img src='/GLSL/Crok_flow_GL/Crok_flow_GL.png' width='32'> **[Crok_flow_GL](/GLSL/Crok_flow_GL/README.md)** : Creates a perlin noise pattern.
 
+- <img src='/GLSL/Crok_fractal_GL/Crok_fractal_GL.png' width='32'> **[Crok_fractal_GL](/GLSL/Crok_fractal_GL/README.md)** : Creates a fractal pattern.
+
+- <img src='/GLSL/Crok_fractal_soup_GL/Crok_fractal_soup_GL.png' width='32'> **[Crok_fractal_soup_GL](/GLSL/Crok_fractal_soup_GL/README.md)** : Creates a mandelbrot pattern.
+
 - <img src='/GLSL/Crok_gradient_GL/Crok_gradient_GL.png' width='32'> **[Crok_gradient_GL](/GLSL/Crok_gradient_GL/README.md)** : Creates a simple gradient effect.
+
+- <img src='/GLSL/Crok_lava_GL/Crok_lava_GL.png' width='32'> **[Crok_lava_GL](/GLSL/Crok_lava_GL/README.md)** : Creates flame / fluid like patterns.
 
 - <img src='/GLSL/Crok_lines_GL/Crok_lines_GL.png' width='32'> **[Crok_lines_GL](/GLSL/Crok_lines_GL/README.md)** : Creates lines.
 
@@ -222,6 +260,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Crok_snow_GL/README.md)** : Creates snow.
 
 - <img src='/GLSL/Crok_stars_GL/Crok_stars_GL.png' width='32'> **[Crok_stars_GL](/GLSL/Crok_stars_GL/README.md)** : Simulates stars.
+
+- <img src='/GLSL/Crok_turbulence_GL/Crok_turbulence_GL.png' width='32'> **[Crok_turbulence_GL](/GLSL/Crok_turbulence_GL/README.md)** : Creates a water turbulence texture.
 
 - <img src='/GLSL/Crok_voronoi_GL/Crok_voronoi_GL.png' width='32'> **[Crok_voronoi_GL](/GLSL/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
 
