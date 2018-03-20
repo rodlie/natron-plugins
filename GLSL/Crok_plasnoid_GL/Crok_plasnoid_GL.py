@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_plasnoid_GL"
 
 def getVersion():
-    return 1
+    return 1.0
 
 def getIconPath():
     return "Crok_plasnoid_GL.png"

@@ -1,3 +1,3 @@
-# Crok_fractal_GL
+# Crok_plasnoid_GL
 
-Creates a fractal pattern.
+Creates tons of different plasma patterns.
