@@ -64,6 +64,8 @@
 
 - <img src='icons/Crok_deband.png' width='66'> **[Crok_deband]** : Reduces banding.
 
+- <img src='icons/Crok_despill.png' width='66'> **[Crok_despill]** : Combines multiple LogicOps to streamline your keying node graph.
+
 - <img src='icons/Crok_difference.png' width='66'> **[Crok_difference]** : Creates a difference matte.
 
 - <img src='icons/Crok_diffuse.png' width='66'> **[Crok_diffuse]** : Creates a noisy blur.

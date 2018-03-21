@@ -207,6 +207,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_chromakey_GL/Crok_chromakey_GL.png' width='32'> **[Crok_chromakey_GL](/GLSL/Crok_chromakey_GL/README.md)** : This shader does a fast chroma key.
 
+- <img src='/GLSL/Crok_despill_GL/Crok_despill_GL.png' width='32'> **[Crok_despill_GL](/GLSL/Crok_despill_GL/README.md)** : Combines multiple LogicOps to streamline your keying node graph.
+
 - <img src='/GLSL/Crok_difference_GL/Crok_difference_GL.png' width='32'> **[Crok_difference_GL](/GLSL/Crok_difference_GL/README.md)** : Creates a diference matte.
 
 - <img src='/GLSL/Crok_edge_matte_GL/Crok_edge_matte_GL.png' width='32'> **[Crok_edge_matte_GL](/GLSL/Crok_edge_matte_GL/README.md)** : GPU accelerated edge detect effect for Shadertoy.
