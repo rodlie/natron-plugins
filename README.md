@@ -190,6 +190,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/FXAA_GL/README.md)** : GPU accelerated FXAA antialiasing effect for Shadertoy.
 
+- <img src='/GLSL/JB_lidar_GL/JB_lidar_GL.png' width='32'> **[JB_lidar_GL](/GLSL/JB_lidar_GL/README.md)** : This node tries to emulate a fake point cloud data provided by a lidar.
+
 - <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='32'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
 - <img src='/GLSL/Ls_FXAA_GL/Ls_FXAA_GL.png' width='32'> **[Ls_FXAA_GL](/GLSL/Ls_FXAA_GL/README.md)** : Fast cheap antialiasing.

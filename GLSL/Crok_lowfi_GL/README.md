@@ -1,3 +1,3 @@
 # Crok_lowfi_GL
 
-Simulates NES, EGA and Gameboy video out.
+Simulates NES, SEGA and Gameboy video out.
