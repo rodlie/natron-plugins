@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>JB_autoMatte_GL</DisplayName>
+    <Description>Creates a RGB multimattes of an input which can be useful to mockup quick keys.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.JB_autoMatte_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

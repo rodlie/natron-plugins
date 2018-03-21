@@ -44,7 +44,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec4 getColPixel0;
 	getColPixel0 = texture2D(iChannel0, st0);
 	
-	vec3 color;
+	vec4 color;
 	vec2 st1;
 	vec2 st2;
 	vec2 st3;
@@ -107,7 +107,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	count++;
 	}
 	color/=count;
-	if (algo==1){color+=getColPixel0;
+	if (algo==true){color+=getColPixel0;
 	color/=2;}
 
 	float buffer = 1;
@@ -117,5 +117,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	if (color.b>=color.r && color.b>=color.g ){color.r=0; color.g=0; color.b=1;}
 
 	vec4 outColor;
-	fragColor =  vec4(color,1.0);
+	fragColor =  color;
 }
