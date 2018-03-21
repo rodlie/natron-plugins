@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_ascii_art_GL</DisplayName>
+    <Description>Generates ascii art.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_ascii_art_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
