@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Ls_Dollface_GL</DisplayName>
+    <Description>Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Ls_Dollface_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

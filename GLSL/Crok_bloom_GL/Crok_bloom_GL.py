@@ -28,7 +28,7 @@ def getIconPath():
     return "Crok_bloom_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Effect"
+    return "Community/GLSL/Blur"
 
 def getPluginDescription():
     return "Simulates blooming."

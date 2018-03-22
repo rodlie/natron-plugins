@@ -28,7 +28,7 @@ def getIconPath():
     return "Ls_UVewa_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Effect"
+    return "Community/GLSL/Distort"
 
 def getPluginDescription():
     return "UV mapping with EWA filtering."
