@@ -45,8 +45,8 @@
 
 
 
-// iChannel0: front, filter = nearest, wrap=clamp
-// iChannel1: matte, filter = nearest, wrap=clamp
+// iChannel0: Source, filter = nearest, wrap=clamp
+// iChannel1: Mask, filter = nearest, wrap=clamp
 // iChannel2: uv, filter = nearest, wrap=clamp
 // BBox: iChannel0
 

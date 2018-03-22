@@ -108,6 +108,8 @@
 
 - <img src='icons/Crok_noise_blur.png' width='66'> **[Crok_noise_blur]** : Creates a noise texture similar to the popular Genarts Texture.
 
+- <img src='icons/Crok_ocean_noise.png' width='66'> **[Crok_ocean_noise]** : Creates an ocean / water like noise pattern.
+
 - <img src='icons/Crok_parallax.png' width='66'> **[Crok_parallax]** : Simulates a typical Amiga style parallax effect.
 
 - <img src='icons/Crok_patterns.png' width='66'> **[Crok_patterns]** : Creates diffferent patterns.

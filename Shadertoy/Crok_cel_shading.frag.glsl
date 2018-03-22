@@ -30,14 +30,14 @@
 // Original code : crok_cel_shading for Autodesk Flame
 
 
-// iChannel0: B, filter = nearest
+// iChannel0: Source, filter = nearest
 // BBox: iChannel0
 
 
-uniform int FILTER_SIZE = 3; // filter size : , min=0.01., max=10.
-uniform float COLOR_LEVELS = 7.0; // color levels : , min=0.01., max=128.
-uniform int EDGE_FILTER_SIZE = 3; // edge filter size : , min=0.01., max=20.
-uniform float EDGE_THRESHOLD = 0.05; // edge threshold : , min=0.01., max=10.
+uniform int FILTER_SIZE = 3; // Filter size : , min=0.01., max=10.
+uniform float COLOR_LEVELS = 7.0; // Color levels : , min=0.01., max=128.
+uniform int EDGE_FILTER_SIZE = 3; // Edge filter size : , min=0.01., max=20.
+uniform float EDGE_THRESHOLD = 0.05; // Edge threshold : , min=0.01., max=10.
 
 vec4 edgeFilter(in int px, in int py, in vec2 fragCoord)
 {

@@ -100,6 +100,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/BokehDisc_GL/BokehDisc_GL.png' width='32'> **[BokehDisc_GL](/GLSL/BokehDisc_GL/README.md)** : GPU accelerated Defocus blur for Shadertoy.
 
+- <img src='/GLSL/Crok_bloom_GL/Crok_bloom_GL.png' width='32'> **[Crok_bloom_GL](/GLSL/Crok_bloom_GL/README.md)** : Simulates bloom.
+
 - <img src='/GLSL/Crok_convolve_GL/Crok_convolve_GL.png' width='32'> **[Crok_convolve_GL](/GLSL/Crok_convolve_GL/README.md)** : Simulates a convolve blur.
 
 - <img src='/GLSL/Crok_diffuse_GL/Crok_diffuse_GL.png' width='32'> **[Crok_diffuse_GL](/GLSL/Crok_diffuse_GL/README.md)** : Creates a noisy blur.
@@ -139,6 +141,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='32'> **[Ls_Posmatte_GL](/GLSL/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
 
+- <img src='/GLSL/Ls_UVewa_GL/Ls_UVewa_GL.png' width='32'> **[Ls_UVewa_GL](/GLSL/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
+
 ### GLSL/Effect
 - <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
 
@@ -151,6 +155,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Crok_beer_GL/Crok_beer_GL.png' width='32'> **[Crok_beer_GL](/GLSL/Crok_beer_GL/README.md)** : Creates a beer like structure.
 
 - <img src='/GLSL/Crok_bleachbypass_GL/Crok_bleachbypass_GL.png' width='32'> **[Crok_bleachbypass_GL](/GLSL/Crok_bleachbypass_GL/README.md)** : GPU accelerated bleachbypass effect for Shadertoy.
+
+- <img src='/GLSL/Crok_cell_shading_GL/Crok_cell_shading_GL.png' width='32'> **[Crok_cell_shading_GL](/GLSL/Crok_cell_shading_GL/README.md)** : Simulates cel shading.
 
 - <img src='/GLSL/Crok_cmyk_halftone_GL/Crok_cmyk_halftone_GL.png' width='32'> **[Crok_cmyk_halftone_GL](/GLSL/Crok_cmyk_halftone_GL/README.md)** : GPU accelerated CMYK halftone effect for Shadertoy.
 
@@ -256,6 +262,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Crok_lava_GL/Crok_lava_GL.png' width='32'> **[Crok_lava_GL](/GLSL/Crok_lava_GL/README.md)** : Creates flame / fluid like patterns.
 
 - <img src='/GLSL/Crok_lines_GL/Crok_lines_GL.png' width='32'> **[Crok_lines_GL](/GLSL/Crok_lines_GL/README.md)** : Creates lines.
+
+- <img src='/GLSL/Crok_ocean_noise_GL/Crok_ocean_noise_GL.png' width='32'> **[Crok_ocean_noise_GL](/GLSL/Crok_ocean_noise_GL/README.md)** : Creates an ocean / water like noise pattern.
 
 - <img src='/GLSL/Crok_patterns_GL/Crok_patterns_GL.png' width='32'> **[Crok_patterns_GL](/GLSL/Crok_patterns_GL/README.md)** : Creates different patterns.
 
