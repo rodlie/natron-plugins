@@ -186,6 +186,8 @@
 
 - <img src='icons/Ls_Contacts.png' width='66'> **[Ls_Contacts]** : Tile inputs into a grid for impressing clients, choosing versions or checking continuity.
 
+- <img src='icons/Ls_Dollface.png' width='66'> **[Ls_Dollface]** : Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.
+
 - <img src='icons/Ls_FXAA.png' width='66'> **[Ls_FXAA]** : Fast cheap antialiasing, soften those crunchy edges.
 
 - <img src='icons/Ls_nail.png' width='66'> **[Ls_nail]** : Warp an area of the Source and Mask to follow a track.

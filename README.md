@@ -202,6 +202,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='32'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
+- <img src='/GLSL/Ls_Dollface_GL/Ls_Dollface_GL.png' width='32'> **[Ls_Dollface_GL](/GLSL/Ls_Dollface_GL/README.md)** : Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.
+
 - <img src='/GLSL/Ls_FXAA_GL/Ls_FXAA_GL.png' width='32'> **[Ls_FXAA_GL](/GLSL/Ls_FXAA_GL/README.md)** : Fast cheap antialiasing.
 
 - <img src='/GLSL/Ls_wireless_GL/Ls_wireless_GL.png' width='32'> **[Ls_wireless_GL](/GLSL/Ls_wireless_GL/README.md)** : Fast cheap antialiasing.
