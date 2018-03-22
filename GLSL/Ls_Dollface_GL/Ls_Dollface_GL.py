@@ -430,7 +430,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Strength_map")
     lastNode.setLabel("Strength map")
-    lastNode.setPosition(4494, 4032)
+    lastNode.setPosition(4322, 4069)
     lastNode.setSize(90, 50)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupStrength_map = lastNode
@@ -442,7 +442,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy_pass1")
     lastNode.setLabel("Shadertoy_pass1")
-    lastNode.setPosition(4139, 4032)
+    lastNode.setPosition(4137, 3976)
     lastNode.setSize(90, 50)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1 = lastNode
@@ -654,10 +654,25 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy_pass2")
     lastNode.setLabel("Shadertoy_pass2")
-    lastNode.setPosition(4138, 4149)
+    lastNode.setPosition(4137, 4149)
     lastNode.setSize(90, 50)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(40, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(40, 0)
+        del param
+
+    param = lastNode.getParam("paramValueInt2")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
 
     param = lastNode.getParam("paramValueInt3")
     if param is not None:
@@ -842,12 +857,25 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shadertoy_pass2"
 
+    # Start of node "Dot1"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot1")
+    lastNode.setLabel("Dot1")
+    lastNode.setPosition(4037, 4084)
+    lastNode.setSize(16, 16)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot1 = lastNode
+
+    del lastNode
+    # End of node "Dot1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupShadertoy_pass2)
     groupShadertoy_pass1.connectInput(0, groupSource)
     groupShadertoy_pass1.connectInput(1, groupStrength_map)
-    groupShadertoy_pass2.connectInput(0, groupShadertoy_pass1)
+    groupShadertoy_pass2.connectInput(0, groupDot1)
     groupShadertoy_pass2.connectInput(1, groupStrength_map)
+    groupDot1.connectInput(0, groupShadertoy_pass1)
 
     param = groupShadertoy_pass1.getParam("paramValueFloat0")
     group.getParam("Shadertoy_pass1paramValueFloat0").setAsAlias(param)
@@ -860,6 +888,15 @@ def createInstance(app,group):
     del param
     param = groupShadertoy_pass1.getParam("paramValueBool3")
     group.getParam("Shadertoy_pass1paramValueBool3").setAsAlias(param)
+    del param
+    param = groupShadertoy_pass2.getParam("paramValueFloat0")
+    param.slaveTo(groupShadertoy_pass1.getParam("paramValueFloat0"), 0, 0)
+    del param
+    param = groupShadertoy_pass2.getParam("paramValueFloat1")
+    param.slaveTo(groupShadertoy_pass1.getParam("paramValueFloat1"), 0, 0)
+    del param
+    param = groupShadertoy_pass2.getParam("paramValueInt2")
+    param.slaveTo(groupShadertoy_pass1.getParam("paramValueInt2"), 0, 0)
     del param
 
     try:
