@@ -156,7 +156,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_bleachbypass_GL/Crok_bleachbypass_GL.png' width='32'> **[Crok_bleachbypass_GL](/GLSL/Crok_bleachbypass_GL/README.md)** : GPU accelerated bleachbypass effect for Shadertoy.
 
-- <img src='/GLSL/Crok_cell_shading_GL/Crok_cell_shading_GL.png' width='32'> **[Crok_cell_shading_GL](/GLSL/Crok_cell_shading_GL/README.md)** : Simulates cel shading.
+- <img src='/GLSL/Crok_cel_shading_GL/Crok_cel_shading_GL.png' width='32'> **[Crok_cel_shading_GL](/GLSL/Crok_cel_shading_GL/README.md)** : Simulates cel shading.
 
 - <img src='/GLSL/Crok_cmyk_halftone_GL/Crok_cmyk_halftone_GL.png' width='32'> **[Crok_cmyk_halftone_GL](/GLSL/Crok_cmyk_halftone_GL/README.md)** : GPU accelerated CMYK halftone effect for Shadertoy.
 
