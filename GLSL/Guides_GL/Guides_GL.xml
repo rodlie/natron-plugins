@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Guides_GL</DisplayName>
+    <Description>Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Guides_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

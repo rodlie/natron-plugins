@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Ls_Advect_GL</DisplayName>
+    <Description>Pushes an image along the contours of another.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Ls_Advect_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
