@@ -110,7 +110,11 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Iterations ")
+    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Iterations : ")
+    param.setMinimum(1, 0)
+    param.setMaximum(15, 0)
+    param.setDisplayMinimum(1, 0)
+    param.setDisplayMaximum(15, 0)
     param.setDefaultValue(4, 0)
     param.restoreDefaultValue(0)
 
@@ -138,6 +142,10 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat1", "Zoom : ")
+    param.setMinimum(0.01, 0)
+    param.setMaximum(10000, 0)
+    param.setDisplayMinimum(0.01, 0)
+    param.setDisplayMaximum(200, 0)
     param.setDefaultValue(40, 0)
     param.restoreDefaultValue(0)
 
@@ -220,6 +228,8 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat2", "Speed : ")
+    param.setDisplayMinimum(-50, 0)
+    param.setDisplayMaximum(50, 0)
     param.setDefaultValue(10, 0)
     param.restoreDefaultValue(0)
 
@@ -247,6 +257,8 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat3", "Offset : ")
+    param.setDisplayMinimum(-1024, 0)
+    param.setDisplayMaximum(1024, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -573,7 +585,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4138, 4078)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 50)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -584,19 +596,41 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
-    lastNode.setPosition(4138, 3893)
-    lastNode.setSize(80, 48)
+    lastNode.setPosition(4138, 3894)
+    lastNode.setSize(90, 50)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(4, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(40, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat3")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
     param = lastNode.getParam("paramValueVec34")
     if param is not None:
+        param.setValue(2, 0)
+        param.setValue(0.5, 1)
         param.setValue(0.2, 2)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_cells Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_cells Matchbox for Autodesk Flame\n\n\n\nuniform float itterations = 4.0;\nuniform float zoom = 40.0;\n\nuniform float speed = 10.0;\nuniform float offset = 0.0;\n\nuniform vec3 color_1 = vec3(2,.5,.2);\n\n\n\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\nfloat time = iTime*.025 * speed + offset;\n#define PI 3.14159\n#define TWO_PI (PI*2.0)\n\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord) \n{\n\tvec2 center = (fragCoord.xy);\n\tcenter.x=-0.12*sin(time/200.0);\n\tcenter.y=-100.12*cos(time/200.0);\n\tvec2 v = (fragCoord.xy - resolution/2.0) / min(resolution.y,resolution.x) * zoom;\n\tv.x=v.x-200.0;\n\tv.y=v.y-200.0;\n\tfloat col = 0.0;\n\tfor(float i = 0.0; i < itterations; i++) \n\t{\n\t  \tfloat a = i * (TWO_PI/itterations) * 61.95;\n\t\tcol += cos(TWO_PI*(v.y * cos(a) + v.x * sin(a) + sin(time*0.004)*100.0 ));\n\t}\n\tfragColor = vec4(col*color_1.r, col*color_1.g, col*color_1.b, 1.0);\n}")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_cells Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_cells Matchbox for Autodesk Flame\n\n\n\nuniform float itterations = 4.0; // Iterations : (iterations), min=1, max=15\nuniform float zoom = 40.0; // Zoom : (zoom), min=0.01, max=10000\n\nuniform float speed = 10.0; // Speed : (speed)\nuniform float offset = 0.0; // Offset : (offset)\n\nuniform vec3 color_1 = vec3(2,.5,.2); // Colour : (colour)\n\n\n\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\nfloat time = iTime*.025 * speed + offset;\n#define PI 3.14159\n#define TWO_PI (PI*2.0)\n\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord) \n{\n\tvec2 center = (fragCoord.xy);\n\tcenter.x=-0.12*sin(time/200.0);\n\tcenter.y=-100.12*cos(time/200.0);\n\tvec2 v = (fragCoord.xy - resolution/2.0) / min(resolution.y,resolution.x) * zoom;\n\tv.x=v.x-200.0;\n\tv.y=v.y-200.0;\n\tfloat col = 0.0;\n\tfor(float i = 0.0; i < itterations; i++) \n\t{\n\t  \tfloat a = i * (TWO_PI/itterations) * 61.95;\n\t\tcol += cos(TWO_PI*(v.y * cos(a) + v.x * sin(a) + sin(time*0.004)*100.0 ));\n\t}\n\tfragColor = vec4(col*color_1.r, col*color_1.g, col*color_1.b, 1.0);\n}")
         del param
 
     param = lastNode.getParam("inputEnable0")
@@ -646,12 +680,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramLabel0")
     if param is not None:
-        param.setValue("itterations")
+        param.setValue("Iterations :")
+        del param
+
+    param = lastNode.getParam("paramHint0")
+    if param is not None:
+        param.setValue("iterations")
         del param
 
     param = lastNode.getParam("paramDefaultFloat0")
     if param is not None:
         param.setValue(4, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat0")
+    if param is not None:
+        param.setValue(15, 0)
         del param
 
     param = lastNode.getParam("paramType1")
@@ -666,12 +715,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramLabel1")
     if param is not None:
+        param.setValue("Zoom :")
+        del param
+
+    param = lastNode.getParam("paramHint1")
+    if param is not None:
         param.setValue("zoom")
         del param
 
     param = lastNode.getParam("paramDefaultFloat1")
     if param is not None:
         param.setValue(40, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat1")
+    if param is not None:
+        param.setValue(0.01, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat1")
+    if param is not None:
+        param.setValue(10000, 0)
         del param
 
     param = lastNode.getParam("paramType2")
@@ -685,6 +749,11 @@ def createInstance(app,group):
         del param
 
     param = lastNode.getParam("paramLabel2")
+    if param is not None:
+        param.setValue("Speed :")
+        del param
+
+    param = lastNode.getParam("paramHint2")
     if param is not None:
         param.setValue("speed")
         del param
@@ -706,6 +775,11 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
+        param.setValue("Offset :")
+        del param
+
+    param = lastNode.getParam("paramHint3")
+    if param is not None:
         param.setValue("offset")
         del param
 
@@ -721,7 +795,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("color_1")
+        param.setValue("Colour :")
+        del param
+
+    param = lastNode.getParam("paramHint4")
+    if param is not None:
+        param.setValue("colour")
         del param
 
     param = lastNode.getParam("paramDefaultVec34")

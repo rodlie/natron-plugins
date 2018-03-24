@@ -31,13 +31,13 @@
 
 
 
-uniform float itterations = 4.0;
-uniform float zoom = 40.0;
+uniform float itterations = 4.0; // Iterations : (iterations), min=1, max=15
+uniform float zoom = 40.0; // Zoom : (zoom), min=0.01, max=10000
 
-uniform float speed = 10.0;
-uniform float offset = 0.0;
+uniform float speed = 10.0; // Speed : (speed)
+uniform float offset = 0.0; // Offset : (offset)
 
-uniform vec3 color_1 = vec3(2,.5,.2);
+uniform vec3 color_1 = vec3(2,.5,.2); // Colour : (colour)
 
 
 

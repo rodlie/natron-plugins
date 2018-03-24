@@ -1781,8 +1781,8 @@ def createInstance(app,group):
     group.getParam("Shadertoy_pass2paramValueFloat3").setAsAlias(param)
     del param
     param = groupShadertoy_pass2.getParam("paramValueVec24")
-    param.setExpression("thisGroup.offsetX.get()", False, 0)
-    param.setExpression("thisGroup.offsetY.get()", False, 1)
+    param.slaveTo(group.getParam("offsetX"), 0, 0)
+    param.slaveTo(group.getParam("offsetY"), 1, 0)
     del param
     param = groupShadertoy_pass2.getParam("paramValueInt5")
     group.getParam("Shadertoy_pass2paramValueInt5").setAsAlias(param)
@@ -1791,12 +1791,12 @@ def createInstance(app,group):
     group.getParam("Shadertoy_pass2paramValueInt6").setAsAlias(param)
     del param
     param = groupShadertoy_pass2.getParam("paramValueVec27")
-    param.setExpression("thisGroup.CROP_L.get()", False, 0)
-    param.setExpression("thisGroup.CROP_B.get()", False, 1)
+    param.slaveTo(group.getParam("CROP_L"), 0, 0)
+    param.slaveTo(group.getParam("CROP_B"), 1, 0)
     del param
     param = groupShadertoy_pass2.getParam("paramValueVec28")
-    param.setExpression("thisGroup.CROP_R.get()", False, 0)
-    param.setExpression("thisGroup.CROP_T.get()", False, 1)
+    param.slaveTo(group.getParam("CROP_R"), 0, 0)
+    param.slaveTo(group.getParam("CROP_T"), 1, 0)
     del param
     param = groupShadertoy_pass2.getParam("paramValueBool9")
     group.getParam("Shadertoy_pass2paramValueBool9").setAsAlias(param)
