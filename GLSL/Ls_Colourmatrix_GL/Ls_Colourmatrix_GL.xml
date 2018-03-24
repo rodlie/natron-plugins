@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Ls_Colourmatrix_GL</DisplayName>
+    <Description>Apply 3x3 matrices to RGB for white balance, colourspace conversion or well disco grades.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Ls_Colourmatrix_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

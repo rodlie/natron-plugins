@@ -43,18 +43,22 @@
 
 
 uniform float r2r = 1.0; // Input R : ,min=-5, max=5
-uniform float r2g = 0.0; // Red to green : ,min=-5, max=5
-uniform float r2b = 0.0; // Red to blue : ,min=-5, max=5
+uniform float g2r = 0.0; // Input G : ,min=-5, max=5
+uniform float b2r = 0.0; // Input B : ,min=-5, max=5
 uniform vec3 or = vec3(1.0,0.0,0.0); // Push R into my : 
 
-uniform float g2r = 0.0; // Input G : ,min=-5, max=5
-uniform float g2g = 1.0; // Green to green : ,min=-5, max=5
-uniform float g2b = 0.0; // Green to blue : ,min=-5, max=5
+
+
+uniform float r2g = 0.0; // Input R : ,min=-5, max=5
+uniform float g2g = 1.0; // Input G : ,min=-5, max=5
+uniform float b2g = 0.0; // Input B : ,min=-5, max=5
 uniform vec3 og = vec3(0.0,1.0,0.0); // Push G into my : 
 
-uniform float b2r = 0.0; // Input B : ,min=-5, max=5
-uniform float b2g = 0.0; // Blue to green : ,min=-5, max=5
-uniform float b2b = 1.0; // Blue to blue : ,min=-5, max=5
+
+
+uniform float r2b = 0.0; // Input R : ,min=-5, max=5
+uniform float g2b = 0.0; // Input G : ,min=-5, max=5
+uniform float b2b = 1.0; // Input B : ,min=-5, max=5
 uniform vec3 ob = vec3(0.0,0.0,1.0); // Push B into my : 
 
 
@@ -67,7 +71,7 @@ uniform vec3 ib = vec3(0.0,0.0,1.0); // B becomes :
 
 uniform float effect = 1.0; // Multiply effect : , min=-10, max=10
 uniform float gain = 1.0; // RGB gain : , min=0, max=10
-uniform float mixx = 1.0; // Mix : , min=0, max=10
+uniform float mixx = 1.0; // Mix : , min=0, max=1
 
 
 
