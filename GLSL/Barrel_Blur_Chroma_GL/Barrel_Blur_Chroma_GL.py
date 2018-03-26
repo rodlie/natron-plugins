@@ -28,7 +28,7 @@ def getIconPath():
     return "Barrel_Blur_Chroma_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Effect"
+    return "Community/GLSL/Blur"
 
 def getPluginDescription():
     return "Barrel chroma blur effect."

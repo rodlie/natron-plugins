@@ -28,7 +28,7 @@ def getIconPath():
     return "Crok_noise_blur_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Effect"
+    return "Community/GLSL/Distort"
 
 def getPluginDescription():
     return "Creates a fractal pattern."

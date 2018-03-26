@@ -28,7 +28,7 @@ def getIconPath():
     return "Crok_fast_grain_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Effect"
+    return "Community/GLSL/Draw"
 
 def getPluginDescription():
     return "Simulates a film like grain."
