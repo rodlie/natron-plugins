@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.8314, 0.4706, 0.1373)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -595,6 +596,11 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1_2 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(0.13, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
         param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_Ash Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_Ash Matchbox for Autodesk Flame\n\n// iChannel0: Source, filter = linear, wrap=clamp\n// BBox: iChannel0\n\n// Adaptive sharpening\n// Pass 1: edge detection\n// lewis@lewissaunders.com\n\n\n\nuniform float ksize;\nuniform float threshold = 0.13; // Edge threshold : (Increase to sharpen more edges), min=0.001, max=1.0\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 xy = fragCoord.xy;\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\n\n\tvec4 orig = texture2D(iChannel0, xy * px);\n\n\tfloat ksize = 1.0;\n\n\t// Find gradients of iChannel0 with X/Y Sobel convolution\n\tvec2 d;\n\td.x  =  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\n\td.x +=  2.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0,  0.0)) * px).g;\n\td.x +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\n\td.x += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\n\td.x += -2.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0,  0.0)) * px).g;\n\td.x += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\n\td.y  =  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\n\td.y +=  2.0 * texture2D(iChannel0, (xy + ksize * vec2( 0.0, -1.0)) * px).g;\n\td.y +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\n\td.y += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\n\td.y += -2.0 * texture2D(iChannel0, (xy + ksize * vec2( 0.0, +1.0)) * px).g;\n\td.y += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\n\n\t// Magnitude of gradients finds edges\n\tfloat mag = length(d);\n\tfloat edginess = mag;\n\n\t// Threshold removes minor edges\n\tedginess *= 1.0 - threshold;\n\tedginess -= threshold;\n\n\tfragColor = vec4(orig.r, orig.g, orig.b, edginess);\n}\n")
@@ -697,6 +703,11 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2_2 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(2.5, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
         param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_Ash Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_Ash Matchbox for Autodesk Flame\n\n// iChannel0: result_pass1, filter = linear, wrap=clamp\n// BBox: iChannel0\n\n// Adaptive sharpening\n// Pass 2: horizontal Gaussian blur\n// lewis@lewissaunders.com\n\n\n\n\nuniform float sigma = 2.5; // Size : (Size of biggest details to sharpen), min=0.0, max=100.0\n\n\n\nconst float pi = 3.141592653589793238462643383279502884197969;\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 xy = fragCoord.xy;\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\n\n\tint support = int(sigma * 3.0);\n\n\t// Incremental coefficient calculation setup as per GPU Gems 3\n\tvec3 g;\n\tg.x = 1.0 / (sqrt(2.0 * pi) * sigma);\n\tg.y = exp(-0.5 / (sigma * sigma));\n\tg.z = g.y * g.y;\n\n\tif(sigma == 0.0) {\n\t\tg.x = 1.0;\n\t}\n\n\t// Centre sample\n\tvec4 a = g.x * texture2D(iChannel0, xy * px);\n\tfloat energy = g.x;\n\tg.xy *= g.yz;\n\n\t// The rest\n\tfor(int i = 1; i <= support; i++) {\n\t\ta += g.x * texture2D(iChannel0, (xy - vec2(float(i), 0.0)) * px);\n\t\ta += g.x * texture2D(iChannel0, (xy + vec2(float(i), 0.0)) * px);\n\t\tenergy += 2.0 * g.x;\n\t\tg.xy *= g.yz;\n\t}\n\ta /= energy;\n\n\tfragColor = a;\n}\n")
@@ -798,6 +809,31 @@ def createInstance(app,group):
     lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(2.5, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool2")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("paramValueBool3")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("paramValueBool4")
+    if param is not None:
+        param.setValue(False)
+        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:

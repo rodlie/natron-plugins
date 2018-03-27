@@ -31,13 +31,14 @@ def getGrouping():
     return "Community/GLSL/Blur"
 
 def getPluginDescription():
-    return "Simulates a convolve blur."
+    return "Simulates a convolve blur.\n( https://vimeo.com/82191444 )"
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.8314, 0.4863, 0.1412)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -443,7 +444,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -455,7 +456,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3697)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -467,7 +468,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3855)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 

@@ -31,13 +31,14 @@ def getGrouping():
     return "Community/GLSL/Distort"
 
 def getPluginDescription():
-    return "Pulls a spherical matte from an XYZ position pass."
+    return "Pulls a spherical matte from an XYZ position pass.\n( http://youtube.com/watch?v=11Q4RHJz230 )"
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.07059, 0.5686, 0.4863)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -854,7 +855,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -866,7 +867,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3891)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -941,7 +942,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_Posmatte Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_Posmatte Matchbox for Autodesk Flame\n\n// Pick an ellipsoidal area matte from an XYZ position pass\n// lewis@lewissaunders.com\n// TODO:\n//  o Rotation\n//  o Skew\n//  o Cube-shaped matte - with rounded corners?\n\n\n// iChannel0: Source, filter = linear, wrap0 = clamp\n// iChannel1: Mask, filter = nearest, wrap1 = clamp\n// iChannel2: Position pass, filter = nearest, wrap1 = clamp\n\n\n\nuniform vec3 pick; // Pick centre : \n\nuniform float tolerance = 0.1; // Tolerance : , min=0.0, max=10000\nuniform float softness = 1.0; // Softness : , min=0.001, max=1000000\nuniform float falloffswoop = 1.0; // Edge swoop : , min=0.0, max=1.0\n\nuniform float offsetx = 0.0; // X offset : , min=-10000, max=10000\nuniform float offsety = 0.0; // Y offset : , min=-10000, max=10000\nuniform float offsetz = 0.0; // Z offset : , min=-10000, max=10000\n\nuniform float scalex = 1.0; // X scale :  , min=-10000, max=10000\nuniform float scaley = 1.0; // Y scale :  , min=-10000, max=10000\nuniform float scalez = 1.0; // Z scale :  , min=-10000, max=10000\n\nuniform bool overlay = false; // Overlay : \nuniform vec3 overlaycol = vec3(0.98,0.0,0.43); // Overlay color : \n\nuniform bool hatch = false; // Crosshatch : \n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 coords = fragCoord.xy / vec2(iResolution.x, iResolution.y);\n\tvec3 o, frontpix, pospix, mattepix, centered, diff = vec3(0.0);\n\tfloat m = 0.0;\n\n\tfrontpix = texture2D(iChannel0, coords).rgb;\n\tmattepix = texture2D(iChannel1, coords).rgb;\n\tpospix = texture2D(iChannel2, coords).rgb;\n\n\t// Center coordinate space about the picked colour so we can scale easily\n\tcentered = pospix - pick - vec3(offsetx, offsety, offsetz);\n\tdiff = centered / vec3(scalex, scaley, scalez);\n\n\tm = length(diff);\n\tif(m < tolerance) {\n\t\tm = 0.0;\n\t} else {\n\t\tm = (m - tolerance) / softness;\n\t}\n\tm = clamp(1.0 - m, 0.0, 1.0);\n\tm = mix(m, smoothstep(0.0, 1.0, m), falloffswoop);\n\tm *= mattepix.b;\n\n\to = frontpix;\n\tif(overlay) {\n\t\to += m * overlaycol;\n\t\tif(hatch) {\n\t\t\t// Cheap-ass diagonal lines\n\t\t\tfloat h = mod(fragCoord.x - fragCoord.y, 20.0);\n\t\t\th = h > 10.0 ? 0.0 : 1.0;\n\t\t\to = mix(o, frontpix, h);\n\t\t}\n\t}\n\n\tfragColor = vec4(o, m);\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : Ls_Posmatte Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : Ls_Posmatte Matchbox for Autodesk Flame\r\n\r\n// Pick an ellipsoidal area matte from an XYZ position pass\r\n// lewis@lewissaunders.com\r\n// TODO:\r\n//  o Rotation\r\n//  o Skew\r\n//  o Cube-shaped matte - with rounded corners?\r\n\r\n\r\n// iChannel0: Source, filter = linear, wrap0 = clamp\r\n// iChannel1: Mask, filter = nearest, wrap1 = clamp\r\n// iChannel2: Position pass, filter = nearest, wrap1 = clamp\r\n\r\n\r\n\r\nuniform vec3 pick; // Pick centre : \r\n\r\nuniform float tolerance = 0.1; // Tolerance : , min=0.0, max=10000\r\nuniform float softness = 1.0; // Softness : , min=0.001, max=1000000\r\nuniform float falloffswoop = 1.0; // Edge swoop : , min=0.0, max=1.0\r\n\r\nuniform float offsetx = 0.0; // X offset : , min=-10000, max=10000\r\nuniform float offsety = 0.0; // Y offset : , min=-10000, max=10000\r\nuniform float offsetz = 0.0; // Z offset : , min=-10000, max=10000\r\n\r\nuniform float scalex = 1.0; // X scale :  , min=-10000, max=10000\r\nuniform float scaley = 1.0; // Y scale :  , min=-10000, max=10000\r\nuniform float scalez = 1.0; // Z scale :  , min=-10000, max=10000\r\n\r\nuniform bool overlay = false; // Overlay : \r\nuniform vec3 overlaycol = vec3(0.98,0.0,0.43); // Overlay color : \r\n\r\nuniform bool hatch = false; // Crosshatch : \r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\tvec2 coords = fragCoord.xy / vec2(iResolution.x, iResolution.y);\r\n\tvec3 o, frontpix, pospix, mattepix, centered, diff = vec3(0.0);\r\n\tfloat m = 0.0;\r\n\r\n\tfrontpix = texture2D(iChannel0, coords).rgb;\r\n\tmattepix = texture2D(iChannel1, coords).rgb;\r\n\tpospix = texture2D(iChannel2, coords).rgb;\r\n\r\n\t// Center coordinate space about the picked colour so we can scale easily\r\n\tcentered = pospix - pick - vec3(offsetx, offsety, offsetz);\r\n\tdiff = centered / vec3(scalex, scaley, scalez);\r\n\r\n\tm = length(diff);\r\n\tif(m < tolerance) {\r\n\t\tm = 0.0;\r\n\t} else {\r\n\t\tm = (m - tolerance) / softness;\r\n\t}\r\n\tm = clamp(1.0 - m, 0.0, 1.0);\r\n\tm = mix(m, smoothstep(0.0, 1.0, m), falloffswoop);\r\n\tm *= mattepix.b;\r\n\r\n\to = frontpix;\r\n\tif(overlay) {\r\n\t\to += m * overlaycol;\r\n\t\tif(hatch) {\r\n\t\t\t// Cheap-ass diagonal lines\r\n\t\t\tfloat h = mod(fragCoord.x - fragCoord.y, 20.0);\r\n\t\t\th = h > 10.0 ? 0.0 : 1.0;\r\n\t\t\to = mix(o, frontpix, h);\r\n\t\t}\r\n\t}\r\n\r\n\tfragColor = vec4(o, m);\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -1323,7 +1324,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4290, 3741)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -1335,7 +1336,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
     lastNode.setPosition(4139, 3739)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
 
@@ -1347,7 +1348,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Position_pass")
     lastNode.setLabel("Position pass")
     lastNode.setPosition(3968, 3741)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupPosition_pass = lastNode
 

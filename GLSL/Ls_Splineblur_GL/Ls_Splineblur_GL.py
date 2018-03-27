@@ -31,13 +31,14 @@ def getGrouping():
     return "Community/GLSL/Distort"
 
 def getPluginDescription():
-    return "Directional blur along the edges of a shape."
+    return "Directional blur along the edges of a shape.\n( http://youtube.com/watch?v=CRUa3zv1t1M )"
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.07059, 0.5686, 0.4863)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -695,16 +696,6 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1 = lastNode
 
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(5, 0)
-        del param
-
-    param = lastNode.getParam("paramValueBool1")
-    if param is not None:
-        param.setValue(False)
-        del param
-
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
         param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_Splineblur Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_Splineblur Matchbox for Autodesk Flame\n\n// iChannel0: Map, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n\n\n// Directional blur driven by gradient vectors of front input\n// Pass 1: make the vectors\n// lewis@lewissaunders.com\n// TODO:\n//  o Bigger Sobel kernels?\n//  o Pre-blur input in case of GMask kinks?\n//  o Could probably use dfdx,dfdy instead of manual convolution\n\n\n\n\n\n\nuniform float ksize = 5.0; // Sobel kernel size : (Size of Sobel kernels used to detect gradients; increase to remove artifacts at the expense of accuracy.), min=0.5, max=1024\nuniform bool radial = false; // Radial : (Blur into and out of the map instead of along the edges.)\nuniform bool directvectors = false; // Use map as vectors directly : (Enable to use the map input red and green channels as XY vectors directly, instead of calulating gradients.)\n\n\n\n\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 xy = fragCoord.xy;\n\n\t// Factor to convert [0,1] texture coords to pixels\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\n\n\tvec2 d = vec2(0.0);\n\n\tif(directvectors) {\n\t\t// iChannel0 input is already vectors, yay!\n\t\td = texture2D(iChannel0, xy * px).xy;\n\t\tfragColor = vec4(d.x, d.y, 0.0, 1.0);\n\t\treturn;\n\t}\n\n\t// Convolve by x and y Sobel matrices to get gradient vector\n\td.x  =  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\n\td.x +=  2.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0,  0.0)) * px).g;\n\td.x +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\n\td.x += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\n\td.x += -2.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0,  0.0)) * px).g;\n\td.x += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\n\td.y +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\n\td.y +=  2.0 * texture2D(iChannel0, (xy + ksize * vec2( 0.0, -1.0)) * px).g;\n\td.y +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\n\td.y += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\n\td.y += -2.0 * texture2D(iChannel0, (xy + ksize * vec2( 0.0, +1.0)) * px).g;\n\td.y += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\n\n\tif(!radial) {\n\t\t// Rotate 90 degrees\n\t\td = vec2(-d.y, d.x);\n\t}\n\n\t// Bit of a bodge factor right here\n\td *= 32.0 / ksize;\n\n\t// Output vectors for second pass\n\tfragColor = vec4(d.x, d.y, 0.0, 1.0);\n}\n")
@@ -846,36 +837,6 @@ def createInstance(app,group):
     lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(8, 0)
-        del param
-
-    param = lastNode.getParam("paramValueInt1")
-    if param is not None:
-        param.setValue(32, 0)
-        del param
-
-    param = lastNode.getParam("paramValueBool2")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("paramValueBool3")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("paramValueBool4")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("paramValueBool5")
-    if param is not None:
-        param.setValue(False)
-        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:

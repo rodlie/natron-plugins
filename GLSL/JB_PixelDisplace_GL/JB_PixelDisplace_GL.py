@@ -15,7 +15,6 @@ try:
 except ImportError:
     pass
 
-
 def getPluginID():
     return "natron.community.plugins.JB_pixelDisplace_GL"
 
@@ -39,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.07451, 0.5686, 0.4863)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -937,13 +937,63 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3810)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat3")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat4")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat5")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat6")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat7")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat8")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat9")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// setting inputs names and filtering options\n// iChannel0: Source, filter=linear\n// iChannel1: Displace Map, filter=linear\n// iChannel2: Mask, filter=linear\n\n// creating user parameters\nuniform float scanlineX = 10;  // global X displace, min=-0., max=50.\nuniform float scanlineY = 10;  // global Y displace, min=-0., max=50.\n\nuniform float offsetX; // global X offset, min=-0., max=50.\nuniform float offsetY; // global Y offset, min=-0., max=50.\n\nuniform float rx = 10; // red X displace, min=-0., max=50.\nuniform float ry = 10; // red Y displace, min=-0., max=50.\nuniform float gx; // green X displace, min=-0., max=50.\nuniform float gy; // green Y displace, min=-0., max=50.\nuniform float bx; // blue X displace, min=-0., max=50.\nuniform float by; // blue Y displace, min=-0., max=50.\n\n\n// main function\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tfloat blender = 0;\n\n\tvec2 stDisp;\n\tstDisp.x = fragCoord.x / iResolution.x;\n\tstDisp.y = fragCoord.y / iResolution.y;\n\t\n\t// get the diplace map input (iChannel1)\n\tvec4 getDispInput1;\n\tgetDispInput1 = texture2D(iChannel1, stDisp);\n\n\t\n\tvec2 st2;\t\n\tst2.x =( fragCoord.x - (((rx)*getDispInput1.x + (bx) * getDispInput1.z + (gx) * getDispInput1.y)*scanlineX)+ offsetX) / iResolution.x;\n\tst2.y =( fragCoord.y - (((ry)*getDispInput1.x + (by) * getDispInput1.z + (gy) * getDispInput1.y)*scanlineY)+ offsetY) / iResolution.y;\n\n\n\t// get the displaced image\n\tvec4 getColorInputDisp;\n\tgetColorInputDisp = texture2D(iChannel0, st2);\n\t\n\n\tvec4 getColorInputDispMap;\n\tgetColorInputDispMap = texture2D(iChannel0, st2);\n\n\t// get pixel informations RGB for each input\n\tvec2 st;\n\tst.x = fragCoord.x  / iResolution.x;\n\tst.y = fragCoord.y / iResolution.y;\n\n\t// get the image to be displaced\n\tvec4 getColorInputClean;\n\tgetColorInputClean = texture2D(iChannel0, st);\n\t\n\tvec4 outColor;\n\toutColor =( (getColorInputDisp) );\t\t\n\toutColor.a = getColorInputDispMap.r;\n\t\n\t//process the output\n\tfragColor = outColor;\n}\n")
+        param.setValue("// setting inputs names and filtering options\r\n// iChannel0: Source, filter=linear\r\n// iChannel1: Displace Map, filter=linear\r\n// iChannel2: Mask, filter=linear\r\n\r\n// creating user parameters\r\nuniform float scanlineX = 10;  // global X displace, min=-0., max=50.\r\nuniform float scanlineY = 10;  // global Y displace, min=-0., max=50.\r\n\r\nuniform float offsetX; // global X offset, min=-0., max=50.\r\nuniform float offsetY; // global Y offset, min=-0., max=50.\r\n\r\nuniform float rx = 10; // red X displace, min=-0., max=50.\r\nuniform float ry = 10; // red Y displace, min=-0., max=50.\r\nuniform float gx; // green X displace, min=-0., max=50.\r\nuniform float gy; // green Y displace, min=-0., max=50.\r\nuniform float bx; // blue X displace, min=-0., max=50.\r\nuniform float by; // blue Y displace, min=-0., max=50.\r\n\r\n\r\n// main function\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\tfloat blender = 0;\r\n\r\n\tvec2 stDisp;\r\n\tstDisp.x = fragCoord.x / iResolution.x;\r\n\tstDisp.y = fragCoord.y / iResolution.y;\r\n\t\r\n\t// get the diplace map input (iChannel1)\r\n\tvec4 getDispInput1;\r\n\tgetDispInput1 = texture2D(iChannel1, stDisp);\r\n\r\n\t\r\n\tvec2 st2;\t\r\n\tst2.x =( fragCoord.x - (((rx)*getDispInput1.x + (bx) * getDispInput1.z + (gx) * getDispInput1.y)*scanlineX)+ offsetX) / iResolution.x;\r\n\tst2.y =( fragCoord.y - (((ry)*getDispInput1.x + (by) * getDispInput1.z + (gy) * getDispInput1.y)*scanlineY)+ offsetY) / iResolution.y;\r\n\r\n\r\n\t// get the displaced image\r\n\tvec4 getColorInputDisp;\r\n\tgetColorInputDisp = texture2D(iChannel0, st2);\r\n\t\r\n\r\n\tvec4 getColorInputDispMap;\r\n\tgetColorInputDispMap = texture2D(iChannel0, st2);\r\n\r\n\t// get pixel informations RGB for each input\r\n\tvec2 st;\r\n\tst.x = fragCoord.x  / iResolution.x;\r\n\tst.y = fragCoord.y / iResolution.y;\r\n\r\n\t// get the image to be displaced\r\n\tvec4 getColorInputClean;\r\n\tgetColorInputClean = texture2D(iChannel0, st);\r\n\t\r\n\tvec4 outColor;\r\n\toutColor =( (getColorInputDisp) );\t\t\r\n\toutColor.a = getColorInputDispMap.r;\r\n\t\r\n\t//process the output\r\n\tfragColor = outColor;\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")

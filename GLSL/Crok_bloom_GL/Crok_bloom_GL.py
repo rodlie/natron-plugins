@@ -31,13 +31,14 @@ def getGrouping():
     return "Community/GLSL/Blur"
 
 def getPluginDescription():
-    return "Simulates blooming."
+    return "Simulates blooming.\n( https://vimeo.com/82142821 )"
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.8314, 0.4863, 0.1373)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")

@@ -31,13 +31,14 @@ def getGrouping():
     return "Community/GLSL/Distort"
 
 def getPluginDescription():
-    return "Creates a fractal pattern."
+    return "Creates a fractal pattern.\n( https://vimeo.com/82190139 )"
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.07451, 0.5686, 0.4863)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -83,6 +84,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(1.18, 0)
     lastNode.Shadertoy1_2paramValueFloat0 = param
     del param
 
@@ -396,7 +398,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.setValue(0.49, 0)
+        param.setValue(1.18, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat1")

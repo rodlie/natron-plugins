@@ -31,13 +31,14 @@ def getGrouping():
     return "Community/GLSL/Distort"
 
 def getPluginDescription():
-    return "Warp an area of the Source and Mask to follow a track."
+    return "Warp an area of the Source and Mask to follow a track.\n( http://youtube.com/watch?v=GOQAAb9NqAM )"
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.07059, 0.5686, 0.4863)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -228,6 +229,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(111, 0)
     lastNode.offsetX = param
     del param
 
@@ -798,7 +800,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -810,7 +812,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3645)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -822,7 +824,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3881)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
@@ -840,7 +842,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec22")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(111, 0)
         param.setValue(0, 1)
         del param
 
@@ -1160,7 +1162,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
     lastNode.setPosition(4296, 3757)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
 
@@ -1172,7 +1174,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Nail_mask")
     lastNode.setLabel("Nail mask")
     lastNode.setPosition(3997, 3746)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupNail_mask = lastNode
 

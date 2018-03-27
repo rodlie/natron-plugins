@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.5882, 0.1255, 0.3255)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -426,23 +427,23 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3645)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -454,7 +455,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3839)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
@@ -465,7 +466,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : K_RgbcmyMatte Matchbox pour Autodesk Flame\n//\n// Adapted to Natron by F.Fernandez\n// Original code : K_RgbcmyMatte Matchbox for Autodesk Flame\n//\n// K_RgbcmyMatte v1.2\n// Shader written by: Kyle Obley (kyle.obley@gmail.com)\n//\n\n\n// iChannel0: ID pass, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n\n\n\nuniform int selection = 0; // Selection : (1=Red, 2=Green, 3=Blue, 4=Cyan, 5=Yellow, 6=Magenta, 7=White), min=0, max=6\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\t\n\tvec2 st = fragCoord.xy / vec2 (iResolution.x, iResolution.y);\n\tvec3 image = texture2D(iChannel0, st).rgb;\n\t\n\t// Red\n\tif ( selection == 0 )\n\t{\n\t\tfragColor = vec4( image.r * (1.0 - image.g) * (1.0 - image.b) );\n\t}\n\t\n\t// Green\n\telse if ( selection == 1 )\n\t{\n\t\tfragColor = vec4( (1.0 - image.r) * image.g * (1.0 - image.b) );\n\t}\n\t\n\t// Blue\n\telse if ( selection == 2 )\n\t{\n\t\tfragColor = vec4( (1.0 - image.r) * (1.0 - image.g) * image.b );\n\t}\n\t\n\t// Cyan\n\telse if ( selection == 3 )\n\t{\n\t\tfragColor = vec4( (1.0 - image.r) * image.g * image.b );\n\t}\n\t\n\t// Yellow\n\telse if ( selection == 4 )\n\t{\n\t\tfragColor = vec4(  image.r * image.g  * (1.0 - image.b) );\n\t}\n\t\n\t// Magenta\n\telse if ( selection == 5 )\n\t{\n\t\tfragColor = vec4( image.b * (1.0 - image.r ) * image.g );\n\t}\n\t\n\t// White\n\telse if ( selection == 6 )\n\t{\n\t\tfragColor = vec4( image.r * image.g * image.b );\n\t}\n}")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : K_RgbcmyMatte Matchbox pour Autodesk Flame\r\n//\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : K_RgbcmyMatte Matchbox for Autodesk Flame\r\n//\r\n// K_RgbcmyMatte v1.2\r\n// Shader written by: Kyle Obley (kyle.obley@gmail.com)\r\n//\r\n\r\n\r\n// iChannel0: ID pass, filter=nearest, wrap=clamp\r\n// BBox: iChannel0\r\n\r\n\r\n\r\n\r\nuniform int selection = 0; // Selection : (1=Red, 2=Green, 3=Blue, 4=Cyan, 5=Yellow, 6=Magenta, 7=White), min=0, max=6\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\t\r\n\tvec2 st = fragCoord.xy / vec2 (iResolution.x, iResolution.y);\r\n\tvec3 image = texture2D(iChannel0, st).rgb;\r\n\t\r\n\t// Red\r\n\tif ( selection == 0 )\r\n\t{\r\n\t\tfragColor = vec4( image.r * (1.0 - image.g) * (1.0 - image.b) );\r\n\t}\r\n\t\r\n\t// Green\r\n\telse if ( selection == 1 )\r\n\t{\r\n\t\tfragColor = vec4( (1.0 - image.r) * image.g * (1.0 - image.b) );\r\n\t}\r\n\t\r\n\t// Blue\r\n\telse if ( selection == 2 )\r\n\t{\r\n\t\tfragColor = vec4( (1.0 - image.r) * (1.0 - image.g) * image.b );\r\n\t}\r\n\t\r\n\t// Cyan\r\n\telse if ( selection == 3 )\r\n\t{\r\n\t\tfragColor = vec4( (1.0 - image.r) * image.g * image.b );\r\n\t}\r\n\t\r\n\t// Yellow\r\n\telse if ( selection == 4 )\r\n\t{\r\n\t\tfragColor = vec4(  image.r * image.g  * (1.0 - image.b) );\r\n\t}\r\n\t\r\n\t// Magenta\r\n\telse if ( selection == 5 )\r\n\t{\r\n\t\tfragColor = vec4( image.b * (1.0 - image.r ) * image.g );\r\n\t}\r\n\t\r\n\t// White\r\n\telse if ( selection == 6 )\r\n\t{\r\n\t\tfragColor = vec4( image.r * image.g * image.b );\r\n\t}\r\n}")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -547,7 +548,7 @@ def createInstance(app,group):
     # End of node "Shadertoy1_2"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1_2)
+    groupOutput1.connectInput(0, groupShadertoy1_2)
     groupShadertoy1_2.connectInput(0, groupSource)
 
     param = groupShadertoy1_2.getParam("paramValueInt0")

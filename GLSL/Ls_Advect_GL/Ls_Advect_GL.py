@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.07059, 0.5686, 0.4863)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -1079,7 +1080,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4148, 4120)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -1091,7 +1092,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4148, 3709)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -1103,7 +1104,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Map")
     lastNode.setLabel("Map")
     lastNode.setPosition(3952, 3711)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMap = lastNode
 
@@ -1115,7 +1116,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy_pass1")
     lastNode.setLabel("Shadertoy_pass1")
     lastNode.setPosition(3952, 3876)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1 = lastNode
 
@@ -1272,7 +1273,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy_pass2")
     lastNode.setLabel("Shadertoy_pass2")
     lastNode.setPosition(4148, 3876)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2 = lastNode
 

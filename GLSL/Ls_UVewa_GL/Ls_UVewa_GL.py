@@ -31,13 +31,14 @@ def getGrouping():
     return "Community/GLSL/Distort"
 
 def getPluginDescription():
-    return "UV mapping with EWA filtering."
+    return "UV mapping with EWA filtering.\n( http://youtube.com/watch?v=iEVb7tVxaP0 )"
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.07059, 0.5686, 0.4863)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -630,7 +631,6 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
-    param.set("linear")
     lastNode.Shadertoy1_2mipmap0 = param
     del param
 

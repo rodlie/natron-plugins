@@ -31,13 +31,14 @@ def getGrouping():
     return "Community/GLSL/Blur"
 
 def getPluginDescription():
-    return "Creates a noisy blur"
+    return "Creates a noisy blur.\n( http://vimeo.com/110007581 )"
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.8314, 0.4863, 0.1373)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -492,11 +493,6 @@ def createInstance(app,group):
     param = lastNode.getParam("mipmap0")
     if param is not None:
         param.set("linear")
-        del param
-
-    param = lastNode.getParam("wrap0")
-    if param is not None:
-        param.set("repeat")
         del param
 
     param = lastNode.getParam("inputLabel0")

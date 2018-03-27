@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.8314, 0.4863, 0.1412)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -436,21 +437,6 @@ def createInstance(app,group):
     lastNode.setSize(80, 45)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(0.5, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(8, 0)
-        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:

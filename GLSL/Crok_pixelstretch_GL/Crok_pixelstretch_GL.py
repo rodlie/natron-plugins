@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_pixelstretch_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Crok_pixelstretch_GL.png"
@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.07059, 0.5686, 0.4863)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -120,6 +121,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass3paramValueFloat0 = param
@@ -151,6 +153,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass1paramValueFloat0 = param
@@ -182,6 +185,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass3paramValueFloat1 = param
@@ -413,23 +417,23 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4277, 4408)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Front"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Front")
     lastNode.setLabel("Front")
     lastNode.setPosition(4438, 4194)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupFront = lastNode
 
@@ -441,7 +445,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Matte")
     lastNode.setLabel("Matte")
     lastNode.setPosition(4098, 3616)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMatte = lastNode
 
@@ -453,7 +457,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Strength")
     lastNode.setLabel("Strength")
     lastNode.setPosition(4443, 4085)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupStrength = lastNode
 
@@ -465,14 +469,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy_pass1")
     lastNode.setLabel("Shadertoy_pass1")
     lastNode.setPosition(4277, 3827)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -567,14 +566,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy_pass2")
     lastNode.setLabel("Shadertoy_pass2")
     lastNode.setPosition(4277, 3969)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -669,19 +663,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy_pass3")
     lastNode.setLabel("Shadertoy_pass3")
     lastNode.setPosition(4277, 4194)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass3 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -851,7 +835,7 @@ def createInstance(app,group):
     # End of node "Dot2"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy_pass3)
+    groupOutput1.connectInput(0, groupShadertoy_pass3)
     groupShadertoy_pass1.connectInput(0, groupDot1)
     groupShadertoy_pass2.connectInput(0, groupShadertoy_pass1)
     groupShadertoy_pass3.connectInput(0, groupShadertoy_pass2)

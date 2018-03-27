@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.5882, 0.1255, 0.3255)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -796,7 +797,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -808,7 +809,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3822)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
@@ -884,7 +885,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : JB_multiMatteManager Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : JB_multiMatteManager Matchbox for Autodesk Flame\n\n\n// iChannel0: ID 1, filter = nearest\n// iChannel1: ID 2, filter = nearest\n// iChannel2: ID 3, filter = nearest\n// iChannel3: ID 4, filter = nearest\n// BBox: iChannel0\n\n\n\n// declare the variables (switches for the channels for each input)\n\nuniform bool redChannel1 = true; // ID 1 Red : \nuniform bool greenChannel1 = true; // ID 1 Green : \nuniform bool blueChannel1 = true; // ID 1 Blue :  : \n\nuniform bool redChannel2 = true; // ID 2 Red : \nuniform bool greenChannel2 = true; // ID 2 Green : \nuniform bool blueChannel2 = true; // ID 2 Blue : \n\nuniform bool redChannel3 = true; // ID 3 Red : \nuniform bool greenChannel3 = true; // ID 3 Green : \nuniform bool blueChannel3 = true; // ID 3 Blue : \n\nuniform bool redChannel4 = true; // ID 4 Red : \nuniform bool greenChannel4 = true; // ID 4 Green : \nuniform bool blueChannel4 = true; // ID 4 Blue : \n\nuniform bool alphaToRGB = false; // Copy alpha to RGB : \nuniform bool invertAlpha = false; // Invert alpha : \n\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n\tvec2 st;\n\tst.x = fragCoord.x / iResolution.x;\n\tst.y = fragCoord.y / iResolution.y;\n\n\t\n\tvec4 getColorInput1;\n\tgetColorInput1 = texture2D(iChannel0, st);\n\t\n\tvec4 getColorInput2;\n\tgetColorInput2 = texture2D(iChannel1, st);\n\n\tvec4 getColorInput3;\n\tgetColorInput3 = texture2D(iChannel2, st);\n\n\tvec4 getColorInput4;\n\tgetColorInput4 = texture2D(iChannel3, st);\t\n\n\t\n\t\n\tgetColorInput1.r *= int(redChannel1);\n\tgetColorInput1.g *= int(greenChannel1);\n\tgetColorInput1.b *= int(blueChannel1);\n\t\n\tgetColorInput2.r *= int(redChannel2);\n\tgetColorInput2.g *= int(greenChannel2);\n\tgetColorInput2.b *= int(blueChannel2);\n\n\tgetColorInput3.r *= int(redChannel3);\n\tgetColorInput3.g *= int(greenChannel3);\n\tgetColorInput3.b *= int(blueChannel3);\n\n\tgetColorInput4.r *= int(redChannel4);\n\tgetColorInput4.g *= int(greenChannel4);\n\tgetColorInput4.b *= int(blueChannel4);\n\n\t \n\tvec4 result;\n\t\n\tresult.r = getColorInput1.r + getColorInput2.r + getColorInput3.r + getColorInput4.r;\n\tresult.g = getColorInput1.g + getColorInput2.g + getColorInput3.g + getColorInput4.g;\n\tresult.b = getColorInput1.b + getColorInput2.b + getColorInput3.b + getColorInput4.b;\n\n\t\n\tresult.a = result.r +result.b +result.g;\n\n\n\n\tif (invertAlpha == true) {result.a = 1-result.a;}\n\n\tif (alphaToRGB == true)\n\t{\n\t\tresult.r = result.a;\n\t\tresult.g = result.a;\n\t\tresult.b = result.a;\n\t}\n\n\tfragColor = result;\n\t\n}")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : JB_multiMatteManager Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : JB_multiMatteManager Matchbox for Autodesk Flame\r\n\r\n\r\n// iChannel0: ID 1, filter = nearest\r\n// iChannel1: ID 2, filter = nearest\r\n// iChannel2: ID 3, filter = nearest\r\n// iChannel3: ID 4, filter = nearest\r\n// BBox: iChannel0\r\n\r\n\r\n\r\n// declare the variables (switches for the channels for each input)\r\n\r\nuniform bool redChannel1 = true; // ID 1 Red : \r\nuniform bool greenChannel1 = true; // ID 1 Green : \r\nuniform bool blueChannel1 = true; // ID 1 Blue :  : \r\n\r\nuniform bool redChannel2 = true; // ID 2 Red : \r\nuniform bool greenChannel2 = true; // ID 2 Green : \r\nuniform bool blueChannel2 = true; // ID 2 Blue : \r\n\r\nuniform bool redChannel3 = true; // ID 3 Red : \r\nuniform bool greenChannel3 = true; // ID 3 Green : \r\nuniform bool blueChannel3 = true; // ID 3 Blue : \r\n\r\nuniform bool redChannel4 = true; // ID 4 Red : \r\nuniform bool greenChannel4 = true; // ID 4 Green : \r\nuniform bool blueChannel4 = true; // ID 4 Blue : \r\n\r\nuniform bool alphaToRGB = false; // Copy alpha to RGB : \r\nuniform bool invertAlpha = false; // Invert alpha : \r\n\r\n\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\r\n\tvec2 st;\r\n\tst.x = fragCoord.x / iResolution.x;\r\n\tst.y = fragCoord.y / iResolution.y;\r\n\r\n\t\r\n\tvec4 getColorInput1;\r\n\tgetColorInput1 = texture2D(iChannel0, st);\r\n\t\r\n\tvec4 getColorInput2;\r\n\tgetColorInput2 = texture2D(iChannel1, st);\r\n\r\n\tvec4 getColorInput3;\r\n\tgetColorInput3 = texture2D(iChannel2, st);\r\n\r\n\tvec4 getColorInput4;\r\n\tgetColorInput4 = texture2D(iChannel3, st);\t\r\n\r\n\t\r\n\t\r\n\tgetColorInput1.r *= int(redChannel1);\r\n\tgetColorInput1.g *= int(greenChannel1);\r\n\tgetColorInput1.b *= int(blueChannel1);\r\n\t\r\n\tgetColorInput2.r *= int(redChannel2);\r\n\tgetColorInput2.g *= int(greenChannel2);\r\n\tgetColorInput2.b *= int(blueChannel2);\r\n\r\n\tgetColorInput3.r *= int(redChannel3);\r\n\tgetColorInput3.g *= int(greenChannel3);\r\n\tgetColorInput3.b *= int(blueChannel3);\r\n\r\n\tgetColorInput4.r *= int(redChannel4);\r\n\tgetColorInput4.g *= int(greenChannel4);\r\n\tgetColorInput4.b *= int(blueChannel4);\r\n\r\n\t \r\n\tvec4 result;\r\n\t\r\n\tresult.r = getColorInput1.r + getColorInput2.r + getColorInput3.r + getColorInput4.r;\r\n\tresult.g = getColorInput1.g + getColorInput2.g + getColorInput3.g + getColorInput4.g;\r\n\tresult.b = getColorInput1.b + getColorInput2.b + getColorInput3.b + getColorInput4.b;\r\n\r\n\t\r\n\tresult.a = result.r +result.b +result.g;\r\n\r\n\r\n\r\n\tif (invertAlpha == true) {result.a = 1-result.a;}\r\n\r\n\tif (alphaToRGB == true)\r\n\t{\r\n\t\tresult.r = result.a;\r\n\t\tresult.g = result.a;\r\n\t\tresult.b = result.a;\r\n\t}\r\n\r\n\tfragColor = result;\r\n\t\r\n}")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -1225,7 +1226,7 @@ def createInstance(app,group):
     lastNode.setScriptName("ID_2")
     lastNode.setLabel("ID 2")
     lastNode.setPosition(4219, 3603)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupID_2 = lastNode
 
@@ -1237,7 +1238,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Input1")
     lastNode.setLabel("ID 1")
     lastNode.setPosition(4364, 3610)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupInput1 = lastNode
 
@@ -1249,7 +1250,7 @@ def createInstance(app,group):
     lastNode.setScriptName("ID_3")
     lastNode.setLabel("ID 3")
     lastNode.setPosition(4068, 3607)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupID_3 = lastNode
 
@@ -1261,7 +1262,7 @@ def createInstance(app,group):
     lastNode.setScriptName("ID__4")
     lastNode.setLabel("ID  4")
     lastNode.setPosition(3913, 3627)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupID__4 = lastNode
 
