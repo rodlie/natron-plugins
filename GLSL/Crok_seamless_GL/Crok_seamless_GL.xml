@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_seamless_GL</DisplayName>
+    <Description>Creates seamless textures.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_seamless_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

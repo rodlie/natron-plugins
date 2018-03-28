@@ -94,6 +94,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png' width='32'> **[PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### GLSL/Blur
+- <img src='/GLSL/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL/Barrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
+
 - <img src='/GLSL/Bilateral_GL/Bilateral_GL.png' width='32'> **[Bilateral_GL](/GLSL/Bilateral_GL/README.md)** : GPU accelerated Bilateral blur for Shadertoy.
 
 - <img src='/GLSL/Bloom_GL/Bloom_GL.png' width='32'> **[Bloom_GL](/GLSL/Bloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
@@ -135,6 +137,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='32'> **[Ls_RndmGrade_GL](/GLSL/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
 ### GLSL/Distort
+- <img src='/GLSL/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='32'> **[Crok_noise_blur_GL](/GLSL/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
+
 - <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='32'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
 
 - <img src='/GLSL/Ls_nail_GL/Ls_nail_GL.png' width='32'> **[Ls_nail_GL](/GLSL/Ls_nail_GL/README.md)** : Warp an area of the Source and Mask to follow a track.
@@ -143,10 +147,11 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Ls_UVewa_GL/Ls_UVewa_GL.png' width='32'> **[Ls_UVewa_GL](/GLSL/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
 
+### GLSL/Draw
+- <img src='/GLSL/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
+
 ### GLSL/Effect
 - <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
-
-- <img src='/GLSL/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL/Barrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
 
 - <img src='/GLSL/Crok_6567_GL/Crok_6567_GL.png' width='32'> **[Crok_6567_GL](/GLSL/Crok_6567_GL/README.md)** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
 
@@ -172,8 +177,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_emboss_GL/Crok_emboss_GL.png' width='32'> **[Crok_emboss_GL](/GLSL/Crok_emboss_GL/README.md)** : Simulates an emboss effect.
 
-- <img src='/GLSL/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
-
 - <img src='/GLSL/Crok_flicker_GL/Crok_flicker_GL.png' width='32'> **[Crok_flicker_GL](/GLSL/Crok_flicker_GL/README.md)** : Creates a flickering effect.
 
 - <img src='/GLSL/Crok_hexagon_GL/Crok_hexagon_GL.png' width='32'> **[Crok_hexagon_GL](/GLSL/Crok_hexagon_GL/README.md)** : Generates hexagon patterns.
@@ -183,8 +186,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Crok_kuwahara_GL/Crok_kuwahara_GL.png' width='32'> **[Crok_kuwahara_GL](/GLSL/Crok_kuwahara_GL/README.md)** : Simulates anisotropic kuwahara filtering.
 
 - <img src='/GLSL/Crok_lowfi_GL/Crok_lowfi_GL.png' width='32'> **[Crok_lowfi_GL](/GLSL/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
-
-- <img src='/GLSL/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='32'> **[Crok_noise_blur_GL](/GLSL/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
 
 - <img src='/GLSL/Crok_parallax_GL/Crok_parallax_GL.png' width='32'> **[Crok_parallax_GL](/GLSL/Crok_parallax_GL/README.md)** : Simulates a typical Amiga style parallax effect.
 

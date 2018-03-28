@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_oil_paint_GL</DisplayName>
+    <Description>Applies a painterly effet to the image.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_oil_paint_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
