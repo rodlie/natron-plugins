@@ -110,6 +110,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='32'> **[Crok_dir_blur_GL](/GLSL/Crok_dir_blur_GL/README.md)** : Creates a directional blur.
 
+- <img src='/GLSL/Ls_Ash_GL/Ls_Ash_GL.png' width='32'> **[Ls_Ash_GL](/GLSL/Ls_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
+
 - <img src='/GLSL/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL/Mipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
 
 - <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
@@ -132,6 +134,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/K_BW_GL/K_BW_GL.png' width='32'> **[K_BW_GL](/GLSL/K_BW_GL/README.md)** : Creates black and white images with adjustable RGB values.
 
+- <img src='/GLSL/Ls_Colourmatrix_GL/Ls_Colourmatrix_GL.png' width='32'> **[Ls_Colourmatrix_GL](/GLSL/Ls_Colourmatrix_GL/README.md)** : Apply 3x3 matrices to RGB for white balance, colourspace conversion or well disco grades.
+
 - <img src='/GLSL/Ls_NaNfix_GL/Ls_NaNfix_GL.png' width='32'> **[Ls_NaNfix_GL](/GLSL/Ls_NaNfix_GL/README.md)** : Fixes pixels which are stuck at NaN.
 
 - <img src='/GLSL/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='32'> **[Ls_RndmGrade_GL](/GLSL/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
@@ -139,16 +143,28 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 ### GLSL/Distort
 - <img src='/GLSL/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='32'> **[Crok_noise_blur_GL](/GLSL/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
 
+- <img src='/GLSL/Crok_pixelstretch_GL/Crok_pixelstretch_GL.png' width='32'> **[Crok_pixelstretch_GL](/GLSL/Crok_pixelstretch_GL/README.md)** : Creates a Pixelspread type stretch effect.
+
 - <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='32'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
+
+- <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='32'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
+
+- <img src='/GLSL/Ls_Advect_GL/Ls_Advect_GL.png' width='32'> **[Ls_Advect_GL](/GLSL/Ls_Advect_GL/README.md)** : Pushes an image along the contours of another.
 
 - <img src='/GLSL/Ls_nail_GL/Ls_nail_GL.png' width='32'> **[Ls_nail_GL](/GLSL/Ls_nail_GL/README.md)** : Warp an area of the Source and Mask to follow a track.
 
 - <img src='/GLSL/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='32'> **[Ls_Posmatte_GL](/GLSL/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
 
+- <img src='/GLSL/Ls_Splineblur_GL/Ls_Splineblur_GL.png' width='32'> **[Ls_Splineblur_GL](/GLSL/Ls_Splineblur_GL/README.md)** : Directional blur along the edges of a shape.
+
 - <img src='/GLSL/Ls_UVewa_GL/Ls_UVewa_GL.png' width='32'> **[Ls_UVewa_GL](/GLSL/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
 
 ### GLSL/Draw
 - <img src='/GLSL/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
+
+- <img src='/GLSL/Crok_regrain_GL/Crok_regrain_GL.png' width='32'> **[Crok_regrain_GL](/GLSL/Crok_regrain_GL/README.md)** : Simulates film grain.
+
+- <img src='/GLSL/Guides_GL/Guides_GL.png' width='32'> **[Guides_GL](/GLSL/Guides_GL/README.md)** : Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...
 
 ### GLSL/Effect
 - <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
@@ -187,6 +203,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_lowfi_GL/Crok_lowfi_GL.png' width='32'> **[Crok_lowfi_GL](/GLSL/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
 
+- <img src='/GLSL/Crok_oil_paint_GL/Crok_oil_paint_GL.png' width='32'> **[Crok_oil_paint_GL](/GLSL/Crok_oil_paint_GL/README.md)** : Applies a painterly effet to the image.
+
 - <img src='/GLSL/Crok_parallax_GL/Crok_parallax_GL.png' width='32'> **[Crok_parallax_GL](/GLSL/Crok_parallax_GL/README.md)** : Simulates a typical Amiga style parallax effect.
 
 - <img src='/GLSL/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
@@ -195,13 +213,13 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='32'> **[Crok_tv_rgb_dots_GL](/GLSL/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
 
+- <img src='/GLSL/Crok_vein_GL/Crok_vein_GL.png' width='32'> **[Crok_vein_GL](/GLSL/Crok_vein_GL/README.md)** : Generates veins.
+
 - <img src='/GLSL/EWA_GL/EWA_GL.png' width='32'> **[EWA_GL](/GLSL/EWA_GL/README.md)** : GPU accelerated EWA antialiasing effect for Shadertoy.
 
 - <img src='/GLSL/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/FXAA_GL/README.md)** : GPU accelerated FXAA antialiasing effect for Shadertoy.
 
 - <img src='/GLSL/JB_lidar_GL/JB_lidar_GL.png' width='32'> **[JB_lidar_GL](/GLSL/JB_lidar_GL/README.md)** : This node tries to emulate a fake point cloud data provided by a lidar.
-
-- <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='32'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
 - <img src='/GLSL/Ls_Dollface_GL/Ls_Dollface_GL.png' width='32'> **[Ls_Dollface_GL](/GLSL/Ls_Dollface_GL/README.md)** : Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.
 
@@ -246,6 +264,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_block_noise_GL/Crok_block_noise_GL.png' width='32'> **[Crok_block_noise_GL](/GLSL/Crok_block_noise_GL/README.md)** : Creates blocky textures.
 
+- <img src='/GLSL/Crok_cameraflash_GL/Crok_cameraflash_GL.png' width='32'> **[Crok_cameraflash_GL](/GLSL/Crok_cameraflash_GL/README.md)** : Creates simple camera flashs.
+
 - <img src='/GLSL/Crok_cells_GL/Crok_cells_GL.png' width='32'> **[Crok_cells_GL](/GLSL/Crok_cells_GL/README.md)** : Creates a cell pattern.
 
 - <img src='/GLSL/Crok_cellular_GL/Crok_cellular_GL.png' width='32'> **[Crok_cellular_GL](/GLSL/Crok_cellular_GL/README.md)** : Creates tons of cellular like looking patterns.
@@ -274,6 +294,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
 
+- <img src='/GLSL/Crok_puffy_noise_GL/Crok_puffy_noise_GL.png' width='32'> **[Crok_puffy_noise_GL](/GLSL/Crok_puffy_noise_GL/README.md)** : Simulates puffy noise.
+
 - <img src='/GLSL/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Crok_snow_GL/README.md)** : Creates snow.
 
 - <img src='/GLSL/Crok_stars_GL/Crok_stars_GL.png' width='32'> **[Crok_stars_GL](/GLSL/Crok_stars_GL/README.md)** : Simulates stars.
@@ -293,6 +315,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/GLSL/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
 
 ### GLSL/Transform
+- <img src='/GLSL/Crok_seamless_GL/Crok_seamless_GL.png' width='32'> **[Crok_seamless_GL](/GLSL/Crok_seamless_GL/README.md)** : Creates seamless textures.
+
 - <img src='/GLSL/Crop_GL/Crop_GL.png' width='32'> **[Crop_GL](/GLSL/Crop_GL/README.md)** : A simple image cropper with built-in 2D texture offset and borders.
 
 ### Keyer
