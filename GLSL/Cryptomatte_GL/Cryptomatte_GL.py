@@ -38,7 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
-    lastNode.setColor(0.2157, 0.6471, 0.3608)
+    lastNode.setColor(0.4314, 0.4, 0.8588)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
