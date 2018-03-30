@@ -203,7 +203,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/GLSL/Crok_lowfi_GL/Crok_lowfi_GL.png' width='32'> **[Crok_lowfi_GL](/GLSL/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
 
-- <img src='/GLSL/Crok_night_vision_GL/Crok_night_vision_GL.png' width='32'> **[Crok_night_vision_GL](/GLSL/Crok_night_vision_GL/README.md)** : Creates a nightvision effect.
+- <img src='/GLSL/Crok_nightvision_GL/Crok_nightvision_GL.png' width='32'> **[Crok_nightvision_GL](/GLSL/Croknight_vision_GL/README.md)** : Creates a nightvision effect.
 
 - <img src='/GLSL/Crok_oil_paint_GL/Crok_oil_paint_GL.png' width='32'> **[Crok_oil_paint_GL](/GLSL/Crok_oil_paint_GL/README.md)** : Applies a painterly effet to the image.
 
