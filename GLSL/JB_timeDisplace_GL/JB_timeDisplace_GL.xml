@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>JB_timeDisplace_GL</DisplayName>
+    <Description>Tries to emulate the Sapphire s_TimeDisplace node.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.JB_timeDisplace_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
