@@ -346,8 +346,6 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png' width='32'> **[lp_SimpleKeyer](/Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node.
 
-- <img src='/Keyer/lp_SimpleKeyer/lp_SimpleKeyer.png' width='32'> **[lp_SimpleKeyer](/Keyer/lp_SimpleKeyer/README.md)** : A very simple Keyer for a wide variety of operations. Inspired by Nukes Keyer-Node.
-
 - <img src='/Keyer/OverRange_Alpha/OverRange_Alpha.png' width='32'> **[OverRange_Alpha](/Keyer/OverRange_Alpha/README.md)** : Generates an alpha channel based on overranged values.
 
 - <img src='/Keyer/PositionMask/PositionMask.png' width='32'> **[PositionMask](/Keyer/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
