@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Luma_to_Normals</DisplayName>
+    <Description>Converts any image to normals, using it's Luma Channel. Provides most accurate results used on displacement maps or Zdepth passes.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Luma_to_Normals</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
