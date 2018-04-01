@@ -1,6 +1,12 @@
 # lp_Feather
 
-Feathers your alpha channel, with advanced control over the feather type as well as the falloff. Works only on the alpha. 
+Feathers your alpha channel, with advanced control over the feather type as well as the falloff. Works only on the alpha.
+
+### INPUTS
+
+img = Connect the image you want to despot; despot will only happen in the alpha channel
+
+mask = A connected alpha channel will mask out the operation
 
 
 ### HOW TO USE IT
