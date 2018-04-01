@@ -2,7 +2,9 @@ Easy to use despill with a variety of algorithms, working in R, G and B.
 
 ### INPUTS
 img = connect the main plate you want to despill
+
 bg = connect a background image to use its colourinformation in the despill-process
+
 mask = masks the effect by a connected alpha-channel
 
 ### HOW TO USE IT
