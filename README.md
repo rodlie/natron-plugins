@@ -40,6 +40,18 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Draw/WaveForm/WaveForm.png' width='32'> **[WaveForm](/Draw/WaveForm/README.md)** : Draw a Luminance Waveform of the input image
 
+- <img src='/Draw/Flare_Blank_Template/flareicon.png' width='32'> **[LensFlare_Blank_Template](/Draw/Flare_Blank_Template/README.md)** : A Blank Template to create lens flare presets.
+
+- <img src='/Draw/Flare_Basic/flareicon.png' width='32'> **[LensFalre Basic](/Draw/Flare_Basic/README.md)** : A Basic Lens Flare
+
+- <img src='/Draw/Flare_Parallel/flareicon.png' width='32'> **[LensFalre Parallel](/Draw/Flare_Parallel/README.md)** : A Parallel Lens Flare
+
+- <img src='/Draw/Flare_Scifi/flareicon.png' width='32'> **[LensFalre Scifi](/Draw/Flare_Scifi/README.md)** : A Scifi Lens Flare.
+
+- <img src='/Draw/Flare_Sun/flareicon.png' width='32'> **[LensFalre Sun](/Draw/Flare_Sun/README.md)** : A Sun Lens Flare.
+
+- <img src='/Draw/Flare_Toxic/flareicon.png' width='32'> **[LensFalre Toxic](/Draw/Flare_Toxic/README.md)** : A Toxic Flare (Heavy).
+
 ### Filter
 - <img src='/Filter/Antialiasing/AntiAliasing.png' width='32'> **[AntiAliasing](/Filter/Antialiasing/README.md)** : Antialiasing filter based on FXAA
 
