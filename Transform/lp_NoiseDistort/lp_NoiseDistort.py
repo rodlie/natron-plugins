@@ -68,6 +68,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.IDistort1uvScale = param
     del param
 
@@ -135,6 +136,7 @@ def createInstance(app,group):
     param.setHelp("Set size of the small noise.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.smallNoisenoiseSize = param
     del param
 
@@ -157,6 +159,7 @@ def createInstance(app,group):
     param.setHelp("Sets size of the big noise.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.bigNoisenoiseSize = param
     del param
 
@@ -171,6 +174,7 @@ def createInstance(app,group):
     param.setHelp("Rotates the noise. Only when aspect ratio is changed.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    
     lastNode.Transform1rotate = param
     del param
 
@@ -238,6 +242,7 @@ def createInstance(app,group):
     param.setHelp("Multiplier for the automatic noise animation over time. \n\nHit \'2\' to set it individually for small and big noise (x = small noise, y = big noise)")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.motionfac = param
     del param
 
@@ -372,6 +377,7 @@ def createInstance(app,group):
     param.setHelp("Controls the total number of frequencies.\n\nHit the \'2\' for individual control of small and big noise (x = small noise, y = big noise)")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.octavesctrl = param
     del param
 
@@ -396,6 +402,7 @@ def createInstance(app,group):
     param.setHelp("Lacunarity is the spacing between frequencies. A value of 2 means each octave is twice the previous frequency.\n\nHit the \'2\' for individual control of small and big noise (x = small noise, y = big noise)")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.lacunaritycntrl = param
     del param
 
@@ -420,6 +427,7 @@ def createInstance(app,group):
     param.setHelp("The gain controls how much each frequency is scaled in relation to the previous frequency.\n\nHit the \'2\' for individual control of small and big noise (x = small noise, y = big noise)")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.gainctrl = param
     del param
 
@@ -444,6 +452,7 @@ def createInstance(app,group):
     param.setHelp("Adjusts the gamma of the noise layer.\n\nHit the \'2\' for individual control of small and big noise (x = small noise, y = big noise)")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.gammactrl = param
     del param
 
