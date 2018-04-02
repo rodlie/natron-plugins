@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Vectors_to_UV</DisplayName>
+    <Description>Converts Motion Vectors to an UV map.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Vectors_to_UV</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
