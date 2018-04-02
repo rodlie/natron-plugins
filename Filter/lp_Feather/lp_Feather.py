@@ -87,6 +87,7 @@ def createInstance(app,group):
     param.setHelp("Erodes or dilates the edges of the alpha before the feather takes place.\n\nnote: \'round\' filter can\'t erode/dilate on both axis seperately, but \'default\' only works integer.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.erodesize = param
     del param
 
@@ -123,6 +124,7 @@ def createInstance(app,group):
     param.setHelp("Size of the feather. \nFor \'classic\' feather type, the scale is effectively half; where \'omni\' gives you 50px of feather at a size of 50, it would give you 25 (in either direction).\n\nnote: if \'classic\' or \'classic_detailed\' feather is selected the individual control for horizontal and vertical feather might not work as anticipated. The sum of both values will determine if it feathers in (negative) or out (positive). You can not feather in and out seperately for the horizontal and vertical axis.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.feathersize = param
     del param
 
