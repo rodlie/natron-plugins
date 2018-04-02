@@ -7,10 +7,11 @@ Credits :
 Original Gizmo by Erwan Leroy :
 www.erwanleroy.com
 
---------------------------------------------------------------
+----------------------------------------------------------------
 
 This PyPlug uses the 'ResolveMath' OFX plugin made by Paul Dore.
 
+----------------------------------------------------------------
 
 INSTALL:
 
