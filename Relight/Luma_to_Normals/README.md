@@ -6,3 +6,21 @@ Credits :
 
 Original Gizmo by Erwan Leroy :
 www.erwanleroy.com
+
+--------------------------------------------------------------
+
+This PyPlug uses the 'ResolveMath' OFX plugin made by Paul Dore.
+
+
+INSTALL:
+
+Download ResolveMath.ofx.bundle.
+
+Linux : https://github.com/baldavenger/Linux-OFX
+
+Win : https://github.com/baldavenger/Win-OFX
+
+OSX : https://github.com/baldavenger/macOS-OFX
+
+
+Unpack the content in your OFX folder.
