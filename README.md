@@ -368,6 +368,8 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Relight/UV_to_Vectors/UV_to_Vectors.png' width='32'> **[UV_to_Vectors](/Relight/UV_to_Vectors/README.md)** : Converts a distorted UV map to motion vectors.
 
+- <img src='/Relight/Vectors_to_UV/Vectors_to_UV.png' width='32'> **[Vectors_to_UV](/Relight/Vectors_to_UV/README.md)** : Converts Motion Vectors to an UV map.
+
 - <img src='/Relight/Z2Normal/Z2Normal.png' width='32'> **[Z2Normal](/Relight/Z2Normal/README.md)** : Generate a Normal Pass from a Z pass
 
 ### Time
