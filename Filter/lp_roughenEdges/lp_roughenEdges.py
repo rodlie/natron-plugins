@@ -60,6 +60,7 @@ def createInstance(app,group):
     param.setHelp("Sets the strength how much the edge will be roughend.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.diststrength = param
     del param
 
@@ -82,6 +83,7 @@ def createInstance(app,group):
     param.setHelp("Sets the size of the roughen operation.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.SeNoise1noiseSize = param
     del param
 
@@ -181,6 +183,7 @@ def createInstance(app,group):
     param.setHelp("Softens the roughend edge.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setCanAutoFoldDimensions(True)
     lastNode.Blur1size = param
     del param
 
