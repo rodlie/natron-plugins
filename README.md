@@ -358,11 +358,15 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Merge/ZCombine/ZCombine.png' width='32'> **[ZCombine](/Merge/ZCombine/README.md)** : Mix two images according to their Zbuffer.
 
 ### Relight
-- <img src='/Relight/ReFlect/ReFlect.png' width='32'> **[ReFlect](/Relight/ReFlect/README.md)** : Take a Normal pass and an image and map it to reflection, similar to matcap in 3D render
+- <img src='/Relight/Luma_to_Normals/Luma_to_Normals.png' width='32'> **[Luma_to_Normals](/Relight/Luma_to_Normals/README.md)** : Converts any image to normals, using it's Luma Channel. Provides most accurate results used on displacement maps or Zdepth passes.
+
+- <img src='/Relight/ReFlect/ReFlect.png' width='32'> **[ReFlect](/Relight/ReFlect/README.md)** : Take a Normal pass and an image and map it to reflection, similar to matcap in 3D render.
 
 - <img src='/Relight/ReShade/ReShade.png' width='32'> **[ReShade](/Relight/ReShade/README.md)** : GPU Relighting of 3D renders using a normal pass.
 
 - <img src='/Relight/SSAO/SSAO.png' width='32'> **[SSAO](/Relight/SSAO/README.md)** : Generate an AO pass from a Z pass.
+
+- <img src='/Relight/UV_to_Vectors/UV_to_Vectors.png' width='32'> **[UV_to_Vectors](/Relight/UV_to_Vectors/README.md)** : Converts a distorted UV map to motion vectors.
 
 - <img src='/Relight/Z2Normal/Z2Normal.png' width='32'> **[Z2Normal](/Relight/Z2Normal/README.md)** : Generate a Normal Pass from a Z pass
 
