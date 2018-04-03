@@ -154,7 +154,7 @@
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/anmorpic_Scaled.jpg' width='66'> **[Anmorpic Scaled]** : Creates a scalable and adjustbale Anamorphic line.
 
-- <img src='Shadertoy/GLSL_Lense_Flare_Elements/lensFlare_Thumbs/anmorpic_Spot.jpg' width='66'> **[Anamorphic Spot]** : Creates a multilevel anamorphic spot.
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/anmorpic_Spot.jpg' width='66'> **[Anamorphic Spot]** : Creates a multilevel anamorphic spot.
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/glimmer.jpg' width='66'> **[Glimmer]** : Creates a Glimmer.
 
