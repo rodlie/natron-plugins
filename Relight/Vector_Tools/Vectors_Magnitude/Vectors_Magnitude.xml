@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Vectors_Magnitude</DisplayName>
+    <Description>AAn utility to see the magnitude of motion vectors, usually simply as information for the artist.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Vectors_Magnitude</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
