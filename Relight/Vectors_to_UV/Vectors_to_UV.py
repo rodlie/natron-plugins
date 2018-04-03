@@ -221,7 +221,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "v1.0 - Part of VectorTools by Erwan Leroy")
+    param = lastNode.createSeparatorParam("NAME", "v1.0 - Part of VectorTools by Erwan Leroy - 2016")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
