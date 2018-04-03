@@ -111,7 +111,7 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createChoiceParam("choose_LayeroutputLayer", "Input Layer : ")
+    param = lastNode.createChoiceParam("choose_LayeroutputLayer", "Vector Layer : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -544,11 +544,6 @@ def createInstance(app,group):
     lastNode.setSize(80, 34)
     lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupchoose_Layer = lastNode
-
-    param = lastNode.getParam("outputLayer")
-    if param is not None:
-        param.set("uk.co.thefoundry.OfxImagePlaneColour")
-        del param
 
     del lastNode
     # End of node "choose_Layer"
