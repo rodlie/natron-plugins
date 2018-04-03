@@ -370,7 +370,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Merge/ZCombine/ZCombine.png' width='32'> **[ZCombine](/Merge/ZCombine/README.md)** : Mix two images according to their Zbuffer.
 
 ### Relight
-- <img src='/Relight/Luma_to_Normals/Luma_to_Normals.png' width='32'> **[Luma_to_Normals](/Relight/Luma_to_Normals/README.md)** : Converts any image to normals, using it's Luma Channel. Provides most accurate results used on displacement maps or Zdepth passes.
+- <img src='/Relight/Vector_Tools/Luma_to_Normals/Luma_to_Normals.png' width='32'> **[Luma_to_Normals](/Relight/Vector_Tools/Luma_to_Normals/README.md)** : Converts any image to normals, using it's Luma Channel. Provides most accurate results used on displacement maps or Zdepth passes.
 
 - <img src='/Relight/ReFlect/ReFlect.png' width='32'> **[ReFlect](/Relight/ReFlect/README.md)** : Take a Normal pass and an image and map it to reflection, similar to matcap in 3D render.
 
@@ -378,11 +378,13 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Relight/SSAO/SSAO.png' width='32'> **[SSAO](/Relight/SSAO/README.md)** : Generate an AO pass from a Z pass.
 
-- <img src='/Relight/UV_to_Vectors/UV_to_Vectors.png' width='32'> **[UV_to_Vectors](/Relight/UV_to_Vectors/README.md)** : Converts a distorted UV map to motion vectors.
+- <img src='/Relight/Vector_Tools/UV_to_Vectors/UV_to_Vectors.png' width='32'> **[UV_to_Vectors](/Relight/Vector_Tools/UV_to_Vectors/README.md)** : Converts a distorted UV map to motion vectors.
 
-- <img src='/Relight/Vectors_Direction/Vectors_Direction.png' width='32'> **[Vectors_Direction](/Relight/Vectors_Direction/README.md)** : An utility to rotate 2D vectors such as motion vectors, and flip them if necessary.
+- <img src='/Relight/Vector_Tools/Vectors_Direction/Vectors_Direction.png' width='32'> **[Vectors_Direction](/Relight/Vector_Tools/Vectors_Direction/README.md)** : An utility to rotate 2D vectors such as motion vectors, and flip them if necessary.
 
-- <img src='/Relight/Vectors_to_UV/Vectors_to_UV.png' width='32'> **[Vectors_to_UV](/Relight/Vectors_to_UV/README.md)** : Converts Motion Vectors to an UV map.
+- <img src='/Relight/Vector_Tools/Vectors_Magnitude/Vectors_Magnitude.png' width='32'> **[Vectors_Magnitude](/Relight/Vector_Tools/Vectors_Magnitude/README.md)** : An utility to see the magnitude of motion vectors, usually simply as information for the artist.
+
+- <img src='/Relight/Vector_Tools/Vectors_to_UV/Vectors_to_UV.png' width='32'> **[Vectors_to_UV](/Relight/Vector_Tools/Vectors_to_UV/README.md)** : Converts Motion Vectors to an UV map.
 
 - <img src='/Relight/Z2Normal/Z2Normal.png' width='32'> **[Z2Normal](/Relight/Z2Normal/README.md)** : Generate a Normal Pass from a Z pass
 
