@@ -136,6 +136,40 @@
 
 - <img src='icons/Crok_wrinkle.png' width='66'> **[Crok_wrinkle]** : Creates wrinkled paper like sturctures.
 
+## Flare :
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/Caustic_Ghosts.jpg' width='66'> **[Caustic_Ghosts]** : Creates a Caustic_Ghosts.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/Glow.jpg' width='66'> **[Glow]** : Creates a Glow.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/MulitiIris%20Multi%20Layer.jpg' width='66'> **[MulitiIris Multi Layer]** : Creates a Multilayer Multiiris.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/MulitiIris%20Single%20Layer.jpg' width='66'> **[MulitiIris Single Layer]** : Creates a Single Layer of Multiiris.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/anmorpic.jpg' width='66'> **[Anmorpic]** : Creates an anamorphic line.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/anmorpic_Ghost_SingleLayer.jpg' width='66'> **[Anmorpic Ghost SingleLayer]** : Creates a single layer of anamorphic ghosts.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/anmorpic_Ghost_multiLayer.jpg' width='66'> **[Anmorpic Ghost MultiLayer]** : Creates a multi layer of anamorphic ghosts.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/anmorpic_Scaled.jpg' width='66'> **[Anmorpic Scaled]** : Creates a scalable and adjustbale Anamorphic line.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/anmorpic_Spot.jpg' width='66'> **[Anamorphic Spot]** : Creates a multilevel anamorphic spot.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/glimmer.jpg' width='66'> **[Glimmer]** : Creates a Glimmer.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/hoop_single.jpg' width='66'> **[Hoop]** : Creates a Hoop.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/polygon.jpg' width='66'> **[Polygon]** : Creates an adjustable Polygon.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/rectangle_Rounded.jpg' width='66'> **[Round Rectangle]** : Creates a Round Rectangle.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/ring.jpg' width='66'> **[Ring]** : Creates a ring.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/star.jpg' width='66'> **[Star]** : Creates a star.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/sun.jpg' width='66'> **[Sun]** : Creates a core element for the flare.
+
 ## JB :
 
 - <img src='icons/JB_colorRemap.png' width='66'> **[JB_colorRemap]** : Remaps RGB of input 1 using RGB of input 2. option to inverse the result as well.
