@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.1176, 0.5882, 0.1176)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -261,8 +262,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat2", "position X : ")
     param.setMinimum(-10000, 0)
     param.setMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMinimum(-10, 0)
+    param.setDisplayMaximum(10, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -290,8 +291,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat3", "position Y : ")
     param.setMinimum(-10000, 0)
     param.setMaximum(10000, 0)
-    param.setDisplayMinimum(-10000, 0)
-    param.setDisplayMaximum(10000, 0)
+    param.setDisplayMinimum(-10, 0)
+    param.setDisplayMaximum(10, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -779,7 +780,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -791,7 +792,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3870)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
