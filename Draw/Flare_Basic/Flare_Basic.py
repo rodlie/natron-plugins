@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.7, 0.7, 0.7)
 
     # Create the user parameters
     lastNode.controller = lastNode.createPageParam("controller", "Controller")
@@ -58,8 +59,8 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(290, 0)
-    param.setValue(849, 1)
+    param.setValue(309, 0)
+    param.setValue(765, 1)
     param.setUsePointInteract(True)
     lastNode.mouseXY = param
     del param
@@ -101,8 +102,8 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(290, 0)
-    param.setValue(849, 1)
+    param.setValue(309, 0)
+    param.setValue(765, 1)
     param.setVisibleByDefault(False)
     lastNode.TrackLinkXY = param
     del param
@@ -141,6 +142,24 @@ def createInstance(app,group):
     lastNode.ROOT_GLOBALparamValueFloat1 = param
     del param
 
+    param = lastNode.createDoubleParam("ROOT_GLOBALparamValueFloat2", "Evolution")
+    param.setMinimum(1, 0)
+    param.setMaximum(359.9999999999999, 0)
+    param.setDisplayMinimum(1, 0)
+    param.setDisplayMaximum(359.9999999999999, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.controller.addParam(param)
+
+    # Set param properties
+    param.setHelp("Value of the parameter.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.ROOT_GLOBALparamValueFloat2 = param
+    del param
+
     param = lastNode.createColorParam("ROOT_GLOBALparamValueVec32", "Global Tint", False)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
@@ -174,912 +193,50 @@ def createInstance(app,group):
     lastNode.ifparallel = param
     del param
 
+    lastNode.credit = lastNode.createPageParam("credit", "credit")
+    param = lastNode.createStringParam("dev", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+    param.setDefaultValue("Basic Flare Developed by")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.credit.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.dev = param
+    del param
+
+    param = lastNode.createStringParam("name", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+    param.setDefaultValue("Fahad Hasan Pathik (CGVIRUS)")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.credit.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.name = param
+    del param
+
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['controller', 'Settings', 'Node'])
+    lastNode.setPagesOrder(['controller', 'Settings', 'Node', 'credit'])
     lastNode.refreshUserParamsGUI()
     del lastNode
-
-    # Start of node "ROOT_GLOBAL"
-    lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("ROOT_GLOBAL")
-    lastNode.setLabel("ROOT_GLOBAL")
-    lastNode.setPosition(-216, 126)
-    lastNode.setSize(104, 44)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupROOT_GLOBAL = lastNode
-
-    param = lastNode.getParam("mousePosition")
-    if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
-        del param
-
-    param = lastNode.getParam("mouseClick")
-    if param is not None:
-        param.setValueAtTime(-10, 1, 0)
-        param.setValueAtTime(5, 1, 1)
-        del param
-
-    param = lastNode.getParam("mousePressed")
-    if param is not None:
-        param.setValueAtTime(True, 1)
-        del param
-
-    param = lastNode.getParam("paramValueBool0")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt0")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec20")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec30")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec40")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool1")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt1")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec21")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec31")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec41")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool2")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt2")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec22")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec32")
-    if param is not None:
-        param.setValue(0.628690552711486, 0)
-        param.setValue(0.694871796131134, 1)
-        param.setValue(1.1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec42")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool3")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt3")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec23")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec33")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec43")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool4")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt4")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec24")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec34")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec44")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool5")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt5")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat5")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec25")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec35")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec45")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool6")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt6")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat6")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec26")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec36")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec46")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool7")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt7")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat7")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec27")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec37")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec47")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool8")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt8")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat8")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec28")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec38")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec48")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool9")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt9")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat9")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec29")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec39")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec49")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool10")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt10")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat10")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec210")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec310")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec410")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool11")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt11")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat11")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec211")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec311")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec411")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool12")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt12")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat12")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec212")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec312")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec412")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool13")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt13")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat13")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec213")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec313")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec413")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool14")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt14")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat14")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec214")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec314")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec414")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool15")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt15")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat15")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec215")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec315")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec415")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool16")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt16")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat16")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec216")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec316")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec416")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool17")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt17")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat17")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec217")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec317")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec417")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool18")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt18")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat18")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec218")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec318")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec418")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool19")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt19")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat19")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec219")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec319")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec419")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("imageShaderSource")
-    if param is not None:
-        param.setValue("// iChannel0: Link a Black Constant, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n\n//parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=30.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform vec3 globaltint = vec3(1.0,1.0,1.0); // Global Tint\n\n\nvec3 blank(vec2 uv, vec2 pos)\n{\n    vec2 main = (uv+pos);\n    float elBlank = globalSize+globalRotate;\n    return vec3 (elBlank,main);\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    \n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 c = blank(uv,mouse.xy);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\n\tfragColor = vec4(c,1.0)*vec4(vec3(0.0),1.0)+(linker*vec4(globaltint,1.0));\n}\n")
-        del param
-
-    param = lastNode.getParam("mipmap0")
-    if param is not None:
-        param.set("linear")
-        del param
-
-    param = lastNode.getParam("wrap0")
-    if param is not None:
-        param.set("clamp")
-        del param
-
-    param = lastNode.getParam("inputLabel0")
-    if param is not None:
-        param.setValue("Link a Black Constant")
-        del param
-
-    param = lastNode.getParam("inputEnable1")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("inputEnable2")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("inputEnable3")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("bbox")
-    if param is not None:
-        param.setValueAtTime(4, 1)
-        del param
-
-    param = lastNode.getParam("NatronParamFormatChoice")
-    if param is not None:
-        param.set("PC_Video")
-        del param
-
-    param = lastNode.getParam("NatronParamFormatSize")
-    if param is not None:
-        param.setValueAtTime(640, 1, 0)
-        param.setValueAtTime(480, 1, 1)
-        del param
-
-    param = lastNode.getParam("NatronParamFormatPar")
-    if param is not None:
-        param.setValueAtTime(1, 1, 0)
-        del param
-
-    param = lastNode.getParam("startDate")
-    if param is not None:
-        param.setValueAtTime(1970, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(1, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramCount")
-    if param is not None:
-        param.setValue(3, 0)
-        del param
-
-    param = lastNode.getParam("paramType0")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName0")
-    if param is not None:
-        param.setValue("globalSize")
-        del param
-
-    param = lastNode.getParam("paramLabel0")
-    if param is not None:
-        param.setValue("Global Scale")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat0")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat0")
-    if param is not None:
-        param.setValue(30, 0)
-        del param
-
-    param = lastNode.getParam("paramType1")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName1")
-    if param is not None:
-        param.setValue("globalRotate")
-        del param
-
-    param = lastNode.getParam("paramLabel1")
-    if param is not None:
-        param.setValue("Global Rotation")
-        del param
-
-    param = lastNode.getParam("paramMinFloat1")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat1")
-    if param is not None:
-        param.setValue(359.9999999999999, 0)
-        del param
-
-    param = lastNode.getParam("paramType2")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName2")
-    if param is not None:
-        param.setValue("globaltint")
-        del param
-
-    param = lastNode.getParam("paramLabel2")
-    if param is not None:
-        param.setValue("Global Tint")
-        del param
-
-    param = lastNode.getParam("paramDefaultVec32")
-    if param is not None:
-        param.setValue(1, 0)
-        param.setValue(1, 1)
-        param.setValue(1, 2)
-        del param
-
-    del lastNode
-    # End of node "ROOT_GLOBAL"
 
     # Start of node "BG_Black"
     lastNode = app.createNode("net.sf.openfx.ConstantPlugin", 1, group)
     lastNode.setScriptName("BG_Black")
     lastNode.setLabel("BG Black")
-    lastNode.setPosition(-216, 61)
-    lastNode.setSize(104, 44)
+    lastNode.setPosition(184, 62)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupBG_Black = lastNode
 
@@ -1103,31 +260,19 @@ def createInstance(app,group):
     del lastNode
     # End of node "Grit_Texture_Input"
 
-    # Start of node "Global_Controller"
-    lastNode = app.createNode("fr.inria.built-in.BackDrop", 1, group)
-    lastNode.setScriptName("Global_Controller")
-    lastNode.setLabel("Global Controller")
-    lastNode.setPosition(-261, -15)
-    lastNode.setSize(240, 199)
-    lastNode.setColor(0.45, 0.45, 0.45)
-    groupGlobal_Controller = lastNode
-
-    del lastNode
-    # End of node "Global_Controller"
-
     # Start of node "Last_Node"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Last_Node")
     lastNode.setLabel("Last Node")
     lastNode.setPosition(1301, 755)
-    lastNode.setSize(104, 44)
+    lastNode.setSize(104, 31)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupLast_Node = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValue(309, 0)
+        param.setValue(765, 1)
         del param
 
     param = lastNode.getParam("paramValueFloat0")
@@ -1369,15 +514,15 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Sun_2")
     lastNode.setLabel("Grit")
-    lastNode.setPosition(178, 934)
-    lastNode.setSize(104, 44)
+    lastNode.setPosition(184, 933)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSun_2 = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -1475,7 +620,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(40, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -1511,7 +656,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(0.4, 1, 0)
+        param.setValueAtTime(40, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -1547,7 +692,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat4")
     if param is not None:
-        param.setValueAtTime(0.2, 1, 0)
+        param.setValueAtTime(0.4, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec24")
@@ -2118,7 +1263,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel1: Grit Texture Source, filter=linear, wrap=repeat\n// BBox: iChannel1\n// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//parametres\nuniform float coresize = 40.0; // Thresold , min=0.1, max=100.\nuniform float threshold = .4; // Brightness , min=0., max=1..\n\n\n//Cretes a circular Grit MAsk\nfloat grit(vec2 uv, vec2 pos, float size)\n{\n    \n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    vec2 main = uv-pos;\n\t\n\tfloat ang = atan(main.y, main.x);\n\tfloat dist=length(main); dist = pow(dist,.1);\n\t\n\tfloat f0 = (threshold*globalSize)/(length(uv-pos)*(1.0/size*100)/coresize);\n    \n    return f0;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    \n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tfloat c = grit(uv,mouse.xy,1.);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n    vec4 gritTex = texture(iChannel1,xy);\n\t\n\tfragColor = vec4(vec3(c),1.0)*gritTex+linker;\n}\n")
+        param.setValue("// iChannel1: Grit Texture Source, filter=linear, wrap=repeat\n// BBox: iChannel1\n// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// Grit_Mask.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//parametres\nuniform float coresize = 40.0; // Thresold , min=0.1, max=100.\nuniform float threshold = .4; // Brightness , min=0., max=1..\n\n\n//Cretes a circular Grit MAsk\nfloat grit(vec2 uv, vec2 pos, float size)\n{\n    \n    float rot = radians(globalRotate)*evolution;\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    vec2 main = uv-pos;\n\t\n\tfloat ang = atan(main.y, main.x);\n\tfloat dist=length(main); dist = pow(dist,.1);\n\t\n\tfloat f0 = (threshold*globalSize)/(length(uv-pos)*(1.0/size*100)/coresize);\n    \n    return f0;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    \n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tfloat c = grit(uv,mouse.xy,1.);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n    vec4 gritTex = texture(iChannel1,xy);\n\t\n\tfragColor = vec4(vec3(c),1.0)*gritTex+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -2187,7 +1332,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(4, 0)
+        param.setValue(5, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -2252,27 +1397,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("coresize")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Thresold")
+        param.setValue("Evolution")
         del param
 
     param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
-        param.setValue(40, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
-        param.setValue(0.09999999999999999, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(99.99999999999999, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType3")
@@ -2282,27 +1427,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("threshold")
+        param.setValue("coresize")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Brightness")
+        param.setValue("Thresold")
         del param
 
     param = lastNode.getParam("paramDefaultFloat3")
     if param is not None:
-        param.setValue(0.4, 0)
+        param.setValue(40, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat3")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(0.09999999999999999, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat3")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(99.99999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType4")
@@ -2312,12 +1457,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("raydepth")
+        param.setValue("threshold")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("Ray depth")
+        param.setValue("Brightness")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat4")
+    if param is not None:
+        param.setValue(0.4, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat4")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat4")
+    if param is not None:
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramType5")
@@ -2358,14 +1518,14 @@ def createInstance(app,group):
     lastNode.setScriptName("Sun_2_2")
     lastNode.setLabel("Sun")
     lastNode.setPosition(184, 125)
-    lastNode.setSize(104, 44)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSun_2_2 = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -2463,7 +1623,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(25, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -2499,7 +1659,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(0.4, 1, 0)
+        param.setValueAtTime(25, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -2530,7 +1690,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt4")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(7, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat4")
@@ -2571,7 +1731,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat5")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0.137, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec25")
@@ -2654,9 +1814,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec37")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0.6444797515869141, 1, 0)
+        param.setValueAtTime(0.6653873324394226, 1, 1)
+        param.setValueAtTime(1, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec47")
@@ -3106,7 +2266,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome base math ideas derived from Musk\'s Flare https://www.shadertoy.com/view/4sX3Rs\nSome math ideas also have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//parametres\nuniform float coresize = 2.; // Sun Core Size , min=0., max=100.\nuniform int raycount = 0; // Ray Count , min=0., max=100.\nuniform float raydepth = .2; // Ray depth , min=-1.5, max=1.5\nuniform float rotation = .0; // Rotation , min=0.,max=360.\nuniform vec3 SunColor = vec3(1.,1.,1.); // Sun Color\n\n\n//Procedural Sun Generation\nfloat sun(vec2 uv, vec2 pos, float size)\n{\n    float rot = radians(rotation+globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    vec2 vector = uv-pos;\n\t\n\tfloat angle = atan(vector.y, vector.x);\n\tfloat dist=length(vector); dist = pow(dist,.1);\n\t\n\tfloat f0 = 1.0/(length(uv-pos)*(1.0/size*100)/(coresize*globalSize));\n\t\n    \n    return f0+f0*(sin((angle)*raycount)*raydepth+dist*.1+.9);\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    \n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tfloat c = sun(uv,mouse.xy,1.);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfragColor = vec4(c*SunColor,1.0)+linker;\n}\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// sun.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome base math ideas derived from Musk\'s Flare https://www.shadertoy.com/view/4sX3Rs\nSome math ideas also have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//parametres\nuniform float coresize = 2.; // Sun Core Size , min=0., max=100.\nuniform int raycount = 0; // Ray Count , min=0., max=100.\nuniform float raydepth = .2; // Ray depth , min=-1.5, max=1.5\nuniform float rotation = .0; // Rotation , min=0.,max=360.\nuniform vec3 SunColor = vec3(1.,1.,1.); // Sun Color\n\n\n//Procedural Sun Generation\nfloat sun(vec2 uv, vec2 pos, float size)\n{\n    float rot = radians(rotation+globalRotate)*evolution;\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    vec2 vector = uv-pos;\n\t\n\tfloat angle = atan(vector.y, vector.x);\n\tfloat dist=length(vector); dist = pow(dist,.1);\n\t\n\tfloat f0 = 1.0/(length(uv-pos)*(1.0/size*100)/(coresize*globalSize));\n\t\n    \n    return f0+f0*(sin((angle)*raycount)*raydepth+dist*.1+.9);\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    \n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tfloat c = sun(uv,mouse.xy,1.);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfragColor = vec4(c*SunColor,1.0)+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -3170,7 +2330,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(7, 0)
+        param.setValue(8, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -3235,82 +2395,82 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("coresize")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Sun Core Size")
+        param.setValue("Evolution")
         del param
 
     param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(99.99999999999999, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType3")
     if param is not None:
-        param.set("int")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("raycount")
+        param.setValue("coresize")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Ray Count")
+        param.setValue("Sun Core Size")
         del param
 
-    param = lastNode.getParam("paramMinInt3")
+    param = lastNode.getParam("paramDefaultFloat3")
+    if param is not None:
+        param.setValue(2, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat3")
     if param is not None:
         param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxInt3")
+    param = lastNode.getParam("paramMaxFloat3")
     if param is not None:
-        param.setValue(100, 0)
+        param.setValue(99.99999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType4")
     if param is not None:
-        param.set("float")
+        param.set("int")
         del param
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("raydepth")
+        param.setValue("raycount")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("Ray depth")
+        param.setValue("Ray Count")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat4")
+    param = lastNode.getParam("paramMinInt4")
     if param is not None:
-        param.setValue(0.2, 0)
+        param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMinFloat4")
+    param = lastNode.getParam("paramMaxInt4")
     if param is not None:
-        param.setValue(-1.5, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat4")
-    if param is not None:
-        param.setValue(1.5, 0)
+        param.setValue(100, 0)
         del param
 
     param = lastNode.getParam("paramType5")
@@ -3320,40 +2480,70 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("rotation")
+        param.setValue("raydepth")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("Rotation")
+        param.setValue("Ray depth")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat5")
+    if param is not None:
+        param.setValue(0.2, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat5")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-1.5, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat5")
     if param is not None:
-        param.setValue(359.9999999999999, 0)
+        param.setValue(1.5, 0)
         del param
 
     param = lastNode.getParam("paramType6")
     if param is not None:
-        param.set("vec3")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("SunColor")
+        param.setValue("rotation")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
+        param.setValue("Rotation")
+        del param
+
+    param = lastNode.getParam("paramMinFloat6")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat6")
+    if param is not None:
+        param.setValue(359.9999999999999, 0)
+        del param
+
+    param = lastNode.getParam("paramType7")
+    if param is not None:
+        param.set("vec3")
+        del param
+
+    param = lastNode.getParam("paramName7")
+    if param is not None:
+        param.setValue("SunColor")
+        del param
+
+    param = lastNode.getParam("paramLabel7")
+    if param is not None:
         param.setValue("Sun Color")
         del param
 
-    param = lastNode.getParam("paramDefaultVec36")
+    param = lastNode.getParam("paramDefaultVec37")
     if param is not None:
         param.setValue(1, 0)
         param.setValue(1, 1)
@@ -3391,18 +2581,6 @@ def createInstance(app,group):
 
     del lastNode
     # End of node "Dot1"
-
-    # Start of node "Dot2"
-    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
-    lastNode.setScriptName("Dot2")
-    lastNode.setLabel("Dot2")
-    lastNode.setPosition(32, 141)
-    lastNode.setSize(15, 15)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupDot2 = lastNode
-
-    del lastNode
-    # End of node "Dot2"
 
     # Start of node "Clamp1"
     lastNode = app.createNode("net.sf.openfx.Clamp", 2, group)
@@ -3474,15 +2652,15 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Ring")
     lastNode.setLabel("Ring")
-    lastNode.setPosition(184, 250)
-    lastNode.setSize(104, 44)
+    lastNode.setPosition(184, 249)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupRing = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -3580,7 +2758,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(0.183, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -3616,7 +2794,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(0.212, 1, 0)
+        param.setValueAtTime(0.183, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -3652,7 +2830,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat4")
     if param is not None:
-        param.setValueAtTime(0.781, 1, 0)
+        param.setValueAtTime(0.212, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec24")
@@ -3688,7 +2866,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat5")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0.781, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec25")
@@ -3719,7 +2897,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt6")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(32, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat6")
@@ -3760,7 +2938,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat7")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0.7, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec27")
@@ -3843,9 +3021,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec39")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0.5088813304901123, 1, 0)
+        param.setValueAtTime(0.5088813304901123, 1, 1)
+        param.setValueAtTime(0.5088813304901123, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec49")
@@ -4223,7 +3401,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//parametres\nuniform float Radius = .25; // Radius, min=0., max=2.\nuniform float Thickness = .12; // Thickness, min=0., max=.9\nuniform float softness = .5; // Softness, min=.1, max=1.\nuniform int raycount = 100; // Ray Count , min=0., max=200.\nuniform float raydepth = .3; // Ray depth , min=-1.5, max=1.5\nuniform float rotation = .0; // Rotation , min=0.,max=360.\nuniform vec3 Color = vec3(.25,.25,.25); // Color\n\n\n//creates a ring with or without Rays\nfloat ring(vec2 uv, vec2 pos, float radius, float thick)\n{\n    float rot = radians(rotation+globalRotate);\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n    \n  vec2 main = pos-uv;\n  float ang = atan(main.y, main.x);\n  float dist=length(main); dist = pow(dist,.1);\n  float f0 = mix(0.0, 1.0, smoothstep(thick*globalSize, thick-softness, abs(length(pos-uv) - (radius*globalSize))));\n  \n  return f0*(sin((ang)*raycount)*raydepth+dist*.1+.9);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfloat c = ring(uv, mouse, Radius, Thickness);\n\t\n\tfragColor = vec4(vec3(c*Color), 1)+linker;\n}\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// ring.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//parametres\nuniform float Radius = .25; // Radius, min=0., max=2.\nuniform float Thickness = .12; // Thickness, min=0., max=.9\nuniform float softness = .5; // Softness, min=.1, max=1.\nuniform int raycount = 100; // Ray Count , min=0., max=200.\nuniform float raydepth = .3; // Ray depth , min=-1.5, max=1.5\nuniform float rotation = .0; // Rotation , min=0.,max=360.\nuniform vec3 Color = vec3(.25,.25,.25); // Color\n\n\n//creates a ring with or without Rays\nfloat ring(vec2 uv, vec2 pos, float radius, float thick)\n{\n    float rot = radians(rotation+globalRotate)*evolution;\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n    \n  vec2 main = pos-uv;\n  float ang = atan(main.y, main.x);\n  float dist=length(main); dist = pow(dist,.1);\n  float f0 = mix(0.0, 1.0, smoothstep(thick*globalSize, thick-softness, abs(length(pos-uv) - (radius*globalSize))));\n  \n  return f0*(sin((ang)*raycount)*raydepth+dist*.1+.9);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfloat c = ring(uv, mouse, Radius, Thickness);\n\t\n\tfragColor = vec4(vec3(c*Color), 1)+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -4287,7 +3465,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(9, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -4352,27 +3530,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("Radius")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Radius")
+        param.setValue("Evolution")
         del param
 
     param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
-        param.setValue(0.25, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType3")
@@ -4382,17 +3560,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("Thickness")
+        param.setValue("Radius")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Thickness")
+        param.setValue("Radius")
         del param
 
     param = lastNode.getParam("paramDefaultFloat3")
     if param is not None:
-        param.setValue(0.12, 0)
+        param.setValue(0.25, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat3")
@@ -4402,7 +3580,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat3")
     if param is not None:
-        param.setValue(0.8999999999999999, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType4")
@@ -4412,87 +3590,87 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("softness")
+        param.setValue("Thickness")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("Softness")
+        param.setValue("Thickness")
         del param
 
     param = lastNode.getParam("paramDefaultFloat4")
     if param is not None:
-        param.setValue(0.5, 0)
+        param.setValue(0.12, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat4")
     if param is not None:
-        param.setValue(0.09999999999999999, 0)
+        param.setValue(0, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat4")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(0.8999999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType5")
     if param is not None:
-        param.set("int")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("raycount")
+        param.setValue("softness")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("Ray Count")
+        param.setValue("Softness")
         del param
 
-    param = lastNode.getParam("paramDefaultInt5")
+    param = lastNode.getParam("paramDefaultFloat5")
     if param is not None:
-        param.setValue(100, 0)
+        param.setValue(0.5, 0)
         del param
 
-    param = lastNode.getParam("paramMinInt5")
+    param = lastNode.getParam("paramMinFloat5")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(0.09999999999999999, 0)
         del param
 
-    param = lastNode.getParam("paramMaxInt5")
+    param = lastNode.getParam("paramMaxFloat5")
     if param is not None:
-        param.setValue(200, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramType6")
     if param is not None:
-        param.set("float")
+        param.set("int")
         del param
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("raydepth")
+        param.setValue("raycount")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
-        param.setValue("Ray depth")
+        param.setValue("Ray Count")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat6")
+    param = lastNode.getParam("paramDefaultInt6")
     if param is not None:
-        param.setValue(0.3, 0)
+        param.setValue(100, 0)
         del param
 
-    param = lastNode.getParam("paramMinFloat6")
+    param = lastNode.getParam("paramMinInt6")
     if param is not None:
-        param.setValue(-1.5, 0)
+        param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxFloat6")
+    param = lastNode.getParam("paramMaxInt6")
     if param is not None:
-        param.setValue(1.5, 0)
+        param.setValue(200, 0)
         del param
 
     param = lastNode.getParam("paramType7")
@@ -4502,40 +3680,70 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName7")
     if param is not None:
-        param.setValue("rotation")
+        param.setValue("raydepth")
         del param
 
     param = lastNode.getParam("paramLabel7")
     if param is not None:
-        param.setValue("Rotation")
+        param.setValue("Ray depth")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat7")
+    if param is not None:
+        param.setValue(0.3, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat7")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-1.5, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat7")
     if param is not None:
-        param.setValue(359.9999999999999, 0)
+        param.setValue(1.5, 0)
         del param
 
     param = lastNode.getParam("paramType8")
     if param is not None:
-        param.set("vec3")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName8")
     if param is not None:
-        param.setValue("Color")
+        param.setValue("rotation")
         del param
 
     param = lastNode.getParam("paramLabel8")
     if param is not None:
+        param.setValue("Rotation")
+        del param
+
+    param = lastNode.getParam("paramMinFloat8")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat8")
+    if param is not None:
+        param.setValue(359.9999999999999, 0)
+        del param
+
+    param = lastNode.getParam("paramType9")
+    if param is not None:
+        param.set("vec3")
+        del param
+
+    param = lastNode.getParam("paramName9")
+    if param is not None:
         param.setValue("Color")
         del param
 
-    param = lastNode.getParam("paramDefaultVec38")
+    param = lastNode.getParam("paramLabel9")
+    if param is not None:
+        param.setValue("Color")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec39")
     if param is not None:
         param.setValue(0.25, 0)
         param.setValue(0.25, 1)
@@ -4549,15 +3757,15 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Glimmer")
     lastNode.setLabel("Glimmer")
-    lastNode.setPosition(184, 312)
-    lastNode.setSize(104, 44)
+    lastNode.setPosition(184, 249)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupGlimmer = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -4655,7 +3863,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(0.257, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -4691,7 +3899,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(0.301, 1, 0)
+        param.setValueAtTime(0.257, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -4727,7 +3935,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat4")
     if param is not None:
-        param.setValueAtTime(0.702, 1, 0)
+        param.setValueAtTime(0.301, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec24")
@@ -4763,7 +3971,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat5")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0.702, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec25")
@@ -4794,7 +4002,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt6")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(20, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat6")
@@ -4835,7 +4043,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat7")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0.726, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec27")
@@ -4882,9 +4090,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec38")
     if param is not None:
-        param.setValueAtTime(0.5088813304901123, 1, 0)
-        param.setValueAtTime(0.5088813304901123, 1, 1)
-        param.setValueAtTime(0.5088813304901123, 1, 2)
+        param.setValueAtTime(0.1328683346509933, 1, 0)
+        param.setValueAtTime(0.1328683346509933, 1, 1)
+        param.setValueAtTime(0.1328683346509933, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec48")
@@ -5298,7 +4506,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//parametres\nuniform float Radius = .35; // Radius, min=0., max=2.\nuniform float Thickness = .13; // Thickness, min=0., max=1.5\nuniform float softness = .5; // Softness, min=0., max=1.\nuniform int raycount = 100; // Ray Count , min=0., max=200.\nuniform float raydepth = 1.2; // Ray depth , min=-1.5, max=1.5\nuniform vec3 Color = vec3(.25,.25,.25); // Color\n\n\n//creates a Glimmer\nfloat ring(vec2 uv, vec2 pos, float radius, float thick)\n{\n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n\n    vec2 main = pos-uv;\n    float ang = atan(main.y, main.x);\n    float dist=length(main); dist = pow(dist,.1);\n    float f0 = mix(0.0, 1.0, smoothstep(thick*.8*globalSize, thick-softness*.8, abs(length(pos-uv) - radius)));\n    float f1 = mix(0.0, 1.0, smoothstep(thick*1.5*globalSize, thick-softness*.5, abs(length(pos-uv) - radius)));\n    float f2 = mix(0.0, 1.0, smoothstep(thick*globalSize, thick-softness, abs(length(pos-uv) - radius)));\n\n    return f0*(sin((ang)*raycount)*raydepth+dist*.1+.9)*\n    f1*(sin((ang)*raycount*.8)*raydepth+dist*.1+.9)*\n    f2*(sin((ang)*raycount*.5)*raydepth+dist*.1+.9);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfloat c = ring(uv, mouse, Radius*globalSize, Thickness);\n\t\n\tfragColor = vec4(vec3(c*Color), 1)+linker;\n}\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// glimmer.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//parametres\nuniform float Radius = .35; // Radius, min=0., max=2.\nuniform float Thickness = .13; // Thickness, min=0., max=1.5\nuniform float softness = .5; // Softness, min=0., max=1.\nuniform int raycount = 100; // Ray Count , min=0., max=200.\nuniform float raydepth = 1.2; // Ray depth , min=-1.5, max=1.5\nuniform vec3 Color = vec3(.25,.25,.25); // Color\n\n\n//creates a Glimmer\nfloat ring(vec2 uv, vec2 pos, float radius, float thick)\n{\n    float rot = radians(globalRotate)*evolution;\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n\n    vec2 main = pos-uv;\n    float ang = atan(main.y, main.x);\n    float dist=length(main); dist = pow(dist,.1);\n    float f0 = mix(0.0, 1.0, smoothstep(thick*.8*globalSize, thick-softness*.8, abs(length(pos-uv) - radius)));\n    float f1 = mix(0.0, 1.0, smoothstep(thick*1.5*globalSize, thick-softness*.5, abs(length(pos-uv) - radius)));\n    float f2 = mix(0.0, 1.0, smoothstep(thick*globalSize, thick-softness, abs(length(pos-uv) - radius)));\n\n    return f0*(sin((ang)*raycount)*raydepth+dist*.1+.9)*\n    f1*(sin((ang)*raycount*.8)*raydepth+dist*.1+.9)*\n    f2*(sin((ang)*raycount*.5)*raydepth+dist*.1+.9);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfloat c = ring(uv, mouse, Radius*globalSize, Thickness);\n\t\n\tfragColor = vec4(vec3(c*Color), 1)+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -5362,7 +4570,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(8, 0)
+        param.setValue(9, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -5427,27 +4635,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("Radius")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Radius")
+        param.setValue("Evolution")
         del param
 
     param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
-        param.setValue(0.35, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType3")
@@ -5457,17 +4665,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("Thickness")
+        param.setValue("Radius")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Thickness")
+        param.setValue("Radius")
         del param
 
     param = lastNode.getParam("paramDefaultFloat3")
     if param is not None:
-        param.setValue(0.13, 0)
+        param.setValue(0.35, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat3")
@@ -5477,7 +4685,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat3")
     if param is not None:
-        param.setValue(1.5, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType4")
@@ -5487,17 +4695,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("softness")
+        param.setValue("Thickness")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("Softness")
+        param.setValue("Thickness")
         del param
 
     param = lastNode.getParam("paramDefaultFloat4")
     if param is not None:
-        param.setValue(0.5, 0)
+        param.setValue(0.13, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat4")
@@ -5507,89 +4715,97 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat4")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(1.5, 0)
         del param
 
     param = lastNode.getParam("paramType5")
     if param is not None:
-        param.set("int")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("raycount")
+        param.setValue("softness")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("Ray Count")
+        param.setValue("Softness")
         del param
 
-    param = lastNode.getParam("paramDefaultInt5")
+    param = lastNode.getParam("paramDefaultFloat5")
     if param is not None:
-        param.setValue(100, 0)
+        param.setValue(0.5, 0)
         del param
 
-    param = lastNode.getParam("paramMinInt5")
+    param = lastNode.getParam("paramMinFloat5")
     if param is not None:
         param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxInt5")
+    param = lastNode.getParam("paramMaxFloat5")
     if param is not None:
-        param.setValue(200, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramType6")
     if param is not None:
-        param.set("float")
+        param.set("int")
         del param
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("raydepth")
+        param.setValue("raycount")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
-        param.setValue("Ray depth")
+        param.setValue("Ray Count")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat6")
+    param = lastNode.getParam("paramDefaultInt6")
     if param is not None:
-        param.setValue(1.2, 0)
+        param.setValue(100, 0)
         del param
 
-    param = lastNode.getParam("paramMinFloat6")
+    param = lastNode.getParam("paramMinInt6")
     if param is not None:
-        param.setValue(-1.5, 0)
+        param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxFloat6")
+    param = lastNode.getParam("paramMaxInt6")
     if param is not None:
-        param.setValue(1.5, 0)
+        param.setValue(200, 0)
         del param
 
     param = lastNode.getParam("paramType7")
     if param is not None:
-        param.set("vec3")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName7")
     if param is not None:
-        param.setValue("Color")
+        param.setValue("raydepth")
         del param
 
     param = lastNode.getParam("paramLabel7")
     if param is not None:
-        param.setValue("Color")
+        param.setValue("Ray depth")
         del param
 
-    param = lastNode.getParam("paramDefaultVec37")
+    param = lastNode.getParam("paramDefaultFloat7")
     if param is not None:
-        param.setValue(0.25, 0)
-        param.setValue(0.25, 1)
-        param.setValue(0.25, 2)
+        param.setValue(1.2, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat7")
+    if param is not None:
+        param.setValue(-1.5, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat7")
+    if param is not None:
+        param.setValue(1.5, 0)
         del param
 
     param = lastNode.getParam("paramType8")
@@ -5607,6 +4823,13 @@ def createInstance(app,group):
         param.setValue("Color")
         del param
 
+    param = lastNode.getParam("paramDefaultVec38")
+    if param is not None:
+        param.setValue(0.25, 0)
+        param.setValue(0.25, 1)
+        param.setValue(0.25, 2)
+        del param
+
     del lastNode
     # End of node "Glimmer"
 
@@ -5614,15 +4837,15 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Anamorphic")
     lastNode.setLabel("Anamorphic")
-    lastNode.setPosition(184, 384)
-    lastNode.setSize(104, 44)
+    lastNode.setPosition(184, 329)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupAnamorphic = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -5720,7 +4943,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(2.46, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -5756,7 +4979,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(0.301, 1, 0)
+        param.setValueAtTime(2.46, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -5787,7 +5010,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt4")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(48, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat4")
@@ -5828,7 +5051,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat5")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0.233, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec25")
@@ -5864,7 +5087,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat6")
     if param is not None:
-        param.setValueAtTime(-1, 1, 0)
+        param.setValueAtTime(0, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec26")
@@ -5900,7 +5123,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat7")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(-1, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec27")
@@ -5947,9 +5170,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec38")
     if param is not None:
-        param.setValueAtTime(0.5088813304901123, 1, 0)
-        param.setValueAtTime(0.5088813304901123, 1, 1)
-        param.setValueAtTime(0.5088813304901123, 1, 2)
+        param.setValueAtTime(0.2961383163928986, 1, 0)
+        param.setValueAtTime(0.4564110636711121, 1, 1)
+        param.setValueAtTime(1, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec48")
@@ -6363,7 +5586,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//parametres\nuniform float thickness = .4; // Thichness , min=0., max=10.\nuniform int raycount = 10; // Ray Count , min=0., max=100.\nuniform float raydepth = .2; // Ray depth , min=-1.5, max=1.5\nuniform float rotation = .0; // Rotation , min=0.,max=360.\nuniform float parallax = -1; // Parallax , min=-1., max=1.\nuniform vec3 FColor = vec3(1.,1.,1.); // Color\n\n\n//Procedural Flare Generation\nfloat sun(vec2 uv, vec2 pos, float size)\n{\n    vec2 main = uv-pos;\n\t\n\tfloat ang = atan(main.y, main.x);\n\tfloat dist=length(main); dist = pow(dist,.1);\n\t\n\tfloat rot = radians(rotation+globalRotate);\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n\t\n\tfloat f0 = 1.0/((length((uv.y-pos.y*-parallax)/(uv.x-pos.x)))*(1.0/size*100)/(thickness*globalSize));\n    \n    return f0+f0*(sin((ang)*raycount)*raydepth+dist*.1+.9);\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    \n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tfloat c = sun(uv,mouse.xy,1.);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfragColor = vec4(c*FColor,1.0)+linker;\n}\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// anamorphic.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//parametres\nuniform float thickness = .4; // Thichness , min=0., max=10.\nuniform int raycount = 10; // Ray Count , min=0., max=100.\nuniform float raydepth = .2; // Ray depth , min=-1.5, max=1.5\nuniform float rotation = .0; // Rotation , min=0.,max=360.\nuniform float parallax = -1; // Parallax , min=-1., max=1.\nuniform vec3 FColor = vec3(1.,1.,1.); // Color\n\n\n//Procedural Flare Generation\nfloat sun(vec2 uv, vec2 pos, float size)\n{\n    vec2 main = uv-pos;\n\t\n\tfloat ang = atan(main.y, main.x);\n\tfloat dist=length(main); dist = pow(dist,.1);\n\t\n\tfloat rot = radians(rotation+globalRotate)*evolution;\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n\t\n\tfloat f0 = 1.0/((length((uv.y-pos.y*-parallax)/(uv.x-pos.x)))*(1.0/size*100)/(thickness*globalSize));\n    \n    return f0+f0*(sin((ang)*raycount)*raydepth+dist*.1+.9);\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    \n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tfloat c = sun(uv,mouse.xy,1.);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfragColor = vec4(c*FColor,1.0)+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -6427,7 +5650,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(8, 0)
+        param.setValue(9, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -6492,1089 +5715,29 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("thickness")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Thichness")
+        param.setValue("Evolution")
         del param
 
     param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
-        param.setValue(0.4, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat2")
-    if param is not None:
-        param.setValue(10, 0)
-        del param
-
-    param = lastNode.getParam("paramType3")
-    if param is not None:
-        param.set("int")
-        del param
-
-    param = lastNode.getParam("paramName3")
-    if param is not None:
-        param.setValue("raycount")
-        del param
-
-    param = lastNode.getParam("paramLabel3")
-    if param is not None:
-        param.setValue("Ray Count")
-        del param
-
-    param = lastNode.getParam("paramDefaultInt3")
-    if param is not None:
-        param.setValue(10, 0)
-        del param
-
-    param = lastNode.getParam("paramMinInt3")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxInt3")
-    if param is not None:
-        param.setValue(100, 0)
-        del param
-
-    param = lastNode.getParam("paramType4")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName4")
-    if param is not None:
-        param.setValue("raydepth")
-        del param
-
-    param = lastNode.getParam("paramLabel4")
-    if param is not None:
-        param.setValue("Ray depth")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat4")
-    if param is not None:
-        param.setValue(0.2, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat4")
-    if param is not None:
-        param.setValue(-1.5, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat4")
-    if param is not None:
-        param.setValue(1.5, 0)
-        del param
-
-    param = lastNode.getParam("paramType5")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName5")
-    if param is not None:
-        param.setValue("rotation")
-        del param
-
-    param = lastNode.getParam("paramLabel5")
-    if param is not None:
-        param.setValue("Rotation")
-        del param
-
-    param = lastNode.getParam("paramMinFloat5")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat5")
     if param is not None:
         param.setValue(359.9999999999999, 0)
         del param
 
-    param = lastNode.getParam("paramType6")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName6")
-    if param is not None:
-        param.setValue("parallax")
-        del param
-
-    param = lastNode.getParam("paramLabel6")
-    if param is not None:
-        param.setValue("Parallax")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat6")
-    if param is not None:
-        param.setValue(-1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat6")
-    if param is not None:
-        param.setValue(-1, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat6")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramType7")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName7")
-    if param is not None:
-        param.setValue("FColor")
-        del param
-
-    param = lastNode.getParam("paramLabel7")
-    if param is not None:
-        param.setValue("Color")
-        del param
-
-    param = lastNode.getParam("paramDefaultVec37")
-    if param is not None:
-        param.setValue(1, 0)
-        param.setValue(1, 1)
-        param.setValue(1, 2)
-        del param
-
-    param = lastNode.getParam("paramType8")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName8")
-    if param is not None:
-        param.setValue("Color")
-        del param
-
-    param = lastNode.getParam("paramLabel8")
-    if param is not None:
-        param.setValue("Color")
-        del param
-
-    del lastNode
-    # End of node "Anamorphic"
-
-    # Start of node "Anamorphic_Spots"
-    lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("Anamorphic_Spots")
-    lastNode.setLabel("Anamorphic_Spots")
-    lastNode.setPosition(184, 458)
-    lastNode.setSize(104, 44)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupAnamorphic_Spots = lastNode
-
-    param = lastNode.getParam("mousePosition")
-    if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
-        del param
-
-    param = lastNode.getParam("mouseClick")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("mousePressed")
-    if param is not None:
-        param.setValueAtTime(True, 1)
-        del param
-
-    param = lastNode.getParam("paramValueBool0")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt0")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec20")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec30")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec40")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool1")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt1")
-    if param is not None:
-        param.setValueAtTime(7, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec21")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec31")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec41")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool2")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt2")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValueAtTime(0.13, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec22")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec32")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec42")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool3")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt3")
-    if param is not None:
-        param.setValueAtTime(48, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValueAtTime(0.86, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec23")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec33")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec43")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool4")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt4")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValueAtTime(0.26, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec24")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec34")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec44")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool5")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt5")
-    if param is not None:
-        param.setValueAtTime(20, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat5")
-    if param is not None:
-        param.setValueAtTime(0.05, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec25")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec35")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec45")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool6")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt6")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat6")
-    if param is not None:
-        param.setValueAtTime(0.51, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec26")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec36")
-    if param is not None:
-        param.setValueAtTime(1, 1, 0)
-        param.setValueAtTime(1, 1, 1)
-        param.setValueAtTime(1, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec46")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool7")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt7")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat7")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec27")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec37")
-    if param is not None:
-        param.setValueAtTime(0.2961383163928986, 1, 0)
-        param.setValueAtTime(0.4564110636711121, 1, 1)
-        param.setValueAtTime(1, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec47")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool8")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt8")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat8")
-    if param is not None:
-        param.setValueAtTime(0.33, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec28")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec38")
-    if param is not None:
-        param.setValueAtTime(0.5088813304901123, 1, 0)
-        param.setValueAtTime(0.5088813304901123, 1, 1)
-        param.setValueAtTime(0.5088813304901123, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec48")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool9")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt9")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat9")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec29")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec39")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec49")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool10")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt10")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat10")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec210")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec310")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec410")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool11")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt11")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat11")
-    if param is not None:
-        param.setValueAtTime(28.5, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec211")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec311")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec411")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool12")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt12")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat12")
-    if param is not None:
-        param.setValueAtTime(2.1, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec212")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec312")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec412")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool13")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt13")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat13")
-    if param is not None:
-        param.setValueAtTime(-1, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec213")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec313")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec413")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool14")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt14")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat14")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec214")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec314")
-    if param is not None:
-        param.setValueAtTime(1, 1, 0)
-        param.setValueAtTime(1, 1, 1)
-        param.setValueAtTime(1, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec414")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool15")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt15")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat15")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec215")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec315")
-    if param is not None:
-        param.setValueAtTime(1, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(1, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec415")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool16")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt16")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat16")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec216")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec316")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0.3, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec416")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool17")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt17")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat17")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec217")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec317")
-    if param is not None:
-        param.setValueAtTime(0.09999999999999999, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0.6, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec417")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool18")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt18")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat18")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec218")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec318")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec418")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramValueBool19")
-    if param is not None:
-        param.setValueAtTime(False, 1)
-        del param
-
-    param = lastNode.getParam("paramValueInt19")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat19")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec219")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        del param
-
-    param = lastNode.getParam("paramValueVec319")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        del param
-
-    param = lastNode.getParam("paramValueVec419")
-    if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("imageShaderPreset")
-    if param is not None:
-        param.set("Lens Flare Elements/anmorpic_Spot")
-        del param
-
-    param = lastNode.getParam("imageShaderSource")
-    if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\n\n//parametres\nuniform int objectCount= 5; // Object Count, min=0, max=30\nuniform float objectdist = -0.2; // Object Distance , min=-2.,max=2.\nuniform float tapperness = 1.0; // Tapperness, min=0., max=1.\nuniform float cposx = -0.47; // Position X , min=-2.,max=2.\nuniform float cposy = 0.08; // Position Y , min=-2.,max=2.\nuniform float sizex = 0.32; // Scale X , min=0., max=10.\nuniform float sizey = 0.02; // Scale Y , min=-0, max=10.\nuniform float randomized = .33; // Randomize, min=0., max=10.\nuniform float rotation = 0.0; // Rotation , min=0.,max=360.\nuniform float RoundCorner = .03; // Round Corner, min=0., max=10.\nuniform float intensity = 19; // Intensity, min=0.0, max=50.\nuniform float brightness = 1; // Brightness, min=0.0, max=50.\nuniform float parallax = -1.0; // Parallax , min=-1., max=1.\nuniform vec3 BGColor = vec3(1.,1.,1.); // BGColor\nuniform vec3 Color1 = vec3(1.0,0.0,1.0); // Color1\nuniform vec3 Color2 = vec3(0.0,0.3,0.0); // Color2\nuniform vec3 Color3 = vec3(0.1,0.0,0.6); // Color3\n\n\nconst float      PI = 3.14159265359;\nconst float  TWO_PI = 6.28318530718;\n\nfloat rand(float n){\n    return fract(cos(n*89.42)*343.42);\n}\n\n//creates a adjustable Anamorphic spot\nvec3 circleBox(vec2 uv, vec2 pos, vec2 size, float cornerRadius, float between, vec3 color, float intens)\n{\n    vec2 main = uv-pos;\n\tfloat ang = atan(main.y, main.x);\n\tfloat dist=length(main); dist = pow(dist,.1);\n\t\n    float rot = radians(rotation);\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n    \n\n    float sd = (length(uv-pos) - size.x); // circle\n    size -= vec2(cornerRadius);           // rounded box\n    vec2 d = (abs(uv-pos) - size);\n    float box = min(max(d.x, d.y), 0.0) + length(max(d, 0.0)) - cornerRadius;\n    float v = (1.0 - between)*sd + box*between;  //mix\n    float f = clamp (intens*-v , 0.0, 1.0);\n    return f*color;\n}\n\nvec3 objects(vec2 uv, vec2 pos)\n{\n    vec3 c = vec3(0.0);\n    for(int i=0; i<objectCount; i++){\n        //Top\n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner, tapperness, Color1, \n        intensity*rand(i*randomized*.9));//intensity\n        \n        c+= circleBox(vec2((uv.x-cposx-i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*4.9), //size\n        RoundCorner, tapperness, Color2, \n        intensity*rand(i*randomized*.5))*brightness;//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*8.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*7.9), //size\n        RoundCorner, tapperness, Color3, \n        intensity*rand(i*randomized*.6))*brightness;//intensity\n        \n        //bottom\n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*4.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner, tapperness, Color3, \n        intensity*rand(i*randomized*.8))*brightness;//intensity\n        \n        c+= circleBox(vec2((uv.x-cposx+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*6.9), //size\n        RoundCorner, tapperness, Color1, \n        intensity*rand(i*randomized*1.9))*(brightness*rand(i*randomized*.9));//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*3.9), //size\n        RoundCorner, tapperness, Color2, \n        intensity*rand(i*randomized*1.5))*(brightness*rand(i*randomized*2.9));//intensity\n        \n        //mid\n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*4.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.5,sizey*4)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner*1.5, tapperness, Color3, \n        intensity*rand(i*randomized*8))*(brightness*rand(i*randomized*2.9));//intensity\n        \n        c+= circleBox(vec2((uv.x-0.0+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.3,sizey*2)*globalSize*rand(i*randomized*6.9), //size\n        RoundCorner*.8, tapperness, Color1, \n        intensity*rand(i*randomized*1.9));//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.7,sizey*2)*globalSize*rand(i*randomized*10.9), //size\n        RoundCorner*1.2, tapperness, Color2, \n        intensity*rand(i*randomized*.2));//intensity\n        \n        //mid Blur\n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex,sizey*10)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*3, tapperness, Color1,\n        intensity*rand(i*randomized*0.2)*.02);//intensity\n        \n        c+= circleBox(vec2((uv.x+0.0-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex*3,sizey*5)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*2, tapperness, Color2,\n        intensity*rand(i*randomized*0.2)*.02);//intensity\n        \n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex*5,sizey*8)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*5, tapperness, Color3,\n        intensity*rand(i*randomized*0.2)*.01)*brightness;//intensity\n        \n//         //filler\n//         c+= circleBox(vec2((uv.x-0.0+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+0.0)), pos*-parallax, //position\n//         vec2(sizex*7,sizey*10)*globalSize*rand(i*randomized*4.9), //size\n//         RoundCorner, tapperness*.5, Color2, \n//         intensity*rand(i*randomized*0.1)*.02);//intensity\n//         \n//         c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*8.9))), (uv.y+0.0)), pos*-parallax, //position\n//         vec2(sizex*10,sizey*9)*globalSize*rand(i*randomized*7.9), //size\n//         RoundCorner, tapperness*.8, Color3, \n//         intensity*rand(i*randomized*0.5)*.03);//intensity\n    }\n    \n    return c;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tvec3 c = objects(uv, mouse);\n\tfragColor = vec4(c*BGColor, 1)+linker;\n}\n")
-        del param
-
-    param = lastNode.getParam("mipmap0")
-    if param is not None:
-        param.set("linear")
-        del param
-
-    param = lastNode.getParam("wrap0")
-    if param is not None:
-        param.set("clamp")
-        del param
-
-    param = lastNode.getParam("inputLabel0")
-    if param is not None:
-        param.setValue("Link GLSL Elements")
-        del param
-
-    param = lastNode.getParam("inputEnable1")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("inputEnable2")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("inputEnable3")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("bbox")
-    if param is not None:
-        param.setValueAtTime(4, 1)
-        del param
-
-    param = lastNode.getParam("NatronParamFormatChoice")
-    if param is not None:
-        param.set("PC_Video")
-        del param
-
-    param = lastNode.getParam("NatronParamFormatSize")
-    if param is not None:
-        param.setValueAtTime(640, 1, 0)
-        param.setValueAtTime(480, 1, 1)
-        del param
-
-    param = lastNode.getParam("NatronParamFormatPar")
-    if param is not None:
-        param.setValueAtTime(1, 1, 0)
-        del param
-
-    param = lastNode.getParam("startDate")
-    if param is not None:
-        param.setValueAtTime(1970, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(1, 1, 2)
-        param.setValueAtTime(0, 1, 3)
-        del param
-
-    param = lastNode.getParam("paramCount")
-    if param is not None:
-        param.setValue(18, 0)
-        del param
-
-    param = lastNode.getParam("paramType0")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName0")
-    if param is not None:
-        param.setValue("globalSize")
-        del param
-
-    param = lastNode.getParam("paramLabel0")
-    if param is not None:
-        param.setValue("Global Scale")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat0")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat0")
-    if param is not None:
-        param.setValue(99.99999999999999, 0)
-        del param
-
-    param = lastNode.getParam("paramType1")
-    if param is not None:
-        param.set("int")
-        del param
-
-    param = lastNode.getParam("paramName1")
-    if param is not None:
-        param.setValue("objectCount")
-        del param
-
-    param = lastNode.getParam("paramLabel1")
-    if param is not None:
-        param.setValue("Object Count")
-        del param
-
-    param = lastNode.getParam("paramDefaultInt1")
-    if param is not None:
-        param.setValue(5, 0)
-        del param
-
-    param = lastNode.getParam("paramMinInt1")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxInt1")
-    if param is not None:
-        param.setValue(30, 0)
-        del param
-
-    param = lastNode.getParam("paramType2")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName2")
-    if param is not None:
-        param.setValue("objectdist")
-        del param
-
-    param = lastNode.getParam("paramLabel2")
-    if param is not None:
-        param.setValue("Object Distance")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat2")
-    if param is not None:
-        param.setValue(-0.2, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat2")
-    if param is not None:
-        param.setValue(-2, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat2")
-    if param is not None:
-        param.setValue(2, 0)
-        del param
-
     param = lastNode.getParam("paramType3")
     if param is not None:
         param.set("float")
@@ -7582,17 +5745,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("tapperness")
+        param.setValue("thickness")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Tapperness")
+        param.setValue("Thichness")
         del param
 
     param = lastNode.getParam("paramDefaultFloat3")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(0.4, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat3")
@@ -7602,37 +5765,37 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat3")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType4")
     if param is not None:
-        param.set("float")
+        param.set("int")
         del param
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("cposx")
+        param.setValue("raycount")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("Position X")
+        param.setValue("Ray Count")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat4")
+    param = lastNode.getParam("paramDefaultInt4")
     if param is not None:
-        param.setValue(-0.47, 0)
+        param.setValue(10, 0)
         del param
 
-    param = lastNode.getParam("paramMinFloat4")
+    param = lastNode.getParam("paramMinInt4")
     if param is not None:
-        param.setValue(-2, 0)
+        param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxFloat4")
+    param = lastNode.getParam("paramMaxInt4")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(100, 0)
         del param
 
     param = lastNode.getParam("paramType5")
@@ -7642,27 +5805,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("cposy")
+        param.setValue("raydepth")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("Position Y")
+        param.setValue("Ray depth")
         del param
 
     param = lastNode.getParam("paramDefaultFloat5")
     if param is not None:
-        param.setValue(0.08, 0)
+        param.setValue(0.2, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat5")
     if param is not None:
-        param.setValue(-2, 0)
+        param.setValue(-1.5, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat5")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(1.5, 0)
         del param
 
     param = lastNode.getParam("paramType6")
@@ -7672,17 +5835,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("sizex")
+        param.setValue("rotation")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
-        param.setValue("Scale X")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat6")
-    if param is not None:
-        param.setValue(0.32, 0)
+        param.setValue("Rotation")
         del param
 
     param = lastNode.getParam("paramMinFloat6")
@@ -7692,7 +5850,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat6")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType7")
@@ -7702,304 +5860,67 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName7")
     if param is not None:
-        param.setValue("sizey")
+        param.setValue("parallax")
         del param
 
     param = lastNode.getParam("paramLabel7")
     if param is not None:
-        param.setValue("Scale Y")
+        param.setValue("Parallax")
         del param
 
     param = lastNode.getParam("paramDefaultFloat7")
     if param is not None:
-        param.setValue(0.02, 0)
+        param.setValue(-1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat7")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat7")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramType8")
     if param is not None:
-        param.set("float")
+        param.set("vec3")
         del param
 
     param = lastNode.getParam("paramName8")
     if param is not None:
-        param.setValue("randomized")
+        param.setValue("FColor")
         del param
 
     param = lastNode.getParam("paramLabel8")
     if param is not None:
-        param.setValue("Randomize")
+        param.setValue("Color")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat8")
-    if param is not None:
-        param.setValue(0.33, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat8")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat8")
-    if param is not None:
-        param.setValue(10, 0)
-        del param
-
-    param = lastNode.getParam("paramType9")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName9")
-    if param is not None:
-        param.setValue("rotation")
-        del param
-
-    param = lastNode.getParam("paramLabel9")
-    if param is not None:
-        param.setValue("Rotation")
-        del param
-
-    param = lastNode.getParam("paramMinFloat9")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat9")
-    if param is not None:
-        param.setValue(359.9999999999999, 0)
-        del param
-
-    param = lastNode.getParam("paramType10")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName10")
-    if param is not None:
-        param.setValue("RoundCorner")
-        del param
-
-    param = lastNode.getParam("paramLabel10")
-    if param is not None:
-        param.setValue("Round Corner")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat10")
-    if param is not None:
-        param.setValue(0.03, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat10")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat10")
-    if param is not None:
-        param.setValue(10, 0)
-        del param
-
-    param = lastNode.getParam("paramType11")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName11")
-    if param is not None:
-        param.setValue("intensity")
-        del param
-
-    param = lastNode.getParam("paramLabel11")
-    if param is not None:
-        param.setValue("Intensity")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat11")
-    if param is not None:
-        param.setValue(19, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat11")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat11")
-    if param is not None:
-        param.setValue(49.99999999999999, 0)
-        del param
-
-    param = lastNode.getParam("paramType12")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName12")
-    if param is not None:
-        param.setValue("brightness")
-        del param
-
-    param = lastNode.getParam("paramLabel12")
-    if param is not None:
-        param.setValue("Brightness")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat12")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat12")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat12")
-    if param is not None:
-        param.setValue(49.99999999999999, 0)
-        del param
-
-    param = lastNode.getParam("paramType13")
-    if param is not None:
-        param.set("float")
-        del param
-
-    param = lastNode.getParam("paramName13")
-    if param is not None:
-        param.setValue("parallax")
-        del param
-
-    param = lastNode.getParam("paramLabel13")
-    if param is not None:
-        param.setValue("Parallax")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat13")
-    if param is not None:
-        param.setValue(-1, 0)
-        del param
-
-    param = lastNode.getParam("paramMinFloat13")
-    if param is not None:
-        param.setValue(-1, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxFloat13")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramType14")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName14")
-    if param is not None:
-        param.setValue("BGColor")
-        del param
-
-    param = lastNode.getParam("paramLabel14")
-    if param is not None:
-        param.setValue("BGColor")
-        del param
-
-    param = lastNode.getParam("paramDefaultVec314")
+    param = lastNode.getParam("paramDefaultVec38")
     if param is not None:
         param.setValue(1, 0)
         param.setValue(1, 1)
         param.setValue(1, 2)
         del param
 
-    param = lastNode.getParam("paramType15")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName15")
-    if param is not None:
-        param.setValue("Color1")
-        del param
-
-    param = lastNode.getParam("paramLabel15")
-    if param is not None:
-        param.setValue("Color1")
-        del param
-
-    param = lastNode.getParam("paramDefaultVec315")
-    if param is not None:
-        param.setValue(1, 0)
-        param.setValue(1, 2)
-        del param
-
-    param = lastNode.getParam("paramType16")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName16")
-    if param is not None:
-        param.setValue("Color2")
-        del param
-
-    param = lastNode.getParam("paramLabel16")
-    if param is not None:
-        param.setValue("Color2")
-        del param
-
-    param = lastNode.getParam("paramDefaultVec316")
-    if param is not None:
-        param.setValue(0.3, 1)
-        del param
-
-    param = lastNode.getParam("paramType17")
-    if param is not None:
-        param.set("vec3")
-        del param
-
-    param = lastNode.getParam("paramName17")
-    if param is not None:
-        param.setValue("Color3")
-        del param
-
-    param = lastNode.getParam("paramLabel17")
-    if param is not None:
-        param.setValue("Color3")
-        del param
-
-    param = lastNode.getParam("paramDefaultVec317")
-    if param is not None:
-        param.setValue(0.09999999999999999, 0)
-        param.setValue(0.6, 2)
-        del param
-
     del lastNode
-    # End of node "Anamorphic_Spots"
+    # End of node "Anamorphic"
 
     # Start of node "Anamorphic_Spots_2"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Anamorphic_Spots_2")
     lastNode.setLabel("Anamorphic_Spots_2")
-    lastNode.setPosition(184, 521)
-    lastNode.setSize(104, 67)
+    lastNode.setPosition(184, 487)
+    lastNode.setSize(104, 55)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupAnamorphic_Spots_2 = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -8087,7 +6008,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt2")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(1, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat2")
@@ -8128,7 +6049,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(0.18, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -8164,7 +6085,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat4")
     if param is not None:
-        param.setValueAtTime(0.26, 1, 0)
+        param.setValueAtTime(1, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec24")
@@ -8200,7 +6121,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat5")
     if param is not None:
-        param.setValueAtTime(0.07000000000000001, 1, 0)
+        param.setValueAtTime(0.26, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec25")
@@ -8236,7 +6157,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat6")
     if param is not None:
-        param.setValueAtTime(0.55, 1, 0)
+        param.setValueAtTime(0.07000000000000001, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec26")
@@ -8272,7 +6193,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat7")
     if param is not None:
-        param.setValueAtTime(0.02, 1, 0)
+        param.setValueAtTime(0.55, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec27")
@@ -8308,7 +6229,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat8")
     if param is not None:
-        param.setValueAtTime(2.66, 1, 0)
+        param.setValueAtTime(0.02, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec28")
@@ -8344,7 +6265,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat9")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(2.66, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec29")
@@ -8416,7 +6337,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat11")
     if param is not None:
-        param.setValueAtTime(10.2, 1, 0)
+        param.setValueAtTime(0, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec211")
@@ -8452,7 +6373,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat12")
     if param is not None:
-        param.setValueAtTime(1.8, 1, 0)
+        param.setValueAtTime(10.2, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec212")
@@ -8488,7 +6409,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat13")
     if param is not None:
-        param.setValueAtTime(-0.801, 1, 0)
+        param.setValueAtTime(1.8, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec213")
@@ -8524,7 +6445,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat14")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(-0.801, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec214")
@@ -8571,9 +6492,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec315")
     if param is not None:
-        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(0.1470272839069366, 1, 0)
         param.setValueAtTime(1, 1, 1)
-        param.setValueAtTime(0.01298303063958883, 1, 2)
+        param.setValueAtTime(0.9646862745285034, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec415")
@@ -8607,9 +6528,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec316")
     if param is not None:
-        param.setValueAtTime(0.01938235759735107, 1, 0)
-        param.setValueAtTime(0.3005438446998596, 1, 1)
-        param.setValueAtTime(0.05126946419477463, 1, 2)
+        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(1, 1, 1)
+        param.setValueAtTime(0.01298303063958883, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec416")
@@ -8643,9 +6564,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec317")
     if param is not None:
-        param.setValueAtTime(0.009134056977927685, 1, 0)
-        param.setValueAtTime(0.06480327993631363, 1, 1)
-        param.setValueAtTime(0.6038274168968201, 1, 2)
+        param.setValueAtTime(0.01938235759735107, 1, 0)
+        param.setValueAtTime(0.3005438446998596, 1, 1)
+        param.setValueAtTime(0.05126946419477463, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec417")
@@ -8679,9 +6600,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec318")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0.009134056977927685, 1, 0)
+        param.setValueAtTime(0.06480327993631363, 1, 1)
+        param.setValueAtTime(0.6038274168968201, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec418")
@@ -8735,7 +6656,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\n\n//parametres\nuniform int objectCount= 5; // Object Count, min=0, max=30\nuniform float objectdist = -0.2; // Object Distance , min=-2.,max=2.\nuniform float tapperness = 1.0; // Tapperness, min=0., max=1.\nuniform float cposx = -0.47; // Position X , min=-2.,max=2.\nuniform float cposy = 0.08; // Position Y , min=-2.,max=2.\nuniform float sizex = 0.32; // Scale X , min=0., max=10.\nuniform float sizey = 0.02; // Scale Y , min=-0, max=10.\nuniform float randomized = .33; // Randomize, min=0., max=10.\nuniform float rotation = 0.0; // Rotation , min=0.,max=360.\nuniform float RoundCorner = .03; // Round Corner, min=0., max=10.\nuniform float intensity = 19; // Intensity, min=0.0, max=50.\nuniform float brightness = 1; // Brightness, min=0.0, max=50.\nuniform float parallax = -1.0; // Parallax , min=-1., max=1.\nuniform vec3 BGColor = vec3(1.,1.,1.); // BGColor\nuniform vec3 Color1 = vec3(1.0,0.0,1.0); // Color1\nuniform vec3 Color2 = vec3(0.0,0.3,0.0); // Color2\nuniform vec3 Color3 = vec3(0.1,0.0,0.6); // Color3\n\n\nconst float      PI = 3.14159265359;\nconst float  TWO_PI = 6.28318530718;\n\nfloat rand(float n){\n    return fract(cos(n*89.42)*343.42);\n}\n\n//creates a adjustable Anamorphic spot\nvec3 circleBox(vec2 uv, vec2 pos, vec2 size, float cornerRadius, float between, vec3 color, float intens)\n{\n    vec2 main = uv-pos;\n\tfloat ang = atan(main.y, main.x);\n\tfloat dist=length(main); dist = pow(dist,.1);\n\t\n    float rot = radians(rotation);\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n    \n\n    float sd = (length(uv-pos) - size.x); // circle\n    size -= vec2(cornerRadius);           // rounded box\n    vec2 d = (abs(uv-pos) - size);\n    float box = min(max(d.x, d.y), 0.0) + length(max(d, 0.0)) - cornerRadius;\n    float v = (1.0 - between)*sd + box*between;  //mix\n    float f = clamp (intens*-v , 0.0, 1.0);\n    return f*color;\n}\n\nvec3 objects(vec2 uv, vec2 pos)\n{\n    vec3 c = vec3(0.0);\n    for(int i=0; i<objectCount; i++){\n        //Top\n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner, tapperness, Color1, \n        intensity*rand(i*randomized*.9));//intensity\n        \n        c+= circleBox(vec2((uv.x-cposx-i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*4.9), //size\n        RoundCorner, tapperness, Color2, \n        intensity*rand(i*randomized*.5))*brightness;//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*8.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*7.9), //size\n        RoundCorner, tapperness, Color3, \n        intensity*rand(i*randomized*.6))*brightness;//intensity\n        \n        //bottom\n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*4.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner, tapperness, Color3, \n        intensity*rand(i*randomized*.8))*brightness;//intensity\n        \n        c+= circleBox(vec2((uv.x-cposx+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*6.9), //size\n        RoundCorner, tapperness, Color1, \n        intensity*rand(i*randomized*1.9))*(brightness*rand(i*randomized*.9));//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*3.9), //size\n        RoundCorner, tapperness, Color2, \n        intensity*rand(i*randomized*1.5))*(brightness*rand(i*randomized*2.9));//intensity\n        \n        //mid\n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*4.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.5,sizey*4)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner*1.5, tapperness, Color3, \n        intensity*rand(i*randomized*8))*(brightness*rand(i*randomized*2.9));//intensity\n        \n        c+= circleBox(vec2((uv.x-0.0+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.3,sizey*2)*globalSize*rand(i*randomized*6.9), //size\n        RoundCorner*.8, tapperness, Color1, \n        intensity*rand(i*randomized*1.9));//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.7,sizey*2)*globalSize*rand(i*randomized*10.9), //size\n        RoundCorner*1.2, tapperness, Color2, \n        intensity*rand(i*randomized*.2));//intensity\n        \n        //mid Blur\n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex,sizey*10)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*3, tapperness, Color1,\n        intensity*rand(i*randomized*0.2)*.02);//intensity\n        \n        c+= circleBox(vec2((uv.x+0.0-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex*3,sizey*5)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*2, tapperness, Color2,\n        intensity*rand(i*randomized*0.2)*.02);//intensity\n        \n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex*5,sizey*8)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*5, tapperness, Color3,\n        intensity*rand(i*randomized*0.2)*.01)*brightness;//intensity\n        \n//         //filler\n//         c+= circleBox(vec2((uv.x-0.0+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+0.0)), pos*-parallax, //position\n//         vec2(sizex*7,sizey*10)*globalSize*rand(i*randomized*4.9), //size\n//         RoundCorner, tapperness*.5, Color2, \n//         intensity*rand(i*randomized*0.1)*.02);//intensity\n//         \n//         c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*8.9))), (uv.y+0.0)), pos*-parallax, //position\n//         vec2(sizex*10,sizey*9)*globalSize*rand(i*randomized*7.9), //size\n//         RoundCorner, tapperness*.8, Color3, \n//         intensity*rand(i*randomized*0.5)*.03);//intensity\n    }\n    \n    return c;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tvec3 c = objects(uv, mouse);\n\tfragColor = vec4(c*BGColor, 1)+linker;\n}\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// anmorpic_Spot.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\n\n//parametres\nuniform int objectCount= 5; // Object Count, min=0, max=30\nuniform int intesmult= 1; // Intensity Multiplyer, min=1, max=10\nuniform float objectdist = -0.2; // Object Distance , min=-2.,max=2.\nuniform float tapperness = 1.0; // Tapperness, min=0., max=1.\nuniform float cposx = -0.47; // Position X , min=-2.,max=2.\nuniform float cposy = 0.08; // Position Y , min=-2.,max=2.\nuniform float sizex = 0.32; // Scale X , min=0., max=10.\nuniform float sizey = 0.02; // Scale Y , min=-0, max=10.\nuniform float randomized = .33; // Randomize, min=0., max=10.\nuniform float rotation = 0.0; // Rotation , min=0.,max=360.\nuniform float RoundCorner = .03; // Round Corner, min=0., max=10.\nuniform float intensity = 19; // Intensity, min=0.0, max=50.\nuniform float brightness = 1; // Brightness, min=0.0, max=50.\nuniform float parallax = -1.0; // Parallax , min=-1., max=1.\nuniform vec3 BGColor = vec3(1.,1.,1.); // BGColor\nuniform vec3 Color1 = vec3(1.0,0.0,1.0); // Color1\nuniform vec3 Color2 = vec3(0.0,0.3,0.0); // Color2\nuniform vec3 Color3 = vec3(0.1,0.0,0.6); // Color3\n\n\nconst float      PI = 3.14159265359;\nconst float  TWO_PI = 6.28318530718;\n\nfloat rand(float n){\n    return fract(cos(n*89.42)*343.42);\n}\n\n//creates a adjustable Anamorphic spot\nvec3 circleBox(vec2 uv, vec2 pos, vec2 size, float cornerRadius, float between, vec3 color, float intens)\n{\n    vec2 main = uv-pos;\n\tfloat ang = atan(main.y, main.x);\n\tfloat dist=length(main); dist = pow(dist,.1);\n\t\n    float rot = radians(rotation);\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n    \n\n    float sd = (length(uv-pos) - size.x); // circle\n    size -= vec2(cornerRadius);           // rounded box\n    vec2 d = (abs(uv-pos) - size);\n    float box = min(max(d.x, d.y), 0.0) + length(max(d, 0.0)) - cornerRadius;\n    float v = (1.0 - between)*sd + box*between;  //mix\n    float f = clamp (intens*-v , 0.0, 1.0);\n    return f*color;\n}\n\nvec3 objects(vec2 uv, vec2 pos)\n{\n    vec3 c = vec3(0.0);\n    for(int i=0; i<objectCount; i++){\n        //Top\n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner, tapperness, Color1, \n        intensity*rand(i*randomized*.9));//intensity\n        \n        c+= circleBox(vec2((uv.x-cposx-i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*4.9), //size\n        RoundCorner, tapperness, Color2, \n        intensity*rand(i*randomized*.5))*brightness;//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*8.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*7.9), //size\n        RoundCorner, tapperness, Color3, \n        intensity*rand(i*randomized*.6))*brightness;//intensity\n        \n        //bottom\n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*4.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner, tapperness, Color3, \n        intensity*rand(i*randomized*.8))*brightness;//intensity\n        \n        c+= circleBox(vec2((uv.x-cposx+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*6.9), //size\n        RoundCorner, tapperness, Color1, \n        intensity*rand(i*randomized*1.9))*(brightness*rand(i*randomized*.9));//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*3.9), //size\n        RoundCorner, tapperness, Color2, \n        intensity*rand(i*randomized*1.5))*(brightness*rand(i*randomized*2.9));//intensity\n        \n        //mid\n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*4.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.5,sizey*4)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner*1.5, tapperness, Color3, \n        intensity*rand(i*randomized*8))*(brightness*rand(i*randomized*2.9));//intensity\n        \n        c+= circleBox(vec2((uv.x-0.0+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.3,sizey*2)*globalSize*rand(i*randomized*6.9), //size\n        RoundCorner*.8, tapperness, Color1, \n        intensity*rand(i*randomized*1.9));//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.7,sizey*2)*globalSize*rand(i*randomized*10.9), //size\n        RoundCorner*1.2, tapperness, Color2, \n        intensity*rand(i*randomized*.2));//intensity\n        \n        //mid Blur\n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex,sizey*10)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*3, tapperness, Color1,\n        intensity*rand(i*randomized*0.2)*.02);//intensity\n        \n        c+= circleBox(vec2((uv.x+0.0-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex*3,sizey*5)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*2, tapperness, Color2,\n        intensity*rand(i*randomized*0.2)*.02);//intensity\n        \n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex*5,sizey*8)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*5, tapperness, Color3,\n        intensity*rand(i*randomized*0.2)*.01)*brightness;//intensity\n        \n//         //filler\n//         c+= circleBox(vec2((uv.x-0.0+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+0.0)), pos*-parallax, //position\n//         vec2(sizex*7,sizey*10)*globalSize*rand(i*randomized*4.9), //size\n//         RoundCorner, tapperness*.5, Color2, \n//         intensity*rand(i*randomized*0.1)*.02);//intensity\n//         \n//         c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*8.9))), (uv.y+0.0)), pos*-parallax, //position\n//         vec2(sizex*10,sizey*9)*globalSize*rand(i*randomized*7.9), //size\n//         RoundCorner, tapperness*.8, Color3, \n//         intensity*rand(i*randomized*0.5)*.03);//intensity\n    }\n    \n    return c*intesmult;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tvec3 c = objects(uv, mouse);\n\tfragColor = vec4(c*BGColor, 1)+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -8799,7 +6720,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(18, 0)
+        param.setValue(19, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -8864,32 +6785,32 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramType2")
     if param is not None:
-        param.set("float")
+        param.set("int")
         del param
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("objectdist")
+        param.setValue("intesmult")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Object Distance")
+        param.setValue("Intensity Multiplyer")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat2")
+    param = lastNode.getParam("paramDefaultInt2")
     if param is not None:
-        param.setValue(-0.2, 0)
+        param.setValue(1, 0)
         del param
 
-    param = lastNode.getParam("paramMinFloat2")
+    param = lastNode.getParam("paramMinInt2")
     if param is not None:
-        param.setValue(-2, 0)
+        param.setValue(1, 0)
         del param
 
-    param = lastNode.getParam("paramMaxFloat2")
+    param = lastNode.getParam("paramMaxInt2")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType3")
@@ -8899,27 +6820,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("tapperness")
+        param.setValue("objectdist")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Tapperness")
+        param.setValue("Object Distance")
         del param
 
     param = lastNode.getParam("paramDefaultFloat3")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(-0.2, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat3")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-2, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat3")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType4")
@@ -8929,27 +6850,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("cposx")
+        param.setValue("tapperness")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("Position X")
+        param.setValue("Tapperness")
         del param
 
     param = lastNode.getParam("paramDefaultFloat4")
     if param is not None:
-        param.setValue(-0.47, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat4")
     if param is not None:
-        param.setValue(-2, 0)
+        param.setValue(0, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat4")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramType5")
@@ -8959,17 +6880,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("cposy")
+        param.setValue("cposx")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("Position Y")
+        param.setValue("Position X")
         del param
 
     param = lastNode.getParam("paramDefaultFloat5")
     if param is not None:
-        param.setValue(0.08, 0)
+        param.setValue(-0.47, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat5")
@@ -8989,27 +6910,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("sizex")
+        param.setValue("cposy")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
-        param.setValue("Scale X")
+        param.setValue("Position Y")
         del param
 
     param = lastNode.getParam("paramDefaultFloat6")
     if param is not None:
-        param.setValue(0.32, 0)
+        param.setValue(0.08, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat6")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-2, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat6")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType7")
@@ -9019,17 +6940,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName7")
     if param is not None:
-        param.setValue("sizey")
+        param.setValue("sizex")
         del param
 
     param = lastNode.getParam("paramLabel7")
     if param is not None:
-        param.setValue("Scale Y")
+        param.setValue("Scale X")
         del param
 
     param = lastNode.getParam("paramDefaultFloat7")
     if param is not None:
-        param.setValue(0.02, 0)
+        param.setValue(0.32, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat7")
@@ -9049,17 +6970,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName8")
     if param is not None:
-        param.setValue("randomized")
+        param.setValue("sizey")
         del param
 
     param = lastNode.getParam("paramLabel8")
     if param is not None:
-        param.setValue("Randomize")
+        param.setValue("Scale Y")
         del param
 
     param = lastNode.getParam("paramDefaultFloat8")
     if param is not None:
-        param.setValue(0.33, 0)
+        param.setValue(0.02, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat8")
@@ -9079,12 +7000,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName9")
     if param is not None:
-        param.setValue("rotation")
+        param.setValue("randomized")
         del param
 
     param = lastNode.getParam("paramLabel9")
     if param is not None:
-        param.setValue("Rotation")
+        param.setValue("Randomize")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat9")
+    if param is not None:
+        param.setValue(0.33, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat9")
@@ -9094,7 +7020,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat9")
     if param is not None:
-        param.setValue(359.9999999999999, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType10")
@@ -9104,17 +7030,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName10")
     if param is not None:
-        param.setValue("RoundCorner")
+        param.setValue("rotation")
         del param
 
     param = lastNode.getParam("paramLabel10")
     if param is not None:
-        param.setValue("Round Corner")
-        del param
-
-    param = lastNode.getParam("paramDefaultFloat10")
-    if param is not None:
-        param.setValue(0.03, 0)
+        param.setValue("Rotation")
         del param
 
     param = lastNode.getParam("paramMinFloat10")
@@ -9124,7 +7045,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat10")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType11")
@@ -9134,17 +7055,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName11")
     if param is not None:
-        param.setValue("intensity")
+        param.setValue("RoundCorner")
         del param
 
     param = lastNode.getParam("paramLabel11")
     if param is not None:
-        param.setValue("Intensity")
+        param.setValue("Round Corner")
         del param
 
     param = lastNode.getParam("paramDefaultFloat11")
     if param is not None:
-        param.setValue(19, 0)
+        param.setValue(0.03, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat11")
@@ -9154,7 +7075,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat11")
     if param is not None:
-        param.setValue(49.99999999999999, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType12")
@@ -9164,17 +7085,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName12")
     if param is not None:
-        param.setValue("brightness")
+        param.setValue("intensity")
         del param
 
     param = lastNode.getParam("paramLabel12")
     if param is not None:
-        param.setValue("Brightness")
+        param.setValue("Intensity")
         del param
 
     param = lastNode.getParam("paramDefaultFloat12")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(19, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat12")
@@ -9194,49 +7115,57 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName13")
     if param is not None:
-        param.setValue("parallax")
+        param.setValue("brightness")
         del param
 
     param = lastNode.getParam("paramLabel13")
     if param is not None:
-        param.setValue("Parallax")
+        param.setValue("Brightness")
         del param
 
     param = lastNode.getParam("paramDefaultFloat13")
     if param is not None:
-        param.setValue(-1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat13")
     if param is not None:
-        param.setValue(-1, 0)
+        param.setValue(0, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat13")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(49.99999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType14")
     if param is not None:
-        param.set("vec3")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName14")
     if param is not None:
-        param.setValue("BGColor")
+        param.setValue("parallax")
         del param
 
     param = lastNode.getParam("paramLabel14")
     if param is not None:
-        param.setValue("BGColor")
+        param.setValue("Parallax")
         del param
 
-    param = lastNode.getParam("paramDefaultVec314")
+    param = lastNode.getParam("paramDefaultFloat14")
+    if param is not None:
+        param.setValue(-1, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat14")
+    if param is not None:
+        param.setValue(-1, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat14")
     if param is not None:
         param.setValue(1, 0)
-        param.setValue(1, 1)
-        param.setValue(1, 2)
         del param
 
     param = lastNode.getParam("paramType15")
@@ -9246,17 +7175,18 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName15")
     if param is not None:
-        param.setValue("Color1")
+        param.setValue("BGColor")
         del param
 
     param = lastNode.getParam("paramLabel15")
     if param is not None:
-        param.setValue("Color1")
+        param.setValue("BGColor")
         del param
 
     param = lastNode.getParam("paramDefaultVec315")
     if param is not None:
         param.setValue(1, 0)
+        param.setValue(1, 1)
         param.setValue(1, 2)
         del param
 
@@ -9267,17 +7197,18 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName16")
     if param is not None:
-        param.setValue("Color2")
+        param.setValue("Color1")
         del param
 
     param = lastNode.getParam("paramLabel16")
     if param is not None:
-        param.setValue("Color2")
+        param.setValue("Color1")
         del param
 
     param = lastNode.getParam("paramDefaultVec316")
     if param is not None:
-        param.setValue(0.3, 1)
+        param.setValue(1, 0)
+        param.setValue(1, 2)
         del param
 
     param = lastNode.getParam("paramType17")
@@ -9287,15 +7218,35 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName17")
     if param is not None:
-        param.setValue("Color3")
+        param.setValue("Color2")
         del param
 
     param = lastNode.getParam("paramLabel17")
     if param is not None:
-        param.setValue("Color3")
+        param.setValue("Color2")
         del param
 
     param = lastNode.getParam("paramDefaultVec317")
+    if param is not None:
+        param.setValue(0.3, 1)
+        del param
+
+    param = lastNode.getParam("paramType18")
+    if param is not None:
+        param.set("vec3")
+        del param
+
+    param = lastNode.getParam("paramName18")
+    if param is not None:
+        param.setValue("Color3")
+        del param
+
+    param = lastNode.getParam("paramLabel18")
+    if param is not None:
+        param.setValue("Color3")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec318")
     if param is not None:
         param.setValue(0.09999999999999999, 0)
         param.setValue(0.6, 2)
@@ -9308,15 +7259,15 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Miris_Multilayer")
     lastNode.setLabel("Miris_Multilayer")
-    lastNode.setPosition(184, 609)
-    lastNode.setSize(104, 44)
+    lastNode.setPosition(184, 574)
+    lastNode.setSize(104, 55)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMiris_Multilayer = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -9414,7 +7365,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(0.18, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -9445,7 +7396,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt3")
     if param is not None:
-        param.setValueAtTime(3, 1, 0)
+        param.setValueAtTime(0, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat3")
@@ -9481,7 +7432,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt4")
     if param is not None:
-        param.setValueAtTime(16, 1, 0)
+        param.setValueAtTime(3, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat4")
@@ -9517,7 +7468,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt5")
     if param is not None:
-        param.setValueAtTime(20, 1, 0)
+        param.setValueAtTime(16, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat5")
@@ -9558,7 +7509,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat6")
     if param is not None:
-        param.setValueAtTime(1.91, 1, 0)
+        param.setValueAtTime(0.35, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec26")
@@ -9594,7 +7545,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat7")
     if param is not None:
-        param.setValueAtTime(0.28, 1, 0)
+        param.setValueAtTime(1.91, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec27")
@@ -9630,7 +7581,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat8")
     if param is not None:
-        param.setValueAtTime(-2.6, 1, 0)
+        param.setValueAtTime(0.28, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec28")
@@ -9666,7 +7617,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat9")
     if param is not None:
-        param.setValueAtTime(6.18, 1, 0)
+        param.setValueAtTime(-2.6, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec29")
@@ -9702,7 +7653,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat10")
     if param is not None:
-        param.setValueAtTime(4.88, 1, 0)
+        param.setValueAtTime(6.18, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec210")
@@ -9738,7 +7689,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat11")
     if param is not None:
-        param.setValueAtTime(10.2, 1, 0)
+        param.setValueAtTime(4.88, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec211")
@@ -9785,9 +7736,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec312")
     if param is not None:
-        param.setValueAtTime(0.9301109313964844, 1, 0)
-        param.setValueAtTime(0.0003035269910469651, 1, 1)
-        param.setValueAtTime(1, 1, 2)
+        param.setValueAtTime(0.00439144205302, 1, 0)
+        param.setValueAtTime(1, 1, 1)
+        param.setValueAtTime(0.366252601146698, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec412")
@@ -9821,8 +7772,8 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec313")
     if param is not None:
-        param.setValueAtTime(0.03560131043195724, 1, 0)
-        param.setValueAtTime(0.2663556635379791, 1, 1)
+        param.setValueAtTime(0.9301109313964844, 1, 0)
+        param.setValueAtTime(0.0003035269910469651, 1, 1)
         param.setValueAtTime(1, 1, 2)
         del param
 
@@ -9857,9 +7808,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec314")
     if param is not None:
-        param.setValueAtTime(0.1470272839069366, 1, 0)
-        param.setValueAtTime(1, 1, 1)
-        param.setValueAtTime(0.9646862745285034, 1, 2)
+        param.setValueAtTime(0.03560131043195724, 1, 0)
+        param.setValueAtTime(0.2663556635379791, 1, 1)
+        param.setValueAtTime(1, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec414")
@@ -10057,7 +8008,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//multi_iris Params\nuniform int corpoly = 0; // Circle/Polygon, min=0, max=1\nuniform int Polycount = 6; // Polycount, min=3, max=30\nuniform int MIrisAmount = 10; // MIris Ammount, min=0, max=100.\nuniform float MIrisDistance = .3; // MIris Distance, min=-5., max=5.\nuniform float MIrisSize = 2.0; // MIris Size, min=0., max=10.\nuniform float randomized = .33; // Randomize, min=0., max=10.\nuniform float MIrisPosition = -1.5; // MIris Position, min=-10., max=1.\nuniform float MIrisOpacity = 2.; // MIris Opacity, min=0., max=10.\nuniform float brightness = 1.4; // Brightness, min=0., max=10.\nuniform vec3 MIrisColor1 = vec3(.7,.8,1.); // MIris Color 1\nuniform vec3 MIrisColor2 = vec3(.7,.8,1.); // MIris Color 2\nuniform vec3 MIrisColor3 = vec3(.7,.8,1.); // MIris Color 3\n\n\nconst float      PI = 3.14159265359;\nconst float  TWO_PI = 6.28318530718;\n\n\nfloat rand(float n){\n    return fract(cos(n*89.42)*343.42);\n}\n\n//multi_iris Objects\nvec3 miris(vec2 uv, vec2 pos, float dist, float size, float irisize, int n, float irisopacity, vec3 iriscolor)\n{\n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n   \n   if (corpoly == 0){\n        float r = max(0.01-pow(length(uv+(dist)*pos),1.*irisize)*(1./(size*irisize)),.0)*irisopacity;\n        float g = max(0.01-pow(length(uv+(dist)*pos),1.*irisize)*(1./(size*irisize)),.0)*irisopacity;\n        float b = max(0.01-pow(length(uv+(dist)*pos),1.*irisize)*(1./(size*irisize)),.0)*irisopacity;\n    \n        return vec3(r,g,b)*iriscolor;}\n    \n    else{\n        vec2 p = uv+(dist)*pos;\n        float angle = atan(p.x, p.y) + PI;\n        float r = TWO_PI / n;\n        float d = cos(floor(0.5 + angle / r) * r - angle) * length(p) / (size*(irisize*.04));\n        \n        return vec3(smoothstep(1.0,.1,d)*irisopacity*.01)*iriscolor;}\n    \n}\n\n\nvec3 lensflare(vec2 uv,vec2 pos, float b, float size)\n{\n    \n    vec3 c = vec3(0.0,0.0,0.0);\n    \n    for (int i=0; i<MIrisAmount; i++){\n        c+= miris(uv, pos, MIrisDistance*i+rand(i*randomized*8.9)+MIrisPosition, size*rand(i+randomized*2.5)*5.24, MIrisSize*globalSize, Polycount,  MIrisOpacity*0.8, MIrisColor1);\n        c+= miris(uv, pos, MIrisDistance*i+rand(i*randomized*5.6)+MIrisPosition, size*rand(i+randomized*4.5)*3.78, MIrisSize*globalSize, Polycount, MIrisOpacity*1.2, MIrisColor3);\n        c+= miris(uv, pos, MIrisDistance*i+rand(i*randomized*7.9)+MIrisPosition, size*rand(i+randomized*1.5)*1.33, MIrisSize*globalSize, Polycount, MIrisOpacity, MIrisColor2);\n        c+= miris(uv, pos, MIrisDistance*i+rand(i*randomized*2.3)+MIrisPosition, size*rand(i+randomized*7.8)*0.56, MIrisSize*globalSize, Polycount, MIrisOpacity*1.5, MIrisColor1);\n    }\n\n    return c*b;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tvec3 c = lensflare(uv,mouse,brightness,1.);\n\t\n\tfragColor = vec4(c, 1)+linker;\n}\n\n\n\n\n\n\n\n\n\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// MulitiIris Multi Layer.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//multi_iris Params\nuniform int corpoly = 0; // Circle/Polygon, min=0, max=1\nuniform int Polycount = 6; // Polycount, min=3, max=30\nuniform int MIrisAmount = 10; // MIris Ammount, min=0, max=100.\nuniform float MIrisDistance = .3; // MIris Distance, min=-5., max=5.\nuniform float MIrisSize = 2.0; // MIris Size, min=0., max=10.\nuniform float randomized = .33; // Randomize, min=0., max=10.\nuniform float MIrisPosition = -1.5; // MIris Position, min=-10., max=1.\nuniform float MIrisOpacity = 2.; // MIris Opacity, min=0., max=10.\nuniform float brightness = 1.4; // Brightness, min=0., max=10.\nuniform vec3 MIrisColor1 = vec3(.7,.8,1.); // MIris Color 1\nuniform vec3 MIrisColor2 = vec3(.7,.8,1.); // MIris Color 2\nuniform vec3 MIrisColor3 = vec3(.7,.8,1.); // MIris Color 3\n\n\nconst float      PI = 3.14159265359;\nconst float  TWO_PI = 6.28318530718;\n\n\nfloat rand(float n){\n    return fract(cos(n*89.42)*343.42);\n}\n\n//multi_iris Objects\nvec3 miris(vec2 uv, vec2 pos, float dist, float size, float irisize, int n, float irisopacity, vec3 iriscolor)\n{\n    float rot = radians(globalRotate)*evolution;\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n   \n   if (corpoly == 0){\n        float r = max(0.01-pow(length(uv+(dist)*pos),1.*irisize)*(1./(size*irisize)),.0)*irisopacity;\n        float g = max(0.01-pow(length(uv+(dist)*pos),1.*irisize)*(1./(size*irisize)),.0)*irisopacity;\n        float b = max(0.01-pow(length(uv+(dist)*pos),1.*irisize)*(1./(size*irisize)),.0)*irisopacity;\n    \n        return vec3(r,g,b)*iriscolor;}\n    \n    else{\n        vec2 p = uv+(dist)*pos;\n        float angle = atan(p.x, p.y) + PI;\n        float r = TWO_PI / n;\n        float d = cos(floor(0.5 + angle / r) * r - angle) * length(p) / (size*(irisize*.04));\n        \n        return vec3(smoothstep(1.0,.1,d)*irisopacity*.01)*iriscolor;}\n    \n}\n\n\nvec3 lensflare(vec2 uv,vec2 pos, float b, float size)\n{\n    \n    vec3 c = vec3(0.0,0.0,0.0);\n    \n    for (int i=0; i<MIrisAmount; i++){\n        c+= miris(uv, pos, MIrisDistance*i+rand(i*randomized*8.9)+MIrisPosition, size*rand(i+randomized*2.5)*5.24, MIrisSize*globalSize, Polycount,  MIrisOpacity*0.8, MIrisColor1);\n        c+= miris(uv, pos, MIrisDistance*i+rand(i*randomized*5.6)+MIrisPosition, size*rand(i+randomized*4.5)*3.78, MIrisSize*globalSize, Polycount, MIrisOpacity*1.2, MIrisColor3);\n        c+= miris(uv, pos, MIrisDistance*i+rand(i*randomized*7.9)+MIrisPosition, size*rand(i+randomized*1.5)*1.33, MIrisSize*globalSize, Polycount, MIrisOpacity, MIrisColor2);\n        c+= miris(uv, pos, MIrisDistance*i+rand(i*randomized*2.3)+MIrisPosition, size*rand(i+randomized*7.8)*0.56, MIrisSize*globalSize, Polycount, MIrisOpacity*1.5, MIrisColor1);\n    }\n\n    return c*b;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tvec3 c = lensflare(uv,mouse,brightness,1.);\n\t\n\tfragColor = vec4(c, 1)+linker;\n}\n\n\n\n\n\n\n\n\n\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -10121,7 +8072,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(14, 0)
+        param.setValue(15, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -10181,27 +8132,32 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramType2")
     if param is not None:
-        param.set("int")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("corpoly")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Circle/Polygon")
+        param.setValue("Evolution")
         del param
 
-    param = lastNode.getParam("paramMinInt2")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramMaxInt2")
+    param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
         param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat2")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat2")
+    if param is not None:
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType3")
@@ -10211,27 +8167,22 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("Polycount")
+        param.setValue("corpoly")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Polycount")
-        del param
-
-    param = lastNode.getParam("paramDefaultInt3")
-    if param is not None:
-        param.setValue(6, 0)
+        param.setValue("Circle/Polygon")
         del param
 
     param = lastNode.getParam("paramMinInt3")
     if param is not None:
-        param.setValue(3, 0)
+        param.setValue(0, 0)
         del param
 
     param = lastNode.getParam("paramMaxInt3")
     if param is not None:
-        param.setValue(30, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramType4")
@@ -10241,57 +8192,57 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("MIrisAmount")
+        param.setValue("Polycount")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("MIris Ammount")
+        param.setValue("Polycount")
         del param
 
     param = lastNode.getParam("paramDefaultInt4")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(6, 0)
         del param
 
     param = lastNode.getParam("paramMinInt4")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(3, 0)
         del param
 
     param = lastNode.getParam("paramMaxInt4")
     if param is not None:
-        param.setValue(100, 0)
+        param.setValue(30, 0)
         del param
 
     param = lastNode.getParam("paramType5")
     if param is not None:
-        param.set("float")
+        param.set("int")
         del param
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("MIrisDistance")
+        param.setValue("MIrisAmount")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("MIris Distance")
+        param.setValue("MIris Ammount")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat5")
+    param = lastNode.getParam("paramDefaultInt5")
     if param is not None:
-        param.setValue(0.3, 0)
+        param.setValue(10, 0)
         del param
 
-    param = lastNode.getParam("paramMinFloat5")
+    param = lastNode.getParam("paramMinInt5")
     if param is not None:
-        param.setValue(-5, 0)
+        param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxFloat5")
+    param = lastNode.getParam("paramMaxInt5")
     if param is not None:
-        param.setValue(5, 0)
+        param.setValue(100, 0)
         del param
 
     param = lastNode.getParam("paramType6")
@@ -10301,27 +8252,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("MIrisSize")
+        param.setValue("MIrisDistance")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
-        param.setValue("MIris Size")
+        param.setValue("MIris Distance")
         del param
 
     param = lastNode.getParam("paramDefaultFloat6")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(0.3, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat6")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-5, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat6")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(5, 0)
         del param
 
     param = lastNode.getParam("paramType7")
@@ -10331,17 +8282,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName7")
     if param is not None:
-        param.setValue("randomized")
+        param.setValue("MIrisSize")
         del param
 
     param = lastNode.getParam("paramLabel7")
     if param is not None:
-        param.setValue("Randomize")
+        param.setValue("MIris Size")
         del param
 
     param = lastNode.getParam("paramDefaultFloat7")
     if param is not None:
-        param.setValue(0.33, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat7")
@@ -10361,27 +8312,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName8")
     if param is not None:
-        param.setValue("MIrisPosition")
+        param.setValue("randomized")
         del param
 
     param = lastNode.getParam("paramLabel8")
     if param is not None:
-        param.setValue("MIris Position")
+        param.setValue("Randomize")
         del param
 
     param = lastNode.getParam("paramDefaultFloat8")
     if param is not None:
-        param.setValue(-1.5, 0)
+        param.setValue(0.33, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat8")
     if param is not None:
-        param.setValue(-10, 0)
+        param.setValue(0, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat8")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType9")
@@ -10391,27 +8342,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName9")
     if param is not None:
-        param.setValue("MIrisOpacity")
+        param.setValue("MIrisPosition")
         del param
 
     param = lastNode.getParam("paramLabel9")
     if param is not None:
-        param.setValue("MIris Opacity")
+        param.setValue("MIris Position")
         del param
 
     param = lastNode.getParam("paramDefaultFloat9")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(-1.5, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat9")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-10, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat9")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramType10")
@@ -10421,17 +8372,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName10")
     if param is not None:
-        param.setValue("brightness")
+        param.setValue("MIrisOpacity")
         del param
 
     param = lastNode.getParam("paramLabel10")
     if param is not None:
-        param.setValue("Brightness")
+        param.setValue("MIris Opacity")
         del param
 
     param = lastNode.getParam("paramDefaultFloat10")
     if param is not None:
-        param.setValue(1.4, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat10")
@@ -10446,24 +8397,32 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramType11")
     if param is not None:
-        param.set("vec3")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName11")
     if param is not None:
-        param.setValue("MIrisColor1")
+        param.setValue("brightness")
         del param
 
     param = lastNode.getParam("paramLabel11")
     if param is not None:
-        param.setValue("MIris Color 1")
+        param.setValue("Brightness")
         del param
 
-    param = lastNode.getParam("paramDefaultVec311")
+    param = lastNode.getParam("paramDefaultFloat11")
     if param is not None:
-        param.setValue(0.7, 0)
-        param.setValue(0.7999999999999999, 1)
-        param.setValue(1, 2)
+        param.setValue(1.4, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat11")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat11")
+    if param is not None:
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType12")
@@ -10473,12 +8432,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName12")
     if param is not None:
-        param.setValue("MIrisColor2")
+        param.setValue("MIrisColor1")
         del param
 
     param = lastNode.getParam("paramLabel12")
     if param is not None:
-        param.setValue("MIris Color 2")
+        param.setValue("MIris Color 1")
         del param
 
     param = lastNode.getParam("paramDefaultVec312")
@@ -10495,12 +8454,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName13")
     if param is not None:
-        param.setValue("MIrisColor3")
+        param.setValue("MIrisColor2")
         del param
 
     param = lastNode.getParam("paramLabel13")
     if param is not None:
-        param.setValue("MIris Color 3")
+        param.setValue("MIris Color 2")
         del param
 
     param = lastNode.getParam("paramDefaultVec313")
@@ -10517,12 +8476,19 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName14")
     if param is not None:
-        param.setValue("BGColor")
+        param.setValue("MIrisColor3")
         del param
 
     param = lastNode.getParam("paramLabel14")
     if param is not None:
-        param.setValue("BGColor")
+        param.setValue("MIris Color 3")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec314")
+    if param is not None:
+        param.setValue(0.7, 0)
+        param.setValue(0.7999999999999999, 1)
+        param.setValue(1, 2)
         del param
 
     param = lastNode.getParam("paramType15")
@@ -10577,15 +8543,15 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("CausticGhosts")
     lastNode.setLabel("CausticGhosts")
-    lastNode.setPosition(184, 668)
-    lastNode.setSize(104, 44)
+    lastNode.setPosition(184, 667)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupCausticGhosts = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -10683,7 +8649,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(0.25, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -10719,7 +8685,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(4.22, 1, 0)
+        param.setValueAtTime(0.25, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -10755,7 +8721,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat4")
     if param is not None:
-        param.setValueAtTime(0.26, 1, 0)
+        param.setValueAtTime(4.22, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec24")
@@ -10827,7 +8793,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat6")
     if param is not None:
-        param.setValueAtTime(0.51, 1, 0)
+        param.setValueAtTime(2.64, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec26")
@@ -10863,7 +8829,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat7")
     if param is not None:
-        param.setValueAtTime(1.77, 1, 0)
+        param.setValueAtTime(0.51, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec27")
@@ -10910,9 +8876,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec38")
     if param is not None:
-        param.setValueAtTime(0.5088813304901123, 1, 0)
-        param.setValueAtTime(0.5088813304901123, 1, 1)
-        param.setValueAtTime(0.5088813304901123, 1, 2)
+        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(1, 1, 1)
+        param.setValueAtTime(1, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec48")
@@ -11326,7 +9292,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome base math ideas derived from Musk\'s Flare https://www.shadertoy.com/view/4sX3Rs\nSome math ideas also have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//parametres\nuniform float size = .5; // Size , min=0., max=10.\nuniform float brightness = 1.; // Brightness , min=0., max=10.\nuniform int FlareCount = 5; // Flare Count , min=0, max=50\nuniform float randomized = .91; // Randomize, min=0., max=10.\nuniform float BarelDistort = 1.8; // Barrel Distortion , min=0., max=10.\nuniform vec3 color = vec3(1.,1.,1.); // Color\n\n\n\nfloat rand(float n){\n    return fract(cos(n*89.42)*343.42);\n}\n\n\nvec2 GetDistOffset(vec2 uv, vec2 pxoffset)\n{\n    vec2 tocenter = uv.xy;\n    vec3 prep = normalize(vec3(tocenter.y, -tocenter.x, 0.0));\n    \n    float angle = length(tocenter.xy)*2.221*BarelDistort;\n    vec3 oldoffset = vec3(pxoffset,0.0);\n    \n    vec3 rotated = oldoffset * cos(angle) + cross(prep, oldoffset) * sin(angle) + prep * dot(prep, oldoffset) * (1.0-cos(angle));\n    \n    return rotated.xy;\n}\n\n\nvec3 flare(vec2 uv, vec2 pos, float dist, float size, vec3 color)\n{\n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    pos = GetDistOffset(uv, pos);\n    \n    float r = max(0.01-pow(length(uv+(dist-.05)*pos),2.4)*(1./(size*globalSize*2.)),.0)*6.0;\n\tfloat g = max(0.01-pow(length(uv+ dist     *pos),2.4)*(1./(size*globalSize*2.)),.0)*6.0;\n\tfloat b = max(0.01-pow(length(uv+(dist+.05)*pos),2.4)*(1./(size*globalSize*2.)),.0)*6.0;\n    \n    return vec3(r,g,b)*color;\n}\n\nvec3 orb(vec2 uv, vec2 pos, float dist, float size, vec3 color)\n{\n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    vec3 c = vec3(0.0);\n    for(int i=0; i<FlareCount; i++)\n    {\n        float j = float(i+1);\n        float offset = j/(j+1.);\n        float colOffset = j/float(FlareCount*2);\n        \n        c += flare(uv,pos,dist+offset, size*globalSize/(j+.1), vec3(1.0-colOffset, 1.0, 0.5+colOffset));\n    }\n    \n    c += flare(uv,pos,dist+.5, 4.0*size*globalSize, vec3(1.0))*4.0;\n    \n    return (c/4.0)*color;\n}\n\nvec3 ring(vec2 uv, vec2 pos, float dist)\n{\n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    vec2 uvd = uv*(length(uv));\n    \n    float r = max(1.0/(1.0+32.0*pow(length(uvd+(dist-.05)*pos),2.0)),.0)*00.25;\n\tfloat g = max(1.0/(1.0+32.0*pow(length(uvd+ dist     *pos),2.0)),.0)*00.23;\n\tfloat b = max(1.0/(1.0+32.0*pow(length(uvd+(dist+.05)*pos),2.0)),.0)*00.21;\n    \n    return vec3(r,g,b);\n}\n\n\nvec3 lensflare(vec2 uv,vec2 pos, float brightness, float size)\n{\n\n    vec3 c = vec3(0.0,0.0,0.0);\n    for (int i=0; i<FlareCount; i++){\n    c += flare(uv,pos, rand(i*randomized),rand(i*randomized)*size*globalSize,color);\n    c += flare(uv,pos, -rand(i*randomized),rand(i*randomized*5.8)*size*globalSize,color);\n    }\n    c += flare(uv,pos, .5,.8*size*globalSize,color);\n    c += flare(uv,pos,-.4,.8*size*globalSize,color);\n    \n    c += orb(uv,pos, 0., .5*size*globalSize,color);\n    \n    c += ring(uv,pos,-1.)*.5*size*globalSize;\n    c += ring(uv,pos, 1.)*.5*size*globalSize;\n    \n    return c*brightness;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 color = lensflare(uv,mouse.xy,brightness,size*globalSize);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n    \n\tfragColor = vec4(pow(color, vec3(1.5)),1.0)+linker;\n}\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// Caustic_Ghosts.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome base math ideas derived from Musk\'s Flare https://www.shadertoy.com/view/4sX3Rs\nSome math ideas also have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//parametres\nuniform float size = .5; // Size , min=0., max=10.\nuniform float brightness = 1.; // Brightness , min=0., max=10.\nuniform int FlareCount = 5; // Flare Count , min=0, max=50\nuniform float randomized = .91; // Randomize, min=0., max=10.\nuniform float BarelDistort = 1.8; // Barrel Distortion , min=0., max=10.\nuniform vec3 color = vec3(1.,1.,1.); // Color\n\n\n\nfloat rand(float n){\n    return fract(cos(n*89.42)*343.42);\n}\n\n\nvec2 GetDistOffset(vec2 uv, vec2 pxoffset)\n{\n    vec2 tocenter = uv.xy;\n    vec3 prep = normalize(vec3(tocenter.y, -tocenter.x, 0.0));\n    \n    float angle = length(tocenter.xy)*2.221*BarelDistort;\n    vec3 oldoffset = vec3(pxoffset,0.0);\n    \n    vec3 rotated = oldoffset * cos(angle) + cross(prep, oldoffset) * sin(angle) + prep * dot(prep, oldoffset) * (1.0-cos(angle));\n    \n    return rotated.xy;\n}\n\n\nvec3 flare(vec2 uv, vec2 pos, float dist, float size, vec3 color)\n{\n    float rot = radians(globalRotate)*evolution;\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    pos = GetDistOffset(uv, pos);\n    \n    float r = max(0.01-pow(length(uv+(dist-.05)*pos),2.4)*(1./(size*globalSize*2.)),.0)*6.0;\n\tfloat g = max(0.01-pow(length(uv+ dist     *pos),2.4)*(1./(size*globalSize*2.)),.0)*6.0;\n\tfloat b = max(0.01-pow(length(uv+(dist+.05)*pos),2.4)*(1./(size*globalSize*2.)),.0)*6.0;\n    \n    return vec3(r,g,b)*color;\n}\n\nvec3 orb(vec2 uv, vec2 pos, float dist, float size, vec3 color)\n{\n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    vec3 c = vec3(0.0);\n    for(int i=0; i<FlareCount; i++)\n    {\n        float j = float(i+1);\n        float offset = j/(j+1.);\n        float colOffset = j/float(FlareCount*2);\n        \n        c += flare(uv,pos,dist+offset, size*globalSize/(j+.1), vec3(1.0-colOffset, 1.0, 0.5+colOffset));\n    }\n    \n    c += flare(uv,pos,dist+.5, 4.0*size*globalSize, vec3(1.0))*4.0;\n    \n    return (c/4.0)*color;\n}\n\nvec3 ring(vec2 uv, vec2 pos, float dist)\n{\n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n    \n    vec2 uvd = uv*(length(uv));\n    \n    float r = max(1.0/(1.0+32.0*pow(length(uvd+(dist-.05)*pos),2.0)),.0)*00.25;\n\tfloat g = max(1.0/(1.0+32.0*pow(length(uvd+ dist     *pos),2.0)),.0)*00.23;\n\tfloat b = max(1.0/(1.0+32.0*pow(length(uvd+(dist+.05)*pos),2.0)),.0)*00.21;\n    \n    return vec3(r,g,b);\n}\n\n\nvec3 lensflare(vec2 uv,vec2 pos, float brightness, float size)\n{\n\n    vec3 c = vec3(0.0,0.0,0.0);\n    for (int i=0; i<FlareCount; i++){\n    c += flare(uv,pos, rand(i*randomized),rand(i*randomized)*size*globalSize,color);\n    c += flare(uv,pos, -rand(i*randomized),rand(i*randomized*5.8)*size*globalSize,color);\n    }\n    c += flare(uv,pos, .5,.8*size*globalSize,color);\n    c += flare(uv,pos,-.4,.8*size*globalSize,color);\n    \n    c += orb(uv,pos, 0., .5*size*globalSize,color);\n    \n    c += ring(uv,pos,-1.)*.5*size*globalSize;\n    c += ring(uv,pos, 1.)*.5*size*globalSize;\n    \n    return c*brightness;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy - 0.5;\n\tuv.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 mouse = vec3(iMouse.xy/iResolution.xy - 0.5,iMouse.z-.5);\n\tmouse.x *= iResolution.x/iResolution.y; //fix aspect ratio\n\tvec3 color = lensflare(uv,mouse.xy,brightness,size*globalSize);\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n    \n\tfragColor = vec4(pow(color, vec3(1.5)),1.0)+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -11390,7 +9356,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(8, 0)
+        param.setValue(9, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -11455,27 +9421,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("size")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Size")
+        param.setValue("Evolution")
         del param
 
     param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
-        param.setValue(0.5, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType3")
@@ -11485,17 +9451,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("brightness")
+        param.setValue("size")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Brightness")
+        param.setValue("Size")
         del param
 
     param = lastNode.getParam("paramDefaultFloat3")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(0.5, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat3")
@@ -11510,62 +9476,62 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramType4")
     if param is not None:
-        param.set("int")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("FlareCount")
+        param.setValue("brightness")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("Flare Count")
+        param.setValue("Brightness")
         del param
 
-    param = lastNode.getParam("paramDefaultInt4")
+    param = lastNode.getParam("paramDefaultFloat4")
     if param is not None:
-        param.setValue(5, 0)
+        param.setValue(1, 0)
         del param
 
-    param = lastNode.getParam("paramMinInt4")
+    param = lastNode.getParam("paramMinFloat4")
     if param is not None:
         param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxInt4")
+    param = lastNode.getParam("paramMaxFloat4")
     if param is not None:
-        param.setValue(50, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType5")
     if param is not None:
-        param.set("float")
+        param.set("int")
         del param
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("randomized")
+        param.setValue("FlareCount")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("Randomize")
+        param.setValue("Flare Count")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat5")
+    param = lastNode.getParam("paramDefaultInt5")
     if param is not None:
-        param.setValue(0.9099999999999999, 0)
+        param.setValue(5, 0)
         del param
 
-    param = lastNode.getParam("paramMinFloat5")
+    param = lastNode.getParam("paramMinInt5")
     if param is not None:
         param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxFloat5")
+    param = lastNode.getParam("paramMaxInt5")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(50, 0)
         del param
 
     param = lastNode.getParam("paramType6")
@@ -11575,17 +9541,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("BarelDistort")
+        param.setValue("randomized")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
-        param.setValue("Barrel Distortion")
+        param.setValue("Randomize")
         del param
 
     param = lastNode.getParam("paramDefaultFloat6")
     if param is not None:
-        param.setValue(1.8, 0)
+        param.setValue(0.9099999999999999, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat6")
@@ -11600,39 +9566,54 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramType7")
     if param is not None:
-        param.set("vec3")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName7")
     if param is not None:
-        param.setValue("color")
+        param.setValue("BarelDistort")
         del param
 
     param = lastNode.getParam("paramLabel7")
     if param is not None:
-        param.setValue("Color")
+        param.setValue("Barrel Distortion")
         del param
 
-    param = lastNode.getParam("paramDefaultVec37")
+    param = lastNode.getParam("paramDefaultFloat7")
     if param is not None:
-        param.setValue(1, 0)
-        param.setValue(1, 1)
-        param.setValue(1, 2)
+        param.setValue(1.8, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat7")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat7")
+    if param is not None:
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType8")
     if param is not None:
-        param.set("float")
+        param.set("vec3")
         del param
 
     param = lastNode.getParam("paramName8")
     if param is not None:
-        param.setValue("MIrisPosition")
+        param.setValue("color")
         del param
 
     param = lastNode.getParam("paramLabel8")
     if param is not None:
-        param.setValue("MIris Position")
+        param.setValue("Color")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec38")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
         del param
 
     param = lastNode.getParam("paramType9")
@@ -11778,14 +9759,14 @@ def createInstance(app,group):
     lastNode.setScriptName("Hoop")
     lastNode.setLabel("Hoop")
     lastNode.setPosition(184, 741)
-    lastNode.setSize(104, 44)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupHoop = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -11883,7 +9864,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(1.466, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -11919,7 +9900,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(0.318, 1, 0)
+        param.setValueAtTime(1.466, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -11955,7 +9936,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat4")
     if param is not None:
-        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(0.318, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec24")
@@ -11991,7 +9972,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat5")
     if param is not None:
-        param.setValueAtTime(2.64, 1, 0)
+        param.setValueAtTime(1, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec25")
@@ -12022,7 +10003,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt6")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(38, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat6")
@@ -12063,7 +10044,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat7")
     if param is not None:
-        param.setValueAtTime(1.77, 1, 0)
+        param.setValueAtTime(0.5, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec27")
@@ -12110,9 +10091,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec38")
     if param is not None:
-        param.setValueAtTime(0.5088813304901123, 1, 0)
-        param.setValueAtTime(0.5088813304901123, 1, 1)
-        param.setValueAtTime(0.5088813304901123, 1, 2)
+        param.setValueAtTime(0.007499031722545624, 1, 0)
+        param.setValueAtTime(0.2581829130649567, 1, 1)
+        param.setValueAtTime(0.2831487953662872, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec48")
@@ -12526,7 +10507,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//parametres\nuniform float Radius = 1.5; // Radius, min=0., max=2.\nuniform float Thickness = .5; // Thickness, min=0., max=1.5\nuniform float softness = 1.0; // Softness, min=0., max=1.\nuniform int raycount = 100; // Ray Count , min=0., max=200.\nuniform float raydepth = .5; // Ray depth , min=-1.5, max=1.5\nuniform vec3 Color = vec3(.08,.08,.08); // Color\n\n\n//creates a ring with or without Rays\nfloat ring(vec2 uv, vec2 pos, float radius, float thick)\n{\n    float rot = radians(globalRotate);\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n\n    vec2 main = pos-uv;\n    float ang = atan(main.y, main.x);\n    float dist=length(main); dist = pow(dist,.1);\n    float f0 = mix(0.0, 1.0, smoothstep(thick, thick-softness, abs(length(pos+uv) - radius)));\n\n    return f0*(sin((ang)*raycount)*raydepth+dist*.1+.9);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfloat c = ring(uv, mouse, Radius, Thickness*globalSize);\n\t\n\tfragColor = vec4(vec3(c*Color), 1)+linker;\n}\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// hoop_single.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//parametres\nuniform float Radius = 1.5; // Radius, min=0., max=2.\nuniform float Thickness = .5; // Thickness, min=0., max=1.5\nuniform float softness = 1.0; // Softness, min=0., max=1.\nuniform int raycount = 100; // Ray Count , min=0., max=200.\nuniform float raydepth = .5; // Ray depth , min=-1.5, max=1.5\nuniform vec3 Color = vec3(.08,.08,.08); // Color\n\n\n//creates a ring with or without Rays\nfloat ring(vec2 uv, vec2 pos, float radius, float thick)\n{\n    float rot = radians(globalRotate)*evolution;\n    mat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n    uv  = m*uv;\n    pos = m*pos;\n\n    vec2 main = pos-uv;\n    float ang = atan(main.y, main.x);\n    float dist=length(main); dist = pow(dist,.1);\n    float f0 = mix(0.0, 1.0, smoothstep(thick, thick-softness, abs(length(pos+uv) - radius)));\n\n    return f0*(sin((ang)*raycount)*raydepth+dist*.1+.9);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tfloat c = ring(uv, mouse, Radius, Thickness*globalSize);\n\t\n\tfragColor = vec4(vec3(c*Color), 1)+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -12590,7 +10571,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(8, 0)
+        param.setValue(9, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -12655,27 +10636,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("Radius")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Radius")
+        param.setValue("Evolution")
         del param
 
     param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
-        param.setValue(1.5, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType3")
@@ -12685,17 +10666,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("Thickness")
+        param.setValue("Radius")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
-        param.setValue("Thickness")
+        param.setValue("Radius")
         del param
 
     param = lastNode.getParam("paramDefaultFloat3")
     if param is not None:
-        param.setValue(0.5, 0)
+        param.setValue(1.5, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat3")
@@ -12705,7 +10686,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat3")
     if param is not None:
-        param.setValue(1.5, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType4")
@@ -12715,17 +10696,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("softness")
+        param.setValue("Thickness")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("Softness")
+        param.setValue("Thickness")
         del param
 
     param = lastNode.getParam("paramDefaultFloat4")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(0.5, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat4")
@@ -12735,104 +10716,119 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat4")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(1.5, 0)
         del param
 
     param = lastNode.getParam("paramType5")
     if param is not None:
-        param.set("int")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("raycount")
+        param.setValue("softness")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("Ray Count")
+        param.setValue("Softness")
         del param
 
-    param = lastNode.getParam("paramDefaultInt5")
+    param = lastNode.getParam("paramDefaultFloat5")
     if param is not None:
-        param.setValue(100, 0)
+        param.setValue(1, 0)
         del param
 
-    param = lastNode.getParam("paramMinInt5")
+    param = lastNode.getParam("paramMinFloat5")
     if param is not None:
         param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxInt5")
+    param = lastNode.getParam("paramMaxFloat5")
     if param is not None:
-        param.setValue(200, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramType6")
     if param is not None:
-        param.set("float")
+        param.set("int")
         del param
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("raydepth")
+        param.setValue("raycount")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
-        param.setValue("Ray depth")
+        param.setValue("Ray Count")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat6")
+    param = lastNode.getParam("paramDefaultInt6")
     if param is not None:
-        param.setValue(0.5, 0)
+        param.setValue(100, 0)
         del param
 
-    param = lastNode.getParam("paramMinFloat6")
+    param = lastNode.getParam("paramMinInt6")
     if param is not None:
-        param.setValue(-1.5, 0)
+        param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxFloat6")
+    param = lastNode.getParam("paramMaxInt6")
     if param is not None:
-        param.setValue(1.5, 0)
+        param.setValue(200, 0)
         del param
 
     param = lastNode.getParam("paramType7")
     if param is not None:
-        param.set("vec3")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName7")
     if param is not None:
-        param.setValue("Color")
+        param.setValue("raydepth")
         del param
 
     param = lastNode.getParam("paramLabel7")
     if param is not None:
-        param.setValue("Color")
+        param.setValue("Ray depth")
         del param
 
-    param = lastNode.getParam("paramDefaultVec37")
+    param = lastNode.getParam("paramDefaultFloat7")
     if param is not None:
-        param.setValue(0.08, 0)
-        param.setValue(0.08, 1)
-        param.setValue(0.08, 2)
+        param.setValue(0.5, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat7")
+    if param is not None:
+        param.setValue(-1.5, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat7")
+    if param is not None:
+        param.setValue(1.5, 0)
         del param
 
     param = lastNode.getParam("paramType8")
     if param is not None:
-        param.set("float")
+        param.set("vec3")
         del param
 
     param = lastNode.getParam("paramName8")
     if param is not None:
-        param.setValue("MIrisPosition")
+        param.setValue("Color")
         del param
 
     param = lastNode.getParam("paramLabel8")
     if param is not None:
-        param.setValue("MIris Position")
+        param.setValue("Color")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec38")
+    if param is not None:
+        param.setValue(0.08, 0)
+        param.setValue(0.08, 1)
+        param.setValue(0.08, 2)
         del param
 
     param = lastNode.getParam("paramType9")
@@ -12977,15 +10973,15 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Star")
     lastNode.setLabel("Star")
-    lastNode.setPosition(184, 186)
-    lastNode.setSize(104, 44)
+    lastNode.setPosition(184, 187)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupStar = lastNode
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(290, 0)
-        param.setValue(849, 1)
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
@@ -13083,7 +11079,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValueAtTime(0.025, 1, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec22")
@@ -13119,7 +11115,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValueAtTime(0.4, 1, 0)
+        param.setValueAtTime(0.025, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec23")
@@ -13150,7 +11146,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt4")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(3, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat4")
@@ -13191,7 +11187,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat5")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0.025, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec25")
@@ -13227,7 +11223,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat6")
     if param is not None:
-        param.setValueAtTime(47, 1, 0)
+        param.setValueAtTime(0, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec26")
@@ -13263,7 +11259,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat7")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(47, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueVec27")
@@ -13294,7 +11290,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueInt8")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(6, 1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat8")
@@ -13346,9 +11342,9 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueVec39")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(0, 1, 1)
-        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(1, 1, 1)
+        param.setValueAtTime(1, 1, 2)
         del param
 
     param = lastNode.getParam("paramValueVec49")
@@ -13726,7 +11722,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\n\n//parametres\nuniform float Radius = .03; // Radius, min=0., max=1.\nuniform int Polycount = 6; // Polycount, min=3., max=30\nuniform float GlowDistance = 0.0; // GlowDistance, min=0.0., max=1.0.\nuniform float threshold = 0.04; // Threshold, min=0.0, max=5.\nuniform float rotation = .0; // Rotation , min=0.,max=360.\nuniform int brightness = 1; // Brightness , min=1,max=10\nuniform vec3 Color = vec3(1.,1.,1.); // Color\n\n\nconst float      PI = 3.14159265359;\nconst float  TWO_PI = 6.28318530718;\n\n//creates a Star\nfloat star(vec2 uv, vec2 pos, float n, float radius)\n{\n    float rot = radians(rotation+globalRotate);\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n    \n    vec2 p = pos;\n    float angle = atan(p.x, p.y) + PI;\n    float r = TWO_PI / n;\n    float d = 1./(cos(floor(.5 + angle / r) * r - angle) * length(-p) / (radius*globalSize));\n    return smoothstep(GlowDistance, 1.0+threshold, d);\n\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\t\n\tfloat c = star(uv, uv-mouse, Polycount, Radius)*brightness;\n\t\n\tfragColor = vec4(vec3(c*Color), 1)+linker;\n}\n")
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// Star.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\nuniform float globalRotate= 0.0; // Global Rotation, min=0., max=360.\nuniform float evolution= 1.0; // Evolution, min=1.0, max=360.\n\n//parametres\nuniform float Radius = .03; // Radius, min=0., max=1.\nuniform int Polycount = 6; // Polycount, min=3., max=30\nuniform float GlowDistance = 0.0; // GlowDistance, min=0.0., max=1.0.\nuniform float threshold = 0.04; // Threshold, min=0.0, max=5.\nuniform float rotation = .0; // Rotation , min=0.,max=360.\nuniform int brightness = 1; // Brightness , min=1,max=10\nuniform vec3 Color = vec3(1.,1.,1.); // Color\n\n\nconst float      PI = 3.14159265359;\nconst float  TWO_PI = 6.28318530718;\n\n//creates a Star\nfloat star(vec2 uv, vec2 pos, float n, float radius)\n{\n    float rot = radians(rotation+globalRotate)*evolution;\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n    \n    vec2 p = pos;\n    float angle = atan(p.x, p.y) + PI;\n    float r = TWO_PI / n;\n    float d = 1./(cos(floor(.5 + angle / r) * r - angle) * length(-p) / (radius*globalSize));\n    return smoothstep(GlowDistance, 1.0+threshold, d);\n\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\t\n\tfloat c = star(uv, uv-mouse, Polycount, Radius)*brightness;\n\t\n\tfragColor = vec4(vec3(c*Color), 1)+linker;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -13790,7 +11786,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(9, 0)
+        param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -13855,57 +11851,1157 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName2")
     if param is not None:
-        param.setValue("Radius")
+        param.setValue("evolution")
         del param
 
     param = lastNode.getParam("paramLabel2")
     if param is not None:
-        param.setValue("Radius")
+        param.setValue("Evolution")
         del param
 
     param = lastNode.getParam("paramDefaultFloat2")
     if param is not None:
-        param.setValue(0.03, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(359.9999999999999, 0)
         del param
 
     param = lastNode.getParam("paramType3")
     if param is not None:
-        param.set("int")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName3")
     if param is not None:
-        param.setValue("Polycount")
+        param.setValue("Radius")
         del param
 
     param = lastNode.getParam("paramLabel3")
     if param is not None:
+        param.setValue("Radius")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat3")
+    if param is not None:
+        param.setValue(0.03, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat3")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat3")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramType4")
+    if param is not None:
+        param.set("int")
+        del param
+
+    param = lastNode.getParam("paramName4")
+    if param is not None:
         param.setValue("Polycount")
         del param
 
-    param = lastNode.getParam("paramDefaultInt3")
+    param = lastNode.getParam("paramLabel4")
+    if param is not None:
+        param.setValue("Polycount")
+        del param
+
+    param = lastNode.getParam("paramDefaultInt4")
     if param is not None:
         param.setValue(6, 0)
         del param
 
-    param = lastNode.getParam("paramMinInt3")
+    param = lastNode.getParam("paramMinInt4")
     if param is not None:
         param.setValue(3, 0)
         del param
 
-    param = lastNode.getParam("paramMaxInt3")
+    param = lastNode.getParam("paramMaxInt4")
     if param is not None:
         param.setValue(30, 0)
+        del param
+
+    param = lastNode.getParam("paramType5")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName5")
+    if param is not None:
+        param.setValue("GlowDistance")
+        del param
+
+    param = lastNode.getParam("paramLabel5")
+    if param is not None:
+        param.setValue("GlowDistance")
+        del param
+
+    param = lastNode.getParam("paramMinFloat5")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat5")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramType6")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName6")
+    if param is not None:
+        param.setValue("threshold")
+        del param
+
+    param = lastNode.getParam("paramLabel6")
+    if param is not None:
+        param.setValue("Threshold")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat6")
+    if param is not None:
+        param.setValue(0.04, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat6")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat6")
+    if param is not None:
+        param.setValue(5, 0)
+        del param
+
+    param = lastNode.getParam("paramType7")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName7")
+    if param is not None:
+        param.setValue("rotation")
+        del param
+
+    param = lastNode.getParam("paramLabel7")
+    if param is not None:
+        param.setValue("Rotation")
+        del param
+
+    param = lastNode.getParam("paramMinFloat7")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat7")
+    if param is not None:
+        param.setValue(359.9999999999999, 0)
+        del param
+
+    param = lastNode.getParam("paramType8")
+    if param is not None:
+        param.set("int")
+        del param
+
+    param = lastNode.getParam("paramName8")
+    if param is not None:
+        param.setValue("brightness")
+        del param
+
+    param = lastNode.getParam("paramLabel8")
+    if param is not None:
+        param.setValue("Brightness")
+        del param
+
+    param = lastNode.getParam("paramDefaultInt8")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMinInt8")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxInt8")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramType9")
+    if param is not None:
+        param.set("vec3")
+        del param
+
+    param = lastNode.getParam("paramName9")
+    if param is not None:
+        param.setValue("Color")
+        del param
+
+    param = lastNode.getParam("paramLabel9")
+    if param is not None:
+        param.setValue("Color")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec39")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 1)
+        param.setValue(1, 2)
+        del param
+
+    del lastNode
+    # End of node "Star"
+
+    # Start of node "Anamorphic_Spots_3_2"
+    lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
+    lastNode.setScriptName("Anamorphic_Spots_3_2")
+    lastNode.setLabel("Anamorphic_Spots_3_2")
+    lastNode.setPosition(184, 385)
+    lastNode.setSize(104, 55)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupAnamorphic_Spots_3_2 = lastNode
+
+    param = lastNode.getParam("mousePosition")
+    if param is not None:
+        param.setValueAtTime(282, 1, 0)
+        param.setValueAtTime(883, 1, 1)
+        del param
+
+    param = lastNode.getParam("mouseClick")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("mousePressed")
+    if param is not None:
+        param.setValueAtTime(True, 1)
+        del param
+
+    param = lastNode.getParam("paramValueBool0")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt0")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec20")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec30")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec40")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool1")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt1")
+    if param is not None:
+        param.setValueAtTime(7, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec21")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec31")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec41")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool2")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt2")
+    if param is not None:
+        param.setValueAtTime(1, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValueAtTime(0.13, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec22")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec32")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec42")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool3")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt3")
+    if param is not None:
+        param.setValueAtTime(48, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat3")
+    if param is not None:
+        param.setValueAtTime(0.13, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec23")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec33")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec43")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool4")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt4")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat4")
+    if param is not None:
+        param.setValueAtTime(0.86, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec24")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec34")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec44")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool5")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt5")
+    if param is not None:
+        param.setValueAtTime(20, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat5")
+    if param is not None:
+        param.setValueAtTime(0.26, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec25")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec35")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec45")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool6")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt6")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat6")
+    if param is not None:
+        param.setValueAtTime(0.05, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec26")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec36")
+    if param is not None:
+        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(1, 1, 1)
+        param.setValueAtTime(1, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec46")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool7")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt7")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat7")
+    if param is not None:
+        param.setValueAtTime(0.51, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec27")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec37")
+    if param is not None:
+        param.setValueAtTime(0.2961383163928986, 1, 0)
+        param.setValueAtTime(0.4564110636711121, 1, 1)
+        param.setValueAtTime(1, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec47")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool8")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt8")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat8")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec28")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec38")
+    if param is not None:
+        param.setValueAtTime(0.5088813304901123, 1, 0)
+        param.setValueAtTime(0.5088813304901123, 1, 1)
+        param.setValueAtTime(0.5088813304901123, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec48")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool9")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt9")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat9")
+    if param is not None:
+        param.setValueAtTime(0.33, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec29")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec39")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec49")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool10")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt10")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat10")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec210")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec310")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec410")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool11")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt11")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat11")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec211")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec311")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec411")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool12")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt12")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat12")
+    if param is not None:
+        param.setValueAtTime(28.5, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec212")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec312")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec412")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool13")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt13")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat13")
+    if param is not None:
+        param.setValueAtTime(2.1, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec213")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec313")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec413")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool14")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt14")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat14")
+    if param is not None:
+        param.setValueAtTime(-1, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec214")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec314")
+    if param is not None:
+        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(1, 1, 1)
+        param.setValueAtTime(1, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec414")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool15")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt15")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat15")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec215")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec315")
+    if param is not None:
+        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(1, 1, 1)
+        param.setValueAtTime(1, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec415")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool16")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt16")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat16")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec216")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec316")
+    if param is not None:
+        param.setValueAtTime(1, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(1, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec416")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool17")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt17")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat17")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec217")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec317")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0.3, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec417")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool18")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt18")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat18")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec218")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec318")
+    if param is not None:
+        param.setValueAtTime(0.09999999999999999, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0.6, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec418")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramValueBool19")
+    if param is not None:
+        param.setValueAtTime(False, 1)
+        del param
+
+    param = lastNode.getParam("paramValueInt19")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat19")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec219")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        del param
+
+    param = lastNode.getParam("paramValueVec319")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec419")
+    if param is not None:
+        param.setValueAtTime(0, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(0, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("imageShaderPreset")
+    if param is not None:
+        param.set("Lens Flare Elements/anmorpic_Spot")
+        del param
+
+    param = lastNode.getParam("imageShaderSource")
+    if param is not None:
+        param.setValue("// iChannel0: Link GLSL Elements, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// anmorpic_Spot.frag\n/*\nImplementation and Development by CGVIRUS under GNU GPL Version 3 Licence.\nSome math ideas have derived from some genius minded folks and books.\nFeel free to share the knowledge and any type of code contribution is encouraged.\n*/\n\n//Global parametres\nuniform float globalSize = 1.0; // Global Scale, min=0., max=100.\n\n//parametres\nuniform int objectCount= 5; // Object Count, min=0, max=30\nuniform int intesmult= 1; // Intensity Multiplyer, min=1, max=10\nuniform float objectdist = -0.2; // Object Distance , min=-2.,max=2.\nuniform float tapperness = 1.0; // Tapperness, min=0., max=1.\nuniform float cposx = -0.47; // Position X , min=-2.,max=2.\nuniform float cposy = 0.08; // Position Y , min=-2.,max=2.\nuniform float sizex = 0.32; // Scale X , min=0., max=10.\nuniform float sizey = 0.02; // Scale Y , min=-0, max=10.\nuniform float randomized = .33; // Randomize, min=0., max=10.\nuniform float rotation = 0.0; // Rotation , min=0.,max=360.\nuniform float RoundCorner = .03; // Round Corner, min=0., max=10.\nuniform float intensity = 19; // Intensity, min=0.0, max=50.\nuniform float brightness = 1; // Brightness, min=0.0, max=50.\nuniform float parallax = -1.0; // Parallax , min=-1., max=1.\nuniform vec3 BGColor = vec3(1.,1.,1.); // BGColor\nuniform vec3 Color1 = vec3(1.0,0.0,1.0); // Color1\nuniform vec3 Color2 = vec3(0.0,0.3,0.0); // Color2\nuniform vec3 Color3 = vec3(0.1,0.0,0.6); // Color3\n\n\nconst float      PI = 3.14159265359;\nconst float  TWO_PI = 6.28318530718;\n\nfloat rand(float n){\n    return fract(cos(n*89.42)*343.42);\n}\n\n//creates a adjustable Anamorphic spot\nvec3 circleBox(vec2 uv, vec2 pos, vec2 size, float cornerRadius, float between, vec3 color, float intens)\n{\n    vec2 main = uv-pos;\n\tfloat ang = atan(main.y, main.x);\n\tfloat dist=length(main); dist = pow(dist,.1);\n\t\n    float rot = radians(rotation);\n\tmat2 m = mat2(cos(rot), -sin(rot), sin(rot), cos(rot));\n   \tuv  = m*uv;\n   \tpos = m*pos;\n    \n\n    float sd = (length(uv-pos) - size.x); // circle\n    size -= vec2(cornerRadius);           // rounded box\n    vec2 d = (abs(uv-pos) - size);\n    float box = min(max(d.x, d.y), 0.0) + length(max(d, 0.0)) - cornerRadius;\n    float v = (1.0 - between)*sd + box*between;  //mix\n    float f = clamp (intens*-v , 0.0, 1.0);\n    return f*color;\n}\n\nvec3 objects(vec2 uv, vec2 pos)\n{\n    vec3 c = vec3(0.0);\n    for(int i=0; i<objectCount; i++){\n        //Top\n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner, tapperness, Color1, \n        intensity*rand(i*randomized*.9));//intensity\n        \n        c+= circleBox(vec2((uv.x-cposx-i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*4.9), //size\n        RoundCorner, tapperness, Color2, \n        intensity*rand(i*randomized*.5))*brightness;//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*8.9))), (uv.y+cposy)), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*7.9), //size\n        RoundCorner, tapperness, Color3, \n        intensity*rand(i*randomized*.6))*brightness;//intensity\n        \n        //bottom\n        c+= circleBox(vec2((uv.x+cposx+i*(objectdist-pos.x*rand(i*randomized*4.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner, tapperness, Color3, \n        intensity*rand(i*randomized*.8))*brightness;//intensity\n        \n        c+= circleBox(vec2((uv.x-cposx+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*6.9), //size\n        RoundCorner, tapperness, Color1, \n        intensity*rand(i*randomized*1.9))*(brightness*rand(i*randomized*.9));//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+(cposy*-1))), pos*-parallax, //position\n        vec2(sizex,sizey)*globalSize*rand(i*randomized*3.9), //size\n        RoundCorner, tapperness, Color2, \n        intensity*rand(i*randomized*1.5))*(brightness*rand(i*randomized*2.9));//intensity\n        \n        //mid\n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*4.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.5,sizey*4)*globalSize*rand(i*randomized*1.9), //size\n        RoundCorner*1.5, tapperness, Color3, \n        intensity*rand(i*randomized*8))*(brightness*rand(i*randomized*2.9));//intensity\n        \n        c+= circleBox(vec2((uv.x-0.0+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.3,sizey*2)*globalSize*rand(i*randomized*6.9), //size\n        RoundCorner*.8, tapperness, Color1, \n        intensity*rand(i*randomized*1.9));//intensity\n        \n        c+= circleBox(vec2((uv.x+cposx-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+(0.0*-1))), pos*-parallax, //position\n        vec2(sizex*.7,sizey*2)*globalSize*rand(i*randomized*10.9), //size\n        RoundCorner*1.2, tapperness, Color2, \n        intensity*rand(i*randomized*.2));//intensity\n        \n        //mid Blur\n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex,sizey*10)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*3, tapperness, Color1,\n        intensity*rand(i*randomized*0.2)*.02);//intensity\n        \n        c+= circleBox(vec2((uv.x+0.0-i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex*3,sizey*5)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*2, tapperness, Color2,\n        intensity*rand(i*randomized*0.2)*.02);//intensity\n        \n        c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*2.9))), (uv.y+0.0)), pos*-parallax, //position\n        vec2(sizex*5,sizey*8)*globalSize*rand(i*randomized*8.9), //size\n        RoundCorner*5, tapperness, Color3,\n        intensity*rand(i*randomized*0.2)*.01)*brightness;//intensity\n        \n//         //filler\n//         c+= circleBox(vec2((uv.x-0.0+i*(objectdist-pos.x*rand(i*randomized*5.9))), (uv.y+0.0)), pos*-parallax, //position\n//         vec2(sizex*7,sizey*10)*globalSize*rand(i*randomized*4.9), //size\n//         RoundCorner, tapperness*.5, Color2, \n//         intensity*rand(i*randomized*0.1)*.02);//intensity\n//         \n//         c+= circleBox(vec2((uv.x+0.0+i*(objectdist-pos.x*rand(i*randomized*8.9))), (uv.y+0.0)), pos*-parallax, //position\n//         vec2(sizex*10,sizey*9)*globalSize*rand(i*randomized*7.9), //size\n//         RoundCorner, tapperness*.8, Color3, \n//         intensity*rand(i*randomized*0.5)*.03);//intensity\n    }\n    \n    return c*intesmult;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tuv -= 0.5;\n\tuv.x *= iResolution.x / iResolution.y;\n\t\n\tvec2 mouse = iMouse.xy/iResolution.xy;\n\tmouse -= 0.5;\n\tmouse.x *= iResolution.x / iResolution.y;\n\t\n    vec2 xy = fragCoord.xy / iResolution.xy;\n    vec4 linker = texture(iChannel0,xy);\n\t\n\tvec3 c = objects(uv, mouse);\n\tfragColor = vec4(c*BGColor, 1)+linker;\n}\n")
+        del param
+
+    param = lastNode.getParam("mipmap0")
+    if param is not None:
+        param.set("linear")
+        del param
+
+    param = lastNode.getParam("wrap0")
+    if param is not None:
+        param.set("clamp")
+        del param
+
+    param = lastNode.getParam("inputLabel0")
+    if param is not None:
+        param.setValue("Link GLSL Elements")
+        del param
+
+    param = lastNode.getParam("inputEnable1")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("inputEnable2")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("inputEnable3")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("bbox")
+    if param is not None:
+        param.setValueAtTime(4, 1)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatSize")
+    if param is not None:
+        param.setValueAtTime(640, 1, 0)
+        param.setValueAtTime(480, 1, 1)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatPar")
+    if param is not None:
+        param.setValueAtTime(1, 1, 0)
+        del param
+
+    param = lastNode.getParam("startDate")
+    if param is not None:
+        param.setValueAtTime(1970, 1, 0)
+        param.setValueAtTime(0, 1, 1)
+        param.setValueAtTime(1, 1, 2)
+        param.setValueAtTime(0, 1, 3)
+        del param
+
+    param = lastNode.getParam("paramCount")
+    if param is not None:
+        param.setValue(19, 0)
+        del param
+
+    param = lastNode.getParam("paramType0")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName0")
+    if param is not None:
+        param.setValue("globalSize")
+        del param
+
+    param = lastNode.getParam("paramLabel0")
+    if param is not None:
+        param.setValue("Global Scale")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat0")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat0")
+    if param is not None:
+        param.setValue(99.99999999999999, 0)
+        del param
+
+    param = lastNode.getParam("paramType1")
+    if param is not None:
+        param.set("int")
+        del param
+
+    param = lastNode.getParam("paramName1")
+    if param is not None:
+        param.setValue("objectCount")
+        del param
+
+    param = lastNode.getParam("paramLabel1")
+    if param is not None:
+        param.setValue("Object Count")
+        del param
+
+    param = lastNode.getParam("paramDefaultInt1")
+    if param is not None:
+        param.setValue(5, 0)
+        del param
+
+    param = lastNode.getParam("paramMinInt1")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxInt1")
+    if param is not None:
+        param.setValue(30, 0)
+        del param
+
+    param = lastNode.getParam("paramType2")
+    if param is not None:
+        param.set("int")
+        del param
+
+    param = lastNode.getParam("paramName2")
+    if param is not None:
+        param.setValue("intesmult")
+        del param
+
+    param = lastNode.getParam("paramLabel2")
+    if param is not None:
+        param.setValue("Intensity Multiplyer")
+        del param
+
+    param = lastNode.getParam("paramDefaultInt2")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMinInt2")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxInt2")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramType3")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName3")
+    if param is not None:
+        param.setValue("objectdist")
+        del param
+
+    param = lastNode.getParam("paramLabel3")
+    if param is not None:
+        param.setValue("Object Distance")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat3")
+    if param is not None:
+        param.setValue(-0.2, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat3")
+    if param is not None:
+        param.setValue(-2, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat3")
+    if param is not None:
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType4")
@@ -13915,12 +13011,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName4")
     if param is not None:
-        param.setValue("GlowDistance")
+        param.setValue("tapperness")
         del param
 
     param = lastNode.getParam("paramLabel4")
     if param is not None:
-        param.setValue("GlowDistance")
+        param.setValue("Tapperness")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat4")
+    if param is not None:
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat4")
@@ -13940,27 +13041,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName5")
     if param is not None:
-        param.setValue("threshold")
+        param.setValue("cposx")
         del param
 
     param = lastNode.getParam("paramLabel5")
     if param is not None:
-        param.setValue("Threshold")
+        param.setValue("Position X")
         del param
 
     param = lastNode.getParam("paramDefaultFloat5")
     if param is not None:
-        param.setValue(0.04, 0)
+        param.setValue(-0.47, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat5")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-2, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat5")
     if param is not None:
-        param.setValue(5, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType6")
@@ -13970,120 +13071,374 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramName6")
     if param is not None:
-        param.setValue("rotation")
+        param.setValue("cposy")
         del param
 
     param = lastNode.getParam("paramLabel6")
     if param is not None:
-        param.setValue("Rotation")
+        param.setValue("Position Y")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat6")
+    if param is not None:
+        param.setValue(0.08, 0)
         del param
 
     param = lastNode.getParam("paramMinFloat6")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(-2, 0)
         del param
 
     param = lastNode.getParam("paramMaxFloat6")
     if param is not None:
-        param.setValue(359.9999999999999, 0)
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("paramType7")
     if param is not None:
-        param.set("int")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName7")
     if param is not None:
-        param.setValue("brightness")
+        param.setValue("sizex")
         del param
 
     param = lastNode.getParam("paramLabel7")
     if param is not None:
-        param.setValue("Brightness")
+        param.setValue("Scale X")
         del param
 
-    param = lastNode.getParam("paramDefaultInt7")
+    param = lastNode.getParam("paramDefaultFloat7")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(0.32, 0)
         del param
 
-    param = lastNode.getParam("paramMinInt7")
+    param = lastNode.getParam("paramMinFloat7")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("paramMaxInt7")
+    param = lastNode.getParam("paramMaxFloat7")
     if param is not None:
         param.setValue(10, 0)
         del param
 
     param = lastNode.getParam("paramType8")
     if param is not None:
-        param.set("vec3")
+        param.set("float")
         del param
 
     param = lastNode.getParam("paramName8")
     if param is not None:
-        param.setValue("Color")
+        param.setValue("sizey")
         del param
 
     param = lastNode.getParam("paramLabel8")
     if param is not None:
-        param.setValue("Color")
+        param.setValue("Scale Y")
         del param
 
-    param = lastNode.getParam("paramDefaultVec38")
+    param = lastNode.getParam("paramDefaultFloat8")
+    if param is not None:
+        param.setValue(0.02, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat8")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat8")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramType9")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName9")
+    if param is not None:
+        param.setValue("randomized")
+        del param
+
+    param = lastNode.getParam("paramLabel9")
+    if param is not None:
+        param.setValue("Randomize")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat9")
+    if param is not None:
+        param.setValue(0.33, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat9")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat9")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramType10")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName10")
+    if param is not None:
+        param.setValue("rotation")
+        del param
+
+    param = lastNode.getParam("paramLabel10")
+    if param is not None:
+        param.setValue("Rotation")
+        del param
+
+    param = lastNode.getParam("paramMinFloat10")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat10")
+    if param is not None:
+        param.setValue(359.9999999999999, 0)
+        del param
+
+    param = lastNode.getParam("paramType11")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName11")
+    if param is not None:
+        param.setValue("RoundCorner")
+        del param
+
+    param = lastNode.getParam("paramLabel11")
+    if param is not None:
+        param.setValue("Round Corner")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat11")
+    if param is not None:
+        param.setValue(0.03, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat11")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat11")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramType12")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName12")
+    if param is not None:
+        param.setValue("intensity")
+        del param
+
+    param = lastNode.getParam("paramLabel12")
+    if param is not None:
+        param.setValue("Intensity")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat12")
+    if param is not None:
+        param.setValue(19, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat12")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat12")
+    if param is not None:
+        param.setValue(49.99999999999999, 0)
+        del param
+
+    param = lastNode.getParam("paramType13")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName13")
+    if param is not None:
+        param.setValue("brightness")
+        del param
+
+    param = lastNode.getParam("paramLabel13")
+    if param is not None:
+        param.setValue("Brightness")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat13")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat13")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat13")
+    if param is not None:
+        param.setValue(49.99999999999999, 0)
+        del param
+
+    param = lastNode.getParam("paramType14")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName14")
+    if param is not None:
+        param.setValue("parallax")
+        del param
+
+    param = lastNode.getParam("paramLabel14")
+    if param is not None:
+        param.setValue("Parallax")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat14")
+    if param is not None:
+        param.setValue(-1, 0)
+        del param
+
+    param = lastNode.getParam("paramMinFloat14")
+    if param is not None:
+        param.setValue(-1, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxFloat14")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramType15")
+    if param is not None:
+        param.set("vec3")
+        del param
+
+    param = lastNode.getParam("paramName15")
+    if param is not None:
+        param.setValue("BGColor")
+        del param
+
+    param = lastNode.getParam("paramLabel15")
+    if param is not None:
+        param.setValue("BGColor")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec315")
     if param is not None:
         param.setValue(1, 0)
         param.setValue(1, 1)
         param.setValue(1, 2)
         del param
 
+    param = lastNode.getParam("paramType16")
+    if param is not None:
+        param.set("vec3")
+        del param
+
+    param = lastNode.getParam("paramName16")
+    if param is not None:
+        param.setValue("Color1")
+        del param
+
+    param = lastNode.getParam("paramLabel16")
+    if param is not None:
+        param.setValue("Color1")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec316")
+    if param is not None:
+        param.setValue(1, 0)
+        param.setValue(1, 2)
+        del param
+
+    param = lastNode.getParam("paramType17")
+    if param is not None:
+        param.set("vec3")
+        del param
+
+    param = lastNode.getParam("paramName17")
+    if param is not None:
+        param.setValue("Color2")
+        del param
+
+    param = lastNode.getParam("paramLabel17")
+    if param is not None:
+        param.setValue("Color2")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec317")
+    if param is not None:
+        param.setValue(0.3, 1)
+        del param
+
+    param = lastNode.getParam("paramType18")
+    if param is not None:
+        param.set("vec3")
+        del param
+
+    param = lastNode.getParam("paramName18")
+    if param is not None:
+        param.setValue("Color3")
+        del param
+
+    param = lastNode.getParam("paramLabel18")
+    if param is not None:
+        param.setValue("Color3")
+        del param
+
+    param = lastNode.getParam("paramDefaultVec318")
+    if param is not None:
+        param.setValue(0.09999999999999999, 0)
+        param.setValue(0.6, 2)
+        del param
+
     del lastNode
-    # End of node "Star"
+    # End of node "Anamorphic_Spots_3_2"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupROOT_GLOBAL.connectInput(0, groupBG_Black)
     groupLast_Node.connectInput(0, groupDot1)
     groupOutput1.connectInput(0, groupClamp1)
     groupSun_2.connectInput(0, groupHoop)
     groupSun_2.connectInput(1, groupSwitch1)
-    groupSun_2_2.connectInput(0, groupDot2)
+    groupSun_2_2.connectInput(0, groupBG_Black)
     groupDot1.connectInput(0, groupSun_2)
-    groupDot2.connectInput(0, groupROOT_GLOBAL)
     groupClamp1.connectInput(0, groupLast_Node)
     groupSwitch1.connectInput(0, groupGrit_Texture_Input)
     groupSwitch1.connectInput(1, groupConstant1)
     groupRing.connectInput(0, groupStar)
     groupGlimmer.connectInput(0, groupRing)
     groupAnamorphic.connectInput(0, groupGlimmer)
-    groupAnamorphic_Spots.connectInput(0, groupAnamorphic)
-    groupAnamorphic_Spots_2.connectInput(0, groupAnamorphic_Spots)
+    groupAnamorphic_Spots_2.connectInput(0, groupAnamorphic_Spots_3_2)
     groupMiris_Multilayer.connectInput(0, groupAnamorphic_Spots_2)
     groupCausticGhosts.connectInput(0, groupMiris_Multilayer)
     groupHoop.connectInput(0, groupCausticGhosts)
     groupStar.connectInput(0, groupSun_2_2)
+    groupAnamorphic_Spots_3_2.connectInput(0, groupAnamorphic)
 
-    param = groupROOT_GLOBAL.getParam("mousePosition")
-    param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
-    param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 1)
-    del param
-    param = groupROOT_GLOBAL.getParam("paramValueFloat0")
-    group.getParam("ROOT_GLOBALparamValueFloat0").setAsAlias(param)
-    del param
-    param = groupROOT_GLOBAL.getParam("paramValueFloat1")
-    group.getParam("ROOT_GLOBALparamValueFloat1").setAsAlias(param)
-    del param
-    param = groupROOT_GLOBAL.getParam("paramValueVec32")
-    group.getParam("ROOT_GLOBALparamValueVec32").setAsAlias(param)
-    del param
     param = groupLast_Node.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 1)
-    del param
-    param = groupLast_Node.getParam("paramValueFloat0")
-    param.slaveTo(groupROOT_GLOBAL.getParam("paramValueFloat0"), 0, 0)
     del param
     param = groupLast_Node.getParam("paramValueVec30")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueVec32"), 0, 0)
@@ -14092,9 +13447,6 @@ def createInstance(app,group):
     del param
     param = groupLast_Node.getParam("paramValueInt1")
     param.setExpression("thisGroup.ifparallel.get()", False, 0)
-    del param
-    param = groupLast_Node.getParam("paramValueFloat1")
-    param.slaveTo(groupROOT_GLOBAL.getParam("paramValueFloat1"), 0, 0)
     del param
     param = groupSun_2.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
@@ -14106,6 +13458,9 @@ def createInstance(app,group):
     param = groupSun_2.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
     del param
+    param = groupSun_2.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
+    del param
     param = groupSun_2_2.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 1)
@@ -14115,6 +13470,9 @@ def createInstance(app,group):
     del param
     param = groupSun_2_2.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
+    del param
+    param = groupSun_2_2.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
     del param
     param = groupRing.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
@@ -14126,6 +13484,9 @@ def createInstance(app,group):
     param = groupRing.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
     del param
+    param = groupRing.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
+    del param
     param = groupGlimmer.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 1)
@@ -14135,6 +13496,9 @@ def createInstance(app,group):
     del param
     param = groupGlimmer.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
+    del param
+    param = groupGlimmer.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
     del param
     param = groupAnamorphic.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
@@ -14146,15 +13510,8 @@ def createInstance(app,group):
     param = groupAnamorphic.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
     del param
-    param = groupAnamorphic_Spots.getParam("mousePosition")
-    param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
-    param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 1)
-    del param
-    param = groupAnamorphic_Spots.getParam("paramValueFloat0")
-    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat0"), 0, 0)
-    del param
-    param = groupAnamorphic_Spots.getParam("paramValueFloat1")
-    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
+    param = groupAnamorphic.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
     del param
     param = groupAnamorphic_Spots_2.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
@@ -14176,6 +13533,9 @@ def createInstance(app,group):
     param = groupMiris_Multilayer.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
     del param
+    param = groupMiris_Multilayer.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
+    del param
     param = groupCausticGhosts.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 1)
@@ -14185,6 +13545,9 @@ def createInstance(app,group):
     del param
     param = groupCausticGhosts.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
+    del param
+    param = groupCausticGhosts.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
     del param
     param = groupHoop.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
@@ -14196,6 +13559,9 @@ def createInstance(app,group):
     param = groupHoop.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
     del param
+    param = groupHoop.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
+    del param
     param = groupStar.getParam("mousePosition")
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
     param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 1)
@@ -14204,6 +13570,19 @@ def createInstance(app,group):
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat0"), 0, 0)
     del param
     param = groupStar.getParam("paramValueFloat1")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
+    del param
+    param = groupStar.getParam("paramValueFloat2")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat2"), 0, 0)
+    del param
+    param = groupAnamorphic_Spots_3_2.getParam("mousePosition")
+    param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 0)
+    param.setExpression("thisGroup.TrackLinkXY.get()[dimension]", False, 1)
+    del param
+    param = groupAnamorphic_Spots_3_2.getParam("paramValueFloat0")
+    param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat0"), 0, 0)
+    del param
+    param = groupAnamorphic_Spots_3_2.getParam("paramValueFloat1")
     param.slaveTo(group.getParam("ROOT_GLOBALparamValueFloat1"), 0, 0)
     del param
 
