@@ -53,9 +53,11 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Draw/Flare_Toxic/flareicon.png' width='32'> **[LensFalre Toxic](/Draw/Flare_Toxic/README.md)** : A Toxic Flare (Heavy).
 
 ### Filter
-- <img src='/Filter/Antialiasing/AntiAliasing.png' width='32'> **[AntiAliasing](/Filter/Antialiasing/README.md)** : Antialiasing filter based on FXAA
+- <img src='Filter/Light%20Sweep/lighsweep_icon.png' width='32'> **[Light Sweep](/Filter/Light%20Sweep/README.md)** : Creates Light Sweep.
 
 - <img src='/Filter/Beauty/Beauty.png' width='32'> **[Beauty](/Filter/Beauty/README.md)** : Tool designed to achieve skin cleaning jobs.
+
+- <img src='/Filter/Antialiasing/AntiAliasing.png' width='32'> **[AntiAliasing](/Filter/Antialiasing/README.md)** : Antialiasing filter based on FXAA
 
 - <img src='/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png' width='32'> **[ChromaticAberrationPP](/Filter/ChromaticAberrationPP/README.md)** : A filter designed to match real camera chromatic aberration 
 
@@ -365,6 +367,10 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Keyer/PushPixel/PushPixel.png' width='32'> **[PushPixel](/Keyer/PushPixel/README.md)** : Pushes pixels of the RGB on the edges of the alpha channel.
 
 ### Merge
+- <img src='/Merge/Linear%20wipe/linearWipe_icon.png' width='32'> **[Linear Wipe](/Merge/Linear%20wipe/README.md)** : Perform Linear wipe.
+
+- <img src='/Merge/Radial%20Wipe/radialWipe_icon.png' width='32'> **[Radial Wipe](/Merge/Radial%20Wipe/README.md)** : Perform Radial wipe.
+
 - <img src='/Merge/L_Fuse/L_Fuse.png' width='32'> **[L_Fuse](/Merge/L_Fuse/README.md)** : Fuse is a replacement for the merge(over) node.
 
 - <img src='/Merge/ZCombine/ZCombine.png' width='32'> **[ZCombine](/Merge/ZCombine/README.md)** : Mix two images according to their Zbuffer.
