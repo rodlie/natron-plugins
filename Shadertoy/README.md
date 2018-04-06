@@ -160,11 +160,15 @@
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/hoop_single.jpg' width='66'> **[Hoop]** : Creates a Hoop.
 
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/hoopmultilayer.jpg' width='66'> **[Hoop Multilayer]** : Creates a Multi layer Hoop.
+
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/polygon.jpg' width='66'> **[Polygon]** : Creates an adjustable Polygon.
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/rectangle_Rounded.jpg' width='66'> **[Round Rectangle]** : Creates a Round Rectangle.
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/ring.jpg' width='66'> **[Ring]** : Creates a ring.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/ringmultilayer.jpg' width='66'> **[Ring multilayer]** : Creates a multilayer ring.
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/star.jpg' width='66'> **[Star]** : Creates a star.
 
