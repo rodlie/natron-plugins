@@ -127,6 +127,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(1, 0)
     lastNode.Blur2size = param
     del param
 
@@ -700,8 +701,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(0, 0)
-        param.setValue(0, 1)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("boundary")
@@ -818,12 +818,12 @@ def createInstance(app,group):
     lastNode.setColor(0.8, 0.5, 0.3)
     groupMatrix1 = lastNode
 
-    param = lastNode.getParam("matrix11")
+    param = lastNode.getParam("matrix31")
     if param is not None:
         param.setValue(2, 0)
         del param
 
-    param = lastNode.getParam("matrix13")
+    param = lastNode.getParam("matrix33")
     if param is not None:
         param.setValue(-2, 0)
         del param
@@ -838,12 +838,12 @@ def createInstance(app,group):
         param.setValue(-1, 0)
         del param
 
-    param = lastNode.getParam("matrix31")
+    param = lastNode.getParam("matrix11")
     if param is not None:
         param.setValue(2, 0)
         del param
 
-    param = lastNode.getParam("matrix33")
+    param = lastNode.getParam("matrix13")
     if param is not None:
         param.setValue(-2, 0)
         del param
@@ -860,12 +860,12 @@ def createInstance(app,group):
     lastNode.setColor(0.8, 0.5, 0.3)
     groupMatrix1_2 = lastNode
 
-    param = lastNode.getParam("matrix11")
+    param = lastNode.getParam("matrix31")
     if param is not None:
         param.setValue(2, 0)
         del param
 
-    param = lastNode.getParam("matrix13")
+    param = lastNode.getParam("matrix33")
     if param is not None:
         param.setValue(-2, 0)
         del param
@@ -880,12 +880,12 @@ def createInstance(app,group):
         param.setValue(-1, 0)
         del param
 
-    param = lastNode.getParam("matrix31")
+    param = lastNode.getParam("matrix11")
     if param is not None:
         param.setValue(2, 0)
         del param
 
-    param = lastNode.getParam("matrix33")
+    param = lastNode.getParam("matrix13")
     if param is not None:
         param.setValue(-2, 0)
         del param
@@ -921,7 +921,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(4138, 4027)
+    lastNode.setPosition(4137, 4027)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.6196, 0.2353, 0.3882)
     groupShuffle1 = lastNode
@@ -1081,53 +1081,6 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot7"
 
-    # Start of node "Matrix2"
-    lastNode = app.createNode("eu.cimg.CImgMatrix3x3", 1, group)
-    lastNode.setScriptName("Matrix2")
-    lastNode.setLabel("Matrix2")
-    lastNode.setPosition(4315, 3891)
-    lastNode.setSize(80, 34)
-    lastNode.setColor(0.8, 0.5, 0.3)
-    groupMatrix2 = lastNode
-
-    param = lastNode.getParam("matrix11")
-    if param is not None:
-        param.setValue(2, 0)
-        del param
-
-    param = lastNode.getParam("matrix12")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("matrix13")
-    if param is not None:
-        param.setValue(2, 0)
-        del param
-
-    param = lastNode.getParam("matrix23")
-    if param is not None:
-        param.setValue(-1, 0)
-        del param
-
-    param = lastNode.getParam("matrix31")
-    if param is not None:
-        param.setValue(-1, 0)
-        del param
-
-    param = lastNode.getParam("matrix32")
-    if param is not None:
-        param.setValue(-1, 0)
-        del param
-
-    param = lastNode.getParam("matrix33")
-    if param is not None:
-        param.setValue(-2, 0)
-        del param
-
-    del lastNode
-    # End of node "Matrix2"
-
     # Start of node "Expression3"
     lastNode = app.createNode("OpenFX.Yo.ResolveMath", 1, group)
     lastNode.setScriptName("Expression3")
@@ -1164,7 +1117,7 @@ def createInstance(app,group):
     lastNode = app.createNode("OpenFX.Yo.ResolveMath", 1, group)
     lastNode.setScriptName("Expression2")
     lastNode.setLabel("Expression2")
-    lastNode.setPosition(4637, 4713)
+    lastNode.setPosition(4637, 4663)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupExpression2 = lastNode
@@ -1174,9 +1127,19 @@ def createInstance(app,group):
         param.setValue("sqrt(-pow(r,2)-pow(g,2)+1)")
         del param
 
+    param = lastNode.getParam("red")
+    if param is not None:
+        param.setValue("r<0?0:r")
+        del param
+
+    param = lastNode.getParam("green")
+    if param is not None:
+        param.setValue("g<0?0:g")
+        del param
+
     param = lastNode.getParam("blue")
     if param is not None:
-        param.setValue("sqrt(-pow(r,2)-pow(g,2)+1)")
+        param.setValue("b<0?0:expr1")
         del param
 
     del lastNode
@@ -1186,7 +1149,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.GradePlugin", 2, group)
     lastNode.setScriptName("Grade1")
     lastNode.setLabel("Grade1")
-    lastNode.setPosition(4634, 4863)
+    lastNode.setPosition(4637, 4949)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.48, 0.66, 1)
     groupGrade1 = lastNode
@@ -1215,14 +1178,29 @@ def createInstance(app,group):
     del lastNode
     # End of node "Grade1"
 
-    # Start of node "Matrix2_2"
+    # Start of node "Matrix3x31"
     lastNode = app.createNode("eu.cimg.CImgMatrix3x3", 1, group)
-    lastNode.setScriptName("Matrix2_2")
-    lastNode.setLabel("Matrix4")
-    lastNode.setPosition(4788, 3894)
-    lastNode.setSize(80, 34)
+    lastNode.setScriptName("Matrix3x31")
+    lastNode.setLabel("Matrix2")
+    lastNode.setPosition(4310, 3892)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.8, 0.5, 0.3)
-    groupMatrix2_2 = lastNode
+    groupMatrix3x31 = lastNode
+
+    param = lastNode.getParam("matrix31")
+    if param is not None:
+        param.setValue(-2, 0)
+        del param
+
+    param = lastNode.getParam("matrix32")
+    if param is not None:
+        param.setValue(-1, 0)
+        del param
+
+    param = lastNode.getParam("matrix33")
+    if param is not None:
+        param.setValue(-2, 0)
+        del param
 
     param = lastNode.getParam("matrix11")
     if param is not None:
@@ -1239,14 +1217,21 @@ def createInstance(app,group):
         param.setValue(2, 0)
         del param
 
-    param = lastNode.getParam("matrix23")
-    if param is not None:
-        param.setValue(-1, 0)
-        del param
+    del lastNode
+    # End of node "Matrix3x31"
+
+    # Start of node "Matrix4"
+    lastNode = app.createNode("eu.cimg.CImgMatrix3x3", 1, group)
+    lastNode.setScriptName("Matrix4")
+    lastNode.setLabel("Matrix4")
+    lastNode.setPosition(4788, 3889)
+    lastNode.setSize(80, 32)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupMatrix4 = lastNode
 
     param = lastNode.getParam("matrix31")
     if param is not None:
-        param.setValue(-1, 0)
+        param.setValue(-2, 0)
         del param
 
     param = lastNode.getParam("matrix32")
@@ -1259,8 +1244,40 @@ def createInstance(app,group):
         param.setValue(-2, 0)
         del param
 
+    param = lastNode.getParam("matrix11")
+    if param is not None:
+        param.setValue(2, 0)
+        del param
+
+    param = lastNode.getParam("matrix12")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("matrix13")
+    if param is not None:
+        param.setValue(2, 0)
+        del param
+
     del lastNode
-    # End of node "Matrix2_2"
+    # End of node "Matrix4"
+
+    # Start of node "SeExprSimple2"
+    lastNode = app.createNode("fr.inria.openfx.SeExprSimple", 2, group)
+    lastNode.setScriptName("SeExprSimple2")
+    lastNode.setLabel("SeExprSimple2")
+    lastNode.setPosition(4637, 4774)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupSeExprSimple2 = lastNode
+
+    param = lastNode.getParam("bExpr")
+    if param is not None:
+        param.setValue("b<0?0:b")
+        del param
+
+    del lastNode
+    # End of node "SeExprSimple2"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupGrade1)
@@ -1277,21 +1294,22 @@ def createInstance(app,group):
     groupDot4.connectInput(0, groupDot3)
     groupShuffle1.connectInput(0, groupMatrix1)
     groupShuffle1.connectInput(1, groupDot5)
-    groupDot5.connectInput(0, groupMatrix2)
+    groupDot5.connectInput(0, groupMatrix3x31)
     groupShuffle1_2.connectInput(0, groupMatrix1_2)
     groupShuffle1_2.connectInput(1, groupDot2)
-    groupDot2.connectInput(0, groupMatrix2_2)
+    groupDot2.connectInput(0, groupMatrix4)
     groupMultiply2.connectInput(0, groupShuffle1)
     groupMultiply3.connectInput(0, groupShuffle1_2)
     groupMerge2.connectInput(0, groupMultiply3)
     groupMerge2.connectInput(1, groupDot6)
     groupDot6.connectInput(0, groupMultiply2)
     groupDot7.connectInput(0, groupBlur1)
-    groupMatrix2.connectInput(0, groupDot7)
     groupExpression3.connectInput(0, groupMerge2)
     groupExpression2.connectInput(0, groupExpression3)
-    groupGrade1.connectInput(0, groupExpression2)
-    groupMatrix2_2.connectInput(0, groupDot4)
+    groupGrade1.connectInput(0, groupSeExprSimple2)
+    groupMatrix3x31.connectInput(0, groupDot7)
+    groupMatrix4.connectInput(0, groupDot4)
+    groupSeExprSimple2.connectInput(0, groupExpression2)
 
     param = groupBlur2.getParam("size")
     group.getParam("Blur2size").setAsAlias(param)
