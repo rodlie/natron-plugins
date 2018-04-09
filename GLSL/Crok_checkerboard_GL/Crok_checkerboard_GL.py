@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.1176, 0.5882, 0.1176)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -203,11 +204,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat2", "Blur : ")
     param.setMinimum(0, 0)
-    param.setMaximum(10, 0)
+    param.setMaximum(1000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(10, 0)
-    param.setDefaultValue(3, 0)
-    param.restoreDefaultValue(0)
+    param.setDisplayMaximum(100, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -559,7 +558,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -570,8 +569,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
-    lastNode.setPosition(4142, 3833)
-    lastNode.setSize(80, 44)
+    lastNode.setPosition(4139, 3834)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
@@ -587,7 +586,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValue(3, 0)
+        param.setValue(0, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat3")
@@ -611,7 +610,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_checkerboard Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_checkerboard Matchbox for Autodesk Flame\n\n\n\nuniform float rot = 0.0; // Rotation : (rotation), min=-10000, max=10000\nuniform float zoom = 10.0; // Zoom : (zoom), min=2.0, max=1000\nuniform float blur = 3.0; // Blur : (blur), min=0.0, max=10.0\nuniform float Aspect = 1.0; // Aspect : (aspect), min=0.01, max=100\n\nuniform vec3 color1 = vec3(1.0,1.0,1.0); // Color 1 : (color 1)\nuniform vec3 color2 = vec3(0.0,0.0,0.0); // Color 2 : (color 2)\n\n\n\n#define PI 3.14159265359\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\n\n    \nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = ((fragCoord.xy / resolution.xy) - 0.5);\n\tfloat bl = 0.0;\n\n\tif ( rot != 0.0 )\n\t\tbl += blur; \n\n\tfloat b = bl * zoom / resolution.x;\n\n\tfloat frameRatio = iResolution.x / iResolution.y;\n\tuv.x *= frameRatio;\n\t// degrees to radians conversion\n\tfloat rad_rot = rot * PI / 180.0; \n\n\t// rotation\n\tmat2 rotation = mat2( cos(-rad_rot), -sin(-rad_rot), sin(-rad_rot), cos(-rad_rot));\n\tuv *= rotation;\n\t\n\tuv.x *= Aspect;\n\tuv *= zoom;\n\t\n\t\n    vec2 anti_a = sin(PI * uv);\n\tvec2 square = smoothstep( -b, b, anti_a );\n\tsquare = 2.0 * square - 1.0;\t\t\t\t\t\t\n    float a = 0.5 * (square.x * square.y) + 0.5;\n\tvec3 c = mix(color1, color2, a); \n\tfragColor = vec4(c, a);\n}")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_checkerboard Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_checkerboard Matchbox for Autodesk Flame\n\n\n\nuniform float rot = 0.0; // Rotation : (rotation), min=-10000, max=10000\nuniform float zoom = 10.0; // Zoom : (zoom), min=2.0, max=1000\nuniform float blur = 0.0; // Blur : (blur), min=0.0, max=1000.0\nuniform float Aspect = 1.0; // Aspect : (aspect), min=0.01, max=100\n\nuniform vec3 color1 = vec3(1.0,1.0,1.0); // Color 1 : (color 1)\nuniform vec3 color2 = vec3(0.0,0.0,0.0); // Color 2 : (color 2)\n\n\n\n#define PI 3.14159265359\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\n\n    \nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = ((fragCoord.xy / resolution.xy) - 0.5);\n\tfloat bl = 0.0;\n\n\tbl += blur; \n\n\tfloat b = bl * zoom / resolution.x;\n\n\tfloat frameRatio = iResolution.x / iResolution.y;\n\tuv.x *= frameRatio;\n\t// degrees to radians conversion\n\tfloat rad_rot = rot * PI / 180.0; \n\n\t// rotation\n\tmat2 rotation = mat2( cos(-rad_rot), -sin(-rad_rot), sin(-rad_rot), cos(-rad_rot));\n\tuv *= rotation;\n\t\n\tuv.x *= Aspect;\n\tuv *= zoom;\n\t\n\t\n    vec2 anti_a = sin(PI * uv);\n\tvec2 square = smoothstep( -b, b, anti_a );\n\tsquare = 2.0 * square - 1.0;\t\t\t\t\t\t\n    float a = 0.5 * (square.x * square.y) + 0.5;\n\tvec3 c = mix(color1, color2, a); \n\tfragColor = vec4(c, a);\n}")
         del param
 
     param = lastNode.getParam("inputEnable0")
@@ -734,11 +733,6 @@ def createInstance(app,group):
         param.setValue("blur")
         del param
 
-    param = lastNode.getParam("paramDefaultFloat2")
-    if param is not None:
-        param.setValue(3, 0)
-        del param
-
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
         param.setValue(0, 0)
@@ -746,7 +740,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat2")
     if param is not None:
-        param.setValue(10, 0)
+        param.setValue(1000, 0)
         del param
 
     param = lastNode.getParam("paramType3")

@@ -33,7 +33,7 @@
 
 uniform float rot = 0.0; // Rotation : (rotation), min=-10000, max=10000
 uniform float zoom = 10.0; // Zoom : (zoom), min=2.0, max=1000
-uniform float blur = 3.0; // Blur : (blur), min=0.0, max=10.0
+uniform float blur = 0.0; // Blur : (blur), min=0.0, max=1000.0
 uniform float Aspect = 1.0; // Aspect : (aspect), min=0.01, max=100
 
 uniform vec3 color1 = vec3(1.0,1.0,1.0); // Color 1 : (color 1)
@@ -51,8 +51,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec2 uv = ((fragCoord.xy / resolution.xy) - 0.5);
 	float bl = 0.0;
 
-	if ( rot != 0.0 )
-		bl += blur; 
+	bl += blur; 
 
 	float b = bl * zoom / resolution.x;
 
