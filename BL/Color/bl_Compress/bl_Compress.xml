@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>bl_Compress</DisplayName>
+    <Description>This is a common color correction function that push the low color to a value and the high color to another. While tempting to made a color matching between 2 picture this Gizmo might be really usefull.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.bl_Compress</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

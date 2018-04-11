@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>bl_Bytes</DisplayName>
+    <Description>Node is similar to the Shake's one. It convert the picture in another byte space. This is of course a simple simulation as Nuke know to work only in 32 floating point color space. </Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.bl_Bytes</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
