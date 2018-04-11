@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Vectors_Normalize</DisplayName>
+    <Description>AWill scale every vector in a vector pass so that each vctor's magnitude is 1, while keeping the direction. Works on 2D and 3D vectors.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Vectors_Normalize</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
