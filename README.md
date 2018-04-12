@@ -16,7 +16,11 @@ Finally edit the plugins location in Natron preferences to allow it to find them
 If you want a particular folder only you can use http://kinolien.github.io/gitzip/ and put the URL to the folder you want there. Also you can install individual .py files (and their accompanied png icon files).
 
 
-## Available Plugins 
+## Available Plugins
+
+### BL
+- <img src='/BL/Color/bl_Bytes/bl_Bytes.png' width='32'> **[bl_Bytes](/BL/Color/bl_Bytes/README.md)** : Node is similar to the Shake's one. It convert the picture in another byte space. This is of course a simple simulation as Nuke know to work only in 32 floating point color space. 
+
 ### Channel
 - <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
 
