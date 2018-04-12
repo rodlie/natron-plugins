@@ -158,9 +158,13 @@
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/glimmer.jpg' width='66'> **[Glimmer]** : Creates a Glimmer.
 
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/Glimmer_Multilayer.jpg' width='66'> **[Glimmer MultiLayer]** : Creates a MultiLayer Glimmer.
+
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/hoop_single.jpg' width='66'> **[Hoop]** : Creates a Hoop.
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/hoopmultilayer.jpg' width='66'> **[Hoop Multilayer]** : Creates a Multi layer Hoop.
+
+- <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/PrismRing.jpg' width='66'> **[Prism Ring]** : Creates a Prism.
 
 - <img src='GLSL_Lense_Flare_Elements/lensFlare_Thumbs/polygon.jpg' width='66'> **[Polygon]** : Creates an adjustable Polygon.
 
