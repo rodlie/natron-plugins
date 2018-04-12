@@ -18,7 +18,7 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 ## Available Plugins
 
-### BL
+### BL/Color
 - <img src='/BL/Color/bl_Bytes/bl_Bytes.png' width='28'> **[bl_Bytes](/BL/Color/bl_Bytes/README.md)** : Converts the picture in another byte space. This is of course a simple simulation as Natron works only in 32 floating point color space.
 
 - <img src='/BL/Color/bl_Compress/bl_Compress.png' width='28'> **[bl_Compress](/BL/Color/bl_Compress/README.md)** : This is a common color correction function that push the low color to a value and the high color to another. While tempting to made a color matching between 2 picture this Gizmo might be really usefull.
@@ -30,6 +30,9 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/BL/Color/bl_Slice/bl_Slice.png' width='28'> **[bl_Slice](/BL/Color/bl_Slice/README.md)** : Cut a color slice of the picture and create a mask of the result.
 
 - <img src='/BL/Color/bl_Threshold/bl_Threshold.png' width='28'> **[bl_Threshold](/BL/Color/bl_Threshold/README.md)** : Threshold the image using a color value, a range of thresholding and a replacement color.
+
+### BL/Color
+- <img src='/BL/Image/bl_Arc/bl_Arc.png' width='28'> **[bl_Arc](/BL/Image/bl_Arc/README.md)** : A circle drawer.
 
 ### Channel
 - <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
