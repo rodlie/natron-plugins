@@ -19,7 +19,7 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 ## Available Plugins
 
 ### BL
-- <img src='/BL/Color/bl_Bytes/bl_Bytes.png' width='28'> **[bl_Bytes](/BL/Color/bl_Bytes/README.md)** : Converts the picture in another byte space. This is of course a simple simulation as Nuke know to work only in 32 floating point color space. 
+- <img src='/BL/Color/bl_Bytes/bl_Bytes.png' width='28'> **[bl_Bytes](/BL/Color/bl_Bytes/README.md)** : Converts the picture in another byte space. This is of course a simple simulation as Natron works only in 32 floating point color space. 
 
 ### Channel
 - <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
