@@ -21,7 +21,7 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 ### BL/Color
 - <img src='/BL/Color/bl_Bytes/bl_Bytes.png' width='24'> **[bl_Bytes](/BL/Color/bl_Bytes/README.md)** : Converts the picture in another byte space. This is of course a simple simulation as Natron works only in 32 floating point color space.
 
-- <img src='/BL/Color/bl_Compress/bl_Compress.png' width='284'> **[bl_Compress](/BL/Color/bl_Compress/README.md)** : This is a common color correction function that push the low color to a value and the high color to another. While tempting to made a color matching between 2 picture this Gizmo might be really usefull.
+- <img src='/BL/Color/bl_Compress/bl_Compress.png' width='24'> **[bl_Compress](/BL/Color/bl_Compress/README.md)** : This is a common color correction function that push the low color to a value and the high color to another. While tempting to made a color matching between 2 picture this Gizmo might be really usefull.
 
 - <img src='/BL/Color/bl_Expand/bl_Expand.png' width='24'> **[bl_Expand](/BL/Color/bl_Expand/README.md)** : Expand does the exact reverse of the Compress node. It stretch the color between to low and high color value.
 
@@ -31,7 +31,7 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/BL/Color/bl_Threshold/bl_Threshold.png' width='24'> **[bl_Threshold](/BL/Color/bl_Threshold/README.md)** : Threshold the image using a color value, a range of thresholding and a replacement color.
 
-### BL/Color
+### BL/Image
 - <img src='/BL/Image/bl_Arc/bl_Arc.png' width='24'> **[bl_Arc](/BL/Image/bl_Arc/README.md)** : A circle drawer.
 
 ### Channel
