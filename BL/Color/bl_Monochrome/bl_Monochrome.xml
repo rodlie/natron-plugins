@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>bl_Monochrome</DisplayName>
+    <Description>Same as the Shake's Monochrome node. You can play independently with the 3 color component.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.bl_Monochrome</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>bl_Expand</DisplayName>
+    <Description>Expand does the exact reverse of the Compress node. It stretch the color between to low and high color value.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.bl_Expand</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
