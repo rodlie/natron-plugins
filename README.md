@@ -19,7 +19,17 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 ## Available Plugins
 
 ### BL
-- <img src='/BL/Color/bl_Bytes/bl_Bytes.png' width='28'> **[bl_Bytes](/BL/Color/bl_Bytes/README.md)** : Converts the picture in another byte space. This is of course a simple simulation as Natron works only in 32 floating point color space. 
+- <img src='/BL/Color/bl_Bytes/bl_Bytes.png' width='28'> **[bl_Bytes](/BL/Color/bl_Bytes/README.md)** : Converts the picture in another byte space. This is of course a simple simulation as Natron works only in 32 floating point color space.
+
+- <img src='/BL/Color/bl_Compress/bl_Compress.png' width='28'> **[bl_Compress](/BL/Color/bl_Compress/README.md)** : This is a common color correction function that push the low color to a value and the high color to another. While tempting to made a color matching between 2 picture this Gizmo might be really usefull.
+
+- <img src='/BL/Color/bl_Expand/bl_Expand.png' width='28'> **[bl_Expand](/BL/Color/bl_Expand/README.md)** : Expand does the exact reverse of the Compress node. It stretch the color between to low and high color value.
+
+- <img src='/BL/Color/bl_Monochrome/bl_Monochrome.png' width='28'> **[bl_Monochrome](/BL/Color/bl_Monochrome/README.md)** : Same as the Shake's Monochrome node. You can play independently with the 3 color component.
+
+- <img src='/BL/Color/bl_Slice/bl_Slice.png' width='28'> **[bl_Slice](/BL/Color/bl_Slice/README.md)** : Cut a color slice of the picture and create a mask of the result.
+
+- <img src='/BL/Color/bl_Threshold/bl_Threshold.png' width='28'> **[bl_Threshold](/BL/Color/bl_Threshold/README.md)** : Threshold the image using a color value, a range of thresholding and a replacement color.
 
 ### Channel
 - <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
