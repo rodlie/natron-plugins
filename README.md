@@ -34,6 +34,9 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 ### BL/Image
 - <img src='/BL/Image/bl_Arc/bl_Arc.png' width='24'> **[bl_Arc](/BL/Image/bl_Arc/README.md)** : A circle drawer.
 
+### BL/Keyer
+- <img src='/BL/Keyer/bl_HSVKeyer/bl_HSVKeyer.png' width='24'> **[bl_HSVKeyer](/BL/Keyer/bl_HSVKeyer/README.md)** : Creates a mask using the hue saturation and value of the color range.
+
 ### Channel
 - <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
 

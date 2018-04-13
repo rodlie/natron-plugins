@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>bl_Arc</DisplayName>
-    <Description>Creates mask using the hue saturation and value of the color range.</Description>
+    <Description>Creates a mask using the hue saturation and value of the color range.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.bl_Arc</Name>
