@@ -28,7 +28,7 @@ def getIconPath():
     return "bl_Arc.png"
 
 def getGrouping():
-    return "Community/BL/Color"
+    return "Community/BL/Image"
 
 def getPluginDescription():
     return "Arc is a circle drawer. "
