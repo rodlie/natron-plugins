@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>bl_Bulge</DisplayName>
+    <Description>The Bulge function is a copy of the Bulge inside AfterEffect.Some operators in production ask me for that tool.This PyPlug is basicaly creating a drop/buble effect on a picture.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.bl_Bulge</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
