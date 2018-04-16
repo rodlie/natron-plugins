@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>bl_Solarize</DisplayName>
+    <Description>A clone of the Shake's solarize command.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.bl_Solarize</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>bl_Binary</DisplayName>
+    <Description>Morphological binary filter.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.bl_Binary</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
