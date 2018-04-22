@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Onion_S</DisplayName>
+    <Description>This is a simple Onion Skin utility node. It supports 5 fames of fixed interval onion skin in the forward and backward directions with user selectable colors, and two blending modes. </Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.OnionSkin_S</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
