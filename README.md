@@ -1,7 +1,7 @@
 # Natron Community Plugins
 ### A collection of Natron plugins made by the community
 ## Installation
- To install download the Repo as a ZIP file via https://github.com/NatronVFX/natron-plugins/archive/master.zip
+ To install download the Repo as a ZIP file via https://github.com/NatronGitHub/natron-plugins/archive/master.zip
  
  Unzip into any PyPlug folder but the recommended locations are...
  
