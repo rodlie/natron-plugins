@@ -190,6 +190,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 ### GLSL/Distort
 - <img src='/GLSL/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='32'> **[Crok_noise_blur_GL](/GLSL/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
 
+- <img src='/GLSL/Crok_pixelsort_GL/Crok_pixelsort_GL.png' width='32'> **[Crok_pixelsort_GL](/GLSL/Crok_pixelsort_GL/README.md)** : Creates a pixel sort type effect.
+
 - <img src='/GLSL/Crok_pixelstretch_GL/Crok_pixelstretch_GL.png' width='32'> **[Crok_pixelstretch_GL](/GLSL/Crok_pixelstretch_GL/README.md)** : Creates a Pixelspread type stretch effect.
 
 - <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='32'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : GPU accelerated Image displace effect for Shadertoy.
