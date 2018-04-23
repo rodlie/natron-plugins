@@ -37,7 +37,7 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 ### BL/Keyer
 - <img src='/BL/Keyer/bl_HSVKeyer/bl_HSVKeyer.png' width='24'> **[bl_HSVKeyer](/BL/Keyer/bl_HSVKeyer/README.md)** : Creates a mask using the hue saturation and value of the color range.
 
-### BLWarp
+### BL/Warp
 - <img src='/BL/Warp/bl_Bulge/bl_Bulge.png' width='24'> **[bl_Bulge](/BL/Warp/bl_Bulge/README.md)** : The Bulge function is a copy of the Bulge inside AfterEffect. This PyPlug is basicaly creating a drop/buble effect on a picture.
 
 ### Channel
@@ -68,8 +68,6 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/Draw/LightWrap_Simple/LightWrap_Simple.png' width='32'> **[LightWrap_Simple](/Draw/LightWrap_Simple/README.md)** : An alternative to built-in LightWrap plugin, simpler to use, also it as an option to dilate wrap to get a bigger effect.
 
 - <img src='/Draw/Vignette/Vignette.png' width='32'> **[Vignette](/Draw/Vignette/README.md)** : This effect reduce the images brightness at the peripherie compared to the image center.
-
-- <img src='/Draw/WaveForm/WaveForm.png' width='32'> **[WaveForm](/Draw/WaveForm/README.md)** : Draw a Luminance Waveform of the input image
 
 ### Filter
 - <img src='Filter/Light%20Sweep/lighsweep_icon.png' width='32'> **[Light Sweep](/Filter/Light%20Sweep/README.md)** : Creates Light Sweep.
@@ -443,6 +441,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 ### Utility
 - <img src='/Utility/Onion_S/Onion_S.png' width='32'> **[Onion_S](/Utility/Onion_S/README.md)** : This is a simple Onion Skin utility node. It supports 5 fames of fixed interval onion skin in the forward and backward directions with user selectable colors, and two blending modes.
+
+- <img src='/Utility/WaveForm/WaveForm.png' width='32'> **[WaveForm](/Utility/WaveForm/README.md)** : Draw a Luminance Waveform of the input image
 
 ### Views
 - <img src='/Views/L_AspectMask/L_AspectMask.png' width='32'> **[L_AspectMask](/Views/L_AspectMask/README.md)** : Apply standard formats overlay over an image.
