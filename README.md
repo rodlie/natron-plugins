@@ -171,21 +171,21 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Channel/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Channel/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
 ### GLSL/Color
-- <img src='/GLSL/AFX_Grade_GL/AFX_Grade_GL.png' width='32'> **[AFX_Grade_GL](/GLSL/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
+- <img src='/GLSL/Color/AFX_Grade_GL/AFX_Grade_GL.png' width='32'> **[AFX_Grade_GL](/GLSL/Color/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
 
-- <img src='/GLSL/Crok_2color_GL/Crok_2color_GL.png' width='32'> **[Crok_2color_GL](/GLSL/Crok_2color_GL/README.md)** : Simulates a 2 color look.
+- <img src='/GLSL/Color/Crok_2color_GL/Crok_2color_GL.png' width='32'> **[Crok_2color_GL](/GLSL/Color/Crok_2color_GL/README.md)** : Simulates a 2 color look.
 
-- <img src='/GLSL/Crok_exposure_GL/Crok_exposure_GL.png' width='32'> **[Crok_exposure_GL](/GLSL/Crok_exposure_GL/README.md)** : Simulates an exposure node.
+- <img src='/GLSL/Color/Crok_exposure_GL/Crok_exposure_GL.png' width='32'> **[Crok_exposure_GL](/GLSL/Color/Crok_exposure_GL/README.md)** : Simulates an exposure node.
 
-- <img src='/GLSL/JB_colorRemap_GL/JB_colorRemap_GL.png' width='32'> **[JB_colorRemap_GL](/GLSL/JB_colorRemap_GL/README.md)** : Remaps RGB of input1 using RGB of input 2.
+- <img src='/GLSL/Color/JB_colorRemap_GL/JB_colorRemap_GL.png' width='32'> **[JB_colorRemap_GL](/GLSL/Color/JB_colorRemap_GL/README.md)** : Remaps RGB of input1 using RGB of input 2.
 
-- <img src='/GLSL/K_BW_GL/K_BW_GL.png' width='32'> **[K_BW_GL](/GLSL/K_BW_GL/README.md)** : Creates black and white images with adjustable RGB values.
+- <img src='/GLSL/Color/K_BW_GL/K_BW_GL.png' width='32'> **[K_BW_GL](/GLSL/Color/K_BW_GL/README.md)** : Creates black and white images with adjustable RGB values.
 
-- <img src='/GLSL/Ls_Colourmatrix_GL/Ls_Colourmatrix_GL.png' width='32'> **[Ls_Colourmatrix_GL](/GLSL/Ls_Colourmatrix_GL/README.md)** : Apply 3x3 matrices to RGB for white balance, colourspace conversion or well disco grades.
+- <img src='/GLSL/Color/Ls_Colourmatrix_GL/Ls_Colourmatrix_GL.png' width='32'> **[Ls_Colourmatrix_GL](/GLSL/Color/Ls_Colourmatrix_GL/README.md)** : Apply 3x3 matrices to RGB for white balance, colourspace conversion or well disco grades.
 
-- <img src='/GLSL/Ls_NaNfix_GL/Ls_NaNfix_GL.png' width='32'> **[Ls_NaNfix_GL](/GLSL/Ls_NaNfix_GL/README.md)** : Fixes pixels which are stuck at NaN.
+- <img src='/GLSL/Color/Ls_NaNfix_GL/Ls_NaNfix_GL.png' width='32'> **[Ls_NaNfix_GL](/GLSL/Color/Ls_NaNfix_GL/README.md)** : Fixes pixels which are stuck at NaN.
 
-- <img src='/GLSL/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='32'> **[Ls_RndmGrade_GL](/GLSL/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
+- <img src='/GLSL/Color/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='32'> **[Ls_RndmGrade_GL](/GLSL/Color/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
 ### GLSL/Distort
 - <img src='/GLSL/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='24'> **[Crok_noise_blur_GL](/GLSL/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
