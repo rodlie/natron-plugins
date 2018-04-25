@@ -141,34 +141,34 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png' width='32'> **[PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### GLSL/Blur
-- <img src='/GLSL/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL/Barrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
+- <img src='/GLSL/Blur/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL//BlurBarrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
 
-- <img src='/GLSL/Bilateral_GL/Bilateral_GL.png' width='32'> **[Bilateral_GL](/GLSL/Bilateral_GL/README.md)** : GPU accelerated Bilateral blur for Shadertoy.
+- <img src='/GLSL/Blur/Bilateral_GL/Bilateral_GL.png' width='32'> **[Bilateral_GL](/GLSL//BlurBilateral_GL/README.md)** : GPU accelerated Bilateral blur for Shadertoy.
 
-- <img src='/GLSL/Bloom_GL/Bloom_GL.png' width='32'> **[Bloom_GL](/GLSL/Bloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
+- <img src='/GLSL/Blur/Bloom_GL/Bloom_GL.png' width='32'> **[Bloom_GL](/GLSL//BlurBloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
 
-- <img src='/GLSL/BokehDisc_GL/BokehDisc_GL.png' width='32'> **[BokehDisc_GL](/GLSL/BokehDisc_GL/README.md)** : GPU accelerated Defocus blur for Shadertoy.
+- <img src='/GLSL/Blur/BokehDisc_GL/BokehDisc_GL.png' width='32'> **[BokehDisc_GL](/GLSL//BlurBokehDisc_GL/README.md)** : GPU accelerated Defocus blur for Shadertoy.
 
-- <img src='/GLSL/Crok_bloom_GL/Crok_bloom_GL.png' width='32'> **[Crok_bloom_GL](/GLSL/Crok_bloom_GL/README.md)** : Simulates bloom.
+- <img src='/GLSL/Blur/Crok_bloom_GL/Crok_bloom_GL.png' width='32'> **[Crok_bloom_GL](/GLSL//BlurCrok_bloom_GL/README.md)** : Simulates bloom.
 
-- <img src='/GLSL/Crok_convolve_GL/Crok_convolve_GL.png' width='32'> **[Crok_convolve_GL](/GLSL/Crok_convolve_GL/README.md)** : Simulates a convolve blur.
+- <img src='/GLSL/Blur/Crok_convolve_GL/Crok_convolve_GL.png' width='32'> **[Crok_convolve_GL](/GLSL//BlurCrok_convolve_GL/README.md)** : Simulates a convolve blur.
 
-- <img src='/GLSL/Crok_diffuse_GL/Crok_diffuse_GL.png' width='32'> **[Crok_diffuse_GL](/GLSL/Crok_diffuse_GL/README.md)** : Creates a noisy blur.
+- <img src='/GLSL/Blur/Crok_diffuse_GL/Crok_diffuse_GL.png' width='32'> **[Crok_diffuse_GL](/GLSL//BlurCrok_diffuse_GL/README.md)** : Creates a noisy blur.
 
-- <img src='/GLSL/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='32'> **[Crok_dir_blur_GL](/GLSL/Crok_dir_blur_GL/README.md)** : Creates a directional blur.
+- <img src='/GLSL/Blur/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='32'> **[Crok_dir_blur_GL](/GLSL//BlurCrok_dir_blur_GL/README.md)** : Creates a directional blur.
 
-- <img src='/GLSL/Ls_Ash_GL/Ls_Ash_GL.png' width='32'> **[Ls_Ash_GL](/GLSL/Ls_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
+- <img src='/GLSL/Blur/Ls_Ash_GL/Ls_Ash_GL.png' width='32'> **[Ls_Ash_GL](/GLSL//BlurLs_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
 
-- <img src='/GLSL/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL/Mipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
+- <img src='/GLSL/Blur/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL//BlurMipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
 
-- <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
+- <img src='/GLSL/Blur/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL//BlurMonte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
 
 ### GLSL/Channel
-- <img src='/GLSL/JB_multiMatteManager_GL/JB_multiMatteManager_GL.png' width='32'> **[JB_multiMatteManager_GL](/GLSL/JB_multiMatteManager_GL/README.md)** : Manages up to four inputs RGB to output one combined mulitmatte with alpha.
+- <img src='/GLSL/Channel/JB_multiMatteManager_GL/JB_multiMatteManager_GL.png' width='32'> **[JB_multiMatteManager_GL](/GLSL/Channel/JB_multiMatteManager_GL/README.md)** : Manages up to four inputs RGB to output one combined mulitmatte with alpha.
 
-- <img src='/GLSL/K_RgbcmyMatte_GL/K_RgbcmyMatte_GL.png' width='32'> **[K_RgbcmyMatte_GL](/GLSL/K_RgbcmyMatte_GL/README.md)** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
+- <img src='/GLSL/Channel/K_RgbcmyMatte_GL/K_RgbcmyMatte_GL.png' width='32'> **[K_RgbcmyMatte_GL](/GLSL/Channel/K_RgbcmyMatte_GL/README.md)** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
 
-- <img src='/GLSL/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
+- <img src='/GLSL/Channel/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Channel/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
 ### GLSL/Color
 - <img src='/GLSL/AFX_Grade_GL/AFX_Grade_GL.png' width='32'> **[AFX_Grade_GL](/GLSL/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
@@ -194,7 +194,9 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/GLSL/Crok_pixelstretch_GL/Crok_pixelstretch_GL.png' width='24'> **[Crok_pixelstretch_GL](/GLSL/Crok_pixelstretch_GL/README.md)** : Creates a Pixelspread type stretch effect.
 
-- <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='24'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : Image displace effect for Shadertoy.
+- <img src='/GLSL/JB_pixelDisplace_GL/JB_pixelDisplace_GL.png' width='24'> **[JB_pixelDisplace_GL](/GLSL/JB_pixelDisplace_GL/README.md)** : Image displace effect for Shadertoy.
+
+- <img src='/GLSL/JB_timeDisplace_GL/JB_timeDisplace_GL.png' width='24'> **[JB_timeDisplace_GL](/GLSL/JB_timeDisplace_GL/README.md)** : Tries to emulate the Sapphire s_TimeDisplace node.
 
 - <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='24'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
@@ -238,6 +240,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/GLSL/Crok_deband_GL/Crok_deband_GL.png' width='32'> **[Crok_deband_GL](/GLSL/Crok_deband_GL/README.md)** : Reduces banding.
 
+- <img src='/GLSL/Crok_digital_glitch_GL/Crok_digital_glitch_GL.png' width='32'> **[Crok_digital_glitch_GL](/GLSL/Crok_digital_glitch_GL/README.md)** : Simulates digital glitches.
+
 - <img src='/GLSL/Crok_dithering_GL/Crok_dithering_GL.png' width='32'> **[Crok_dithering_GL](/GLSL/Crok_dithering_GL/README.md)** : Creates a dithering effect.
 
 - <img src='/GLSL/Crok_emboss_GL/Crok_emboss_GL.png' width='32'> **[Crok_emboss_GL](/GLSL/Crok_emboss_GL/README.md)** : Simulates an emboss effect.
@@ -262,9 +266,13 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/GLSL/Crok_scanlines_GL/Crok_scanlines_GL.png' width='32'> **[Crok_scanlines_GL](/GLSL/Crok_scanlines_GL/README.md)** : Simulates CRT phosphor / shadow mask arrangements.
 
+- <img src='/GLSL/Crok_separation_GL/Crok_separation_GL.png' width='32'> **[Crok_separation_GL](/GLSL/Crok_separation_GL/README.md)** : Creates a low pass and high pass filter sometimes called frequency separation.
+
 - <img src='/GLSL/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='32'> **[Crok_tv_rgb_dots_GL](/GLSL/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
 
 - <img src='/GLSL/Crok_vein_GL/Crok_vein_GL.png' width='32'> **[Crok_vein_GL](/GLSL/Crok_vein_GL/README.md)** : Generates veins.
+
+- <img src='/GLSL/Crok_vhs_GL/Crok_vhs_GL.png' width='32'> **[Crok_vhs_GL](/GLSL/Crok_vhs_GL/README.md)** : Simulates an old VHS player.
 
 - <img src='/GLSL/EWA_GL/EWA_GL.png' width='32'> **[EWA_GL](/GLSL/EWA_GL/README.md)** : GPU accelerated EWA antialiasing effect for Shadertoy.
 
@@ -293,10 +301,14 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/GLSL/Cryptomatte_GL/Cryptomatte_GL.png' width='32'> **[Cryptomatte_GL](/GLSL/Cryptomatte_GL/README.md)** : Extract up to four mattes from the ID/coverage pairs generated by Arnold/Clarisse/Mantra's Cryptomatte shaders.
 
+- <img src='/GLSL/JB_autoMatte_GL/JB_autoMatte_GL.png' width='32'> **[JB_autoMatte_GL](/GLSL/JB_autoMatte_GL/README.md)** : Creates a RGB multimattes of an input which can be useful to mockup quick keys.
+
 - <img src='/GLSL/JB_erodematte_GL/JB_erodematte_GL.png' width='32'> **[JB_erodematte_GL](/GLSL/JB_erodematte_GL/README.md)** : Simple erode node.
 
 ### GLSL/Merge
 - <img src='/GLSL/Add_GL/Add_GL.png' width='32'> **[Add_GL](/GLSL/Add_GL/README.md)** : GPU accelerated additive merge for Shadertoy.
+
+- <img src='/GLSL/Crok_uncomp_GL/Crok_uncomp_GL.png' width='32'> **[Crok_uncomp_GL](/GLSL/Crok_uncomp_GL/README.md)** : Uncompose a compositing scene into its original layer.
 
 - <img src='/GLSL/Ls_Contacts_GL/Ls_Contacts_GL.png' width='32'> **[Ls_Contacts_GL](/GLSL/Ls_Contacts_GL/README.md)** : Tile inputs into a grid for impressing clients, choosing versions or checking continuity.
 
@@ -316,6 +328,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Crok_3d_grid_GL/Crok_3d_grid_GL.png' width='32'> **[Crok_3d_grid_GL](/GLSL/Crok_3d_grid_GL/README.md)** : Creates a 3D Grid.
 
 - <img src='/GLSL/Crok_blobs_GL/Crok_blobs_GL.png' width='32'> **[Crok_blobs_GL](/GLSL/Crok_blobs_GL/README.md)** : Creates blob like sturctures.
+
+- <img src='/GLSL/Crok_box_GL/Crok_box_GL.png' width='32'> **[Crok_box_GL](/GLSL/Crok_box_GL/README.md)** : Creates an antialiased square with rounded corners.
 
 - <img src='/GLSL/Crok_block_noise_GL/Crok_block_noise_GL.png' width='32'> **[Crok_block_noise_GL](/GLSL/Crok_block_noise_GL/README.md)** : Creates blocky textures.
 
@@ -340,6 +354,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Crok_lava_GL/Crok_lava_GL.png' width='32'> **[Crok_lava_GL](/GLSL/Crok_lava_GL/README.md)** : Creates flame / fluid like patterns.
 
 - <img src='/GLSL/Crok_lines_GL/Crok_lines_GL.png' width='32'> **[Crok_lines_GL](/GLSL/Crok_lines_GL/README.md)** : Creates lines.
+
+- <img src='/GLSL/Crok_maze_GL/Crok_maze_GL.png' width='32'> **[Crok_maze_GL](/GLSL/Crok_maze_GL/README.md)** : Creates a maze like structure.
 
 - <img src='/GLSL/Crok_ocean_noise_GL/Crok_ocean_noise_GL.png' width='32'> **[Crok_ocean_noise_GL](/GLSL/Crok_ocean_noise_GL/README.md)** : Creates an ocean / water like noise pattern.
 
