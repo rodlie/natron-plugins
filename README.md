@@ -188,34 +188,34 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Color/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='32'> **[Ls_RndmGrade_GL](/GLSL/Color/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
 ### GLSL/Distort
-- <img src='/GLSL/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='24'> **[Crok_noise_blur_GL](/GLSL/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
+- <img src='/GLSL/Distort/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='24'> **[Crok_noise_blur_GL](/GLSL/Distort/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
 
-- <img src='/GLSL/Crok_pixelsort_GL/Crok_pixelsort_GL.png' width='24'> **[Crok_pixelsort_GL](/GLSL/Crok_pixelsort_GL/README.md)** : Creates a pixel sort type effect.
+- <img src='/GLSL/Distort/Crok_pixelsort_GL/Crok_pixelsort_GL.png' width='24'> **[Crok_pixelsort_GL](/GLSL/Distort/Crok_pixelsort_GL/README.md)** : Creates a pixel sort type effect.
 
-- <img src='/GLSL/Crok_pixelstretch_GL/Crok_pixelstretch_GL.png' width='24'> **[Crok_pixelstretch_GL](/GLSL/Crok_pixelstretch_GL/README.md)** : Creates a Pixelspread type stretch effect.
+- <img src='/GLSL/Distort/Crok_pixelstretch_GL/Crok_pixelstretch_GL.png' width='24'> **[Crok_pixelstretch_GL](/GLSL/Distort/Crok_pixelstretch_GL/README.md)** : Creates a Pixelspread type stretch effect.
 
-- <img src='/GLSL/JB_pixelDisplace_GL/JB_pixelDisplace_GL.png' width='24'> **[JB_pixelDisplace_GL](/GLSL/JB_pixelDisplace_GL/README.md)** : Image displace effect for Shadertoy.
+- <img src='/GLSL/Distort/JB_pixelDisplace_GL/JB_pixelDisplace_GL.png' width='24'> **[JB_pixelDisplace_GL](/GLSL/Distort/JB_pixelDisplace_GL/README.md)** : Image displace effect for Shadertoy.
 
-- <img src='/GLSL/JB_timeDisplace_GL/JB_timeDisplace_GL.png' width='24'> **[JB_timeDisplace_GL](/GLSL/JB_timeDisplace_GL/README.md)** : Tries to emulate the Sapphire s_TimeDisplace node.
+- <img src='/GLSL/Distort/JB_timeDisplace_GL/JB_timeDisplace_GL.png' width='24'> **[JB_timeDisplace_GL](/GLSL/Distort/JB_timeDisplace_GL/README.md)** : Tries to emulate the Sapphire s_TimeDisplace node.
 
-- <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='24'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
+- <img src='/GLSL/Distort/K_Chroma_GL/K_Chroma_GL.png' width='24'> **[K_Chroma_GL](/GLSL/Distort/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
-- <img src='/GLSL/Ls_Advect_GL/Ls_Advect_GL.png' width='24'> **[Ls_Advect_GL](/GLSL/Ls_Advect_GL/README.md)** : Pushes an image along the contours of another.
+- <img src='/GLSL/Distort/Ls_Advect_GL/Ls_Advect_GL.png' width='24'> **[Ls_Advect_GL](/GLSL/Distort/Ls_Advect_GL/README.md)** : Pushes an image along the contours of another.
 
-- <img src='/GLSL/Ls_nail_GL/Ls_nail_GL.png' width='24'> **[Ls_nail_GL](/GLSL/Ls_nail_GL/README.md)** : Warp an area of the Source and Mask to follow a track.
+- <img src='/GLSL/Distort/Ls_nail_GL/Ls_nail_GL.png' width='24'> **[Ls_nail_GL](/GLSL/Distort/Ls_nail_GL/README.md)** : Warp an area of the Source and Mask to follow a track.
 
-- <img src='/GLSL/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='24'> **[Ls_Posmatte_GL](/GLSL/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
+- <img src='/GLSL/Distort/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='24'> **[Ls_Posmatte_GL](/GLSL/Distort/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
 
-- <img src='/GLSL/Ls_Splineblur_GL/Ls_Splineblur_GL.png' width='24'> **[Ls_Splineblur_GL](/GLSL/Ls_Splineblur_GL/README.md)** : Directional blur along the edges of a shape.
+- <img src='/GLSL/Distort/Ls_Splineblur_GL/Ls_Splineblur_GL.png' width='24'> **[Ls_Splineblur_GL](/GLSL/Distort/Ls_Splineblur_GL/README.md)** : Directional blur along the edges of a shape.
 
-- <img src='/GLSL/Ls_UVewa_GL/Ls_UVewa_GL.png' width='24'> **[Ls_UVewa_GL](/GLSL/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
+- <img src='/GLSL/Distort/Ls_UVewa_GL/Ls_UVewa_GL.png' width='24'> **[Ls_UVewa_GL](/GLSL/Distort/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
 
 ### GLSL/Draw
-- <img src='/GLSL/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
+- <img src='/GLSL/Draw/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Draw/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
 
-- <img src='/GLSL/Crok_regrain_GL/Crok_regrain_GL.png' width='32'> **[Crok_regrain_GL](/GLSL/Crok_regrain_GL/README.md)** : Simulates film grain.
+- <img src='/GLSL/Draw/Crok_regrain_GL/Crok_regrain_GL.png' width='32'> **[Crok_regrain_GL](/GLSL/Draw/Crok_regrain_GL/README.md)** : Simulates film grain.
 
-- <img src='/GLSL/Guides_GL/Guides_GL.png' width='32'> **[Guides_GL](/GLSL/Guides_GL/README.md)** : Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...
+- <img src='/GLSL/Draw/Guides_GL/Guides_GL.png' width='32'> **[Guides_GL](/GLSL/Draw/Guides_GL/README.md)** : Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...
 
 ### GLSL/Effect
 - <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
