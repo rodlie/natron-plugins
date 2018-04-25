@@ -184,37 +184,34 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
-    param = lastNode.createBooleanParam("pass3paramValueBool1", "Invert direction : ")
+    param = lastNode.createBooleanParam("pass3paramValueBool1", "Invert direction :")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("invert direction")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueBool1 = param
     del param
 
-    param = lastNode.createBooleanParam("pass3paramValueBool3", "Switch Direction : ")
+    param = lastNode.createBooleanParam("pass3paramValueBool3", "Switch Direction :")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("switch direction")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueBool3 = param
     del param
 
-    param = lastNode.createBooleanParam("pass3paramValueBool0", "Switch to Shadow : ")
+    param = lastNode.createBooleanParam("pass3paramValueBool0", "Switch to Shadow")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("switch to shadow")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueBool0 = param
@@ -289,9 +286,7 @@ def createInstance(app,group):
     lastNode.sep12 = param
     del param
 
-    param = lastNode.createBooleanParam("pass1paramValueBool1", "Enable : ")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
+    param = lastNode.createBooleanParam("pass1paramValueBool1", "Enable rotation :")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -302,7 +297,7 @@ def createInstance(app,group):
     lastNode.pass1paramValueBool1 = param
     del param
 
-    param = lastNode.createDoubleParam("pass1paramValueFloat0", "Angle : ")
+    param = lastNode.createDoubleParam("pass1paramValueFloat0", "Angle :")
     param.setDisplayMinimum(-360, 0)
     param.setDisplayMaximum(360, 0)
 
@@ -544,7 +539,7 @@ def createInstance(app,group):
     # Start of node "Output2"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4545, 4248)
+    lastNode.setPosition(4939, 4270)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
@@ -556,7 +551,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4174, 3488)
+    lastNode.setPosition(4809, 3433)
     lastNode.setSize(80, 32)
     lastNode.setColor(1, 1, 1)
     groupSource = lastNode
@@ -564,11 +559,23 @@ def createInstance(app,group):
     del lastNode
     # End of node "Source"
 
+    # Start of node "Mask"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Mask")
+    lastNode.setLabel("Mask")
+    lastNode.setPosition(4622, 3430)
+    lastNode.setSize(80, 32)
+    lastNode.setColor(1, 1, 1)
+    groupMask = lastNode
+
+    del lastNode
+    # End of node "Mask"
+
     # Start of node "pass1"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("pass1")
     lastNode.setLabel("pass1")
-    lastNode.setPosition(4308, 3658)
+    lastNode.setPosition(4694, 3622)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass1 = lastNode
@@ -580,12 +587,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueBool1")
     if param is not None:
-        param.setValue(True)
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_pixelsort Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_pixelsort Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter=linear, wrap=clamp\n// iChannel1: Mask, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n\n// based on https://www.shadertoy.com/view/XsBfRG\n\n\n\n\n\nuniform float angle = 0.0; // Angle : (angle)\nuniform bool enable_rotation = true; // Enable roration : (enable rotation)\n\n\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  vec2 uv = fragCoord.xy / vec2( iResolution.x, iResolution.y );\n  vec2 uv_without_rot = uv;\n  vec3 c = vec3(0.0);\n  float m = 0.0;\n\n  if ( enable_rotation)\n  {\n    float rotation = angle/180.*3.14159265;\n    float size = .5;\n    vec2 frontCoords = uv ;\n    float ratio = iResolution.x/iResolution.y ;\n    // rotate and scale\n    vec2 ctr = vec2(0.5);\n    mat2 rotMat = mat2( cos(-rotation)*ratio, -sin(-rotation),\n                       sin(-rotation)*ratio, cos(-rotation) );\n    frontCoords -= ctr;\n    frontCoords *= rotMat/size;\n    frontCoords /= vec2(ratio,1.);\n    frontCoords += ctr;\n    c = texture2D(iChannel0, frontCoords).rgb;\n    m = texture2D(iChannel1, frontCoords).r;\n  }\n\n  else\n  {\n    c = texture2D(iChannel0, uv_without_rot).rgb;\n    m = texture2D(iChannel1, uv_without_rot).r;\n  }\n\n\n    fragColor = vec4(c, m);\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_pixelsort Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_pixelsort Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter=linear, wrap=clamp\n// iChannel1: Mask, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n\n// based on https://www.shadertoy.com/view/XsBfRG\n\n\n\n\n\nuniform float angle = 0.0; // Angle : (angle)\nuniform bool enable_rotation = true; // Enable roration : (enable rotation)\n\n\n\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  vec2 uv = fragCoord.xy / iResolution.xy;\n  vec2 uv_without_rot = uv;\n  vec3 c = vec3(0.0);\n  float m = 0.0;\n\n  if ( enable_rotation)\n  {\n    float rotation = angle/180.*3.14159265;\n    float size = 1;\n    vec2 frontCoords = uv ;\n    float ratio = iResolution.x/iResolution.y ;\n    // rotate and scale\n    vec2 ctr = vec2(0.5);\n    mat2 rotMat = mat2( cos(-rotation)*ratio, -sin(-rotation),\n                       sin(-rotation)*ratio, cos(-rotation) );\n    frontCoords -= ctr;\n    frontCoords *= rotMat/size;\n    frontCoords /= vec2(ratio,1.);\n    frontCoords += ctr;\n    c = texture2D(iChannel0, frontCoords).rgb;\n    m = texture2D(iChannel1, frontCoords).r;\n  }\n\n  else\n  {\n    c = texture2D(iChannel0, uv_without_rot).rgb;\n    m = texture2D(iChannel1, uv_without_rot).r;\n  }\n\n\n    fragColor = vec4(c, m);\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -595,7 +602,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("wrap0")
     if param is not None:
-        param.set("clamp")
+        param.set("mirror")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -700,7 +707,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("pass2")
     lastNode.setLabel("pass2")
-    lastNode.setPosition(4308, 3771)
+    lastNode.setPosition(4694, 3741)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass2 = lastNode
@@ -762,7 +769,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("pass3")
     lastNode.setLabel("pass3")
-    lastNode.setPosition(4308, 3892)
+    lastNode.setPosition(4694, 3856)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass3 = lastNode
@@ -804,7 +811,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("wrap1")
     if param is not None:
-        param.set("clamp")
+        param.set("mirror")
         del param
 
     param = lastNode.getParam("inputLabel1")
@@ -929,7 +936,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("pass4")
     lastNode.setLabel("pass4")
-    lastNode.setPosition(4545, 3892)
+    lastNode.setPosition(4939, 3856)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass4 = lastNode
@@ -951,7 +958,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("wrap0")
     if param is not None:
-        param.set("clamp")
+        param.set("mirror")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -971,7 +978,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("wrap2")
     if param is not None:
-        param.set("clamp")
+        param.set("mirror")
         del param
 
     param = lastNode.getParam("inputLabel2")
@@ -1026,7 +1033,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("pass5")
     lastNode.setLabel("pass5")
-    lastNode.setPosition(4545, 4060)
+    lastNode.setPosition(4939, 3986)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass5 = lastNode
@@ -1038,12 +1045,12 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueBool1")
     if param is not None:
-        param.setValue(True)
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_pixelsort Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_pixelsort Matchbox for Autodesk Flame\n\n\n// iChannel0: pass1_result, filter=linear, wrap=clamp\n// iChannel1: pass2_result, filter=linear, wrap=clamp\n// iChannel2: pass3_result, filter=linear, wrap=clamp\n// iChannel3: pass4_result, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n\n// based on https://www.shadertoy.com/view/XsBfRG\n\n\n\nuniform float angle;\nuniform int view;\nuniform bool enable_rotation;\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  vec2 uv = fragCoord.xy / vec2( iResolution.x, iResolution.y );\n  float rotation = angle/180.*3.14159265;\n  float size = 1.0;\n  vec3 c = texture2D(iChannel3, uv).rgb;\n  float m = texture2D(iChannel3, uv).a;\n\n  if ( enable_rotation)\n  {\n    size = 2.;\n    vec2 frontCoords = uv ;\n    float ratio = iResolution.x/iResolution.y ;\n    // rotate and scale\n    vec2 ctr = vec2(0.5);\n    mat2 rotMat = mat2( cos(rotation)*ratio, -sin(rotation),\n                       sin(rotation)*ratio, cos(rotation) );\n    frontCoords -= ctr;\n    frontCoords *= rotMat/size;\n    frontCoords /= vec2(ratio,1.);\n    frontCoords += ctr;\n    c = texture2D(iChannel3, frontCoords).rgb;\n    m = texture2D(iChannel3, frontCoords).a;\n  }\n\n    fragColor = vec4(c, m);\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_pixelsort Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_pixelsort Matchbox for Autodesk Flame\n\n\n// iChannel0: pass1_result, filter=linear, wrap=clamp\n// iChannel1: pass2_result, filter=linear, wrap=clamp\n// iChannel2: pass3_result, filter=linear, wrap=clamp\n// iChannel3: pass4_result, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n\n// based on https://www.shadertoy.com/view/XsBfRG\n\n\n\nuniform float angle;\nuniform int view;\nuniform bool enable_rotation;\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  vec2 uv = fragCoord.xy / vec2( iResolution.x, iResolution.y );\n  float rotation = angle/180.*3.14159265;\n  float size = 1.0;\n  vec3 c = texture2D(iChannel3, uv).rgb;\n  float m = texture2D(iChannel3, uv).a;\n\n  if ( enable_rotation)\n  {\n    size = 1.;\n    vec2 frontCoords = uv ;\n    float ratio = iResolution.x/iResolution.y ;\n    // rotate and scale\n    vec2 ctr = vec2(0.5);\n    mat2 rotMat = mat2( cos(rotation)*ratio, -sin(rotation),\n                       sin(rotation)*ratio, cos(rotation) );\n    frontCoords -= ctr;\n    frontCoords *= rotMat/size;\n    frontCoords /= vec2(ratio,1.);\n    frontCoords += ctr;\n    c = texture2D(iChannel3, frontCoords).rgb;\n    m = texture2D(iChannel3, frontCoords).a;\n  }\n\n    fragColor = vec4(c, m);\n}\n")
         del param
 
     param = lastNode.getParam("inputEnable0")
@@ -1068,7 +1075,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("wrap3")
     if param is not None:
-        param.set("clamp")
+        param.set("mirror")
         del param
 
     param = lastNode.getParam("inputLabel3")
@@ -1129,23 +1136,12 @@ def createInstance(app,group):
     del lastNode
     # End of node "pass5"
 
-    # Start of node "Mask"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Mask")
-    lastNode.setLabel("Mask")
-    lastNode.setPosition(4421, 3488)
-    lastNode.setSize(80, 32)
-    lastNode.setColor(1, 1, 1)
-    groupMask = lastNode
-
-    del lastNode
-    # End of node "Mask"
-
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, grouppass5)
     grouppass1.connectInput(0, groupSource)
     grouppass1.connectInput(1, groupMask)
     grouppass2.connectInput(0, grouppass1)
+    grouppass3.connectInput(0, grouppass2)
     grouppass3.connectInput(1, grouppass2)
     grouppass4.connectInput(0, grouppass1)
     grouppass4.connectInput(2, grouppass3)

@@ -1,3 +1,3 @@
-# JB_PixelDisplace_GL
+# JB_pixelDisplace_GL
 
 GPU accelerated Image displace effect for Shadertoy.
