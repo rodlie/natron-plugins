@@ -386,9 +386,9 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Source/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Source/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
 
 ### GLSL/Transform
-- <img src='/GLSL/Transform/Crok_seamless_GL/Crok_seamless_GL.png' width='32'> **[Crok_seamless_GL](/GLSL/Transform/Crok_seamless_GL/README.md)** : Creates seamless textures.
+- <img src='/GLSL/Transform/Crok_seamless_GL/Crok_seamless_GL.png' width='24'> **[Crok_seamless_GL](/GLSL/Transform/Crok_seamless_GL/README.md)** : Creates seamless textures.
 
-- <img src='/GLSL/Transform/Crop_GL/Crop_GL.png' width='32'> **[Crop_GL](/GLSL/Transform/Crop_GL/README.md)** : A simple image cropper with built-in 2D texture offset and borders.
+- <img src='/GLSL/Transform/Crop_GL/Crop_GL.png' width='24'> **[Crop_GL](/GLSL/Transform/Crop_GL/README.md)** : A simple image cropper with built-in 2D texture offset and borders.
 
 ### Keyer
 - <img src='/Keyer/AdditiveKeyer/AdditiveKeyer.png' width='32'> **[AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
