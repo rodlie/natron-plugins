@@ -141,31 +141,31 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png' width='32'> **[PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### GLSL/Blur
-- <img src='/GLSL/Blur/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='24'> **[Barrel_Blur_Chroma_GL](/GLSL//BlurBarrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
+- <img src='/GLSL/Blur/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='24'> **[Barrel_Blur_Chroma_GL](/GLSL/Blur/BlurBarrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
 
-- <img src='/GLSL/Blur/Bilateral_GL/Bilateral_GL.png' width='24'> **[Bilateral_GL](/GLSL//BlurBilateral_GL/README.md)** : GPU accelerated Bilateral blur for Shadertoy.
+- <img src='/GLSL/Blur/Bilateral_GL/Bilateral_GL.png' width='24'> **[Bilateral_GL](/GLSL/Blur/BlurBilateral_GL/README.md)** : GPU accelerated Bilateral blur for Shadertoy.
 
-- <img src='/GLSL/Blur/Bloom_GL/Bloom_GL.png' width='24'> **[Bloom_GL](/GLSL//BlurBloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
+- <img src='/GLSL/Blur/Bloom_GL/Bloom_GL.png' width='24'> **[Bloom_GL](/GLSL/Blur/BlurBloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
 
-- <img src='/GLSL/Blur/BokehCircular_GL/BokehCircular_GL.png' width='24'> **[BokehCircular_GL](/GLSL//BokehCircular_GL/README.md)** : GPU accelerated circular defocus blur for Shadertoy.
+- <img src='/GLSL/Blur/BokehCircular_GL/BokehCircular_GL.png' width='24'> **[BokehCircular_GL](/GLSL/Blur/BokehCircular_GL/README.md)** : GPU accelerated circular defocus blur for Shadertoy.
 
-- <img src='/GLSL/Blur/BokehDisc_GL/BokehDisc_GL.png' width='24'> **[BokehDisc_GL](/GLSL//BlurBokehDisc_GL/README.md)** : GPU accelerated defocus blur for Shadertoy.
+- <img src='/GLSL/Blur/BokehDisc_GL/BokehDisc_GL.png' width='24'> **[BokehDisc_GL](/GLSL/Blur/BlurBokehDisc_GL/README.md)** : GPU accelerated defocus blur for Shadertoy.
 
-- <img src='/GLSL/Blur/BokehOctogon_GL/BokehOctogon_GL.png' width='24'> **[BokehOctogon_GL](/GLSL//BokehOctogon_GL/README.md)** : GPU accelerated octogon defocus blur for Shadertoy.
+- <img src='/GLSL/Blur/BokehOctagon_GL/BokehOctagon_GL.png' width='24'> **[BokehOctagon_GL](/GLSL/Blur/BokehOctagon_GL/README.md)** : GPU accelerated octogon defocus blur for Shadertoy.
 
-- <img src='/GLSL/Blur/Crok_bloom_GL/Crok_bloom_GL.png' width='24'> **[Crok_bloom_GL](/GLSL//BlurCrok_bloom_GL/README.md)** : Simulates bloom.
+- <img src='/GLSL/Blur/Crok_bloom_GL/Crok_bloom_GL.png' width='24'> **[Crok_bloom_GL](/GLSL/Blur/BlurCrok_bloom_GL/README.md)** : Simulates bloom.
 
-- <img src='/GLSL/Blur/Crok_convolve_GL/Crok_convolve_GL.png' width='24'> **[Crok_convolve_GL](/GLSL//BlurCrok_convolve_GL/README.md)** : Simulates a convolve blur.
+- <img src='/GLSL/Blur/Crok_convolve_GL/Crok_convolve_GL.png' width='24'> **[Crok_convolve_GL](/GLSL/Blur/BlurCrok_convolve_GL/README.md)** : Simulates a convolve blur.
 
-- <img src='/GLSL/Blur/Crok_diffuse_GL/Crok_diffuse_GL.png' width='24'> **[Crok_diffuse_GL](/GLSL//BlurCrok_diffuse_GL/README.md)** : Creates a noisy blur.
+- <img src='/GLSL/Blur/Crok_diffuse_GL/Crok_diffuse_GL.png' width='24'> **[Crok_diffuse_GL](/GLSL/Blur/BlurCrok_diffuse_GL/README.md)** : Creates a noisy blur.
 
-- <img src='/GLSL/Blur/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='24'> **[Crok_dir_blur_GL](/GLSL//BlurCrok_dir_blur_GL/README.md)** : Creates a directional blur.
+- <img src='/GLSL/Blur/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='24'> **[Crok_dir_blur_GL](/GLSL/Blur/BlurCrok_dir_blur_GL/README.md)** : Creates a directional blur.
 
-- <img src='/GLSL/Blur/Ls_Ash_GL/Ls_Ash_GL.png' width='24'> **[Ls_Ash_GL](/GLSL//BlurLs_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
+- <img src='/GLSL/Blur/Ls_Ash_GL/Ls_Ash_GL.png' width='24'> **[Ls_Ash_GL](/GLSL/Blur/BlurLs_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
 
-- <img src='/GLSL/Blur/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='24'> **[Mipmap_Blur_GL](/GLSL//BlurMipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
+- <img src='/GLSL/Blur/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='24'> **[Mipmap_Blur_GL](/GLSL/Blur/BlurMipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
 
-- <img src='/GLSL/Blur/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='24'> **[Monte_Carlo_Blur_GL](/GLSL//BlurMonte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
+- <img src='/GLSL/Blur/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='24'> **[Monte_Carlo_Blur_GL](/GLSL/Blur/BlurMonte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
 
 ### GLSL/Channel
 - <img src='/GLSL/Channel/JB_multiMatteManager_GL/JB_multiMatteManager_GL.png' width='24'> **[JB_multiMatteManager_GL](/GLSL/Channel/JB_multiMatteManager_GL/README.md)** : Manages up to four inputs RGB to output one combined mulitmatte with alpha.
