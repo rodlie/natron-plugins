@@ -28,7 +28,7 @@ def getGrouping():
     return "Community/GLSL/Blur"
 
 def getPluginDescription():
-    return "4-pass bokeh from https://www.shadertoy.com/view/lst3Df (implementation of http://ivizlab.sfu.ca/papers/cgf2012.pdf ). Author: F. Devernay."
+    return "4-pass bokeh from https://www.shadertoy.com/view/lst3Df (implementation of http://ivizlab.sfu.ca/papers/cgf2012.pdf ).\nAuthor: F. Devernay."
 
 def createInstance(app,group):
     # Create all nodes in the group
