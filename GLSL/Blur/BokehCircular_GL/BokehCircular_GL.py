@@ -24,6 +24,9 @@ def getLabel():
 def getVersion():
     return 1
 
+def getIconPath():
+    return "BokehCircular_GL.png"
+
 def getGrouping():
     return "Community/GLSL/Blur"
 
