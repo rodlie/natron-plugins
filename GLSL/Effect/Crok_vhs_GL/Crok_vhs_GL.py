@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Effect"
 
 def getPluginDescription():
-    return "This Matchbox shader simulates an old VHS player."
+    return "Simulates an old VHS player."
 
 def createInstance(app,group):
     # Create all nodes in the group

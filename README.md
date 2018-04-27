@@ -141,238 +141,254 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png' width='32'> **[PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### GLSL/Blur
-- <img src='/GLSL/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL/Barrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
+- <img src='/GLSL/Blur/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='32'> **[Barrel_Blur_Chroma_GL](/GLSL//BlurBarrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
 
-- <img src='/GLSL/Bilateral_GL/Bilateral_GL.png' width='32'> **[Bilateral_GL](/GLSL/Bilateral_GL/README.md)** : GPU accelerated Bilateral blur for Shadertoy.
+- <img src='/GLSL/Blur/Bilateral_GL/Bilateral_GL.png' width='32'> **[Bilateral_GL](/GLSL//BlurBilateral_GL/README.md)** : GPU accelerated Bilateral blur for Shadertoy.
 
-- <img src='/GLSL/Bloom_GL/Bloom_GL.png' width='32'> **[Bloom_GL](/GLSL/Bloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
+- <img src='/GLSL/Blur/Bloom_GL/Bloom_GL.png' width='32'> **[Bloom_GL](/GLSL//BlurBloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
 
-- <img src='/GLSL/BokehDisc_GL/BokehDisc_GL.png' width='32'> **[BokehDisc_GL](/GLSL/BokehDisc_GL/README.md)** : GPU accelerated Defocus blur for Shadertoy.
+- <img src='/GLSL/Blur/BokehDisc_GL/BokehDisc_GL.png' width='32'> **[BokehDisc_GL](/GLSL//BlurBokehDisc_GL/README.md)** : GPU accelerated Defocus blur for Shadertoy.
 
-- <img src='/GLSL/Crok_bloom_GL/Crok_bloom_GL.png' width='32'> **[Crok_bloom_GL](/GLSL/Crok_bloom_GL/README.md)** : Simulates bloom.
+- <img src='/GLSL/Blur/Crok_bloom_GL/Crok_bloom_GL.png' width='32'> **[Crok_bloom_GL](/GLSL//BlurCrok_bloom_GL/README.md)** : Simulates bloom.
 
-- <img src='/GLSL/Crok_convolve_GL/Crok_convolve_GL.png' width='32'> **[Crok_convolve_GL](/GLSL/Crok_convolve_GL/README.md)** : Simulates a convolve blur.
+- <img src='/GLSL/Blur/Crok_convolve_GL/Crok_convolve_GL.png' width='32'> **[Crok_convolve_GL](/GLSL//BlurCrok_convolve_GL/README.md)** : Simulates a convolve blur.
 
-- <img src='/GLSL/Crok_diffuse_GL/Crok_diffuse_GL.png' width='32'> **[Crok_diffuse_GL](/GLSL/Crok_diffuse_GL/README.md)** : Creates a noisy blur.
+- <img src='/GLSL/Blur/Crok_diffuse_GL/Crok_diffuse_GL.png' width='32'> **[Crok_diffuse_GL](/GLSL//BlurCrok_diffuse_GL/README.md)** : Creates a noisy blur.
 
-- <img src='/GLSL/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='32'> **[Crok_dir_blur_GL](/GLSL/Crok_dir_blur_GL/README.md)** : Creates a directional blur.
+- <img src='/GLSL/Blur/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='32'> **[Crok_dir_blur_GL](/GLSL//BlurCrok_dir_blur_GL/README.md)** : Creates a directional blur.
 
-- <img src='/GLSL/Ls_Ash_GL/Ls_Ash_GL.png' width='32'> **[Ls_Ash_GL](/GLSL/Ls_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
+- <img src='/GLSL/Blur/Ls_Ash_GL/Ls_Ash_GL.png' width='32'> **[Ls_Ash_GL](/GLSL//BlurLs_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
 
-- <img src='/GLSL/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL/Mipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
+- <img src='/GLSL/Blur/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='32'> **[Mipmap_Blur_GL](/GLSL//BlurMipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
 
-- <img src='/GLSL/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL/Monte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
+- <img src='/GLSL/Blur/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='32'> **[Monte_Carlo_Blur_GL](/GLSL//BlurMonte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
 
 ### GLSL/Channel
-- <img src='/GLSL/JB_multiMatteManager_GL/JB_multiMatteManager_GL.png' width='32'> **[JB_multiMatteManager_GL](/GLSL/JB_multiMatteManager_GL/README.md)** : Manages up to four inputs RGB to output one combined mulitmatte with alpha.
+- <img src='/GLSL/Channel/JB_multiMatteManager_GL/JB_multiMatteManager_GL.png' width='24'> **[JB_multiMatteManager_GL](/GLSL/Channel/JB_multiMatteManager_GL/README.md)** : Manages up to four inputs RGB to output one combined mulitmatte with alpha.
 
-- <img src='/GLSL/K_RgbcmyMatte_GL/K_RgbcmyMatte_GL.png' width='32'> **[K_RgbcmyMatte_GL](/GLSL/K_RgbcmyMatte_GL/README.md)** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
+- <img src='/GLSL/Channel/K_RgbcmyMatte_GL/K_RgbcmyMatte_GL.png' width='24'> **[K_RgbcmyMatte_GL](/GLSL/Channel/K_RgbcmyMatte_GL/README.md)** : Separates Red, Green, Blue, Cyan, Magenta, Yellow and White from a matte pass.
 
-- <img src='/GLSL/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='32'> **[Shuffle_AtoRGB_GL](/GLSL/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
+- <img src='/GLSL/Channel/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='24'> **[Shuffle_AtoRGB_GL](/GLSL/Channel/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
 ### GLSL/Color
-- <img src='/GLSL/AFX_Grade_GL/AFX_Grade_GL.png' width='32'> **[AFX_Grade_GL](/GLSL/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
+- <img src='/GLSL/Color/AFX_Grade_GL/AFX_Grade_GL.png' width='32'> **[AFX_Grade_GL](/GLSL/Color/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
 
-- <img src='/GLSL/Crok_2color_GL/Crok_2color_GL.png' width='32'> **[Crok_2color_GL](/GLSL/Crok_2color_GL/README.md)** : Simulates a 2 color look.
+- <img src='/GLSL/Color/Crok_2color_GL/Crok_2color_GL.png' width='32'> **[Crok_2color_GL](/GLSL/Color/Crok_2color_GL/README.md)** : Simulates a 2 color look.
 
-- <img src='/GLSL/Crok_exposure_GL/Crok_exposure_GL.png' width='32'> **[Crok_exposure_GL](/GLSL/Crok_exposure_GL/README.md)** : Simulates an exposure node.
+- <img src='/GLSL/Color/Crok_exposure_GL/Crok_exposure_GL.png' width='32'> **[Crok_exposure_GL](/GLSL/Color/Crok_exposure_GL/README.md)** : Simulates an exposure node.
 
-- <img src='/GLSL/JB_colorRemap_GL/JB_colorRemap_GL.png' width='32'> **[JB_colorRemap_GL](/GLSL/JB_colorRemap_GL/README.md)** : Remaps RGB of input1 using RGB of input 2.
+- <img src='/GLSL/Color/JB_colorRemap_GL/JB_colorRemap_GL.png' width='32'> **[JB_colorRemap_GL](/GLSL/Color/JB_colorRemap_GL/README.md)** : Remaps RGB of input1 using RGB of input 2.
 
-- <img src='/GLSL/K_BW_GL/K_BW_GL.png' width='32'> **[K_BW_GL](/GLSL/K_BW_GL/README.md)** : Creates black and white images with adjustable RGB values.
+- <img src='/GLSL/Color/K_BW_GL/K_BW_GL.png' width='32'> **[K_BW_GL](/GLSL/Color/K_BW_GL/README.md)** : Creates black and white images with adjustable RGB values.
 
-- <img src='/GLSL/Ls_Colourmatrix_GL/Ls_Colourmatrix_GL.png' width='32'> **[Ls_Colourmatrix_GL](/GLSL/Ls_Colourmatrix_GL/README.md)** : Apply 3x3 matrices to RGB for white balance, colourspace conversion or well disco grades.
+- <img src='/GLSL/Color/Ls_Colourmatrix_GL/Ls_Colourmatrix_GL.png' width='32'> **[Ls_Colourmatrix_GL](/GLSL/Color/Ls_Colourmatrix_GL/README.md)** : Apply 3x3 matrices to RGB for white balance, colourspace conversion or well disco grades.
 
-- <img src='/GLSL/Ls_NaNfix_GL/Ls_NaNfix_GL.png' width='32'> **[Ls_NaNfix_GL](/GLSL/Ls_NaNfix_GL/README.md)** : Fixes pixels which are stuck at NaN.
+- <img src='/GLSL/Color/Ls_NaNfix_GL/Ls_NaNfix_GL.png' width='32'> **[Ls_NaNfix_GL](/GLSL/Color/Ls_NaNfix_GL/README.md)** : Fixes pixels which are stuck at NaN.
 
-- <img src='/GLSL/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='32'> **[Ls_RndmGrade_GL](/GLSL/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
+- <img src='/GLSL/Color/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='32'> **[Ls_RndmGrade_GL](/GLSL/Color/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
 ### GLSL/Distort
-- <img src='/GLSL/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='24'> **[Crok_noise_blur_GL](/GLSL/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
+- <img src='/GLSL/Distort/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='24'> **[Crok_noise_blur_GL](/GLSL/Distort/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
 
-- <img src='/GLSL/Crok_pixelsort_GL/Crok_pixelsort_GL.png' width='24'> **[Crok_pixelsort_GL](/GLSL/Crok_pixelsort_GL/README.md)** : Creates a pixel sort type effect.
+- <img src='/GLSL/Distort/Crok_pixelsort_GL/Crok_pixelsort_GL.png' width='24'> **[Crok_pixelsort_GL](/GLSL/Distort/Crok_pixelsort_GL/README.md)** : Creates a pixel sort type effect.
 
-- <img src='/GLSL/Crok_pixelstretch_GL/Crok_pixelstretch_GL.png' width='24'> **[Crok_pixelstretch_GL](/GLSL/Crok_pixelstretch_GL/README.md)** : Creates a Pixelspread type stretch effect.
+- <img src='/GLSL/Distort/Crok_pixelstretch_GL/Crok_pixelstretch_GL.png' width='24'> **[Crok_pixelstretch_GL](/GLSL/Distort/Crok_pixelstretch_GL/README.md)** : Creates a Pixelspread type stretch effect.
 
-- <img src='/GLSL/JB_PixelDisplace_GL/JB_PixelDisplace_GL.png' width='24'> **[JB_PixelDisplace_GL](/GLSL/JB_PixelDisplace_GL/README.md)** : Image displace effect for Shadertoy.
+- <img src='/GLSL/Distort/JB_pixelDisplace_GL/JB_pixelDisplace_GL.png' width='24'> **[JB_pixelDisplace_GL](/GLSL/Distort/JB_pixelDisplace_GL/README.md)** : Image displace effect for Shadertoy.
 
-- <img src='/GLSL/K_Chroma_GL/K_Chroma_GL.png' width='24'> **[K_Chroma_GL](/GLSL/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
+- <img src='/GLSL/Distort/JB_timeDisplace_GL/JB_timeDisplace_GL.png' width='24'> **[JB_timeDisplace_GL](/GLSL/Distort/JB_timeDisplace_GL/README.md)** : Tries to emulate the Sapphire s_TimeDisplace node.
 
-- <img src='/GLSL/Ls_Advect_GL/Ls_Advect_GL.png' width='24'> **[Ls_Advect_GL](/GLSL/Ls_Advect_GL/README.md)** : Pushes an image along the contours of another.
+- <img src='/GLSL/Distort/K_Chroma_GL/K_Chroma_GL.png' width='24'> **[K_Chroma_GL](/GLSL/Distort/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
-- <img src='/GLSL/Ls_nail_GL/Ls_nail_GL.png' width='24'> **[Ls_nail_GL](/GLSL/Ls_nail_GL/README.md)** : Warp an area of the Source and Mask to follow a track.
+- <img src='/GLSL/Distort/Ls_Advect_GL/Ls_Advect_GL.png' width='24'> **[Ls_Advect_GL](/GLSL/Distort/Ls_Advect_GL/README.md)** : Pushes an image along the contours of another.
 
-- <img src='/GLSL/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='24'> **[Ls_Posmatte_GL](/GLSL/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
+- <img src='/GLSL/Distort/Ls_nail_GL/Ls_nail_GL.png' width='24'> **[Ls_nail_GL](/GLSL/Distort/Ls_nail_GL/README.md)** : Warp an area of the Source and Mask to follow a track.
 
-- <img src='/GLSL/Ls_Splineblur_GL/Ls_Splineblur_GL.png' width='24'> **[Ls_Splineblur_GL](/GLSL/Ls_Splineblur_GL/README.md)** : Directional blur along the edges of a shape.
+- <img src='/GLSL/Distort/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='24'> **[Ls_Posmatte_GL](/GLSL/Distort/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
 
-- <img src='/GLSL/Ls_UVewa_GL/Ls_UVewa_GL.png' width='24'> **[Ls_UVewa_GL](/GLSL/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
+- <img src='/GLSL/Distort/Ls_Splineblur_GL/Ls_Splineblur_GL.png' width='24'> **[Ls_Splineblur_GL](/GLSL/Distort/Ls_Splineblur_GL/README.md)** : Directional blur along the edges of a shape.
+
+- <img src='/GLSL/Distort/Ls_UVewa_GL/Ls_UVewa_GL.png' width='24'> **[Ls_UVewa_GL](/GLSL/Distort/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
 
 ### GLSL/Draw
-- <img src='/GLSL/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
+- <img src='/GLSL/Draw/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Draw/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
 
-- <img src='/GLSL/Crok_regrain_GL/Crok_regrain_GL.png' width='32'> **[Crok_regrain_GL](/GLSL/Crok_regrain_GL/README.md)** : Simulates film grain.
+- <img src='/GLSL/Draw/Crok_regrain_GL/Crok_regrain_GL.png' width='32'> **[Crok_regrain_GL](/GLSL/Draw/Crok_regrain_GL/README.md)** : Simulates film grain.
 
-- <img src='/GLSL/Guides_GL/Guides_GL.png' width='32'> **[Guides_GL](/GLSL/Guides_GL/README.md)** : Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...
+- <img src='/GLSL/Draw/Guides_GL/Guides_GL.png' width='32'> **[Guides_GL](/GLSL/Draw/Guides_GL/README.md)** : Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...
 
 ### GLSL/Effect
-- <img src='/GLSL/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
+- <img src='/GLSL/Effect/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Effect/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
 
-- <img src='/GLSL/Crok_6567_GL/Crok_6567_GL.png' width='32'> **[Crok_6567_GL](/GLSL/Crok_6567_GL/README.md)** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
+- <img src='/GLSL/Effect/Crok_6567_GL/Crok_6567_GL.png' width='32'> **[Crok_6567_GL](/GLSL/Effect/Crok_6567_GL/README.md)** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
 
-- <img src='/GLSL/Crok_ascii_art_GL/Crok_ascii_art_GL.png' width='32'> **[Crok_ascii_art_GL](/GLSL/Crok_ascii_art_GL/README.md)** : Generates ascii art.
+- <img src='/GLSL/Effect/Crok_ascii_art_GL/Crok_ascii_art_GL.png' width='32'> **[Crok_ascii_art_GL](/GLSL/Effect/Crok_ascii_art_GL/README.md)** : Generates ascii art.
 
-- <img src='/GLSL/Crok_beer_GL/Crok_beer_GL.png' width='32'> **[Crok_beer_GL](/GLSL/Crok_beer_GL/README.md)** : Creates a beer like structure.
+- <img src='/GLSL/Effect/Crok_beer_GL/Crok_beer_GL.png' width='32'> **[Crok_beer_GL](/GLSL/Effect/Crok_beer_GL/README.md)** : Creates a beer like structure.
 
-- <img src='/GLSL/Crok_bleachbypass_GL/Crok_bleachbypass_GL.png' width='32'> **[Crok_bleachbypass_GL](/GLSL/Crok_bleachbypass_GL/README.md)** : GPU accelerated bleachbypass effect for Shadertoy.
+- <img src='/GLSL/Effect/Crok_bleachbypass_GL/Crok_bleachbypass_GL.png' width='32'> **[Crok_bleachbypass_GL](/GLSL/Effect/Crok_bleachbypass_GL/README.md)** : GPU accelerated bleachbypass effect for Shadertoy.
 
-- <img src='/GLSL/Crok_cel_shading_GL/Crok_cel_shading_GL.png' width='32'> **[Crok_cel_shading_GL](/GLSL/Crok_cel_shading_GL/README.md)** : Simulates cel shading.
+- <img src='/GLSL/Effect/Crok_cel_shading_GL/Crok_cel_shading_GL.png' width='32'> **[Crok_cel_shading_GL](/GLSL/Effect/Crok_cel_shading_GL/README.md)** : Simulates cel shading.
 
-- <img src='/GLSL/Crok_cmyk_halftone_GL/Crok_cmyk_halftone_GL.png' width='32'> **[Crok_cmyk_halftone_GL](/GLSL/Crok_cmyk_halftone_GL/README.md)** : GPU accelerated CMYK halftone effect for Shadertoy.
+- <img src='/GLSL/Effect/Crok_cmyk_halftone_GL/Crok_cmyk_halftone_GL.png' width='32'> **[Crok_cmyk_halftone_GL](/GLSL/Effect/Crok_cmyk_halftone_GL/README.md)** : GPU accelerated CMYK halftone effect for Shadertoy.
 
-- <img src='/GLSL/Crok_contour_GL/Crok_contour_GL.png' width='32'> **[Crok_contour_GL](/GLSL/Contour_GL/README.md)** : Creates a handdrawn style edge detect.
+- <img src='/GLSL/Effect/Crok_contour_GL/Crok_contour_GL.png' width='32'> **[Crok_contour_GL](/GLSL/Effect/Contour_GL/README.md)** : Creates a handdrawn style edge detect.
 
-- <img src='/GLSL/Crok_crosshatch_GL/Crok_crosshatch_GL.png' width='32'> **[Crok_crosshatch_GL](/GLSL/Crok_crosshatch_GL/README.md)** : Simulates a simple pencil sketch.
+- <img src='/GLSL/Effect/Crok_crosshatch_GL/Crok_crosshatch_GL.png' width='32'> **[Crok_crosshatch_GL](/GLSL/Effect/Crok_crosshatch_GL/README.md)** : Simulates a simple pencil sketch.
 
-- <img src='/GLSL/Crok_crt_GL/Crok_crt_GL.png' width='32'> **[Crok_crt_GL](/GLSL/Crt_GL/README.md)** : Creates a CRT style scan-line effect with additional shadowmasking.
+- <img src='/GLSL/Effect/Crok_crt_GL/Crok_crt_GL.png' width='32'> **[Crok_crt_GL](/GLSL/Effect/Crt_GL/README.md)** : Creates a CRT style scan-line effect with additional shadowmasking.
 
-- <img src='/GLSL/Crok_deband_GL/Crok_deband_GL.png' width='32'> **[Crok_deband_GL](/GLSL/Crok_deband_GL/README.md)** : Reduces banding.
+- <img src='/GLSL/Effect/Crok_deband_GL/Crok_deband_GL.png' width='32'> **[Crok_deband_GL](/GLSL/Effect/Crok_deband_GL/README.md)** : Reduces banding.
 
-- <img src='/GLSL/Crok_dithering_GL/Crok_dithering_GL.png' width='32'> **[Crok_dithering_GL](/GLSL/Crok_dithering_GL/README.md)** : Creates a dithering effect.
+- <img src='/GLSL/Effect/Crok_digital_glitch_GL/Crok_digital_glitch_GL.png' width='32'> **[Crok_digital_glitch_GL](/GLSL/Effect/Crok_digital_glitch_GL/README.md)** : Simulates digital glitches.
 
-- <img src='/GLSL/Crok_emboss_GL/Crok_emboss_GL.png' width='32'> **[Crok_emboss_GL](/GLSL/Crok_emboss_GL/README.md)** : Simulates an emboss effect.
+- <img src='/GLSL/Effect/Crok_dithering_GL/Crok_dithering_GL.png' width='32'> **[Crok_dithering_GL](/GLSL/Effect/Crok_dithering_GL/README.md)** : Creates a dithering effect.
 
-- <img src='/GLSL/Crok_flicker_GL/Crok_flicker_GL.png' width='32'> **[Crok_flicker_GL](/GLSL/Crok_flicker_GL/README.md)** : Creates a flickering effect.
+- <img src='/GLSL/Effect/Crok_emboss_GL/Crok_emboss_GL.png' width='32'> **[Crok_emboss_GL](/GLSL/Effect/Crok_emboss_GL/README.md)** : Simulates an emboss effect.
 
-- <img src='/GLSL/Crok_hexagon_GL/Crok_hexagon_GL.png' width='32'> **[Crok_hexagon_GL](/GLSL/Crok_hexagon_GL/README.md)** : Generates hexagon patterns.
+- <img src='/GLSL/Effect/Crok_flicker_GL/Crok_flicker_GL.png' width='32'> **[Crok_flicker_GL](/GLSL/Effect/Crok_flicker_GL/README.md)** : Creates a flickering effect.
 
-- <img src='/GLSL/Crok_highpass_GL/Crok_highpass_GL.png' width='32'> **[Crok_highpass_GL](/GLSL/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
+- <img src='/GLSL/Effect/Crok_hexagon_GL/Crok_hexagon_GL.png' width='32'> **[Crok_hexagon_GL](/GLSL/Effect/Crok_hexagon_GL/README.md)** : Generates hexagon patterns.
 
-- <img src='/GLSL/Crok_kuwahara_GL/Crok_kuwahara_GL.png' width='32'> **[Crok_kuwahara_GL](/GLSL/Crok_kuwahara_GL/README.md)** : Simulates anisotropic kuwahara filtering.
+- <img src='/GLSL/Effect/Crok_highpass_GL/Crok_highpass_GL.png' width='32'> **[Crok_highpass_GL](/GLSL/Effect/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
 
-- <img src='/GLSL/Crok_lowfi_GL/Crok_lowfi_GL.png' width='32'> **[Crok_lowfi_GL](/GLSL/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
+- <img src='/GLSL/Effect/Crok_kuwahara_GL/Crok_kuwahara_GL.png' width='32'> **[Crok_kuwahara_GL](/GLSL/Effect/Crok_kuwahara_GL/README.md)** : Simulates anisotropic kuwahara filtering.
 
-- <img src='/GLSL/Crok_nightvision_GL/Crok_nightvision_GL.png' width='32'> **[Crok_nightvision_GL](/GLSL/Croknight_vision_GL/README.md)** : Creates a nightvision effect.
+- <img src='/GLSL/Effect/Crok_lowfi_GL/Crok_lowfi_GL.png' width='32'> **[Crok_lowfi_GL](/GLSL/Effect/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
 
-- <img src='/GLSL/Crok_oil_paint_GL/Crok_oil_paint_GL.png' width='32'> **[Crok_oil_paint_GL](/GLSL/Crok_oil_paint_GL/README.md)** : Applies a painterly effet to the image.
+- <img src='/GLSL/Effect/Crok_nightvision_GL/Crok_nightvision_GL.png' width='32'> **[Crok_nightvision_GL](/GLSL/Effect/Croknight_vision_GL/README.md)** : Creates a nightvision effect.
 
-- <img src='/GLSL/Crok_parallax_GL/Crok_parallax_GL.png' width='32'> **[Crok_parallax_GL](/GLSL/Crok_parallax_GL/README.md)** : Simulates a typical Amiga style parallax effect.
+- <img src='/GLSL/Effect/Crok_oil_paint_GL/Crok_oil_paint_GL.png' width='32'> **[Crok_oil_paint_GL](/GLSL/Effect/Crok_oil_paint_GL/README.md)** : Applies a painterly effet to the image.
 
-- <img src='/GLSL/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
+- <img src='/GLSL/Effect/Crok_parallax_GL/Crok_parallax_GL.png' width='32'> **[Crok_parallax_GL](/GLSL/Effect/Crok_parallax_GL/README.md)** : Simulates a typical Amiga style parallax effect.
 
-- <img src='/GLSL/Crok_scanlines_GL/Crok_scanlines_GL.png' width='32'> **[Crok_scanlines_GL](/GLSL/Crok_scanlines_GL/README.md)** : Simulates CRT phosphor / shadow mask arrangements.
+- <img src='/GLSL/Effect/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Effect/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
 
-- <img src='/GLSL/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='32'> **[Crok_tv_rgb_dots_GL](/GLSL/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
+- <img src='/GLSL/Effect/Crok_scanlines_GL/Crok_scanlines_GL.png' width='32'> **[Crok_scanlines_GL](/GLSL/Effect/Crok_scanlines_GL/README.md)** : Simulates CRT phosphor / shadow mask arrangements.
 
-- <img src='/GLSL/Crok_vein_GL/Crok_vein_GL.png' width='32'> **[Crok_vein_GL](/GLSL/Crok_vein_GL/README.md)** : Generates veins.
+- <img src='/GLSL/Effect/Crok_separation_GL/Crok_separation_GL.png' width='32'> **[Crok_separation_GL](/GLSL/Effect/Crok_separation_GL/README.md)** : Creates a low pass and high pass filter sometimes called frequency separation.
 
-- <img src='/GLSL/EWA_GL/EWA_GL.png' width='32'> **[EWA_GL](/GLSL/EWA_GL/README.md)** : GPU accelerated EWA antialiasing effect for Shadertoy.
+- <img src='/GLSL/Effect/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='32'> **[Crok_tv_rgb_dots_GL](/GLSL/Effect/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
 
-- <img src='/GLSL/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/FXAA_GL/README.md)** : GPU accelerated FXAA antialiasing effect for Shadertoy.
+- <img src='/GLSL/Effect/Crok_vein_GL/Crok_vein_GL.png' width='32'> **[Crok_vein_GL](/GLSL/Effect/Crok_vein_GL/README.md)** : Generates veins.
 
-- <img src='/GLSL/JB_lidar_GL/JB_lidar_GL.png' width='32'> **[JB_lidar_GL](/GLSL/JB_lidar_GL/README.md)** : This node tries to emulate a fake point cloud data provided by a lidar.
+- <img src='/GLSL/Effect/Crok_vhs_GL/Crok_vhs_GL.png' width='32'> **[Crok_vhs_GL](/GLSL/Effect/Crok_vhs_GL/README.md)** : Simulates an old VHS player.
 
-- <img src='/GLSL/Ls_Dollface_GL/Ls_Dollface_GL.png' width='32'> **[Ls_Dollface_GL](/GLSL/Ls_Dollface_GL/README.md)** : Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.
+- <img src='/GLSL/Effect/EWA_GL/EWA_GL.png' width='32'> **[EWA_GL](/GLSL/Effect/EWA_GL/README.md)** : GPU accelerated EWA antialiasing effect for Shadertoy.
 
-- <img src='/GLSL/Ls_FXAA_GL/Ls_FXAA_GL.png' width='32'> **[Ls_FXAA_GL](/GLSL/Ls_FXAA_GL/README.md)** : Fast cheap antialiasing.
+- <img src='/GLSL/Effect/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/Effect/FXAA_GL/README.md)** : GPU accelerated FXAA antialiasing effect for Shadertoy.
 
-- <img src='/GLSL/Ls_wireless_GL/Ls_wireless_GL.png' width='32'> **[Ls_wireless_GL](/GLSL/Ls_wireless_GL/README.md)** : Fast cheap antialiasing.
+- <img src='/GLSL/Effect/JB_lidar_GL/JB_lidar_GL.png' width='32'> **[JB_lidar_GL](/GLSL/Effect/JB_lidar_GL/README.md)** : This node tries to emulate a fake point cloud data provided by a lidar.
 
-- <img src='/GLSL/Money_Filter_GL/Money_Filter_GL.png' width='32'> **[Money_Filter_GL](/GLSL/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect for Shadertoy.
+- <img src='/GLSL/Effect/Ls_Dollface_GL/Ls_Dollface_GL.png' width='32'> **[Ls_Dollface_GL](/GLSL/Effect/Ls_Dollface_GL/README.md)** : Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.
+
+- <img src='/GLSL/Effect/Ls_FXAA_GL/Ls_FXAA_GL.png' width='32'> **[Ls_FXAA_GL](/GLSL/Effect/Ls_FXAA_GL/README.md)** : Fast cheap antialiasing.
+
+- <img src='/GLSL/Effect/Ls_wireless_GL/Ls_wireless_GL.png' width='32'> **[Ls_wireless_GL](/GLSL/Effect/Ls_wireless_GL/README.md)** : Fast cheap antialiasing.
+
+- <img src='/GLSL/Effect/Money_Filter_GL/Money_Filter_GL.png' width='32'> **[Money_Filter_GL](/GLSL/Effect/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect for Shadertoy.
 
 ### GLSL/Keying
-- <img src='/GLSL/AFX_Despill_GL/AFX_Despill_GL.png' width='32'> **[AFX_Despill_GL](/GLSL/AFX_Despill_GL/README.md)** : GPU accelerated After Effects despill for Shadertoy.
+- <img src='/GLSL/Keying/AFX_Despill_GL/AFX_Despill_GL.png' width='32'> **[AFX_Despill_GL](/GLSL/Keying/AFX_Despill_GL/README.md)** : GPU accelerated After Effects despill for Shadertoy.
 
-- <img src='/GLSL/Crok_chromakey_GL/Crok_chromakey_GL.png' width='32'> **[Crok_chromakey_GL](/GLSL/Crok_chromakey_GL/README.md)** : This shader does a fast chroma key.
+- <img src='/GLSL/Keying/Crok_chromakey_GL/Crok_chromakey_GL.png' width='32'> **[Crok_chromakey_GL](/GLSL/Keying/Crok_chromakey_GL/README.md)** : This shader does a fast chroma key.
 
-- <img src='/GLSL/Crok_despill_GL/Crok_despill_GL.png' width='32'> **[Crok_despill_GL](/GLSL/Crok_despill_GL/README.md)** : Combines multiple LogicOps to streamline your keying node graph.
+- <img src='/GLSL/Keying/Crok_despill_GL/Crok_despill_GL.png' width='32'> **[Crok_despill_GL](/GLSL/Keying/Crok_despill_GL/README.md)** : Combines multiple LogicOps to streamline your keying node graph.
 
-- <img src='/GLSL/Crok_difference_GL/Crok_difference_GL.png' width='32'> **[Crok_difference_GL](/GLSL/Crok_difference_GL/README.md)** : Creates a diference matte.
+- <img src='/GLSL/Keying/Crok_difference_GL/Crok_difference_GL.png' width='32'> **[Crok_difference_GL](/GLSL/Keying/Crok_difference_GL/README.md)** : Creates a diference matte.
 
-- <img src='/GLSL/Crok_edge_matte_GL/Crok_edge_matte_GL.png' width='32'> **[Crok_edge_matte_GL](/GLSL/Crok_edge_matte_GL/README.md)** : GPU accelerated edge detect effect for Shadertoy.
+- <img src='/GLSL/Keying/Crok_edge_matte_GL/Crok_edge_matte_GL.png' width='32'> **[Crok_edge_matte_GL](/GLSL/Keying/Crok_edge_matte_GL/README.md)** : GPU accelerated edge detect effect for Shadertoy.
 
-- <img src='/GLSL/Cryptomatte_GL/Cryptomatte_GL.png' width='32'> **[Cryptomatte_GL](/GLSL/Cryptomatte_GL/README.md)** : Extract up to four mattes from the ID/coverage pairs generated by Arnold/Clarisse/Mantra's Cryptomatte shaders.
+- <img src='/GLSL/Keying/Cryptomatte_GL/Cryptomatte_GL.png' width='24'> **[Cryptomatte_GL](/GLSL/Keying/Cryptomatte_GL/README.md)** : Extract up to four mattes from the ID/coverage pairs generated by Arnold/Clarisse/Mantra's Cryptomatte shaders.
 
-- <img src='/GLSL/JB_erodematte_GL/JB_erodematte_GL.png' width='32'> **[JB_erodematte_GL](/GLSL/JB_erodematte_GL/README.md)** : Simple erode node.
+- <img src='/GLSL/Keying/JB_autoMatte_GL/JB_autoMatte_GL.png' width='32'> **[JB_autoMatte_GL](/GLSL/Keying/JB_autoMatte_GL/README.md)** : Creates a RGB multimattes of an input which can be useful to mockup quick keys.
+
+- <img src='/GLSL/Keying/JB_erodematte_GL/JB_erodematte_GL.png' width='32'> **[JB_erodematte_GL](/GLSL/Keying/JB_erodematte_GL/README.md)** : Simple erode node.
 
 ### GLSL/Merge
-- <img src='/GLSL/Add_GL/Add_GL.png' width='32'> **[Add_GL](/GLSL/Add_GL/README.md)** : GPU accelerated additive merge for Shadertoy.
+- <img src='/GLSL/Merge/Add_GL/Add_GL.png' width='32'> **[Add_GL](/GLSL/Merge/Add_GL/README.md)** : GPU accelerated additive merge for Shadertoy.
 
-- <img src='/GLSL/Ls_Contacts_GL/Ls_Contacts_GL.png' width='32'> **[Ls_Contacts_GL](/GLSL/Ls_Contacts_GL/README.md)** : Tile inputs into a grid for impressing clients, choosing versions or checking continuity.
+- <img src='/GLSL/Merge/Crok_uncomp_GL/Crok_uncomp_GL.png' width='32'> **[Crok_uncomp_GL](/GLSL/Merge/Crok_uncomp_GL/README.md)** : Uncompose a compositing scene into its original layer.
 
-- <img src='/GLSL/Merge_GL/Merge_GL.png' width='32'> **[Merge_GL](/GLSL/Merge_GL/README.md)** : GPU accelerated merge node for Shadertoy.
+- <img src='/GLSL/Merge/Ls_Contacts_GL/Ls_Contacts_GL.png' width='32'> **[Ls_Contacts_GL](/GLSL/Merge/Ls_Contacts_GL/README.md)** : Tile inputs into a grid for impressing clients, choosing versions or checking continuity.
 
-- <img src='/GLSL/Screen_GL/Screen_GL.png' width='32'> **[Screen_GL](/GLSL/Screen_GL/README.md)** : GPU accelerated screen merge for Shadertoy.
+- <img src='/GLSL/Merge/Merge_GL/Merge_GL.png' width='32'> **[Merge_GL](/GLSL/Merge/Merge_GL/README.md)** : GPU accelerated merge node for Shadertoy.
+
+- <img src='/GLSL/Merge/Screen_GL/Screen_GL.png' width='32'> **[Screen_GL](/GLSL/Merge/Screen_GL/README.md)** : GPU accelerated screen merge for Shadertoy.
 
 ### GLSL/Source
-- <img src='/GLSL/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='32'> **[Bleepy_Blocks_GL](/GLSL/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
+- <img src='/GLSL/Source/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='32'> **[Bleepy_Blocks_GL](/GLSL/Source/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
 
-- <img src='/GLSL/Bubbles_GL/Bubbles_GL.png' width='32'> **[Bubbles_GL](/GLSL/Bubbles_GL/README.md)** : GPU accelerated bubbles generator for Shadertoy.
+- <img src='/GLSL/Source/Bubbles_GL/Bubbles_GL.png' width='32'> **[Bubbles_GL](/GLSL/Source/Bubbles_GL/README.md)** : GPU accelerated bubbles generator for Shadertoy.
 
-- <img src='/GLSL/Cellular_GL/Cellular_GL.png' width='32'> **[Cellular_GL](/GLSL/Cellular_GL/README.md)** : GPU accelerated cell generator for Shadertoy.
+- <img src='/GLSL/Source/Cellular_GL/Cellular_GL.png' width='32'> **[Cellular_GL](/GLSL/Source/Cellular_GL/README.md)** : GPU accelerated cell generator for Shadertoy.
 
-- <img src='/GLSL/cr2_HEX_GL/cr2_HEX_GL.png' width='32'> **[cr2_HEX_GL](/GLSL/cr2_HEX_GL/README.md)** : Creates a Hexagon Pattern.
+- <img src='/GLSL/Source/cr2_HEX_GL/cr2_HEX_GL.png' width='32'> **[cr2_HEX_GL](/GLSL/Source/cr2_HEX_GL/README.md)** : Creates a Hexagon Pattern.
 
-- <img src='/GLSL/Crok_3d_grid_GL/Crok_3d_grid_GL.png' width='32'> **[Crok_3d_grid_GL](/GLSL/Crok_3d_grid_GL/README.md)** : Creates a 3D Grid.
+- <img src='/GLSL/Source/Crok_3d_grid_GL/Crok_3d_grid_GL.png' width='32'> **[Crok_3d_grid_GL](/GLSL/Source/Crok_3d_grid_GL/README.md)** : Creates a 3D Grid.
 
-- <img src='/GLSL/Crok_blobs_GL/Crok_blobs_GL.png' width='32'> **[Crok_blobs_GL](/GLSL/Crok_blobs_GL/README.md)** : Creates blob like sturctures.
+- <img src='/GLSL/Source/Crok_blobs_GL/Crok_blobs_GL.png' width='32'> **[Crok_blobs_GL](/GLSL/Source/Crok_blobs_GL/README.md)** : Creates blob like sturctures.
 
-- <img src='/GLSL/Crok_block_noise_GL/Crok_block_noise_GL.png' width='32'> **[Crok_block_noise_GL](/GLSL/Crok_block_noise_GL/README.md)** : Creates blocky textures.
+- <img src='/GLSL/Source/Crok_box_GL/Crok_box_GL.png' width='32'> **[Crok_box_GL](/GLSL/Source/Crok_box_GL/README.md)** : Creates an antialiased square with rounded corners.
 
-- <img src='/GLSL/Crok_cameraflash_GL/Crok_cameraflash_GL.png' width='32'> **[Crok_cameraflash_GL](/GLSL/Crok_cameraflash_GL/README.md)** : Creates simple camera flashs.
+- <img src='/GLSL/Source/Crok_block_noise_GL/Crok_block_noise_GL.png' width='32'> **[Crok_block_noise_GL](/GLSL/Source/Crok_block_noise_GL/README.md)** : Creates blocky textures.
 
-- <img src='/GLSL/Crok_cells_GL/Crok_cells_GL.png' width='32'> **[Crok_cells_GL](/GLSL/Crok_cells_GL/README.md)** : Creates a cell pattern.
+- <img src='/GLSL/Source/Crok_cameraflash_GL/Crok_cameraflash_GL.png' width='32'> **[Crok_cameraflash_GL](/GLSL/Source/Crok_cameraflash_GL/README.md)** : Creates simple camera flashs.
 
-- <img src='/GLSL/Crok_cellular_GL/Crok_cellular_GL.png' width='32'> **[Crok_cellular_GL](/GLSL/Crok_cellular_GL/README.md)** : Creates tons of cellular like looking patterns.
+- <img src='/GLSL/Source/Crok_cells_GL/Crok_cells_GL.png' width='32'> **[Crok_cells_GL](/GLSL/Source/Crok_cells_GL/README.md)** : Creates a cell pattern.
 
-- <img src='/GLSL/Crok_checkerboard_GL/Crok_checkerboard_GL.png' width='32'> **[Crok_checkerboard_GL](/GLSL/Crok_checkerboard_GL/README.md)** : Creates a checkerboard pattern.
+- <img src='/GLSL/Source/Crok_cellular_GL/Crok_cellular_GL.png' width='32'> **[Crok_cellular_GL](/GLSL/Source/Crok_cellular_GL/README.md)** : Creates tons of cellular like looking patterns.
 
-- <img src='/GLSL/Crok_fbmPixels_GL/Crok_fbmPixels_GL.png' width='32'> **[Crok_fbmPixels_GL](/GLSL/Crok_fbmPixels_GL/README.md)** : Creates a fbm style pattern.
+- <img src='/GLSL/Source/Crok_checkerboard_GL/Crok_checkerboard_GL.png' width='32'> **[Crok_checkerboard_GL](/GLSL/Source/Crok_checkerboard_GL/README.md)** : Creates a checkerboard pattern.
 
-- <img src='/GLSL/Crok_flow_GL/Crok_flow_GL.png' width='32'> **[Crok_flow_GL](/GLSL/Crok_flow_GL/README.md)** : Creates a perlin noise pattern.
+- <img src='/GLSL/Source/Crok_fbmPixels_GL/Crok_fbmPixels_GL.png' width='32'> **[Crok_fbmPixels_GL](/GLSL/Source/Crok_fbmPixels_GL/README.md)** : Creates a fbm style pattern.
 
-- <img src='/GLSL/Crok_fractal_GL/Crok_fractal_GL.png' width='32'> **[Crok_fractal_GL](/GLSL/Crok_fractal_GL/README.md)** : Creates a fractal pattern.
+- <img src='/GLSL/Source/Crok_flow_GL/Crok_flow_GL.png' width='32'> **[Crok_flow_GL](/GLSL/Source/Crok_flow_GL/README.md)** : Creates a perlin noise pattern.
 
-- <img src='/GLSL/Crok_fractal_soup_GL/Crok_fractal_soup_GL.png' width='32'> **[Crok_fractal_soup_GL](/GLSL/Crok_fractal_soup_GL/README.md)** : Creates a mandelbrot pattern.
+- <img src='/GLSL/Source/Crok_fractal_GL/Crok_fractal_GL.png' width='32'> **[Crok_fractal_GL](/GLSL/Source/Crok_fractal_GL/README.md)** : Creates a fractal pattern.
 
-- <img src='/GLSL/Crok_gradient_GL/Crok_gradient_GL.png' width='32'> **[Crok_gradient_GL](/GLSL/Crok_gradient_GL/README.md)** : Creates a simple gradient effect.
+- <img src='/GLSL/Source/Crok_fractal_soup_GL/Crok_fractal_soup_GL.png' width='32'> **[Crok_fractal_soup_GL](/GLSL/Source/Crok_fractal_soup_GL/README.md)** : Creates a mandelbrot pattern.
 
-- <img src='/GLSL/Crok_lava_GL/Crok_lava_GL.png' width='32'> **[Crok_lava_GL](/GLSL/Crok_lava_GL/README.md)** : Creates flame / fluid like patterns.
+- <img src='/GLSL/Source/Crok_gradient_GL/Crok_gradient_GL.png' width='32'> **[Crok_gradient_GL](/GLSL/Source/Crok_gradient_GL/README.md)** : Creates a simple gradient effect.
 
-- <img src='/GLSL/Crok_lines_GL/Crok_lines_GL.png' width='32'> **[Crok_lines_GL](/GLSL/Crok_lines_GL/README.md)** : Creates lines.
+- <img src='/GLSL/Source/Crok_lava_GL/Crok_lava_GL.png' width='32'> **[Crok_lava_GL](/GLSL/Source/Crok_lava_GL/README.md)** : Creates flame / fluid like patterns.
 
-- <img src='/GLSL/Crok_ocean_noise_GL/Crok_ocean_noise_GL.png' width='32'> **[Crok_ocean_noise_GL](/GLSL/Crok_ocean_noise_GL/README.md)** : Creates an ocean / water like noise pattern.
+- <img src='/GLSL/Source/Crok_lines_GL/Crok_lines_GL.png' width='32'> **[Crok_lines_GL](/GLSL/Source/Crok_lines_GL/README.md)** : Creates lines.
 
-- <img src='/GLSL/Crok_patterns_GL/Crok_patterns_GL.png' width='32'> **[Crok_patterns_GL](/GLSL/Crok_patterns_GL/README.md)** : Creates different patterns.
+- <img src='/GLSL/Source/Crok_maze_GL/Crok_maze_GL.png' width='32'> **[Crok_maze_GL](/GLSL/Source/Crok_maze_GL/README.md)** : Creates a maze like structure.
 
-- <img src='/GLSL/Crok_perlin_GL/Crok_perlin_GL.png' width='32'> **[Crok_perlin_GL](/GLSL/Crok_perlin_GL/README.md)** : Creates a perlin noise like pattern.
+- <img src='/GLSL/Source/Crok_ocean_noise_GL/Crok_ocean_noise_GL.png' width='32'> **[Crok_ocean_noise_GL](/GLSL/Source/Crok_ocean_noise_GL/README.md)** : Creates an ocean / water like noise pattern.
 
-- <img src='/GLSL/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
+- <img src='/GLSL/Source/Crok_patterns_GL/Crok_patterns_GL.png' width='32'> **[Crok_patterns_GL](/GLSL/Source/Crok_patterns_GL/README.md)** : Creates different patterns.
 
-- <img src='/GLSL/Crok_puffy_noise_GL/Crok_puffy_noise_GL.png' width='32'> **[Crok_puffy_noise_GL](/GLSL/Crok_puffy_noise_GL/README.md)** : Simulates puffy noise.
+- <img src='/GLSL/Source/Crok_perlin_GL/Crok_perlin_GL.png' width='32'> **[Crok_perlin_GL](/GLSL/Source/Crok_perlin_GL/README.md)** : Creates a perlin noise like pattern.
 
-- <img src='/GLSL/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Crok_snow_GL/README.md)** : Creates snow.
+- <img src='/GLSL/Source/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Source/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
 
-- <img src='/GLSL/Crok_stars_GL/Crok_stars_GL.png' width='32'> **[Crok_stars_GL](/GLSL/Crok_stars_GL/README.md)** : Simulates stars.
+- <img src='/GLSL/Source/Crok_puffy_noise_GL/Crok_puffy_noise_GL.png' width='32'> **[Crok_puffy_noise_GL](/GLSL/Source/Crok_puffy_noise_GL/README.md)** : Simulates puffy noise.
 
-- <img src='/GLSL/Crok_turbulence_GL/Crok_turbulence_GL.png' width='32'> **[Crok_turbulence_GL](/GLSL/Crok_turbulence_GL/README.md)** : Creates a water turbulence texture.
+- <img src='/GLSL/Source/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Source/Crok_snow_GL/README.md)** : Creates snow.
 
-- <img src='/GLSL/Crok_voronoi_GL/Crok_voronoi_GL.png' width='32'> **[Crok_voronoi_GL](/GLSL/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
+- <img src='/GLSL/Source/Crok_stars_GL/Crok_stars_GL.png' width='32'> **[Crok_stars_GL](/GLSL/Source/Crok_stars_GL/README.md)** : Simulates stars.
 
-- <img src='/GLSL/Crok_wave_lines_GL/Crok_wave_lines_GL.png' width='32'> **[Crok_wave_lines_GL](/GLSL/Crok_wave_lines_GL/README.md)** : Creates a wave line pattern.
+- <img src='/GLSL/Source/Crok_turbulence_GL/Crok_turbulence_GL.png' width='32'> **[Crok_turbulence_GL](/GLSL/Source/Crok_turbulence_GL/README.md)** : Creates a water turbulence texture.
 
-- <img src='/GLSL/Crok_wrinkle_GL/Crok_wrinkle_GL.png' width='32'> **[Crok_wrinkle_lines_GL](/GLSL/Crok_wrinkle_GL/README.md)** : Creates wrinkled paper like sturctures.
+- <img src='/GLSL/Source/Crok_voronoi_GL/Crok_voronoi_GL.png' width='32'> **[Crok_voronoi_GL](/GLSL/Source/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
 
-- <img src='/GLSL/JB_fractal_GL/JB_fractal_GL.png' width='32'> **[JB_fractal_GL](/GLSL/JB_fractal_GL/README.md)** : Simple fractal generator.
+- <img src='/GLSL/Source/Crok_wave_lines_GL/Crok_wave_lines_GL.png' width='32'> **[Crok_wave_lines_GL](/GLSL/Source/Crok_wave_lines_GL/README.md)** : Creates a wave line pattern.
 
-- <img src='/GLSL/L_Molten_GL/L_Molten_GL.png' width='32'> **[L_Molten_GL](/GLSL/L_Molten_GL/README.md)** : Molten Metal Texture Gradient shader.
+- <img src='/GLSL/Source/Crok_wrinkle_GL/Crok_wrinkle_GL.png' width='32'> **[Crok_wrinkle_lines_GL](/GLSL/Source/Crok_wrinkle_GL/README.md)** : Creates wrinkled paper like sturctures.
 
-- <img src='/GLSL/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
+- <img src='/GLSL/Source/JB_fractal_GL/JB_fractal_GL.png' width='32'> **[JB_fractal_GL](/GLSL/Source/JB_fractal_GL/README.md)** : Simple fractal generator.
+
+- <img src='/GLSL/Source/L_Molten_GL/L_Molten_GL.png' width='32'> **[L_Molten_GL](/GLSL/Source/L_Molten_GL/README.md)** : Molten Metal Texture Gradient shader.
+
+- <img src='/GLSL/Source/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Source/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
 
 ### GLSL/Transform
-- <img src='/GLSL/Crok_seamless_GL/Crok_seamless_GL.png' width='32'> **[Crok_seamless_GL](/GLSL/Crok_seamless_GL/README.md)** : Creates seamless textures.
+- <img src='/GLSL/Transform/Crok_seamless_GL/Crok_seamless_GL.png' width='24'> **[Crok_seamless_GL](/GLSL/Transform/Crok_seamless_GL/README.md)** : Creates seamless textures.
 
-- <img src='/GLSL/Crop_GL/Crop_GL.png' width='32'> **[Crop_GL](/GLSL/Crop_GL/README.md)** : A simple image cropper with built-in 2D texture offset and borders.
+- <img src='/GLSL/Transform/Crop_GL/Crop_GL.png' width='24'> **[Crop_GL](/GLSL/Transform/Crop_GL/README.md)** : A simple image cropper with built-in 2D texture offset and borders.
 
 ### Keyer
 - <img src='/Keyer/AdditiveKeyer/AdditiveKeyer.png' width='32'> **[AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.

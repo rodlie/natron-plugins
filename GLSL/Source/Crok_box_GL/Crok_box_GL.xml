@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>Crok_vhs_GL</DisplayName>
-    <Description>This Matchbox shader simulates an old VHS player.</Description>
+    <DisplayName>Crok_box_GL</DisplayName>
+    <Description>Creates an antialiased square with rounded corners.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
-    <Name>natron.community.plugins.Crok_vhs_GL</Name>
+    <Name>natron.community.plugins.Crok_box_GL</Name>
     <Default>script</Default>
     <Script>installscript.qs</Script>
 </Package>

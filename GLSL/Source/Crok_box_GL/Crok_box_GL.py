@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Source"
 
 def getPluginDescription():
-    return "Creates an Antialiased square with rounded corners."
+    return "Creates an antialiased square with rounded corners."
 
 def createInstance(app,group):
     # Create all nodes in the group
