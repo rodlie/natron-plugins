@@ -147,7 +147,11 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/GLSL/Blur/Bloom_GL/Bloom_GL.png' width='24'> **[Bloom_GL](/GLSL//BlurBloom_GL/README.md)** : GPU accelerated Bloom effect for Shadertoy.
 
-- <img src='/GLSL/Blur/BokehDisc_GL/BokehDisc_GL.png' width='24'> **[BokehDisc_GL](/GLSL//BlurBokehDisc_GL/README.md)** : GPU accelerated Defocus blur for Shadertoy.
+- <img src='/GLSL/Blur/BokehCircular_GL/BokehCircular_GL.png' width='24'> **[BokehCircular_GL](/GLSL//BokehCircular_GL/README.md)** : GPU accelerated circular defocus blur for Shadertoy.
+
+- <img src='/GLSL/Blur/BokehDisc_GL/BokehDisc_GL.png' width='24'> **[BokehDisc_GL](/GLSL//BlurBokehDisc_GL/README.md)** : GPU accelerated defocus blur for Shadertoy.
+
+- <img src='/GLSL/Blur/BokehOctogon_GL/BokehOctogon_GL.png' width='24'> **[BokehOctogon_GL](/GLSL//BokehOctogon_GL/README.md)** : GPU accelerated octogon defocus blur for Shadertoy.
 
 - <img src='/GLSL/Blur/Crok_bloom_GL/Crok_bloom_GL.png' width='24'> **[Crok_bloom_GL](/GLSL//BlurCrok_bloom_GL/README.md)** : Simulates bloom.
 
