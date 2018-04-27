@@ -151,7 +151,7 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/GLSL/Blur/BokehDisc_GL/BokehDisc_GL.png' width='24'> **[BokehDisc_GL](/GLSL/Blur/BlurBokehDisc_GL/README.md)** : GPU accelerated defocus blur for Shadertoy.
 
-- <img src='/GLSL/Blur/BokehOctagon_GL/BokehOctagon_GL.png' width='24'> **[BokehOctagon_GL](/GLSL/Blur/BokehOctagon_GL/README.md)** : GPU accelerated octogon defocus blur for Shadertoy.
+- <img src='/GLSL/Blur/BokehOctagon_GL/BokehOctagon_GL.png' width='24'> **[BokehOctagon_GL](/GLSL/Blur/BokehOctagon_GL/README.md)** : GPU accelerated octagon defocus blur for Shadertoy.
 
 - <img src='/GLSL/Blur/Crok_bloom_GL/Crok_bloom_GL.png' width='24'> **[Crok_bloom_GL](/GLSL/Blur/BlurCrok_bloom_GL/README.md)** : Simulates bloom.
 
