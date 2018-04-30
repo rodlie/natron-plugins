@@ -161,6 +161,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/GLSL/Blur/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='24'> **[Crok_dir_blur_GL](/GLSL/Blur/BlurCrok_dir_blur_GL/README.md)** : Creates a directional blur.
 
+- <img src='/GLSL/Blur/Crok_reskin_GL/Crok_reskin_GL.png' width='24'> **[Crok_reskin_GL](/GLSL/Blur/Crok_reskin_GL/README.md)** : Creates skin type textures.
+
 - <img src='/GLSL/Blur/Ls_Ash_GL/Ls_Ash_GL.png' width='24'> **[Ls_Ash_GL](/GLSL/Blur/BlurLs_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
 
 - <img src='/GLSL/Blur/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='24'> **[Mipmap_Blur_GL](/GLSL/Blur/BlurMipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
