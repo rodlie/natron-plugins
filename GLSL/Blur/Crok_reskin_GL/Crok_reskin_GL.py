@@ -28,7 +28,7 @@ def getIconPath():
     return "Crok_reskin_GL.png"
 
 def getGrouping():
-    return "Community/GLSL/Distort"
+    return "Community/GLSL/Blur"
 
 def getPluginDescription():
     return "Creates skin type textures."
