@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/BL/Color"
 
 def getPluginDescription():
-    return "Node is similar to the Shake's one. It convert the picture in another byte space. This is of course a simple simulation as Nuke know to work only in 32 floating point color space. "
+    return "Node is similar to the Shake\'s one. It convert the picture in another byte space. This is of course a simple simulation as Nuke know to work only in 32 floating point color space. "
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -111,10 +111,10 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createIntParam("bytes", "Bytes : ")
-    param.setMinimum(0, 0)
+    param = lastNode.createIntParam("bytes", "Bits per channel : ")
+    param.setMinimum(1, 0)
     param.setMaximum(32, 0)
-    param.setDisplayMinimum(0, 0)
+    param.setDisplayMinimum(1, 0)
     param.setDisplayMaximum(32, 0)
     param.setDefaultValue(2, 0)
     param.restoreDefaultValue(0)
@@ -396,16 +396,16 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4252)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
@@ -492,7 +492,7 @@ def createInstance(app,group):
     # End of node "Multiply2"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupMultiply2)
+    groupOutput1.connectInput(0, groupMultiply2)
     groupMultiply1.connectInput(0, groupSource)
     groupSeExprSimple1_2.connectInput(0, groupMultiply1)
     groupMultiply2.connectInput(0, groupSeExprSimple1_2)
