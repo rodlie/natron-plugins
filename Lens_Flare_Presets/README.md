@@ -5,6 +5,6 @@ A free and open source lens flare creation toolkit for Free and Open Source comp
 # Main Repo
 https://github.com/cgvirus/Natron-Lens-Flare-Studio
 # Demo and Tutorial:
-https://www.youtube.com/watch?v=tXkwCmVI8y8&list=PLnAARr1S7jUh_F9XqsdmXZNf9lrkdZm5T
+https://www.youtube.com/watch?v=_xIgKAmMBp8&list=PLnAARr1S7jUh_F9XqsdmXZNf9lrkdZm5T&index=0
 # Making Presets:
 https://www.youtube.com/playlist?list=PLnAARr1S7jUghmwZtJpNS7oHEzJSDcDFG

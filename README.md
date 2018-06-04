@@ -1,3 +1,4 @@
+![Image](Resources/community-plugins-logo.png)
 # Natron Community Plugins
 ### A collection of Natron plugins made by the community
 ## Installation
@@ -498,4 +499,4 @@ Also you can look at our guidelines for Pyplug submission :
 https://github.com/NatronVFX/natron-plugins/wiki/Guidelines-for-plugins
 
 
-![Image](Resources/natron-community.png)
+![Image](Resources/community-plugins-logo.png)
