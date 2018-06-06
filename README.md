@@ -402,6 +402,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/Keyer/BS_AlphaGrainEdge/BS_AlphaGrainEdge.png' width='32'> **[BS_AlphaGrainEdge](/Keyer/BS_AlphaGrainEdge/README.md)** : This basic PyPlug simply adds some noise to your alphas around the areas that aren't solid.
 
+- <img src='/Keyer/CoveragePass/CoveragePass.png' width='32'> **[CoveragePass](/Keyer/CoveragePass/README.md)** : Extract Coverage Pass from render in Arnold and Renderman.
+
 - <img src='/Keyer/EdgeMatteDetect/EdgeMatteDetect.png' width='32'> **[EdgeMatteDetect](/Keyer/EdgeMatteDetect/README.md)** : Description to be written
 
 - <img src='/Keyer/IDKeyer/IDKeyer.png' width='32'> **[IDKeyer](/Keyer/IDKeyer/README.md)** : Extract an alpha matte from a ID-Pass to be used as a mask.

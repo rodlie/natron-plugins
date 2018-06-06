@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>CoveragePass</DisplayName>
+    <Description>Extract Coverage Pass from render in Arnold and Renderman.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.CoveragePass</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
