@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>sb_LumaKey</DisplayName>
+    <Description>This PyPlug will perform a luminance key of your footage, based on a chosen color space.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.sb_LumaKey</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
