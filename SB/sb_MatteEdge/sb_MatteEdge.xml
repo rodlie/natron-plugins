@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>sb_MatteEdge</DisplayName>
+    <Description>This PyPlug creates an edge matte with control of both the outer and inner radius.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.sb_MatteEdge</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
