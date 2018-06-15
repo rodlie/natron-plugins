@@ -465,7 +465,7 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/Relight/Z2Normal/Z2Normal.png' width='32'> **[Z2Normal](/Relight/Z2Normal/README.md)** : Generate a Normal Pass from a Z pass
 
 ### SB
-- <img src='/SB/sb_lumakey/sb_lumakey.png' width='24'> **[sb_lumakey](/SB/sb_lumakey/README.md)** : This PyPlug will perform a luminance key of your footage, based on a chosen color space.
+- <img src='/SB/sb_LumaKey/sb_LumaKey.png' width='24'> **[sb_LumaKey](/SB/sb_LumaKey/README.md)** : This PyPlug will perform a luminance key of your footage, based on a chosen color space.
 
 - <img src='/SB/sb_MatteEdge/sb_MatteEdge.png' width='24'> **[sb_MatteEdge](/SB/sb_MatteEdge/README.md)** : This PyPlug creates an edge matte with control of both the outer and inner radius.
 
