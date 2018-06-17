@@ -432,7 +432,7 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/Merge/Radial%20Wipe/radialWipe_icon.png' width='32'> **[Radial Wipe](/Merge/Radial%20Wipe/README.md)** : Perform Radial wipe.
 
-- <img src='/Merge/L_Fuse/L_Fuse.png' width='32'> **[L_Fuse](/Merge/L_Fuse/README.md)** : Fuse is a replacement for the merge(over) node.
+- <img src='/Merge/L_Fuse/L_Fuse.png' width='24'> **[L_Fuse](/Merge/L_Fuse/README.md)** : Fuse is a replacement for the merge(over) node.
 
 - <img src='/Merge/ZCombine/ZCombine.png' width='32'> **[ZCombine](/Merge/ZCombine/README.md)** : Mix two images according to their Zbuffer.
 
