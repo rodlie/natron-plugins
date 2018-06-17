@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>sb_AlphaFromMax</DisplayName>
+    <Description>This PyPlug creates an alpha channel based on the max color value of each pixel in any of the RGB channels.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.sb_AlphaFromMax</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
