@@ -324,17 +324,17 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Merge/Screen_GL/Screen_GL.png' width='32'> **[Screen_GL](/GLSL/Merge/Screen_GL/README.md)** : GPU accelerated screen merge for Shadertoy.
 
 ### GLSL/Source
-- <img src='/GLSL/Source/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='32'> **[Bleepy_Blocks_GL](/GLSL/Source/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
+- <img src='/GLSL/Source/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='24'> **[Bleepy_Blocks_GL](/GLSL/Source/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
 
-- <img src='/GLSL/Source/Bubbles_GL/Bubbles_GL.png' width='32'> **[Bubbles_GL](/GLSL/Source/Bubbles_GL/README.md)** : GPU accelerated bubbles generator for Shadertoy.
+- <img src='/GLSL/Source/Bubbles_GL/Bubbles_GL.png' width='24'> **[Bubbles_GL](/GLSL/Source/Bubbles_GL/README.md)** : GPU accelerated bubbles generator for Shadertoy.
 
-- <img src='/GLSL/Source/Cellular_GL/Cellular_GL.png' width='32'> **[Cellular_GL](/GLSL/Source/Cellular_GL/README.md)** : GPU accelerated cell generator for Shadertoy.
+- <img src='/GLSL/Source/Cellular_GL/Cellular_GL.png' width='24'> **[Cellular_GL](/GLSL/Source/Cellular_GL/README.md)** : GPU accelerated cell generator for Shadertoy.
 
-- <img src='/GLSL/Source/cr2_HEX_GL/cr2_HEX_GL.png' width='32'> **[cr2_HEX_GL](/GLSL/Source/cr2_HEX_GL/README.md)** : Creates a Hexagon Pattern.
+- <img src='/GLSL/Source/cr2_HEX_GL/cr2_HEX_GL.png' width='24'> **[cr2_HEX_GL](/GLSL/Source/cr2_HEX_GL/README.md)** : Creates a Hexagon Pattern.
 
-- <img src='/GLSL/Source/Crok_3d_grid_GL/Crok_3d_grid_GL.png' width='32'> **[Crok_3d_grid_GL](/GLSL/Source/Crok_3d_grid_GL/README.md)** : Creates a 3D Grid.
+- <img src='/GLSL/Source/Crok_3d_grid_GL/Crok_3d_grid_GL.png' width='24'> **[Crok_3d_grid_GL](/GLSL/Source/Crok_3d_grid_GL/README.md)** : Creates a 3D Grid.
 
-- <img src='/GLSL/Source/Crok_blobs_GL/Crok_blobs_GL.png' width='32'> **[Crok_blobs_GL](/GLSL/Source/Crok_blobs_GL/README.md)** : Creates blob like sturctures.
+- <img src='/GLSL/Source/Crok_blobs_GL/Crok_blobs_GL.png' width='24'> **[Crok_blobs_GL](/GLSL/Source/Crok_blobs_GL/README.md)** : Creates blob like sturctures.
 
 - <img src='/GLSL/Source/Crok_box_GL/Crok_box_GL.png' width='32'> **[Crok_box_GL](/GLSL/Source/Crok_box_GL/README.md)** : Creates an antialiased square with rounded corners.
 
@@ -377,6 +377,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Source/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Source/Crok_snow_GL/README.md)** : Creates snow.
 
 - <img src='/GLSL/Source/Crok_stars_GL/Crok_stars_GL.png' width='32'> **[Crok_stars_GL](/GLSL/Source/Crok_stars_GL/README.md)** : Simulates stars.
+
+- <img src='/GLSL/Source/Crok_tesla_GL/Crok_tesla_GL.png' width='24'> **[Crok_tesla_GL](/GLSL/Source/Crok_tesla_GL/README.md)** : Creates tesla lightning bolts.
 
 - <img src='/GLSL/Source/Crok_turbulence_GL/Crok_turbulence_GL.png' width='32'> **[Crok_turbulence_GL](/GLSL/Source/Crok_turbulence_GL/README.md)** : Creates a water turbulence texture.
 
