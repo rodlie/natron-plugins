@@ -132,6 +132,8 @@
 
 - <img src='icons/Crok_tv_rgb_dots.png' width='66'> **[Crok_tv_rgb_dots]** : Simulates the typical RGB dots of old TVs.
 
+- <img src='icons/Crok_vhs.png' width='66'> **[Crok_vhs]** : Simulates an old VHS player.
+
 - <img src='icons/Crok_voronoi.png' width='66'> **[Crok_voronoi]** : Creates voronoi noises.
 
 - <img src='icons/Crok_wave_lines.png' width='66'> **[Crok_wave_lines]** : Creates a wave line pattern.
