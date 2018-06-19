@@ -46,6 +46,8 @@
 
 - <img src='icons/Crok_bw.png' width='66'> **[Crok_bw]** : Creates black and white images with adjustable RGB values.
 
+- <img src='icons/Crok_cameraflash.png' width='66'> **[Crok_cameraflash]** : Creates simple camera flashs.
+
 - <img src='icons/Crok_cel_shading.png' width='66'> **[Crok_cel_shading]** : Simulates Cel shading.
 
 - <img src='icons/Crok_cells.png' width='66'> **[Crok_cells]** : Creates a cell pattern.
