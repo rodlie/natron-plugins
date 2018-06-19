@@ -30,7 +30,7 @@
 
 - <img src='icons/Crok_3d_grid.png' width='66'> **[Crok_3d_grid]** : Creates a 3D Grid.
 
-- <img src='icons/Crok_6567.png' width='66'> **[Crok_6587]** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
+- <img src='icons/Crok_6567.png' width='66'> **[Crok_6567]** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
 
 - <img src='icons/Crok_beer.png' width='66'> **[Crok_beer]** : Creates a beer like structure.
 
