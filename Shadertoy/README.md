@@ -28,7 +28,7 @@
 
 - <img src='icons/Crok_2color.png' width='66'> **[Crok_2color]** : Simulates a 2 color look.
 
-- <img src='icons/Crok_6587.png' width='66'> **[Crok_6587]** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
+- <img src='icons/Crok_6567.png' width='66'> **[Crok_6587]** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
 
 - <img src='icons/Crok_beer.png' width='66'> **[Crok_beer]** : Creates a beer like structure.
 
@@ -69,6 +69,8 @@
 - <img src='icons/Crok_difference.png' width='66'> **[Crok_difference]** : Creates a difference matte.
 
 - <img src='icons/Crok_diffuse.png' width='66'> **[Crok_diffuse]** : Creates a noisy blur.
+
+- <img src='icons/Crok_digital_glitch.png' width='66'> **[Crok_digital_glitch]** : Simulates digital glitches.
 
 - <img src='icons/Crok_dir_blur.png' width='66'> **[Crok_dir_blur]** : Creates a directional blur.
 
