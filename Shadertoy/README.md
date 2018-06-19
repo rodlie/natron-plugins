@@ -134,6 +134,8 @@
 
 - <img src='icons/Crok_plasnoid.png' width='66'> **[Crok_plasnoid]** : Creates tons of different plasma patterns.
 
+- <img src='icons/Crok_puffy_noise.png' width='66'> **[Crok_puffy_noise]** : Simulates puffy noise.
+
 - <img src='icons/Crok_scanlines.png' width='66'> **[Crok_scanlines]** : Simulates CRT phosphor / shadow mask arrangements.
 
 - <img src='icons/Crok_separation.png' width='66'> **[Crok_separation]** : Creates a low pass and high pass filter sometimes called frequency separation.
