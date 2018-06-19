@@ -110,7 +110,7 @@
 
 - <img src='icons/Crok_lava.png' width='66'> **[Crok_lava]** : Creates flame / fluid like patterns.
 
-- <img src='icons/Crok_lines.png' width='66'> **[Crok_lava]** : Creates lines.
+- <img src='icons/Crok_lines.png' width='66'> **[Crok_lines]** : Creates lines.
 
 - <img src='icons/Crok_lowfi.png' width='66'> **[Crok_lowfi]** : Simulates NES, SEGA and Gameboy video out.
 
