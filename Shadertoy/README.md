@@ -42,6 +42,8 @@
 
 - <img src='icons/Crok_bloom.png' width='66'> **[Crok_bloom]** : Simulates blooming.
 
+- <img src='icons/Crok_box.png' width='66'> **[Crok_box]** : Creates an antialiased square with rounded corners.
+
 - <img src='icons/Crok_bw.png' width='66'> **[Crok_bw]** : Creates black and white images with adjustable RGB values.
 
 - <img src='icons/Crok_cel_shading.png' width='66'> **[Crok_cel_shading]** : Simulates Cel shading.
