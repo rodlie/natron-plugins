@@ -126,6 +126,8 @@
 
 - <img src='icons/Crok_stars.png' width='66'> **[Crok_stars]** : Simulates Stars.
 
+- <img src='icons/Crok_tesla.png' width='66'> **[Crok_tesla]** : Creates tesla lightning bolts.
+
 - <img src='icons/Crok_turbulence.png' width='66'> **[Crok_turbulence]** : Creates a water turbulence texture.
 
 - <img src='icons/Crok_tv_rgb_dots.png' width='66'> **[Crok_tv_rgb_dots]** : Simulates the typical RGB dots of old TVs.

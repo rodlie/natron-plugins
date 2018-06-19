@@ -377,11 +377,11 @@ def createInstance(app,group):
     lastNode.Shadertoy1paramValueBool7 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat8", "Scale :")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat8", "Scale : ")
     param.setMinimum(-20000, 0)
     param.setMaximum(20000, 0)
-    param.setDisplayMinimum(-1, 0)
-    param.setDisplayMaximum(1, 0)
+    param.setDisplayMinimum(-2, 0)
+    param.setDisplayMaximum(2, 0)
     param.setDefaultValue(0.2, 0)
     param.restoreDefaultValue(0)
 
