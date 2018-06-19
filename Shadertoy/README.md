@@ -114,6 +114,8 @@
 
 - <img src='icons/Crok_lowfi.png' width='66'> **[Crok_lowfi]** : Simulates NES, SEGA and Gameboy video out.
 
+- <img src='icons/Crok_maze.png' width='66'> **[Crok_maze]** : Creates a maze like structure.
+
 - <img src='icons/Crok_nightvision.png' width='66'> **[Crok_nightvision]** : Creates a nightvision effect.
 
 - <img src='icons/Crok_noise_blur.png' width='66'> **[Crok_noise_blur]** : Creates a noise texture similar to the popular Genarts Texture.
