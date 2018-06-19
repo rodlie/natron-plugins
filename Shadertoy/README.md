@@ -122,6 +122,8 @@
 
 - <img src='icons/Crok_scanlines.png' width='66'> **[Crok_scanlines]** : Simulates CRT phosphor / shadow mask arrangements.
 
+- <img src='icons/Crok_separation.png' width='66'> **[Crok_separation]** : Creates a low pass and high pass filter sometimes called frequency separation.
+
 - <img src='icons/Crok_snow.png' width='66'> **[Crok_snow]** : Creates snow.
 
 - <img src='icons/Crok_stars.png' width='66'> **[Crok_stars]** : Simulates Stars.
