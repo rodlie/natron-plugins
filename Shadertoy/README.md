@@ -214,6 +214,8 @@
 
 - <img src='icons/JB_pixelDisplace.png' width='66'> **[JB_pixelDisplace]** : Transforms input1 using input2 rgb values.
 
+- <img src='icons/JB_timeDisplace.png' width='66'> **[JB_timeDisplace]** : Tries to emulate the Sapphire s_TimeDisplace node.
+
 ## JT :
 
 - <img src='icons/JT_SyLens.png' width='66'> **[JT_SyLens]** : Straightens and distorts footage according to the Syntheyes lens distortion model.
