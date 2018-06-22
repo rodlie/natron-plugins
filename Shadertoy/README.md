@@ -202,7 +202,7 @@
 
 ## JB :
 
-- <img src='icons/JB_autoMatte_GL.png' width='66'> **[JB_autoMatte_GL]** : Creates a RGB multimattes of an input which can be useful to mockup quick keys.
+- <img src='icons/JB_autoMatte.png' width='66'> **[JB_autoMatte]** : Creates a RGB multimattes of an input which can be useful to mockup quick keys.
 
 - <img src='icons/JB_colorRemap.png' width='66'> **[JB_colorRemap]** : Remaps RGB of input 1 using RGB of input 2. option to inverse the result as well.
 
