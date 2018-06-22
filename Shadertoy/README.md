@@ -214,6 +214,10 @@
 
 - <img src='icons/JB_pixelDisplace.png' width='66'> **[JB_pixelDisplace]** : Transforms input1 using input2 rgb values.
 
+## JT :
+
+- <img src='icons/JT_SyLens.png' width='66'> **[JT_SyLens]** : Straightens and distorts footage according to the Syntheyes lens distortion model.
+
 ## K :
 
 - <img src='icons/K_BW.png' width='66'> **[K_BW]** : Creates a black and white image based on the dominance of R-G-B channels.
