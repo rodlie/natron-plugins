@@ -205,6 +205,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 - <img src='/GLSL/Distort/JB_timeDisplace_GL/JB_timeDisplace_GL.png' width='24'> **[JB_timeDisplace_GL](/GLSL/Distort/JB_timeDisplace_GL/README.md)** : Tries to emulate the Sapphire s_TimeDisplace node.
 
+- <img src='/GLSL/Distort/JT_SyLens_GL/JT_SyLens_GL.png' width='24'> **[JT_SyLens_GL](/GLSL/Distort/JT_SyLens_GL/README.md)** : Straightens and distorts footage according to the Syntheyes lens distortion model.
+
 - <img src='/GLSL/Distort/K_Chroma_GL/K_Chroma_GL.png' width='24'> **[K_Chroma_GL](/GLSL/Distort/K_Chroma_GL/README.md)** : GPU accelerated chroma abberation effect for Shadertoy.
 
 - <img src='/GLSL/Distort/Ls_Advect_GL/Ls_Advect_GL.png' width='24'> **[Ls_Advect_GL](/GLSL/Distort/Ls_Advect_GL/README.md)** : Pushes an image along the contours of another.
