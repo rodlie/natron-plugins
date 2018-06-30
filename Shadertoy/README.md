@@ -42,6 +42,8 @@
 
 - <img src='icons/Crok_bloom.png' width='66'> **[Crok_bloom]** : Simulates blooming.
 
+- <img src='icons/Crok_blue_noise.png' width='66'> **[Crok_blue_noise]** : Generates a blue noise texture from a still plate.
+
 - <img src='icons/Crok_box.png' width='66'> **[Crok_box]** : Creates an antialiased square with rounded corners.
 
 - <img src='icons/Crok_bw.png' width='66'> **[Crok_bw]** : Creates black and white images with adjustable RGB values.
