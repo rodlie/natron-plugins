@@ -102,6 +102,8 @@
 
 - <img src='icons/Crok_gradient.png' width='66'> **[Crok_gradient]** :  Creates a simple gradient effect.
 
+- <img src='icons/Crok_heathaze_GL.png' width='66'> **[Crok_heathaze_GL]** : Creates a heat haze effect.
+
 - <img src='icons/Crok_hexagon.png' width='66'> **[Crok_hexagon]** : Generates hexagon patterns.
 
 - <img src='icons/Crok_highpass.png' width='66'> **[Crok_highpass]** : Simulates a HighPass filter effect.

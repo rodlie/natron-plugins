@@ -195,6 +195,8 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Color/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='24'> **[Ls_RndmGrade_GL](/GLSL/Color/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
 ### GLSL/Distort
+- <img src='/GLSL/Distort/Crok_heathaze_GL/Crok_heathaze_GL.png' width='24'> **[Crok_heathaze_GL](/GLSL/Distort/Crok_heathaze_GL/README.md)** : Creates a heat haze effect.
+
 - <img src='/GLSL/Distort/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='24'> **[Crok_noise_blur_GL](/GLSL/Distort/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
 
 - <img src='/GLSL/Distort/Crok_pixelsort_GL/Crok_pixelsort_GL.png' width='24'> **[Crok_pixelsort_GL](/GLSL/Distort/Crok_pixelsort_GL/README.md)** : Creates a pixel sort type effect.
