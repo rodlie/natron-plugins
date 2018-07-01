@@ -222,13 +222,13 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 - <img src='/GLSL/Distort/Ls_UVewa_GL/Ls_UVewa_GL.png' width='24'> **[Ls_UVewa_GL](/GLSL/Distort/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
 
 ### GLSL/Draw
-- <img src='/GLSL/Draw/Crok_blue_noise_GL/Crok_blue_noise_GL.png' width='32'> **[Crok_blue_noise_GL](/GLSL/Draw/Crok_blue_noise_GL/README.md)** : Generates a blue noise texture from a still plate.
+- <img src='/GLSL/Draw/Crok_blue_noise_GL/Crok_blue_noise_GL.png' width='24'> **[Crok_blue_noise_GL](/GLSL/Draw/Crok_blue_noise_GL/README.md)** : Generates a blue noise texture from a still plate.
 
-- <img src='/GLSL/Draw/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='32'> **[Crok_fast_grain_GL](/GLSL/Draw/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
+- <img src='/GLSL/Draw/Crok_fast_grain_GL/Crok_fast_grain_GL.png' width='24'> **[Crok_fast_grain_GL](/GLSL/Draw/Crok_fast_grain_GL/README.md)** : Simulates a film like grain.
 
-- <img src='/GLSL/Draw/Crok_regrain_GL/Crok_regrain_GL.png' width='32'> **[Crok_regrain_GL](/GLSL/Draw/Crok_regrain_GL/README.md)** : Simulates film grain.
+- <img src='/GLSL/Draw/Crok_regrain_GL/Crok_regrain_GL.png' width='24'> **[Crok_regrain_GL](/GLSL/Draw/Crok_regrain_GL/README.md)** : Simulates film grain.
 
-- <img src='/GLSL/Draw/Guides_GL/Guides_GL.png' width='32'> **[Guides_GL](/GLSL/Draw/Guides_GL/README.md)** : Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...
+- <img src='/GLSL/Draw/Guides_GL/Guides_GL.png' width='24'> **[Guides_GL](/GLSL/Draw/Guides_GL/README.md)** : Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...
 
 ### GLSL/Effect
 - <img src='/GLSL/Effect/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Effect/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
