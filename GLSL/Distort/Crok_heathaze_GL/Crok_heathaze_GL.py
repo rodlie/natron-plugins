@@ -675,6 +675,94 @@ def createInstance(app,group):
     lastNode.sep26 = param
     del param
 
+    param = lastNode.createSeparatorParam("OUTPUT", "Output")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OUTPUT = param
+    del param
+
+    param = lastNode.createStringParam("sep27", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep27 = param
+    del param
+
+    param = lastNode.createStringParam("sep28", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep28 = param
+    del param
+
+    param = lastNode.createChoiceParam("outChoice", "Output : ")
+    entries = [ ("Noise", ""),
+    ("UV", ""),
+    ("Result", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Result")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.outChoice = param
+    del param
+
+    param = lastNode.createStringParam("sep29", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep29 = param
+    del param
+
+    param = lastNode.createStringParam("sep30", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep30 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -937,13 +1025,18 @@ def createInstance(app,group):
     lastNode.setScriptName("Shader_pass3")
     lastNode.setLabel("Shader_pass3")
     lastNode.setPosition(4062, 4115)
-    lastNode.setSize(80, 34)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShader_pass3 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(20, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_heathaze Matchbox for Autodesk Flame\n\n\n// setting inputs names and filtering options\n// iChannel0: pass2_result, filter = linear,wrap=clamp\n// BBox: iChannel0\n\n// low frequency blur in y \n\n\nuniform float blur_low = 20.0; // Smoothness : (smoothness), min=0.0, max=1000.0\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n   vec2 coords = fragCoord.xy / vec2( iResolution.x, iResolution.y );\n   float softness = blur_low;\n   int f0int = int(softness);\n   vec4 accu = vec4(0);\n   float energy = 0.0;\n   vec4 finalColor = vec4(0.0);\n   \n   for( int y = -f0int; y <= f0int; y++)\n   {\n      vec2 currentCoord = vec2(coords.x, coords.y+float(y)/iResolution.y);\n      vec4 aSample = texture2D(iChannel0, currentCoord).rgba;\n      float anEnergy = 1.0 - ( abs(float(y)) / softness);\n      energy += anEnergy;\n      accu+= aSample * anEnergy;\n   }\n   \n   finalColor = \n      energy > 0.0 ? (accu / energy) : \n                     texture2D(iChannel0, coords).rgba;\n                     \n   fragColor = vec4( finalColor );\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_heathaze Matchbox for Autodesk Flame\r\n\r\n\r\n// setting inputs names and filtering options\r\n// iChannel0: pass2_result, filter = linear,wrap=clamp\r\n// BBox: iChannel0\r\n\r\n// low frequency blur in y \r\n\r\n\r\nuniform float blur_low = 20.0; // Smoothness : (smoothness), min=0.0, max=1000.0\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n   vec2 coords = fragCoord.xy / vec2( iResolution.x, iResolution.y );\r\n   float softness = blur_low;\r\n   int f0int = int(softness);\r\n   vec4 accu = vec4(0);\r\n   float energy = 0.0;\r\n   vec4 finalColor = vec4(0.0);\r\n   \r\n   for( int y = -f0int; y <= f0int; y++)\r\n   {\r\n      vec2 currentCoord = vec2(coords.x, coords.y+float(y)/iResolution.y);\r\n      vec4 aSample = texture2D(iChannel0, currentCoord).rgba;\r\n      float anEnergy = 1.0 - ( abs(float(y)) / softness);\r\n      energy += anEnergy;\r\n      accu+= aSample * anEnergy;\r\n   }\r\n   \r\n   finalColor = \r\n      energy > 0.0 ? (accu / energy) : \r\n                     texture2D(iChannel0, coords).rgba;\r\n                     \r\n   fragColor = vec4( finalColor );\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -1087,13 +1180,23 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy2")
     lastNode.setLabel("Shader_pass2")
     lastNode.setPosition(4062, 4035)
-    lastNode.setSize(80, 34)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy2 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(20, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool1")
+    if param is not None:
+        param.setValue(False)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_heathaze Matchbox for Autodesk Flame\n\n\n// setting inputs names and filtering options\n// iChannel0: pass1_result, filter = linear,wrap=clamp\n// iChannel1: displace_map, filter = linear,wrap=clamp\n// BBox: iChannel0\n\n// low frequency blur in x \n\nuniform float blur_low = 20.0; // Smoothness : (blur the incomming distortion matte), min=0.0, max=1000.0\nuniform bool external_matte = false; // External matte : (use an external matte instead of the internal matte for the displacement)\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n   vec2 coords = fragCoord.xy / vec2( iResolution.x, iResolution.y );\n   float softness = blur_low;\n   int f0int = int(softness);\n   vec4 accu = vec4(0);\n   float energy = 0.0;\n   vec4 finalColor = vec4(0.0);\n\nif ( external_matte )\n  {\n   for( int x = -f0int; x <= f0int; x++)\n   {\n      vec2 currentCoord = vec2(coords.x+float(x)/iResolution.x, coords.y);\n      vec4 aSample = texture2D(iChannel1, currentCoord).rgba;\n      float anEnergy = 1.0 - ( abs(float(x)) / softness);\n      energy += anEnergy;\n      accu+= aSample * anEnergy;\n   }\n\n   finalColor = \n      energy > 0.0 ? (accu / energy) : \n                     texture2D(iChannel1, coords).rgba;\n  }   \n  \n  else\n  {\n      for( int x = -f0int; x <= f0int; x++)\n      {\n         vec2 currentCoord = vec2(coords.x+float(x)/iResolution.x, coords.y);\n         vec4 aSample = texture2D(iChannel0, currentCoord).rgba;\n         float anEnergy = 1.0 - ( abs(float(x)) / softness);\n         energy += anEnergy;\n         accu+= aSample * anEnergy;\n      }\n\n      finalColor = \n         energy > 0.0 ? (accu / energy) : \n                        texture2D(iChannel0, coords).rgba;\n  }\n\n\n\n\t\t\n\t\t\t  \t\t  \n                     \n   fragColor = vec4( finalColor );\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_heathaze Matchbox for Autodesk Flame\r\n\r\n\r\n// setting inputs names and filtering options\r\n// iChannel0: pass1_result, filter = linear,wrap=clamp\r\n// iChannel1: displace_map, filter = linear,wrap=clamp\r\n// BBox: iChannel0\r\n\r\n// low frequency blur in x \r\n\r\nuniform float blur_low = 20.0; // Smoothness : (blur the incomming distortion matte), min=0.0, max=1000.0\r\nuniform bool external_matte = false; // External matte : (use an external matte instead of the internal matte for the displacement)\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n   vec2 coords = fragCoord.xy / vec2( iResolution.x, iResolution.y );\r\n   float softness = blur_low;\r\n   int f0int = int(softness);\r\n   vec4 accu = vec4(0);\r\n   float energy = 0.0;\r\n   vec4 finalColor = vec4(0.0);\r\n\r\nif ( external_matte )\r\n  {\r\n   for( int x = -f0int; x <= f0int; x++)\r\n   {\r\n      vec2 currentCoord = vec2(coords.x+float(x)/iResolution.x, coords.y);\r\n      vec4 aSample = texture2D(iChannel1, currentCoord).rgba;\r\n      float anEnergy = 1.0 - ( abs(float(x)) / softness);\r\n      energy += anEnergy;\r\n      accu+= aSample * anEnergy;\r\n   }\r\n\r\n   finalColor = \r\n      energy > 0.0 ? (accu / energy) : \r\n                     texture2D(iChannel1, coords).rgba;\r\n  }   \r\n  \r\n  else\r\n  {\r\n      for( int x = -f0int; x <= f0int; x++)\r\n      {\r\n         vec2 currentCoord = vec2(coords.x+float(x)/iResolution.x, coords.y);\r\n         vec4 aSample = texture2D(iChannel0, currentCoord).rgba;\r\n         float anEnergy = 1.0 - ( abs(float(x)) / softness);\r\n         energy += anEnergy;\r\n         accu+= aSample * anEnergy;\r\n      }\r\n\r\n      finalColor = \r\n         energy > 0.0 ? (accu / energy) : \r\n                        texture2D(iChannel0, coords).rgba;\r\n  }\r\n\r\n\r\n\r\n\t\t\r\n\t\t\t  \t\t  \r\n                     \r\n   fragColor = vec4( finalColor );\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -1218,14 +1321,19 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shader_pass4")
     lastNode.setLabel("Shader_pass4")
-    lastNode.setPosition(4062, 4348)
-    lastNode.setSize(80, 34)
+    lastNode.setPosition(4062, 4349)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShader_pass4 = lastNode
 
+    param = lastNode.getParam("paramValueBool0")
+    if param is not None:
+        param.setValue(False)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_heathaze Matchbox for Autodesk Flame\n\n\n// setting inputs names and filtering options\n// iChannel0: pass3_result, filter = linear,wrap=clamp\n// iChannel1: displace_map, filter = linear,wrap=clamp\n// BBox: iChannel0\n\n// Pass 1: make the  low frequency vectors\n// lewis@lewissaunders.com\n\n\nuniform bool external_matte = false; // External matte : (use an external matte instead of the internal matte for the displacement)\n\nconst float ksize = 1.0;\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) {\n\tvec2 xy = fragCoord.xy;\n\n\t// Factor to convert pixels to [0,1] texture coords\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\n\tvec2 d = vec2(0.0);\n\n\tif ( external_matte )\n\t{\n\t\t// Convolve by x and y Sobel matrices to get gradient vector\n\t\td.x  =  1.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\n\t\td.x +=  2.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0,  0.0)) * px).g;\n\t\td.x +=  1.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\n\t\td.x += -1.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\n\t\td.x += -2.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0,  0.0)) * px).g;\n\t\td.x += -1.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\n\t\td.y +=  1.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\n\t\td.y +=  2.0 * texture2D(iChannel1, (xy + ksize * vec2( 0.0, -1.0)) * px).g;\n\t\td.y +=  1.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\n\t\td.y += -1.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\n\t\td.y += -2.0 * texture2D(iChannel1, (xy + ksize * vec2( 0.0, +1.0)) * px).g;\n\t\td.y += -1.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\n\t}\t\n\telse\n\t{\n\t\td.x  =  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\n\t\td.x +=  2.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0,  0.0)) * px).g;\n\t\td.x +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\n\t\td.x += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\n\t\td.x += -2.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0,  0.0)) * px).g;\n\t\td.x += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\n\t\td.y +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\n\t\td.y +=  2.0 * texture2D(iChannel0, (xy + ksize * vec2( 0.0, -1.0)) * px).g;\n\t\td.y +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\n\t\td.y += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\n\t\td.y += -2.0 * texture2D(iChannel0, (xy + ksize * vec2( 0.0, +1.0)) * px).g;\n\t\td.y += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\n\t\t\n\t}\n\t\t// Convolve by x and y Sobel matrices to get gradient vector\n\t\n\t// Bit of a bodge factor right here\n\td *= 32.0 / ksize;\n\n\t// Output vectors for second pass\n\tfragColor = vec4(d.x, d.y, 0.0, 1.0);\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_heathaze Matchbox for Autodesk Flame\r\n\r\n\r\n// setting inputs names and filtering options\r\n// iChannel0: pass3_result, filter = linear,wrap=clamp\r\n// iChannel1: displace_map, filter = linear,wrap=clamp\r\n// BBox: iChannel0\r\n\r\n// Pass 1: make the  low frequency vectors\r\n// lewis@lewissaunders.com\r\n\r\n\r\nuniform bool external_matte = false; // External matte : (use an external matte instead of the internal matte for the displacement)\r\n\r\nconst float ksize = 1.0;\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) {\r\n\tvec2 xy = fragCoord.xy;\r\n\r\n\t// Factor to convert pixels to [0,1] texture coords\r\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\r\n\tvec2 d = vec2(0.0);\r\n\r\n\tif ( external_matte )\r\n\t{\r\n\t\t// Convolve by x and y Sobel matrices to get gradient vector\r\n\t\td.x  =  1.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\r\n\t\td.x +=  2.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0,  0.0)) * px).g;\r\n\t\td.x +=  1.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\r\n\t\td.x += -1.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\r\n\t\td.x += -2.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0,  0.0)) * px).g;\r\n\t\td.x += -1.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\r\n\t\td.y +=  1.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\r\n\t\td.y +=  2.0 * texture2D(iChannel1, (xy + ksize * vec2( 0.0, -1.0)) * px).g;\r\n\t\td.y +=  1.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\r\n\t\td.y += -1.0 * texture2D(iChannel1, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\r\n\t\td.y += -2.0 * texture2D(iChannel1, (xy + ksize * vec2( 0.0, +1.0)) * px).g;\r\n\t\td.y += -1.0 * texture2D(iChannel1, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\r\n\t}\t\r\n\telse\r\n\t{\r\n\t\td.x  =  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\r\n\t\td.x +=  2.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0,  0.0)) * px).g;\r\n\t\td.x +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\r\n\t\td.x += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\r\n\t\td.x += -2.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0,  0.0)) * px).g;\r\n\t\td.x += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\r\n\t\td.y +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, -1.0)) * px).g;\r\n\t\td.y +=  2.0 * texture2D(iChannel0, (xy + ksize * vec2( 0.0, -1.0)) * px).g;\r\n\t\td.y +=  1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, -1.0)) * px).g;\r\n\t\td.y += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(-1.0, +1.0)) * px).g;\r\n\t\td.y += -2.0 * texture2D(iChannel0, (xy + ksize * vec2( 0.0, +1.0)) * px).g;\r\n\t\td.y += -1.0 * texture2D(iChannel0, (xy + ksize * vec2(+1.0, +1.0)) * px).g;\r\n\t\t\r\n\t}\r\n\t\t// Convolve by x and y Sobel matrices to get gradient vector\r\n\t\r\n\t// Bit of a bodge factor right here\r\n\td *= 32.0 / ksize;\r\n\r\n\t// Output vectors for second pass\r\n\tfragColor = vec4(d.x, d.y, 0.0, 1.0);\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -1316,13 +1424,30 @@ def createInstance(app,group):
     lastNode.setScriptName("Shader_pass1")
     lastNode.setLabel("Shader_pass1")
     lastNode.setPosition(4062, 3766)
-    lastNode.setSize(80, 34)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShader_pass1 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueVec32")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        param.setValue(0, 2)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("\n\nuniform float Speed = 1.0; // Speed : (speed of noise)\nuniform float Noise = 1.0; // Detail : (detail of the noise structure)\nuniform vec3 NoiseAnim = vec3(0, 0, 0); // Direction : (noise animation direction)\n\nconst vec3 LumCoeff = vec3(0.2125, 0.7154, 0.0721);\nconst int VolumeSteps = 20;\nconst float StepSize = 0.25; \nconst float Density = 0.15;\nconst float Offset = 0.0;\nconst float Detail = 1.0;\nconst vec2 Aspect = vec2(1.0, 1.0);\nconst vec3 tint_col = vec3(3.8, 0.8, -0.8);\nconst float tint = 0.4;\nconst float saturation = 0.0;\nconst float brightness = 1.0;\nconst float contrast = 2.0;\nconst float Zoom = 2.0;\nconst vec3 co0 = vec3(1.1, 2.3, 0.8);\nconst vec3 co1 = vec3(2.1, 0.5, 0.5);\nconst vec3 co2 = vec3(0.0, 0.0, 0.0);\nconst vec3 co3 = vec3(1.5, -1.2, -1.3);\nconst vec3 co4 = vec3(3.0, 0.0, 0.0);\nconst float NoiseAmp = 5.0;\nconst float NoiseFreq = 1.0;\n//const float Noise = 3.0;\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\nfloat time = iTime *.02 * Speed + Offset;\n\nmat3 m = mat3( 0.00,  0.80,  0.60,\n              -0.80,  0.36, -0.48,\n              -0.60, -0.48,  0.64 );\n\nfloat hash( float n )\n{\n    return fract(sin(n)*43758.5453);\n}\n\n\nfloat noise( in vec3 x )\n{\n    vec3 p = floor(x);\n    vec3 f = fract(x);\n\n    f = f*f*(3.0-2.0*f);\n\n    float n = p.x + p.y*57.0 + 113.0*p.z;\n\n    float res = mix(mix(mix( hash(n+  0.0), hash(n+  1.0),f.x),\n                        mix( hash(n+ 57.0), hash(n+ 58.0),f.x),f.y),\n                    mix(mix( hash(n+113.0), hash(n+114.0),f.x),\n                        mix( hash(n+170.0), hash(n+171.0),f.x),f.y),f.z);\n    return res;\n}\n\nfloat fbm( vec3 p )\n{\n    float f;\n    f = 0.5000*noise( p ); p = m*p*2.02;\n    f += 0.2500*noise( p ); p = m*p*2.03;\n    f += 0.1250*noise( p ); p = m*p*2.01;\n    f += 0.0625*noise( p );\n    return f;\n}\n\nfloat distanceFunc(vec3 p)\n{\t\n\tfloat d = length(p);\t// distance to sphere\n\td += fbm(p*NoiseFreq + vec3(NoiseAnim.z, NoiseAnim.y, NoiseAnim.x)*time) * NoiseAmp;\n\treturn d;\n}\n\nvec4 gradient(float x)\n{\n\tx=sin(x-time);\n\n\tvec4 c0 = vec4(co0, 0.1);\t// yellow\n\tvec4 c1 = vec4(co1, 0.9);\t// red\n\tvec4 c2 = vec4(co2, 0); \t// black\n\tvec4 c3 = vec4(co3, 0.2); \t// blue\n\tvec4 c4 = vec4(co4, 0); \t// black\n\t\n\tx = clamp(x, 0.0, 0.999);\n\tfloat t = fract(x*4.0);\n\tvec4 c;\n\tif (x < 0.25) {\n\t\tc =  mix(c0, c1, t);\n\t} else if (x < 0.5) {\n\t\tc = mix(c1, c2, t);\n\t} else if (x < 0.75) {\n\t\tc = mix(c2, c3, t);\n\t} else {\n\t\tc = mix(c3, c4, t);\t\t\n\t}\n\treturn c;\n}\n\nvec4 shade(float d)\n{\t\n\tvec4 c = gradient(d);\n\treturn c;\n}\n\n\nvec4 volumeFunc(vec3 p)\n{\n\tfloat d = distanceFunc(p);\n\treturn shade(d);\n}\n\nvec4 rayMarch(vec3 rayOrigin, vec3 rayStep, out vec3 pos)\n{\n\tvec4 sum = vec4(0, 0, 0, 0);\n\tpos = rayOrigin;\n\tfor(int i=0; i<VolumeSteps; i++) {\n\t\tvec4 col = volumeFunc(pos);\n\t\tcol.a *= Density;\n\t\tcol.rgb *= col.a;\n\t\tsum = sum + col*(1.0 - sum.a);\t\n\t\tpos += rayStep;\n\t}\n\treturn sum;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    vec2 q = fragCoord.xy / resolution.xy;\n    vec2 p = -1.0 + 2.0 * q;\n    p.x *= resolution.x/resolution.y;\n\t\n    float rotx = 0.0;\n    float roty = 0.0;\n\n    vec3 ro = Detail * normalize(vec3(cos(roty), cos(rotx), sin(roty)));\n    vec3 ww = normalize(vec3(0.0,0.0,0.0) - ro);\n    vec3 uu = Aspect.x * normalize(cross( vec3(0.0,1.0,0.0), ww ));\n    vec3 vv = Aspect.y * normalize(cross(ww,uu));\n    vec3 rd = normalize( p.x*uu + p.y*vv + ww * Zoom );\n\n    ro += rd * Noise;\n\t\n    vec3 hitPos;\n    vec4 col = rayMarch(ro, rd*StepSize, hitPos);\n    vec3 avg_lum = vec3(0.5, 0.5, 0.5);\n    vec3 intensity = vec3(dot(col.rgb, LumCoeff));\n\n    vec3 sat_color = mix(intensity, col.rgb, saturation);\n    vec3 con_color = mix(avg_lum, sat_color, contrast);\n\tvec3 brt_color = con_color - 1.0 + brightness;\n\tvec3 fin_color = mix(brt_color, brt_color * tint_col, tint);\n\n    fragColor = vec4(fin_color, 1.0);\n\t}")
+        param.setValue("\r\n\r\nuniform float Speed = 1.0; // Speed : (speed of noise)\r\nuniform float Noise = 1.0; // Detail : (detail of the noise structure)\r\nuniform vec3 NoiseAnim = vec3(0, 0, 0); // Direction : (noise animation direction)\r\n\r\nconst vec3 LumCoeff = vec3(0.2125, 0.7154, 0.0721);\r\nconst int VolumeSteps = 20;\r\nconst float StepSize = 0.25; \r\nconst float Density = 0.15;\r\nconst float Offset = 0.0;\r\nconst float Detail = 1.0;\r\nconst vec2 Aspect = vec2(1.0, 1.0);\r\nconst vec3 tint_col = vec3(3.8, 0.8, -0.8);\r\nconst float tint = 0.4;\r\nconst float saturation = 0.0;\r\nconst float brightness = 1.0;\r\nconst float contrast = 2.0;\r\nconst float Zoom = 2.0;\r\nconst vec3 co0 = vec3(1.1, 2.3, 0.8);\r\nconst vec3 co1 = vec3(2.1, 0.5, 0.5);\r\nconst vec3 co2 = vec3(0.0, 0.0, 0.0);\r\nconst vec3 co3 = vec3(1.5, -1.2, -1.3);\r\nconst vec3 co4 = vec3(3.0, 0.0, 0.0);\r\nconst float NoiseAmp = 5.0;\r\nconst float NoiseFreq = 1.0;\r\n//const float Noise = 3.0;\r\n\r\nvec2 resolution = vec2(iResolution.x, iResolution.y);\r\nfloat time = iTime *.02 * Speed + Offset;\r\n\r\nmat3 m = mat3( 0.00,  0.80,  0.60,\r\n              -0.80,  0.36, -0.48,\r\n              -0.60, -0.48,  0.64 );\r\n\r\nfloat hash( float n )\r\n{\r\n    return fract(sin(n)*43758.5453);\r\n}\r\n\r\n\r\nfloat noise( in vec3 x )\r\n{\r\n    vec3 p = floor(x);\r\n    vec3 f = fract(x);\r\n\r\n    f = f*f*(3.0-2.0*f);\r\n\r\n    float n = p.x + p.y*57.0 + 113.0*p.z;\r\n\r\n    float res = mix(mix(mix( hash(n+  0.0), hash(n+  1.0),f.x),\r\n                        mix( hash(n+ 57.0), hash(n+ 58.0),f.x),f.y),\r\n                    mix(mix( hash(n+113.0), hash(n+114.0),f.x),\r\n                        mix( hash(n+170.0), hash(n+171.0),f.x),f.y),f.z);\r\n    return res;\r\n}\r\n\r\nfloat fbm( vec3 p )\r\n{\r\n    float f;\r\n    f = 0.5000*noise( p ); p = m*p*2.02;\r\n    f += 0.2500*noise( p ); p = m*p*2.03;\r\n    f += 0.1250*noise( p ); p = m*p*2.01;\r\n    f += 0.0625*noise( p );\r\n    return f;\r\n}\r\n\r\nfloat distanceFunc(vec3 p)\r\n{\t\r\n\tfloat d = length(p);\t// distance to sphere\r\n\td += fbm(p*NoiseFreq + vec3(NoiseAnim.z, NoiseAnim.y, NoiseAnim.x)*time) * NoiseAmp;\r\n\treturn d;\r\n}\r\n\r\nvec4 gradient(float x)\r\n{\r\n\tx=sin(x-time);\r\n\r\n\tvec4 c0 = vec4(co0, 0.1);\t// yellow\r\n\tvec4 c1 = vec4(co1, 0.9);\t// red\r\n\tvec4 c2 = vec4(co2, 0); \t// black\r\n\tvec4 c3 = vec4(co3, 0.2); \t// blue\r\n\tvec4 c4 = vec4(co4, 0); \t// black\r\n\t\r\n\tx = clamp(x, 0.0, 0.999);\r\n\tfloat t = fract(x*4.0);\r\n\tvec4 c;\r\n\tif (x < 0.25) {\r\n\t\tc =  mix(c0, c1, t);\r\n\t} else if (x < 0.5) {\r\n\t\tc = mix(c1, c2, t);\r\n\t} else if (x < 0.75) {\r\n\t\tc = mix(c2, c3, t);\r\n\t} else {\r\n\t\tc = mix(c3, c4, t);\t\t\r\n\t}\r\n\treturn c;\r\n}\r\n\r\nvec4 shade(float d)\r\n{\t\r\n\tvec4 c = gradient(d);\r\n\treturn c;\r\n}\r\n\r\n\r\nvec4 volumeFunc(vec3 p)\r\n{\r\n\tfloat d = distanceFunc(p);\r\n\treturn shade(d);\r\n}\r\n\r\nvec4 rayMarch(vec3 rayOrigin, vec3 rayStep, out vec3 pos)\r\n{\r\n\tvec4 sum = vec4(0, 0, 0, 0);\r\n\tpos = rayOrigin;\r\n\tfor(int i=0; i<VolumeSteps; i++) {\r\n\t\tvec4 col = volumeFunc(pos);\r\n\t\tcol.a *= Density;\r\n\t\tcol.rgb *= col.a;\r\n\t\tsum = sum + col*(1.0 - sum.a);\t\r\n\t\tpos += rayStep;\r\n\t}\r\n\treturn sum;\r\n}\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n    vec2 q = fragCoord.xy / resolution.xy;\r\n    vec2 p = -1.0 + 2.0 * q;\r\n    p.x *= resolution.x/resolution.y;\r\n\t\r\n    float rotx = 0.0;\r\n    float roty = 0.0;\r\n\r\n    vec3 ro = Detail * normalize(vec3(cos(roty), cos(rotx), sin(roty)));\r\n    vec3 ww = normalize(vec3(0.0,0.0,0.0) - ro);\r\n    vec3 uu = Aspect.x * normalize(cross( vec3(0.0,1.0,0.0), ww ));\r\n    vec3 vv = Aspect.y * normalize(cross(ww,uu));\r\n    vec3 rd = normalize( p.x*uu + p.y*vv + ww * Zoom );\r\n\r\n    ro += rd * Noise;\r\n\t\r\n    vec3 hitPos;\r\n    vec4 col = rayMarch(ro, rd*StepSize, hitPos);\r\n    vec3 avg_lum = vec3(0.5, 0.5, 0.5);\r\n    vec3 intensity = vec3(dot(col.rgb, LumCoeff));\r\n\r\n    vec3 sat_color = mix(intensity, col.rgb, saturation);\r\n    vec3 con_color = mix(avg_lum, sat_color, contrast);\r\n\tvec3 brt_color = con_color - 1.0 + brightness;\r\n\tvec3 fin_color = mix(brt_color, brt_color * tint_col, tint);\r\n\r\n    fragColor = vec4(fin_color, 1.0);\r\n\t}")
         del param
 
     param = lastNode.getParam("inputEnable0")
@@ -1437,14 +1562,34 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shader_pass5")
     lastNode.setLabel("Shader_pass5")
-    lastNode.setPosition(4062, 4685)
-    lastNode.setSize(80, 34)
+    lastNode.setPosition(4062, 4686)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShader_pass5 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(1.5, 0)
+        del param
+
+    param = lastNode.getParam("paramValueInt2")
+    if param is not None:
+        param.setValue(4, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool3")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_heathaze Matchbox for Autodesk Flame\n\n\n// setting inputs names and filtering options\n// iChannel0: pass4_result, filter = linear,wrap=clamp\n// iChannel1: source, filter = linear,wrap=clamp\n// iChannel2: strength_map, filter = linear,wrap=clamp\n// iChannel3: mask, filter = linear,wrap=clamp\n// BBox: iChannel0\n\n// Pass 2: do the displace\n// lewis@lewissaunders.com\n\n\nuniform float blength = 1.0; // Amount : (strength of the distortion), min=0.0, max=512.0\nuniform float spacing = 1.5; // Softness : (spacing between pixel samples), min=0.0, max=10.0\n\nuniform int oversamples = 4; // Oversampling : (number of pixel samples), min=1, max=32\nuniform bool output_matte = true; // Output matte : (output matte)\n\nconst float sidestep = 0.0;\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) {\n\tvec2 xy = fragCoord.xy;\n\tvec2 uv = fragCoord.xy / vec2( iResolution.x, iResolution.y );\n\t\n\tfloat strength = texture2D(iChannel2, uv).r;\n\n\t// Factor to convert pixels to [0,1] texture coords\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\n\n\t// Get vectors from previous pass\n\tvec2 d = texture2D(iChannel0, xy * px).xy;\n\n\tvec4 acc = vec4(0.0);\n\tfor(int j = 0; j < oversamples; j++) {\n\t\tfor(int k = 0; k < oversamples; k++) {\n\t\t\t// Starting point for this sample\n\t\t\txy = fragCoord.xy + spacing * vec2(float(j) / (float(oversamples) + 1.0), float(k) / (float(oversamples) + 1.0));\n\t\t\tfloat dist = 0.0;\n\t\t\t// Walk along path by sampling vector image, moving, sampling, moving...\n\t\t\tfor(float i = 0.0; i < 1.0; i++) {\n\t\t\t\td = texture2D(iChannel0, xy * px).xy;\n\t\t\t\tif(length(d) == 0.0) {\n\t\t\t\t\t// No gradient at this point in the map, early out\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t\txy += d * (blength * strength) + blength * strength * sidestep/1000.0 * vec2(-d.y, d.x) + (blength * strength /32.0);\n\t\t\t\tdist += length(d * (blength * strength));\n\t\t\t}\n\t\t\t// Sample iChannel1 image where our walk ended up\n\t\t\tacc.rgb += texture2D(iChannel1, xy * px).rgb;\n\t\t\t\n\t\t\tif ( output_matte )\n\t\t\t{\n\t\t\t\t// Sample matte image where our walk ended up\n\t\t\t\tacc.a += texture2D(iChannel3, xy * px).r;\t\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\t// Length we\'ve travelled to the matte output  \n\t\t\t\tacc.a += dist * (blength * strength / 32.0);\t\n\t\t\t}\n\n\t\t}\n\t}\n\tacc /= float(oversamples * oversamples);\n\n\tfragColor = acc; \n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_heathaze Matchbox for Autodesk Flame\r\n\r\n\r\n// setting inputs names and filtering options\r\n// iChannel0: pass4_result, filter = linear,wrap=clamp\r\n// iChannel1: source, filter = linear,wrap=clamp\r\n// iChannel2: strength_map, filter = linear,wrap=clamp\r\n// iChannel3: mask, filter = linear,wrap=clamp\r\n// BBox: iChannel0\r\n\r\n// Pass 2: do the displace\r\n// lewis@lewissaunders.com\r\n\r\n\r\nuniform float blength = 1.0; // Amount : (strength of the distortion), min=0.0, max=512.0\r\nuniform float spacing = 1.5; // Softness : (spacing between pixel samples), min=0.0, max=10.0\r\n\r\nuniform int oversamples = 4; // Oversampling : (number of pixel samples), min=1, max=32\r\nuniform bool output_matte = true; // Output matte : (output matte)\r\n\r\nconst float sidestep = 0.0;\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) {\r\n\tvec2 xy = fragCoord.xy;\r\n\tvec2 uv = fragCoord.xy / vec2( iResolution.x, iResolution.y );\r\n\t\r\n\tfloat strength = texture2D(iChannel2, uv).r;\r\n\r\n\t// Factor to convert pixels to [0,1] texture coords\r\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\r\n\r\n\t// Get vectors from previous pass\r\n\tvec2 d = texture2D(iChannel0, xy * px).xy;\r\n\r\n\tvec4 acc = vec4(0.0);\r\n\tfor(int j = 0; j < oversamples; j++) {\r\n\t\tfor(int k = 0; k < oversamples; k++) {\r\n\t\t\t// Starting point for this sample\r\n\t\t\txy = fragCoord.xy + spacing * vec2(float(j) / (float(oversamples) + 1.0), float(k) / (float(oversamples) + 1.0));\r\n\t\t\tfloat dist = 0.0;\r\n\t\t\t// Walk along path by sampling vector image, moving, sampling, moving...\r\n\t\t\tfor(float i = 0.0; i < 1.0; i++) {\r\n\t\t\t\td = texture2D(iChannel0, xy * px).xy;\r\n\t\t\t\tif(length(d) == 0.0) {\r\n\t\t\t\t\t// No gradient at this point in the map, early out\r\n\t\t\t\t\tbreak;\r\n\t\t\t\t}\r\n\t\t\t\txy += d * (blength * strength) + blength * strength * sidestep/1000.0 * vec2(-d.y, d.x) + (blength * strength /32.0);\r\n\t\t\t\tdist += length(d * (blength * strength));\r\n\t\t\t}\r\n\t\t\t// Sample iChannel1 image where our walk ended up\r\n\t\t\tacc.rgb += texture2D(iChannel1, xy * px).rgb;\r\n\t\t\t\r\n\t\t\tif ( output_matte )\r\n\t\t\t{\r\n\t\t\t\t// Sample matte image where our walk ended up\r\n\t\t\t\tacc.a += texture2D(iChannel3, xy * px).r;\t\r\n\t\t\t}\r\n\t\t\telse\r\n\t\t\t{\r\n\t\t\t\t// Length we\'ve travelled to the matte output  \r\n\t\t\t\tacc.a += dist * (blength * strength / 32.0);\t\r\n\t\t\t}\r\n\r\n\t\t}\r\n\t}\r\n\tacc /= float(oversamples * oversamples);\r\n\r\n\tfragColor = acc; \r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -1665,13 +1810,23 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shader_pass6")
     lastNode.setPosition(4461, 5067)
-    lastNode.setSize(80, 34)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
+    param = lastNode.getParam("paramValueInt1")
+    if param is not None:
+        param.setValue(16, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_heathaze Matchbox for Autodesk Flame\n\n\n// iChannel0: pass4_result, filter = linear,wrap=clamp\n// iChannel1: pass5_result, filter = linear,wrap=clamp\n// iChannel2: strength_map, filter = linear,wrap=clamp\n// BBox: iChannel0\n\n// Directional blur driven by gradient vectors of front input\n// lewis@lewissaunders.com\n\n\nuniform float blur_length = 3.0; // Amount : (strength of applied hmotion blu), min=0.0, max=512.0\nuniform int samples = 16; // Samples : (motion blur samples), min=2, max=128\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) {\n\tvec2 xy = fragCoord.xy;\n\tvec2 uv = fragCoord.xy / vec2( iResolution.x, iResolution.y );\n\t\n\tfloat strength = texture2D(iChannel2, uv).r;\n\n\t// Factor to convert [0,1] texture coords to pixels\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\n\n\t// Get vectors from previous pass\n\tvec2 d = texture2D(iChannel0, xy * px).xy;\n\n\tif(length(d) == 0.0) {\n\t\t// No gradient at this point in the map, early out\n\t\tfragColor = texture2D(iChannel1, xy * px);\n\t\treturn;\n\t}\n\n\tvec4 a = vec4(0.0);\n\tfloat sam = float(samples);\n\tfloat steps;\n\tbool odd = false;\n\n\tif(mod(sam, 2.0) == 1.0) {\n\t\todd = true;\n\t}\n\tif(odd) {\n\t\t// Odd number of samples, start with a sample from the current position\n\t\ta = texture2D(iChannel1, xy * px);\n\t\tsteps = (sam - 1.0) / 2.0;\n\t} else {\n\t\t// Even number of samples, start with nothing\n\t\ta = vec4(0.0);\n\t\tsteps = (sam / 2.0) - 1.0;\n\t}\n\n\t// Now accumulate along the path forwards...\n\tif(!odd) {\n\t\t// Even number of samples, first step is half length\n\t\txy += 0.5 * d * blur_length * strength / (sam - 1.0);\n\t\ta += texture2D(iChannel1, xy * px);\n\t}\n\tfor(float i = 0.0; i < steps; i++) {\n\t\td = texture2D(iChannel0, xy * px).xy;\n\t\txy += d * blur_length * strength / (sam - 1.0);\n\t\ta += texture2D(iChannel1, xy * px);\n\t}\n\t\n\t// ...and backwards\n\txy = fragCoord.xy;\n\td = texture2D(iChannel0, xy * px).xy;\n\tif(!odd) {\n\t\t// Even number of samples, first step is half length\n\t\txy -= 0.5 * d * blur_length * strength / (sam - 1.0);\n\t\ta += texture2D(iChannel1, xy * px);\n\t}\n\tfor(float i = 0.0; i < steps; i++) {\n\t\txy -= d * blur_length * strength / (sam - 1.0);\n\t\ta += texture2D(iChannel1, xy * px);\n\t\td = texture2D(iChannel0, xy * px).xy;\n\t}\n\n\ta /= sam;\n\tfragColor = a;\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_heathaze Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_heathaze Matchbox for Autodesk Flame\r\n\r\n\r\n// iChannel0: pass4_result, filter = linear,wrap=clamp\r\n// iChannel1: pass5_result, filter = linear,wrap=clamp\r\n// iChannel2: strength_map, filter = linear,wrap=clamp\r\n// BBox: iChannel0\r\n\r\n// Directional blur driven by gradient vectors of front input\r\n// lewis@lewissaunders.com\r\n\r\n\r\nuniform float blur_length = 3.0; // Amount : (strength of applied hmotion blu), min=0.0, max=512.0\r\nuniform int samples = 16; // Samples : (motion blur samples), min=2, max=128\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord ) {\r\n\tvec2 xy = fragCoord.xy;\r\n\tvec2 uv = fragCoord.xy / vec2( iResolution.x, iResolution.y );\r\n\t\r\n\tfloat strength = texture2D(iChannel2, uv).r;\r\n\r\n\t// Factor to convert [0,1] texture coords to pixels\r\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\r\n\r\n\t// Get vectors from previous pass\r\n\tvec2 d = texture2D(iChannel0, xy * px).xy;\r\n\r\n\tif(length(d) == 0.0) {\r\n\t\t// No gradient at this point in the map, early out\r\n\t\tfragColor = texture2D(iChannel1, xy * px);\r\n\t\treturn;\r\n\t}\r\n\r\n\tvec4 a = vec4(0.0);\r\n\tfloat sam = float(samples);\r\n\tfloat steps;\r\n\tbool odd = false;\r\n\r\n\tif(mod(sam, 2.0) == 1.0) {\r\n\t\todd = true;\r\n\t}\r\n\tif(odd) {\r\n\t\t// Odd number of samples, start with a sample from the current position\r\n\t\ta = texture2D(iChannel1, xy * px);\r\n\t\tsteps = (sam - 1.0) / 2.0;\r\n\t} else {\r\n\t\t// Even number of samples, start with nothing\r\n\t\ta = vec4(0.0);\r\n\t\tsteps = (sam / 2.0) - 1.0;\r\n\t}\r\n\r\n\t// Now accumulate along the path forwards...\r\n\tif(!odd) {\r\n\t\t// Even number of samples, first step is half length\r\n\t\txy += 0.5 * d * blur_length * strength / (sam - 1.0);\r\n\t\ta += texture2D(iChannel1, xy * px);\r\n\t}\r\n\tfor(float i = 0.0; i < steps; i++) {\r\n\t\td = texture2D(iChannel0, xy * px).xy;\r\n\t\txy += d * blur_length * strength / (sam - 1.0);\r\n\t\ta += texture2D(iChannel1, xy * px);\r\n\t}\r\n\t\r\n\t// ...and backwards\r\n\txy = fragCoord.xy;\r\n\td = texture2D(iChannel0, xy * px).xy;\r\n\tif(!odd) {\r\n\t\t// Even number of samples, first step is half length\r\n\t\txy -= 0.5 * d * blur_length * strength / (sam - 1.0);\r\n\t\ta += texture2D(iChannel1, xy * px);\r\n\t}\r\n\tfor(float i = 0.0; i < steps; i++) {\r\n\t\txy -= d * blur_length * strength / (sam - 1.0);\r\n\t\ta += texture2D(iChannel1, xy * px);\r\n\t\td = texture2D(iChannel0, xy * px).xy;\r\n\t}\r\n\r\n\ta /= sam;\r\n\tfragColor = a;\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -1839,7 +1994,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Backdrop2")
     lastNode.setLabel("Backdrop2")
     lastNode.setPosition(4278, 4935)
-    lastNode.setSize(396, 266)
+    lastNode.setSize(416, 281)
     lastNode.setColor(0.702, 0.702, 0.702)
     groupBackdrop2 = lastNode
 
@@ -1851,8 +2006,25 @@ def createInstance(app,group):
     del lastNode
     # End of node "Backdrop2"
 
+    # Start of node "Switch_OUT"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch_OUT")
+    lastNode.setLabel("Switch_OUT")
+    lastNode.setPosition(4461, 5145)
+    lastNode.setSize(80, 32)
+    lastNode.setColor(1, 1, 1)
+    groupSwitch_OUT = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(2, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch_OUT"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupShadertoy1_2)
+    groupOutput1.connectInput(0, groupSwitch_OUT)
     groupShader_pass3.connectInput(0, groupShadertoy2)
     groupDot1.connectInput(0, groupDisplace_map)
     groupDot2.connectInput(0, groupDot1)
@@ -1869,6 +2041,9 @@ def createInstance(app,group):
     groupShadertoy1_2.connectInput(0, groupShader_pass4)
     groupShadertoy1_2.connectInput(1, groupShader_pass5)
     groupShadertoy1_2.connectInput(2, groupDot4)
+    groupSwitch_OUT.connectInput(0, groupShader_pass1)
+    groupSwitch_OUT.connectInput(1, groupShader_pass4)
+    groupSwitch_OUT.connectInput(2, groupShadertoy1_2)
 
     param = groupShader_pass3.getParam("paramValueFloat0")
     param.slaveTo(groupShadertoy2.getParam("paramValueFloat0"), 0, 0)
@@ -1910,6 +2085,9 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1_2.getParam("paramValueInt1")
     group.getParam("Shadertoy1_2paramValueInt1").setAsAlias(param)
+    del param
+    param = groupSwitch_OUT.getParam("which")
+    param.setExpression("thisGroup.outChoice.get()", False, 0)
     del param
 
     try:
