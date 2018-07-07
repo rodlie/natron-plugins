@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>y_sharpen_GL</DisplayName>
+    <Description>Sharpen an image using a guassian blur with linear extrapolation. The blur algorithm is the artistry of Lewis Saunders.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.y_sharpen_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

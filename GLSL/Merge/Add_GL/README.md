@@ -1,3 +1,3 @@
-# Add_GLL
+# Add_GL
 
 GPU accelerated additive merge.
