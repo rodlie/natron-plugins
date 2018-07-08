@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>y_linear_GL</DisplayName>
+    <Description>Convert footage to linear and back with ease.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.y_linear_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
