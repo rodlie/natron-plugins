@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>y_bilat_GL</DisplayName>
+    <Description>A bilateral filter, with a few more options, and the abiltiy to intake a mask.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.y_bilat_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
