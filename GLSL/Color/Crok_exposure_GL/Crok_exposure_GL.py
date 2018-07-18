@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.1176, 0.5882, 0.1176)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -112,9 +113,11 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Global expo : ")
     param.setMinimum(1, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(1, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(5, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -141,9 +144,11 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat1", "R expo :")
     param.setMinimum(1, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(1, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(5, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -170,9 +175,11 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat2", "G expo :")
     param.setMinimum(1, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(1, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(5, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -199,9 +206,11 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat3", "B expo :")
     param.setMinimum(1, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(1, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(5, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -269,9 +278,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat4", "global contrast :")
     param.setMinimum(0, 0)
-    param.setMaximum(10, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(10, 0)
+    param.setDisplayMaximum(2, 0)
     param.setDefaultValue(0.25, 0)
     param.restoreDefaultValue(0)
 
@@ -300,9 +309,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat5", "R contrast :")
     param.setMinimum(0, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(2, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -331,9 +340,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat6", "G contrast :")
     param.setMinimum(0, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(2, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -362,9 +371,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat7", "B contrast :")
     param.setMinimum(0, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(2, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -448,9 +457,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat8", "gloabl pivot :")
     param.setMinimum(0, 0)
-    param.setMaximum(10, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(10, 0)
+    param.setDisplayMaximum(2, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -479,9 +488,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat9", "R pivot :")
     param.setMinimum(0, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(2, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -508,9 +517,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat10", "G pivot :")
     param.setMinimum(0, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(2, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -537,9 +546,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat11", "B pivot :")
     param.setMinimum(0, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(10000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(2, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -952,7 +961,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -964,7 +973,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3645)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -976,7 +985,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3849)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
@@ -1057,7 +1066,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_exposure Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_exposure Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter = nearest, wrap = clamp\n// BBox: iChannel0\n\n\nuniform float expo_o = 0; // global expo : (global exposition), min = 1., max = 50.\nuniform float expo_r = 0; // R expo : (red exposition), min = 1., max = 50.\nuniform float expo_g = 0; // G expo : (green exposition), min = 1., max = 50.\nuniform float expo_b = 0; // B expo : (blue exposition), min = 1., max = 50.\n\nuniform float contrast_all = 0.25; // global contrast : (global contrast), min = 0, max = 10.\nuniform float contrast_r = 1; // R contrast : (red contrast), min = 0., max = 50.\nuniform float contrast_g = 1; // G contrast : (green contrast), min = 0., max = 50.\nuniform float contrast_b = 1; // B contrast : (blue contrast), min = 0., max = 50.\n\nuniform float pivot_all = 1; // gloabl pivot : (pivot all), min = 0, max = 10.\nuniform float pivot_r = 0; // R pivot : (red pivot), min = 0., max = 50.\nuniform float pivot_g = 0; // G pivot : (green pivot), min = 0., max = 50.\nuniform float pivot_b = 0; // B pivot : (blue pivot), min = 0., max = 50.\n\nuniform float sat_gregPhase = 1; // phase : (phase), min = 0, max = 10.\nuniform int encoding = 0; // colorspace : (colorspace), min = 0, max = 2.\n\nfloat ga = 17.5;\nfloat br = 1.74;\n\n// contrast by  Miles\nvec3 adjust_contrast(vec3 col, vec4 con, vec4 piv)\n{\n\tvec3 c = con.rgb * vec3(con.a);\n\tvec3 a_pivot = piv.rgb * vec3(piv.a);\n\tcol = (1.0 - c.rgb) * a_pivot + c.rgb * col;\n\treturn col;\n}\n\n// Algorithm from Chapter 16 of OpenGL Shading Language\nvec3 saturation(vec3 rgb, float adjustment)\n{\n    const vec3 W = vec3(0.2125, 0.7154, 0.0721);\n    vec3 intensity = vec3(dot(rgb, W));\n    return mix(intensity, rgb, adjustment);\n}\n\n// rec709 conversion routine by Miles\nvec3 from_rec709(vec3 col)\n{\n\tif (col.r < .081) {\n\t\tcol.r /= 4.5;\n\t} else {\n\t\tcol.r = pow((col.r +.099)/ 1.099, 1 / .45);\n\t}\n\tif (col.g < .081) {\n\t\tcol.g /= 4.5;\n\t} else {\n\t\tcol.g = pow((col.g +.099)/ 1.099, 1 / .45);\n\t}\n\tif (col.b < .081) {\n\t\tcol.b /= 4.5;\n\t} else {\n\t\tcol.b = pow((col.b +.099)/ 1.099, 1 / .45);\n\t}\n\treturn col;\n}\n\nvec3 to_rec709(vec3 col)\n{\n    if (col.r < .018) {\n        col.r *= 4.5;\n    } else if (col.r >= 0.0) {\n        col.r = (1.099 * pow(col.r, .45)) - .099;\n    }\n    if (col.g < .018) {\n        col.g *= 4.5;\n    } else if (col.g >= 0.0) {\n        col.g = (1.099 * pow(col.g, .45)) - .099;\n    }\n    if (col.b < .018) {\n        col.b *= 4.5;\n    } else if (col.b >= 0.0) {\n        col.b = (1.099 * pow(col.b, .45)) - .099;\n    }\n    return col;\n}\n\nvec3 from_log(vec3 col)\n{\n\tif (col.r >= 0.0) {\n\t\tcol.r = pow((col.r + br), ga);\n\t}\n\tif (col.g >= 0.0) {\n\t\tcol.g = pow((col.g + br), ga);\n\t}\n\tif (col.b >= 0.0) {\n\t\tcol.b = pow((col.b + br), ga);\n\t}\n\treturn col;\n}\n\nvec3 to_log(vec3 col)\n{\n    if (col.r >= 0.0) {\n    \tcol.r = (pow(col.r, 1.0 / ga)) - br;\n\t}\n    if (col.g >= 0.0) {\n    \tcol.g = (pow(col.g, 1.0 / ga)) - br;\n\t}\n    if (col.b >= 0.0) {\n    \tcol.b = (pow(col.b, 1.0 / ga)) - br;\n\t}\n    return col;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n  vec2 uv = fragCoord.xy / iResolution.xy;\n\tvec3 col = texture2D(iChannel0, uv).rgb;\n\tvec3 contrast = vec3(contrast_r, contrast_g, contrast_b);\n\tvec3 c_pivot = vec3(pivot_r, pivot_g, pivot_b);\n\n\t// Scene linear exposure\n\tif ( encoding == 0 )\n\t{\n\t\t// contrast stuff by Miles\n\t\tcol = adjust_contrast(col, vec4(contrast, contrast_all), vec4(c_pivot, pivot_all));\n\t\t// overall exposure adjustemnt\n\t\tcol = col * pow(2.0, expo_o);\n\t\t// single rgb exposure adjustment\n\t\tcol.r = col.r * pow(2.0, expo_r);\n\t\tcol.g = col.g * pow(2.0, expo_g);\n\t\tcol.b = col.b * pow(2.0, expo_b);\n\t\t// desaturation Greg-Paul style\n\t\tcol = saturation(col, 1.0 - expo_o * 0.01 * sat_gregPhase);\n}\n\n\t// video  / Rec 709 exposure\n\tif ( encoding == 1)\n\t{\n\t\tcol = from_rec709(col);\n\t\t// contrast stuff by Miles\n\t\tcol = adjust_contrast(col, vec4(contrast, contrast_all), vec4(c_pivot, pivot_all));\n\t\t// overall exposure adjustemnt\n\t\tcol = col * pow(2.0, expo_o);\n\t\t// single rgb exposure adjustment\n\t\tcol.r = col.r * pow(2.0, expo_r);\n\t\tcol.g = col.g * pow(2.0, expo_g);\n\t\tcol.b = col.b * pow(2.0, expo_b);\n\t\t// desaturation Greg-Paul style\n\t\tcol = saturation(col, 1.0 - expo_o * 0.01 * sat_gregPhase);\n\t\tcol = to_rec709(col);\n\t}\n\n\t// Logarithmic exposure\n\tif ( encoding == 2)\n\t{\n\t\tcol = from_log(col);\n\t\t// overall exposure adjustemnt\n\t\tcol = col * pow(2.0, expo_o);\n\t\t// single rgb exposure adjustment\n\t\tcol.r = col.r * pow(2.0, expo_r);\n\t\tcol.g = col.g * pow(2.0, expo_g);\n\t\tcol.b = col.b * pow(2.0, expo_b);\n\t\t// desaturation Greg-Paul style\n\t\tcol = saturation(col, 1.0 - expo_o * 0.01 * sat_gregPhase);\n\t\tcol = to_log(col);\n\t\t// contrast stuff by Miles\n\t\tcol = adjust_contrast(col, vec4(contrast, contrast_all), vec4(c_pivot, pivot_all));\n\t}\n\n\tfragColor = vec4(col, 1.0);\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_exposure Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_exposure Matchbox for Autodesk Flame\r\n\r\n\r\n// iChannel0: Source, filter = nearest, wrap = clamp\r\n// BBox: iChannel0\r\n\r\n\r\nuniform float expo_o = 0; // global expo : (global exposition), min = 1., max = 50.\r\nuniform float expo_r = 0; // R expo : (red exposition), min = 1., max = 50.\r\nuniform float expo_g = 0; // G expo : (green exposition), min = 1., max = 50.\r\nuniform float expo_b = 0; // B expo : (blue exposition), min = 1., max = 50.\r\n\r\nuniform float contrast_all = 0.25; // global contrast : (global contrast), min = 0, max = 10.\r\nuniform float contrast_r = 1; // R contrast : (red contrast), min = 0., max = 50.\r\nuniform float contrast_g = 1; // G contrast : (green contrast), min = 0., max = 50.\r\nuniform float contrast_b = 1; // B contrast : (blue contrast), min = 0., max = 50.\r\n\r\nuniform float pivot_all = 1; // gloabl pivot : (pivot all), min = 0, max = 10.\r\nuniform float pivot_r = 0; // R pivot : (red pivot), min = 0., max = 50.\r\nuniform float pivot_g = 0; // G pivot : (green pivot), min = 0., max = 50.\r\nuniform float pivot_b = 0; // B pivot : (blue pivot), min = 0., max = 50.\r\n\r\nuniform float sat_gregPhase = 1; // phase : (phase), min = 0, max = 10.\r\nuniform int encoding = 0; // colorspace : (colorspace), min = 0, max = 2.\r\n\r\nfloat ga = 17.5;\r\nfloat br = 1.74;\r\n\r\n// contrast by  Miles\r\nvec3 adjust_contrast(vec3 col, vec4 con, vec4 piv)\r\n{\r\n\tvec3 c = con.rgb * vec3(con.a);\r\n\tvec3 a_pivot = piv.rgb * vec3(piv.a);\r\n\tcol = (1.0 - c.rgb) * a_pivot + c.rgb * col;\r\n\treturn col;\r\n}\r\n\r\n// Algorithm from Chapter 16 of OpenGL Shading Language\r\nvec3 saturation(vec3 rgb, float adjustment)\r\n{\r\n    const vec3 W = vec3(0.2125, 0.7154, 0.0721);\r\n    vec3 intensity = vec3(dot(rgb, W));\r\n    return mix(intensity, rgb, adjustment);\r\n}\r\n\r\n// rec709 conversion routine by Miles\r\nvec3 from_rec709(vec3 col)\r\n{\r\n\tif (col.r < .081) {\r\n\t\tcol.r /= 4.5;\r\n\t} else {\r\n\t\tcol.r = pow((col.r +.099)/ 1.099, 1 / .45);\r\n\t}\r\n\tif (col.g < .081) {\r\n\t\tcol.g /= 4.5;\r\n\t} else {\r\n\t\tcol.g = pow((col.g +.099)/ 1.099, 1 / .45);\r\n\t}\r\n\tif (col.b < .081) {\r\n\t\tcol.b /= 4.5;\r\n\t} else {\r\n\t\tcol.b = pow((col.b +.099)/ 1.099, 1 / .45);\r\n\t}\r\n\treturn col;\r\n}\r\n\r\nvec3 to_rec709(vec3 col)\r\n{\r\n    if (col.r < .018) {\r\n        col.r *= 4.5;\r\n    } else if (col.r >= 0.0) {\r\n        col.r = (1.099 * pow(col.r, .45)) - .099;\r\n    }\r\n    if (col.g < .018) {\r\n        col.g *= 4.5;\r\n    } else if (col.g >= 0.0) {\r\n        col.g = (1.099 * pow(col.g, .45)) - .099;\r\n    }\r\n    if (col.b < .018) {\r\n        col.b *= 4.5;\r\n    } else if (col.b >= 0.0) {\r\n        col.b = (1.099 * pow(col.b, .45)) - .099;\r\n    }\r\n    return col;\r\n}\r\n\r\nvec3 from_log(vec3 col)\r\n{\r\n\tif (col.r >= 0.0) {\r\n\t\tcol.r = pow((col.r + br), ga);\r\n\t}\r\n\tif (col.g >= 0.0) {\r\n\t\tcol.g = pow((col.g + br), ga);\r\n\t}\r\n\tif (col.b >= 0.0) {\r\n\t\tcol.b = pow((col.b + br), ga);\r\n\t}\r\n\treturn col;\r\n}\r\n\r\nvec3 to_log(vec3 col)\r\n{\r\n    if (col.r >= 0.0) {\r\n    \tcol.r = (pow(col.r, 1.0 / ga)) - br;\r\n\t}\r\n    if (col.g >= 0.0) {\r\n    \tcol.g = (pow(col.g, 1.0 / ga)) - br;\r\n\t}\r\n    if (col.b >= 0.0) {\r\n    \tcol.b = (pow(col.b, 1.0 / ga)) - br;\r\n\t}\r\n    return col;\r\n}\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n  vec2 uv = fragCoord.xy / iResolution.xy;\r\n\tvec3 col = texture2D(iChannel0, uv).rgb;\r\n\tvec3 contrast = vec3(contrast_r, contrast_g, contrast_b);\r\n\tvec3 c_pivot = vec3(pivot_r, pivot_g, pivot_b);\r\n\r\n\t// Scene linear exposure\r\n\tif ( encoding == 0 )\r\n\t{\r\n\t\t// contrast stuff by Miles\r\n\t\tcol = adjust_contrast(col, vec4(contrast, contrast_all), vec4(c_pivot, pivot_all));\r\n\t\t// overall exposure adjustemnt\r\n\t\tcol = col * pow(2.0, expo_o);\r\n\t\t// single rgb exposure adjustment\r\n\t\tcol.r = col.r * pow(2.0, expo_r);\r\n\t\tcol.g = col.g * pow(2.0, expo_g);\r\n\t\tcol.b = col.b * pow(2.0, expo_b);\r\n\t\t// desaturation Greg-Paul style\r\n\t\tcol = saturation(col, 1.0 - expo_o * 0.01 * sat_gregPhase);\r\n}\r\n\r\n\t// video  / Rec 709 exposure\r\n\tif ( encoding == 1)\r\n\t{\r\n\t\tcol = from_rec709(col);\r\n\t\t// contrast stuff by Miles\r\n\t\tcol = adjust_contrast(col, vec4(contrast, contrast_all), vec4(c_pivot, pivot_all));\r\n\t\t// overall exposure adjustemnt\r\n\t\tcol = col * pow(2.0, expo_o);\r\n\t\t// single rgb exposure adjustment\r\n\t\tcol.r = col.r * pow(2.0, expo_r);\r\n\t\tcol.g = col.g * pow(2.0, expo_g);\r\n\t\tcol.b = col.b * pow(2.0, expo_b);\r\n\t\t// desaturation Greg-Paul style\r\n\t\tcol = saturation(col, 1.0 - expo_o * 0.01 * sat_gregPhase);\r\n\t\tcol = to_rec709(col);\r\n\t}\r\n\r\n\t// Logarithmic exposure\r\n\tif ( encoding == 2)\r\n\t{\r\n\t\tcol = from_log(col);\r\n\t\t// overall exposure adjustemnt\r\n\t\tcol = col * pow(2.0, expo_o);\r\n\t\t// single rgb exposure adjustment\r\n\t\tcol.r = col.r * pow(2.0, expo_r);\r\n\t\tcol.g = col.g * pow(2.0, expo_g);\r\n\t\tcol.b = col.b * pow(2.0, expo_b);\r\n\t\t// desaturation Greg-Paul style\r\n\t\tcol = saturation(col, 1.0 - expo_o * 0.01 * sat_gregPhase);\r\n\t\tcol = to_log(col);\r\n\t\t// contrast stuff by Miles\r\n\t\tcol = adjust_contrast(col, vec4(contrast, contrast_all), vec4(c_pivot, pivot_all));\r\n\t}\r\n\r\n\tfragColor = vec4(col, 1.0);\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")

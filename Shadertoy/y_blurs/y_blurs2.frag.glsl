@@ -46,7 +46,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 	vec2 st = fragCoord.xy / res;
 	vec4 front = texture2D(iChannel0, st);
-   	float strength = texture2D(iChannel1, st).r;
+   	float strength = texture2D(iChannel1, st).a;
 
 	if (matte_is_strength) {
 		strength = front.a;

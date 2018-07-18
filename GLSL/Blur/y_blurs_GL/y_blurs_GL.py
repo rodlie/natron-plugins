@@ -745,7 +745,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Front")
     lastNode.setLabel("Front")
     lastNode.setPosition(4663, 3609)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(80, 30)
     lastNode.setColor(1, 1, 1)
     groupFront = lastNode
 
@@ -757,7 +757,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Matte")
     lastNode.setLabel("Matte")
     lastNode.setPosition(4799, 3603)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(80, 30)
     lastNode.setColor(1, 1, 1)
     groupMatte = lastNode
 
@@ -769,7 +769,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Strength")
     lastNode.setLabel("Strength")
     lastNode.setPosition(4915, 3606)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(80, 30)
     lastNode.setColor(1, 1, 1)
     groupStrength = lastNode
 
@@ -941,7 +941,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : y_blurs Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : y_blurs Matchbox for Autodesk Flame\n\n\n// iChannel0: result_pass1,filter=linear,wrap=clamp\n// iChannel1: Strength,filter=linear,wrap=clamp\n// BBox: iChannel0\n\n\n\nvec2 res = vec2(iResolution.x, iResolution.y);\nvec2 texel = vec2(1.0) / res;\n\nuniform bool matte_is_strength = false; // Matte is Strength : \n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n\tvec2 st = fragCoord.xy / res;\n\tvec4 front = texture2D(iChannel0, st);\n   \tfloat strength = texture2D(iChannel1, st).r;\n\n\tif (matte_is_strength) {\n\t\tstrength = front.a;\n\t}\n\n\tfragColor = vec4(front.rgb * front.a, strength);\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : y_blurs Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : y_blurs Matchbox for Autodesk Flame\n\n\n// iChannel0: result_pass1,filter=linear,wrap=clamp\n// iChannel1: Strength,filter=linear,wrap=clamp\n// BBox: iChannel0\n\n\n\nvec2 res = vec2(iResolution.x, iResolution.y);\nvec2 texel = vec2(1.0) / res;\n\nuniform bool matte_is_strength = false; // Matte is Strength : (Use the matte input as the strength input as well.)\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n\tvec2 st = fragCoord.xy / res;\n\tvec4 front = texture2D(iChannel0, st);\n   \tfloat strength = texture2D(iChannel1, st).a;\n\n\tif (matte_is_strength) {\n\t\tstrength = front.a;\n\t}\n\n\tfragColor = vec4(front.rgb * front.a, strength);\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
