@@ -512,12 +512,12 @@ We'd love to add your own Pyplugs to this repository so everyone can benefit fro
 
 You can make a Pull Request or if you're not comfortable with git just tell us here :
 
-https://forum.natron.fr/t/what-about-having-a-pyplug-repository/1027
+https://discuss.pixls.us/t/all-about-natron-community-plugins/8433
 
 
 Also you can look at our guidelines for Pyplug submission :
 
-https://github.com/NatronVFX/natron-plugins/wiki/Guidelines-for-plugins
+https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 
 ![Image](Resources/community-plugins-logo.png)
