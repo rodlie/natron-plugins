@@ -37,7 +37,6 @@
 uniform int resolution = 23; // Resolution : (resolution), min=1.0, max=50.0
 uniform float offsetx = -10.0; // Offset x : (offset x), min=-10.0, max=10.0
 uniform float offsety = 10.0; // Offset y : (offset y), min=-10.0, max=10.0
-uniform float p3;
 uniform float seed = 4000; // Seed : (seed), min=1.0, max=10000
 uniform float zoom = 26.80; // Zoom : (zoom), min=1.0, max=100.0
 uniform float gain = 10.0; // Gain : (gain), min=0.1, max=1000.0
