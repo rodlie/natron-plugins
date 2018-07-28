@@ -353,17 +353,17 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Source/Crok_blobs_GL/Crok_blobs_GL.png' width='24'> **[Crok_blobs_GL](/GLSL/Source/Crok_blobs_GL/README.md)** : Creates blob like sturctures.
 
-- <img src='/GLSL/Source/Crok_box_GL/Crok_box_GL.png' width='32'> **[Crok_box_GL](/GLSL/Source/Crok_box_GL/README.md)** : Creates an antialiased square with rounded corners.
+- <img src='/GLSL/Source/Crok_box_GL/Crok_box_GL.png' width='24'> **[Crok_box_GL](/GLSL/Source/Crok_box_GL/README.md)** : Creates an antialiased square with rounded corners.
 
-- <img src='/GLSL/Source/Crok_block_noise_GL/Crok_block_noise_GL.png' width='32'> **[Crok_block_noise_GL](/GLSL/Source/Crok_block_noise_GL/README.md)** : Creates blocky textures.
+- <img src='/GLSL/Source/Crok_block_noise_GL/Crok_block_noise_GL.png' width='24'> **[Crok_block_noise_GL](/GLSL/Source/Crok_block_noise_GL/README.md)** : Creates blocky textures.
 
-- <img src='/GLSL/Source/Crok_cameraflash_GL/Crok_cameraflash_GL.png' width='32'> **[Crok_cameraflash_GL](/GLSL/Source/Crok_cameraflash_GL/README.md)** : Creates simple camera flashs.
+- <img src='/GLSL/Source/Crok_cameraflash_GL/Crok_cameraflash_GL.png' width='24'> **[Crok_cameraflash_GL](/GLSL/Source/Crok_cameraflash_GL/README.md)** : Creates simple camera flashs.
 
-- <img src='/GLSL/Source/Crok_cells_GL/Crok_cells_GL.png' width='32'> **[Crok_cells_GL](/GLSL/Source/Crok_cells_GL/README.md)** : Creates a cell pattern.
+- <img src='/GLSL/Source/Crok_cells_GL/Crok_cells_GL.png' width='24'> **[Crok_cells_GL](/GLSL/Source/Crok_cells_GL/README.md)** : Creates a cell pattern.
 
-- <img src='/GLSL/Source/Crok_cellular_GL/Crok_cellular_GL.png' width='32'> **[Crok_cellular_GL](/GLSL/Source/Crok_cellular_GL/README.md)** : Creates tons of cellular like looking patterns.
+- <img src='/GLSL/Source/Crok_cellular_GL/Crok_cellular_GL.png' width='24'> **[Crok_cellular_GL](/GLSL/Source/Crok_cellular_GL/README.md)** : Creates tons of cellular like looking patterns.
 
-- <img src='/GLSL/Source/Crok_checkerboard_GL/Crok_checkerboard_GL.png' width='32'> **[Crok_checkerboard_GL](/GLSL/Source/Crok_checkerboard_GL/README.md)** : Creates a checkerboard pattern.
+- <img src='/GLSL/Source/Crok_checkerboard_GL/Crok_checkerboard_GL.png' width='24'> **[Crok_checkerboard_GL](/GLSL/Source/Crok_checkerboard_GL/README.md)** : Creates a checkerboard pattern.
 
 - <img src='/GLSL/Source/Crok_fbmPixels_GL/Crok_fbmPixels_GL.png' width='32'> **[Crok_fbmPixels_GL](/GLSL/Source/Crok_fbmPixels_GL/README.md)** : Creates a fbm style pattern.
 
