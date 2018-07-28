@@ -30,6 +30,17 @@ Unzip into any PyPlug folder but the recommended locations are...
 Finally edit the plugins location in Natron preferences to allow it to find them during startup, if it's not already.
 If you want a particular folder only you can use http://kinolien.github.io/gitzip/ and put the URL to the folder you want there. Also you can install individual .py files (and their accompanied png icon files).
 
+## How to Contribute to this repository ?
+We'd love to add your own Pyplugs to this repository so everyone can benefit from them.
+
+You can make a Pull Request or if you're not comfortable with git just tell us here :
+
+https://discuss.pixls.us/t/all-about-natron-community-plugins/8433
+
+
+Also you can look at our guidelines for Pyplug submission :
+
+https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 ## Available Plugins
 
@@ -506,18 +517,6 @@ If you want a particular folder only you can use http://kinolien.github.io/gitzi
 
 ### Views
 - <img src='/Views/L_AspectMask/L_AspectMask.png' width='32'> **[L_AspectMask](/Views/L_AspectMask/README.md)** : Apply standard formats overlay over an image.
-
-## How to Contribute to this repository ?
-We'd love to add your own Pyplugs to this repository so everyone can benefit from them.
-
-You can make a Pull Request or if you're not comfortable with git just tell us here :
-
-https://forum.natron.fr/t/what-about-having-a-pyplug-repository/1027
-
-
-Also you can look at our guidelines for Pyplug submission :
-
-https://github.com/NatronVFX/natron-plugins/wiki/Guidelines-for-plugins
 
 
 ![Image](Resources/community-plugins-logo.png)
