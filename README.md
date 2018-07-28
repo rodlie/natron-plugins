@@ -409,7 +409,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Source/L_Molten_GL/L_Molten_GL.png' width='32'> **[L_Molten_GL](/GLSL/Source/L_Molten_GL/README.md)** : Molten Metal Texture Gradient shader.
 
-- <img src='/GLSL/Source/Magma_GL/Magma_GL.png' width='32'> **[Magma_GL](/GLSL/Source/Magma_GL/README.md)** : Generates a magma style effect.
+- <img src='/GLSL/Source/Magma_GL/Magma_GL.png' width='24'> **[Magma_GL](/GLSL/Source/Magma_GL/README.md)** : Generates a magma style effect.
 
 - <img src='/GLSL/Source/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Source/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
 
