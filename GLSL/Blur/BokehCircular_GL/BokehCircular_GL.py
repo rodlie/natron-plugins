@@ -38,11 +38,80 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
-    lastNode.setColor(0.7, 0.7, 0.7)
+    lastNode.setColor(0.8314, 0.4824, 0.1373)
 
     # Create the user parameters
     lastNode.userNatron = lastNode.createPageParam("userNatron", "Controls")
-    param = lastNode.createDoubleParam("BufAparamValueFloat0", "Blur Size")
+    param = lastNode.createStringParam("sep01", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep01 = param
+    del param
+
+    param = lastNode.createStringParam("sep02", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep02 = param
+    del param
+
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
+    del param
+
+    param = lastNode.createStringParam("sep03", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep03 = param
+    del param
+
+    param = lastNode.createStringParam("sep04", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep04 = param
+    del param
+
+    param = lastNode.createDoubleParam("BufAparamValueFloat0", "Blur Size : ")
     param.setMinimum(0, 0)
     param.setMaximum(100, 0)
     param.setDisplayMinimum(0, 0)
@@ -54,42 +123,122 @@ def createInstance(app,group):
     lastNode.userNatron.addParam(param)
 
     # Set param properties
-    param.setHelp("The blur size, in pixels.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValueAtTime(0, 1, 0)
-    param.setValueAtTime(100, 250, 0)
     lastNode.BufAparamValueFloat0 = param
     del param
 
-    param = lastNode.createIntParam("BufAparamValueInt1", "No. Samples")
+    param = lastNode.createStringParam("sep05", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep05 = param
+    del param
+
+    param = lastNode.createIntParam("BufAparamValueInt1", "Samples : ")
     param.setMinimum(1, 0)
     param.setMaximum(20, 0)
     param.setDisplayMinimum(1, 0)
     param.setDisplayMaximum(20, 0)
-    param.setDefaultValue(6, 0)
+    param.setDefaultValue(12, 0)
     param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.userNatron.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(12, 0)
     lastNode.BufAparamValueInt1 = param
     del param
 
-    param = lastNode.createBooleanParam("BufAparamValueBool2", "Modulate")
+    param = lastNode.createStringParam("sep06", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
     lastNode.userNatron.addParam(param)
 
     # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep06 = param
+    del param
+
+    param = lastNode.createStringParam("sep07", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep07 = param
+    del param
+
+    param = lastNode.createSeparatorParam("LINE01", "")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.LINE01 = param
+    del param
+
+    param = lastNode.createBooleanParam("BufAparamValueBool2", "Modulate : ")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(True)
     lastNode.BufAparamValueBool2 = param
+    del param
+
+    param = lastNode.createStringParam("sep08", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep08 = param
+    del param
+
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
     del param
 
     # Refresh the GUI with the newly created parameters
@@ -101,16 +250,14 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("BufA")
     lastNode.setLabel("BufA")
-    lastNode.setPosition(396, 240)
-    lastNode.setSize(104, 26)
+    lastNode.setPosition(388, 242)
+    lastNode.setSize(104, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupBufA = lastNode
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(8, 44, 0)
-        param.setValueAtTime(100, 250, 0)
+        param.setValue(8, 0)
         del param
 
     param = lastNode.getParam("paramValueInt1")
@@ -120,7 +267,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueBool2")
     if param is not None:
-        param.setValue(True)
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderFileName")
@@ -180,7 +327,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("NatronParamFormatChoice")
     if param is not None:
-        param.set("960x540")
+        param.set("PC_Video")
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -290,16 +437,14 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("BufB")
     lastNode.setLabel("BufB")
-    lastNode.setPosition(313, 316)
-    lastNode.setSize(104, 26)
+    lastNode.setPosition(189, 424)
+    lastNode.setSize(104, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupBufB = lastNode
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(8, 44, 0)
-        param.setValueAtTime(100, 250, 0)
+        param.setValue(8, 0)
         del param
 
     param = lastNode.getParam("paramValueInt1")
@@ -309,7 +454,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueBool2")
     if param is not None:
-        param.setValue(True)
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderFileName")
@@ -374,7 +519,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("NatronParamFormatChoice")
     if param is not None:
-        param.set("960x540")
+        param.set("PC_Video")
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -474,16 +619,14 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("BufC")
-    lastNode.setPosition(384, 395)
-    lastNode.setSize(104, 26)
+    lastNode.setPosition(393, 424)
+    lastNode.setSize(104, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.setValueAtTime(0, 1, 0)
-        param.setValueAtTime(8, 44, 0)
-        param.setValueAtTime(100, 250, 0)
+        param.setValue(8, 0)
         del param
 
     param = lastNode.getParam("paramValueInt1")
@@ -493,7 +636,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueBool2")
     if param is not None:
-        param.setValue(True)
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -553,7 +696,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("NatronParamFormatChoice")
     if param is not None:
-        param.set("960x540")
+        param.set("PC_Video")
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -653,8 +796,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(396, 118)
-    lastNode.setSize(104, 26)
+    lastNode.setPosition(396, 89)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -664,8 +807,8 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output1")
-    lastNode.setPosition(384, 457)
-    lastNode.setSize(104, 26)
+    lastNode.setPosition(393, 609)
+    lastNode.setSize(104, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -676,8 +819,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Modulate")
     lastNode.setLabel("Modulate")
-    lastNode.setPosition(235, 123)
-    lastNode.setSize(104, 26)
+    lastNode.setPosition(189, 231)
+    lastNode.setSize(104, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupModulate = lastNode
 
