@@ -16,28 +16,23 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "natron.community.plugins.JB_fractal_GL"
+    return "JB_fractal_GL"
 
 def getLabel():
     return "JB_fractal_GL"
 
 def getVersion():
-    return 1.0
-
-def getIconPath():
-    return "JB_fractal_GL.png"
+    return 1
 
 def getGrouping():
-    return "Community/GLSL/Source"
-
-def getPluginDescription():
-    return "Simple fractal generator."
+    return ""
 
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.9529, 0.4314, 1)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -624,7 +619,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -636,7 +631,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3878)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
