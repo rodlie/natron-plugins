@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -69,6 +70,47 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
+    del param
+
+    param = lastNode.createStringParam("sep04", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep04 = param
+    del param
+
+    param = lastNode.createStringParam("sep03", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep03 = param
+    del param
+
     param = lastNode.createBooleanParam("Shadertoy1paramValueBool0", "RGB BAR : ")
     param.setDefaultValue(True)
     param.restoreDefaultValue()
@@ -77,7 +119,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setAddNewLine(True)
+    param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueBool0 = param
     del param
@@ -108,7 +150,7 @@ def createInstance(app,group):
     lastNode.Shadertoy1paramValueBool2 = param
     del param
 
-    param = lastNode.createStringParam("sep04", "")
+    param = lastNode.createStringParam("sep05", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -119,10 +161,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep04 = param
+    lastNode.sep05 = param
     del param
 
-    param = lastNode.createStringParam("sep03", "")
+    param = lastNode.createStringParam("sep06", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -130,10 +172,10 @@ def createInstance(app,group):
 
     # Set param properties
     param.setHelp("")
-    param.setAddNewLine(False)
+    param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep03 = param
+    lastNode.sep06 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -338,7 +380,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -350,7 +392,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3697)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -362,7 +404,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3848)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -383,7 +425,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_scanline Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_scanline Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter = linear\n// BBox: iChannel0\n\nuniform bool RGB_BAR = false; // RGB BAR :\nuniform bool RGB_TRIAD = false; // RGB TRIAD :\nuniform bool MG_BAR = false; // MG BAR :\n\nvec2 rubyOutputSize = vec2(iResolution.x, iResolution.y);\nvec2 rubyInputSize = vec2(iResolution.x, iResolution.y);\nvec2 FrontSize = rubyInputSize;\n\n\n// 0.5 = the spot stays inside the original pixel\n// 1.0 = the spot bleeds up to the center of next pixel\n#define SPOT_WIDTH  0.9\n#define SPOT_HEIGHT 0.65\n\n// Used to counteract the desaturation effect of weighting.\n#define COLOR_BOOST 2.45\n\n#define GAMMA_IN(color) color\n#define GAMMA_OUT(color) color\n\n#define TEX2D(coords)   GAMMA_IN( texture2D(iChannel0, coords) )\n\n// Macro for weights computing\n#define WEIGHT(w) \\\nif(w>1.0) w=1.0; \\\nw = 1.0 - w * w; \\\nw = w * w;\n\nvec2 onex = vec2( 1.0/FrontSize.x, 0.0 );\nvec2 oney = vec2( 0.0, 1.0/FrontSize.y );\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n    vec2 coords = ( uv * FrontSize );\n\tvec2 pixel_center = floor( coords ) + vec2(0.5);\n\tvec2 texture_coords = pixel_center / FrontSize;\n    vec4 color = TEX2D( texture_coords );\n\n    float dx = coords.x - pixel_center.x;\n\n    float h_weight_00 = dx / SPOT_WIDTH;\n    WEIGHT(h_weight_00);\n\tcolor *= vec4( h_weight_00  );\n\n    // get closest horizontal neighbour to blend\n    vec2 coords01;\n    if (dx>0.0) {\n\t\tcoords01 = onex;\n        dx = 1.0 - dx;\n\t} else {\n\t\tcoords01 = -onex;\n        dx = 1.0 + dx;\n\t}\n\tvec4 colorNB = TEX2D( texture_coords + coords01 );\n\n    float h_weight_01 = dx / SPOT_WIDTH;\n    WEIGHT( h_weight_01 );\n\tcolor = color + colorNB * vec4( h_weight_01 );\n//////////////////////////////////////////////////////\n// Vertical Blending\n\tfloat dy = coords.y - pixel_center.y;\n    float v_weight_00 = dy / SPOT_HEIGHT;\n    WEIGHT(v_weight_00);\n    color *= vec4( v_weight_00 );\n\n    // get closest vertical neighbour to blend\n    vec2 coords10;\n\tif (dy>0.0) {\n\t\tcoords10 = oney;\n        dy = 1.0 - dy;\n\t} else {\n\t\tcoords10 = -oney;\n        dy = 1.0 + dy;\n\t}\n\tcolorNB = TEX2D( texture_coords + coords10 );\n\tfloat v_weight_10 = dy / SPOT_HEIGHT;\n    WEIGHT( v_weight_10 );\n\tcolor = color + colorNB * vec4( v_weight_10 * h_weight_00 );\n\tcolorNB = TEX2D(  texture_coords + coords01 + coords10 );\n\tcolor = color + colorNB * vec4( v_weight_10 * h_weight_01 );\n\tcolor *= vec4( COLOR_BOOST );\n\t\n\tif ( RGB_BAR )\n\t\t{\n\n\t\t\tvec2 output_coords = floor(uv * rubyOutputSize);\n\t\t\n\t\t\tfloat modulo = mod(output_coords.x,3.0);\n\t\t\t\n            if ( modulo == 0.0 )\n                    color = color * vec4(1.4,0.5,0.5,0.0);\n                else if ( modulo == 1.0 )\n                    color = color * vec4(0.5,1.4,0.5,0.0);\n                else\n                    color = color * vec4(0.5,0.5,1.4,0.0);\n\t\t\t}\n\n\t\tif ( RGB_TRIAD )\n\t\t{\n        vec2 output_coords = floor(uv * rubyOutputSize / rubyInputSize * FrontSize);\n\t\tfloat modulo = mod(output_coords.x,2.0);\n\t\tif ( modulo < 1.0 )\n        modulo = mod(output_coords.y,6.0);\n        else\n        modulo = mod(output_coords.y + 3.0, 6.0);\n\t\tif ( modulo < 2.0 )\n                    color = color * vec4(1.0,0.0,0.0,0.0);\n                else if ( modulo < 4.0 )\n                    color = color * vec4(0.0,1.0,0.0,0.0);\n                else\n                    color = color * vec4(0.0,0.0,1.0,0.0);\n\t\t\t}\n\n        if ( MG_BAR )\n\t\t{\n                vec2 output_coords = floor(uv * rubyOutputSize);\n\n                float modulo = mod(output_coords.x,2.0);\n                if ( modulo == 0.0 )\n                    color = color * vec4(1.0,0.1,1.0,0.0);\n                else\n                    color = color * vec4(0.1,1.0,0.1,0.0);\n\t\t\t}\n\n\n                fragColor = GAMMA_OUT(color), 0.0, 1.0;\n        }\n\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_scanlines Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_scanlines Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter = linear\n// BBox: iChannel0\n\nuniform bool RGB_BAR = false; // RGB BAR :\nuniform bool RGB_TRIAD = false; // RGB TRIAD :\nuniform bool MG_BAR = false; // MG BAR :\n\nvec2 rubyOutputSize = vec2(iResolution.x, iResolution.y);\nvec2 rubyInputSize = vec2(iResolution.x, iResolution.y);\nvec2 FrontSize = rubyInputSize;\n\n\n#define SPOT_WIDTH  0.9\n#define SPOT_HEIGHT 0.65\n\n#define COLOR_BOOST 2.45\n\n#define GAMMA_IN(color) color\n#define GAMMA_OUT(color) color\n\n#define TEX2D(coords)   GAMMA_IN( texture2D(iChannel0, coords) )\n\n#define WEIGHT(w) \\\nif(w>1.0) w=1.0; \\\nw = 1.0 - w * w; \\\nw = w * w;\n\nvec2 onex = vec2( 1.0/FrontSize.x, 0.0 );\nvec2 oney = vec2( 0.0, 1.0/FrontSize.y );\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n    vec2 coords = ( uv * FrontSize );\n\tvec2 pixel_center = floor( coords ) + vec2(0.5);\n\tvec2 texture_coords = pixel_center / FrontSize;\n    vec4 color = TEX2D( texture_coords );\n\n    float dx = coords.x - pixel_center.x;\n\n    float h_weight_00 = dx / SPOT_WIDTH;\n    WEIGHT(h_weight_00);\n\tcolor *= vec4( h_weight_00  );\n\n\n    vec2 coords01;\n    if (dx>0.0) {\n\t\tcoords01 = onex;\n        dx = 1.0 - dx;\n\t} else {\n\t\tcoords01 = -onex;\n        dx = 1.0 + dx;\n\t}\n\tvec4 colorNB = TEX2D( texture_coords + coords01 );\n\n    float h_weight_01 = dx / SPOT_WIDTH;\n    WEIGHT( h_weight_01 );\n\tcolor = color + colorNB * vec4( h_weight_01 );\n\n\tfloat dy = coords.y - pixel_center.y;\n    float v_weight_00 = dy / SPOT_HEIGHT;\n    WEIGHT(v_weight_00);\n    color *= vec4( v_weight_00 );\n\n\n    vec2 coords10;\n\tif (dy>0.0) {\n\t\tcoords10 = oney;\n        dy = 1.0 - dy;\n\t} else {\n\t\tcoords10 = -oney;\n        dy = 1.0 + dy;\n\t}\n\tcolorNB = TEX2D( texture_coords + coords10 );\n\tfloat v_weight_10 = dy / SPOT_HEIGHT;\n    WEIGHT( v_weight_10 );\n\tcolor = color + colorNB * vec4( v_weight_10 * h_weight_00 );\n\tcolorNB = TEX2D(  texture_coords + coords01 + coords10 );\n\tcolor = color + colorNB * vec4( v_weight_10 * h_weight_01 );\n\tcolor *= vec4( COLOR_BOOST );\n\t\n\tif ( RGB_BAR )\n\t\t{\n\n\t\t\tvec2 output_coords = floor(uv * rubyOutputSize);\n\t\t\n\t\t\tfloat modulo = mod(output_coords.x,3.0);\n\t\t\t\n            if ( modulo == 0.0 )\n                    color = color * vec4(1.4,0.5,0.5,0.0);\n                else if ( modulo == 1.0 )\n                    color = color * vec4(0.5,1.4,0.5,0.0);\n                else\n                    color = color * vec4(0.5,0.5,1.4,0.0);\n\t\t\t}\n\n\t\tif ( RGB_TRIAD )\n\t\t{\n        vec2 output_coords = floor(uv * rubyOutputSize / rubyInputSize * FrontSize);\n\t\tfloat modulo = mod(output_coords.x,2.0);\n\t\tif ( modulo < 1.0 )\n        modulo = mod(output_coords.y,6.0);\n        else\n        modulo = mod(output_coords.y + 3.0, 6.0);\n\t\tif ( modulo < 2.0 )\n                    color = color * vec4(1.0,0.0,0.0,0.0);\n                else if ( modulo < 4.0 )\n                    color = color * vec4(0.0,1.0,0.0,0.0);\n                else\n                    color = color * vec4(0.0,0.0,1.0,0.0);\n\t\t\t}\n\n        if ( MG_BAR )\n\t\t{\n                vec2 output_coords = floor(uv * rubyOutputSize);\n\n                float modulo = mod(output_coords.x,2.0);\n                if ( modulo == 0.0 )\n                    color = color * vec4(1.0,0.1,1.0,0.0);\n                else\n                    color = color * vec4(0.1,1.0,0.1,0.0);\n\t\t\t}\n\n\n                fragColor = GAMMA_OUT(color), 0.0, 1.0;\n        }\n\n")
         del param
 
     param = lastNode.getParam("mipmap0")
