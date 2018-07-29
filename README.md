@@ -336,15 +336,15 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Keying/JB_erodematte_GL/JB_erodematte_GL.png' width='24'> **[JB_erodematte_GL](/GLSL/Keying/JB_erodematte_GL/README.md)** : Simple erode node.
 
 ### GLSL/Merge
-- <img src='/GLSL/Merge/Add_GL/Add_GL.png' width='32'> **[Add_GL](/GLSL/Merge/Add_GL/README.md)** : GPU accelerated additive merge for Shadertoy.
+- <img src='/GLSL/Merge/Add_GL/Add_GL.png' width='24'> **[Add_GL](/GLSL/Merge/Add_GL/README.md)** : GPU accelerated additive merge for Shadertoy.
 
-- <img src='/GLSL/Merge/Crok_uncomp_GL/Crok_uncomp_GL.png' width='32'> **[Crok_uncomp_GL](/GLSL/Merge/Crok_uncomp_GL/README.md)** : Uncompose a compositing scene into its original layer.
+- <img src='/GLSL/Merge/Crok_uncomp_GL/Crok_uncomp_GL.png' width='24'> **[Crok_uncomp_GL](/GLSL/Merge/Crok_uncomp_GL/README.md)** : Uncompose a compositing scene into its original layer.
 
-- <img src='/GLSL/Merge/Ls_Contacts_GL/Ls_Contacts_GL.png' width='32'> **[Ls_Contacts_GL](/GLSL/Merge/Ls_Contacts_GL/README.md)** : Tile inputs into a grid for impressing clients, choosing versions or checking continuity.
+- <img src='/GLSL/Merge/Ls_Contacts_GL/Ls_Contacts_GL.png' width='24'> **[Ls_Contacts_GL](/GLSL/Merge/Ls_Contacts_GL/README.md)** : Tile inputs into a grid for impressing clients, choosing versions or checking continuity.
 
-- <img src='/GLSL/Merge/Merge_GL/Merge_GL.png' width='32'> **[Merge_GL](/GLSL/Merge/Merge_GL/README.md)** : GPU accelerated merge node for Shadertoy.
+- <img src='/GLSL/Merge/Merge_GL/Merge_GL.png' width='24'> **[Merge_GL](/GLSL/Merge/Merge_GL/README.md)** : GPU accelerated merge node for Shadertoy.
 
-- <img src='/GLSL/Merge/Screen_GL/Screen_GL.png' width='32'> **[Screen_GL](/GLSL/Merge/Screen_GL/README.md)** : GPU accelerated screen merge for Shadertoy.
+- <img src='/GLSL/Merge/Screen_GL/Screen_GL.png' width='24'> **[Screen_GL](/GLSL/Merge/Screen_GL/README.md)** : GPU accelerated screen merge for Shadertoy.
 
 ### GLSL/Source
 - <img src='/GLSL/Source/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='24'> **[Bleepy_Blocks_GL](/GLSL/Source/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
