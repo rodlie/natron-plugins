@@ -387,37 +387,37 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Source/Crok_maze_GL/Crok_maze_GL.png' width='32'> **[Crok_maze_GL](/GLSL/Source/Crok_maze_GL/README.md)** : Creates a maze like structure.
 
-- <img src='/GLSL/Source/Crok_ocean_noise_GL/Crok_ocean_noise_GL.png' width='32'> **[Crok_ocean_noise_GL](/GLSL/Source/Crok_ocean_noise_GL/README.md)** : Creates an ocean / water like noise pattern.
+- <img src='/GLSL/Source/Crok_ocean_noise_GL/Crok_ocean_noise_GL.png' width='24'> **[Crok_ocean_noise_GL](/GLSL/Source/Crok_ocean_noise_GL/README.md)** : Creates an ocean / water like noise pattern.
 
-- <img src='/GLSL/Source/Crok_patterns_GL/Crok_patterns_GL.png' width='32'> **[Crok_patterns_GL](/GLSL/Source/Crok_patterns_GL/README.md)** : Creates different patterns.
+- <img src='/GLSL/Source/Crok_patterns_GL/Crok_patterns_GL.png' width='24'> **[Crok_patterns_GL](/GLSL/Source/Crok_patterns_GL/README.md)** : Creates different patterns.
 
-- <img src='/GLSL/Source/Crok_perlin_GL/Crok_perlin_GL.png' width='32'> **[Crok_perlin_GL](/GLSL/Source/Crok_perlin_GL/README.md)** : Creates a perlin noise like pattern.
+- <img src='/GLSL/Source/Crok_perlin_GL/Crok_perlin_GL.png' width='24'> **[Crok_perlin_GL](/GLSL/Source/Crok_perlin_GL/README.md)** : Creates a perlin noise like pattern.
 
-- <img src='/GLSL/Source/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='32'> **[Crok_plasnoid_GL](/GLSL/Source/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
+- <img src='/GLSL/Source/Crok_plasnoid_GL/Crok_plasnoid_GL.png' width='24'> **[Crok_plasnoid_GL](/GLSL/Source/Crok_plasnoid_GL/README.md)** : Creates tons of different plasma patterns.
 
-- <img src='/GLSL/Source/Crok_puffy_noise_GL/Crok_puffy_noise_GL.png' width='32'> **[Crok_puffy_noise_GL](/GLSL/Source/Crok_puffy_noise_GL/README.md)** : Simulates puffy noise.
+- <img src='/GLSL/Source/Crok_puffy_noise_GL/Crok_puffy_noise_GL.png' width='24'> **[Crok_puffy_noise_GL](/GLSL/Source/Crok_puffy_noise_GL/README.md)** : Simulates puffy noise.
 
-- <img src='/GLSL/Source/Crok_snow_GL/Crok_snow_GL.png' width='32'> **[Crok_snow_GL](/GLSL/Source/Crok_snow_GL/README.md)** : Creates snow.
+- <img src='/GLSL/Source/Crok_snow_GL/Crok_snow_GL.png' width='24'> **[Crok_snow_GL](/GLSL/Source/Crok_snow_GL/README.md)** : Creates snow.
 
-- <img src='/GLSL/Source/Crok_stars_GL/Crok_stars_GL.png' width='32'> **[Crok_stars_GL](/GLSL/Source/Crok_stars_GL/README.md)** : Simulates stars.
+- <img src='/GLSL/Source/Crok_stars_GL/Crok_stars_GL.png' width='24'> **[Crok_stars_GL](/GLSL/Source/Crok_stars_GL/README.md)** : Simulates stars.
 
 - <img src='/GLSL/Source/Crok_tesla_GL/Crok_tesla_GL.png' width='24'> **[Crok_tesla_GL](/GLSL/Source/Crok_tesla_GL/README.md)** : Creates tesla lightning bolts.
 
-- <img src='/GLSL/Source/Crok_turbulence_GL/Crok_turbulence_GL.png' width='32'> **[Crok_turbulence_GL](/GLSL/Source/Crok_turbulence_GL/README.md)** : Creates a water turbulence texture.
+- <img src='/GLSL/Source/Crok_turbulence_GL/Crok_turbulence_GL.png' width='24'> **[Crok_turbulence_GL](/GLSL/Source/Crok_turbulence_GL/README.md)** : Creates a water turbulence texture.
 
-- <img src='/GLSL/Source/Crok_voronoi_GL/Crok_voronoi_GL.png' width='32'> **[Crok_voronoi_GL](/GLSL/Source/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
+- <img src='/GLSL/Source/Crok_voronoi_GL/Crok_voronoi_GL.png' width='24'> **[Crok_voronoi_GL](/GLSL/Source/Crok_voronoi_GL/README.md)** : Creates voronoi noises.
 
-- <img src='/GLSL/Source/Crok_wave_lines_GL/Crok_wave_lines_GL.png' width='32'> **[Crok_wave_lines_GL](/GLSL/Source/Crok_wave_lines_GL/README.md)** : Creates a wave line pattern.
+- <img src='/GLSL/Source/Crok_wave_lines_GL/Crok_wave_lines_GL.png' width='24'> **[Crok_wave_lines_GL](/GLSL/Source/Crok_wave_lines_GL/README.md)** : Creates a wave line pattern.
 
-- <img src='/GLSL/Source/Crok_wrinkle_GL/Crok_wrinkle_GL.png' width='32'> **[Crok_wrinkle_lines_GL](/GLSL/Source/Crok_wrinkle_GL/README.md)** : Creates wrinkled paper like sturctures.
+- <img src='/GLSL/Source/Crok_wrinkle_GL/Crok_wrinkle_GL.png' width='24'> **[Crok_wrinkle_lines_GL](/GLSL/Source/Crok_wrinkle_GL/README.md)** : Creates wrinkled paper like sturctures.
 
-- <img src='/GLSL/Source/JB_fractal_GL/JB_fractal_GL.png' width='32'> **[JB_fractal_GL](/GLSL/Source/JB_fractal_GL/README.md)** : Simple fractal generator.
+- <img src='/GLSL/Source/JB_fractal_GL/JB_fractal_GL.png' width='24'> **[JB_fractal_GL](/GLSL/Source/JB_fractal_GL/README.md)** : Simple fractal generator.
 
-- <img src='/GLSL/Source/L_Molten_GL/L_Molten_GL.png' width='32'> **[L_Molten_GL](/GLSL/Source/L_Molten_GL/README.md)** : Molten Metal Texture Gradient shader.
+- <img src='/GLSL/Source/L_Molten_GL/L_Molten_GL.png' width='24'> **[L_Molten_GL](/GLSL/Source/L_Molten_GL/README.md)** : Molten Metal Texture Gradient shader.
 
 - <img src='/GLSL/Source/Magma_GL/Magma_GL.png' width='24'> **[Magma_GL](/GLSL/Source/Magma_GL/README.md)** : Generates a magma style effect.
 
-- <img src='/GLSL/Source/Noise_GL/Noise_GL.png' width='32'> **[Noise_GL](/GLSL/Source/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
+- <img src='/GLSL/Source/Noise_GL/Noise_GL.png' width='24'> **[Noise_GL](/GLSL/Source/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
 
 ### GLSL/Transform
 - <img src='/GLSL/Transform/Crok_seamless_GL/Crok_seamless_GL.png' width='24'> **[Crok_seamless_GL](/GLSL/Transform/Crok_seamless_GL/README.md)** : Creates seamless textures.
