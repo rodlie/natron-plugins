@@ -70,7 +70,7 @@ def createInstance(app,group):
     lastNode.separator20 = param
     del param
 
-    param = lastNode.createSeparatorParam("line02", "K_Chroma_GL v1.0")
+    param = lastNode.createSeparatorParam("line02", "Shuffle_AtoRGB_GL v1.0")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -243,7 +243,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3958)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -255,7 +255,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3646)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -267,7 +267,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3798)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 

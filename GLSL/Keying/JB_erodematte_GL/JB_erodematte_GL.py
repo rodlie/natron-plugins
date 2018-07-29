@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(0.1176, 0.5569, 0.1569)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -69,21 +70,17 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createIntParam("Shadertoy1paramValueInt1", "Iterations :")
-    param.setMinimum(0, 0)
-    param.setMaximum(100, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(100, 0)
-    param.setDefaultValue(2, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueInt1 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -100,18 +97,6 @@ def createInstance(app,group):
     lastNode.sep03 = param
     del param
 
-    param = lastNode.createBooleanParam("twoSteps", "2 steps : ")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.twoSteps = param
-    del param
-
     param = lastNode.createStringParam("sep04", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -126,6 +111,23 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
+    param = lastNode.createIntParam("Shadertoy1paramValueInt1", "Iterations : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(100, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(100, 0)
+    param.setDefaultValue(2, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueInt1 = param
+    del param
+
     param = lastNode.createStringParam("sep05", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -138,6 +140,46 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep05 = param
+    del param
+
+    param = lastNode.createBooleanParam("twoSteps", "2 steps : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.twoSteps = param
+    del param
+
+    param = lastNode.createStringParam("sep06", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep06 = param
+    del param
+
+    param = lastNode.createStringParam("sep07", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep07 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -342,7 +384,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -354,7 +396,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3698)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -366,7 +408,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3837)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -382,7 +424,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : JB_erodematte Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : JB_erodematte Matchbox for Autodesk Flame\n\n\n// iChannel0: source, filter = nearest, wrap0 = clamp\n\n\n\nuniform int alias = 0; // 2 steps : (2 steps), min=0, max=1\nuniform int iterations = 2; // Iterations : (iterations), min=0, max=100\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n\n{\n\n\tvec2 st0;\n\tst0.x = fragCoord.x / iResolution.x;\n\tst0.y = fragCoord.y / iResolution.y;\n\t\n\tvec4 getColPixel0;\n\tgetColPixel0 = texture2D(iChannel0, st0);\n\n\tvec4 color;\n\tvec2 st1;\n\tvec2 st2;\n\tvec2 st3;\n\tvec2 st4;\n\tvec2 st5;\n\tvec2 st6;\n\tvec2 st7;\n\tvec2 st8;\n\tvec4 getColPixel1;\n\tvec4 getColPixel2;\n\tvec4 getColPixel3;\n\tvec4 getColPixel4;\n\tvec4 getColPixel5;\n\tvec4 getColPixel6;\n\tvec4 getColPixel7;\n\tvec4 getColPixel8;\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\tcolor = getColPixel0;\n\tfloat colorBuffer;\n\tint count=0;\n\tfor (int x = 0; x <=iterations; x++)\n\t{\n\t\tfor (int y = 1; y<= iterations; y++)\n\t\t{\n\t\tst1.x = (fragCoord.x+x) / iResolution.x;\n\t\tst1.y = (fragCoord.y+y) / iResolution.y;\n\t\tif ( (fragCoord.x+x) >=0 && (fragCoord.x+x) <= iResolution.x){getColPixel1 = texture2D(iChannel0, st1);}\n\t\tif ( (fragCoord.y+y) >=0 && (fragCoord.y+y) <= iResolution.y){getColPixel1 = texture2D(iChannel0, st1);}\t\t\n\t\tcolor += getColPixel1;count++;\n\t\t}\n\tcount++;\n\t}\n\t\n\tfor (int x = 0; x <=iterations; x++)\n\t{\n\t\tfor (int y = 1; y<= iterations; y++)\n\t\t{\n\t\tst1.x = (fragCoord.x-x) / iResolution.x;\n\t\tst1.y = (fragCoord.y+y) / iResolution.y;\n\t\tif ( (fragCoord.x-x) >=0 && (fragCoord.x-x) <= iResolution.x){getColPixel1 = texture2D(iChannel0, st1);}\n\t\tif ( (fragCoord.y+y) >=0 && (fragCoord.y+y) <= iResolution.y){getColPixel1 = texture2D(iChannel0, st1);}\t\t\n\t\tcolor += getColPixel1;count++;\n\t\t}\n\tcount++;\n\t}\n\t\n\tfor (int x = 0; x <=iterations; x++)\n\t{\n\t\tfor (int y = 1; y<= iterations; y++)\n\t\t{\n\t\tst1.x = (fragCoord.x+x) / iResolution.x;\n\t\tst1.y = (fragCoord.y-y) / iResolution.y;\n\t\tif ( (fragCoord.x+x) >=0 && (fragCoord.x+x) <= iResolution.x){getColPixel1 = texture2D(iChannel0, st1);}\n\t\tif ( (fragCoord.y-y) >=0 && (fragCoord.y-y) <= iResolution.y){getColPixel1 = texture2D(iChannel0, st1);}\t\t\n\t\tcolor += getColPixel1;count++;\n\t\t}\n\tcount++;\n\t}\n\tfor (int x = 0; x <=iterations; x++)\n\t{\n\t\tfor (int y = 1; y<= iterations; y++)\n\t\t{\n\t\tst1.x = (fragCoord.x-x) / iResolution.x;\n\t\tst1.y = (fragCoord.y-y) / iResolution.y;\n\t\tif ( (fragCoord.x-x) >=0 && (fragCoord.x-x) <= iResolution.x){getColPixel1 = texture2D(iChannel0, st1);}\n\t\tif ( (fragCoord.y-y) >=0 && (fragCoord.y-y) <= iResolution.y){getColPixel1 = texture2D(iChannel0, st1);}\t\t\n\t\tcolor += getColPixel1;count++;\n\t\t}\n\tcount++;\n\t}\n\tcolor/=count;\n\tfloat buffer = 1;\n\t\n\tif (((color.x+color.y+color.z)/3)<(buffer*0.33)){color=vec4(0);}\n\tif (((color.x+color.y+color.z)/3)>=(buffer*0.33)&&((color.x+color.y+color.z)/3)<(buffer*0.51)){color=getColPixel0;if(alias!=0){color=vec4(0.5);}}\n\tif (((color.x+color.y+color.z)/3)>=(buffer*0.51)){color=vec4(1);}\n\n\n\tfragColor = color;\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : JB_erodematte Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : JB_erodematte Matchbox for Autodesk Flame\r\n\r\n\r\n// iChannel0: source, filter = nearest, wrap0 = clamp\r\n\r\n\r\n\r\nuniform int alias = 0; // 2 steps : (2 steps), min=0, max=1\r\nuniform int iterations = 2; // Iterations : (iterations), min=0, max=100\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n\r\n{\r\n\r\n\tvec2 st0;\r\n\tst0.x = fragCoord.x / iResolution.x;\r\n\tst0.y = fragCoord.y / iResolution.y;\r\n\t\r\n\tvec4 getColPixel0;\r\n\tgetColPixel0 = texture2D(iChannel0, st0);\r\n\r\n\tvec4 color;\r\n\tvec2 st1;\r\n\tvec2 st2;\r\n\tvec2 st3;\r\n\tvec2 st4;\r\n\tvec2 st5;\r\n\tvec2 st6;\r\n\tvec2 st7;\r\n\tvec2 st8;\r\n\tvec4 getColPixel1;\r\n\tvec4 getColPixel2;\r\n\tvec4 getColPixel3;\r\n\tvec4 getColPixel4;\r\n\tvec4 getColPixel5;\r\n\tvec4 getColPixel6;\r\n\tvec4 getColPixel7;\r\n\tvec4 getColPixel8;\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\tcolor = getColPixel0;\r\n\tfloat colorBuffer;\r\n\tint count=0;\r\n\tfor (int x = 0; x <=iterations; x++)\r\n\t{\r\n\t\tfor (int y = 1; y<= iterations; y++)\r\n\t\t{\r\n\t\tst1.x = (fragCoord.x+x) / iResolution.x;\r\n\t\tst1.y = (fragCoord.y+y) / iResolution.y;\r\n\t\tif ( (fragCoord.x+x) >=0 && (fragCoord.x+x) <= iResolution.x){getColPixel1 = texture2D(iChannel0, st1);}\r\n\t\tif ( (fragCoord.y+y) >=0 && (fragCoord.y+y) <= iResolution.y){getColPixel1 = texture2D(iChannel0, st1);}\t\t\r\n\t\tcolor += getColPixel1;count++;\r\n\t\t}\r\n\tcount++;\r\n\t}\r\n\t\r\n\tfor (int x = 0; x <=iterations; x++)\r\n\t{\r\n\t\tfor (int y = 1; y<= iterations; y++)\r\n\t\t{\r\n\t\tst1.x = (fragCoord.x-x) / iResolution.x;\r\n\t\tst1.y = (fragCoord.y+y) / iResolution.y;\r\n\t\tif ( (fragCoord.x-x) >=0 && (fragCoord.x-x) <= iResolution.x){getColPixel1 = texture2D(iChannel0, st1);}\r\n\t\tif ( (fragCoord.y+y) >=0 && (fragCoord.y+y) <= iResolution.y){getColPixel1 = texture2D(iChannel0, st1);}\t\t\r\n\t\tcolor += getColPixel1;count++;\r\n\t\t}\r\n\tcount++;\r\n\t}\r\n\t\r\n\tfor (int x = 0; x <=iterations; x++)\r\n\t{\r\n\t\tfor (int y = 1; y<= iterations; y++)\r\n\t\t{\r\n\t\tst1.x = (fragCoord.x+x) / iResolution.x;\r\n\t\tst1.y = (fragCoord.y-y) / iResolution.y;\r\n\t\tif ( (fragCoord.x+x) >=0 && (fragCoord.x+x) <= iResolution.x){getColPixel1 = texture2D(iChannel0, st1);}\r\n\t\tif ( (fragCoord.y-y) >=0 && (fragCoord.y-y) <= iResolution.y){getColPixel1 = texture2D(iChannel0, st1);}\t\t\r\n\t\tcolor += getColPixel1;count++;\r\n\t\t}\r\n\tcount++;\r\n\t}\r\n\tfor (int x = 0; x <=iterations; x++)\r\n\t{\r\n\t\tfor (int y = 1; y<= iterations; y++)\r\n\t\t{\r\n\t\tst1.x = (fragCoord.x-x) / iResolution.x;\r\n\t\tst1.y = (fragCoord.y-y) / iResolution.y;\r\n\t\tif ( (fragCoord.x-x) >=0 && (fragCoord.x-x) <= iResolution.x){getColPixel1 = texture2D(iChannel0, st1);}\r\n\t\tif ( (fragCoord.y-y) >=0 && (fragCoord.y-y) <= iResolution.y){getColPixel1 = texture2D(iChannel0, st1);}\t\t\r\n\t\tcolor += getColPixel1;count++;\r\n\t\t}\r\n\tcount++;\r\n\t}\r\n\tcolor/=count;\r\n\tfloat buffer = 1;\r\n\t\r\n\tif (((color.x+color.y+color.z)/3)<(buffer*0.33)){color=vec4(0);}\r\n\tif (((color.x+color.y+color.z)/3)>=(buffer*0.33)&&((color.x+color.y+color.z)/3)<(buffer*0.51)){color=getColPixel0;if(alias!=0){color=vec4(0.5);}}\r\n\tif (((color.x+color.y+color.z)/3)>=(buffer*0.51)){color=vec4(1);}\r\n\r\n\r\n\tfragColor = color;\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")
