@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -69,6 +70,47 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
+    del param
+
+    param = lastNode.createStringParam("sep03", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep03 = param
+    del param
+
+    param = lastNode.createStringParam("sep04", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep04 = param
+    del param
+
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Brightness : ")
     param.setMinimum(0, 0)
     param.setMaximum(10, 0)
@@ -86,7 +128,7 @@ def createInstance(app,group):
     lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
-    param = lastNode.createStringParam("sep03", "")
+    param = lastNode.createStringParam("sep05", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -97,7 +139,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep03 = param
+    lastNode.sep05 = param
     del param
 
     param = lastNode.createChoiceParam("graphicMode", "Graphic mode : ")
@@ -117,7 +159,7 @@ def createInstance(app,group):
     lastNode.graphicMode = param
     del param
 
-    param = lastNode.createStringParam("sep04", "")
+    param = lastNode.createStringParam("sep06", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -128,10 +170,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep04 = param
+    lastNode.sep06 = param
     del param
 
-    param = lastNode.createStringParam("sep05", "")
+    param = lastNode.createStringParam("sep07", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -142,7 +184,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep05 = param
+    lastNode.sep07 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -347,7 +389,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -359,7 +401,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3697)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -371,7 +413,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3866)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
