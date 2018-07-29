@@ -242,25 +242,25 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Draw/Guides_GL/Guides_GL.png' width='24'> **[Guides_GL](/GLSL/Draw/Guides_GL/README.md)** : Draws simple adjustable horizontal and vertical guides for centering reference, measuring, etc...
 
 ### GLSL/Effect
-- <img src='/GLSL/Effect/Anaglyphic_GL/Anaglyphic_GL.png' width='32'> **[Anaglyphic_GL](/GLSL/Effect/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
+- <img src='/GLSL/Effect/Anaglyphic_GL/Anaglyphic_GL.png' width='24'> **[Anaglyphic_GL](/GLSL/Effect/Anaglyphic_GL/README.md)** : GPU accelerated Anaglyphic effect for Shadertoy.
 
-- <img src='/GLSL/Effect/Crok_6567_GL/Crok_6567_GL.png' width='32'> **[Crok_6567_GL](/GLSL/Effect/Crok_6567_GL/README.md)** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
+- <img src='/GLSL/Effect/Crok_6567_GL/Crok_6567_GL.png' width='24'> **[Crok_6567_GL](/GLSL/Effect/Crok_6567_GL/README.md)** : Simulates the color palette of a VIC-2 or better known as on of the famous C64 chips.
 
-- <img src='/GLSL/Effect/Crok_ascii_art_GL/Crok_ascii_art_GL.png' width='32'> **[Crok_ascii_art_GL](/GLSL/Effect/Crok_ascii_art_GL/README.md)** : Generates ascii art.
+- <img src='/GLSL/Effect/Crok_ascii_art_GL/Crok_ascii_art_GL.png' width='24'> **[Crok_ascii_art_GL](/GLSL/Effect/Crok_ascii_art_GL/README.md)** : Generates ascii art.
 
-- <img src='/GLSL/Effect/Crok_beer_GL/Crok_beer_GL.png' width='32'> **[Crok_beer_GL](/GLSL/Effect/Crok_beer_GL/README.md)** : Creates a beer like structure.
+- <img src='/GLSL/Effect/Crok_beer_GL/Crok_beer_GL.png' width='24'> **[Crok_beer_GL](/GLSL/Effect/Crok_beer_GL/README.md)** : Creates a beer like structure.
 
-- <img src='/GLSL/Effect/Crok_bleachbypass_GL/Crok_bleachbypass_GL.png' width='32'> **[Crok_bleachbypass_GL](/GLSL/Effect/Crok_bleachbypass_GL/README.md)** : GPU accelerated bleachbypass effect for Shadertoy.
+- <img src='/GLSL/Effect/Crok_bleachbypass_GL/Crok_bleachbypass_GL.png' width='24'> **[Crok_bleachbypass_GL](/GLSL/Effect/Crok_bleachbypass_GL/README.md)** : GPU accelerated bleachbypass effect for Shadertoy.
 
-- <img src='/GLSL/Effect/Crok_cel_shading_GL/Crok_cel_shading_GL.png' width='32'> **[Crok_cel_shading_GL](/GLSL/Effect/Crok_cel_shading_GL/README.md)** : Simulates cel shading.
+- <img src='/GLSL/Effect/Crok_cel_shading_GL/Crok_cel_shading_GL.png' width='24'> **[Crok_cel_shading_GL](/GLSL/Effect/Crok_cel_shading_GL/README.md)** : Simulates cel shading.
 
-- <img src='/GLSL/Effect/Crok_cmyk_halftone_GL/Crok_cmyk_halftone_GL.png' width='32'> **[Crok_cmyk_halftone_GL](/GLSL/Effect/Crok_cmyk_halftone_GL/README.md)** : GPU accelerated CMYK halftone effect for Shadertoy.
+- <img src='/GLSL/Effect/Crok_cmyk_halftone_GL/Crok_cmyk_halftone_GL.png' width='24'> **[Crok_cmyk_halftone_GL](/GLSL/Effect/Crok_cmyk_halftone_GL/README.md)** : GPU accelerated CMYK halftone effect for Shadertoy.
 
-- <img src='/GLSL/Effect/Crok_contour_GL/Crok_contour_GL.png' width='32'> **[Crok_contour_GL](/GLSL/Effect/Contour_GL/README.md)** : Creates a handdrawn style edge detect.
+- <img src='/GLSL/Effect/Crok_contour_GL/Crok_contour_GL.png' width='24'> **[Crok_contour_GL](/GLSL/Effect/Contour_GL/README.md)** : Creates a handdrawn style edge detect.
 
-- <img src='/GLSL/Effect/Crok_crosshatch_GL/Crok_crosshatch_GL.png' width='32'> **[Crok_crosshatch_GL](/GLSL/Effect/Crok_crosshatch_GL/README.md)** : Simulates a simple pencil sketch.
+- <img src='/GLSL/Effect/Crok_crosshatch_GL/Crok_crosshatch_GL.png' width='24'> **[Crok_crosshatch_GL](/GLSL/Effect/Crok_crosshatch_GL/README.md)** : Simulates a simple pencil sketch.
 
-- <img src='/GLSL/Effect/Crok_crt_GL/Crok_crt_GL.png' width='32'> **[Crok_crt_GL](/GLSL/Effect/Crt_GL/README.md)** : Creates a CRT style scan-line effect with additional shadowmasking.
+- <img src='/GLSL/Effect/Crok_crt_GL/Crok_crt_GL.png' width='24'> **[Crok_crt_GL](/GLSL/Effect/Crt_GL/README.md)** : Creates a CRT style scan-line effect with additional shadowmasking.
 
 - <img src='/GLSL/Effect/Crok_deband_GL/Crok_deband_GL.png' width='32'> **[Crok_deband_GL](/GLSL/Effect/Crok_deband_GL/README.md)** : Reduces banding.
 
@@ -311,6 +311,12 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Effect/Ls_wireless_GL/Ls_wireless_GL.png' width='32'> **[Ls_wireless_GL](/GLSL/Effect/Ls_wireless_GL/README.md)** : Fast cheap antialiasing.
 
 - <img src='/GLSL/Effect/Money_Filter_GL/Money_Filter_GL.png' width='32'> **[Money_Filter_GL](/GLSL/Effect/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect for Shadertoy.
+
+- <img src='/GLSL/Effect/y_flicker_GL/y_flicker_GL.png' width='24'> **[y_flicker_GL](/GLSL/Effect/y_flicker_GL/README.md)** : Removes flickering.
+
+- <img src='/GLSL/Effect/y_ixform_GL/y_ixform_GL.png' width='24'> **[y_ixform_GL](/GLSL/Effect/y_ixform_GL/README.md)** : Transform a thing. This is only cool if you input the optional black and white strength channel.
+
+- <img src='/GLSL/Effect/y_sharpen_GL/y_sharpen_GL.png' width='24'> **[y_sharpen_GL](/GLSL/Effect/y_sharpen_GL/README.md)** : Sharpen an image using a guassian blur with linear extrapolation.
 
 ### GLSL/Keying
 - <img src='/GLSL/Keying/AFX_Despill_GL/AFX_Despill_GL.png' width='24'> **[AFX_Despill_GL](/GLSL/Keying/AFX_Despill_GL/README.md)** : GPU accelerated After Effects despill for Shadertoy.
