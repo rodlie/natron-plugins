@@ -262,27 +262,27 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Effect/Crok_crt_GL/Crok_crt_GL.png' width='24'> **[Crok_crt_GL](/GLSL/Effect/Crt_GL/README.md)** : Creates a CRT style scan-line effect with additional shadowmasking.
 
-- <img src='/GLSL/Effect/Crok_deband_GL/Crok_deband_GL.png' width='32'> **[Crok_deband_GL](/GLSL/Effect/Crok_deband_GL/README.md)** : Reduces banding.
+- <img src='/GLSL/Effect/Crok_deband_GL/Crok_deband_GL.png' width='24'> **[Crok_deband_GL](/GLSL/Effect/Crok_deband_GL/README.md)** : Reduces banding.
 
-- <img src='/GLSL/Effect/Crok_digital_glitch_GL/Crok_digital_glitch_GL.png' width='32'> **[Crok_digital_glitch_GL](/GLSL/Effect/Crok_digital_glitch_GL/README.md)** : Simulates digital glitches.
+- <img src='/GLSL/Effect/Crok_digital_glitch_GL/Crok_digital_glitch_GL.png' width='24'> **[Crok_digital_glitch_GL](/GLSL/Effect/Crok_digital_glitch_GL/README.md)** : Simulates digital glitches.
 
-- <img src='/GLSL/Effect/Crok_dithering_GL/Crok_dithering_GL.png' width='32'> **[Crok_dithering_GL](/GLSL/Effect/Crok_dithering_GL/README.md)** : Creates a dithering effect.
+- <img src='/GLSL/Effect/Crok_dithering_GL/Crok_dithering_GL.png' width='24'> **[Crok_dithering_GL](/GLSL/Effect/Crok_dithering_GL/README.md)** : Creates a dithering effect.
 
-- <img src='/GLSL/Effect/Crok_emboss_GL/Crok_emboss_GL.png' width='32'> **[Crok_emboss_GL](/GLSL/Effect/Crok_emboss_GL/README.md)** : Simulates an emboss effect.
+- <img src='/GLSL/Effect/Crok_emboss_GL/Crok_emboss_GL.png' width='24'> **[Crok_emboss_GL](/GLSL/Effect/Crok_emboss_GL/README.md)** : Simulates an emboss effect.
 
-- <img src='/GLSL/Effect/Crok_flicker_GL/Crok_flicker_GL.png' width='32'> **[Crok_flicker_GL](/GLSL/Effect/Crok_flicker_GL/README.md)** : Creates a flickering effect.
+- <img src='/GLSL/Effect/Crok_flicker_GL/Crok_flicker_GL.png' width='24'> **[Crok_flicker_GL](/GLSL/Effect/Crok_flicker_GL/README.md)** : Creates a flickering effect.
 
-- <img src='/GLSL/Effect/Crok_hexagon_GL/Crok_hexagon_GL.png' width='32'> **[Crok_hexagon_GL](/GLSL/Effect/Crok_hexagon_GL/README.md)** : Generates hexagon patterns.
+- <img src='/GLSL/Effect/Crok_hexagon_GL/Crok_hexagon_GL.png' width='24'> **[Crok_hexagon_GL](/GLSL/Effect/Crok_hexagon_GL/README.md)** : Generates hexagon patterns.
 
-- <img src='/GLSL/Effect/Crok_highpass_GL/Crok_highpass_GL.png' width='32'> **[Crok_highpass_GL](/GLSL/Effect/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
+- <img src='/GLSL/Effect/Crok_highpass_GL/Crok_highpass_GL.png' width='24'> **[Crok_highpass_GL](/GLSL/Effect/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
 
-- <img src='/GLSL/Effect/Crok_kuwahara_GL/Crok_kuwahara_GL.png' width='32'> **[Crok_kuwahara_GL](/GLSL/Effect/Crok_kuwahara_GL/README.md)** : Simulates anisotropic kuwahara filtering.
+- <img src='/GLSL/Effect/Crok_kuwahara_GL/Crok_kuwahara_GL.png' width='24'> **[Crok_kuwahara_GL](/GLSL/Effect/Crok_kuwahara_GL/README.md)** : Simulates anisotropic kuwahara filtering.
 
-- <img src='/GLSL/Effect/Crok_lowfi_GL/Crok_lowfi_GL.png' width='32'> **[Crok_lowfi_GL](/GLSL/Effect/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
+- <img src='/GLSL/Effect/Crok_lowfi_GL/Crok_lowfi_GL.png' width='24'> **[Crok_lowfi_GL](/GLSL/Effect/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
 
-- <img src='/GLSL/Effect/Crok_nightvision_GL/Crok_nightvision_GL.png' width='32'> **[Crok_nightvision_GL](/GLSL/Effect/Croknight_vision_GL/README.md)** : Creates a nightvision effect.
+- <img src='/GLSL/Effect/Crok_nightvision_GL/Crok_nightvision_GL.png' width='24'> **[Crok_nightvision_GL](/GLSL/Effect/Croknight_vision_GL/README.md)** : Creates a nightvision effect.
 
-- <img src='/GLSL/Effect/Crok_oil_paint_GL/Crok_oil_paint_GL.png' width='32'> **[Crok_oil_paint_GL](/GLSL/Effect/Crok_oil_paint_GL/README.md)** : Applies a painterly effet to the image.
+- <img src='/GLSL/Effect/Crok_oil_paint_GL/Crok_oil_paint_GL.png' width='24'> **[Crok_oil_paint_GL](/GLSL/Effect/Crok_oil_paint_GL/README.md)** : Applies a painterly effet to the image.
 
 - <img src='/GLSL/Effect/Crok_parallax_GL/Crok_parallax_GL.png' width='32'> **[Crok_parallax_GL](/GLSL/Effect/Crok_parallax_GL/README.md)** : Simulates a typical Amiga style parallax effect.
 
