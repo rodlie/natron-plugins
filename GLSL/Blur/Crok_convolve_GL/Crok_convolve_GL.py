@@ -70,21 +70,17 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Blur radius : ")
-    param.setMinimum(1, 0)
-    param.setMaximum(20, 0)
-    param.setDisplayMinimum(1, 0)
-    param.setDisplayMaximum(20, 0)
-    param.setDefaultValue(1, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueFloat0 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -115,12 +111,12 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Blur quality : ")
-    param.setMinimum(-0.09999999999999999, 0)
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Blur radius : ")
+    param.setMinimum(1, 0)
     param.setMaximum(20, 0)
-    param.setDisplayMinimum(-0.09999999999999999, 0)
+    param.setDisplayMinimum(1, 0)
     param.setDisplayMaximum(20, 0)
-    param.setDefaultValue(5, 0)
+    param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
     # Add the param to the page
@@ -129,7 +125,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueFloat1 = param
+    lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -160,17 +156,21 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createSeparatorParam("LINE01", "")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Blur quality : ")
+    param.setMinimum(-0.09999999999999999, 0)
+    param.setMaximum(20, 0)
+    param.setDisplayMinimum(-0.09999999999999999, 0)
+    param.setDisplayMaximum(20, 0)
+    param.setDefaultValue(5, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.LINE01 = param
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -199,6 +199,19 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep08 = param
+    del param
+
+    param = lastNode.createSeparatorParam("LINE01", "")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.LINE01 = param
     del param
 
     param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edge extend : ")
@@ -444,7 +457,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -456,7 +469,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3697)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -468,19 +481,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3855)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(5, 0)
-        del param
 
     param = lastNode.getParam("imageShaderFileName")
     if param is not None:

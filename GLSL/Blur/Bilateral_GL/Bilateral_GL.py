@@ -70,6 +70,47 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
+    del param
+
+    param = lastNode.createStringParam("sep03", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep03 = param
+    del param
+
+    param = lastNode.createStringParam("sep04", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep04 = param
+    del param
+
     param = lastNode.createDoubleParam("Spatial_Std_Dev", "Spatial Std Dev")
     param.setMinimum(-2147483648, 0)
     param.setMaximum(2147483647, 0)
@@ -88,7 +129,7 @@ def createInstance(app,group):
     lastNode.Spatial_Std_Dev = param
     del param
 
-    param = lastNode.createStringParam("sep03", "")
+    param = lastNode.createStringParam("sep05", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -99,7 +140,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep03 = param
+    lastNode.sep05 = param
     del param
 
     param = lastNode.createDoubleParam("Value_Std_Dev", "Value Std Dev")
@@ -120,7 +161,7 @@ def createInstance(app,group):
     lastNode.Value_Std_Dev = param
     del param
 
-    param = lastNode.createStringParam("sep04", "")
+    param = lastNode.createStringParam("sep06", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -131,10 +172,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep04 = param
+    lastNode.sep06 = param
     del param
 
-    param = lastNode.createStringParam("sep05", "")
+    param = lastNode.createStringParam("sep07", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -145,7 +186,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep05 = param
+    lastNode.sep07 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -350,7 +391,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -362,7 +403,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3697)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -374,14 +415,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_3")
     lastNode.setLabel("Shadertoy1_3")
     lastNode.setPosition(4139, 3834)
-    lastNode.setSize(80, 45)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_3 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(10, 0)
-        del param
 
     param = lastNode.getParam("paramValueFloat1")
     if param is not None:
@@ -390,7 +426,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// https://www.shadertoy.com/view/4dfGDH\r\n\r\n// And another filter!\r\n\r\n// Adapted for Natron by F. Devernay\r\n\r\n// iChannel0: Source, filter=nearest, wrap=clamp\r\n// BBox: iChannel0\r\n\r\nconst vec2 iRenderScale = vec2(1.,1.);\r\nuniform float sigma_s = 10.0; // Spatial Std Dev (Standard deviation of the spatial kernel in pixel units), min=0., max=20.\r\nuniform float sigma_r = 0.1; // Value Std Dev (Standard deviation of the range kernel in intensity unit), min=0., max=1.\r\n#define MSIZE 30 // should be 1.5 times the maximum value for sigma_s\r\n\r\nfloat normpdf(in float x, in float sigma)\r\n{\r\n\treturn 0.39894*exp(-0.5*x*x/(sigma*sigma))/sigma;\r\n}\r\n\r\nfloat normpdf3(in vec3 v, in float sigma)\r\n{\r\n\treturn 0.39894*exp(-0.5*dot(v,v)/(sigma*sigma))/sigma;\r\n}\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\tvec2 uv = fragCoord.xy / iResolution.xy;\r\n\tvec3 c = texture2D(iChannel0, uv).rgb;\r\n\t{\r\n\t\t//declare stuff\r\n\t\tint kSize = int(min((MSIZE-1)/2., 1.5*sigma_s*iRenderScale.x));\r\n\t\tfloat kernel[MSIZE];\r\n\t\tvec3 final_colour = vec3(0.0);\r\n\t\t\r\n\t\t//create the 1-D kernel\r\n\t\tfloat Z = 0.0;\r\n\t\tfor (int j = 0; j <= kSize; ++j)\r\n\t\t{\r\n\t\t\tkernel[kSize+j] = kernel[kSize-j] = normpdf(float(j), sigma_s*iRenderScale.x);\r\n\t\t}\r\n\t\t\r\n\t\t\r\n\t\tvec3 cc;\r\n\t\tfloat factor;\r\n\t\tfloat bZ = 1.0/normpdf(0.0, sigma_r);\r\n\t\t//read out the texels\r\n\t\tfor (int i=-kSize; i <= kSize; ++i)\r\n\t\t{\r\n\t\t\tfor (int j=-kSize; j <= kSize; ++j)\r\n\t\t\t{\r\n\t\t\t\tcc = texture2D(iChannel0, uv + (vec2(float(i),float(j))) / iResolution.xy).rgb;\r\n\t\t\t\tfactor = normpdf3(cc-c, sigma_r)*bZ*kernel[kSize+j]*kernel[kSize+i];\r\n\t\t\t\tZ += factor;\r\n\t\t\t\tfinal_colour += factor*cc;\r\n\r\n\t\t\t}\r\n\t\t}\r\n\t\t\r\n\t\t\r\n\t\tfragColor = vec4(final_colour/Z, 1.0);\r\n\t}\r\n}\r\n")
+        param.setValue("// https://www.shadertoy.com/view/4dfGDH\n\n// And another filter!\n\n// Adapted for Natron by F. Devernay\n\n// iChannel0: Source, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\nconst vec2 iRenderScale = vec2(1.,1.);\nuniform float sigma_s = 10.0; // Spatial Std Dev (Standard deviation of the spatial kernel in pixel units), min=0., max=20.\nuniform float sigma_r = 0.1; // Value Std Dev (Standard deviation of the range kernel in intensity unit), min=0., max=1.\n#define MSIZE 30 // should be 1.5 times the maximum value for sigma_s\n\nfloat normpdf(in float x, in float sigma)\n{\n\treturn 0.39894*exp(-0.5*x*x/(sigma*sigma))/sigma;\n}\n\nfloat normpdf3(in vec3 v, in float sigma)\n{\n\treturn 0.39894*exp(-0.5*dot(v,v)/(sigma*sigma))/sigma;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec3 c = texture2D(iChannel0, uv).rgb;\n\t{\n\t\t//declare stuff\n\t\tint kSize = int(min((MSIZE-1)/2., 1.5*sigma_s*iRenderScale.x));\n\t\tfloat kernel[MSIZE];\n\t\tvec3 final_colour = vec3(0.0);\n\t\t\n\t\t//create the 1-D kernel\n\t\tfloat Z = 0.0;\n\t\tfor (int j = 0; j <= kSize; ++j)\n\t\t{\n\t\t\tkernel[kSize+j] = kernel[kSize-j] = normpdf(float(j), sigma_s*iRenderScale.x);\n\t\t}\n\t\t\n\t\t\n\t\tvec3 cc;\n\t\tfloat factor;\n\t\tfloat bZ = 1.0/normpdf(0.0, sigma_r);\n\t\t//read out the texels\n\t\tfor (int i=-kSize; i <= kSize; ++i)\n\t\t{\n\t\t\tfor (int j=-kSize; j <= kSize; ++j)\n\t\t\t{\n\t\t\t\tcc = texture2D(iChannel0, uv + (vec2(float(i),float(j))) / iResolution.xy).rgb;\n\t\t\t\tfactor = normpdf3(cc-c, sigma_r)*bZ*kernel[kSize+j]*kernel[kSize+i];\n\t\t\t\tZ += factor;\n\t\t\t\tfinal_colour += factor*cc;\n\n\t\t\t}\n\t\t}\n\t\t\n\t\t\n\t\tfragColor = vec4(final_colour/Z, 1.0);\n\t}\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
