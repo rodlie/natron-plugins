@@ -4,7 +4,7 @@
 ## Installation
 ### Upgradable Install
 
-The plugins can be installed by simply cloning the github repository at the righht location, for example on Linux:
+The plugins can be installed by simply cloning the github repository at the right location, for example on Linux:
 
     cd /usr/share/Natron/Plugins
     git clone https://github.com/NatronGitHub/natron-plugins.git
