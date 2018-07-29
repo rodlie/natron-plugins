@@ -15,7 +15,6 @@ try:
 except ImportError:
     pass
 
-
 def getPluginID():
     return "natron.community.plugins.y_sharpen_GL"
 
@@ -34,12 +33,13 @@ def getGrouping():
 def getPluginDescription():
     return "Creates a dithering effect."
 
+
 def createInstance(app,group):
     # Create all nodes in the group
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
-    lastNode.setColor(1, 0.5765, 0.3333)
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -668,7 +668,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4992, 5275)
-    lastNode.setSize(80, 30)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -680,7 +680,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4992, 4607)
-    lastNode.setSize(80, 30)
+    lastNode.setSize(90, 33)
     lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
@@ -692,7 +692,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shader_pass1_2")
     lastNode.setLabel("Shader_pass1")
     lastNode.setPosition(4992, 4808)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShader_pass1_2 = lastNode
 
@@ -754,34 +754,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shader_pass2")
     lastNode.setLabel("Shader_pass2")
     lastNode.setPosition(4870, 4964)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShader_pass2 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -1016,44 +991,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy3")
     lastNode.setLabel("Shader_pass3")
     lastNode.setPosition(4992, 5088)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy3 = lastNode
-
-    param = lastNode.getParam("paramValueBool0")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat5")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat6")
-    if param is not None:
-        param.setValue(5, 0)
-        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -1343,7 +1283,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
     lastNode.setPosition(4711, 4808)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1 = lastNode
 
@@ -1370,7 +1310,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source_2")
     lastNode.setLabel("Mask")
     lastNode.setPosition(4711, 4602)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(1, 1, 1)
     groupSource_2 = lastNode
 

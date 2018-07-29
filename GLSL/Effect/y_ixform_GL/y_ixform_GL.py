@@ -38,7 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
-    lastNode.setColor(1, 0.698, 0.8314)
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -529,9 +529,9 @@ def createInstance(app,group):
 
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat8", "Transparency : ")
     param.setMinimum(0, 0)
-    param.setMaximum(1, 0)
+    param.setMaximum(100, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1, 0)
+    param.setDisplayMaximum(100, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -852,7 +852,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4570, 4150)
-    lastNode.setSize(80, 30)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -864,7 +864,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Front")
     lastNode.setLabel("Front")
     lastNode.setPosition(4424, 3597)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(1, 1, 1)
     groupFront = lastNode
 
@@ -876,7 +876,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Matte")
     lastNode.setLabel("Matte")
     lastNode.setPosition(4568, 3593)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(1, 1, 1)
     groupMatte = lastNode
 
@@ -888,7 +888,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Strength")
     lastNode.setLabel("Strength")
     lastNode.setPosition(4709, 3590)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(1, 1, 1)
     groupStrength = lastNode
 
@@ -900,70 +900,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4570, 3926)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat5")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat6")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat7")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat8")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueBool9")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("paramValueBool10")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("paramValueVec211")
-    if param is not None:
-        param.setValue(0.5, 0)
-        param.setValue(0.5, 1)
-        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -1294,7 +1233,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
     lastNode.setPosition(4459, 3935)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
 
@@ -1306,7 +1245,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
     lastNode.setPosition(4744, 3938)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
 
@@ -1318,7 +1257,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shuffle2")
     lastNode.setLabel("Shuffle2")
     lastNode.setPosition(4570, 3828)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle2 = lastNode
 

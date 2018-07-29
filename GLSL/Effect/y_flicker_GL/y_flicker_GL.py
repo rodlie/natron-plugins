@@ -35,7 +35,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
-    lastNode.setColor(1, 0.5765, 0.3333)
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -466,7 +466,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4992, 5275)
-    lastNode.setSize(80, 30)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -478,7 +478,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4992, 4606)
-    lastNode.setSize(80, 30)
+    lastNode.setSize(90, 33)
     lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
@@ -490,7 +490,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4992, 4896)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -667,7 +667,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Lock_Frame")
     lastNode.setLabel("Lock Frame")
     lastNode.setPosition(5149, 4609)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(1, 1, 1)
     groupLock_Frame = lastNode
 
@@ -679,7 +679,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
     lastNode.setPosition(5182, 4905)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
 

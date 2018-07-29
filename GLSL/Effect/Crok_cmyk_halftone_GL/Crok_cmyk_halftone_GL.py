@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -69,21 +70,17 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Minimum : ")
-    param.setMinimum(0, 0)
-    param.setMaximum(20, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(20, 0)
-    param.setDefaultValue(2, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueFloat0 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -114,6 +111,37 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
+    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Minimum : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(20, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(20, 0)
+    param.setDefaultValue(2, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1_2paramValueFloat0 = param
+    del param
+
+    param = lastNode.createStringParam("sep05", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep05 = param
+    del param
+
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat1", "Maximum : ")
     param.setMinimum(0, 0)
     param.setMaximum(20, 0)
@@ -129,20 +157,6 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat1 = param
-    del param
-
-    param = lastNode.createStringParam("sep05", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep05 = param
     del param
 
     param = lastNode.createStringParam("sep06", "")
@@ -190,20 +204,6 @@ def createInstance(app,group):
     lastNode.sep07 = param
     del param
 
-    param = lastNode.createStringParam("sep08", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep08 = param
-    del param
-
     param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat3", "Scale : ")
     param.setMinimum(0, 0)
     param.setMaximum(20, 0)
@@ -221,6 +221,20 @@ def createInstance(app,group):
     lastNode.Shadertoy1_2paramValueFloat3 = param
     del param
 
+    param = lastNode.createStringParam("sep08", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep08 = param
+    del param
+
     param = lastNode.createStringParam("sep09", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -233,20 +247,6 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep09 = param
-    del param
-
-    param = lastNode.createStringParam("sep10", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep10 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -451,7 +451,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -463,7 +463,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3647)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -475,7 +475,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3844)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
@@ -501,7 +501,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//                                                \n//                                                  \n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                        \n//                        MM.                          .MM                                \n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM                  \n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM     \n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM            \t   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM  \n//                     MM.  .MMM    MMMM            MMM.  .MM    \n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM      \n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM            \n//                        MM.                          .MM                 \n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                                      \n//                                                                \n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_cmyn_halftone Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_cmyn_halftone Matchbox for Autodesk Flame\n\n\n// setting inputs names and filtering options\n// iChannel0: Source, filter = linear\n\n// BBox: iChannel0\n\n\nuniform float pMin = 2; // minimum : (minimum), min=0., max=20.\nuniform float pMax = 4; // maximum : (maximum), min=0., max=20.\n\nuniform float pDotsize = 3; // gain : (gain), min=0., max=20.\nuniform float pScale = 8; // scale : (scale), min=0., max=20.\n\nfloat currentFrame = iFrame;\n\n#define D2R(d) radians(d)\n#define SST 0.888\n#define SSQ 0.288\n\nvec2 ORIGIN = 0.5*iResolution.xy;\nfloat S = pMin+(pMax-pMin)*(0.5-0.5*cos(0.57*currentFrame));\nfloat R = 0.57*0.333*currentFrame;\n\nvec4 rgb2cmyki(in vec4 c)\n{\n\tfloat k = max(max(c.r,c.g),c.b);\n\treturn min(vec4(c.rgb/k,k),1.0);\n}\n\nvec4 cmyki2rgb(in vec4 c)\n{\n\treturn vec4(c.rgb*c.a,1.0);\n}\n\nvec2 px2uv(in vec2 px)\n{\n\treturn vec2(px/iResolution.xy);\n}\n\nvec2 grid(in vec2 px)\n{\n\t//return px-mod(px,S);\n\treturn floor(px/S)*S; // alternate\n}\n\nvec4 ss(in vec4 v)\n{\n\treturn smoothstep(SST-SSQ,SST+SSQ,v);\n}\n\nvec4 halftone(in vec2 fc,in mat2 m)\n{\n\tvec2 smp = (grid(m*fc)+0.5*S)*m;\n\tfloat s = min(length(fc-smp)/(pDotsize*0.5*S),1.0);\n\tvec4 c = rgb2cmyki(texture2D(iChannel0,px2uv(smp+ORIGIN)));\n\treturn c+s;\n}\n\nmat2 rotm(in float r)\n{\n\tfloat cr = cos(r);\n\tfloat sr = sin(r);\n\treturn mat2(\n\t\tcr,-sr,\n\t\tsr,cr\n\t);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n\t{\n\t\tS = pMin+(pMax-pMin)*2.0*abs(pScale-ORIGIN.x)/iResolution.x;\n\t\tR = D2R(180.0*(0.0-ORIGIN.y)/iResolution.y);\n\t}\n\t\n\tvec2 fc = fragCoord.xy-ORIGIN;\n\t\n\tmat2 mc = rotm(R+D2R(15.0));\n\tmat2 mm = rotm(R+D2R(75.0));\n\tmat2 my = rotm(R);\n\tmat2 mk = rotm(R+D2R(45.0));\n\t\n\tfloat k = halftone(fc,mk).a;\n\tvec4 c = cmyki2rgb(ss(vec4(\n\t\thalftone(fc,mc).r,\n\t\thalftone(fc,mm).g,\n\t\thalftone(fc,my).b,\n\t\thalftone(fc,mk).a\n\t)));\n\tfragColor = c;\n}\n")
+        param.setValue("//                                                \r\n//                                                  \r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                        \r\n//                        MM.                          .MM                                \r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM                  \r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM     \r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM            \t   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM  \r\n//                     MM.  .MMM    MMMM            MMM.  .MM    \r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM      \r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM            \r\n//                        MM.                          .MM                 \r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                                      \r\n//                                                                \r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_cmyn_halftone Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_cmyn_halftone Matchbox for Autodesk Flame\r\n\r\n\r\n// setting inputs names and filtering options\r\n// iChannel0: Source, filter = linear\r\n\r\n// BBox: iChannel0\r\n\r\n\r\nuniform float pMin = 2; // minimum : (minimum), min=0., max=20.\r\nuniform float pMax = 4; // maximum : (maximum), min=0., max=20.\r\n\r\nuniform float pDotsize = 3; // gain : (gain), min=0., max=20.\r\nuniform float pScale = 8; // scale : (scale), min=0., max=20.\r\n\r\nfloat currentFrame = iFrame;\r\n\r\n#define D2R(d) radians(d)\r\n#define SST 0.888\r\n#define SSQ 0.288\r\n\r\nvec2 ORIGIN = 0.5*iResolution.xy;\r\nfloat S = pMin+(pMax-pMin)*(0.5-0.5*cos(0.57*currentFrame));\r\nfloat R = 0.57*0.333*currentFrame;\r\n\r\nvec4 rgb2cmyki(in vec4 c)\r\n{\r\n\tfloat k = max(max(c.r,c.g),c.b);\r\n\treturn min(vec4(c.rgb/k,k),1.0);\r\n}\r\n\r\nvec4 cmyki2rgb(in vec4 c)\r\n{\r\n\treturn vec4(c.rgb*c.a,1.0);\r\n}\r\n\r\nvec2 px2uv(in vec2 px)\r\n{\r\n\treturn vec2(px/iResolution.xy);\r\n}\r\n\r\nvec2 grid(in vec2 px)\r\n{\r\n\t//return px-mod(px,S);\r\n\treturn floor(px/S)*S; // alternate\r\n}\r\n\r\nvec4 ss(in vec4 v)\r\n{\r\n\treturn smoothstep(SST-SSQ,SST+SSQ,v);\r\n}\r\n\r\nvec4 halftone(in vec2 fc,in mat2 m)\r\n{\r\n\tvec2 smp = (grid(m*fc)+0.5*S)*m;\r\n\tfloat s = min(length(fc-smp)/(pDotsize*0.5*S),1.0);\r\n\tvec4 c = rgb2cmyki(texture2D(iChannel0,px2uv(smp+ORIGIN)));\r\n\treturn c+s;\r\n}\r\n\r\nmat2 rotm(in float r)\r\n{\r\n\tfloat cr = cos(r);\r\n\tfloat sr = sin(r);\r\n\treturn mat2(\r\n\t\tcr,-sr,\r\n\t\tsr,cr\r\n\t);\r\n}\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\r\n\t{\r\n\t\tS = pMin+(pMax-pMin)*2.0*abs(pScale-ORIGIN.x)/iResolution.x;\r\n\t\tR = D2R(180.0*(0.0-ORIGIN.y)/iResolution.y);\r\n\t}\r\n\t\r\n\tvec2 fc = fragCoord.xy-ORIGIN;\r\n\t\r\n\tmat2 mc = rotm(R+D2R(15.0));\r\n\tmat2 mm = rotm(R+D2R(75.0));\r\n\tmat2 my = rotm(R);\r\n\tmat2 mk = rotm(R+D2R(45.0));\r\n\t\r\n\tfloat k = halftone(fc,mk).a;\r\n\tvec4 c = cmyki2rgb(ss(vec4(\r\n\t\thalftone(fc,mc).r,\r\n\t\thalftone(fc,mm).g,\r\n\t\thalftone(fc,my).b,\r\n\t\thalftone(fc,mk).a\r\n\t)));\r\n\tfragColor = c;\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")

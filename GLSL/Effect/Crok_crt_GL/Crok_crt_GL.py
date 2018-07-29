@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -652,7 +653,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4138, 4078)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -664,7 +665,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4138, 3575)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -676,43 +677,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4138, 3837)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
-
-    param = lastNode.getParam("paramValueBool0")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(3, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(3, 0)
-        del param
 
     param = lastNode.getParam("paramValueInt3")
     if param is not None:
         param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValue(0.7, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat5")
-    if param is not None:
-        param.setValue(3, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat6")
-    if param is not None:
-        param.setValue(0.5, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")

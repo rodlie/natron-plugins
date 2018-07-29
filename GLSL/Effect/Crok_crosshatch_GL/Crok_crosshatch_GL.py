@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -69,21 +70,17 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Density : ")
-    param.setMinimum(1, 0)
-    param.setMaximum(30, 0)
-    param.setDisplayMinimum(1, 0)
-    param.setDisplayMaximum(30, 0)
-    param.setDefaultValue(8, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueFloat0 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -114,6 +111,37 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Density : ")
+    param.setMinimum(1, 0)
+    param.setMaximum(30, 0)
+    param.setDisplayMinimum(1, 0)
+    param.setDisplayMaximum(30, 0)
+    param.setDefaultValue(8, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueFloat0 = param
+    del param
+
+    param = lastNode.createStringParam("sep05", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep05 = param
+    del param
+
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Width : ")
     param.setMinimum(0.3, 0)
     param.setMaximum(10, 0)
@@ -131,20 +159,6 @@ def createInstance(app,group):
     lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
-    param = lastNode.createStringParam("sep05", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep05 = param
-    del param
-
     param = lastNode.createStringParam("sep06", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -157,6 +171,20 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep06 = param
+    del param
+
+    param = lastNode.createStringParam("sep07", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep07 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -361,7 +389,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -373,7 +401,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3697)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -385,7 +413,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3851)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -406,7 +434,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_crosshatch Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_crosshatch Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter = linear, wrap = mirror\n// BBox: iChannel0\n\n\nuniform float pDensity = 8.0; // Density : (density), min=1, max=30\nuniform float pWidth = 3.0; // Width : (width), min=0.3, max=10\n\n\n\n// The brightnesses at which different hatch lines appear\nfloat hatch_1 = 0.8;\nfloat hatch_2 = 0.6;\nfloat hatch_3 = 0.3;\nfloat hatch_4 = 0.15;\n\n// How close together hatch lines should be placed\n// float pDensity = 10.0;\n\n// How wide hatch lines are drawn.\n// float pWidth = 1.0;\n\n// enable GREY_HATCHES for greyscale hatch lines\n#define GREY_HATCHES\n\n#ifdef GREY_HATCHES\nfloat hatch_1_brightness = 0.8;\nfloat hatch_2_brightness = 0.6;\nfloat hatch_3_brightness = 0.3;\nfloat hatch_4_brightness = 0.0;\n#else\nfloat hatch_1_brightness = 0.0;\nfloat hatch_2_brightness = 0.0;\nfloat hatch_3_brightness = 0.0;\nfloat hatch_4_brightness = 0.0;\n#endif\n\nfloat d = 1.0; // kernel offset\n\nfloat lookup(vec2 p, float dx, float dy)\n{\n    vec2 uv = (p.xy + vec2(dx * d, dy * d)) / iResolution.xy;\n    vec4 c = texture2D(iChannel0, uv.xy);\n\t\n\t// return as luma\n    return 0.2126*c.r + 0.7152*c.g + 0.0722*c.b;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\t//\n\t// Inspired by the technique illustrated at\n\t// http://www.geeks3d.com/20110219/shader-library-crosshatching-glsl-filter/\n\t//\n\tfloat ratio = iResolution.y / iResolution.x;\n\tfloat coordX = fragCoord.x / iResolution.x;\n\tfloat coordY = fragCoord.y / iResolution.x;\n\tvec2 dstCoord = vec2(coordX, coordY);\n\tvec2 srcCoord = vec2(coordX, coordY / ratio);\t\n\tvec2 uv = srcCoord.xy;\n\n\tvec3 res = vec3(1.0, 1.0, 1.0);\n    vec4 tex = texture2D(iChannel0, uv);\n    float brightness = (0.2126*tex.x) + (0.7152*tex.y) + (0.0722*tex.z);\n  \n    if (brightness < hatch_1) \n    {\n      if (mod(fragCoord.x + fragCoord.y, pDensity) <= pWidth)\n\t\t  res = vec3(hatch_1_brightness);\n    }\n  \n    if (brightness < hatch_2) \n    {\n\t\tif (mod(fragCoord.x - fragCoord.y, pDensity) <= pWidth)\n\t\t\tres = vec3(hatch_2_brightness);\n    }\n  \n    if (brightness < hatch_3) \n    {\n\t\tif (mod(fragCoord.x + fragCoord.y - (pDensity*0.5), pDensity) <= pWidth)\n\t\t\tres = vec3(hatch_3_brightness);\n    }\n  \n    if (brightness < hatch_4) \n    {\n\t\tif (mod(fragCoord.x - fragCoord.y - (pDensity*0.5), pDensity) <= pWidth)\n\t\t\tres = vec3(hatch_4_brightness);\n    }\n\t\n\tvec2 p = fragCoord.xy;\n    \n\t// simple sobel edge detection,\n\t// borrowed and tweaked from jmk\'s \"edge glow\" filter, here:\n\t// https://www.shadertoy.com/view/Mdf3zr\n    float gx = 0.0;\n    gx += -1.0 * lookup(p, -1.0, -1.0);\n    gx += -2.0 * lookup(p, -1.0,  0.0);\n    gx += -1.0 * lookup(p, -1.0,  1.0);\n    gx +=  1.0 * lookup(p,  1.0, -1.0);\n    gx +=  2.0 * lookup(p,  1.0,  0.0);\n    gx +=  1.0 * lookup(p,  1.0,  1.0);\n    \n    float gy = 0.0;\n    gy += -1.0 * lookup(p, -1.0, -1.0);\n    gy += -2.0 * lookup(p,  0.0, -1.0);\n    gy += -1.0 * lookup(p,  1.0, -1.0);\n    gy +=  1.0 * lookup(p, -1.0,  1.0);\n    gy +=  2.0 * lookup(p,  0.0,  1.0);\n    gy +=  1.0 * lookup(p,  1.0,  1.0);\n    \n\t// hack: use g^2 to conceal noise in the video\n    float g = gx*gx + gy*gy;\n\tres *= (1.0-g);\n\t\n\tfragColor = vec4(res, 1.0);\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_crosshatch Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_crosshatch Matchbox for Autodesk Flame\r\n\r\n\r\n// iChannel0: Source, filter = linear, wrap = mirror\r\n// BBox: iChannel0\r\n\r\n\r\nuniform float pDensity = 8.0; // Density : (density), min=1, max=30\r\nuniform float pWidth = 3.0; // Width : (width), min=0.3, max=10\r\n\r\n\r\n\r\n// The brightnesses at which different hatch lines appear\r\nfloat hatch_1 = 0.8;\r\nfloat hatch_2 = 0.6;\r\nfloat hatch_3 = 0.3;\r\nfloat hatch_4 = 0.15;\r\n\r\n// How close together hatch lines should be placed\r\n// float pDensity = 10.0;\r\n\r\n// How wide hatch lines are drawn.\r\n// float pWidth = 1.0;\r\n\r\n// enable GREY_HATCHES for greyscale hatch lines\r\n#define GREY_HATCHES\r\n\r\n#ifdef GREY_HATCHES\r\nfloat hatch_1_brightness = 0.8;\r\nfloat hatch_2_brightness = 0.6;\r\nfloat hatch_3_brightness = 0.3;\r\nfloat hatch_4_brightness = 0.0;\r\n#else\r\nfloat hatch_1_brightness = 0.0;\r\nfloat hatch_2_brightness = 0.0;\r\nfloat hatch_3_brightness = 0.0;\r\nfloat hatch_4_brightness = 0.0;\r\n#endif\r\n\r\nfloat d = 1.0; // kernel offset\r\n\r\nfloat lookup(vec2 p, float dx, float dy)\r\n{\r\n    vec2 uv = (p.xy + vec2(dx * d, dy * d)) / iResolution.xy;\r\n    vec4 c = texture2D(iChannel0, uv.xy);\r\n\t\r\n\t// return as luma\r\n    return 0.2126*c.r + 0.7152*c.g + 0.0722*c.b;\r\n}\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\t//\r\n\t// Inspired by the technique illustrated at\r\n\t// http://www.geeks3d.com/20110219/shader-library-crosshatching-glsl-filter/\r\n\t//\r\n\tfloat ratio = iResolution.y / iResolution.x;\r\n\tfloat coordX = fragCoord.x / iResolution.x;\r\n\tfloat coordY = fragCoord.y / iResolution.x;\r\n\tvec2 dstCoord = vec2(coordX, coordY);\r\n\tvec2 srcCoord = vec2(coordX, coordY / ratio);\t\r\n\tvec2 uv = srcCoord.xy;\r\n\r\n\tvec3 res = vec3(1.0, 1.0, 1.0);\r\n    vec4 tex = texture2D(iChannel0, uv);\r\n    float brightness = (0.2126*tex.x) + (0.7152*tex.y) + (0.0722*tex.z);\r\n  \r\n    if (brightness < hatch_1) \r\n    {\r\n      if (mod(fragCoord.x + fragCoord.y, pDensity) <= pWidth)\r\n\t\t  res = vec3(hatch_1_brightness);\r\n    }\r\n  \r\n    if (brightness < hatch_2) \r\n    {\r\n\t\tif (mod(fragCoord.x - fragCoord.y, pDensity) <= pWidth)\r\n\t\t\tres = vec3(hatch_2_brightness);\r\n    }\r\n  \r\n    if (brightness < hatch_3) \r\n    {\r\n\t\tif (mod(fragCoord.x + fragCoord.y - (pDensity*0.5), pDensity) <= pWidth)\r\n\t\t\tres = vec3(hatch_3_brightness);\r\n    }\r\n  \r\n    if (brightness < hatch_4) \r\n    {\r\n\t\tif (mod(fragCoord.x - fragCoord.y - (pDensity*0.5), pDensity) <= pWidth)\r\n\t\t\tres = vec3(hatch_4_brightness);\r\n    }\r\n\t\r\n\tvec2 p = fragCoord.xy;\r\n    \r\n\t// simple sobel edge detection,\r\n\t// borrowed and tweaked from jmk\'s \"edge glow\" filter, here:\r\n\t// https://www.shadertoy.com/view/Mdf3zr\r\n    float gx = 0.0;\r\n    gx += -1.0 * lookup(p, -1.0, -1.0);\r\n    gx += -2.0 * lookup(p, -1.0,  0.0);\r\n    gx += -1.0 * lookup(p, -1.0,  1.0);\r\n    gx +=  1.0 * lookup(p,  1.0, -1.0);\r\n    gx +=  2.0 * lookup(p,  1.0,  0.0);\r\n    gx +=  1.0 * lookup(p,  1.0,  1.0);\r\n    \r\n    float gy = 0.0;\r\n    gy += -1.0 * lookup(p, -1.0, -1.0);\r\n    gy += -2.0 * lookup(p,  0.0, -1.0);\r\n    gy += -1.0 * lookup(p,  1.0, -1.0);\r\n    gy +=  1.0 * lookup(p, -1.0,  1.0);\r\n    gy +=  2.0 * lookup(p,  0.0,  1.0);\r\n    gy +=  1.0 * lookup(p,  1.0,  1.0);\r\n    \r\n\t// hack: use g^2 to conceal noise in the video\r\n    float g = gx*gx + gy*gy;\r\n\tres *= (1.0-g);\r\n\t\r\n\tfragColor = vec4(res, 1.0);\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")

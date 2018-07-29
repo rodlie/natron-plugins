@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -186,7 +187,6 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(50, 0)
     lastNode.Shadertoy1paramValueFloat2 = param
     del param
 
@@ -984,7 +984,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4200)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -996,40 +996,18 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3904)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
         param.setValue(50, 0)
         del param
 
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
     param = lastNode.getParam("paramValueFloat4")
     if param is not None:
         param.setValue(0.8, 0)
-        del param
-
-    param = lastNode.getParam("paramValueVec35")
-    if param is not None:
-        param.setValue(1, 0)
-        param.setValue(0.65, 1)
-        param.setValue(0.35, 2)
         del param
 
     param = lastNode.getParam("paramValueVec36")
@@ -1039,35 +1017,10 @@ def createInstance(app,group):
         param.setValue(1, 2)
         del param
 
-    param = lastNode.getParam("paramValueFloat7")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat8")
-    if param is not None:
-        param.setValue(1.5, 0)
-        del param
-
-    param = lastNode.getParam("paramValueInt9")
-    if param is not None:
-        param.setValue(11, 0)
-        del param
-
     param = lastNode.getParam("paramValueVec210")
     if param is not None:
         param.setValue(0, 0)
         param.setValue(0, 1)
-        del param
-
-    param = lastNode.getParam("paramValueFloat11")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat12")
-    if param is not None:
-        param.setValue(0.7, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -1545,7 +1498,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Texture")
     lastNode.setLabel("Texture")
     lastNode.setPosition(4139, 3624)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupTexture = lastNode
 

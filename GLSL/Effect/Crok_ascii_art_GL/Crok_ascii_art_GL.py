@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -69,6 +70,47 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
+    del param
+
+    param = lastNode.createStringParam("sep03", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep03 = param
+    del param
+
+    param = lastNode.createStringParam("sep04", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep04 = param
+    del param
+
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Look : ")
     param.setMinimum(0.01, 0)
     param.setMaximum(1, 0)
@@ -86,7 +128,7 @@ def createInstance(app,group):
     lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
-    param = lastNode.createStringParam("sep03", "")
+    param = lastNode.createStringParam("sep05", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -97,7 +139,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep03 = param
+    lastNode.sep05 = param
     del param
 
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Brightness : ")
@@ -117,7 +159,7 @@ def createInstance(app,group):
     lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
-    param = lastNode.createStringParam("sep04", "")
+    param = lastNode.createStringParam("sep06", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -128,7 +170,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep04 = param
+    lastNode.sep06 = param
     del param
 
     param = lastNode.createBooleanParam("Shadertoy1paramValueBool2", "Black and white : ")
@@ -144,7 +186,7 @@ def createInstance(app,group):
     lastNode.Shadertoy1paramValueBool2 = param
     del param
 
-    param = lastNode.createStringParam("sep05", "")
+    param = lastNode.createStringParam("sep07", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -155,10 +197,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep05 = param
+    lastNode.sep07 = param
     del param
 
-    param = lastNode.createStringParam("sep06", "")
+    param = lastNode.createStringParam("sep08", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
@@ -169,7 +211,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
-    lastNode.sep06 = param
+    lastNode.sep08 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -374,7 +416,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4205)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -386,7 +428,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4025, 3799)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -398,7 +440,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3939)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -419,7 +461,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_ascii_art Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_ascii_art Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter=nearest, wrap=clamp\n// iChannel1: Mask, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n\n// based on https://www.shadertoy.com/view/lsBXzD by CeeJayDK\n//A fork of https://www.shadertoy.com/view/lssGDj\n\n/*\nldexp and frexp are available in GLSL with OpenGL 4.0 and up,\nin HLSL with SM2.x and up,\nbut not in OpenGL ES / WebGL.\nBut we can make our own:\n*/\n\n\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\nfloat time = iTime*.01;\n\nuniform float size = 0.5; // Look : (look), min=0.01, max=1.0\nuniform float brightness = 0.5; // Brightness : (brightness), min=0.0, max=1.0\nuniform bool bw = true;\n\nfloat ldexp (float mantissa, float exponent)\n{\n\treturn exp2(exponent) * mantissa;\n}\n\nfloat frexp (float f, out float exponent)\n{\n\texponent = ceil(log2(f));\n\tfloat mantissa = exp2(-exponent) * f;\n\treturn mantissa;\n}\n\nfloat character(float n, vec2 p) // some compilers have the word \"char\" reserved\n{\n  p = floor(p * vec2(8.0,-8.0) + (vec2(-4.0,4.0) + vec2(1.0)) );\n\n\tif (clamp(p.x, 0.0, 4.0) == p.x && clamp(p.y, 0.0, 4.0) == p.y)\n\t{\n    \tfloat x = (5.0 * p.y + p.x);\n      float signbit = (n < 0.0)\n          ? 1.0\n          : 0.0 ;\n        signbit = (x == 0.0)\n          ? signbit\n          : 0.0 ;\n\t\t\t\t\treturn ( fract( abs( n*exp2(-x-1.0))) >= 0.5) ? 1.0 : signbit; //works on AMD and intel\n\t}\n  return 0.0;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy - 0.5;\n\tvec2 uv2 = fragCoord.xy / resolution.xy;\n  vec2 cursor_position = (floor(uv/8.0)*8.0+0.5)/resolution.xy; //slight blur\n\tvec3 col = texture2D(iChannel0, cursor_position).rgb;\n\tfloat m = texture2D(iChannel1, uv2).r;\n\n  float luma = dot(col,vec3(0.2126, 0.7152, 0.0722)) * m;\n\n\tfloat gray = smoothstep(0.0,1.0,luma); //increase contrast\n  float num_of_chars = 16. ;\n  float n12   = (gray < (1./num_of_chars))  ? 0.        : 4194304. ; //   or .\n\tfloat n34   = (gray < (3./num_of_chars))  ? 131200.   : 324.     ; // : or ^\n  float n56   = (gray < (5./num_of_chars))  ? 330.      : 283712.  ; // \" or ~\n  float n78   = (gray < (7./num_of_chars))  ? 12650880. : 4532768. ; // c or v\n  float n910  = (gray < (9./num_of_chars))  ? 13191552. : 10648704.; // o or *\n  float n1112 = (gray < (11./num_of_chars)) ? 11195936. : 15218734.; // w or S\n  float n1314 = (gray < (13./num_of_chars)) ? 15255086. : 15252014.; // O or 8\n  float n1516 = (gray < (15./num_of_chars)) ? 15324974. : 11512810.; // 0 or # //forgot about Q\n\n  float n1234     = (gray < (2./num_of_chars))  ? n12   : n34;\n  float n5678     = (gray < (6./num_of_chars))  ? n56   : n78;\n  float n9101112  = (gray < (10./num_of_chars)) ? n910  : n1112;\n  float n13141516 = (gray < (14./num_of_chars)) ? n1314 : n1516;\n  float n12345678 = (gray < (4./num_of_chars)) ? n1234 : n5678;\n  float n910111213141516 = (gray < (12./num_of_chars)) ? n9101112 : n13141516;\n  float n = (gray < (8./num_of_chars)) ? n12345678 : n910111213141516;\n\n  vec2 p = fract(uv * 0.25 * size);\n\n\tcol = col *character(n, p) * (brightness + 1.0);\n\tif ( bw )\n\t\tcol = mix(vec3(character(n, p)), luma * vec3(character(n, p)), brightness * - 1.0 + 1.0);\n\n\tfragColor = vec4(col,1.0);\n}\n")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_ascii_art Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_ascii_art Matchbox for Autodesk Flame\r\n\r\n\r\n// iChannel0: Source, filter=nearest, wrap=clamp\r\n// iChannel1: Mask, filter=nearest, wrap=clamp\r\n// BBox: iChannel0\r\n\r\n\r\n// based on https://www.shadertoy.com/view/lsBXzD by CeeJayDK\r\n//A fork of https://www.shadertoy.com/view/lssGDj\r\n\r\n/*\r\nldexp and frexp are available in GLSL with OpenGL 4.0 and up,\r\nin HLSL with SM2.x and up,\r\nbut not in OpenGL ES / WebGL.\r\nBut we can make our own:\r\n*/\r\n\r\n\r\n\r\n\r\nvec2 resolution = vec2(iResolution.x, iResolution.y);\r\nfloat time = iTime*.01;\r\n\r\nuniform float size = 0.5; // Look : (look), min=0.01, max=1.0\r\nuniform float brightness = 0.5; // Brightness : (brightness), min=0.0, max=1.0\r\nuniform bool bw = true;\r\n\r\nfloat ldexp (float mantissa, float exponent)\r\n{\r\n\treturn exp2(exponent) * mantissa;\r\n}\r\n\r\nfloat frexp (float f, out float exponent)\r\n{\r\n\texponent = ceil(log2(f));\r\n\tfloat mantissa = exp2(-exponent) * f;\r\n\treturn mantissa;\r\n}\r\n\r\nfloat character(float n, vec2 p) // some compilers have the word \"char\" reserved\r\n{\r\n  p = floor(p * vec2(8.0,-8.0) + (vec2(-4.0,4.0) + vec2(1.0)) );\r\n\r\n\tif (clamp(p.x, 0.0, 4.0) == p.x && clamp(p.y, 0.0, 4.0) == p.y)\r\n\t{\r\n    \tfloat x = (5.0 * p.y + p.x);\r\n      float signbit = (n < 0.0)\r\n          ? 1.0\r\n          : 0.0 ;\r\n        signbit = (x == 0.0)\r\n          ? signbit\r\n          : 0.0 ;\r\n\t\t\t\t\treturn ( fract( abs( n*exp2(-x-1.0))) >= 0.5) ? 1.0 : signbit; //works on AMD and intel\r\n\t}\r\n  return 0.0;\r\n}\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\tvec2 uv = fragCoord.xy - 0.5;\r\n\tvec2 uv2 = fragCoord.xy / resolution.xy;\r\n  vec2 cursor_position = (floor(uv/8.0)*8.0+0.5)/resolution.xy; //slight blur\r\n\tvec3 col = texture2D(iChannel0, cursor_position).rgb;\r\n\tfloat m = texture2D(iChannel1, uv2).r;\r\n\r\n  float luma = dot(col,vec3(0.2126, 0.7152, 0.0722)) * m;\r\n\r\n\tfloat gray = smoothstep(0.0,1.0,luma); //increase contrast\r\n  float num_of_chars = 16. ;\r\n  float n12   = (gray < (1./num_of_chars))  ? 0.        : 4194304. ; //   or .\r\n\tfloat n34   = (gray < (3./num_of_chars))  ? 131200.   : 324.     ; // : or ^\r\n  float n56   = (gray < (5./num_of_chars))  ? 330.      : 283712.  ; // \" or ~\r\n  float n78   = (gray < (7./num_of_chars))  ? 12650880. : 4532768. ; // c or v\r\n  float n910  = (gray < (9./num_of_chars))  ? 13191552. : 10648704.; // o or *\r\n  float n1112 = (gray < (11./num_of_chars)) ? 11195936. : 15218734.; // w or S\r\n  float n1314 = (gray < (13./num_of_chars)) ? 15255086. : 15252014.; // O or 8\r\n  float n1516 = (gray < (15./num_of_chars)) ? 15324974. : 11512810.; // 0 or # //forgot about Q\r\n\r\n  float n1234     = (gray < (2./num_of_chars))  ? n12   : n34;\r\n  float n5678     = (gray < (6./num_of_chars))  ? n56   : n78;\r\n  float n9101112  = (gray < (10./num_of_chars)) ? n910  : n1112;\r\n  float n13141516 = (gray < (14./num_of_chars)) ? n1314 : n1516;\r\n  float n12345678 = (gray < (4./num_of_chars)) ? n1234 : n5678;\r\n  float n910111213141516 = (gray < (12./num_of_chars)) ? n9101112 : n13141516;\r\n  float n = (gray < (8./num_of_chars)) ? n12345678 : n910111213141516;\r\n\r\n  vec2 p = fract(uv * 0.25 * size);\r\n\r\n\tcol = col *character(n, p) * (brightness + 1.0);\r\n\tif ( bw )\r\n\t\tcol = mix(vec3(character(n, p)), luma * vec3(character(n, p)), brightness * - 1.0 + 1.0);\r\n\r\n\tfragColor = vec4(col,1.0);\r\n}\r\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -580,7 +622,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
     lastNode.setPosition(4245, 3799)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
 

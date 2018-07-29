@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -69,21 +70,17 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Shift")
-    param.setMinimum(-99.99999999999999, 0)
-    param.setMaximum(99.99999999999999, 0)
-    param.setDisplayMinimum(-99.99999999999999, 0)
-    param.setDisplayMaximum(99.99999999999999, 0)
-    param.setDefaultValue(10, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueFloat0 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -114,17 +111,21 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createSeparatorParam("MASK", "Mask")
+    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Shift : ")
+    param.setMinimum(-100, 0)
+    param.setMaximum(100, 0)
+    param.setDisplayMinimum(-100, 0)
+    param.setDisplayMaximum(100, 0)
+    param.setDefaultValue(10, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
-    param.setPersistent(False)
-    param.setEvaluateOnChange(False)
-    lastNode.MASK = param
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1_2paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -155,7 +156,20 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createBooleanParam("Modulate", "Modulate")
+    param = lastNode.createSeparatorParam("MASK", "Mask")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MASK = param
+    del param
+
+    param = lastNode.createBooleanParam("Modulate", "Modulate : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -397,7 +411,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3977)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -409,7 +423,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3701)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -421,7 +435,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Modulate")
     lastNode.setPosition(4319, 3846)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
 
@@ -433,18 +447,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3845)
-    lastNode.setSize(80, 45)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
         param.setValue(10, 0)
-        del param
-
-    param = lastNode.getParam("paramValueBool1")
-    if param is not None:
-        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -587,9 +596,6 @@ def createInstance(app,group):
 
     param = groupShadertoy1_2.getParam("paramValueFloat0")
     group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
-    del param
-    param = groupShadertoy1_2.getParam("paramValueBool1")
-    param.slaveTo(group.getParam("Modulate"), 0, 0)
     del param
 
     try:
