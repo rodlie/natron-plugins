@@ -284,33 +284,33 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Effect/Crok_oil_paint_GL/Crok_oil_paint_GL.png' width='24'> **[Crok_oil_paint_GL](/GLSL/Effect/Crok_oil_paint_GL/README.md)** : Applies a painterly effet to the image.
 
-- <img src='/GLSL/Effect/Crok_parallax_GL/Crok_parallax_GL.png' width='32'> **[Crok_parallax_GL](/GLSL/Effect/Crok_parallax_GL/README.md)** : Simulates a typical Amiga style parallax effect.
+- <img src='/GLSL/Effect/Crok_parallax_GL/Crok_parallax_GL.png' width='24'> **[Crok_parallax_GL](/GLSL/Effect/Crok_parallax_GL/README.md)** : Simulates a typical Amiga style parallax effect.
 
-- <img src='/GLSL/Effect/Crok_pixelate_GL/Crok_pixelate_GL.png' width='32'> **[Crok_pixelate_GL](/GLSL/Effect/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
+- <img src='/GLSL/Effect/Crok_pixelate_GL/Crok_pixelate_GL.png' width='24'> **[Crok_pixelate_GL](/GLSL/Effect/Crok_pixelate_GL/README.md)** : GPU accelerated mosaic effect for Shadertoy.
 
-- <img src='/GLSL/Effect/Crok_scanlines_GL/Crok_scanlines_GL.png' width='32'> **[Crok_scanlines_GL](/GLSL/Effect/Crok_scanlines_GL/README.md)** : Simulates CRT phosphor / shadow mask arrangements.
+- <img src='/GLSL/Effect/Crok_scanlines_GL/Crok_scanlines_GL.png' width='24'> **[Crok_scanlines_GL](/GLSL/Effect/Crok_scanlines_GL/README.md)** : Simulates CRT phosphor / shadow mask arrangements.
 
-- <img src='/GLSL/Effect/Crok_separation_GL/Crok_separation_GL.png' width='32'> **[Crok_separation_GL](/GLSL/Effect/Crok_separation_GL/README.md)** : Creates a low pass and high pass filter sometimes called frequency separation.
+- <img src='/GLSL/Effect/Crok_separation_GL/Crok_separation_GL.png' width='24'> **[Crok_separation_GL](/GLSL/Effect/Crok_separation_GL/README.md)** : Creates a low pass and high pass filter sometimes called frequency separation.
 
-- <img src='/GLSL/Effect/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='32'> **[Crok_tv_rgb_dots_GL](/GLSL/Effect/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
+- <img src='/GLSL/Effect/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='24'> **[Crok_tv_rgb_dots_GL](/GLSL/Effect/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
 
-- <img src='/GLSL/Effect/Crok_vein_GL/Crok_vein_GL.png' width='32'> **[Crok_vein_GL](/GLSL/Effect/Crok_vein_GL/README.md)** : Generates veins.
+- <img src='/GLSL/Effect/Crok_vein_GL/Crok_vein_GL.png' width='24'> **[Crok_vein_GL](/GLSL/Effect/Crok_vein_GL/README.md)** : Generates veins.
 
-- <img src='/GLSL/Effect/Crok_vhs_GL/Crok_vhs_GL.png' width='32'> **[Crok_vhs_GL](/GLSL/Effect/Crok_vhs_GL/README.md)** : Simulates an old VHS player.
+- <img src='/GLSL/Effect/Crok_vhs_GL/Crok_vhs_GL.png' width='24'> **[Crok_vhs_GL](/GLSL/Effect/Crok_vhs_GL/README.md)** : Simulates an old VHS player.
 
-- <img src='/GLSL/Effect/EWA_GL/EWA_GL.png' width='32'> **[EWA_GL](/GLSL/Effect/EWA_GL/README.md)** : GPU accelerated EWA antialiasing effect for Shadertoy.
+- <img src='/GLSL/Effect/EWA_GL/EWA_GL.png' width='24'> **[EWA_GL](/GLSL/Effect/EWA_GL/README.md)** : GPU accelerated EWA antialiasing effect for Shadertoy.
 
-- <img src='/GLSL/Effect/FXAA_GL/FXAA_GL.png' width='32'> **[FXAA_GL](/GLSL/Effect/FXAA_GL/README.md)** : GPU accelerated FXAA antialiasing effect for Shadertoy.
+- <img src='/GLSL/Effect/FXAA_GL/FXAA_GL.png' width='24'> **[FXAA_GL](/GLSL/Effect/FXAA_GL/README.md)** : GPU accelerated FXAA antialiasing effect for Shadertoy.
 
-- <img src='/GLSL/Effect/JB_lidar_GL/JB_lidar_GL.png' width='32'> **[JB_lidar_GL](/GLSL/Effect/JB_lidar_GL/README.md)** : This node tries to emulate a fake point cloud data provided by a lidar.
+- <img src='/GLSL/Effect/JB_lidar_GL/JB_lidar_GL.png' width='24'> **[JB_lidar_GL](/GLSL/Effect/JB_lidar_GL/README.md)** : This node tries to emulate a fake point cloud data provided by a lidar.
 
-- <img src='/GLSL/Effect/Ls_Dollface_GL/Ls_Dollface_GL.png' width='32'> **[Ls_Dollface_GL](/GLSL/Effect/Ls_Dollface_GL/README.md)** : Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.
+- <img src='/GLSL/Effect/Ls_Dollface_GL/Ls_Dollface_GL.png' width='24'> **[Ls_Dollface_GL](/GLSL/Effect/Ls_Dollface_GL/README.md)** : Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.
 
-- <img src='/GLSL/Effect/Ls_FXAA_GL/Ls_FXAA_GL.png' width='32'> **[Ls_FXAA_GL](/GLSL/Effect/Ls_FXAA_GL/README.md)** : Fast cheap antialiasing.
+- <img src='/GLSL/Effect/Ls_FXAA_GL/Ls_FXAA_GL.png' width='24'> **[Ls_FXAA_GL](/GLSL/Effect/Ls_FXAA_GL/README.md)** : Fast cheap antialiasing.
 
-- <img src='/GLSL/Effect/Ls_wireless_GL/Ls_wireless_GL.png' width='32'> **[Ls_wireless_GL](/GLSL/Effect/Ls_wireless_GL/README.md)** : Fast cheap antialiasing.
+- <img src='/GLSL/Effect/Ls_wireless_GL/Ls_wireless_GL.png' width='24'> **[Ls_wireless_GL](/GLSL/Effect/Ls_wireless_GL/README.md)** : Fast cheap antialiasing.
 
-- <img src='/GLSL/Effect/Money_Filter_GL/Money_Filter_GL.png' width='32'> **[Money_Filter_GL](/GLSL/Effect/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect for Shadertoy.
+- <img src='/GLSL/Effect/Money_Filter_GL/Money_Filter_GL.png' width='24'> **[Money_Filter_GL](/GLSL/Effect/Money_Filter_GL/README.md)** : GPU accelerated Money filter effect for Shadertoy.
 
 - <img src='/GLSL/Effect/y_flicker_GL/y_flicker_GL.png' width='24'> **[y_flicker_GL](/GLSL/Effect/y_flicker_GL/README.md)** : Removes flickering.
 
