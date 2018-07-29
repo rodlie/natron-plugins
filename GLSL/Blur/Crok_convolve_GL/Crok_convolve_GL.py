@@ -142,20 +142,6 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createStringParam("sep06", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep06 = param
-    del param
-
     param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Blur quality : ")
     param.setMinimum(-0.09999999999999999, 0)
     param.setMaximum(20, 0)
@@ -173,6 +159,20 @@ def createInstance(app,group):
     lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
+    param = lastNode.createStringParam("sep06", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep06 = param
+    del param
+
     param = lastNode.createStringParam("sep07", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -185,20 +185,6 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep07 = param
-    del param
-
-    param = lastNode.createStringParam("sep08", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep08 = param
     del param
 
     param = lastNode.createSeparatorParam("LINE01", "")
@@ -227,6 +213,20 @@ def createInstance(app,group):
     lastNode.Shadertoy1wrap0 = param
     del param
 
+    param = lastNode.createStringParam("sep08", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep08 = param
+    del param
+
     param = lastNode.createStringParam("sep09", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -239,20 +239,6 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep09 = param
-    del param
-
-    param = lastNode.createStringParam("sep10", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep10 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -457,7 +443,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -469,7 +455,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3697)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -481,9 +467,19 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3855)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(5, 0)
+        del param
 
     param = lastNode.getParam("imageShaderFileName")
     if param is not None:
@@ -492,7 +488,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//                                                \n//                                                  \n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                        \n//                        MM.                          .MM                                \n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM                  \n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM     \n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM            \t   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM  \n//                     MM.  .MMM    MMMM            MMM.  .MM    \n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM      \n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM            \n//                        MM.                          .MM                 \n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                                      \n//                                                                \n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_convolve Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_convolve Matchbox for Autodesk Flame\n\n// created by Pitzik4 in 16/5/2013\n\n\n// setting inputs names and filtering options\n// iChannel0: Source, filter = nearest\n// BBox: iChannel0\n\n\n\nuniform float pCv = 1; // blur radius (blur radius), min=-0., max=20.\nuniform float quality = 5; // blur quality (blur quality), min=-0.1., max=20\n\n#define PI 3.141592\n#define PI2 6.283184\n\n\nvec4 colorat(vec2 uv) \n{\n\treturn texture2D(iChannel0, uv);\n}\n\n\nvec4 convolve(vec2 uv) \n{\n\tvec4 col = vec4(0.0);\n\tfor(float r0 = 0.0; r0 < 1.0; r0 += 0.1 / quality )\n\t {\n\t\tfloat r = r0 * pCv*.01;\n\t\tfor(float a0 = 0.0; a0 < 1.0; a0 += 0.1 / quality) \n\t\t{\n\t\t\tfloat a = a0 * PI2;\n\t\t\tcol += colorat(uv + vec2(cos(a), sin(a)) * r);\n\t\t}\n\t}\n\tcol *= 0.1 / quality * 0.1 / quality;\n\treturn col;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tfragColor = convolve(uv);\n}")
+        param.setValue("//                                                \r\n//                                                  \r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                        \r\n//                        MM.                          .MM                                \r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM                  \r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM     \r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM            \t   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM  \r\n//                     MM.  .MMM    MMMM            MMM.  .MM    \r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM      \r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM            \r\n//                        MM.                          .MM                 \r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM                                                      \r\n//                                                                \r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_convolve Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_convolve Matchbox for Autodesk Flame\r\n\r\n// created by Pitzik4 in 16/5/2013\r\n\r\n\r\n// setting inputs names and filtering options\r\n// iChannel0: Source, filter = nearest\r\n// BBox: iChannel0\r\n\r\n\r\n\r\nuniform float pCv = 1; // blur radius (blur radius), min=-0., max=20.\r\nuniform float quality = 5; // blur quality (blur quality), min=-0.1., max=20\r\n\r\n#define PI 3.141592\r\n#define PI2 6.283184\r\n\r\n\r\nvec4 colorat(vec2 uv) \r\n{\r\n\treturn texture2D(iChannel0, uv);\r\n}\r\n\r\n\r\nvec4 convolve(vec2 uv) \r\n{\r\n\tvec4 col = vec4(0.0);\r\n\tfor(float r0 = 0.0; r0 < 1.0; r0 += 0.1 / quality )\r\n\t {\r\n\t\tfloat r = r0 * pCv*.01;\r\n\t\tfor(float a0 = 0.0; a0 < 1.0; a0 += 0.1 / quality) \r\n\t\t{\r\n\t\t\tfloat a = a0 * PI2;\r\n\t\t\tcol += colorat(uv + vec2(cos(a), sin(a)) * r);\r\n\t\t}\r\n\t}\r\n\tcol *= 0.1 / quality * 0.1 / quality;\r\n\treturn col;\r\n}\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\tvec2 uv = fragCoord.xy / iResolution.xy;\r\n\tfragColor = convolve(uv);\r\n}")
         del param
 
     param = lastNode.getParam("mipmap0")

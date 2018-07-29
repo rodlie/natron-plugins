@@ -111,7 +111,7 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Blur_Size", "Blur Size")
+    param = lastNode.createDoubleParam("Blur_Size", "Blur Size : ")
     param.setMinimum(-2147483648, 0)
     param.setMaximum(2147483647, 0)
     param.setDisplayMinimum(0, 0)
@@ -143,7 +143,7 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createDoubleParam("Samples", "Samples")
+    param = lastNode.createDoubleParam("Samples", "Samples : ")
     param.setMinimum(-2147483648, 0)
     param.setMaximum(2147483647, 0)
     param.setDisplayMinimum(0, 0)
@@ -175,7 +175,7 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createSeparatorParam("line01", "")
+    param = lastNode.createSeparatorParam("LINE01", "")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -185,10 +185,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.line01 = param
+    lastNode.LINE01 = param
     del param
 
-    param = lastNode.createBooleanParam("Modulate", "Modulate")
+    param = lastNode.createBooleanParam("Modulate", "Modulate : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -430,7 +430,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -442,7 +442,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3698)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -454,7 +454,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Modulate")
     lastNode.setPosition(4319, 3846)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
 
@@ -466,24 +466,9 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy2")
     lastNode.setLabel("Shadertoy2")
     lastNode.setPosition(4139, 3845)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy2 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(10, 0)
-        del param
-
-    param = lastNode.getParam("paramValueInt1")
-    if param is not None:
-        param.setValue(150, 0)
-        del param
-
-    param = lastNode.getParam("paramValueBool2")
-    if param is not None:
-        param.setValue(False)
-        del param
 
     param = lastNode.getParam("imageShaderPreset")
     if param is not None:
@@ -492,7 +477,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// https://www.shadertoy.com/view/4d2Xzw\n// Bokeh disc.\n// original fast version by David Hoskins.\n// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.\n\n// Fixed and adapted to Natron by F. Devernay:\n// - avoid numerical divergence (length of vangle growing)\n// - use mipmaps to limit noise when the spacing between samples is too large.\n\n// iChannel0: Source, filter=mipmap, wrap=clamp\n// iChannel1: Modulate (Image containing a factor to be applied to the Blur size in the first channel), filter=linear, wrap=clamp\n// BBox: iChannel0\n\n// The Golden Angle is (3.-sqrt(5.0))*PI radians, which doesn\'t precompiled for some reason.\n// The compiler is a dunce I tells-ya!!\n#define GOLDEN_ANGLE 2.39996\n\nconst vec2 iRenderScale = vec2(1.,1.);).\nconst vec2 iChannelOffset[4] = vec2[4]( vec2(0.,0.), vec2(0.,0.), vec2(0.,0.), vec2(0.,0.) );\nuniform float size = 10.; // Blur Size (Blur size in pixels), min=0., max=200.\nuniform int ITERATIONS = 150; // Samples (Number of samples - higher is better and slower), min=2, max=1024\nuniform bool perpixel_size = false; // Modulate (Modulate the blur size by multiplying it by the first channel of the Modulate input)\n\nmat2 rot = mat2(cos(GOLDEN_ANGLE), sin(GOLDEN_ANGLE), -sin(GOLDEN_ANGLE), cos(GOLDEN_ANGLE));\nfloat sqrtiter = sqrt(float(ITERATIONS));\n\n// The original fast version had the following issue:\n// - the length of the vangle vector changes, although it should remain the same -> renormalize\n// - the radius was sqrt(2) too large => properly compute the base norm\n//-------------------------------------------------------------------------------------------\nvec4 Bokeh(sampler2D tex, vec2 uv, float radius)\n{\n    // the spacing is the square root of the density on average: sqrt(pi*r^2/n)\n    float spacing = sqrt(3.141592652) * radius * iRenderScale.x / sqrtiter;\n    float level = log2(spacing);\n\n    vec4 acc = vec4(0);\n    float r = 1.;\n    vec2 vangle = vec2(0.,1.);\n    float vanglenorm = radius / sqrtiter / sqrt(2);\n    vec2 uvscale = iRenderScale.xy / iResolution.xy;\n    for (int j = 0; j < ITERATIONS; j++) {  \n        // the approx increase in the scale of sqrt(0, 1, 2, 3...)\n        r += 1. / r;\n\t    // r = 1. + sqrt(j) * sqrt(2); // slow version - gives almost the same result\n        vangle = rot * vangle;\n\t    vangle /= length(vangle);\n\t    // vangle = vec2(cos(GOLDEN_ANGLE*j), sin(GOLDEN_ANGLE*j)); // slow version\n        vec4 col = texture2D(tex, uv + (r-1.) * vangle * vanglenorm * uvscale, level).rgba; /// ... Sample the image\n        acc += col;\n    }\n    return acc / ITERATIONS;\n}\n\n#if 0\n// reference implementation\n//-------------------------------------------------------------------------------------------\nvec4 Bokeh2(sampler2D tex, vec2 uv, float radius)\n{\n    // the spacing is the square root of the density on average: sqrt(pi*r^2/n)\n    float spacing = sqrt(3.141592652/ITERATIONS) * radius * iRenderScale.x;\n    float level = log2(spacing);\n\n    vec4 acc = vec4(0);\n\n    // Vogel\'s method, described at http://blog.marmakoide.org/?p=1\n    for (int j = 0; j < ITERATIONS; j++) {  \n        float theta = GOLDEN_ANGLE * j;\n        float r = sqrt(j) / sqrtiter;\n        vec2 p = r * vec2(cos(theta), sin(theta));\n        vec4 col = texture2D(tex, uv + radius * p * iRenderScale.xy / iResolution.xy, level).rgba; /// ... Sample the image\n        acc += col;\n    }\n    return acc / ITERATIONS;\n}\n#endif\n\n//-------------------------------------------------------------------------------------------\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    vec2 uv = fragCoord.xy / iResolution.xy;\n    \n    float rad = size;\n    if (perpixel_size) {\n        rad *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).x;\n    }\n    \n    fragColor = Bokeh(iChannel0, uv, rad);\n}\n")
+        param.setValue("// https://www.shadertoy.com/view/4d2Xzw\r\n// Bokeh disc.\r\n// original fast version by David Hoskins.\r\n// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.\r\n\r\n// Fixed and adapted to Natron by F. Devernay:\r\n// - avoid numerical divergence (length of vangle growing)\r\n// - use mipmaps to limit noise when the spacing between samples is too large.\r\n\r\n// iChannel0: Source, filter=mipmap, wrap=clamp\r\n// iChannel1: Modulate (Image containing a factor to be applied to the Blur size in the first channel), filter=linear, wrap=clamp\r\n// BBox: iChannel0\r\n\r\n// The Golden Angle is (3.-sqrt(5.0))*PI radians, which doesn\'t precompiled for some reason.\r\n// The compiler is a dunce I tells-ya!!\r\n#define GOLDEN_ANGLE 2.39996\r\n\r\nconst vec2 iRenderScale = vec2(1.,1.);).\r\nconst vec2 iChannelOffset[4] = vec2[4]( vec2(0.,0.), vec2(0.,0.), vec2(0.,0.), vec2(0.,0.) );\r\nuniform float size = 10.; // Blur Size (Blur size in pixels), min=0., max=200.\r\nuniform int ITERATIONS = 150; // Samples (Number of samples - higher is better and slower), min=2, max=1024\r\nuniform bool perpixel_size = false; // Modulate (Modulate the blur size by multiplying it by the first channel of the Modulate input)\r\n\r\nmat2 rot = mat2(cos(GOLDEN_ANGLE), sin(GOLDEN_ANGLE), -sin(GOLDEN_ANGLE), cos(GOLDEN_ANGLE));\r\nfloat sqrtiter = sqrt(float(ITERATIONS));\r\n\r\n// The original fast version had the following issue:\r\n// - the length of the vangle vector changes, although it should remain the same -> renormalize\r\n// - the radius was sqrt(2) too large => properly compute the base norm\r\n//-------------------------------------------------------------------------------------------\r\nvec4 Bokeh(sampler2D tex, vec2 uv, float radius)\r\n{\r\n    // the spacing is the square root of the density on average: sqrt(pi*r^2/n)\r\n    float spacing = sqrt(3.141592652) * radius * iRenderScale.x / sqrtiter;\r\n    float level = log2(spacing);\r\n\r\n    vec4 acc = vec4(0);\r\n    float r = 1.;\r\n    vec2 vangle = vec2(0.,1.);\r\n    float vanglenorm = radius / sqrtiter / sqrt(2);\r\n    vec2 uvscale = iRenderScale.xy / iResolution.xy;\r\n    for (int j = 0; j < ITERATIONS; j++) {  \r\n        // the approx increase in the scale of sqrt(0, 1, 2, 3...)\r\n        r += 1. / r;\r\n\t    // r = 1. + sqrt(j) * sqrt(2); // slow version - gives almost the same result\r\n        vangle = rot * vangle;\r\n\t    vangle /= length(vangle);\r\n\t    // vangle = vec2(cos(GOLDEN_ANGLE*j), sin(GOLDEN_ANGLE*j)); // slow version\r\n        vec4 col = texture2D(tex, uv + (r-1.) * vangle * vanglenorm * uvscale, level).rgba; /// ... Sample the image\r\n        acc += col;\r\n    }\r\n    return acc / ITERATIONS;\r\n}\r\n\r\n#if 0\r\n// reference implementation\r\n//-------------------------------------------------------------------------------------------\r\nvec4 Bokeh2(sampler2D tex, vec2 uv, float radius)\r\n{\r\n    // the spacing is the square root of the density on average: sqrt(pi*r^2/n)\r\n    float spacing = sqrt(3.141592652/ITERATIONS) * radius * iRenderScale.x;\r\n    float level = log2(spacing);\r\n\r\n    vec4 acc = vec4(0);\r\n\r\n    // Vogel\'s method, described at http://blog.marmakoide.org/?p=1\r\n    for (int j = 0; j < ITERATIONS; j++) {  \r\n        float theta = GOLDEN_ANGLE * j;\r\n        float r = sqrt(j) / sqrtiter;\r\n        vec2 p = r * vec2(cos(theta), sin(theta));\r\n        vec4 col = texture2D(tex, uv + radius * p * iRenderScale.xy / iResolution.xy, level).rgba; /// ... Sample the image\r\n        acc += col;\r\n    }\r\n    return acc / ITERATIONS;\r\n}\r\n#endif\r\n\r\n//-------------------------------------------------------------------------------------------\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n    vec2 uv = fragCoord.xy / iResolution.xy;\r\n    \r\n    float rad = size;\r\n    if (perpixel_size) {\r\n        rad *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).x;\r\n    }\r\n    \r\n    fragColor = Bokeh(iChannel0, uv, rad);\r\n}\r\n")
         del param
 
     param = lastNode.getParam("wrap0")
@@ -652,16 +637,6 @@ def createInstance(app,group):
     groupOutput1.connectInput(0, groupShadertoy2)
     groupShadertoy2.connectInput(0, groupSource)
     groupShadertoy2.connectInput(1, groupMask)
-
-    param = groupShadertoy2.getParam("paramValueFloat0")
-    param.slaveTo(group.getParam("Blur_Size"), 0, 0)
-    del param
-    param = groupShadertoy2.getParam("paramValueInt1")
-    param.slaveTo(group.getParam("Samples"), 0, 0)
-    del param
-    param = groupShadertoy2.getParam("paramValueBool2")
-    param.slaveTo(group.getParam("Modulate"), 0, 0)
-    del param
 
     try:
         extModule = sys.modules["BokehDisc_GLExt"]
