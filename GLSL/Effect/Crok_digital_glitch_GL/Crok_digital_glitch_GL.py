@@ -38,6 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
+    lastNode.setColor(1, 0.2353, 0.2353)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -1042,7 +1043,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4035, 4808)
-    lastNode.setSize(90, 33)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -1054,7 +1055,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Input1")
     lastNode.setLabel("Source")
     lastNode.setPosition(4035, 3899)
-    lastNode.setSize(90, 50)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupInput1 = lastNode
 
@@ -1066,33 +1067,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy_pass1_2")
     lastNode.setPosition(4035, 4265)
-    lastNode.setSize(90, 76)
+    lastNode.setSize(80, 55)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
-
-    param = lastNode.getParam("paramValueBool0")
-    if param is not None:
-        param.setValue(True)
-        del param
 
     param = lastNode.getParam("paramValueFloat1")
     if param is not None:
         param.setValue(25, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(0.3, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValue(0.5, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -1293,63 +1274,13 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy2")
     lastNode.setLabel("Shadertoy_pass2_2")
     lastNode.setPosition(4037, 4373)
-    lastNode.setSize(90, 76)
+    lastNode.setSize(80, 55)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy2 = lastNode
-
-    param = lastNode.getParam("paramValueFloat0")
-    if param is not None:
-        param.setValue(0.7, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(5, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat3")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValue(0.5, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat5")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
-    param = lastNode.getParam("paramValueBool6")
-    if param is not None:
-        param.setValue(True)
-        del param
-
-    param = lastNode.getParam("paramValueFloat7")
-    if param is not None:
-        param.setValue(0.3, 0)
-        del param
 
     param = lastNode.getParam("paramValueFloat8")
     if param is not None:
         param.setValue(0.4, 0)
-        del param
-
-    param = lastNode.getParam("paramValueBool9")
-    if param is not None:
-        param.setValue(False)
-        del param
-
-    param = lastNode.getParam("paramValueFloat10")
-    if param is not None:
-        param.setValue(0.5, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
