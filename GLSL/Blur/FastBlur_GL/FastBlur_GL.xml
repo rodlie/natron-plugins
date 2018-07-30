@@ -1,0 +1,10 @@
+<?xml version="1.01" encoding="UTF-8"?>
+<Package>
+    <DisplayName>FastBlur_GL</DisplayName>
+    <Description>Fast Blur effect.</Description>
+    <Version>1.01</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.FastBlur_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

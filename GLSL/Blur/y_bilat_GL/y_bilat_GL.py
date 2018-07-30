@@ -33,7 +33,6 @@ def getGrouping():
 def getPluginDescription():
     return "A bilateral filter, with a few more options, and the abiltiy to intake a mask."
 
-
 def createInstance(app,group):
     # Create all nodes in the group
 
