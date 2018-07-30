@@ -371,21 +371,21 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Source/Crok_checkerboard_GL/Crok_checkerboard_GL.png' width='24'> **[Crok_checkerboard_GL](/GLSL/Source/Crok_checkerboard_GL/README.md)** : Creates a checkerboard pattern.
 
-- <img src='/GLSL/Source/Crok_fbmPixels_GL/Crok_fbmPixels_GL.png' width='32'> **[Crok_fbmPixels_GL](/GLSL/Source/Crok_fbmPixels_GL/README.md)** : Creates a fbm style pattern.
+- <img src='/GLSL/Source/Crok_fbmPixels_GL/Crok_fbmPixels_GL.png' width='24'> **[Crok_fbmPixels_GL](/GLSL/Source/Crok_fbmPixels_GL/README.md)** : Creates a fbm style pattern.
 
-- <img src='/GLSL/Source/Crok_flow_GL/Crok_flow_GL.png' width='32'> **[Crok_flow_GL](/GLSL/Source/Crok_flow_GL/README.md)** : Creates a perlin noise pattern.
+- <img src='/GLSL/Source/Crok_flow_GL/Crok_flow_GL.png' width='24'> **[Crok_flow_GL](/GLSL/Source/Crok_flow_GL/README.md)** : Creates a perlin noise pattern.
 
-- <img src='/GLSL/Source/Crok_fractal_GL/Crok_fractal_GL.png' width='32'> **[Crok_fractal_GL](/GLSL/Source/Crok_fractal_GL/README.md)** : Creates a fractal pattern.
+- <img src='/GLSL/Source/Crok_fractal_GL/Crok_fractal_GL.png' width='24'> **[Crok_fractal_GL](/GLSL/Source/Crok_fractal_GL/README.md)** : Creates a fractal pattern.
 
-- <img src='/GLSL/Source/Crok_fractal_soup_GL/Crok_fractal_soup_GL.png' width='32'> **[Crok_fractal_soup_GL](/GLSL/Source/Crok_fractal_soup_GL/README.md)** : Creates a mandelbrot pattern.
+- <img src='/GLSL/Source/Crok_fractal_soup_GL/Crok_fractal_soup_GL.png' width='24'> **[Crok_fractal_soup_GL](/GLSL/Source/Crok_fractal_soup_GL/README.md)** : Creates a mandelbrot pattern.
 
-- <img src='/GLSL/Source/Crok_gradient_GL/Crok_gradient_GL.png' width='32'> **[Crok_gradient_GL](/GLSL/Source/Crok_gradient_GL/README.md)** : Creates a simple gradient effect.
+- <img src='/GLSL/Source/Crok_gradient_GL/Crok_gradient_GL.png' width='24'> **[Crok_gradient_GL](/GLSL/Source/Crok_gradient_GL/README.md)** : Creates a simple gradient effect.
 
-- <img src='/GLSL/Source/Crok_lava_GL/Crok_lava_GL.png' width='32'> **[Crok_lava_GL](/GLSL/Source/Crok_lava_GL/README.md)** : Creates flame / fluid like patterns.
+- <img src='/GLSL/Source/Crok_lava_GL/Crok_lava_GL.png' width='24'> **[Crok_lava_GL](/GLSL/Source/Crok_lava_GL/README.md)** : Creates flame / fluid like patterns.
 
-- <img src='/GLSL/Source/Crok_lines_GL/Crok_lines_GL.png' width='32'> **[Crok_lines_GL](/GLSL/Source/Crok_lines_GL/README.md)** : Creates lines.
+- <img src='/GLSL/Source/Crok_lines_GL/Crok_lines_GL.png' width='24'> **[Crok_lines_GL](/GLSL/Source/Crok_lines_GL/README.md)** : Creates lines.
 
-- <img src='/GLSL/Source/Crok_maze_GL/Crok_maze_GL.png' width='32'> **[Crok_maze_GL](/GLSL/Source/Crok_maze_GL/README.md)** : Creates a maze like structure.
+- <img src='/GLSL/Source/Crok_maze_GL/Crok_maze_GL.png' width='24'> **[Crok_maze_GL](/GLSL/Source/Crok_maze_GL/README.md)** : Creates a maze like structure.
 
 - <img src='/GLSL/Source/Crok_ocean_noise_GL/Crok_ocean_noise_GL.png' width='24'> **[Crok_ocean_noise_GL](/GLSL/Source/Crok_ocean_noise_GL/README.md)** : Creates an ocean / water like noise pattern.
 
