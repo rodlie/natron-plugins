@@ -125,9 +125,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("Blur Center")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setUsePointInteract(True)
     lastNode.ShadertoymousePosition = param
     del param
 
@@ -498,7 +498,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy")
     lastNode.setLabel("Shadertoy")
-    lastNode.setPosition(4295, 3321)
+    lastNode.setPosition(4301, 3328)
     lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy = lastNode
@@ -683,6 +683,9 @@ def createInstance(app,group):
     groupShadertoy.connectInput(0, groupSource)
     groupShadertoy.connectInput(1, groupModulate)
 
+    param = groupShadertoy.getParam("mousePosition")
+    group.getParam("ShadertoymousePosition").setAsAlias(param)
+    del param
     param = groupShadertoy.getParam("paramValueFloat0")
     group.getParam("ShadertoyparamValueFloat0").setAsAlias(param)
     del param
