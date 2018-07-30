@@ -175,11 +175,21 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Blur/Crok_reskin_GL/Crok_reskin_GL.png' width='24'> **[Crok_reskin_GL](/GLSL/Blur/Crok_reskin_GL/README.md)** : Creates skin type textures.
 
+- <img src='/GLSL/Blur/FastBlur_GL/FastBlur_GL.png' width='24'> **[FastBlur_GL](/GLSL/Blur/FastBlur_GL/README.md)** : Fast Blur effect.
+
+- <img src='/GLSL/Blur/HDR_Bloom_GL/HDR_Bloom_GL.png' width='24'> **[HDR_Bloom_GL](/GLSL/Blur/HDR_Bloom_GL/README.md)** : HDR Bloom effect.
+
 - <img src='/GLSL/Blur/Ls_Ash_GL/Ls_Ash_GL.png' width='24'> **[Ls_Ash_GL](/GLSL/Blur/BlurLs_Ash_GL/README.md)** : Sharpen without ringing edges, or sharpen edges without increasing texture.
 
 - <img src='/GLSL/Blur/Mipmap_Blur_GL/Mipmap_Blur_GL.png' width='24'> **[Mipmap_Blur_GL](/GLSL/Blur/BlurMipmap_Blur_GL/README.md)** : GPU accelerated Mipmap blur for Shadertoy.
 
 - <img src='/GLSL/Blur/Monte_Carlo_Blur_GL/Monte_Carlo_Blur_GL.png' width='24'> **[Monte_Carlo_Blur_GL](/GLSL/Blur/BlurMonte_Carlo_Blur_GL/README.md)** : GPU accelerated Monte-Carlo blur for Shadertoy.
+
+- <img src='/GLSL/Blur/RadialBlur_GL/RadialBlur_GL.png' width='24'> **[RadialBlur_GL](/GLSL/Blur/RadialBlur_GL/README.md)** : Radial Blur effect.
+
+- <img src='/GLSL/Blur/y_bilat_GL/y_bilat_GL.png' width='24'> **[y_bilat_GL](/GLSL/Blur/y_bilat_GL/README.md)** : A bilateral filter, with a few more options, and the abiltiy to intake a mask.
+
+- <img src='/GLSL/Blur/y_blurs_GL/y_blurs_GL.png' width='24'> **[y_blurs_GL](/GLSL/Blur/y_blurs_GL/README.md)** : Blur a thing. Options include the abilty to constrain the blur within an optional matte input.
 
 ### GLSL/Channel
 - <img src='/GLSL/Channel/JB_multiMatteManager_GL/JB_multiMatteManager_GL.png' width='24'> **[JB_multiMatteManager_GL](/GLSL/Channel/JB_multiMatteManager_GL/README.md)** : Manages up to four inputs RGB to output one combined mulitmatte with alpha.
