@@ -38,7 +38,7 @@ def createInstance(app,group):
 
     # Create the parameters of the group node the same way we did for all internal nodes
     lastNode = group
-    lastNode.setColor(1, 0.5686, 0.3333)
+    lastNode.setColor(0.8314, 0.4863, 0.1373)
 
     # Create the user parameters
     lastNode.Controls = lastNode.createPageParam("Controls", "Controls")
@@ -216,6 +216,60 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep08 = param
+    del param
+
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OPTIONS = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edges : ")
+    param.setDefaultValue(2)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1wrap0 = param
+    del param
+
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
+    del param
+
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -475,7 +529,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("wrap0")
     if param is not None:
-        param.set("clamp")
+        param.set("mirror")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -623,6 +677,9 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueInt2")
     group.getParam("Shadertoy1paramValueInt2").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("wrap0")
+    group.getParam("Shadertoy1wrap0").setAsAlias(param)
     del param
 
     try:

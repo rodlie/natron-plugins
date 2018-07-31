@@ -486,7 +486,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4202, 3058)
+    lastNode.setPosition(4301, 3066)
     lastNode.setSize(90, 36)
     lastNode.setColor(1, 1, 1)
     groupSource = lastNode
@@ -670,7 +670,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Modulate")
     lastNode.setLabel("Modulate")
-    lastNode.setPosition(4402, 3052)
+    lastNode.setPosition(4459, 3061)
     lastNode.setSize(90, 36)
     lastNode.setColor(1, 1, 1)
     groupModulate = lastNode
@@ -678,10 +678,39 @@ def createInstance(app,group):
     del lastNode
     # End of node "Modulate"
 
+    # Start of node "Crop1"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop1")
+    lastNode.setLabel("Crop1")
+    lastNode.setPosition(4459, 3328)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop1 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(640, 0)
+        param.setValue(480, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupShadertoy)
     groupShadertoy.connectInput(0, groupSource)
-    groupShadertoy.connectInput(1, groupModulate)
+    groupShadertoy.connectInput(1, groupCrop1)
+    groupCrop1.connectInput(0, groupModulate)
 
     param = groupShadertoy.getParam("mousePosition")
     group.getParam("ShadertoymousePosition").setAsAlias(param)
@@ -694,6 +723,10 @@ def createInstance(app,group):
     del param
     param = groupShadertoy.getParam("paramValueInt2")
     group.getParam("ShadertoyparamValueInt2").setAsAlias(param)
+    del param
+    param = groupCrop1.getParam("size")
+    param.setExpression("myWidth = Modulate.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Modulate.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:

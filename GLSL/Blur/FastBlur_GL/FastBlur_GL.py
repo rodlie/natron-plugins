@@ -22,7 +22,7 @@ def getLabel():
     return "FastBlur_GL"
 
 def getVersion():
-    return 1.01
+    return 1
 
 def getIconPath():
     return "FastBlur_GL.png"
@@ -111,11 +111,11 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Blur Size : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Blur Size : ")
     param.setMinimum(0, 0)
-    param.setMaximum(20, 0)
+    param.setMaximum(20000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(20, 0)
+    param.setDisplayMaximum(50, 0)
     param.setDefaultValue(10, 0)
     param.restoreDefaultValue(0)
 
@@ -125,7 +125,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueFloat0 = param
+    lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -156,7 +156,7 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createSeparatorParam("LINE01", "")
+    param = lastNode.createSeparatorParam("MASK", "Mask")
 
     # Add the param to the page
     lastNode.userNatron.addParam(param)
@@ -166,10 +166,10 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.LINE01 = param
+    lastNode.MASK = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool1", "Modulate : ")
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool1", "Mask : ")
 
     # Add the param to the page
     lastNode.userNatron.addParam(param)
@@ -177,7 +177,27 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueBool1 = param
+    lastNode.Shadertoy1paramValueBool1 = param
+    del param
+
+    param = lastNode.createChoiceParam("maskChannel", "Channel : ")
+    entries = [ ("Red", ""),
+    ("Green", ""),
+    ("Blue", ""),
+    ("Alpha", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Alpha")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.maskChannel = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -206,6 +226,60 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep08 = param
+    del param
+
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OPTIONS = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edges : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1wrap0 = param
+    del param
+
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
+    del param
+
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.userNatron.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
     del param
 
     # Refresh the GUI with the newly created parameters
@@ -248,14 +322,14 @@ def createInstance(app,group):
     del lastNode
     # End of node "Modulate"
 
-    # Start of node "Shadertoy1_2"
+    # Start of node "Shadertoy1"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("Shadertoy1_2")
-    lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(403, 230)
+    lastNode.setScriptName("Shadertoy1")
+    lastNode.setLabel("Shadertoy1_2")
+    lastNode.setPosition(403, 231)
     lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupShadertoy1_2 = lastNode
+    groupShadertoy1 = lastNode
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
@@ -267,14 +341,14 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
-    param = lastNode.getParam("imageShaderPreset")
+    param = lastNode.getParam("paramValueInt2")
     if param is not None:
-        param.set("Blur/Fast Blur")
+        param.setValue(3, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// https://www.shadertoy.com/view/XssSDs\n\n// Fast circular blur using a fixed (15) number of samples.\n\n// Adapted to Natron by F. Devernay\n\n// iChannel0: Source, filter=linear, wrap=clamp\n// iChannel1: Modulate (Image containing a factor to be applied to the Blur size in the first channel), filter=linear, wrap=clamp\n// BBox: iChannel0\n\nconst vec2 iRenderScale = vec2(1.,1.);).\nconst vec2 iChannelOffset[4] = vec2[4]( vec2(0.,0.), vec2(0.,0.), vec2(0.,0.), vec2(0.,0.) );\nuniform float size = 10.; // Blur Size (Blur size in pixels), min=0., max=20.\nuniform bool perpixel_size = false; // Modulate (Modulate the blur size by multiplying it by the first channel of the Modulate input)\n\nvec2 Circle(float Start, float Points, float Point) \n{\n\tfloat Rad = (3.141592 * 2.0 * (1.0 / Points)) * (Point + Start);\n\treturn vec2(sin(Rad), cos(Rad));\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n    \n    float Start = 2.0 / 14.0;\n\tvec2 Scale = size * iRenderScale / iResolution.xy;\n\tif (perpixel_size) {\n\t\tScale *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).x;\n\t}\n    \n    vec4 N0 = texture2D(iChannel0, uv + Circle(Start, 14.0, 0.0) * Scale).rgba;\n    vec4 N1 = texture2D(iChannel0, uv + Circle(Start, 14.0, 1.0) * Scale).rgba;\n    vec4 N2 = texture2D(iChannel0, uv + Circle(Start, 14.0, 2.0) * Scale).rgba;\n    vec4 N3 = texture2D(iChannel0, uv + Circle(Start, 14.0, 3.0) * Scale).rgba;\n    vec4 N4 = texture2D(iChannel0, uv + Circle(Start, 14.0, 4.0) * Scale).rgba;\n    vec4 N5 = texture2D(iChannel0, uv + Circle(Start, 14.0, 5.0) * Scale).rgba;\n    vec4 N6 = texture2D(iChannel0, uv + Circle(Start, 14.0, 6.0) * Scale).rgba;\n    vec4 N7 = texture2D(iChannel0, uv + Circle(Start, 14.0, 7.0) * Scale).rgba;\n    vec4 N8 = texture2D(iChannel0, uv + Circle(Start, 14.0, 8.0) * Scale).rgba;\n    vec4 N9 = texture2D(iChannel0, uv + Circle(Start, 14.0, 9.0) * Scale).rgba;\n    vec4 N10 = texture2D(iChannel0, uv + Circle(Start, 14.0, 10.0) * Scale).rgba;\n    vec4 N11 = texture2D(iChannel0, uv + Circle(Start, 14.0, 11.0) * Scale).rgba;\n    vec4 N12 = texture2D(iChannel0, uv + Circle(Start, 14.0, 12.0) * Scale).rgba;\n    vec4 N13 = texture2D(iChannel0, uv + Circle(Start, 14.0, 13.0) * Scale).rgba;\n    vec4 N14 = texture2D(iChannel0, uv).rgba;\n    \n    float W = 1.0 / 15.0;\n    \n    vec4 color = vec4(0.);\n    \n\tcolor.rgba =\n\t\t(N0 * W) +\n\t\t(N1 * W) +\n\t\t(N2 * W) +\n\t\t(N3 * W) +\n\t\t(N4 * W) +\n\t\t(N5 * W) +\n\t\t(N6 * W) +\n\t\t(N7 * W) +\n\t\t(N8 * W) +\n\t\t(N9 * W) +\n\t\t(N10 * W) +\n\t\t(N11 * W) +\n\t\t(N12 * W) +\n\t\t(N13 * W) +\n\t\t(N14 * W);\n    \n    fragColor = color.rgba;\n}\n")
+        param.setValue("// https://www.shadertoy.com/view/XssSDs\n\n// Fast circular blur using a fixed (15) number of samples.\n\n// Adapted to Natron by F. Devernay\n\n// iChannel0: Source, filter=linear, wrap=clamp\n// iChannel1: Modulate (Image containing a factor to be applied to the Blur size in the first channel), filter=linear, wrap=clamp\n// BBox: iChannel0\n\nconst vec2 iRenderScale = vec2(1.,1.);).\nconst vec2 iChannelOffset[4] = vec2[4]( vec2(0.,0.), vec2(0.,0.), vec2(0.,0.), vec2(0.,0.) );\n\nuniform float size = 10.; // Blur Size (Blur size in pixels), min=0., max=20000.\nuniform bool perpixel_size = false; // Modulate (Modulate the blur size by multiplying it by the first channel of the Modulate input)\nuniform int maskChannel = 3; // Mask : (mask channel), min=0, max=3\n\nvec2 Circle(float Start, float Points, float Point) \n{\n\tfloat Rad = (3.141592 * 2.0 * (1.0 / Points)) * (Point + Start);\n\treturn vec2(sin(Rad), cos(Rad));\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n    \n    float Start = 2.0 / 14.0;\n\tvec2 Scale = size * iRenderScale / iResolution.xy;\n\n\tif (perpixel_size)\n\t{\n\t\tif (maskChannel == 0)\n\t\t{\n\t\t\tScale *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).r;\n\t\t}\n\n\t\tif (maskChannel == 1)\n\t\t{\n\t\t\tScale *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).g;\n\t\t}\n\n\t\tif (maskChannel == 2)\n\t\t{\n\t\t\tScale *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).b;\n\t\t}\n\n\t\tif (maskChannel == 3)\n\t\t{\n\t\t\tScale *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).a;\n\t\t}\n\n\t}\n    \n    vec4 N0 = texture2D(iChannel0, uv + Circle(Start, 14.0, 0.0) * Scale).rgba;\n    vec4 N1 = texture2D(iChannel0, uv + Circle(Start, 14.0, 1.0) * Scale).rgba;\n    vec4 N2 = texture2D(iChannel0, uv + Circle(Start, 14.0, 2.0) * Scale).rgba;\n    vec4 N3 = texture2D(iChannel0, uv + Circle(Start, 14.0, 3.0) * Scale).rgba;\n    vec4 N4 = texture2D(iChannel0, uv + Circle(Start, 14.0, 4.0) * Scale).rgba;\n    vec4 N5 = texture2D(iChannel0, uv + Circle(Start, 14.0, 5.0) * Scale).rgba;\n    vec4 N6 = texture2D(iChannel0, uv + Circle(Start, 14.0, 6.0) * Scale).rgba;\n    vec4 N7 = texture2D(iChannel0, uv + Circle(Start, 14.0, 7.0) * Scale).rgba;\n    vec4 N8 = texture2D(iChannel0, uv + Circle(Start, 14.0, 8.0) * Scale).rgba;\n    vec4 N9 = texture2D(iChannel0, uv + Circle(Start, 14.0, 9.0) * Scale).rgba;\n    vec4 N10 = texture2D(iChannel0, uv + Circle(Start, 14.0, 10.0) * Scale).rgba;\n    vec4 N11 = texture2D(iChannel0, uv + Circle(Start, 14.0, 11.0) * Scale).rgba;\n    vec4 N12 = texture2D(iChannel0, uv + Circle(Start, 14.0, 12.0) * Scale).rgba;\n    vec4 N13 = texture2D(iChannel0, uv + Circle(Start, 14.0, 13.0) * Scale).rgba;\n    vec4 N14 = texture2D(iChannel0, uv).rgba;\n    \n    float W = 1.0 / 15.0;\n    \n    vec4 color = vec4(0.);\n    \n\tcolor.rgba =\n\t\t(N0 * W) +\n\t\t(N1 * W) +\n\t\t(N2 * W) +\n\t\t(N3 * W) +\n\t\t(N4 * W) +\n\t\t(N5 * W) +\n\t\t(N6 * W) +\n\t\t(N7 * W) +\n\t\t(N8 * W) +\n\t\t(N9 * W) +\n\t\t(N10 * W) +\n\t\t(N11 * W) +\n\t\t(N12 * W) +\n\t\t(N13 * W) +\n\t\t(N14 * W);\n    \n    fragColor = color.rgba;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -339,7 +413,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(3, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -374,7 +448,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramMaxFloat0")
     if param is not None:
-        param.setValue(20, 0)
+        param.setValue(20000, 0)
         del param
 
     param = lastNode.getParam("paramType1")
@@ -397,19 +471,60 @@ def createInstance(app,group):
         param.setValue("Modulate the blur size by multiplying it by the first channel of the Modulate input")
         del param
 
+    param = lastNode.getParam("paramType2")
+    if param is not None:
+        param.set("int")
+        del param
+
+    param = lastNode.getParam("paramName2")
+    if param is not None:
+        param.setValue("maskChannel")
+        del param
+
+    param = lastNode.getParam("paramLabel2")
+    if param is not None:
+        param.setValue("Mask :")
+        del param
+
+    param = lastNode.getParam("paramHint2")
+    if param is not None:
+        param.setValue("mask channel")
+        del param
+
+    param = lastNode.getParam("paramDefaultInt2")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
+    param = lastNode.getParam("paramMinInt2")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxInt2")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
     del lastNode
-    # End of node "Shadertoy1_2"
+    # End of node "Shadertoy1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupShadertoy1_2)
-    groupShadertoy1_2.connectInput(0, groupSource)
-    groupShadertoy1_2.connectInput(1, groupModulate)
+    groupOutput1.connectInput(0, groupShadertoy1)
+    groupShadertoy1.connectInput(0, groupSource)
+    groupShadertoy1.connectInput(1, groupModulate)
 
-    param = groupShadertoy1_2.getParam("paramValueFloat0")
-    group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat0")
+    group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
     del param
-    param = groupShadertoy1_2.getParam("paramValueBool1")
-    group.getParam("Shadertoy1_2paramValueBool1").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueBool1")
+    group.getParam("Shadertoy1paramValueBool1").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("paramValueInt2")
+    param.setExpression("thisGroup.maskChannel.get()", False, 0)
+    del param
+    param = groupShadertoy1.getParam("wrap0")
+    group.getParam("Shadertoy1wrap0").setAsAlias(param)
     del param
 
     try:
