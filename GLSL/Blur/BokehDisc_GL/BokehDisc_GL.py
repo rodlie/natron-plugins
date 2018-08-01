@@ -111,9 +111,9 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Blur_Size", "Blur Size : ")
-    param.setMinimum(-2147483648, 0)
-    param.setMaximum(2147483647, 0)
+    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat0", "Blur Size : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(200, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(200, 0)
     param.setDefaultValue(10, 0)
@@ -123,10 +123,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Blur_Size = param
+    lastNode.Shadertoy2paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -143,11 +142,11 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createDoubleParam("Samples", "Samples : ")
-    param.setMinimum(-2147483648, 0)
-    param.setMaximum(2147483647, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1000, 0)
+    param = lastNode.createIntParam("Shadertoy2paramValueInt1", "Samples : ")
+    param.setMinimum(2, 0)
+    param.setMaximum(1024, 0)
+    param.setDisplayMinimum(2, 0)
+    param.setDisplayMaximum(1024, 0)
     param.setDefaultValue(150, 0)
     param.restoreDefaultValue(0)
 
@@ -155,10 +154,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Samples = param
+    lastNode.Shadertoy2paramValueInt1 = param
     del param
 
     param = lastNode.createStringParam("sep06", "")
@@ -188,16 +186,15 @@ def createInstance(app,group):
     lastNode.LINE01 = param
     del param
 
-    param = lastNode.createBooleanParam("Modulate", "Modulate : ")
+    param = lastNode.createBooleanParam("Shadertoy2paramValueBool2", "Modulate : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Modulate = param
+    lastNode.Shadertoy2paramValueBool2 = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -465,10 +462,25 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy2")
     lastNode.setLabel("Shadertoy2")
-    lastNode.setPosition(4139, 3845)
-    lastNode.setSize(90, 33)
+    lastNode.setPosition(4139, 3846)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy2 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueInt1")
+    if param is not None:
+        param.setValue(150, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool2")
+    if param is not None:
+        param.setValue(False)
+        del param
 
     param = lastNode.getParam("imageShaderPreset")
     if param is not None:
@@ -637,6 +649,16 @@ def createInstance(app,group):
     groupOutput1.connectInput(0, groupShadertoy2)
     groupShadertoy2.connectInput(0, groupSource)
     groupShadertoy2.connectInput(1, groupMask)
+
+    param = groupShadertoy2.getParam("paramValueFloat0")
+    group.getParam("Shadertoy2paramValueFloat0").setAsAlias(param)
+    del param
+    param = groupShadertoy2.getParam("paramValueInt1")
+    group.getParam("Shadertoy2paramValueInt1").setAsAlias(param)
+    del param
+    param = groupShadertoy2.getParam("paramValueBool2")
+    group.getParam("Shadertoy2paramValueBool2").setAsAlias(param)
+    del param
 
     try:
         extModule = sys.modules["BokehDisc_GLExt"]

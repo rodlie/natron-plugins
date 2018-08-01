@@ -111,9 +111,9 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Blur_Size", "Blur Size : ")
-    param.setMinimum(-2147483648, 0)
-    param.setMaximum(2147483647, 0)
+    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Blur Size : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(20, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(20, 0)
     param.setDefaultValue(10, 0)
@@ -123,10 +123,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Blur_Size = param
+    lastNode.Shadertoy1_2paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -143,10 +142,10 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createDoubleParam("Samples", "Samples : ")
-    param.setMinimum(-2147483648, 0)
-    param.setMaximum(2147483647, 0)
-    param.setDisplayMinimum(0, 0)
+    param = lastNode.createIntParam("Shadertoy1_2paramValueInt1", "Samples : ")
+    param.setMinimum(1, 0)
+    param.setMaximum(64, 0)
+    param.setDisplayMinimum(1, 0)
     param.setDisplayMaximum(64, 0)
     param.setDefaultValue(32, 0)
     param.restoreDefaultValue(0)
@@ -155,10 +154,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Samples = param
+    lastNode.Shadertoy1_2paramValueInt1 = param
     del param
 
     param = lastNode.createStringParam("sep06", "")
@@ -188,16 +186,15 @@ def createInstance(app,group):
     lastNode.LINE01 = param
     del param
 
-    param = lastNode.createBooleanParam("Modulate", "Modulate : ")
+    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool2", "Modulate : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Modulate = param
+    lastNode.Shadertoy1_2paramValueBool2 = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -426,58 +423,33 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output1"
-    lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
-    lastNode.setLabel("Output2")
-    lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput1 = lastNode
-
-    del lastNode
-    # End of node "Output1"
-
-    # Start of node "Source"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Source")
-    lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3697)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupSource = lastNode
-
-    del lastNode
-    # End of node "Source"
-
-    # Start of node "Mask"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Mask")
-    lastNode.setLabel("Modulate")
-    lastNode.setPosition(4319, 3846)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupMask = lastNode
-
-    del lastNode
-    # End of node "Mask"
-
-    # Start of node "Shadertoy1"
+    # Start of node "Shadertoy1_2"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("Shadertoy1")
-    lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3845)
-    lastNode.setSize(80, 44)
+    lastNode.setScriptName("Shadertoy1_2")
+    lastNode.setLabel("Shadertoy1_2")
+    lastNode.setPosition(4232, 3939)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupShadertoy1 = lastNode
+    groupShadertoy1_2 = lastNode
 
-    param = lastNode.getParam("imageShaderPreset")
+    param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.set("Blur/Monte-Carlo Blur")
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueInt1")
+    if param is not None:
+        param.setValue(32, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool2")
+    if param is not None:
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// https://www.shadertoy.com/view/MdXXWr\n\n// Monte-Carlo blur.\n\n// Adapted to Natron by F. Devernay\n\n// iChannel0: Source, filter=mipmap, wrap=clamp\n// iChannel1: Modulate (Image containing a factor to be applied to the Blur size in the first channel), filter=linear, wrap=clamp\n// BBox: iChannel0\n\nconst vec2 iRenderScale = vec2(1.,1.);\nconst vec2 iChannelOffset[4] = vec2[4]( vec2(0.,0.), vec2(0.,0.), vec2(0.,0.), vec2(0.,0.) );\nuniform float size = 10.; // Blur Size (Blur size in pixels), min=0., max=20.\nuniform int iter = 32; // Samples (Number of samples - higher is better and slower), min=1, max=64\nuniform bool perpixel_size = false; // Modulate (Modulate the blur size by multiplying it by the first channel of the Modulate input)\n\nvoid srand(vec2 a, out float r)\n{\n\tr=sin(iGlobalTime+dot(a,vec2(1233.224,1743.335)));\n}\n\nfloat rand(inout float r)\n{\n\tr=fract(3712.65*r+0.61432);\n\treturn (r-0.5)*2.0;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec4 c=vec4(0.0);\n\tfloat r;\n\tsrand(uv, r);\n\tvec2 rv;\n\tfloat fSize = size;\n\tif (perpixel_size) {\n\t\tfSize *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).x;\n\t}\n\n\tfor(int i=0;i<iter;i++)\n\t{\n\t\trv.x=rand(r);\n\t\trv.y=rand(r);\n\t\tc+=texture2D(iChannel0,uv+fSize*rv*iRenderScale.xy/iResolution.xy);\n\t}\n\tfragColor = c / float(iter);\n}\n")
+        param.setValue("// https://www.shadertoy.com/view/MdXXWr\n\n// Monte-Carlo blur.\n\n// Adapted to Natron by F. Devernay\n\n// iChannel0: Source, filter=mipmap, wrap=clamp\n// iChannel1: Modulate (Image containing a factor to be applied to the Blur size in the first channel), filter=linear, wrap=clamp\n// BBox: iChannel0\n\nconst vec2 iRenderScale = vec2(1.,1.);\nconst vec2 iChannelOffset[4] = vec2[4]( vec2(0.,0.), vec2(0.,0.), vec2(0.,0.), vec2(0.,0.) );\nuniform float size = 10.; // Blur Size (Blur size in pixels), min=0., max=20.\nuniform int iter = 32; // Samples (Number of samples - higher is better and slower), min=1, max=64\nuniform bool perpixel_size = false; // Modulate (Modulate the blur size by multiplying it by the first channel of the Modulate input)\n\nvoid srand(vec2 a, out float r)\n{\n\tr=sin(iTime+dot(a,vec2(1233.224,1743.335)));\n}\n\nfloat rand(inout float r)\n{\n\tr=fract(3712.65*r+0.61432);\n\treturn (r-0.5)*2.0;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec4 c=vec4(0.0);\n\tfloat r;\n\tsrand(uv, r);\n\tvec2 rv;\n\tfloat fSize = size;\n\tif (perpixel_size) {\n\t\tfSize *= texture2D(iChannel1, (fragCoord.xy-iChannelOffset[1].xy)/iChannelResolution[1].xy).x;\n\t}\n\n\tfor(int i=0;i<iter;i++)\n\t{\n\t\trv.x=rand(r);\n\t\trv.y=rand(r);\n\t\tc+=texture2D(iChannel0,uv+fSize*rv*iRenderScale.xy/iResolution.xy);\n\t}\n\tfragColor = c / float(iter);\n}\n")
         del param
 
     param = lastNode.getParam("wrap0")
@@ -631,12 +603,57 @@ def createInstance(app,group):
         del param
 
     del lastNode
-    # End of node "Shadertoy1"
+    # End of node "Shadertoy1_2"
+
+    # Start of node "Input1"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Input1")
+    lastNode.setLabel("Source")
+    lastNode.setPosition(4173, 3706)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(1, 1, 1)
+    groupInput1 = lastNode
+
+    del lastNode
+    # End of node "Input1"
+
+    # Start of node "Input2"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Input2")
+    lastNode.setLabel("Modulate")
+    lastNode.setPosition(4302, 3711)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(1, 1, 1)
+    groupInput2 = lastNode
+
+    del lastNode
+    # End of node "Input2"
+
+    # Start of node "Output2"
+    lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
+    lastNode.setLabel("Output2")
+    lastNode.setPosition(4232, 4131)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupOutput2 = lastNode
+
+    del lastNode
+    # End of node "Output2"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupShadertoy1)
-    groupShadertoy1.connectInput(0, groupSource)
-    groupShadertoy1.connectInput(1, groupMask)
+    groupShadertoy1_2.connectInput(0, groupInput1)
+    groupShadertoy1_2.connectInput(1, groupInput2)
+    groupOutput2.connectInput(0, groupShadertoy1_2)
+
+    param = groupShadertoy1_2.getParam("paramValueFloat0")
+    group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
+    del param
+    param = groupShadertoy1_2.getParam("paramValueInt1")
+    group.getParam("Shadertoy1_2paramValueInt1").setAsAlias(param)
+    del param
+    param = groupShadertoy1_2.getParam("paramValueBool2")
+    group.getParam("Shadertoy1_2paramValueBool2").setAsAlias(param)
+    del param
 
     try:
         extModule = sys.modules["Monte_Carlo_Blur_GLExt"]

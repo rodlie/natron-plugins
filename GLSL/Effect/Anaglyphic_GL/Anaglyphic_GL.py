@@ -209,6 +209,60 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OPTIONS = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1_2wrap0", "Edges : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1_2wrap0 = param
+    del param
+
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
+    del param
+
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -596,6 +650,9 @@ def createInstance(app,group):
 
     param = groupShadertoy1_2.getParam("paramValueFloat0")
     group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
+    del param
+    param = groupShadertoy1_2.getParam("wrap0")
+    group.getParam("Shadertoy1_2wrap0").setAsAlias(param)
     del param
 
     try:

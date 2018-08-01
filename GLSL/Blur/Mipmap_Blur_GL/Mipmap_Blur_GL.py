@@ -111,11 +111,11 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Blur_Size", "Blur Size : ")
-    param.setMinimum(-2147483648, 0)
-    param.setMaximum(2147483647, 0)
+    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Blur Size : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(63.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(64, 0)
+    param.setDisplayMaximum(63.99999999999999, 0)
     param.setDefaultValue(10, 0)
     param.restoreDefaultValue(0)
 
@@ -123,10 +123,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Blur_Size = param
+    lastNode.Shadertoy1_2paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -156,16 +155,15 @@ def createInstance(app,group):
     lastNode.LINE01 = param
     del param
 
-    param = lastNode.createBooleanParam("Modulate", "Modulate : ")
+    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool1", "Modulate : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Modulate = param
+    lastNode.Shadertoy1_2paramValueBool1 = param
     del param
 
     param = lastNode.createStringParam("sep06", "")
@@ -394,53 +392,58 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output1"
+    # Start of node "Input1"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Input1")
+    lastNode.setLabel("Source")
+    lastNode.setPosition(4260, 3833)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(1, 1, 1)
+    groupInput1 = lastNode
+
+    del lastNode
+    # End of node "Input1"
+
+    # Start of node "Modulate"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Modulate")
+    lastNode.setLabel("Modulate")
+    lastNode.setPosition(4408, 3832)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(1, 1, 1)
+    groupModulate = lastNode
+
+    del lastNode
+    # End of node "Modulate"
+
+    # Start of node "Output2"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 43)
+    lastNode.setPosition(4339, 4268)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput1 = lastNode
+    groupOutput2 = lastNode
 
     del lastNode
-    # End of node "Output1"
+    # End of node "Output2"
 
-    # Start of node "Source"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Source")
-    lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3701)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupSource = lastNode
-
-    del lastNode
-    # End of node "Source"
-
-    # Start of node "Mask"
-    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Mask")
-    lastNode.setLabel("Modulate")
-    lastNode.setPosition(4319, 3846)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
-    groupMask = lastNode
-
-    del lastNode
-    # End of node "Mask"
-
-    # Start of node "Shadertoy1"
+    # Start of node "Shadertoy1_2"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("Shadertoy1")
-    lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3845)
-    lastNode.setSize(80, 44)
+    lastNode.setScriptName("Shadertoy1_2")
+    lastNode.setLabel("Shadertoy1_2")
+    lastNode.setPosition(4339, 4044)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupShadertoy1 = lastNode
+    groupShadertoy1_2 = lastNode
 
-    param = lastNode.getParam("imageShaderPreset")
+    param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.set("Blur/Mipmap Blur")
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool1")
+    if param is not None:
+        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -564,12 +567,19 @@ def createInstance(app,group):
         del param
 
     del lastNode
-    # End of node "Shadertoy1"
+    # End of node "Shadertoy1_2"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupShadertoy1)
-    groupShadertoy1.connectInput(0, groupSource)
-    groupShadertoy1.connectInput(1, groupMask)
+    groupOutput2.connectInput(0, groupShadertoy1_2)
+    groupShadertoy1_2.connectInput(0, groupInput1)
+    groupShadertoy1_2.connectInput(1, groupModulate)
+
+    param = groupShadertoy1_2.getParam("paramValueFloat0")
+    group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
+    del param
+    param = groupShadertoy1_2.getParam("paramValueBool1")
+    group.getParam("Shadertoy1_2paramValueBool1").setAsAlias(param)
+    del param
 
     try:
         extModule = sys.modules["Mipmap_Blur_GLExt"]

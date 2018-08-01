@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_dir_blur_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Crok_dir_blur_GL.png"
@@ -111,11 +111,13 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat2", "X blur : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat2", "X blur : ")
     param.setMinimum(0, 0)
     param.setMaximum(1000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1000, 0)
+    param.setDisplayMaximum(10, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -123,7 +125,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueFloat2 = param
+    lastNode.Shadertoy1paramValueFloat2 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -140,11 +142,11 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat3", "Y blur : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "Y blur : ")
     param.setMinimum(0, 0)
     param.setMaximum(1000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1000, 0)
+    param.setDisplayMaximum(10, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -152,7 +154,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueFloat3 = param
+    lastNode.Shadertoy1paramValueFloat3 = param
     del param
 
     param = lastNode.createStringParam("sep06", "")
@@ -169,11 +171,11 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Gain : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Gain : ")
     param.setMinimum(0, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(50, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(50, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -183,7 +185,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueFloat0 = param
+    lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -200,7 +202,7 @@ def createInstance(app,group):
     lastNode.sep07 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat1", "iterations : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "iterations : ")
     param.setMinimum(2, 0)
     param.setMaximum(49.99999999999999, 0)
     param.setDisplayMinimum(2, 0)
@@ -214,7 +216,7 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueFloat1 = param
+    lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
     param = lastNode.createStringParam("seo08", "")
@@ -245,7 +247,7 @@ def createInstance(app,group):
     lastNode.sep09 = param
     del param
 
-    param = lastNode.createSeparatorParam("LINE01", "")
+    param = lastNode.createSeparatorParam("MASK", "Mask")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -255,24 +257,38 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.LINE01 = param
+    lastNode.MASK = param
     del param
 
-    param = lastNode.createChoiceParam("Shadertoy1_2wrap0", "Edge extend : ")
-    entries = [ ("repeat", "WRAP_S/T = GL_REPEAT"),
-    ("clamp", "WRAP_S/T = GL_CLAMP_TO_EDGE"),
-    ("mirror", "WRAP_S/T = GL_MIRRORED_REPEAT")]
-    param.setOptions(entries)
-    del entries
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool4", "Mask : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("Texture wrap parameter for this input.")
     param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueBool4 = param
+    del param
+
+    param = lastNode.createChoiceParam("maskChannel", "Channel : ")
+    entries = [ ("Red", ""),
+    ("Green", ""),
+    ("Blue", ""),
+    ("Alpha", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Alpha")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
     param.setAnimationEnabled(False)
-    lastNode.Shadertoy1_2wrap0 = param
+    lastNode.maskChannel = param
     del param
 
     param = lastNode.createStringParam("sep10", "")
@@ -301,6 +317,60 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep11 = param
+    del param
+
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OPTIONS = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edges : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1wrap0 = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -501,37 +571,37 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(90, 36)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3697)
+    lastNode.setPosition(4139, 3406)
     lastNode.setSize(90, 36)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
     del lastNode
     # End of node "Source"
 
-    # Start of node "Shadertoy1_2"
+    # Start of node "Shadertoy1"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
-    lastNode.setScriptName("Shadertoy1_2")
-    lastNode.setLabel("Shadertoy1_2")
-    lastNode.setPosition(4139, 3839)
+    lastNode.setScriptName("Shadertoy1")
+    lastNode.setLabel("Shadertoy1")
+    lastNode.setPosition(4139, 3799)
     lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupShadertoy1_2 = lastNode
+    groupShadertoy1 = lastNode
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
@@ -545,7 +615,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat2")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat3")
@@ -553,14 +623,19 @@ def createInstance(app,group):
         param.setValue(0, 0)
         del param
 
-    param = lastNode.getParam("imageShaderFileName")
+    param = lastNode.getParam("paramValueBool4")
     if param is not None:
-        param.setValue("C:/Program Files/INRIA/Natron-2.3.6/Plugins/OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default/crok_dir_blur.frag.glsl")
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("paramValueInt5")
+    if param is not None:
+        param.setValue(3, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_dir_blur Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_dir_blur Matchbox for Autodesk Flame\r\n\r\n\r\n// iChannel0: Source, filter = linear, wrap = mirror\r\n// BBox: iChannel0\r\n\r\n\r\nuniform float gain = 1; // gain : (gain), min = 0., max = 50.\r\nuniform float iterations = 10; // iterations : (iterations), min = 2, max = 50.\r\nuniform float blur_x = 0; // X blur : (X blur), min = 0, max = 1000.\r\nuniform float blur_y = 0; // Y blur : (Y blur), min = 0, max = 1000.\r\n\r\n\r\nfloat random(vec3 scale, float seed)\r\n{\r\n    return fract(sin(dot(gl_FragCoord.xyz + seed, scale)) * 8643.5453 + seed);\r\n}\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\tvec2 uv = fragCoord.xy / iResolution.xy;\r\n\tvec2 direction;\r\n\tdirection = vec2(blur_x,blur_y);\r\n    float noise = random(vec3(543.12341, 74.30434, 13123.4234234), 2.0);\r\n    vec4 color = vec4(0.0);\r\n    float ws = 0.0;\r\n\r\n\tfor(float steps = -iterations; steps <= iterations; steps++)\r\n    {\r\n        float p = (steps + noise - 0.5) / 16.0;\r\n        float w = 1.0 - abs(p);\r\n        color += texture2D(iChannel0, uv + direction*.02 * p) * w;\r\n        ws += w;\r\n    }\r\n\r\n\tfragColor = vec4(color.rgb / ws * gain, 1.0);\r\n\r\n}")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_dir_blur Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_dir_blur Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter = linear, wrap = repeat\n// iChannel1: Mask, filter = nearest, wrap = clamp\n// BBox: iChannel0\n\n\nuniform float gain = 1; // gain : (gain), min = 0., max = 50.\nuniform float iterations = 10; // iterations : (iterations), min = 2, max = 50.\nuniform float blur_x = 1; // X blur : (X blur), min = 0, max = 1000.\nuniform float blur_y = 0; // Y blur : (Y blur), min = 0, max = 1000.\n\nuniform bool perpixel_size = false; // Modulate (Modulate the amplitude by multiplying it by the first channel of the Modulate input)\nuniform int maskChannel = 3; // Mask : (mask channel), min=0, max=3\n\nfloat random(vec3 scale, float seed)\n{\n    return fract(sin(dot(gl_FragCoord.xyz + seed, scale)) * 8643.5453 + seed);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec4 mask = texture2D(iChannel1, uv);\n\tvec2 direction;\n\tdirection = vec2(blur_x,blur_y);\n    float noise = random(vec3(543.12341, 74.30434, 13123.4234234), 2.0);\n    vec4 color = vec4(0.0);\n    float ws = 0.0;\n\n    if (perpixel_size)\n    {\n    \tif (maskChannel == 1)\n    \t{\n    \t\tmask.r = mask.g;\n    \t}\n\n    \tif (maskChannel == 2)\n    \t{\n    \t\tmask.r = mask.b;\n    \t}\n\n    \tif (maskChannel == 3)\n    \t{\n    \t\tmask.r = mask.a;\n    \t}\n    }\n\n    else\n    {\n    \tmask.r = 1;\n    }\n    \n\n\tfor(float steps = -iterations; steps <= iterations; steps++)\n    {\n        float p = (steps + noise - 0.5) / 16.0 * mask.r;\n        float w = 1.0 - abs(p) * mask.r;\n        color += texture2D(iChannel0, uv + direction*.02 * p) * w;\n        ws += w;\n    }\n\n\tfragColor = vec4(color.rgb / ws * gain, 1.0);\n\n}")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -568,14 +643,24 @@ def createInstance(app,group):
         param.set("linear")
         del param
 
+    param = lastNode.getParam("wrap0")
+    if param is not None:
+        param.set("clamp")
+        del param
+
     param = lastNode.getParam("inputLabel0")
     if param is not None:
         param.setValue("Source")
         del param
 
-    param = lastNode.getParam("inputEnable1")
+    param = lastNode.getParam("mipmap1")
     if param is not None:
-        param.setValue(False)
+        param.set("nearest")
+        del param
+
+    param = lastNode.getParam("inputLabel1")
+    if param is not None:
+        param.setValue("Mask")
         del param
 
     param = lastNode.getParam("inputEnable2")
@@ -605,7 +690,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(4, 0)
+        param.setValue(6, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -698,6 +783,11 @@ def createInstance(app,group):
         param.setValue("X blur")
         del param
 
+    param = lastNode.getParam("paramDefaultFloat2")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
     param = lastNode.getParam("paramMinFloat2")
     if param is not None:
         param.setValue(0, 0)
@@ -738,24 +828,180 @@ def createInstance(app,group):
         param.setValue(1000, 0)
         del param
 
+    param = lastNode.getParam("paramType4")
+    if param is not None:
+        param.set("bool")
+        del param
+
+    param = lastNode.getParam("paramName4")
+    if param is not None:
+        param.setValue("perpixel_size")
+        del param
+
+    param = lastNode.getParam("paramLabel4")
+    if param is not None:
+        param.setValue("Modulate")
+        del param
+
+    param = lastNode.getParam("paramHint4")
+    if param is not None:
+        param.setValue("Modulate the amplitude by multiplying it by the first channel of the Modulate input")
+        del param
+
+    param = lastNode.getParam("paramType5")
+    if param is not None:
+        param.set("int")
+        del param
+
+    param = lastNode.getParam("paramName5")
+    if param is not None:
+        param.setValue("maskChannel")
+        del param
+
+    param = lastNode.getParam("paramLabel5")
+    if param is not None:
+        param.setValue("Mask :")
+        del param
+
+    param = lastNode.getParam("paramHint5")
+    if param is not None:
+        param.setValue("mask channel")
+        del param
+
+    param = lastNode.getParam("paramDefaultInt5")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
+    param = lastNode.getParam("paramMinInt5")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxInt5")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
     del lastNode
-    # End of node "Shadertoy1_2"
+    # End of node "Shadertoy1"
+
+    # Start of node "Mask"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Mask")
+    lastNode.setLabel("Mask")
+    lastNode.setPosition(4291, 3407)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(1, 1, 1)
+    groupMask = lastNode
+
+    del lastNode
+    # End of node "Mask"
+
+    # Start of node "Dot1"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot1")
+    lastNode.setLabel("Dot1")
+    lastNode.setPosition(4330, 3809)
+    lastNode.setSize(16, 16)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot1 = lastNode
+
+    del lastNode
+    # End of node "Dot1"
+
+    # Start of node "Crop2"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop2")
+    lastNode.setLabel("Crop2")
+    lastNode.setPosition(4291, 3632)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop2 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop2"
+
+    # Start of node "Crop1"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop1")
+    lastNode.setLabel("Crop1")
+    lastNode.setPosition(4139, 3632)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop1 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1_2)
-    groupShadertoy1_2.connectInput(0, groupSource)
+    groupOutput1.connectInput(0, groupShadertoy1)
+    groupShadertoy1.connectInput(0, groupCrop1)
+    groupShadertoy1.connectInput(1, groupDot1)
+    groupDot1.connectInput(0, groupCrop2)
+    groupCrop2.connectInput(0, groupMask)
+    groupCrop1.connectInput(0, groupSource)
 
-    param = groupShadertoy1_2.getParam("paramValueFloat0")
-    group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat0")
+    group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
     del param
-    param = groupShadertoy1_2.getParam("paramValueFloat1")
-    group.getParam("Shadertoy1_2paramValueFloat1").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat1")
+    group.getParam("Shadertoy1paramValueFloat1").setAsAlias(param)
     del param
-    param = groupShadertoy1_2.getParam("paramValueFloat2")
-    group.getParam("Shadertoy1_2paramValueFloat2").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat2")
+    group.getParam("Shadertoy1paramValueFloat2").setAsAlias(param)
     del param
-    param = groupShadertoy1_2.getParam("paramValueFloat3")
-    group.getParam("Shadertoy1_2paramValueFloat3").setAsAlias(param)
+    param = groupShadertoy1.getParam("paramValueFloat3")
+    group.getParam("Shadertoy1paramValueFloat3").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("paramValueBool4")
+    group.getParam("Shadertoy1paramValueBool4").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("paramValueInt5")
+    param.setExpression("thisGroup.maskChannel.get()", False, 0)
+    del param
+    param = groupShadertoy1.getParam("wrap0")
+    group.getParam("Shadertoy1wrap0").setAsAlias(param)
+    del param
+    param = groupCrop2.getParam("size")
+    param.setExpression("myWidth = Mask.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Mask.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop1.getParam("size")
+    param.setExpression("myWidth = Source.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Source.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:

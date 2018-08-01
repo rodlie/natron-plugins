@@ -111,9 +111,9 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Treshold", "Treshold : ")
-    param.setMinimum(-2147483648, 0)
-    param.setMaximum(2147483647, 0)
+    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat0", "Threshold : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(1, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(1, 0)
     param.setDefaultValue(0.5, 0)
@@ -123,10 +123,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Treshold = param
+    lastNode.Shadertoy1_2paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -143,9 +142,9 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createDoubleParam("Intensity", "Intensity : ")
-    param.setMinimum(-2147483648, 0)
-    param.setMaximum(2147483647, 0)
+    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat1", "Intensity : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(2, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(2, 0)
     param.setDefaultValue(1, 0)
@@ -155,10 +154,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Intensity = param
+    lastNode.Shadertoy1_2paramValueFloat1 = param
     del param
 
     param = lastNode.createStringParam("sep06", "")
@@ -175,11 +173,11 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createDoubleParam("Blur_Size", "Blur Size : ")
-    param.setMinimum(-2147483648, 0)
-    param.setMaximum(2147483647, 0)
+    param = lastNode.createDoubleParam("Shadertoy1_2paramValueFloat2", "Blur Size : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(63.99999999999999, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(64, 0)
+    param.setDisplayMaximum(63.99999999999999, 0)
     param.setDefaultValue(8, 0)
     param.restoreDefaultValue(0)
 
@@ -187,10 +185,9 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Blur_Size = param
+    lastNode.Shadertoy1_2paramValueFloat2 = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -423,7 +420,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -435,7 +432,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3697)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -447,13 +444,28 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3847)
-    lastNode.setSize(80, 32)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(0.5, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(8, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// https://www.shadertoy.com/view/Ms2Xz3\n\n// bloom effect, using a simple box blur and mipmaps for efficient blurring.\n// Dragging the mouse along the x-axis changes bloom intensity, dragging along the y-axis changes bloom threshold.\n\n// Adapted to Natron by F. Devernay\n\n// iChannel0: Source, filter=mipmap, wrap=clamp\n// BBox: iChannel0\n\nconst vec2 iRenderScale = vec2(1.,1.);\nuniform float Threshold = 0.5; // Threshold (Bloom threshold), min=0., max=1.\nuniform float Intensity = 1.; // Intensity (Bloom intensity), min=0., max=2.\nuniform float BlurSize = 8.; // Blur Size, min=0., max=64.\n\nvec4 BlurColor (in vec2 Coord, in sampler2D Tex, in float MipBias)\n{\n\tvec2 TexelSize = MipBias/iChannelResolution[0].xy;\n    \n    vec4  Color = texture2D(Tex, Coord, MipBias);\n    Color += texture2D(Tex, Coord + vec2(TexelSize.x,0.0), MipBias);    \t\n    Color += texture2D(Tex, Coord + vec2(-TexelSize.x,0.0), MipBias);    \t\n    Color += texture2D(Tex, Coord + vec2(0.0,TexelSize.y), MipBias);    \t\n    Color += texture2D(Tex, Coord + vec2(0.0,-TexelSize.y), MipBias);    \t\n    Color += texture2D(Tex, Coord + vec2(TexelSize.x,TexelSize.y), MipBias);    \t\n    Color += texture2D(Tex, Coord + vec2(-TexelSize.x,TexelSize.y), MipBias);    \t\n    Color += texture2D(Tex, Coord + vec2(TexelSize.x,-TexelSize.y), MipBias);    \t\n    Color += texture2D(Tex, Coord + vec2(-TexelSize.x,-TexelSize.y), MipBias);    \n\n    return Color/9.0;\n}\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy/iResolution.xy;\n    \n    vec4 Color = texture2D(iChannel0, uv);\n    \n    vec4 Highlight = clamp(BlurColor(uv, iChannel0, log2(BlurSize*iRenderScale.x))-Threshold,0.0,1.0)*1.0/(1.0-Threshold);\n        \n    fragColor = 1.0-(1.0-Color)*(1.0-Highlight*Intensity); //Screen Blend Mode\n}\n")
+        param.setValue("// https://www.shadertoy.com/view/Ms2Xz3\r\n\r\n// bloom effect, using a simple box blur and mipmaps for efficient blurring.\r\n// Dragging the mouse along the x-axis changes bloom intensity, dragging along the y-axis changes bloom threshold.\r\n\r\n// Adapted to Natron by F. Devernay\r\n\r\n// iChannel0: Source, filter=mipmap, wrap=clamp\r\n// BBox: iChannel0\r\n\r\nconst vec2 iRenderScale = vec2(1.,1.);\r\nuniform float Threshold = 0.5; // Threshold (Bloom threshold), min=0., max=1.\r\nuniform float Intensity = 1.; // Intensity (Bloom intensity), min=0., max=2.\r\nuniform float BlurSize = 8.; // Blur Size, min=0., max=64.\r\n\r\nvec4 BlurColor (in vec2 Coord, in sampler2D Tex, in float MipBias)\r\n{\r\n\tvec2 TexelSize = MipBias/iChannelResolution[0].xy;\r\n    \r\n    vec4  Color = texture2D(Tex, Coord, MipBias);\r\n    Color += texture2D(Tex, Coord + vec2(TexelSize.x,0.0), MipBias);    \t\r\n    Color += texture2D(Tex, Coord + vec2(-TexelSize.x,0.0), MipBias);    \t\r\n    Color += texture2D(Tex, Coord + vec2(0.0,TexelSize.y), MipBias);    \t\r\n    Color += texture2D(Tex, Coord + vec2(0.0,-TexelSize.y), MipBias);    \t\r\n    Color += texture2D(Tex, Coord + vec2(TexelSize.x,TexelSize.y), MipBias);    \t\r\n    Color += texture2D(Tex, Coord + vec2(-TexelSize.x,TexelSize.y), MipBias);    \t\r\n    Color += texture2D(Tex, Coord + vec2(TexelSize.x,-TexelSize.y), MipBias);    \t\r\n    Color += texture2D(Tex, Coord + vec2(-TexelSize.x,-TexelSize.y), MipBias);    \r\n\r\n    return Color/9.0;\r\n}\r\n\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\tvec2 uv = fragCoord.xy/iResolution.xy;\r\n    \r\n    vec4 Color = texture2D(iChannel0, uv);\r\n    \r\n    vec4 Highlight = clamp(BlurColor(uv, iChannel0, log2(BlurSize*iRenderScale.x))-Threshold,0.0,1.0)*1.0/(1.0-Threshold);\r\n        \r\n    fragColor = 1.0-(1.0-Color)*(1.0-Highlight*Intensity); //Screen Blend Mode\r\n}\r\n")
         del param
 
     param = lastNode.getParam("wrap0")
@@ -607,6 +619,16 @@ def createInstance(app,group):
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupShadertoy1_2)
     groupShadertoy1_2.connectInput(0, groupSource)
+
+    param = groupShadertoy1_2.getParam("paramValueFloat0")
+    group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
+    del param
+    param = groupShadertoy1_2.getParam("paramValueFloat1")
+    group.getParam("Shadertoy1_2paramValueFloat1").setAsAlias(param)
+    del param
+    param = groupShadertoy1_2.getParam("paramValueFloat2")
+    group.getParam("Shadertoy1_2paramValueFloat2").setAsAlias(param)
+    del param
 
     try:
         extModule = sys.modules["Bloom_GLExt"]

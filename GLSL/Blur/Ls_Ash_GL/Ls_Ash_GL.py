@@ -218,6 +218,19 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
+    param = lastNode.createSeparatorParam("OUTPUT", "Output")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OUTPUT = param
+    del param
+
     param = lastNode.createStringParam("sep09", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -244,6 +257,41 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep10 = param
+    del param
+
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool2", "Adaptive : ")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueBool2 = param
+    del param
+
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool3", "Sharpen edges only : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueBool3 = param
+    del param
+
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool4", "Show edges : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueBool4 = param
     del param
 
     param = lastNode.createStringParam("sep11", "")
@@ -315,9 +363,7 @@ def createInstance(app,group):
     lastNode.sep14 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy1paramValueBool2", "Adaptive : ")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool5", "Use Strength Map : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -325,29 +371,27 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueBool2 = param
+    lastNode.Shadertoy1paramValueBool5 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy1paramValueBool3", "Sharpen edges only : ")
+    param = lastNode.createChoiceParam("strChannel", "Channel : ")
+    entries = [ ("Red", ""),
+    ("Green", ""),
+    ("Blue", ""),
+    ("Alpha", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Alpha")
+    param.restoreDefaultValue()
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueBool3 = param
-    del param
-
-    param = lastNode.createBooleanParam("Shadertoy1paramValueBool4", "Show edges : ")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setAddNewLine(False)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueBool4 = param
+    param.setAnimationEnabled(False)
+    lastNode.strChannel = param
     del param
 
     param = lastNode.createStringParam("sep15", "")
@@ -580,7 +624,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4301, 3851)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -591,8 +635,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy_pass1_2")
     lastNode.setLabel("Shadertoy_pass1")
-    lastNode.setPosition(4300, 3290)
-    lastNode.setSize(80, 44)
+    lastNode.setPosition(4296, 3290)
+    lastNode.setSize(90, 62)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1_2 = lastNode
 
@@ -698,8 +742,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy_pass2_2")
     lastNode.setLabel("Shadertoy_pass2")
-    lastNode.setPosition(4300, 3427)
-    lastNode.setSize(80, 44)
+    lastNode.setPosition(4296, 3427)
+    lastNode.setSize(90, 62)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2_2 = lastNode
 
@@ -805,8 +849,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy_pass3")
-    lastNode.setPosition(4300, 3553)
-    lastNode.setSize(80, 44)
+    lastNode.setPosition(4296, 3545)
+    lastNode.setSize(90, 62)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -835,19 +879,24 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("paramValueBool5")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("paramValueInt6")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_Ash Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_Ash Matchbox for Autodesk Flame\n\n// iChannel0: result_pass2, filter = linear, wrap=ckamp\n// iChannel1: Source, filter = linear, wrap=ckamp\n// iChannel2: Strength map, filter = linear, wrap=ckamp\n// BBox: iChannel0\n\n// Adaptive sharpening\n// Pass 2: vertical Gaussian blur\n// lewis@lewissaunders.com\n\n\n\n\n\nuniform float sigma = 2.5; // Size : (Size of biggest details to sharpen), min=0.0, max=100.0\nuniform float strength = 1.0; // Strength : (Amount of sharpening), min=0.0, max=5.0\n\nuniform bool adaptive = true; // Adaptive : (Protect edges from ringing)\nuniform bool onlyedges = false; // Sharpen edges only : (Sharpen just the edges, instead of trying to keep the sharpening away from them)\nuniform bool showedges = false; // Show edges : (Output edge matte)\n\n\n\nconst float pi = 3.141592653589793238462643383279502884197969;\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 xy = fragCoord.xy;\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\n\n\tfloat strength_here = strength * texture2D(iChannel2, xy * px).b;\n\n\tint support = int(sigma * 3.0);\n\n\t// Incremental coefficient calculation setup as per GPU Gems 3\n\tvec3 g;\n\tg.x = 1.0 / (sqrt(2.0 * pi) * sigma);\n\tg.y = exp(-0.5 / (sigma * sigma));\n\tg.z = g.y * g.y;\n\n\tif(sigma == 0.0) {\n\t\tg.x = 1.0;\n\t}\n\n\t// Centre sample\n\tvec4 a = g.x * texture2D(iChannel0, xy * px);\n\tfloat energy = g.x;\n\tg.xy *= g.yz;\n\n\t// The rest\n\tfor(int i = 1; i <= support; i++) {\n\t\ta += g.x * texture2D(iChannel0, (xy - vec2(0.0, float(i))) * px);\n\t\ta += g.x * texture2D(iChannel0, (xy + vec2(0.0, float(i))) * px);\n\t\tenergy += 2.0 * g.x;\n\t\tg.xy *= g.yz;\n\t}\n\ta /= energy;\n\tvec4 unsharp = a;\n\n\t// Inflate edge pass a little\n\tfloat edginess = clamp(unsharp.a * 3.0, 0.0, 1.0);\n\n\tif(onlyedges) {\n\t\tedginess = 1.0 - edginess;\n\t}\n\n\t// Sharpen\n\tvec4 orig = texture2D(iChannel1, xy * px);\n\tvec4 sharp = orig + vec4(strength_here) * (orig - unsharp);\n\n\tif(adaptive){\n\t\t// Remove sharpening from edges\n\t\tsharp = edginess * orig + (1.0 - edginess) * sharp;\n\t}\n\n\tif(showedges) {\n\t\tsharp = vec4(edginess);\n\t}\n\n\tfragColor = vec4(sharp.r, sharp.g, sharp.b, 1.0);\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_Ash Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_Ash Matchbox for Autodesk Flame\n\n// iChannel0: result_pass2, filter = linear, wrap=ckamp\n// iChannel1: Source, filter = linear, wrap=ckamp\n// iChannel2: Strength map, filter = linear, wrap=ckamp\n// BBox: iChannel0\n\n// Adaptive sharpening\n// Pass 2: vertical Gaussian blur\n// lewis@lewissaunders.com\n\n\n\n\n\nuniform float sigma = 2.5; // Size : (Size of biggest details to sharpen), min=0.0, max=100.0\nuniform float strength = 1.0; // Strength : (Amount of sharpening), min=0.0, max=5.0\n\nuniform bool adaptive = true; // Adaptive : (Protect edges from ringing)\nuniform bool onlyedges = false; // Sharpen edges only : (Sharpen just the edges, instead of trying to keep the sharpening away from them)\nuniform bool showedges = false; // Show edges : (Output edge matte)\n\nuniform bool useStr = false; // Use Strength Map : \nuniform int maskChannel = 3; // Mask : (mask channel), min=0, max=3\n\n\nconst float pi = 3.141592653589793238462643383279502884197969;\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 xy = fragCoord.xy;\n\tvec2 px = vec2(1.0) / vec2(iResolution.x, iResolution.y);\n\n\tfloat strength_here = strength;\n\n\tif (useStr == true)\n\t{\n\t\tif (maskChannel == 0)\n\t\t\t{\n\t\t\t\tstrength_here = strength * texture2D(iChannel2, xy * px).r;\n\t\t\t}\n\n\t\t\tif (maskChannel == 1)\n\t\t\t{\n\t\t\t\tstrength_here = strength * texture2D(iChannel2, xy * px).g;\n\t\t\t}\n\n\t\t\tif (maskChannel == 2)\n\t\t\t{\n\t\t\t\tstrength_here = strength * texture2D(iChannel2, xy * px).b;\n\t\t\t}\n\n\t\t\tif (maskChannel == 3)\n\t\t\t{\n\t\t\t\tstrength_here = strength * texture2D(iChannel2, xy * px).a;\n\t\t\t}\n\t}\n\n\tint support = int(sigma * 3.0);\n\n\t// Incremental coefficient calculation setup as per GPU Gems 3\n\tvec3 g;\n\tg.x = 1.0 / (sqrt(2.0 * pi) * sigma);\n\tg.y = exp(-0.5 / (sigma * sigma));\n\tg.z = g.y * g.y;\n\n\tif(sigma == 0.0) {\n\t\tg.x = 1.0;\n\t}\n\n\t// Centre sample\n\tvec4 a = g.x * texture2D(iChannel0, xy * px);\n\tfloat energy = g.x;\n\tg.xy *= g.yz;\n\n\t// The rest\n\tfor(int i = 1; i <= support; i++) {\n\t\ta += g.x * texture2D(iChannel0, (xy - vec2(0.0, float(i))) * px);\n\t\ta += g.x * texture2D(iChannel0, (xy + vec2(0.0, float(i))) * px);\n\t\tenergy += 2.0 * g.x;\n\t\tg.xy *= g.yz;\n\t}\n\ta /= energy;\n\tvec4 unsharp = a;\n\n\t// Inflate edge pass a little\n\tfloat edginess = clamp(unsharp.a * 3.0, 0.0, 1.0);\n\n\tif(onlyedges) {\n\t\tedginess = 1.0 - edginess;\n\t}\n\n\t// Sharpen\n\tvec4 orig = texture2D(iChannel1, xy * px);\n\tvec4 sharp = orig + vec4(strength_here) * (orig - unsharp);\n\n\tif(adaptive){\n\t\t// Remove sharpening from edges\n\t\tsharp = edginess * orig + (1.0 - edginess) * sharp;\n\t}\n\n\tif(showedges) {\n\t\tsharp = vec4(edginess);\n\t}\n\n\tfragColor = vec4(sharp.r, sharp.g, sharp.b, 1.0);\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
     if param is not None:
         param.set("linear")
-        del param
-
-    param = lastNode.getParam("wrap0")
-    if param is not None:
-        param.set("clamp")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -860,11 +909,6 @@ def createInstance(app,group):
         param.set("linear")
         del param
 
-    param = lastNode.getParam("wrap1")
-    if param is not None:
-        param.set("clamp")
-        del param
-
     param = lastNode.getParam("inputLabel1")
     if param is not None:
         param.setValue("Source")
@@ -873,11 +917,6 @@ def createInstance(app,group):
     param = lastNode.getParam("mipmap2")
     if param is not None:
         param.set("linear")
-        del param
-
-    param = lastNode.getParam("wrap2")
-    if param is not None:
-        param.set("clamp")
         del param
 
     param = lastNode.getParam("inputLabel2")
@@ -907,7 +946,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(5, 0)
+        param.setValue(7, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -1045,6 +1084,56 @@ def createInstance(app,group):
         param.setValue("Output edge matte")
         del param
 
+    param = lastNode.getParam("paramType5")
+    if param is not None:
+        param.set("bool")
+        del param
+
+    param = lastNode.getParam("paramName5")
+    if param is not None:
+        param.setValue("useStr")
+        del param
+
+    param = lastNode.getParam("paramLabel5")
+    if param is not None:
+        param.setValue("Use Strength Map :")
+        del param
+
+    param = lastNode.getParam("paramType6")
+    if param is not None:
+        param.set("int")
+        del param
+
+    param = lastNode.getParam("paramName6")
+    if param is not None:
+        param.setValue("maskChannel")
+        del param
+
+    param = lastNode.getParam("paramLabel6")
+    if param is not None:
+        param.setValue("Mask :")
+        del param
+
+    param = lastNode.getParam("paramHint6")
+    if param is not None:
+        param.setValue("mask channel")
+        del param
+
+    param = lastNode.getParam("paramDefaultInt6")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
+    param = lastNode.getParam("paramMinInt6")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramMaxInt6")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
     del lastNode
     # End of node "Shadertoy1"
 
@@ -1053,7 +1142,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
     lastNode.setPosition(4333, 3135)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
 
@@ -1065,7 +1154,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
     lastNode.setPosition(4079, 3135)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
 
@@ -1077,7 +1166,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot3")
     lastNode.setLabel("Dot3")
     lastNode.setPosition(4079, 3568)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot3 = lastNode
 
@@ -1089,12 +1178,36 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4300, 2898)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
     del lastNode
     # End of node "Source"
+
+    # Start of node "Strength_map"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Strength_map")
+    lastNode.setLabel("Strength map")
+    lastNode.setPosition(4535, 2897)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupStrength_map = lastNode
+
+    del lastNode
+    # End of node "Strength_map"
+
+    # Start of node "Dot4"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot4")
+    lastNode.setLabel("Dot4")
+    lastNode.setPosition(4572, 3568)
+    lastNode.setSize(16, 16)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot4 = lastNode
+
+    del lastNode
+    # End of node "Dot4"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupShadertoy1)
@@ -1102,9 +1215,11 @@ def createInstance(app,group):
     groupShadertoy_pass2_2.connectInput(0, groupShadertoy_pass1_2)
     groupShadertoy1.connectInput(0, groupShadertoy_pass2_2)
     groupShadertoy1.connectInput(1, groupDot3)
+    groupShadertoy1.connectInput(2, groupDot4)
     groupDot1.connectInput(0, groupSource)
     groupDot2.connectInput(0, groupDot1)
     groupDot3.connectInput(0, groupDot2)
+    groupDot4.connectInput(0, groupStrength_map)
 
     param = groupShadertoy_pass1_2.getParam("paramValueFloat0")
     group.getParam("Shadertoy_pass1_2paramValueFloat0").setAsAlias(param)
@@ -1126,6 +1241,12 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueBool4")
     group.getParam("Shadertoy1paramValueBool4").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("paramValueBool5")
+    group.getParam("Shadertoy1paramValueBool5").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("paramValueInt6")
+    param.setExpression("thisGroup.strChannel.get()", False, 0)
     del param
 
     try:
