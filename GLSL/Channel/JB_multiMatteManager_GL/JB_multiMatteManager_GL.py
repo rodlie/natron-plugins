@@ -22,7 +22,7 @@ def getLabel():
     return "JB_multiMatteManager_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "JB_multiMatteManager_GL.png"
@@ -119,6 +119,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool0 = param
@@ -132,6 +133,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool1 = param
@@ -145,6 +147,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool2 = param
@@ -227,6 +230,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool3 = param
@@ -254,6 +258,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool5 = param
@@ -336,6 +341,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool6 = param
@@ -363,6 +369,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool8 = param
@@ -445,6 +452,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool9 = param
@@ -458,6 +466,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool10 = param
@@ -471,6 +480,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool11 = param
@@ -551,6 +561,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool12 = param
@@ -562,6 +573,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool13 = param
@@ -793,16 +805,16 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
     lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Shadertoy1_2"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
@@ -1224,57 +1236,193 @@ def createInstance(app,group):
     # Start of node "ID_2"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("ID_2")
-    lastNode.setLabel("ID 2")
-    lastNode.setPosition(4219, 3603)
-    lastNode.setSize(80, 44)
+    lastNode.setLabel("ID_2")
+    lastNode.setPosition(4024, 3564)
+    lastNode.setSize(80, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupID_2 = lastNode
 
     del lastNode
     # End of node "ID_2"
 
-    # Start of node "Input1"
+    # Start of node "ID_1"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Input1")
-    lastNode.setLabel("ID 1")
-    lastNode.setPosition(4364, 3610)
-    lastNode.setSize(80, 44)
+    lastNode.setScriptName("ID_1")
+    lastNode.setLabel("ID_1")
+    lastNode.setPosition(3791, 3578)
+    lastNode.setSize(80, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupInput1 = lastNode
+    groupID_1 = lastNode
 
     del lastNode
-    # End of node "Input1"
+    # End of node "ID_1"
 
     # Start of node "ID_3"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("ID_3")
-    lastNode.setLabel("ID 3")
-    lastNode.setPosition(4068, 3607)
-    lastNode.setSize(80, 44)
+    lastNode.setLabel("ID_3")
+    lastNode.setPosition(4279, 3568)
+    lastNode.setSize(80, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupID_3 = lastNode
 
     del lastNode
     # End of node "ID_3"
 
-    # Start of node "ID__4"
+    # Start of node "ID_4"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("ID__4")
-    lastNode.setLabel("ID  4")
-    lastNode.setPosition(3913, 3627)
-    lastNode.setSize(80, 44)
+    lastNode.setScriptName("ID_4")
+    lastNode.setLabel("ID_4")
+    lastNode.setPosition(4533, 3569)
+    lastNode.setSize(80, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupID__4 = lastNode
+    groupID_4 = lastNode
 
     del lastNode
-    # End of node "ID__4"
+    # End of node "ID_4"
+
+    # Start of node "Crop_ID_1"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_ID_1")
+    lastNode.setLabel("Crop_ID_1")
+    lastNode.setPosition(3786, 3683)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_ID_1 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_ID_1"
+
+    # Start of node "Crop_ID_2"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_ID_2")
+    lastNode.setLabel("Crop_ID_2")
+    lastNode.setPosition(4019, 3675)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_ID_2 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_ID_2"
+
+    # Start of node "Crop_ID_3"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_ID_3")
+    lastNode.setLabel("Crop_ID_3")
+    lastNode.setPosition(4274, 3671)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_ID_3 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_ID_3"
+
+    # Start of node "Crop_ID_4"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_ID_4")
+    lastNode.setLabel("Crop_ID_4")
+    lastNode.setPosition(4528, 3674)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_ID_4 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_ID_4"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1_2)
-    groupShadertoy1_2.connectInput(0, groupInput1)
-    groupShadertoy1_2.connectInput(1, groupID_2)
-    groupShadertoy1_2.connectInput(2, groupID_3)
-    groupShadertoy1_2.connectInput(3, groupID__4)
+    groupOutput1.connectInput(0, groupShadertoy1_2)
+    groupShadertoy1_2.connectInput(0, groupCrop_ID_1)
+    groupShadertoy1_2.connectInput(1, groupCrop_ID_2)
+    groupShadertoy1_2.connectInput(2, groupCrop_ID_3)
+    groupShadertoy1_2.connectInput(3, groupCrop_ID_4)
+    groupCrop_ID_1.connectInput(0, groupID_1)
+    groupCrop_ID_2.connectInput(0, groupID_2)
+    groupCrop_ID_3.connectInput(0, groupID_3)
+    groupCrop_ID_4.connectInput(0, groupID_4)
 
     param = groupShadertoy1_2.getParam("paramValueBool0")
     group.getParam("Shadertoy1_2paramValueBool0").setAsAlias(param)
@@ -1317,6 +1465,22 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1_2.getParam("paramValueBool13")
     group.getParam("Shadertoy1_2paramValueBool13").setAsAlias(param)
+    del param
+    param = groupCrop_ID_1.getParam("size")
+    param.setExpression("myWidth = ID_1.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = ID_1.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_ID_2.getParam("size")
+    param.setExpression("myWidth = ID_2.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = ID_2.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_ID_3.getParam("size")
+    param.setExpression("myWidth = ID_3.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = ID_3.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_ID_4.getParam("size")
+    param.setExpression("myWidth = ID_4.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = ID_4.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:

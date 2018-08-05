@@ -41,6 +41,8 @@ uniform float p1 = 0.49; // Zoom : (zoom), min=0.0, max=10.0
 uniform float p2 = 1.81; // Rotation : (rotation), min=0.0, max=5.0
 uniform float p3 = 4.51; // Offset : (offset), min=0.0, max=5.0
 
+uniform int iterations = 64; // Iterations : (iterations), min=2, max=4096
+
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -77,11 +79,11 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 		
 	float acc = 0.0;
 	vec3  col = vec3(0.0);
-	for( int i=0; i<32; i++ )
+	for( int i=0; i<iterations; i++ )
 	{
 		vec2 dir = map( uv , fragCoord );
 		
-		float h = float(i)/32.0;
+		float h = float(i)/iterations;
 		float w = 4.0*h*(1.0-h);
 		
 		vec3 ttt = w*texture2D( iChannel0, uv ).xyz;

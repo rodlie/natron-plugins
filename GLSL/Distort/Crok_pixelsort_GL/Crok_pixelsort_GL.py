@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_pixelsort_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Crok_pixelsort_GL.png"
@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueFloat2 = param
@@ -190,6 +191,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueBool1 = param
@@ -201,6 +203,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueBool3 = param
@@ -212,6 +215,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueBool0 = param
@@ -292,6 +296,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass1paramValueBool1 = param
@@ -305,6 +310,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.pass1paramValueFloat0 = param
@@ -536,23 +542,23 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4939, 4270)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4809, 3433)
-    lastNode.setSize(80, 32)
+    lastNode.setPosition(4809, 3342)
+    lastNode.setSize(80, 36)
     lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
@@ -563,8 +569,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
-    lastNode.setPosition(4622, 3430)
-    lastNode.setSize(80, 32)
+    lastNode.setPosition(4593, 3344)
+    lastNode.setSize(80, 36)
     lastNode.setColor(1, 1, 1)
     groupMask = lastNode
 
@@ -1136,16 +1142,84 @@ def createInstance(app,group):
     del lastNode
     # End of node "pass5"
 
+    # Start of node "Crop_Source"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Source")
+    lastNode.setLabel("Crop_Source")
+    lastNode.setPosition(4804, 3476)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Source = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Source"
+
+    # Start of node "Crop_Mask"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Mask")
+    lastNode.setLabel("Crop_Mask")
+    lastNode.setPosition(4588, 3474)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Mask = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Mask"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, grouppass5)
-    grouppass1.connectInput(0, groupSource)
-    grouppass1.connectInput(1, groupMask)
+    groupOutput1.connectInput(0, grouppass5)
+    grouppass1.connectInput(0, groupCrop_Source)
+    grouppass1.connectInput(1, groupCrop_Mask)
     grouppass2.connectInput(0, grouppass1)
     grouppass3.connectInput(0, grouppass2)
     grouppass3.connectInput(1, grouppass2)
     grouppass4.connectInput(0, grouppass1)
     grouppass4.connectInput(2, grouppass3)
     grouppass5.connectInput(3, grouppass4)
+    groupCrop_Source.connectInput(0, groupSource)
+    groupCrop_Mask.connectInput(0, groupMask)
 
     param = grouppass1.getParam("paramValueFloat0")
     group.getParam("pass1paramValueFloat0").setAsAlias(param)
@@ -1173,6 +1247,14 @@ def createInstance(app,group):
     del param
     param = grouppass5.getParam("paramValueBool1")
     param.slaveTo(grouppass1.getParam("paramValueBool1"), 0, 0)
+    del param
+    param = groupCrop_Source.getParam("size")
+    param.setExpression("myWidth = Source.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Source.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_Mask.getParam("size")
+    param.setExpression("myWidth = Mask.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Mask.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:

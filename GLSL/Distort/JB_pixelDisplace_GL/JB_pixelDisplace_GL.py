@@ -22,7 +22,7 @@ def getLabel():
     return "JB_pixelDisplace_GL"
 
 def getVersion():
-    return 1.01
+    return 1
 
 def getIconPath():
     return "JB_pixelDisplace_GL.png"
@@ -680,20 +680,6 @@ def createInstance(app,group):
     lastNode.sep28 = param
     del param
 
-    param = lastNode.createStringParam("sep29", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep29 = param
-    del param
-
     param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edge extend : ")
     entries = [ ("repeat", "WRAP_S/T = GL_REPEAT"),
     ("clamp", "WRAP_S/T = GL_CLAMP_TO_EDGE"),
@@ -709,6 +695,20 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
     lastNode.Shadertoy1wrap0 = param
+    del param
+
+    param = lastNode.createStringParam("sep29", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep29 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -924,9 +924,9 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3646)
-    lastNode.setSize(80, 30)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4155, 3517)
+    lastNode.setSize(80, 36)
+    lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
     del lastNode
@@ -936,7 +936,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3810)
+    lastNode.setPosition(4155, 3813)
     lastNode.setSize(80, 44)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
@@ -1317,19 +1317,100 @@ def createInstance(app,group):
     # Start of node "Displace_Map"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Displace_Map")
-    lastNode.setLabel("Displace Map")
-    lastNode.setPosition(4334, 3813)
-    lastNode.setSize(80, 30)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setLabel("Displace_Map")
+    lastNode.setPosition(4352, 3516)
+    lastNode.setSize(80, 36)
+    lastNode.setColor(1, 1, 1)
     groupDisplace_Map = lastNode
 
     del lastNode
     # End of node "Displace_Map"
 
+    # Start of node "Crop_Source"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Source")
+    lastNode.setLabel("Crop_Source")
+    lastNode.setPosition(4150, 3637)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Source = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Source"
+
+    # Start of node "Dot1"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot1")
+    lastNode.setLabel("Dot1")
+    lastNode.setPosition(4385, 3824)
+    lastNode.setSize(16, 16)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot1 = lastNode
+
+    del lastNode
+    # End of node "Dot1"
+
+    # Start of node "Crop_Displace"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Displace")
+    lastNode.setLabel("Crop_Displace")
+    lastNode.setPosition(4347, 3630)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Displace = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Displace"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupShadertoy1)
-    groupShadertoy1.connectInput(0, groupSource)
-    groupShadertoy1.connectInput(1, groupDisplace_Map)
+    groupShadertoy1.connectInput(0, groupCrop_Source)
+    groupShadertoy1.connectInput(1, groupDot1)
+    groupCrop_Source.connectInput(0, groupSource)
+    groupDot1.connectInput(0, groupCrop_Displace)
+    groupCrop_Displace.connectInput(0, groupDisplace_Map)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
@@ -1360,6 +1441,14 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueFloat9")
     group.getParam("Shadertoy1paramValueFloat9").setAsAlias(param)
+    del param
+    param = groupCrop_Source.getParam("size")
+    param.setExpression("myWidth = Source.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Source.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_Displace.getParam("size")
+    param.setExpression("myWidth = Displace_Map.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Displace_Map.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:

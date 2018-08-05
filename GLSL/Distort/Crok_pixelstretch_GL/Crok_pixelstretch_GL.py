@@ -114,8 +114,8 @@ def createInstance(app,group):
     param = lastNode.createDoubleParam("Shadertoy_pass3paramValueFloat0", "Amount :")
     param.setMinimum(-1000, 0)
     param.setMaximum(1000, 0)
-    param.setDisplayMinimum(-1000, 0)
-    param.setDisplayMaximum(1000, 0)
+    param.setDisplayMinimum(-50, 0)
+    param.setDisplayMaximum(50, 0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -145,7 +145,7 @@ def createInstance(app,group):
     param.setMinimum(0, 0)
     param.setMaximum(1000, 0)
     param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1000, 0)
+    param.setDisplayMaximum(50, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -432,9 +432,9 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Front")
     lastNode.setLabel("Front")
-    lastNode.setPosition(4438, 4194)
-    lastNode.setSize(80, 30)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4618, 4114)
+    lastNode.setSize(80, 36)
+    lastNode.setColor(1, 1, 1)
     groupFront = lastNode
 
     del lastNode
@@ -444,9 +444,9 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Matte")
     lastNode.setLabel("Matte")
-    lastNode.setPosition(4098, 3616)
-    lastNode.setSize(80, 30)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4099, 3489)
+    lastNode.setSize(80, 36)
+    lastNode.setColor(1, 1, 1)
     groupMatte = lastNode
 
     del lastNode
@@ -456,9 +456,9 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Strength")
     lastNode.setLabel("Strength")
-    lastNode.setPosition(4443, 4085)
-    lastNode.setSize(80, 30)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4622, 3920)
+    lastNode.setSize(80, 36)
+    lastNode.setColor(1, 1, 1)
     groupStrength = lastNode
 
     del lastNode
@@ -472,6 +472,11 @@ def createInstance(app,group):
     lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -570,6 +575,11 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
         param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_pixelstretch Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_pixelstretch Matchbox for Autodesk Flame\n\n\n// iChannel0: result_pass1, filter=linear, wrap=clamp\n// BBox: iChannel0\n\n\n// blur BG\n\n\nuniform float blur_matte = 1.0; // Edges width : , min=0.0, max=1000.0\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n   vec2 coords = fragCoord.xy / vec2( iResolution.x, iResolution.y );\n   int f0int = int(blur_matte);\n   vec4 accu = vec4(0);\n   float energy = 0.0;\n   vec4 blur_bgx = vec4(0.0);\n\n   for( int x = -f0int; x <= f0int; x++)\n   {\n      vec2 currentCoord = vec2(coords.x+float(x)/iResolution.x, coords.y);\n      vec4 aSample = texture2D(iChannel0, currentCoord).rgba;\n      float anEnergy = 1.0 - ( abs(float(x)) / blur_matte);\n      energy += anEnergy;\n      accu+= aSample * anEnergy;\n   }\n\n   blur_bgx =\n      energy > 0.0 ? (accu / energy) :\n                     texture2D(iChannel0, coords).rgba;\n\n   fragColor = vec4( blur_bgx );\n}\n")
@@ -662,10 +672,20 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy_pass3")
     lastNode.setLabel("Shadertoy_pass3")
-    lastNode.setPosition(4277, 4194)
+    lastNode.setPosition(4277, 4197)
     lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass3 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -815,7 +835,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
     lastNode.setPosition(4131, 3842)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
 
@@ -827,23 +847,125 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
     lastNode.setPosition(4131, 4209)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
 
     del lastNode
     # End of node "Dot2"
 
+    # Start of node "Crop_Front"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Front")
+    lastNode.setLabel("Crop_Front")
+    lastNode.setPosition(4613, 4194)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Front = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Front"
+
+    # Start of node "Crop_Strength"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Strength")
+    lastNode.setLabel("Crop_Strength")
+    lastNode.setPosition(4617, 3997)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Strength = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Strength"
+
+    # Start of node "Crop_Matte"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Matte")
+    lastNode.setLabel("Crop_Matte")
+    lastNode.setPosition(4094, 3564)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Matte = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Matte"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupShadertoy_pass3)
     groupShadertoy_pass1.connectInput(0, groupDot1)
     groupShadertoy_pass2.connectInput(0, groupShadertoy_pass1)
     groupShadertoy_pass3.connectInput(0, groupShadertoy_pass2)
-    groupShadertoy_pass3.connectInput(1, groupFront)
-    groupShadertoy_pass3.connectInput(2, groupStrength)
+    groupShadertoy_pass3.connectInput(1, groupCrop_Front)
+    groupShadertoy_pass3.connectInput(2, groupCrop_Strength)
     groupShadertoy_pass3.connectInput(3, groupDot2)
-    groupDot1.connectInput(0, groupMatte)
+    groupDot1.connectInput(0, groupCrop_Matte)
     groupDot2.connectInput(0, groupDot1)
+    groupCrop_Front.connectInput(0, groupFront)
+    groupCrop_Strength.connectInput(0, groupStrength)
+    groupCrop_Matte.connectInput(0, groupMatte)
 
     param = groupShadertoy_pass1.getParam("paramValueFloat0")
     group.getParam("Shadertoy_pass1paramValueFloat0").setAsAlias(param)
@@ -856,6 +978,18 @@ def createInstance(app,group):
     del param
     param = groupShadertoy_pass3.getParam("paramValueFloat1")
     group.getParam("Shadertoy_pass3paramValueFloat1").setAsAlias(param)
+    del param
+    param = groupCrop_Front.getParam("size")
+    param.setExpression("myWidth = Front.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Front.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_Strength.getParam("size")
+    param.setExpression("myWidth = Strength.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Strength.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_Matte.getParam("size")
+    param.setExpression("myWidth = Matte.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Matte.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:
