@@ -36,8 +36,8 @@ uniform float zoom = 10.0; // Zoom : (zoom), min=2.0, max=1000
 uniform float blur = 0.0; // Blur : (blur), min=0.0, max=1000.0
 uniform float Aspect = 1.0; // Aspect : (aspect), min=0.01, max=100
 
-uniform vec3 color1 = vec3(1.0,1.0,1.0); // Color 1 : (color 1)
-uniform vec3 color2 = vec3(0.0,0.0,0.0); // Color 2 : (color 2)
+uniform vec4 color1 = vec4(1.0,1.0,1.0,1.0); // Color 1 : (color 1)
+uniform vec4 color2 = vec4(0.0,0.0,0.0,0.0); // Color 2 : (color 2)
 
 
 
@@ -72,6 +72,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec2 square = smoothstep( -b, b, anti_a );
 	square = 2.0 * square - 1.0;						
     float a = 0.5 * (square.x * square.y) + 0.5;
-	vec3 c = mix(color1, color2, a); 
-	fragColor = vec4(c, a);
+	vec3 c = mix(color1.rgb, color2.rgb, a); 
+	fragColor = vec4(c, mix(color1.a, color2.a, a));
 }

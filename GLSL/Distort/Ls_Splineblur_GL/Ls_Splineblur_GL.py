@@ -22,7 +22,7 @@ def getLabel():
     return "Ls_Splineblur_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Ls_Splineblur_GL.png"
@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass2paramValueFloat0 = param
@@ -154,6 +155,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass2paramValueInt1 = param
@@ -185,6 +187,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass1paramValueFloat0 = param
@@ -210,6 +213,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass1paramValueBool1 = param
@@ -290,6 +294,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass2paramValueBool2 = param
@@ -301,6 +306,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass2paramValueBool3 = param
@@ -328,6 +334,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
     lastNode.Shadertoy_pass2mipmap0 = param
@@ -410,6 +417,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass2paramValueBool4 = param
@@ -421,6 +429,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy_pass2paramValueBool5 = param
@@ -652,24 +661,24 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4139, 4282)
-    lastNode.setSize(80, 44)
+    lastNode.setPosition(4139, 4284)
+    lastNode.setSize(80, 26)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4541, 3917)
-    lastNode.setSize(80, 44)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4465, 3908)
+    lastNode.setSize(80, 26)
+    lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
     del lastNode
@@ -679,9 +688,9 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Map")
     lastNode.setLabel("Map")
-    lastNode.setPosition(4139, 3430)
-    lastNode.setSize(80, 44)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4139, 3431)
+    lastNode.setSize(80, 26)
+    lastNode.setColor(1, 1, 1)
     groupMap = lastNode
 
     del lastNode
@@ -691,10 +700,20 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy_pass1")
     lastNode.setLabel("Shadertoy_pass1")
-    lastNode.setPosition(4139, 3795)
-    lastNode.setSize(80, 44)
+    lastNode.setPosition(4139, 3797)
+    lastNode.setSize(80, 26)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(5, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool1")
+    if param is not None:
+        param.setValue(False)
+        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -834,9 +853,39 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy_pass2")
     lastNode.setLabel("Shadertoy_pass2")
     lastNode.setPosition(4139, 3917)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 26)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(8, 0)
+        del param
+
+    param = lastNode.getParam("paramValueInt1")
+    if param is not None:
+        param.setValue(32, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool2")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("paramValueBool3")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("paramValueBool4")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("paramValueBool5")
+    if param is not None:
+        param.setValue(False)
+        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -1061,11 +1110,45 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shadertoy_pass2"
 
+    # Start of node "Crop1"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop1")
+    lastNode.setLabel("Crop1")
+    lastNode.setPosition(4134, 3586)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop1 = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop1"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy_pass2)
-    groupShadertoy_pass1.connectInput(0, groupMap)
+    groupOutput1.connectInput(0, groupShadertoy_pass2)
+    groupShadertoy_pass1.connectInput(0, groupCrop1)
     groupShadertoy_pass2.connectInput(0, groupSource)
     groupShadertoy_pass2.connectInput(1, groupShadertoy_pass1)
+    groupCrop1.connectInput(0, groupMap)
 
     param = groupShadertoy_pass1.getParam("paramValueFloat0")
     group.getParam("Shadertoy_pass1paramValueFloat0").setAsAlias(param)
@@ -1093,6 +1176,10 @@ def createInstance(app,group):
     del param
     param = groupShadertoy_pass2.getParam("mipmap0")
     group.getParam("Shadertoy_pass2mipmap0").setAsAlias(param)
+    del param
+    param = groupCrop1.getParam("size")
+    param.setExpression("myWidth = Map.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Map.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:
