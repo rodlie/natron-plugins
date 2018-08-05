@@ -22,7 +22,7 @@ def getLabel():
     return "RadialBlur_GL"
 
 def getVersion():
-    return 1.01
+    return 1
 
 def getIconPath():
     return "RadialBlur_GL.png"
@@ -125,6 +125,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     param.setUsePointInteract(True)
@@ -157,6 +158,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.ShadertoyparamValueFloat0 = param
@@ -188,6 +190,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.ShadertoyparamValueInt2 = param
@@ -221,7 +224,7 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
-    param = lastNode.createSeparatorParam("LINE01", "")
+    param = lastNode.createSeparatorParam("MASK", "Mask")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -231,18 +234,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.LINE01 = param
-    del param
-
-    param = lastNode.createBooleanParam("ShadertoyparamValueBool1", "Modulate : ")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.ShadertoyparamValueBool1 = param
+    lastNode.MASK = param
     del param
 
     param = lastNode.createStringParam("sep09", "")
@@ -271,6 +263,152 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep10 = param
+    del param
+
+    param = lastNode.createBooleanParam("ShadertoyparamValueBool1", "Modulate : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.ShadertoyparamValueBool1 = param
+    del param
+
+    param = lastNode.createStringParam("sep11", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep11 = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    param = lastNode.createSeparatorParam("OUTPUT", "Output")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OUTPUT = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoybbox", "Output BBox : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoybbox = param
+    del param
+
+    param = lastNode.createChoiceParam("ShadertoyNatronParamFormatChoice", "Format : ")
+    param.setDefaultValue(6)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.ShadertoyNatronParamFormatChoice = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoywrap0", "Edges : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoywrap0 = param
+    del param
+
+    param = lastNode.createStringParam("sep15", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep15 = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -503,6 +641,12 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy = lastNode
 
+    param = lastNode.getParam("mousePosition")
+    if param is not None:
+        param.setValue(0, 0)
+        param.setValue(0, 1)
+        del param
+
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
         param.setValue(0.1, 0)
@@ -565,7 +709,13 @@ def createInstance(app,group):
 
     param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("iChannel0")
+        param.set("format")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatSize")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("paramCount")
@@ -692,10 +842,15 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(640, 0)
-        param.setValue(480, 1)
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("reformat")
@@ -723,6 +878,15 @@ def createInstance(app,group):
     del param
     param = groupShadertoy.getParam("paramValueInt2")
     group.getParam("ShadertoyparamValueInt2").setAsAlias(param)
+    del param
+    param = groupShadertoy.getParam("wrap0")
+    group.getParam("Shadertoywrap0").setAsAlias(param)
+    del param
+    param = groupShadertoy.getParam("bbox")
+    group.getParam("Shadertoybbox").setAsAlias(param)
+    del param
+    param = groupShadertoy.getParam("NatronParamFormatChoice")
+    group.getParam("ShadertoyNatronParamFormatChoice").setAsAlias(param)
     del param
     param = groupCrop1.getParam("size")
     param.setExpression("myWidth = Modulate.getOutputFormat().width()\nret = myWidth", True, 0)

@@ -303,6 +303,101 @@ def createInstance(app,group):
     lastNode.sep12 = param
     del param
 
+    param = lastNode.createSeparatorParam("OUTPUT", "Output")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OUTPUT = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1bbox", "Output BBox : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1bbox = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1NatronParamFormatChoice", "Format : ")
+    param.setDefaultValue(6)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1NatronParamFormatChoice = param
+    del param
+
+    param = lastNode.createStringParam("sep15", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep15 = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -571,9 +666,20 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("bbox")
+    if param is not None:
+        param.set("format")
+        del param
+
     param = lastNode.getParam("NatronParamFormatChoice")
     if param is not None:
-        param.set("PC_Video")
+        param.set("HD")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatSize")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -738,6 +844,12 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueFloat3")
     group.getParam("Shadertoy1paramValueFloat3").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("bbox")
+    group.getParam("Shadertoy1bbox").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("NatronParamFormatChoice")
+    group.getParam("Shadertoy1NatronParamFormatChoice").setAsAlias(param)
     del param
 
     try:

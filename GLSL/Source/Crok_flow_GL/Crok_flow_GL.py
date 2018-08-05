@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_flow_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Crok_flow_GL.png"
@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueInt11 = param
@@ -154,6 +155,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat3 = param
@@ -183,6 +185,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat4 = param
@@ -214,6 +217,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat5 = param
@@ -300,6 +304,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat0 = param
@@ -329,6 +334,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat1 = param
@@ -358,6 +364,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat6 = param
@@ -387,6 +394,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat7 = param
@@ -467,6 +475,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueVec212 = param
@@ -498,6 +507,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat2 = param
@@ -584,6 +594,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueVec313 = param
@@ -615,6 +626,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat8 = param
@@ -646,6 +658,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat9 = param
@@ -677,6 +690,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat10 = param
@@ -759,12 +773,13 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1bbox = param
     del param
 
-    param = lastNode.createChoiceParam("Shadertoy1NatronParamFormatChoice", "Format")
+    param = lastNode.createChoiceParam("Shadertoy1NatronParamFormatChoice", "Format : ")
     param.setDefaultValue(6)
     param.restoreDefaultValue()
 
@@ -772,6 +787,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.Shadertoy1NatronParamFormatChoice = param
@@ -1003,16 +1019,16 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
     lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Shadertoy1"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
@@ -1129,11 +1145,6 @@ def createInstance(app,group):
     param = lastNode.getParam("bbox")
     if param is not None:
         param.set("format")
-        del param
-
-    param = lastNode.getParam("NatronParamFormatChoice")
-    if param is not None:
-        param.set("HD")
         del param
 
     param = lastNode.getParam("NatronParamFormatSize")
@@ -1603,7 +1614,7 @@ def createInstance(app,group):
     # End of node "Shadertoy1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1)
+    groupOutput1.connectInput(0, groupShadertoy1)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
