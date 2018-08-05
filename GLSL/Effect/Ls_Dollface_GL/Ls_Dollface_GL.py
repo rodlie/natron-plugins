@@ -22,7 +22,7 @@ def getLabel():
     return "Ls_Dollface_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Ls_Dollface_GL.png"
@@ -472,24 +472,24 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4138, 4454)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3682)
-    lastNode.setSize(80, 32)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4139, 3683)
+    lastNode.setSize(80, 36)
+    lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
     del lastNode
@@ -498,10 +498,10 @@ def createInstance(app,group):
     # Start of node "Strength_map"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Strength_map")
-    lastNode.setLabel("Strength map")
-    lastNode.setPosition(4322, 4069)
-    lastNode.setSize(80, 32)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setLabel("Strength_map")
+    lastNode.setPosition(4329, 3972)
+    lastNode.setSize(80, 36)
+    lastNode.setColor(1, 1, 1)
     groupStrength_map = lastNode
 
     del lastNode
@@ -931,20 +931,88 @@ def createInstance(app,group):
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
     lastNode.setPosition(4037, 4084)
-    lastNode.setSize(15, 15)
+    lastNode.setSize(16, 16)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
 
     del lastNode
     # End of node "Dot1"
 
+    # Start of node "Crop_Source"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Source")
+    lastNode.setLabel("Crop_Source")
+    lastNode.setPosition(4134, 3798)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Source = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Source"
+
+    # Start of node "Crop_Strength"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Strength")
+    lastNode.setLabel("Crop_Strength")
+    lastNode.setPosition(4324, 4054)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Strength = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Strength"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy_pass2)
-    groupShadertoy_pass1.connectInput(0, groupSource)
-    groupShadertoy_pass1.connectInput(1, groupStrength_map)
+    groupOutput1.connectInput(0, groupShadertoy_pass2)
+    groupShadertoy_pass1.connectInput(0, groupCrop_Source)
+    groupShadertoy_pass1.connectInput(1, groupCrop_Strength)
     groupShadertoy_pass2.connectInput(0, groupDot1)
-    groupShadertoy_pass2.connectInput(1, groupStrength_map)
+    groupShadertoy_pass2.connectInput(1, groupCrop_Strength)
     groupDot1.connectInput(0, groupShadertoy_pass1)
+    groupCrop_Source.connectInput(0, groupSource)
+    groupCrop_Strength.connectInput(0, groupStrength_map)
 
     param = groupShadertoy_pass1.getParam("paramValueFloat0")
     group.getParam("Shadertoy_pass1paramValueFloat0").setAsAlias(param)
@@ -966,6 +1034,14 @@ def createInstance(app,group):
     del param
     param = groupShadertoy_pass2.getParam("paramValueInt2")
     param.slaveTo(groupShadertoy_pass1.getParam("paramValueInt2"), 0, 0)
+    del param
+    param = groupCrop_Source.getParam("size")
+    param.setExpression("myWidth = Source.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Source.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_Strength.getParam("size")
+    param.setExpression("myWidth = Strength_map.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Strength_map.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:

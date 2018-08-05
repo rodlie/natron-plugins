@@ -665,7 +665,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4284)
-    lastNode.setSize(80, 26)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -676,8 +676,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4465, 3908)
-    lastNode.setSize(80, 26)
+    lastNode.setPosition(4368, 3804)
+    lastNode.setSize(80, 30)
     lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
@@ -688,8 +688,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Map")
     lastNode.setLabel("Map")
-    lastNode.setPosition(4139, 3431)
-    lastNode.setSize(80, 26)
+    lastNode.setPosition(4139, 3402)
+    lastNode.setSize(80, 30)
     lastNode.setColor(1, 1, 1)
     groupMap = lastNode
 
@@ -701,7 +701,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy_pass1")
     lastNode.setLabel("Shadertoy_pass1")
     lastNode.setPosition(4139, 3797)
-    lastNode.setSize(80, 26)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass1 = lastNode
 
@@ -853,7 +853,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy_pass2")
     lastNode.setLabel("Shadertoy_pass2")
     lastNode.setPosition(4139, 3917)
-    lastNode.setSize(80, 26)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy_pass2 = lastNode
 
@@ -1110,14 +1110,14 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shadertoy_pass2"
 
-    # Start of node "Crop1"
+    # Start of node "Crop_Source"
     lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
-    lastNode.setScriptName("Crop1")
-    lastNode.setLabel("Crop1")
-    lastNode.setPosition(4134, 3586)
+    lastNode.setScriptName("Crop_Source")
+    lastNode.setLabel("Crop_Source")
+    lastNode.setPosition(4363, 3914)
     lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.3, 0.1)
-    groupCrop1 = lastNode
+    groupCrop_Source = lastNode
 
     param = lastNode.getParam("rectangleInteractEnable")
     if param is not None:
@@ -1141,14 +1141,48 @@ def createInstance(app,group):
         del param
 
     del lastNode
-    # End of node "Crop1"
+    # End of node "Crop_Source"
+
+    # Start of node "Crop_Map"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Map")
+    lastNode.setLabel("Crop_Map")
+    lastNode.setPosition(4134, 3604)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Map = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Map"
 
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupShadertoy_pass2)
-    groupShadertoy_pass1.connectInput(0, groupCrop1)
-    groupShadertoy_pass2.connectInput(0, groupSource)
+    groupShadertoy_pass1.connectInput(0, groupCrop_Map)
+    groupShadertoy_pass2.connectInput(0, groupCrop_Source)
     groupShadertoy_pass2.connectInput(1, groupShadertoy_pass1)
-    groupCrop1.connectInput(0, groupMap)
+    groupCrop_Source.connectInput(0, groupSource)
+    groupCrop_Map.connectInput(0, groupMap)
 
     param = groupShadertoy_pass1.getParam("paramValueFloat0")
     group.getParam("Shadertoy_pass1paramValueFloat0").setAsAlias(param)
@@ -1177,7 +1211,11 @@ def createInstance(app,group):
     param = groupShadertoy_pass2.getParam("mipmap0")
     group.getParam("Shadertoy_pass2mipmap0").setAsAlias(param)
     del param
-    param = groupCrop1.getParam("size")
+    param = groupCrop_Source.getParam("size")
+    param.setExpression("myWidth = Source.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Source.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupCrop_Map.getParam("size")
     param.setExpression("myWidth = Map.getOutputFormat().width()\nret = myWidth", True, 0)
     param.setExpression("myWidth = Map.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
