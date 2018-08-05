@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_stars_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Crok_stars_GL.png"
@@ -70,21 +70,17 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Speed : ")
-    param.setMinimum(-1000, 0)
-    param.setMaximum(1000, 0)
-    param.setDisplayMinimum(-1000, 0)
-    param.setDisplayMaximum(1000, 0)
-    param.setDefaultValue(1, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueFloat0 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -101,23 +97,6 @@ def createInstance(app,group):
     lastNode.sep03 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Density : ")
-    param.setMinimum(0, 0)
-    param.setMaximum(10, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(10, 0)
-    param.setDefaultValue(10, 0)
-    param.restoreDefaultValue(0)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueFloat1 = param
-    del param
-
     param = lastNode.createStringParam("sep04", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -132,11 +111,11 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat2", "Brightness : ")
-    param.setMinimum(0, 0)
-    param.setMaximum(10, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(10, 0)
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat0", "Speed : ")
+    param.setMinimum(-1000, 0)
+    param.setMaximum(1000, 0)
+    param.setDisplayMinimum(-1000, 0)
+    param.setDisplayMaximum(1000, 0)
     param.setDefaultValue(1, 0)
     param.restoreDefaultValue(0)
 
@@ -144,9 +123,10 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueFloat2 = param
+    lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
     param = lastNode.createStringParam("sep05", "")
@@ -163,21 +143,22 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "Seed : ")
-    param.setMinimum(3, 0)
-    param.setMaximum(99.99999999999999, 0)
-    param.setDisplayMinimum(3, 0)
-    param.setDisplayMaximum(99.99999999999999, 0)
-    param.setDefaultValue(6.5, 0)
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Density : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(10, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(10, 0)
+    param.setDefaultValue(10, 0)
     param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueFloat3 = param
+    lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
     param = lastNode.createStringParam("sep06", "")
@@ -194,6 +175,24 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat2", "Brightness : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(10, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(10, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueFloat2 = param
+    del param
+
     param = lastNode.createStringParam("sep07", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -206,6 +205,147 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep07 = param
+    del param
+
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "Seed : ")
+    param.setMinimum(3, 0)
+    param.setMaximum(99.99999999999999, 0)
+    param.setDisplayMinimum(3, 0)
+    param.setDisplayMaximum(99.99999999999999, 0)
+    param.setDefaultValue(6.5, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueFloat3 = param
+    del param
+
+    param = lastNode.createStringParam("sep08", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep08 = param
+    del param
+
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
+    del param
+
+    param = lastNode.createSeparatorParam("OUTPUT", "Output")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OUTPUT = param
+    del param
+
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
+    del param
+
+    param = lastNode.createStringParam("sep11", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep11 = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1bbox", "Output BBox : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1bbox = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1NatronParamFormatChoice", "Format : ")
+    param.setDefaultValue(6)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1NatronParamFormatChoice = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -406,25 +546,45 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
     lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Shadertoy1"
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3879)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat3")
+    if param is not None:
+        param.setValue(6.5, 0)
+        del param
 
     param = lastNode.getParam("imageShaderFileName")
     if param is not None:
@@ -456,9 +616,15 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
-    param = lastNode.getParam("NatronParamFormatChoice")
+    param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("PC_Video")
+        param.set("format")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatSize")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -615,7 +781,7 @@ def createInstance(app,group):
     # End of node "Shadertoy1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1)
+    groupOutput1.connectInput(0, groupShadertoy1)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
@@ -628,6 +794,12 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueFloat3")
     group.getParam("Shadertoy1paramValueFloat3").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("bbox")
+    group.getParam("Shadertoy1bbox").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("NatronParamFormatChoice")
+    group.getParam("Shadertoy1NatronParamFormatChoice").setAsAlias(param)
     del param
 
     try:

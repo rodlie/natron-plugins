@@ -521,9 +521,9 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createColorParam("Shadertoy1paramValueVec310", "Colour : ", False)
-    param.setDefaultValue(1, 0)
+    param.setDefaultValue(4, 0)
     param.restoreDefaultValue(0)
-    param.setDefaultValue(1, 1)
+    param.setDefaultValue(1.7, 1)
     param.restoreDefaultValue(1)
     param.setDefaultValue(1, 2)
     param.restoreDefaultValue(2)
@@ -534,8 +534,6 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(4, 0)
-    param.setValue(1.7, 1)
     lastNode.Shadertoy1paramValueVec310 = param
     del param
 
@@ -683,6 +681,101 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep27 = param
+    del param
+
+    param = lastNode.createSeparatorParam("OUTPUT", "Output")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OUTPUT = param
+    del param
+
+    param = lastNode.createStringParam("sep28", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep28 = param
+    del param
+
+    param = lastNode.createStringParam("sep29", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep29 = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1bbox", "Output BBox : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1bbox = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1NatronParamFormatChoice", "Format : ")
+    param.setDefaultValue(6)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1NatronParamFormatChoice = param
+    del param
+
+    param = lastNode.createStringParam("sep30", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep30 = param
+    del param
+
+    param = lastNode.createStringParam("sep31", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep31 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -887,7 +980,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4188)
-    lastNode.setSize(80, 30)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -899,7 +992,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
     lastNode.setPosition(4139, 3880)
-    lastNode.setSize(80, 34)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -914,15 +1007,72 @@ def createInstance(app,group):
         param.setValue(True)
         del param
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(49.99999999999999, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat3")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueInt4")
+    if param is not None:
+        param.setValue(10, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat5")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat6")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat7")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat8")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat9")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
     param = lastNode.getParam("paramValueVec310")
     if param is not None:
         param.setValue(4, 0)
         param.setValue(1.7, 1)
+        param.setValue(1, 2)
+        del param
+
+    param = lastNode.getParam("paramValueVec211")
+    if param is not None:
+        param.setValue(0.5, 0)
+        param.setValue(0.5, 1)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("\n\nuniform float Speed = 50.0; // Speed : (speed), min=-2000, max=2000\nuniform float Offset = 0.0; // Offset : (offset), min=-100, max=100\nuniform float Gain = 0.0; // Gain : (gain), min=-100, max=100\nuniform float Brightness = 1.0; // Brightness : (brightness), min=-100, max=100\nuniform int Iterations = 10; // Iterations : (iterations), min=1, max=15\nuniform float Scale = 1.0; // Scale : (scale), min=-100, max=100\nuniform float Zoom = 1.0; // Zoom : (zoom), min=-10000, max=10000\nuniform float Noise = 1.0; // Noise : (noise), min=-100, max=100\nuniform float Blend = 1.0; // Blend : (blend), min=0, max=20\nuniform float Depth = 1.0; // Depth : (depth), min=-100, max=100\nuniform vec3 tint = vec3(1,1,1);\n\n\n\nuniform vec2 userPosition = vec2(0.5,0.5);\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\nfloat time = iTime *.03 * Speed + 100.0 + Offset;\n// http://glsl.heroku.com/e#17197.1\n\n\nvec2    toworld(vec2 uv);\nmat2\trmat(float r);\nfloat   hash(float v);\nvec2    rhash(vec2 uv);\nfloat   noise(in vec2 uv);\nfloat   voronoi(const in vec2 uv);\nfloat   fvrmf(float a, float f, vec2 uv, const in int it);\nvec3\thsv(in float h, in float s, in float v);\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord)\n{\n    vec2 uv = fragCoord.xy / resolution.xy;\n    uv = toworld(uv);\n    \n    vec2 m = toworld(userPosition);\n    \n    uv = normalize(vec3(uv-m, 2.)).xy;\n    \n    float a = Gain;\n    float f = 5. * Brightness;\n  \t\n    float r = fvrmf(a, f, uv, Iterations);\n\t\n    fragColor = vec4((2.*r)*tint, 1.0);\n}\n\n//sphinx\n\nvec2 toworld(vec2 uv){\n\tuv = uv * 2. - 1.;\n\tuv.x *= resolution.x/resolution.y;\n\treturn uv;\n}\n\nvec3 hsv(in float h, in float s, in float v)\n{\n\treturn mix(vec3(1.),clamp((abs(fract(h+vec3(3.,2.,1.)/3.)*6.-3.)-1.),0.,1.),s)*v;\n}\n\nmat2 rmat(float r)\n{\n    float c = cos(r);\n    float s = sin(r);\n    return mat2(c, s, -s, c);\n}\n\nfloat hash(float v)\n{\n    return fract(fract(v/1e4)*v-1e6);\n}\n\nvec2 rhash(vec2 uv) {\n    const mat2 t = mat2(.12121212,.13131313,-.13131313,.12121212);\n    const vec2 s = vec2(1e4, 1e6);\n    uv *= t;\n    uv *= s;\n\treturn  fract(fract(uv/s)*uv);\n}\n\nvec2 smooth(vec2 uv)\n{\n    return uv*uv*(3.-2.*uv);\n}\n\n//value noise\nfloat noise(in vec2 uv)\n{\n    const float k = 257.;\n    vec4 l  = vec4(floor(uv),fract(uv));\n    float u = l.x + l.y * k;\n    vec4 v  = vec4(u, u+1.,u+k, u+k+1.);\n    v       = fract(fract(1.23456789*v)*v/.987654321);\n    l.zw    = smooth(l.zw);\n    l.x     = mix(v.x, v.y, l.z);\n    l.y     = mix(v.z, v.w, l.z);\n    return    mix(l.x, l.y, l.w);\n}\n\n//iq\'s voronoi\nfloat voronoi(const in vec2 uv)\n{\n    vec2 p = floor(uv);\n    vec2 f = fract(uv);\n    float v = 0.;\n    for( int j=-1; j<=1; j++ )\n        for( int i=-1; i<=1; i++ )\n        {\n            vec2 b = vec2(i, j);\n            vec2 r = b - f + rhash(p + b);\n            v += 1. /pow(dot(r,r),8. *Scale);\n        }\n    return pow(1./v, 0.0625);\n}\n\n//multifractalridgedvoroninoisemultifractalomg\nfloat fvrmf(float a, float f, vec2 uv, const in int it)\n{\n    float l = 2. * Zoom;\n    float r = 0.;\n    float t = time * .25;\n    for(int i = 0; i < 32; i++)\n    {\n        if(i<it)\n        {\n            uv = uv.yx * l;\n            float n = voronoi(rmat(t*.25 * Depth)*uv+uv+t*.25 * Depth); \n            n = abs(fract(n-.5 * Noise)-.5 * Noise);\n            n *= n * a;\n            a = clamp(0.,1., n*2.);\n            r += n*pow(f, -1.);\n            f *= l;\n            f /= max(r, min(1., noise(uv-t-uv*rmat(t*2.)-n)/.5 * Blend));\n        }\n    }\n    return r*8.;\n}\n")
+        param.setValue("\r\n\r\nuniform float Speed = 50.0; // Speed : (speed), min=-2000, max=2000\r\nuniform float Offset = 0.0; // Offset : (offset), min=-100, max=100\r\nuniform float Gain = 0.0; // Gain : (gain), min=-100, max=100\r\nuniform float Brightness = 1.0; // Brightness : (brightness), min=-100, max=100\r\nuniform int Iterations = 10; // Iterations : (iterations), min=1, max=15\r\nuniform float Scale = 1.0; // Scale : (scale), min=-100, max=100\r\nuniform float Zoom = 1.0; // Zoom : (zoom), min=-10000, max=10000\r\nuniform float Noise = 1.0; // Noise : (noise), min=-100, max=100\r\nuniform float Blend = 1.0; // Blend : (blend), min=0, max=20\r\nuniform float Depth = 1.0; // Depth : (depth), min=-100, max=100\r\nuniform vec3 tint = vec3(1,1,1);\r\n\r\n\r\n\r\nuniform vec2 userPosition = vec2(0.5,0.5);\r\n\r\nvec2 resolution = vec2(iResolution.x, iResolution.y);\r\nfloat time = iTime *.03 * Speed + 100.0 + Offset;\r\n// http://glsl.heroku.com/e#17197.1\r\n\r\n\r\nvec2    toworld(vec2 uv);\r\nmat2\trmat(float r);\r\nfloat   hash(float v);\r\nvec2    rhash(vec2 uv);\r\nfloat   noise(in vec2 uv);\r\nfloat   voronoi(const in vec2 uv);\r\nfloat   fvrmf(float a, float f, vec2 uv, const in int it);\r\nvec3\thsv(in float h, in float s, in float v);\r\n\r\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord)\r\n{\r\n    vec2 uv = fragCoord.xy / resolution.xy;\r\n    uv = toworld(uv);\r\n    \r\n    vec2 m = toworld(userPosition);\r\n    \r\n    uv = normalize(vec3(uv-m, 2.)).xy;\r\n    \r\n    float a = Gain;\r\n    float f = 5. * Brightness;\r\n  \t\r\n    float r = fvrmf(a, f, uv, Iterations);\r\n\t\r\n    fragColor = vec4((2.*r)*tint, 1.0);\r\n}\r\n\r\n//sphinx\r\n\r\nvec2 toworld(vec2 uv){\r\n\tuv = uv * 2. - 1.;\r\n\tuv.x *= resolution.x/resolution.y;\r\n\treturn uv;\r\n}\r\n\r\nvec3 hsv(in float h, in float s, in float v)\r\n{\r\n\treturn mix(vec3(1.),clamp((abs(fract(h+vec3(3.,2.,1.)/3.)*6.-3.)-1.),0.,1.),s)*v;\r\n}\r\n\r\nmat2 rmat(float r)\r\n{\r\n    float c = cos(r);\r\n    float s = sin(r);\r\n    return mat2(c, s, -s, c);\r\n}\r\n\r\nfloat hash(float v)\r\n{\r\n    return fract(fract(v/1e4)*v-1e6);\r\n}\r\n\r\nvec2 rhash(vec2 uv) {\r\n    const mat2 t = mat2(.12121212,.13131313,-.13131313,.12121212);\r\n    const vec2 s = vec2(1e4, 1e6);\r\n    uv *= t;\r\n    uv *= s;\r\n\treturn  fract(fract(uv/s)*uv);\r\n}\r\n\r\nvec2 smooth(vec2 uv)\r\n{\r\n    return uv*uv*(3.-2.*uv);\r\n}\r\n\r\n//value noise\r\nfloat noise(in vec2 uv)\r\n{\r\n    const float k = 257.;\r\n    vec4 l  = vec4(floor(uv),fract(uv));\r\n    float u = l.x + l.y * k;\r\n    vec4 v  = vec4(u, u+1.,u+k, u+k+1.);\r\n    v       = fract(fract(1.23456789*v)*v/.987654321);\r\n    l.zw    = smooth(l.zw);\r\n    l.x     = mix(v.x, v.y, l.z);\r\n    l.y     = mix(v.z, v.w, l.z);\r\n    return    mix(l.x, l.y, l.w);\r\n}\r\n\r\n//iq\'s voronoi\r\nfloat voronoi(const in vec2 uv)\r\n{\r\n    vec2 p = floor(uv);\r\n    vec2 f = fract(uv);\r\n    float v = 0.;\r\n    for( int j=-1; j<=1; j++ )\r\n        for( int i=-1; i<=1; i++ )\r\n        {\r\n            vec2 b = vec2(i, j);\r\n            vec2 r = b - f + rhash(p + b);\r\n            v += 1. /pow(dot(r,r),8. *Scale);\r\n        }\r\n    return pow(1./v, 0.0625);\r\n}\r\n\r\n//multifractalridgedvoroninoisemultifractalomg\r\nfloat fvrmf(float a, float f, vec2 uv, const in int it)\r\n{\r\n    float l = 2. * Zoom;\r\n    float r = 0.;\r\n    float t = time * .25;\r\n    for(int i = 0; i < 32; i++)\r\n    {\r\n        if(i<it)\r\n        {\r\n            uv = uv.yx * l;\r\n            float n = voronoi(rmat(t*.25 * Depth)*uv+uv+t*.25 * Depth); \r\n            n = abs(fract(n-.5 * Noise)-.5 * Noise);\r\n            n *= n * a;\r\n            a = clamp(0.,1., n*2.);\r\n            r += n*pow(f, -1.);\r\n            f *= l;\r\n            f /= max(r, min(1., noise(uv-t-uv*rmat(t*2.)-n)/.5 * Blend));\r\n        }\r\n    }\r\n    return r*8.;\r\n}\r\n")
         del param
 
     param = lastNode.getParam("inputEnable0")
@@ -945,9 +1095,20 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("bbox")
+    if param is not None:
+        param.set("format")
+        del param
+
     param = lastNode.getParam("NatronParamFormatChoice")
     if param is not None:
-        param.set("PC_Video")
+        param.set("HD")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatSize")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -1384,6 +1545,12 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueVec211")
     group.getParam("Shadertoy1paramValueVec211").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("bbox")
+    group.getParam("Shadertoy1bbox").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("NatronParamFormatChoice")
+    group.getParam("Shadertoy1NatronParamFormatChoice").setAsAlias(param)
     del param
 
     try:

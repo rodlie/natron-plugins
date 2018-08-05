@@ -629,6 +629,101 @@ def createInstance(app,group):
     lastNode.sep25 = param
     del param
 
+    param = lastNode.createSeparatorParam("OUTPUT", "Output")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OUTPUT = param
+    del param
+
+    param = lastNode.createStringParam("sep26", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep26 = param
+    del param
+
+    param = lastNode.createStringParam("sep27", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep27 = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy2bbox", "Output BBox : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy2bbox = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy2NatronParamFormatChoice", "Format : ")
+    param.setDefaultValue(6)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy2NatronParamFormatChoice = param
+    del param
+
+    param = lastNode.createStringParam("sep28", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep28 = param
+    del param
+
+    param = lastNode.createStringParam("sep29", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep29 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -831,7 +926,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -843,7 +938,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy2")
     lastNode.setLabel("Shadertoy2")
     lastNode.setPosition(4139, 3832)
-    lastNode.setSize(80, 48)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy2 = lastNode
 
@@ -911,7 +1006,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_plasnoid Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_plasnoid Matchbox for Autodesk Flame\n\n\n\n\nuniform float speed = 1; // Speed : (speed), min=-500 , max=500\nuniform float offset = 0; // Offset : (offset), min=-100 , max=100\nuniform float detail = 2; // Detail : (detail), min=-500 , max=500\nuniform float noise_x = -5; // Noise X : (noise x), min=-500 , max=500\nuniform float noise_y = 5; // Noise Y : (noise y), min=-500 , max=500\nuniform float fractal_x = -5; // Fractal X : (fractal x), min=-500 , max=500\nuniform float fractal_y = 12; // Fractal Y : (fractal y), min=-500 , max=500\nuniform float random_x = 1; // Random X : (random x), min=-500 , max=500\nuniform float random_y = -5; // Random Y : (random y), min=-500 , max=500\n\nuniform int itterations = 6; // Iterations : (iterations), min=0 , max=500\nuniform vec3 color = vec3(0.5, 0.6, 0.65);\n\n\n\n\nfloat time = iTime*.025 * speed + offset;\n\nfloat getGas(vec2 p)\n{\n\treturn (cos(p.y * detail + time)+1.0)*0.5+(sin(time))*0.0+0.1;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n\tvec2 position = ( fragCoord.xy / iResolution.xy );\n\t\n\tvec2 p=position;\n\tfor(int i=1;i<itterations;i++){\n\t\tvec2 newp=p;\n\t\t\n//\t\tnewp.x+=(0.4/(float(i)))*(sin(p.y*(10.0+time*0.0001))*0.2*sin(p.x*30.0)*0.8);\n//\t\tnewp.y+=(0.4/(float(i)))*(cos(p.x*(20.0+time*0.0001))*0.2*sin(p.x*5.0)+time*0.1);\n\n\t\tnewp.x+=(noise_x / (float(i)))*(sin(p.y*(fractal_x + time * 0.0001))*0.2*sin(p.x * random_x)*0.8);\n\t\tnewp.y+=(noise_y / (float(i)))*(cos(p.x*(fractal_y + time * 0.0001))*0.2*sin(p.x * random_y)+time*0.1);\n\t\tp=newp;\n\t}\n\n\tvec3 clr=vec3(color.r * .2 ,color.g *.2 , color.b * .2);\n\tclr/=getGas(p);\n\n\tfragColor = vec4( clr, 1.0 );\n\n}")
+        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_plasnoid Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_plasnoid Matchbox for Autodesk Flame\r\n\r\n\r\n\r\n\r\nuniform float speed = 1; // Speed : (speed), min=-500 , max=500\r\nuniform float offset = 0; // Offset : (offset), min=-100 , max=100\r\nuniform float detail = 2; // Detail : (detail), min=-500 , max=500\r\nuniform float noise_x = -5; // Noise X : (noise x), min=-500 , max=500\r\nuniform float noise_y = 5; // Noise Y : (noise y), min=-500 , max=500\r\nuniform float fractal_x = -5; // Fractal X : (fractal x), min=-500 , max=500\r\nuniform float fractal_y = 12; // Fractal Y : (fractal y), min=-500 , max=500\r\nuniform float random_x = 1; // Random X : (random x), min=-500 , max=500\r\nuniform float random_y = -5; // Random Y : (random y), min=-500 , max=500\r\n\r\nuniform int itterations = 6; // Iterations : (iterations), min=0 , max=500\r\nuniform vec3 color = vec3(0.5, 0.6, 0.65);\r\n\r\n\r\n\r\n\r\nfloat time = iTime*.025 * speed + offset;\r\n\r\nfloat getGas(vec2 p)\r\n{\r\n\treturn (cos(p.y * detail + time)+1.0)*0.5+(sin(time))*0.0+0.1;\r\n}\r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{\r\n\r\n\tvec2 position = ( fragCoord.xy / iResolution.xy );\r\n\t\r\n\tvec2 p=position;\r\n\tfor(int i=1;i<itterations;i++){\r\n\t\tvec2 newp=p;\r\n\t\t\r\n//\t\tnewp.x+=(0.4/(float(i)))*(sin(p.y*(10.0+time*0.0001))*0.2*sin(p.x*30.0)*0.8);\r\n//\t\tnewp.y+=(0.4/(float(i)))*(cos(p.x*(20.0+time*0.0001))*0.2*sin(p.x*5.0)+time*0.1);\r\n\r\n\t\tnewp.x+=(noise_x / (float(i)))*(sin(p.y*(fractal_x + time * 0.0001))*0.2*sin(p.x * random_x)*0.8);\r\n\t\tnewp.y+=(noise_y / (float(i)))*(cos(p.x*(fractal_y + time * 0.0001))*0.2*sin(p.x * random_y)+time*0.1);\r\n\t\tp=newp;\r\n\t}\r\n\r\n\tvec3 clr=vec3(color.r * .2 ,color.g *.2 , color.b * .2);\r\n\tclr/=getGas(p);\r\n\r\n\tfragColor = vec4( clr, 1.0 );\r\n\r\n}")
         del param
 
     param = lastNode.getParam("inputEnable0")
@@ -934,9 +1029,20 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("bbox")
+    if param is not None:
+        param.set("format")
+        del param
+
     param = lastNode.getParam("NatronParamFormatChoice")
     if param is not None:
-        param.set("PC_Video")
+        param.set("HD")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatSize")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -1354,6 +1460,12 @@ def createInstance(app,group):
     del param
     param = groupShadertoy2.getParam("paramValueVec310")
     group.getParam("Shadertoy2paramValueVec310").setAsAlias(param)
+    del param
+    param = groupShadertoy2.getParam("bbox")
+    group.getParam("Shadertoy2bbox").setAsAlias(param)
+    del param
+    param = groupShadertoy2.getParam("NatronParamFormatChoice")
+    group.getParam("Shadertoy2NatronParamFormatChoice").setAsAlias(param)
     del param
 
     try:

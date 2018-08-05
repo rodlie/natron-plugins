@@ -193,6 +193,185 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
+    param = lastNode.createSeparatorParam("TIMING", "Timing")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.TIMING = param
+    del param
+
+    param = lastNode.createStringParam("sep07", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep07 = param
+    del param
+
+    param = lastNode.createStringParam("sep08", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep08 = param
+    del param
+
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "Speed : ")
+    param.setDisplayMinimum(-50, 0)
+    param.setDisplayMaximum(50, 0)
+    param.setDefaultValue(2, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueFloat3 = param
+    del param
+
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
+    del param
+
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
+    del param
+
+    param = lastNode.createSeparatorParam("OUTPUT", "Output")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OUTPUT = param
+    del param
+
+    param = lastNode.createStringParam("sep11", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep11 = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1bbox", "Output BBox : ")
+    param.setDefaultValue(1)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1bbox = param
+    del param
+
+    param = lastNode.createChoiceParam("Shadertoy1NatronParamFormatChoice", "Format : ")
+    param.setDefaultValue(6)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.Shadertoy1NatronParamFormatChoice = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -395,7 +574,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3977)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 33)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -406,8 +585,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3848)
-    lastNode.setSize(80, 44)
+    lastNode.setPosition(4139, 3849)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -432,34 +611,19 @@ def createInstance(app,group):
         param.setValue(0.247, 2)
         del param
 
-    param = lastNode.getParam("imageShaderPreset")
+    param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.set("Source/Cellular")
+        param.setValue(2, 0)
         del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("// from: https://www.shadertoy.com/view/Xs2GDd\n\n// A colony of single cell organisms\n\n#define PI 3.14159265359\n\nuniform vec3 col1 = vec3(0.216, 0.471, 0.698); // blue\nuniform vec3 col2 = vec3(1.00, 0.329, 0.298); // red\nuniform vec3 col3 = vec3(0.867, 0.910, 0.247); // yellow\n\nfloat disk(vec2 r, vec2 center, float radius) {\n\treturn 1.0 - smoothstep( radius-0.008, radius+0.008, length(r-center));\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tfloat t = iGlobalTime*2.;\n\tvec2 r = (2.0*fragCoord.xy - iResolution.xy) / iResolution.y;\n\tr *= 1.0 + 0.05*sin(r.x*5.+iGlobalTime) + 0.05*sin(r.y*3.+iGlobalTime);\n\tr *= 1.0 + 0.2*length(r);\n\tfloat side = 0.5;\n\tvec2 r2 = mod(r, side);\n\tvec2 r3 = r2-side/2.;\n\tfloat i = floor(r.x/side)+2.;\n\tfloat j = floor(r.y/side)+4.;\n\tfloat ii = r.x/side+2.;\n\tfloat jj = r.y/side+4.;\t\n\t\n\tvec3 pix = vec3(1.0);\n\t\n\tfloat rad, disks;\n\t\t\n\trad = 0.15 + 0.05*sin(t+ii*jj);\n\tdisks = disk(r3, vec2(0.,0.), rad);\n\tpix = mix(pix, col2, disks);\n\n\tfloat speed = 2.0;\n\tfloat tt = iGlobalTime*speed+0.1*i+0.08*j;\n\tfloat stopEveryAngle = PI/2.0;\n\tfloat stopRatio = 0.7;\n\tfloat t1 = (floor(tt) + smoothstep(0.0, 1.0-stopRatio, fract(tt)) )*stopEveryAngle;\n\t\t\n\tfloat x = -0.07*cos(t1+i);\n\tfloat y = 0.055*(sin(t1+j)+cos(t1+i));\n\trad = 0.1 + 0.05*sin(t+i+j);\n\tdisks = disk(r3, vec2(x,y), rad);\n\tpix = mix(pix, col1, disks);\n\t\n\trad = 0.2 + 0.05*sin(t*(1.0+0.01*i));\n\tdisks = disk(r3, vec2(0.,0.), rad);\n\tpix += 0.2*col3*disks * sin(t+i*j+i);\n\n\tpix -= smoothstep(0.3, 5.5, length(r));\t\n\tfragColor = vec4(pix,1.0);\n}\n")
+        param.setValue("// from: https://www.shadertoy.com/view/Xs2GDd\n\n// A colony of single cell organisms\n\n#define PI 3.14159265359\n\nuniform vec3 col1 = vec3(0.216, 0.471, 0.698); // blue\nuniform vec3 col2 = vec3(1.00, 0.329, 0.298); // red\nuniform vec3 col3 = vec3(0.867, 0.910, 0.247); // yellow\n\nuniform float speed = 2.0; // Speed : (speed)\n\nfloat disk(vec2 r, vec2 center, float radius) {\n\treturn 1.0 - smoothstep( radius-0.008, radius+0.008, length(r-center));\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tfloat t = iTime*speed;\n\tvec2 r = (2.0*fragCoord.xy - iResolution.xy) / iResolution.y;\n\tr *= 1.0 + 0.05*sin(r.x*5.+iTime) + 0.05*sin(r.y*3.+iTime);\n\tr *= 1.0 + 0.2*length(r);\n\tfloat side = 0.5;\n\tvec2 r2 = mod(r, side);\n\tvec2 r3 = r2-side/2.;\n\tfloat i = floor(r.x/side)+2.;\n\tfloat j = floor(r.y/side)+4.;\n\tfloat ii = r.x/side+2.;\n\tfloat jj = r.y/side+4.;\t\n\t\n\tvec3 pix = vec3(1.0);\n\t\n\tfloat rad, disks;\n\t\t\n\trad = 0.15 + 0.05*sin(t+ii*jj);\n\tdisks = disk(r3, vec2(0.,0.), rad);\n\tpix = mix(pix, col2, disks);\n\n\tfloat speed = 2.0;\n\tfloat tt = iTime*speed+0.1*i+0.08*j;\n\tfloat stopEveryAngle = PI/2.0;\n\tfloat stopRatio = 0.7;\n\tfloat t1 = (floor(tt) + smoothstep(0.0, 1.0-stopRatio, fract(tt)) )*stopEveryAngle;\n\t\t\n\tfloat x = -0.07*cos(t1+i);\n\tfloat y = 0.055*(sin(t1+j)+cos(t1+i));\n\trad = 0.1 + 0.05*sin(t+i+j);\n\tdisks = disk(r3, vec2(x,y), rad);\n\tpix = mix(pix, col1, disks);\n\t\n\trad = 0.2 + 0.05*sin(t*(1.0+0.01*i));\n\tdisks = disk(r3, vec2(0.,0.), rad);\n\tpix += 0.2*col3*disks * sin(t+i*j+i);\n\n\tpix -= smoothstep(0.3, 5.5, length(r));\t\n\tfragColor = vec4(pix,1.0);\n}\n")
         del param
 
     param = lastNode.getParam("inputEnable0")
     if param is not None:
         param.setValue(False)
-        del param
-
-    param = lastNode.getParam("mipmap0")
-    if param is not None:
-        param.set("nearest")
-        del param
-
-    param = lastNode.getParam("inputLabel0")
-    if param is not None:
-        param.setValue("Source")
-        del param
-
-    param = lastNode.getParam("inputHint0")
-    if param is not None:
-        param.setValue("tex15.png or any other image")
         del param
 
     param = lastNode.getParam("inputEnable1")
@@ -477,9 +641,15 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
-    param = lastNode.getParam("NatronParamFormatChoice")
+    param = lastNode.getParam("bbox")
     if param is not None:
-        param.set("PC_Video")
+        param.set("format")
+        del param
+
+    param = lastNode.getParam("NatronParamFormatSize")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -489,7 +659,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(3, 0)
+        param.setValue(4, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -558,6 +728,31 @@ def createInstance(app,group):
         param.setValue(0.247, 2)
         del param
 
+    param = lastNode.getParam("paramType3")
+    if param is not None:
+        param.set("float")
+        del param
+
+    param = lastNode.getParam("paramName3")
+    if param is not None:
+        param.setValue("speed")
+        del param
+
+    param = lastNode.getParam("paramLabel3")
+    if param is not None:
+        param.setValue("Speed :")
+        del param
+
+    param = lastNode.getParam("paramHint3")
+    if param is not None:
+        param.setValue("speed")
+        del param
+
+    param = lastNode.getParam("paramDefaultFloat3")
+    if param is not None:
+        param.setValue(2, 0)
+        del param
+
     del lastNode
     # End of node "Shadertoy1"
 
@@ -572,6 +767,15 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueVec32")
     group.getParam("Shadertoy1paramValueVec32").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("paramValueFloat3")
+    group.getParam("Shadertoy1paramValueFloat3").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("bbox")
+    group.getParam("Shadertoy1bbox").setAsAlias(param)
+    del param
+    param = groupShadertoy1.getParam("NatronParamFormatChoice")
+    group.getParam("Shadertoy1NatronParamFormatChoice").setAsAlias(param)
     del param
 
     try:

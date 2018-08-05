@@ -36,7 +36,7 @@ uniform float detail = 50.0; // Detail : (detail), min=0, max=500
 uniform float noise = 5.0; // Noise : (noise), min=0, max=10000
 uniform float zoom = 10.0; // Zoom : (zoom), min=-100, max=100
 uniform float rotation = 0.0; // Rotation : (rotation), min=-10000, max=10000
-uniform vec2 center = vec2( 0.25, 0.4 );
+vec2 center = iMouse.xy /iResolution.xy;
 
 
 uniform vec3 color = vec3(1,1,1);
