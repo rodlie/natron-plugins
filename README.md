@@ -167,6 +167,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Blur/Crok_bloom_GL/Crok_bloom_GL.png' width='24'> **[Crok_bloom_GL](/GLSL/Blur/BlurCrok_bloom_GL/README.md)** : Simulates bloom.
 
+- <img src='/GLSL/Blur/Crok_blush_GL/Crok_blush_GL.png' width='24'> **[Crok_blush_GL](/GLSL/Blur/Crok_blush_GL/README.md)** : Bandpass effect.
+
 - <img src='/GLSL/Blur/Crok_convolve_GL/Crok_convolve_GL.png' width='24'> **[Crok_convolve_GL](/GLSL/Blur/BlurCrok_convolve_GL/README.md)** : Simulates a convolve blur.
 
 - <img src='/GLSL/Blur/Crok_diffuse_GL/Crok_diffuse_GL.png' width='24'> **[Crok_diffuse_GL](/GLSL/Blur/BlurCrok_diffuse_GL/README.md)** : Creates a noisy blur.
