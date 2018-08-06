@@ -246,6 +246,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec2 coords = fragCoord.xy / iResolution.xy;
 	vec3 frontpix = texture2D(iChannel0, coords).rgb;
 	vec3 mattepix = texture2D(iChannel1, coords).rgb;
+	float original = texture2D(iChannel0, coords).a;
 
 	vec3 crossed = rgbmatrix(frontpix);
 	vec3 rgbcurved = rgbcurves(crossed);
@@ -257,4 +258,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	}
 
 	fragColor = vec4(mixed, 1.0);
+	fragColor.a = original;
 }

@@ -53,5 +53,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec4 RGB_lum = vec4(lumcoeff * RGB_lum, 0.0 );
 	float lum = dot(tc_new,RGB_lum);
 	vec4 luma = vec4(lum);
-	fragColor = mix(tc, luma, amount);
+	vec4 result = mix(tc, luma, amount);
+	fragColor = vec4(result.rgb, tc.a);
 }

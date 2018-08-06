@@ -48,7 +48,7 @@ vec2 texel = vec2(1.0) / res;
 uniform int i_colorspace = 0; // Colorspace (Working colorspace. Set this to the current working colorspace. This insures a linear blur (no dark edges)), min=0, max=6
 uniform bool invert = false; // Invert
 
-vec3 from_sRGB(vec3 col)
+vec4 from_sRGB(vec4 col)
 {
     if (col.r >= 0.0) {
          col.r = pow((col.r +.055)/ 1.055, 2.4);
@@ -65,7 +65,7 @@ vec3 from_sRGB(vec3 col)
     return col;
 }
 
-vec3 from_rec709(vec3 col)
+vec4 from_rec709(vec4 col)
 {
     if (col.r < .081) {
          col.r /= 4.5;
@@ -88,7 +88,7 @@ vec3 from_rec709(vec3 col)
     return col;
 }
 
-vec3 to_rec709(vec3 col)
+vec4 to_rec709(vec4 col)
 {
     if (col.r < .018) {
          col.r *= 4.5;
@@ -112,7 +112,7 @@ vec3 to_rec709(vec3 col)
     return col;
 }
 
-vec3 to_sRGB(vec3 col)
+vec4 to_sRGB(vec4 col)
 {
     if (col.r >= 0.0) {
          col.r = (1.055 * pow(col.r, 1.0 / 2.4)) - .055;
@@ -129,7 +129,7 @@ vec3 to_sRGB(vec3 col)
     return col;
 }
 
-vec3 adjust_gamma(vec3 col, float gamma)
+vec4 adjust_gamma(vec4 col, float gamma)
 {
     col.r = pow(col.r, gamma);
     col.g = pow(col.g, gamma);
@@ -138,7 +138,7 @@ vec3 adjust_gamma(vec3 col, float gamma)
     return col;
 }
 
-vec3 from_logc(vec3 col)
+vec4 from_logc(vec4 col)
 {
     float cut = .010591;
     float a = 5.555556;
@@ -175,7 +175,7 @@ float log10(float c)
     return log(c) / 2.3026;
 }
 
-vec3 to_logc(vec3 col)
+vec4 to_logc(vec4 col)
 {
     float cut = .010591;
     float a = 5.555556;
@@ -208,7 +208,7 @@ vec3 to_logc(vec3 col)
 }
 
 
-vec3 do_colorspace(vec3 front, int op)
+vec4 do_colorspace(vec4 front, int op)
 {
     if (op == 0)
     {
@@ -250,12 +250,13 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 st = fragCoord.xy / res;
 
-    vec3 front = texture2D(iChannel0, st).rgb;
+    vec4 front = texture2D(iChannel0, st);
     if (invert) {
         front = do_colorspace(front, 1);
     } else {
         front = do_colorspace(front, 0);
     }
 
-    fragColor.rgb = front;
+    fragColor = front;
+
 }

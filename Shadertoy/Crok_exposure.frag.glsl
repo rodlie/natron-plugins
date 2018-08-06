@@ -145,6 +145,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
   vec2 uv = fragCoord.xy / iResolution.xy;
 	vec3 col = texture2D(iChannel0, uv).rgb;
+	vec4 original = texture2D(iChannel0, uv);
 	vec3 contrast = vec3(contrast_r, contrast_g, contrast_b);
 	vec3 c_pivot = vec3(pivot_r, pivot_g, pivot_b);
 
@@ -197,5 +198,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 		col = adjust_contrast(col, vec4(contrast, contrast_all), vec4(c_pivot, pivot_all));
 	}
 
-	fragColor = vec4(col, 1.0);
+	fragColor = vec4(col, original.a);
 }

@@ -45,8 +45,8 @@ uniform float blue = 30; // blue : (blue), min=0, max=100
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {	
 	vec2 st = fragCoord.xy / vec2 (iResolution.x, iResolution.y);
-	vec3 image = texture2D(iChannel0, st).rgb;
+	vec4 image = texture2D(iChannel0, st);
 	
 	float luminance = image.r * (red/100.0) + image.g * (green/100.0) + image.b * (blue/100.0);
-	fragColor = vec4(luminance, luminance, luminance, 1.0);
+	fragColor = vec4(luminance, luminance, luminance, image.a);
 }

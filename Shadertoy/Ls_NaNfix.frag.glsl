@@ -68,6 +68,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec2 xy = fragCoord.xy;
 
     vec3 o = texture2D(iChannel0, xy / res).rgb;
+    float alpha = texture2D(iChannel0, xy / res).a;
     float m = 0.0;
     
     if(anynans(o)) {
@@ -93,4 +94,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     }
     
     fragColor = vec4(o, m);
+    fragColor.a = alpha;
 }

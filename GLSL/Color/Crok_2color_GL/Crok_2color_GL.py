@@ -794,7 +794,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 26)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -805,9 +805,9 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3645)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4139, 3646)
+    lastNode.setSize(90, 26)
+    lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
     del lastNode
@@ -817,8 +817,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3867)
-    lastNode.setSize(80, 48)
+    lastNode.setPosition(4139, 3849)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -878,7 +878,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_2color Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_2color Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter = nearest\n// BBox: iChannel0\n\n\nuniform float Amount = 1; // Amount : (Amount), min = 0., max = 1.\nuniform float Exposure = 1; // Exposure : (Exposure), min = 0., max = 5.\n\nuniform float dark_low = 0; // Dark low : (Dark low), min = 0., max = 1.\nuniform float dark_high = 1; // Dark high : (Dark high), min = 0., max = 5.\n\nuniform float light_low = 0; // Light low : (Light low), min = 0., max = 1.\nuniform float light_high = 1; // Light high : (Light high), min = 0., max = 5.\n\nuniform float contrast = 1; // Contrast : (Contrast), min = 0., max = 5.\nuniform float saturation = 1; // Saturation : (Saturation), min = 0., max = 1.\n\nuniform vec3 light_tint = vec3(0.0, 1.0, 1.0); // Light tint : (Light tint)\nuniform vec3 dark_tint = vec3(0.5, 0.0, 1.0); // Dark tint : (Dark tint)\n\n\nconst vec3 lumc = vec3(0.2125, 0.7154, 0.0721);\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\t\n\tvec3 original = texture2D(iChannel0, uv).rgb;\n\tvec3 col = original;\n\n\tfloat bri = (col.x+col.y+col.z)/3.0;\n\tfloat v = smoothstep(dark_low, dark_high, bri);\n\tcol = mix(dark_tint * bri, col, v);\n\t\n\tv = smoothstep(light_low, light_high, bri);\n\tcol = mix(col, min(light_tint * col, 1.0), v);\n\tcol = mix(original, col, Amount);\n\t\n\tvec3 avg_lum = vec3(0.5, 0.5, 0.5);\n\tvec3 intensity = vec3(dot(col.rgb, lumc));\n\tvec3 sat_color = mix(intensity, col.rgb, saturation);\n\tvec3 con_color = mix(avg_lum, sat_color, contrast);\n\tvec3 fin_col = con_color;\n\t\n\t\n\tfragColor = vec4(fin_col, 1.0) * Exposure;\n}")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_2color Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_2color Matchbox for Autodesk Flame\n\n\n// iChannel0: Source,filter=nearest,wrap=clamp\n// BBox: iChannel0\n\n\nuniform float Amount = 1; // Amount : (Amount), min = 0., max = 1.\nuniform float Exposure = 1; // Exposure : (Exposure), min = 0., max = 5.\n\nuniform float dark_low = 0; // Dark low : (Dark low), min = 0., max = 1.\nuniform float dark_high = 1; // Dark high : (Dark high), min = 0., max = 5.\n\nuniform float light_low = 0; // Light low : (Light low), min = 0., max = 1.\nuniform float light_high = 1; // Light high : (Light high), min = 0., max = 5.\n\nuniform float contrast = 1; // Contrast : (Contrast), min = 0., max = 5.\nuniform float saturation = 1; // Saturation : (Saturation), min = 0., max = 1.\n\nuniform vec4 light_tint = vec4(0.0, 1.0, 1.0, 0.0); // Light tint : (Light tint)\nuniform vec4 dark_tint = vec4(0.5, 0.0, 1.0, 0.0); // Dark tint : (Dark tint)\n\n\nconst vec4 lumc = vec4(0.2125, 0.7154, 0.0721, 0.0);\n\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\t\n\tvec4 original = texture2D(iChannel0, uv);\n\tvec4 col = original;\n\n\tfloat bri = (col.x+col.y+col.z)/3.0;\n\tfloat v = smoothstep(dark_low, dark_high, bri);\n\tcol = mix(dark_tint * bri, col, v);\n\t\n\tv = smoothstep(light_low, light_high, bri);\n\tcol = mix(col, min(light_tint * col, 1.0), v);\n\tcol = mix(original, col, Amount);\n\t\n\tvec4 avg_lum = vec4(0.5, 0.5, 0.5, 0.0);\n\tvec4 intensity = vec4(dot(col.rgba, lumc));\n\tvec4 sat_color = mix(intensity, col.rgba, saturation);\n\tvec4 con_color = mix(avg_lum, sat_color, contrast);\n\tvec4 fin_col = con_color;\n\t\n\t\n\tfragColor = vec4(fin_col.rgb, original.a) * Exposure;\n}")
         del param
 
     param = lastNode.getParam("mipmap0")

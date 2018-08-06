@@ -59,4 +59,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 	vec4 outColor;
 	fragColor = (1-inverseSource)*getDispiChannel0+((1*inverseSource)+(-1*inverseSource) * getDispiChannel0);
+	fragColor.a = getDispInput.a;
 }

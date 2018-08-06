@@ -70,15 +70,17 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy1paramValueBool0", "Invert sources : ")
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1paramValueBool0 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -107,6 +109,45 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep04 = param
+    del param
+
+    param = lastNode.createBooleanParam("Shadertoy1paramValueBool0", "Invert sources : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1paramValueBool0 = param
+    del param
+
+    param = lastNode.createStringParam("sep05", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep05 = param
+    del param
+
+    param = lastNode.createStringParam("sep06", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep06 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -311,7 +352,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -323,8 +364,8 @@ def createInstance(app,group):
     lastNode.setScriptName("Source1")
     lastNode.setLabel("Source1")
     lastNode.setPosition(4044, 3683)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(1, 1, 1)
     groupSource1 = lastNode
 
     del lastNode
@@ -334,8 +375,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3846)
-    lastNode.setSize(80, 48)
+    lastNode.setPosition(4139, 3847)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -346,7 +387,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : JB_colorRemap Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : JB_colorRemap Matchbox for Autodesk Flame\n\n\n// iChannel0: source 1, filter = nearest, wrap0 = clamp\n// iChannel1: source 2, filter = nearest, wrap1 = clamp\n\n\nuniform bool inverseFlag = false; // Invert sources : (invert sources)\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tint inverseSource = 0;\n\tif (inverseFlag == true)\n\t\tinverseSource = 1;\n\n\tvec2 st1;\n\tst1.x = fragCoord.x / iResolution.x;\n\tst1.y = fragCoord.y / iResolution.y;\n\t\n\tvec4 getDispInput;\n\tgetDispInput = texture2D(iChannel0, st1);\n\t\n\n\tvec2 stDisp;\n\tstDisp.x = (getDispInput.x + getDispInput.z) ;\n\tstDisp.y = (getDispInput.y + getDispInput.z);\n\t\n\tvec4 getDispiChannel0;\n\tgetDispiChannel0 = texture2D(iChannel1, stDisp);\n\n\tvec4 outColor;\n\tfragColor = (1-inverseSource)*getDispiChannel0+((1*inverseSource)+(-1*inverseSource) * getDispiChannel0);\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : JB_colorRemap Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : JB_colorRemap Matchbox for Autodesk Flame\n\n\n// iChannel0: source 1, filter = nearest, wrap0 = clamp\n// iChannel1: source 2, filter = nearest, wrap1 = clamp\n\n\nuniform bool inverseFlag = false; // Invert sources : (invert sources)\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tint inverseSource = 0;\n\tif (inverseFlag == true)\n\t\tinverseSource = 1;\n\n\tvec2 st1;\n\tst1.x = fragCoord.x / iResolution.x;\n\tst1.y = fragCoord.y / iResolution.y;\n\t\n\tvec4 getDispInput;\n\tgetDispInput = texture2D(iChannel0, st1);\n\t\n\n\tvec2 stDisp;\n\tstDisp.x = (getDispInput.x + getDispInput.z) ;\n\tstDisp.y = (getDispInput.y + getDispInput.z);\n\t\n\tvec4 getDispiChannel0;\n\tgetDispiChannel0 = texture2D(iChannel1, stDisp);\n\n\tvec4 outColor;\n\tfragColor = (1-inverseSource)*getDispiChannel0+((1*inverseSource)+(-1*inverseSource) * getDispiChannel0);\n\tfragColor.a = getDispInput.a;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -421,9 +462,9 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source2")
     lastNode.setLabel("Source2")
-    lastNode.setPosition(4250, 3676)
-    lastNode.setSize(80, 43)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4251, 3684)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(1, 1, 1)
     groupSource2 = lastNode
 
     del lastNode

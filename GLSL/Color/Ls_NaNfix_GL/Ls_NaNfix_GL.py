@@ -70,21 +70,17 @@ def createInstance(app,group):
     lastNode.sep02 = param
     del param
 
-    param = lastNode.createIntParam("Shadertoy1_2paramValueInt0", "Radius : ")
-    param.setMinimum(1, 0)
-    param.setMaximum(10, 0)
-    param.setDisplayMinimum(1, 0)
-    param.setDisplayMaximum(10, 0)
-    param.setDefaultValue(1, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueInt0 = param
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
     del param
 
     param = lastNode.createStringParam("sep03", "")
@@ -113,6 +109,51 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep04 = param
+    del param
+
+    param = lastNode.createIntParam("Shadertoy1_2paramValueInt0", "Radius : ")
+    param.setMinimum(1, 0)
+    param.setMaximum(10, 0)
+    param.setDisplayMinimum(1, 0)
+    param.setDisplayMaximum(10, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1_2paramValueInt0 = param
+    del param
+
+    param = lastNode.createStringParam("sep05", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep05 = param
+    del param
+
+    param = lastNode.createStringParam("sep06", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep06 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -317,7 +358,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -329,7 +370,7 @@ def createInstance(app,group):
     lastNode.setScriptName("rgba")
     lastNode.setLabel("rgba")
     lastNode.setPosition(4139, 3698)
-    lastNode.setSize(80, 43)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouprgba = lastNode
 
@@ -340,14 +381,19 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
-    lastNode.setPosition(4139, 3826)
-    lastNode.setSize(80, 48)
+    lastNode.setPosition(4139, 3827)
+    lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
+    param = lastNode.getParam("paramValueInt0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_NaNfix Matchbox pour Autodesk Flame\n//\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_NaNfix Matchbox for Autodesk Flame\n//\n// NaNfix - interpolate NaN pixels from surroundings\n// lewis@lewissaunders.com \n\n// iChannel0: rgba, filter = nearest, wrap=clamp\n// BBox: iChannel0\n\n\n\nuniform int radius = 1; // Radius : (radius), min=1, max=10\n\n\n\n\n\nbool isnan(float f) {\n  // Try a few things.  Some drivers optimise some of them away :/\n  if(f != f) {\n    return true;\n  }\n  if(f < 0.0 || 0.0 < f || f == 0.0) {\n    return false;\n  } else {\n    return true;\n  }\n}\n\nbool anynans(vec3 v) {\n  if(isnan(v.r)) return true;\n  if(isnan(v.g)) return true;\n  if(isnan(v.b)) return true;\n  return false;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    vec2 res = vec2(iResolution.x, iResolution.y);\n    vec2 xy = fragCoord.xy;\n\n    vec3 o = texture2D(iChannel0, xy / res).rgb;\n    float m = 0.0;\n    \n    if(anynans(o)) {\n      o = vec3(0.0);\n      m = 1.0;\n      float count = 0.0;\n      float r = float(radius);\n      for(float i = -r; i <= r; i += 1.0) {\n        for(float j = -r; j <= r; j += 1.0) {\n          vec3 here = texture2D(iChannel0, (xy + vec2(i, j))/res).rgb;\n          if(!anynans(here)) {\n            o += here;\n            count += 1.0;\n          }\n        }\n      }\n      if(count == 0.0) {\n        // Couldn\'t find any good pixels in surroundings! Output black.\n        o = vec3(0.0);\n      } else {\n        o /= count;\n      }\n    }\n    \n    fragColor = vec4(o, m);\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_NaNfix Matchbox pour Autodesk Flame\n//\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_NaNfix Matchbox for Autodesk Flame\n//\n// NaNfix - interpolate NaN pixels from surroundings\n// lewis@lewissaunders.com \n\n// iChannel0: rgba, filter = nearest, wrap=clamp\n// BBox: iChannel0\n\n\n\nuniform int radius = 1; // Radius : (radius), min=1, max=10\n\n\n\n\n\nbool isnan(float f) {\n  // Try a few things.  Some drivers optimise some of them away :/\n  if(f != f) {\n    return true;\n  }\n  if(f < 0.0 || 0.0 < f || f == 0.0) {\n    return false;\n  } else {\n    return true;\n  }\n}\n\nbool anynans(vec3 v) {\n  if(isnan(v.r)) return true;\n  if(isnan(v.g)) return true;\n  if(isnan(v.b)) return true;\n  return false;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    vec2 res = vec2(iResolution.x, iResolution.y);\n    vec2 xy = fragCoord.xy;\n\n    vec3 o = texture2D(iChannel0, xy / res).rgb;\n    float alpha = texture2D(iChannel0, xy / res).a;\n    float m = 0.0;\n    \n    if(anynans(o)) {\n      o = vec3(0.0);\n      m = 1.0;\n      float count = 0.0;\n      float r = float(radius);\n      for(float i = -r; i <= r; i += 1.0) {\n        for(float j = -r; j <= r; j += 1.0) {\n          vec3 here = texture2D(iChannel0, (xy + vec2(i, j))/res).rgb;\n          if(!anynans(here)) {\n            o += here;\n            count += 1.0;\n          }\n        }\n      }\n      if(count == 0.0) {\n        // Couldn\'t find any good pixels in surroundings! Output black.\n        o = vec3(0.0);\n      } else {\n        o /= count;\n      }\n    }\n    \n    fragColor = vec4(o, m);\n    fragColor.a = alpha;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")

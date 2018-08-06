@@ -22,7 +22,7 @@ def getLabel():
     return "Ls_RndmGrade_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Ls_RndmGrade_GL.png"
@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat0 = param
@@ -154,6 +155,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat1 = param
@@ -185,6 +187,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueInt2 = param
@@ -216,6 +219,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat3 = param
@@ -302,6 +306,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat4 = param
@@ -333,6 +338,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat5 = param
@@ -419,6 +425,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat6 = param
@@ -450,6 +457,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat7 = param
@@ -481,6 +489,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat8 = param
@@ -512,6 +521,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat9 = param
@@ -580,6 +590,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool12 = param
@@ -611,6 +622,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat10 = param
@@ -638,6 +650,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueBool11 = param
@@ -869,24 +882,24 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4048)
     lastNode.setSize(80, 44)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3645)
-    lastNode.setSize(80, 44)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setSize(80, 26)
+    lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
     del lastNode
@@ -897,7 +910,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1_2")
     lastNode.setPosition(4139, 3859)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
@@ -968,7 +981,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_RndmGrade Matchbox pour Autodesk Flame\n//\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_RndmGrade Matchbox for Autodesk Flame\n//\n// Create random grades\n// lewis@lewissaunders.com\n// TODO:\n//  o Prevent solarization somehow?\n//  o HSV, Lab, YUV curve options?\n\n\n\n// iChannel0: Source, filter = nearest, wrap=clamp\n// iChannel1: Mask, filter = nearest, wrap=clamp\n// BBox: iChannel0\n\n\n\n\n\n\nuniform float rgbseed = 10; // Seed : (seed), min=-1000, max=1000\nuniform float rgbamount = 1; // Amount : (amount), min=-10, max=10\nuniform int rgbpoints = 4; // Curve points : (curve points), min=2, max=20\nuniform float colourfulness = 0.75; // colourfulness : (colourfulness), min=-10, max=10\n\nuniform float crossseed = 33; // Cross seed : (cross seed), min=-1000, max=1000\nuniform float crossamount = 0.5; // Cross amount : (cross amount), min=-10, max=10\n\nuniform float lockwhite = 0.5; // Lock white : (lock white), min=-1, max=1\nuniform float smoothwhite = 0.5; // Smooth white : (smooth white), min=0, max=1\n\nuniform float lockblack = 0.5; // Lock white : (lock white), min=-1, max=1\nuniform float smoothblack = 0.5; // Smooth white : (smooth white), min=0, max=1\n\n\nuniform float mixx = 1; // Mix : (mix), min=0, max=1\n\nuniform bool clampnegs = true;\nuniform bool overlays = true;\n\n\n\n\n\n\n\n// RGB to Rec709 YPbPr\nvec3 yuv(vec3 rgb) {\n    return mat3(0.2215, -0.1145, 0.5016, 0.7154, -0.3855, -0.4556, 0.0721, 0.5, -0.0459) * rgb;\n}\n\n// Rec709 YPbPr to RGB\nvec3 rgb(vec3 yuv) {\n    return mat3(1.0, 1.0, 1.0, 0.0, -0.1870, 1.8556, 1.5701, -0.4664, 0.0) * yuv;\n}\n\nfloat rando(float a, float b) {\n\tvec2 s = vec2(a, b);\n    return 2.0 * fract(sin(dot(s.xy, vec2(12.9898, 78.233))) * 43758.5453) - 1.0;\n}\n\n// Returns value of a random 1D spline curve for input x\nfloat curve(float x, float seed, int npoints, float amount, float lock0, float smooth0, float lock1, float smooth1) {\n\t// Make some random control points, each at (x,y) with slope z\n\tvec3 points[20];\n\tfor(int i = 0; i < 20; i++) {\n\t\tpoints[i].x = (float(i) / float(npoints - 1)) + (amount/3.0) * (rando(float(i)+00.0, seed) - 0.5);\n\t\tpoints[i].y = (float(i) / float(npoints - 1)) + (amount/1.0) * (rando(float(i)+10.0, seed) - 0.5);\n\t\tpoints[i].z =                         1.0 + (amount/6.0) * (rando(float(i)+20.0, seed) - 0.5);\n\t}\n\n\t/* Sort them by ascending x, naive insertion sort\n\t   It doesn\'t make sense to skip this, but it makes things jump when\n\t   points move enough in x that they pass each other...\n\tfor(int i = 1; i < npoints; i++) {\n\t\tint j = i - 1;\n\t\twhile(j >= 0 && points[j].x > points[i].x) {\n\t\t\tpoints[j + 1] = points[j];\n\t\t\tj--;\n\t\t}\n\t\tpoints[j + 1] = points[i];\n\t} */\n\n\t// Lock first and last points to ends, optionally lock output at 0/1 to 0/1\n\tpoints[0].x = 0.0;\n\tpoints[0].y = mix(points[0].y, 0.0, lock0);\n\tpoints[0].z = mix(points[0].z, 0.0, smooth0);\n\tpoints[npoints-1].x = 1.0;\n\tpoints[npoints-1].y = mix(points[npoints-1].y, 1.0, lock1);\n\tpoints[npoints-1].z = mix(points[npoints-1].z, 0.0, smooth1);\n\n\t// Evaluate spline - first find the control points before and after the input in x\n\tint i = 1;\n\twhile(points[i].x < x && i < npoints - 1) i++;\n\tfloat x1 = points[i - 1].x;\n\tfloat x2 = points[i].x;\n\tfloat y1 = points[i - 1].y;\n\tfloat y2 = points[i].y;\n\tfloat k1 = points[i - 1].z;\n\tfloat k2 = points[i].z;\n\n\t// https://en.wikipedia.org/wiki/Spline_interpolation#Algorithm_to_find_the_interpolating_cubic_spline\n\tfloat t = (x - x1) / (x2 - x1);\n\tfloat a =  k1 * (x2 - x1) - (y2 - y1);\n\tfloat b =  -k2 * (x2 - x1) + (y2 - y1);\n\tfloat q = (1.0 - t) * y1 + t * y2 + t * (1.0 - t) * (a * (1.0 - t) + b * t);\n\treturn q;\n}\n\n// Random curves per RGB\nvec3 rgbcurves(vec3 i) {\n\tvec3 rgbcurved;\n\trgbcurved.r = curve(i.r, rgbseed+7.0, rgbpoints, rgbamount/10.0, lockblack, smoothblack, lockwhite, smoothwhite);\n\trgbcurved.g = curve(i.g, rgbseed+8.0, rgbpoints, rgbamount/10.0, lockblack, smoothblack, lockwhite, smoothwhite);\n\trgbcurved.b = curve(i.b, rgbseed+9.0, rgbpoints, rgbamount/10.0, lockblack, smoothblack, lockwhite, smoothwhite);\n\n\tvec3 diff = rgbcurved - i;\n\tfloat avgdiff = (diff.r + diff.g + diff.b) / 3.0;\n\tvec3 nocolourfulness = i + avgdiff;\n\trgbcurved = mix(nocolourfulness, rgbcurved, colourfulness);\n\n\tif(clampnegs == true) rgbcurved = clamp(rgbcurved, 0.0, 999999.0);\n\n\treturn rgbcurved;\n}\n\n// Random cross-transfer between channels - red from green, red from blue etc\nvec3 rgbmatrix(vec3 i) {\n\tmat3 m = mat3(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);\n\tmat3 r = mat3(1.0, rando(crossseed, 1.0) - 0.5, rando(crossseed, 2.0) - 0.5,\n\t              rando(crossseed, 3.0) - 0.5, 1.0, rando(crossseed, 5.0) - 0.5,\n\t              rando(crossseed, 6.0) - 0.5, rando(crossseed, 7.0) - 0.5, 1.0);\n\tvec3 crossed = i * (m + crossamount * r);\n\n\t// Don\'t affect the grayscale\n\tvec3 desat = vec3((i.r + i.g + i.b) / 3.0);\n\tfloat sat = length(i - desat);\n\treturn mix(i, crossed, sat);\n}\n\n// Draw RGB curves as a graph\nvec3 graph(vec3 i, vec2 xy) {\n\tvec2 pos = xy * 4.0;\n\tpos.x *= iResolution.x / iResolution.y;\n\tpos -= vec2(0.1, 0.1);\n\tif(pos.x < -0.1 || pos.x > 1.1 || pos.y < -0.1 || pos.y > 1.1) {\n\t\treturn i;\n\t}\n\tfloat ry = rgbcurves(vec3(pos.x)).r;\n\tfloat gy = rgbcurves(vec3(pos.x)).g;\n\tfloat by = rgbcurves(vec3(pos.x)).b;\n\tfloat rdist = abs(ry - pos.y);\n\tfloat gdist = abs(gy - pos.y);\n\tfloat bdist = abs(by - pos.y);\n\n\t// http://iquilezles.org/www/articles/distance/distance.htm\n  // (sadly dFd... sometimes returns really wrong things)\n  /*rdist /= min(length(vec2(dFdx(rdist), dFdy(rdist))), 0.005);\n  gdist /= min(length(vec2(dFdx(gdist), dFdy(gdist))), 0.005);\n  bdist /= min(length(vec2(dFdx(bdist), dFdy(bdist))), 0.005);\n*/\n  rdist *= 200.0;\n  gdist *= 200.0;\n  bdist *= 200.0;\n\n\tfloat rgraph = 1.0 - smoothstep(0.0, 2.0, rdist);\n\tfloat ggraph = 1.0 - smoothstep(0.0, 2.0, gdist);\n\tfloat bgraph = 1.0 - smoothstep(0.0, 2.0, bdist);\n\tvec3 graph = vec3(rgraph, ggraph, bgraph);\n\tvec2 lines = 1.0 - smoothstep(0.0, 0.08, fract(pos*10.04));\n\tif(pos.x > 0.0 && pos.x < 1.0 && pos.y > 0.0 && pos.y < 1.0) {\n\t\tgraph += 0.15 * length(lines);\n\t}\n\treturn mix(i, graph, 0.66666);\n}\n\n// Draw vectorscope-type thing\nvec3 hues(vec3 i, vec2 xy) {\n\tvec2 pos = xy * 4.0;\n\tpos.x *= iResolution.x / iResolution.y;\n\tpos -= vec2(0.1, 0.1);\n\tpos.x -= 1.2;\n\tif(pos.x < -0.1 || pos.x > 1.1 || pos.y < -0.1 || pos.y > 1.1) {\n\t\treturn i;\n\t}\n\tvec3 graph = vec3(0.0);\n\tvec3 cols[7];\n\tcols[0] = vec3(1.0, 0.0, 0.0);\n\tcols[1] = vec3(0.0, 1.0, 0.0);\n\tcols[2] = vec3(0.0, 0.0, 1.0);\n\tcols[3] = vec3(0.0, 1.0, 1.0);\n\tcols[4] = vec3(1.0, 0.0, 1.0);\n\tcols[5] = vec3(1.0, 1.0, 0.0);\n\tcols[6] = vec3(0.5, 0.5, 0.5);\n\tfor(int i = 0; i < 7; i++) {\n\t\tvec3 from = cols[i];\n\t\tvec3 to = rgbmatrix(from);\n\t\tif(i == 6) to = rgbcurves(from);\n\t\tvec2 fromcoords = yuv(from).gb / 2.0 + 0.5;\n\t\tvec2 tocoords = yuv(to).gb / 2.0 + 0.5;\n\t\tfloat fromring = 1.0 - smoothstep(0.0, 0.0035, abs(0.03 - length(pos - fromcoords)));\n\t\tfloat tocircle = 1.0 - smoothstep(0.02, 0.022, length(pos - tocoords));\n\t\tgraph += 0.5 * fromring * from + 0.75 * tocircle * to;\n\t}\n\n\tfloat circle = smoothstep(0.995, 1.0, 1.0 - abs(0.5 - length(pos - vec2(0.5, 0.5))));\n\tfloat lines = length(1.0 - smoothstep(0.0, 0.016, fract(pos*2.01)));\n\tif((pos.x > 0.48 && pos.x < 0.52) || (pos.y > 0.48 && pos.y < 0.52)) {\n\t\tlines += length(1.0 - smoothstep(0.0, 0.1, fract(pos*20.08)));\n\t}\n\tif(length(pos - vec2(0.5, 0.5)) > 0.5) lines = 0.0;\n\tgraph += 0.15 * max(lines, circle);\n\treturn mix(i, graph, 0.66666);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 coords = fragCoord.xy / iResolution.xy;\n\tvec3 frontpix = texture2D(iChannel0, coords).rgb;\n\tvec3 mattepix = texture2D(iChannel1, coords).rgb;\n\n\tvec3 crossed = rgbmatrix(frontpix);\n\tvec3 rgbcurved = rgbcurves(crossed);\n\tvec3 mixed = mix(frontpix, rgbcurved, mixx * length(mattepix));\n\n\tif(overlays == true) {\n\t\tmixed = graph(mixed, coords);\n\t\tmixed = hues(mixed, coords);\n\t}\n\n\tfragColor = vec4(mixed, 1.0);\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : Ls_RndmGrade Matchbox pour Autodesk Flame\n//\n// Adapted to Natron by F.Fernandez\n// Original code : Ls_RndmGrade Matchbox for Autodesk Flame\n//\n// Create random grades\n// lewis@lewissaunders.com\n// TODO:\n//  o Prevent solarization somehow?\n//  o HSV, Lab, YUV curve options?\n\n\n\n// iChannel0: Source, filter = nearest, wrap=clamp\n// iChannel1: Mask, filter = nearest, wrap=clamp\n// BBox: iChannel0\n\n\n\n\n\n\nuniform float rgbseed = 10; // Seed : (seed), min=-1000, max=1000\nuniform float rgbamount = 1; // Amount : (amount), min=-10, max=10\nuniform int rgbpoints = 4; // Curve points : (curve points), min=2, max=20\nuniform float colourfulness = 0.75; // colourfulness : (colourfulness), min=-10, max=10\n\nuniform float crossseed = 33; // Cross seed : (cross seed), min=-1000, max=1000\nuniform float crossamount = 0.5; // Cross amount : (cross amount), min=-10, max=10\n\nuniform float lockwhite = 0.5; // Lock white : (lock white), min=-1, max=1\nuniform float smoothwhite = 0.5; // Smooth white : (smooth white), min=0, max=1\n\nuniform float lockblack = 0.5; // Lock white : (lock white), min=-1, max=1\nuniform float smoothblack = 0.5; // Smooth white : (smooth white), min=0, max=1\n\n\nuniform float mixx = 1; // Mix : (mix), min=0, max=1\n\nuniform bool clampnegs = true;\nuniform bool overlays = true;\n\n\n\n\n\n\n\n// RGB to Rec709 YPbPr\nvec3 yuv(vec3 rgb) {\n    return mat3(0.2215, -0.1145, 0.5016, 0.7154, -0.3855, -0.4556, 0.0721, 0.5, -0.0459) * rgb;\n}\n\n// Rec709 YPbPr to RGB\nvec3 rgb(vec3 yuv) {\n    return mat3(1.0, 1.0, 1.0, 0.0, -0.1870, 1.8556, 1.5701, -0.4664, 0.0) * yuv;\n}\n\nfloat rando(float a, float b) {\n\tvec2 s = vec2(a, b);\n    return 2.0 * fract(sin(dot(s.xy, vec2(12.9898, 78.233))) * 43758.5453) - 1.0;\n}\n\n// Returns value of a random 1D spline curve for input x\nfloat curve(float x, float seed, int npoints, float amount, float lock0, float smooth0, float lock1, float smooth1) {\n\t// Make some random control points, each at (x,y) with slope z\n\tvec3 points[20];\n\tfor(int i = 0; i < 20; i++) {\n\t\tpoints[i].x = (float(i) / float(npoints - 1)) + (amount/3.0) * (rando(float(i)+00.0, seed) - 0.5);\n\t\tpoints[i].y = (float(i) / float(npoints - 1)) + (amount/1.0) * (rando(float(i)+10.0, seed) - 0.5);\n\t\tpoints[i].z =                         1.0 + (amount/6.0) * (rando(float(i)+20.0, seed) - 0.5);\n\t}\n\n\t/* Sort them by ascending x, naive insertion sort\n\t   It doesn\'t make sense to skip this, but it makes things jump when\n\t   points move enough in x that they pass each other...\n\tfor(int i = 1; i < npoints; i++) {\n\t\tint j = i - 1;\n\t\twhile(j >= 0 && points[j].x > points[i].x) {\n\t\t\tpoints[j + 1] = points[j];\n\t\t\tj--;\n\t\t}\n\t\tpoints[j + 1] = points[i];\n\t} */\n\n\t// Lock first and last points to ends, optionally lock output at 0/1 to 0/1\n\tpoints[0].x = 0.0;\n\tpoints[0].y = mix(points[0].y, 0.0, lock0);\n\tpoints[0].z = mix(points[0].z, 0.0, smooth0);\n\tpoints[npoints-1].x = 1.0;\n\tpoints[npoints-1].y = mix(points[npoints-1].y, 1.0, lock1);\n\tpoints[npoints-1].z = mix(points[npoints-1].z, 0.0, smooth1);\n\n\t// Evaluate spline - first find the control points before and after the input in x\n\tint i = 1;\n\twhile(points[i].x < x && i < npoints - 1) i++;\n\tfloat x1 = points[i - 1].x;\n\tfloat x2 = points[i].x;\n\tfloat y1 = points[i - 1].y;\n\tfloat y2 = points[i].y;\n\tfloat k1 = points[i - 1].z;\n\tfloat k2 = points[i].z;\n\n\t// https://en.wikipedia.org/wiki/Spline_interpolation#Algorithm_to_find_the_interpolating_cubic_spline\n\tfloat t = (x - x1) / (x2 - x1);\n\tfloat a =  k1 * (x2 - x1) - (y2 - y1);\n\tfloat b =  -k2 * (x2 - x1) + (y2 - y1);\n\tfloat q = (1.0 - t) * y1 + t * y2 + t * (1.0 - t) * (a * (1.0 - t) + b * t);\n\treturn q;\n}\n\n// Random curves per RGB\nvec3 rgbcurves(vec3 i) {\n\tvec3 rgbcurved;\n\trgbcurved.r = curve(i.r, rgbseed+7.0, rgbpoints, rgbamount/10.0, lockblack, smoothblack, lockwhite, smoothwhite);\n\trgbcurved.g = curve(i.g, rgbseed+8.0, rgbpoints, rgbamount/10.0, lockblack, smoothblack, lockwhite, smoothwhite);\n\trgbcurved.b = curve(i.b, rgbseed+9.0, rgbpoints, rgbamount/10.0, lockblack, smoothblack, lockwhite, smoothwhite);\n\n\tvec3 diff = rgbcurved - i;\n\tfloat avgdiff = (diff.r + diff.g + diff.b) / 3.0;\n\tvec3 nocolourfulness = i + avgdiff;\n\trgbcurved = mix(nocolourfulness, rgbcurved, colourfulness);\n\n\tif(clampnegs == true) rgbcurved = clamp(rgbcurved, 0.0, 999999.0);\n\n\treturn rgbcurved;\n}\n\n// Random cross-transfer between channels - red from green, red from blue etc\nvec3 rgbmatrix(vec3 i) {\n\tmat3 m = mat3(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);\n\tmat3 r = mat3(1.0, rando(crossseed, 1.0) - 0.5, rando(crossseed, 2.0) - 0.5,\n\t              rando(crossseed, 3.0) - 0.5, 1.0, rando(crossseed, 5.0) - 0.5,\n\t              rando(crossseed, 6.0) - 0.5, rando(crossseed, 7.0) - 0.5, 1.0);\n\tvec3 crossed = i * (m + crossamount * r);\n\n\t// Don\'t affect the grayscale\n\tvec3 desat = vec3((i.r + i.g + i.b) / 3.0);\n\tfloat sat = length(i - desat);\n\treturn mix(i, crossed, sat);\n}\n\n// Draw RGB curves as a graph\nvec3 graph(vec3 i, vec2 xy) {\n\tvec2 pos = xy * 4.0;\n\tpos.x *= iResolution.x / iResolution.y;\n\tpos -= vec2(0.1, 0.1);\n\tif(pos.x < -0.1 || pos.x > 1.1 || pos.y < -0.1 || pos.y > 1.1) {\n\t\treturn i;\n\t}\n\tfloat ry = rgbcurves(vec3(pos.x)).r;\n\tfloat gy = rgbcurves(vec3(pos.x)).g;\n\tfloat by = rgbcurves(vec3(pos.x)).b;\n\tfloat rdist = abs(ry - pos.y);\n\tfloat gdist = abs(gy - pos.y);\n\tfloat bdist = abs(by - pos.y);\n\n\t// http://iquilezles.org/www/articles/distance/distance.htm\n  // (sadly dFd... sometimes returns really wrong things)\n  /*rdist /= min(length(vec2(dFdx(rdist), dFdy(rdist))), 0.005);\n  gdist /= min(length(vec2(dFdx(gdist), dFdy(gdist))), 0.005);\n  bdist /= min(length(vec2(dFdx(bdist), dFdy(bdist))), 0.005);\n*/\n  rdist *= 200.0;\n  gdist *= 200.0;\n  bdist *= 200.0;\n\n\tfloat rgraph = 1.0 - smoothstep(0.0, 2.0, rdist);\n\tfloat ggraph = 1.0 - smoothstep(0.0, 2.0, gdist);\n\tfloat bgraph = 1.0 - smoothstep(0.0, 2.0, bdist);\n\tvec3 graph = vec3(rgraph, ggraph, bgraph);\n\tvec2 lines = 1.0 - smoothstep(0.0, 0.08, fract(pos*10.04));\n\tif(pos.x > 0.0 && pos.x < 1.0 && pos.y > 0.0 && pos.y < 1.0) {\n\t\tgraph += 0.15 * length(lines);\n\t}\n\treturn mix(i, graph, 0.66666);\n}\n\n// Draw vectorscope-type thing\nvec3 hues(vec3 i, vec2 xy) {\n\tvec2 pos = xy * 4.0;\n\tpos.x *= iResolution.x / iResolution.y;\n\tpos -= vec2(0.1, 0.1);\n\tpos.x -= 1.2;\n\tif(pos.x < -0.1 || pos.x > 1.1 || pos.y < -0.1 || pos.y > 1.1) {\n\t\treturn i;\n\t}\n\tvec3 graph = vec3(0.0);\n\tvec3 cols[7];\n\tcols[0] = vec3(1.0, 0.0, 0.0);\n\tcols[1] = vec3(0.0, 1.0, 0.0);\n\tcols[2] = vec3(0.0, 0.0, 1.0);\n\tcols[3] = vec3(0.0, 1.0, 1.0);\n\tcols[4] = vec3(1.0, 0.0, 1.0);\n\tcols[5] = vec3(1.0, 1.0, 0.0);\n\tcols[6] = vec3(0.5, 0.5, 0.5);\n\tfor(int i = 0; i < 7; i++) {\n\t\tvec3 from = cols[i];\n\t\tvec3 to = rgbmatrix(from);\n\t\tif(i == 6) to = rgbcurves(from);\n\t\tvec2 fromcoords = yuv(from).gb / 2.0 + 0.5;\n\t\tvec2 tocoords = yuv(to).gb / 2.0 + 0.5;\n\t\tfloat fromring = 1.0 - smoothstep(0.0, 0.0035, abs(0.03 - length(pos - fromcoords)));\n\t\tfloat tocircle = 1.0 - smoothstep(0.02, 0.022, length(pos - tocoords));\n\t\tgraph += 0.5 * fromring * from + 0.75 * tocircle * to;\n\t}\n\n\tfloat circle = smoothstep(0.995, 1.0, 1.0 - abs(0.5 - length(pos - vec2(0.5, 0.5))));\n\tfloat lines = length(1.0 - smoothstep(0.0, 0.016, fract(pos*2.01)));\n\tif((pos.x > 0.48 && pos.x < 0.52) || (pos.y > 0.48 && pos.y < 0.52)) {\n\t\tlines += length(1.0 - smoothstep(0.0, 0.1, fract(pos*20.08)));\n\t}\n\tif(length(pos - vec2(0.5, 0.5)) > 0.5) lines = 0.0;\n\tgraph += 0.15 * max(lines, circle);\n\treturn mix(i, graph, 0.66666);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 coords = fragCoord.xy / iResolution.xy;\n\tvec3 frontpix = texture2D(iChannel0, coords).rgb;\n\tvec3 mattepix = texture2D(iChannel1, coords).rgb;\n\tfloat original = texture2D(iChannel0, coords).a;\n\n\tvec3 crossed = rgbmatrix(frontpix);\n\tvec3 rgbcurved = rgbcurves(crossed);\n\tvec3 mixed = mix(frontpix, rgbcurved, mixx * length(mattepix));\n\n\tif(overlays == true) {\n\t\tmixed = graph(mixed, coords);\n\t\tmixed = hues(mixed, coords);\n\t}\n\n\tfragColor = vec4(mixed, 1.0);\n\tfragColor.a = original;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -1453,18 +1466,52 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
-    lastNode.setPosition(4354, 3679)
-    lastNode.setSize(80, 44)
-    lastNode.setColor(0.3, 0.5, 0.2)
+    lastNode.setPosition(4339, 3642)
+    lastNode.setSize(80, 26)
+    lastNode.setColor(1, 1, 1)
     groupMask = lastNode
 
     del lastNode
     # End of node "Mask"
 
+    # Start of node "Crop_Mask"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop_Mask")
+    lastNode.setLabel("Crop_Mask")
+    lastNode.setPosition(4334, 3859)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop_Mask = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop_Mask"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1_2)
+    groupOutput1.connectInput(0, groupShadertoy1_2)
     groupShadertoy1_2.connectInput(0, groupSource)
-    groupShadertoy1_2.connectInput(1, groupMask)
+    groupShadertoy1_2.connectInput(1, groupCrop_Mask)
+    groupCrop_Mask.connectInput(0, groupMask)
 
     param = groupShadertoy1_2.getParam("paramValueFloat0")
     group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
@@ -1504,6 +1551,10 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1_2.getParam("paramValueBool12")
     group.getParam("Shadertoy1_2paramValueBool12").setAsAlias(param)
+    del param
+    param = groupCrop_Mask.getParam("size")
+    param.setExpression("myWidth = Mask.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myWidth = Mask.getOutputFormat().height()\nret = myWidth", True, 1)
     del param
 
     try:
