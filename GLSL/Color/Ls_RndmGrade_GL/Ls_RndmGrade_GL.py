@@ -596,6 +596,32 @@ def createInstance(app,group):
     lastNode.Shadertoy1_2paramValueBool12 = param
     del param
 
+    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool11", "Clamp negs : ")
+    param.setDefaultValue(True)
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1_2paramValueBool11 = param
+    del param
+
+    param = lastNode.createBooleanParam("DivMult", "Pre-Div / Post-Mult : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.DivMult = param
+    del param
+
     param = lastNode.createStringParam("sep23", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -642,20 +668,6 @@ def createInstance(app,group):
     lastNode.sep24 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool11", "Clamp negs : ")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueBool11 = param
-    del param
-
     param = lastNode.createStringParam("sep25", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
@@ -668,20 +680,6 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep25 = param
-    del param
-
-    param = lastNode.createStringParam("sep26", "")
-    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("")
-    param.setAddNewLine(True)
-    param.setEvaluateOnChange(False)
-    param.setAnimationEnabled(False)
-    lastNode.sep26 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -898,7 +896,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3645)
-    lastNode.setSize(80, 26)
+    lastNode.setSize(80, 30)
     lastNode.setColor(1, 1, 1)
     groupSource = lastNode
 
@@ -1467,7 +1465,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
     lastNode.setPosition(4339, 3642)
-    lastNode.setSize(80, 26)
+    lastNode.setSize(80, 30)
     lastNode.setColor(1, 1, 1)
     groupMask = lastNode
 
@@ -1507,11 +1505,47 @@ def createInstance(app,group):
     del lastNode
     # End of node "Crop_Mask"
 
+    # Start of node "Unpremult1"
+    lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
+    lastNode.setScriptName("Unpremult1")
+    lastNode.setLabel("Unpremult1")
+    lastNode.setPosition(4134, 3769)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupUnpremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Unpremult1"
+
+    # Start of node "Premult1"
+    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
+    lastNode.setScriptName("Premult1")
+    lastNode.setLabel("Premult1")
+    lastNode.setPosition(4134, 3950)
+    lastNode.setSize(90, 36)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupPremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Premult1"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupShadertoy1_2)
-    groupShadertoy1_2.connectInput(0, groupSource)
+    groupOutput1.connectInput(0, groupPremult1)
+    groupShadertoy1_2.connectInput(0, groupUnpremult1)
     groupShadertoy1_2.connectInput(1, groupCrop_Mask)
     groupCrop_Mask.connectInput(0, groupMask)
+    groupUnpremult1.connectInput(0, groupSource)
+    groupPremult1.connectInput(0, groupShadertoy1_2)
 
     param = groupShadertoy1_2.getParam("paramValueFloat0")
     group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
@@ -1555,6 +1589,12 @@ def createInstance(app,group):
     param = groupCrop_Mask.getParam("size")
     param.setExpression("myWidth = Mask.getOutputFormat().width()\nret = myWidth", True, 0)
     param.setExpression("myWidth = Mask.getOutputFormat().height()\nret = myWidth", True, 1)
+    del param
+    param = groupUnpremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.DivMult.get()", False, 0)
+    del param
+    param = groupPremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.DivMult.get()", False, 0)
     del param
 
     try:

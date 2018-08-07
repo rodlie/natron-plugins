@@ -200,6 +200,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Channel/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='24'> **[Shuffle_AtoRGB_GL](/GLSL/Channel/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
+- <img src='/GLSL/Channel/y_mult_div_GL/y_mult_div_GLv.png' width='24'> **[y_mult_div_GL](/GLSL/Channel/y_mult_div_GL/README.md)** : Another multiply and divide an image by it's matte shader.
+
 ### GLSL/Color
 - <img src='/GLSL/Color/AFX_Grade_GL/AFX_Grade_GL.png' width='24'> **[AFX_Grade_GL](/GLSL/Color/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
 
@@ -327,6 +329,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Effect/y_flicker_GL/y_flicker_GL.png' width='24'> **[y_flicker_GL](/GLSL/Effect/y_flicker_GL/README.md)** : Removes flickering.
 
 - <img src='/GLSL/Effect/y_ixform_GL/y_ixform_GL.png' width='24'> **[y_ixform_GL](/GLSL/Effect/y_ixform_GL/README.md)** : Transform a thing. This is only cool if you input the optional black and white strength channel.
+
+- <img src='/GLSL/Effect/y_linex_GL/y_linex_GL.png' width='24'> **[y_linex_GL](/GLSL/Effect/y_linex_GL/README.md)** : Extrapolate the blending of 2 images past the boundaries of 0 and 1. Can do some useful and interesting things.
 
 - <img src='/GLSL/Effect/y_sharpen_GL/y_sharpen_GL.png' width='24'> **[y_sharpen_GL](/GLSL/Effect/y_sharpen_GL/README.md)** : Sharpen an image using a guassian blur with linear extrapolation.
 

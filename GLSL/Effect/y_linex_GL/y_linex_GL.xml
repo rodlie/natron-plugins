@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>y_linex_GL</DisplayName>
+    <Description>Extrapolate the blending of 2 images past the boundaries of 0 and 1. Can do some useful and interesting things.( http://www.graficaobscura.com/interp/index.html )</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.y_linex_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
