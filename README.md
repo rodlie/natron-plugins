@@ -200,7 +200,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Channel/Shuffle_AtoRGB_GL/Shuffle_AtoRGB_GL.png' width='24'> **[Shuffle_AtoRGB_GL](/GLSL/Channel/Shuffle_AtoRGB_GL/README.md)** : Copy the alpha to the RGB.
 
-- <img src='/GLSL/Channel/y_mult_div_GL/y_mult_div_GLv.png' width='24'> **[y_mult_div_GL](/GLSL/Channel/y_mult_div_GL/README.md)** : Another multiply and divide an image by it's matte shader.
+- <img src='/GLSL/Channel/y_mult_div_GL/y_mult_div_GL.png' width='24'> **[y_mult_div_GL](/GLSL/Channel/y_mult_div_GL/README.md)** : Another multiply and divide an image by it's matte shader.
 
 ### GLSL/Color
 - <img src='/GLSL/Color/AFX_Grade_GL/AFX_Grade_GL.png' width='24'> **[AFX_Grade_GL](/GLSL/Color/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
