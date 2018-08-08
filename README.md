@@ -290,6 +290,10 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Effect/Crok_highpass_GL/Crok_highpass_GL.png' width='24'> **[Crok_highpass_GL](/GLSL/Effect/Crok_highpass_GL/README.md)** : GPU accelerated highpass filter for Shadertoy.
 
+- <img src='/GLSL/Effect/Crok_instagram_GL/Crok_instagram_GL.png' width='24'> **[Crok_instagram_GL](/GLSL/Effect/Crok_instagram_GL/README.md)** : This shader gives you the typical Instagram looks.
+
+- <img src='/GLSL/Effect/Crok_jpeg_GL/Crok_jpeg_GL.png' width='24'> **[Crok_jpeg_GL](/GLSL/Effect/Crok_jpeg_GL/README.md)** : This shader simulates JPEG compression.
+
 - <img src='/GLSL/Effect/Crok_kuwahara_GL/Crok_kuwahara_GL.png' width='24'> **[Crok_kuwahara_GL](/GLSL/Effect/Crok_kuwahara_GL/README.md)** : Simulates anisotropic kuwahara filtering.
 
 - <img src='/GLSL/Effect/Crok_lowfi_GL/Crok_lowfi_GL.png' width='24'> **[Crok_lowfi_GL](/GLSL/Effect/Crok_lowfi_GL/README.md)** : Simulates NES, EGA and Gameboy video out.
