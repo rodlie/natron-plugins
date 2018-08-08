@@ -80,12 +80,12 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
 	vec2 coords = fragCoord.xy / vec2(iResolution.x, iResolution.y);
 	float mixx_here = mixx * texture2D(iChannel1, coords).r;
-	vec3 i = texture2D(iChannel0, coords).rgb;
+	vec4 i = texture2D(iChannel0, coords);
 	vec3 ii = vec3(r2r*i.r + g2r*i.g + b2r*i.b, r2g*i.r + g2g*i.g + b2g*i.b, r2b*i.r + g2b*i.g + b2b*i.b);
 	vec3 iii = ii * mat3(or, og, ob);
 	vec3 iv = mat3(ir, ig, ib) * iii;
-	vec3 v = effect*iv + (1.0-effect)*i;
+	vec3 v = effect*iv + (1.0-effect)*i.rgb;
 	vec3 vi = gain * v;
-	vec3 vii = mixx_here*vi + (1.0-mixx_here)*i;
-	fragColor = vec4(vii, 1.0);
+	vec3 vii = mixx_here*vi + (1.0-mixx_here)*i.rgb;
+	fragColor = vec4(vii, i.a);
 }

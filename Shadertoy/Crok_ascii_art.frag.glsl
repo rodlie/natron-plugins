@@ -90,10 +90,10 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec2 uv = fragCoord.xy - 0.5;
 	vec2 uv2 = fragCoord.xy / resolution.xy;
   vec2 cursor_position = (floor(uv/8.0)*8.0+0.5)/resolution.xy; //slight blur
-	vec3 col = texture2D(iChannel0, cursor_position).rgb;
+	vec4 col = texture2D(iChannel0, cursor_position);
 	float m = texture2D(iChannel1, uv2).r;
 
-  float luma = dot(col,vec3(0.2126, 0.7152, 0.0722)) * m;
+  float luma = dot(col.rgb,vec3(0.2126, 0.7152, 0.0722)) * m;
 
 	float gray = smoothstep(0.0,1.0,luma); //increase contrast
   float num_of_chars = 16. ;
@@ -118,7 +118,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 	col = col *character(n, p) * (brightness + 1.0);
 	if ( bw )
-		col = mix(vec3(character(n, p)), luma * vec3(character(n, p)), brightness * - 1.0 + 1.0);
+		col = mix(vec4(character(n, p)), luma * vec4(character(n, p)), brightness * - 1.0 + 1.0);
 
-	fragColor = vec4(col,1.0);
+	fragColor = col;
 }
