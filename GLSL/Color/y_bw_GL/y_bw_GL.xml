@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>y_bw_GL</DisplayName>
+    <Description>Create black and white images with similar controls as Lightroom. Also nice for creating interesting mattes for color correction or whatever down stream.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.y_bw_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

@@ -219,6 +219,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Color/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='24'> **[Ls_RndmGrade_GL](/GLSL/Color/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
+- <img src='/GLSL/Color/y_bw_GL/y_bw_GL.png' width='24'> **[y_bw_GL](/GLSL/Color/y_bw_GL/README.md)** : Create black and white images with similar controls as Lightroom. Also nice for creating interesting mattes for color correction or whatever down stream.
+
 ### GLSL/Distort
 - <img src='/GLSL/Distort/Crok_heathaze_GL/Crok_heathaze_GL.png' width='24'> **[Crok_heathaze_GL](/GLSL/Distort/Crok_heathaze_GL/README.md)** : Creates a heat haze effect.
 
