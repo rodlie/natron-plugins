@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Distort"
 
 def getPluginDescription():
-    return "Distorts side-by-side stereo images to be useable with the Oculus Rift"
+    return "Distorts side-by-side stereo images to be useable with the Oculus Rift."
 
 def createInstance(app,group):
     # Create all nodes in the group
