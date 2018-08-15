@@ -3,7 +3,7 @@
 GPU accelerated Bilateral blur based on Shadertoy.
 
 ### INPUTS :
-- Source : source input.
+- Source : source input (RGBA).
 
 
 ### PARAMETERS :

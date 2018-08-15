@@ -3,7 +3,7 @@
 GPU accelerated Barrel chroma blur effect for Shadertoy.
 
 ### INPUTS :
-- Source : source input.
+- Source : source input (RGBA).
 
 
 ### PARAMETERS :
