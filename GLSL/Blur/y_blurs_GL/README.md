@@ -18,6 +18,7 @@ Blur a thing. Options include the abilty to constrain the blur within an optiona
 - Green Bias : green channel blur intensity
 - Blue Bias : blue channel blur intensity
 
+## OPTIONS :
 - Invert Matte : invert mask
 - Constraint Blur to Matte : bound the effect within the mask
 - Matte is Strength : use mask as strength
