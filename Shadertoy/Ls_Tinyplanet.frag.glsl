@@ -25,27 +25,28 @@
 //
 // Adaptation pour Natron par F. Fernandez
 // Code original : Ls_Tinyplanet Matchbox pour Autodesk Flame
-//
+
 // Adapted to Natron by F.Fernandez
 // Original code : Ls_Tinyplanet Matchbox for Autodesk Flame
-//
+
+
+// iChannel0: Source,filter=linear,wrap=repeat
+// BBox: iChannel0
 
 // Stereographic projection of a 360x180 latlong panorama, tiny planets style
 // lewis@lewissaunders.com
 
 
-uniform float xo = 0.5; // X centre : (x centre), min=-2., max=2.
-uniform float yo = 0.5; // Y centre : (y centre), min=-2., max=2.
-uniform float long0 = 0.25333333333; // X rotate : (x rotate), min=-1000., max=1000.
-uniform float lat1 = -0.70666666666; // Y rotate : (y rotate), min=-1000., max=1000.
-uniform float r = 0.17; // Zoom : (zoom), min=-1., max=2.
+vec2 center = iMouse.xy /iResolution.xy;
 
+uniform float long0 = 0.25333333333; // Rotate X : , min=-10000.0, max=10000
+uniform float lat1 = -0.70666666666; // Rotate Y : , min=-10000.0, max=10000
+uniform float r = 0.17; // Zoom : , min=0.0001, max=2.0
 
-uniform float latm = 0.31830988618379069; // Latitude mult : (latitude mult), min=-30., max=30.
-uniform float longm = 0.15915494309189535; // Longitude mult : (longitude mult), min=-30., max=30.
-uniform float lato = -1.5707963267948966; // Latitude offset : (latitude offset), min=-30., max=30.
-uniform float longo = -3.1415926535897932; // Longitude offset : (longitude offset), min=-30., max=30.
-
+uniform float latm = 0.31830988618379069; // Lal Mult : ,min=-30.0, max=30.0
+uniform float longm = 0.15915494309189535; // Long Mult : ,min=-30.0, max=30.0
+uniform float lato = -1.5707963267948966; // Lat Offset : ,min=-30.0, max=30.0
+uniform float longo = -3.1415926535897932; // Long Offset : ,min=-30.0, max=30.0
 
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
@@ -56,15 +57,15 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	coords.x *= (res.x / res.y);
 	coords.x += 0.5;
 
-	float p = sqrt((coords.x-xo)*(coords.x-xo)+(coords.y-yo)*(coords.y-yo));
+	float p = sqrt((coords.x-center.x)*(coords.x-center.x)+(coords.y-center.y)*(coords.y-center.y));
 	float c = 2.0 * atan(p, 2.0 * r);
-	float longg = (long0 + atan((coords.x-xo)*sin(c), p*cos(lat1)*cos(c) - (coords.y-yo)*sin(lat1)*sin(c)));
-	float lat = asin(cos(c)*sin(lat1) + (((coords.y-yo)*sin(c)*cos(lat1)) / p));
+	float longg = (long0 + atan((coords.x-center.x)*sin(c), p*cos(lat1)*cos(c) - (coords.y-center.y)*sin(lat1)*sin(c)));
+	float lat = asin(cos(c)*sin(lat1) + (((coords.y-center.y)*sin(c)*cos(lat1)) / p));
 	vec2 uv;
 	uv.x = (longg - longo) * longm;
 	uv.y = (lat - lato) * latm;
 
-	vec3 o = texture2D(iChannel0, uv).rgb;
+	vec4 o = texture2D(iChannel0, uv);
 
-	fragColor = vec4(o, 1.00);
+	fragColor = o;
 }

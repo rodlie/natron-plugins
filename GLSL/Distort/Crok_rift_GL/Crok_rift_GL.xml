@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_rift_GL</DisplayName>
+    <Description>Distorts side-by-side stereo images to be useable with the Oculus Rift</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_rift_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

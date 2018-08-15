@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Crok_folding_GL</DisplayName>
+    <Description>Creates a folding texture, which you can use as a reflection map.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Crok_folding_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
