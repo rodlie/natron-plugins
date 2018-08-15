@@ -9,4 +9,4 @@ GPU accelerated Barrel chroma blur effect for Shadertoy.
 ### PARAMETERS :
 - Barrel : amount of distorsion
 - Chromatic Aberration : amount of chromatic aberration
-- Iterations : quality sampling ( higher = better = slower )
+- Iterations : sampling quality ( higher = better = slower )
