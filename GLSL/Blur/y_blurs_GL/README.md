@@ -4,8 +4,8 @@ Blur a thing. Options include the abilty to constrain the blur within an optiona
 
 ### INPUTS :
 - Source : source input (RGBA)
-- Matte : mask (A)
-- Strength : blur strength driving input (A)
+- Matte : mask input that modulates the effect (A)
+- Strength : effect strength driving input (A)
 
 
 ### PARAMETERS :
