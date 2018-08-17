@@ -13,3 +13,6 @@ Creates a Lens Blur effect.
 - Aspect : blur aspect
 - Chroma Offset : edge chroma aberration amount
 - Iterations : sampling ( higher = better = slower)
+
+### DEMO :
+- https://vimeo.com/228570303
