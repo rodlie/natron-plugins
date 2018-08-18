@@ -8,5 +8,5 @@ GPU accelerated Bilateral blur based on Shadertoy.
 
 ### PARAMETERS :
 - Threshold : range of values to be affected by the effect
-- Intensity : bloom intensity
+- Intensity : blur intensity
 - Blur Size : blur size

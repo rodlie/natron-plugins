@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat0 = param
@@ -147,13 +148,14 @@ def createInstance(app,group):
     param.setMaximum(5, 0)
     param.setDisplayMinimum(0, 0)
     param.setDisplayMaximum(5, 0)
-    param.setDefaultValue(0.9, 0)
+    param.setDefaultValue(0.2, 0)
     param.restoreDefaultValue(0)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat1 = param
@@ -199,6 +201,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat2 = param
@@ -216,6 +219,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueInt3 = param
@@ -233,6 +237,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueInt4 = param
@@ -285,6 +290,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueBool5 = param
@@ -359,6 +365,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
     lastNode.Shadertoy2wrap0 = param
@@ -641,7 +648,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat1")
     if param is not None:
-        param.setValue(0.9, 0)
+        param.setValue(0.2, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat2")
@@ -981,10 +988,15 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(250, 0)
-        param.setValue(385, 1)
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("reformat")

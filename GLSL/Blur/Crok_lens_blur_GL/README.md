@@ -9,7 +9,7 @@ Creates a Lens Blur effect.
 ### PARAMETERS :
 - Amount : lens blur amount
 - Gain : add gain to the result
-- Threshold : value range on which gain will be applied
+- Threshold : range of values on which gain will be applied
 - Aspect : blur aspect
 - Chroma Offset : edge chroma aberration amount
 - Iterations : sampling ( higher = better = slower)

@@ -41,12 +41,14 @@
 
 
 uniform float pSize = 0.08; // Size : (size), min=0, max=2
-uniform float p2 = 0.9; // Strenght : (strength), min=0, max=5
+uniform float p2 = 0.2; // Strenght : (strength), min=0, max=5
 
 
 uniform float p1 = 0.12; // Offset : (offset), min=-5, max=5
-uniform int max1 = 4; // H Offset : (horizontal offset), min=1, max=10
-uniform int max2 = 3; // V Offset : (vertical offset), min=1, max=10
+uniform int max1 = 10; // H Offset : (horizontal offset), min=1, max=100
+uniform int max2 = 10; // V Offset : (vertical offset), min=1, max=100
+
+uniform float samples = 0.0075; // Samples : 
 
 uniform bool perpixel_size = false; // Modulate (Modulate the amplitude by multiplying it by the first channel of the Modulate input)
 uniform int maskChannel = 3; // Mask : (mask channel), min=0, max=3
