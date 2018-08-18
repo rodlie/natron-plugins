@@ -9,4 +9,4 @@ GPU accelerated Bloom effect based on Shadertoy.
 ### PARAMETERS :
 - Threshold : range of values on which the effect will be applied
 - Intensity : bloom intensity
-- Bkur Size : blur size
+- Blur Size : blur size
