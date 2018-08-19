@@ -10,7 +10,6 @@ Creates a directional blur.
 ### PARAMETERS :
 - X Blur : horizontal blur value
 - Y Blur : vertical blur value
-- Gain : add gain
 - Iterations : sampling ( higher = better = slower)
 
 ### MASK :
