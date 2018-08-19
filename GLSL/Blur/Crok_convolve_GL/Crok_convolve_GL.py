@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_convolve_GL"
 
 def getVersion():
-    return 1.01
+    return 1
 
 def getIconPath():
     return "Crok_convolve_GL.png"
@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat0 = param
@@ -154,6 +155,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat1 = param
@@ -200,7 +202,7 @@ def createInstance(app,group):
     lastNode.LINE01 = param
     del param
 
-    param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edge extend : ")
+    param = lastNode.createChoiceParam("Shadertoy1wrap0", "Edges : ")
     param.setDefaultValue(1)
     param.restoreDefaultValue()
 
@@ -208,8 +210,10 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
+    param.set("clamp")
     lastNode.Shadertoy1wrap0 = param
     del param
 
@@ -439,16 +443,16 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
     lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
@@ -615,7 +619,7 @@ def createInstance(app,group):
     # End of node "Shadertoy1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1)
+    groupOutput1.connectInput(0, groupShadertoy1)
     groupShadertoy1.connectInput(0, groupSource)
 
     param = groupShadertoy1.getParam("paramValueFloat0")

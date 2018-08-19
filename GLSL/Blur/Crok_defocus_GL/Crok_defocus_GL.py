@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_defocus_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Crok_defocus_GL.png"
@@ -156,6 +156,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass2paramValueFloat0 = param
@@ -185,6 +186,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass2paramValueFloat1 = param
@@ -216,6 +218,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass2paramValueFloat2 = param
@@ -335,6 +338,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueFloat0 = param
@@ -364,6 +368,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueFloat1 = param
@@ -395,6 +400,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass3paramValueFloat2 = param
@@ -470,16 +476,14 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createBooleanParam("pass3paramValueBool4", "Front is Premultiplied : ")
-    param.setDefaultValue(True)
-    param.restoreDefaultValue()
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(False)
     lastNode.pass3paramValueBool4 = param
     del param
 
@@ -851,6 +855,21 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass2 = lastNode
 
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(300, 0)
+        del param
+
     param = lastNode.getParam("paramValueInt3")
     if param is not None:
         param.setValue(0, 0)
@@ -1042,6 +1061,21 @@ def createInstance(app,group):
     lastNode.setSize(90, 36)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass3 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(300, 0)
+        del param
 
     param = lastNode.getParam("paramValueInt3")
     if param is not None:
@@ -1272,8 +1306,8 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(1600, 0)
-        param.setValue(948, 1)
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("reformat")
@@ -1305,8 +1339,8 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(1600, 0)
-        param.setValue(948, 1)
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("reformat")
@@ -1338,8 +1372,8 @@ def createInstance(app,group):
 
     param = lastNode.getParam("size")
     if param is not None:
-        param.setValue(1600, 0)
-        param.setValue(948, 1)
+        param.setValue(1920, 0)
+        param.setValue(1080, 1)
         del param
 
     param = lastNode.getParam("reformat")

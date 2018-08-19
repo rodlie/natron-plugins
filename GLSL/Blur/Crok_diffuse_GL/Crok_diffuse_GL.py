@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_diffuse_GL"
 
 def getVersion():
-    return 1.0
+    return 1
 
 def getIconPath():
     return "Crok_diffuse_GL.png"
@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueInt0 = param
@@ -154,6 +155,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1_2paramValueFloat1 = param
@@ -200,7 +202,7 @@ def createInstance(app,group):
     lastNode.LINE01 = param
     del param
 
-    param = lastNode.createChoiceParam("Shadertoy1_2wrap0", "Edge extend : ")
+    param = lastNode.createChoiceParam("Shadertoy1_2wrap0", "Edges : ")
     entries = [ ("repeat", "WRAP_S/T = GL_REPEAT"),
     ("clamp", "WRAP_S/T = GL_CLAMP_TO_EDGE"),
     ("mirror", "WRAP_S/T = GL_MIRRORED_REPEAT")]
@@ -443,16 +445,16 @@ def createInstance(app,group):
     lastNode.refreshUserParamsGUI()
     del lastNode
 
-    # Start of node "Output2"
+    # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 3997)
     lastNode.setSize(90, 36)
     lastNode.setColor(0.7, 0.7, 0.7)
-    groupOutput2 = lastNode
+    groupOutput1 = lastNode
 
     del lastNode
-    # End of node "Output2"
+    # End of node "Output1"
 
     # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
@@ -636,7 +638,7 @@ def createInstance(app,group):
     # End of node "Strength_map"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1_2)
+    groupOutput1.connectInput(0, groupShadertoy1_2)
     groupShadertoy1_2.connectInput(0, groupSource)
     groupShadertoy1_2.connectInput(1, groupStrength_map)
 

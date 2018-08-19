@@ -111,7 +111,7 @@ def createInstance(app,group):
     lastNode.sep04 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat2", "X blur : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat2", "X Blur : ")
     param.setMinimum(0, 0)
     param.setMaximum(1000, 0)
     param.setDisplayMinimum(0, 0)
@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat2 = param
@@ -142,7 +143,7 @@ def createInstance(app,group):
     lastNode.sep05 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "Y blur : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat3", "Y Blur : ")
     param.setMinimum(0, 0)
     param.setMaximum(1000, 0)
     param.setDisplayMinimum(0, 0)
@@ -152,6 +153,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat3 = param
@@ -183,8 +185,10 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(3.1, 0)
     lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
@@ -202,11 +206,11 @@ def createInstance(app,group):
     lastNode.sep07 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "iterations : ")
+    param = lastNode.createDoubleParam("Shadertoy1paramValueFloat1", "Iterations : ")
     param.setMinimum(2, 0)
-    param.setMaximum(49.99999999999999, 0)
+    param.setMaximum(50, 0)
     param.setDisplayMinimum(2, 0)
-    param.setDisplayMaximum(49.99999999999999, 0)
+    param.setDisplayMaximum(50, 0)
     param.setDefaultValue(10, 0)
     param.restoreDefaultValue(0)
 
@@ -214,6 +218,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueFloat1 = param
@@ -266,6 +271,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy1paramValueBool4 = param
@@ -340,6 +346,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(False)
     lastNode.Shadertoy1wrap0 = param
@@ -605,7 +612,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
-        param.setValue(1, 0)
+        param.setValue(3.1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat1")
@@ -924,6 +931,11 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
     param = lastNode.getParam("size")
     if param is not None:
         param.setValue(1920, 0)
@@ -950,6 +962,11 @@ def createInstance(app,group):
     param = lastNode.getParam("rectangleInteractEnable")
     if param is not None:
         param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
         del param
 
     param = lastNode.getParam("size")
