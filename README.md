@@ -95,6 +95,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Draw/Vignette/Vignette.png' width='32'> **[Vignette](/Draw/Vignette/README.md)** : This effect reduce the images brightness at the peripherie compared to the image center.
 
+- <img src='/Draw/Lightning_Bolt/bolticon.png' width='32'> **[Lightning Bolt](/Draw/Lightning_Bolt/README.md)** : Creates Lightning & Bolts
+
 ### Filter
 - <img src='Filter/Light%20Sweep/lighsweep_icon.png' width='32'> **[Light Sweep](/Filter/Light%20Sweep/README.md)** : Creates Light Sweep.
 
