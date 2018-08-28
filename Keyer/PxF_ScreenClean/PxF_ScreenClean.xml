@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>PxF_ScreenClean</DisplayName>
+    <Description>Use a clean plate to clean up blue/red/green screens.</Description>
+    <Version>2.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.PxF_ScreenClean</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
