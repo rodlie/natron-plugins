@@ -150,9 +150,9 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/Filter/DUCK_Smart_Blur/DUCK_Smart_Blur.png' width='32'> **[DUCK_Smart_Blur](/Filter/DUCK_Smart_Blur/README.md)** : Smart Blur isn't a common blur, it helps to blur images with heavy grain, surface imperfections, noises, render problems, etc. keeping the boundary and the edges, and restoring details in highlights and dark regions of the image.
 
 ### Filter/Pixelfudger
-- <img src='/Filter/PxF_Bandpass/PxF_Bandpass.png' width='32'> **[PxF_Bandpass](/Filter/PxF_Bandpass/README.md)** : Extract detail from an image. Useful to make plates easier to track.
+- <img src='/Filter/PxF_Bandpass/PxF_Bandpass.png' width='24'> **[PxF_Bandpass](/Filter/PxF_Bandpass/README.md)** : Extract detail from an image. Useful to make plates easier to track.
 
-- <img src='/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png' width='32'> **[PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
+- <img src='/Filter/PxF_ChromaBlur/PxF_ChromaBlur.png' width='24'> **[PxF_ChromaBlur](/Filter/PxF_ChromaBlur/README.md)** : Blur chrominance without affecting luminance. Useful to repair some chroma artifacts in digital video.
 
 ### GLSL/Blur
 - <img src='/GLSL/Blur/Barrel_Blur_Chroma_GL/Barrel_Blur_Chroma_GL.png' width='24'> **[Barrel_Blur_Chroma_GL](/GLSL/Blur/BlurBarrel_Blur_Chroma_GL/README.md)** : GPU accelerated Barrel chroma blur effect for Shadertoy.
