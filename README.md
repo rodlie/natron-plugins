@@ -173,9 +173,17 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Blur/Crok_convolve_GL/Crok_convolve_GL.png' width='24'> **[Crok_convolve_GL](/GLSL/Blur/BlurCrok_convolve_GL/README.md)** : Simulates a convolve blur.
 
+- <img src='/GLSL/Blur/Crok_defocus_GL/Crok_defocus_GL.png' width='24'> **[Crok_defocus_GL](/GLSL/Blur/Crok_defocus_GL/README.md)** : Comps front and back and adds a defocus effect.
+
 - <img src='/GLSL/Blur/Crok_diffuse_GL/Crok_diffuse_GL.png' width='24'> **[Crok_diffuse_GL](/GLSL/Blur/BlurCrok_diffuse_GL/README.md)** : Creates a noisy blur.
 
 - <img src='/GLSL/Blur/Crok_dir_blur_GL/Crok_dir_blur_GL.png' width='24'> **[Crok_dir_blur_GL](/GLSL/Blur/BlurCrok_dir_blur_GL/README.md)** : Creates a directional blur.
+
+- <img src='/GLSL/Blur/Crok_dof_blur_GL/Crok_dof_blur_GL.png' width='24'> **[Crok_dof_blur_GL](/GLSL/Blur/Crok_dof_blur_GL/README.md)** : Simulates depth of field with bokeh.
+
+- <img src='/GLSL/Blur/Crok_lens_blur_GL/Crok_lens_blur_GL.png' width='24'> **[Crok_lens_blur_GL](/GLSL/Blur/Crok_lens_blur_GL/README.md)** : Simulates depth of field with bokeh.
+
+- <img src='/GLSL/Blur/Crok_soften_GL/Crok_soften_GL.png' width='24'> **[Crok_soften_GL](/GLSL/Blur/Crok_soften_GL/README.md)** : Sub pixel blur meant for creating natural looking edges.
 
 - <img src='/GLSL/Blur/Crok_reskin_GL/Crok_reskin_GL.png' width='24'> **[Crok_reskin_GL](/GLSL/Blur/Crok_reskin_GL/README.md)** : Creates skin type textures.
 
@@ -211,6 +219,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Color/Crok_exposure_GL/Crok_exposure_GL.png' width='24'> **[Crok_exposure_GL](/GLSL/Color/Crok_exposure_GL/README.md)** : Simulates an exposure node.
 
+- <img src='/GLSL/Color/Crok_filmlook_GL/Crok_filmlook_GL.png' width='24'> **[Crok_filmlook_GL](/GLSL/Color/Crok_filmlook_GL/README.md)** : This shader gives you different FilmLook presets.
+
 - <img src='/GLSL/Color/JB_colorRemap_GL/JB_colorRemap_GL.png' width='24'> **[JB_colorRemap_GL](/GLSL/Color/JB_colorRemap_GL/README.md)** : Remaps RGB of input1 using RGB of input 2.
 
 - <img src='/GLSL/Color/K_BW_GL/K_BW_GL.png' width='24'> **[K_BW_GL](/GLSL/Color/K_BW_GL/README.md)** : Creates black and white images with adjustable RGB values.
@@ -221,9 +231,19 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Color/Ls_RndmGrade_GL/Ls_RndmGrade_GL.png' width='24'> **[Ls_RndmGrade_GL](/GLSL/Color/Ls_RndmGrade_GL/README.md)** : Generates random grades. Works best on log footage or low-contrast ungraded video.
 
+- <img src='/GLSL/Color/threshold_GL/threshold_GL.png' width='24'> **[threshold_GL](/GLSL/Color/threshold_GL/README.md)** : Applies a threshold filter to an image.
+
 - <img src='/GLSL/Color/y_bw_GL/y_bw_GL.png' width='24'> **[y_bw_GL](/GLSL/Color/y_bw_GL/README.md)** : Create black and white images with similar controls as Lightroom. Also nice for creating interesting mattes for color correction or whatever down stream.
 
+- <img src='/GLSL/Color/y_hue_ops_GL/y_hue_ops_GL.png' width='24'> **[y_hue_ops_GL](/GLSL/Color/y_hue_ops_GL/README.md)** : Isolate hues, and adjust their color / saturation.
+
+- <img src='/GLSL/Color/y_linear_GL/y_linear_GL.png' width='24'> **[y_linear_GL](/GLSL/Color/y_linear_GL/README.md)** : Convert footage to linear and back with ease.
+
 ### GLSL/Distort
+- <img src='/GLSL/Distort/Crok_chroma_warp_GL/Crok_chroma_warp_GL.png' width='24'> **[Crok_chroma_warp_GL](/GLSL/Distort/Crok_chroma_warp_GL/README.md)** : Creates chromatic aberrations and a barrel distortion.
+
+- <img src='/GLSL/Distort/Crok_distort_blur_GL/Crok_distort_blur_GL.png' width='24'> **[Crok_distort_blur_GL](/GLSL/Distort/Crok_distort_blur_GL/README.md)** : Adds a blured lens distortion effect.
+
 - <img src='/GLSL/Distort/Crok_heathaze_GL/Crok_heathaze_GL.png' width='24'> **[Crok_heathaze_GL](/GLSL/Distort/Crok_heathaze_GL/README.md)** : Creates a heat haze effect.
 
 - <img src='/GLSL/Distort/Crok_noise_blur_GL/Crok_noise_blur_GL.png' width='24'> **[Crok_noise_blur_GL](/GLSL/Distort/Crok_noise_blur_GL/README.md)** : Creates a noise texture similar to the popular Genarts Texture.
@@ -231,6 +251,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Distort/Crok_pixelsort_GL/Crok_pixelsort_GL.png' width='24'> **[Crok_pixelsort_GL](/GLSL/Distort/Crok_pixelsort_GL/README.md)** : Creates a pixel sort type effect.
 
 - <img src='/GLSL/Distort/Crok_pixelstretch_GL/Crok_pixelstretch_GL.png' width='24'> **[Crok_pixelstretch_GL](/GLSL/Distort/Crok_pixelstretch_GL/README.md)** : Creates a Pixelspread type stretch effect.
+
+- <img src='/GLSL/Distort/Crok_rift_GL/Crok_rift_GL.png' width='24'> **[Crok_rift_GL](/GLSL/Distort/Crok_rift_GL/README.md)** : Distorts side-by-side stereo images to be useable with the Oculus Rift.
 
 - <img src='/GLSL/Distort/JB_pixelDisplace_GL/JB_pixelDisplace_GL.png' width='24'> **[JB_pixelDisplace_GL](/GLSL/Distort/JB_pixelDisplace_GL/README.md)** : Image displace effect for Shadertoy.
 
@@ -247,6 +269,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Distort/Ls_Posmatte_GL/Ls_Posmatte_GL.png' width='24'> **[Ls_Posmatte_GL](/GLSL/Distort/Ls_Posmatte_GL/README.md)** : Pulls a spherical matte from an XYZ position pass.
 
 - <img src='/GLSL/Distort/Ls_Splineblur_GL/Ls_Splineblur_GL.png' width='24'> **[Ls_Splineblur_GL](/GLSL/Distort/Ls_Splineblur_GL/README.md)** : Directional blur along the edges of a shape.
+
+- <img src='/GLSL/Distort/Ls_Tinyplanet_GL/Ls_Tinyplanet_GL.png' width='24'> **[Ls_Tinyplanet_GL](/GLSL/Distort/Ls_Tinyplanet_GL/README.md)** : Stereographic reprojection of 360 panoramas.
 
 - <img src='/GLSL/Distort/Ls_UVewa_GL/Ls_UVewa_GL.png' width='24'> **[Ls_UVewa_GL](/GLSL/Distort/Ls_UVewa_GL/README.md)** : UV mapping with EWA filtering.
 
@@ -314,6 +338,10 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Effect/Crok_separation_GL/Crok_separation_GL.png' width='24'> **[Crok_separation_GL](/GLSL/Effect/Crok_separation_GL/README.md)** : Creates a low pass and high pass filter sometimes called frequency separation.
 
+- <img src='/GLSL/Effect/Crok_sketch_GL/Crok_sketch_GL.png' width='24'> **[Crok_sketch_GL](/GLSL/Effect/Crok_sketch_GL/README.md)** : Creates a sketch type look.
+
+- <img src='/GLSL/Effect/Crok_ssao_GL/Crok_ssao_GL.png' width='24'> **[Crok_ssao_GL](/GLSL/Effect/Crok_ssao_GL/README.md)** : Simulates a SSAO look with just a Normal Map input.
+
 - <img src='/GLSL/Effect/Crok_tv_rgb_dots_GL/Crok_tv_rgb_dots_GL.png' width='24'> **[Crok_tv_rgb_dots_GL](/GLSL/Effect/Crok_tv_rgb_dots_GL/README.md)** : Simulates the typical RGB dots of old TVs.
 
 - <img src='/GLSL/Effect/Crok_vein_GL/Crok_vein_GL.png' width='24'> **[Crok_vein_GL](/GLSL/Effect/Crok_vein_GL/README.md)** : Generates veins.
@@ -326,9 +354,13 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Effect/JB_lidar_GL/JB_lidar_GL.png' width='24'> **[JB_lidar_GL](/GLSL/Effect/JB_lidar_GL/README.md)** : This node tries to emulate a fake point cloud data provided by a lidar.
 
+- <img src='/GLSL/Effect/L_ssao_GL/L_ssao_GL.png' width='24'> **[L_ssao_GL](/GLSL/Effect/L_ssao_GL/README.md)** : Uses the supplied Zdepth image to do Screen Space Ambient Occlusion.
+
 - <img src='/GLSL/Effect/Ls_Dollface_GL/Ls_Dollface_GL.png' width='24'> **[Ls_Dollface_GL](/GLSL/Effect/Ls_Dollface_GL/README.md)** : Blend similar colours with a bilateral filter whilst preserving edges, to remove grain or wrinkles.
 
 - <img src='/GLSL/Effect/Ls_FXAA_GL/Ls_FXAA_GL.png' width='24'> **[Ls_FXAA_GL](/GLSL/Effect/Ls_FXAA_GL/README.md)** : Fast cheap antialiasing.
+
+- <img src='/GLSL/Effect/Ls_Glint_GL/Ls_Glint_GL.png' width='24'> **[Ls_Glint_GL](/GLSL/Effect/Ls_Glint_GL/README.md)** : Makes highlights bloom into stars.
 
 - <img src='/GLSL/Effect/Ls_wireless_GL/Ls_wireless_GL.png' width='24'> **[Ls_wireless_GL](/GLSL/Effect/Ls_wireless_GL/README.md)** : Fast cheap antialiasing.
 
@@ -369,6 +401,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Merge/Merge_GL/Merge_GL.png' width='24'> **[Merge_GL](/GLSL/Merge/Merge_GL/README.md)** : GPU accelerated merge node for Shadertoy.
 
 - <img src='/GLSL/Merge/Screen_GL/Screen_GL.png' width='24'> **[Screen_GL](/GLSL/Merge/Screen_GL/README.md)** : GPU accelerated screen merge for Shadertoy.
+
+- <img src='/GLSL/Merge/y_source_GL/y_source_GL.png' width='24'> **[y_source_GL](/GLSL/Merge/y_source_GL/README.md)** : Recreates the most useful parts of action's source nodes. Back input is optional.
 
 ### GLSL/Source
 - <img src='/GLSL/Source/Bleepy_Blocks_GL/Bleepy_Blocks_GL.png' width='24'> **[Bleepy_Blocks_GL](/GLSL/Source/Bleepy_Blocks_GL/README.md)** : GPU accelerated bleepy blocks generator for Shadertoy.
