@@ -453,7 +453,11 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Keyer/BS_AlphaGrainEdge/BS_AlphaGrainEdge.png' width='32'> **[BS_AlphaGrainEdge](/Keyer/BS_AlphaGrainEdge/README.md)** : This basic PyPlug simply adds some noise to your alphas around the areas that aren't solid.
 
+- <img src='/Keyer/ColorDifferenceKey/ColorDifferenceKey.png' width='24'> **[ColorDifferenceKey](/Keyer/ColorDifferenceKey/README.md)** : Creates a quick color difference key.
+
 - <img src='/Keyer/CoveragePass/CoveragePass.png' width='32'> **[CoveragePass](/Keyer/CoveragePass/README.md)** : Extract Coverage Pass from render in Arnold and Renderman.
+
+- <img src='/Keyer/DespillMadness/DespillMadness.png' width='24'> **[DespillMadness](/Keyer/DespillMadness/README.md)** : The famous DespillMadness originaly crafted for Nuke by Andreas Frickinger.
 
 - <img src='/Keyer/EdgeMatteDetect/EdgeMatteDetect.png' width='32'> **[EdgeMatteDetect](/Keyer/EdgeMatteDetect/README.md)** : Description to be written
 
