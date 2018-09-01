@@ -475,9 +475,13 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Keyer/OverRange_Alpha/OverRange_Alpha.png' width='32'> **[OverRange_Alpha](/Keyer/OverRange_Alpha/README.md)** : Generates an alpha channel based on overranged values.
 
+- <img src='/Keyer/PIKDespill/PIKDespill.png' width='32'> **[PIKDespill](/Keyer/PIKDespill/README.md)** : Despill tool based on the PIK Keyer.
+
 - <img src='/Keyer/PositionMask/PositionMask.png' width='32'> **[PositionMask](/Keyer/PositionMask/README.md)** : Take a world position pass and generate a rounded mask from it.
 
 - <img src='/Keyer/PushPixel/PushPixel.png' width='32'> **[PushPixel](/Keyer/PushPixel/README.md)** : Pushes pixels of the RGB on the edges of the alpha channel.
+
+- <img src='/Keyer/PxF_ScreenClean/PxF_ScreenClean.png' width='24'> **[PxF_ScreenClean](/Keyer/PxF_ScreenClean/README.md)** : Use a clean plate to clean up blue/red/green screens.
 
 ### Lens Flare Presets
 - <img src='/Lens_Flare_Presets/flareicon.png' width='32'> **[Lens Flare Presets](/Lens_Flare_Presets)** : Various Lens Flare presets to use and make new presets.
