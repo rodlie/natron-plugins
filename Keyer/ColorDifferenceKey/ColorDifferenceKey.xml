@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>ColorDifferenceKey</DisplayName>
+    <Description>Creates a quick color difference key.</Description>
+    <Version>2.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.ColorDifferenceKey</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
