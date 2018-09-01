@@ -497,7 +497,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Keyer/DespillMadness/DespillMadness.png' width='24'> **[DespillMadness](/Keyer/DespillMadness/README.md)** : The famous DespillMadness originaly crafted for Nuke by Andreas Frickinger.
 
-- <img src='/Keyer/EdgeMatteDetect/EdgeMatteDetect.png' width='32'> **[EdgeMatteDetect](/Keyer/EdgeMatteDetect/README.md)** : Description to be written
+- <img src='/Keyer/EdgeMatteDetect/EdgeMatteDetect.png' width='24'> **[EdgeMatteDetect](/Keyer/EdgeMatteDetect/README.md)** : Description to be written
 
 - <img src='/Keyer/IDKeyer/IDKeyer.png' width='32'> **[IDKeyer](/Keyer/IDKeyer/README.md)** : Extract an alpha matte from a ID-Pass to be used as a mask.
 
