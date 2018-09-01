@@ -417,9 +417,9 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Source/Crok_blobs_GL/Crok_blobs_GL.png' width='24'> **[Crok_blobs_GL](/GLSL/Source/Crok_blobs_GL/README.md)** : Creates blob like sturctures.
 
-- <img src='/GLSL/Source/Crok_box_GL/Crok_box_GL.png' width='24'> **[Crok_box_GL](/GLSL/Source/Crok_box_GL/README.md)** : Creates an antialiased square with rounded corners.
-
 - <img src='/GLSL/Source/Crok_block_noise_GL/Crok_block_noise_GL.png' width='24'> **[Crok_block_noise_GL](/GLSL/Source/Crok_block_noise_GL/README.md)** : Creates blocky textures.
+
+- <img src='/GLSL/Source/Crok_box_GL/Crok_box_GL.png' width='24'> **[Crok_box_GL](/GLSL/Source/Crok_box_GL/README.md)** : Creates an antialiased square with rounded corners.
 
 - <img src='/GLSL/Source/Crok_cameraflash_GL/Crok_cameraflash_GL.png' width='24'> **[Crok_cameraflash_GL](/GLSL/Source/Crok_cameraflash_GL/README.md)** : Creates simple camera flashs.
 
@@ -432,6 +432,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Source/Crok_fbmPixels_GL/Crok_fbmPixels_GL.png' width='24'> **[Crok_fbmPixels_GL](/GLSL/Source/Crok_fbmPixels_GL/README.md)** : Creates a fbm style pattern.
 
 - <img src='/GLSL/Source/Crok_flow_GL/Crok_flow_GL.png' width='24'> **[Crok_flow_GL](/GLSL/Source/Crok_flow_GL/README.md)** : Creates a perlin noise pattern.
+
+- <img src='/GLSL/Source/Crok_folding_GL/Crok_folding_GL.png' width='24'> **[Crok_folding_GL](/GLSL/Source/Crok_folding_GL/README.md)** : Creates a folding texture, which you can use as a reflection map.
 
 - <img src='/GLSL/Source/Crok_fractal_GL/Crok_fractal_GL.png' width='24'> **[Crok_fractal_GL](/GLSL/Source/Crok_fractal_GL/README.md)** : Creates a fractal pattern.
 
@@ -476,6 +478,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Source/Magma_GL/Magma_GL.png' width='24'> **[Magma_GL](/GLSL/Source/Magma_GL/README.md)** : Generates a magma style effect.
 
 - <img src='/GLSL/Source/Noise_GL/Noise_GL.png' width='24'> **[Noise_GL](/GLSL/Source/Noise_GL/README.md)** : GPU accelerated noise generator for Shadertoy.
+
+- <img src='/GLSL/Source/Rolling_fire_GL/Rolling_fire_GL.png' width='24'> **[Rolling_fire_GL](/GLSL/Source/Rolling_fire_GL/README.md)** : Creates a rolling fire effect.
 
 ### GLSL/Transform
 - <img src='/GLSL/Transform/Crok_seamless_GL/Crok_seamless_GL.png' width='24'> **[Crok_seamless_GL](/GLSL/Transform/Crok_seamless_GL/README.md)** : Creates seamless textures.
