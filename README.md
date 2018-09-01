@@ -493,7 +493,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Keyer/ColorDifferenceKey/ColorDifferenceKey.png' width='24'> **[ColorDifferenceKey](/Keyer/ColorDifferenceKey/README.md)** : Creates a quick color difference key.
 
-- <img src='/Keyer/CoveragePass/CoveragePass.png' width='32'> **[CoveragePass](/Keyer/CoveragePass/README.md)** : Extract Coverage Pass from render in Arnold and Renderman.
+- <img src='/Keyer/CoveragePass/CoveragePass.png' width='24'> **[CoveragePass](/Keyer/CoveragePass/README.md)** : Extract Coverage Pass from render in Arnold and Renderman.
 
 - <img src='/Keyer/DespillMadness/DespillMadness.png' width='24'> **[DespillMadness](/Keyer/DespillMadness/README.md)** : The famous DespillMadness originaly crafted for Nuke by Andreas Frickinger.
 
