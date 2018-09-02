@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>V_CheckMatte</DisplayName>
+    <Description>Utility to evaluate a matte and help working with mattes and masks.</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.V_CheckMatte</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>

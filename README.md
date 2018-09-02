@@ -594,5 +594,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 ### Views
 - <img src='/Views/L_AspectMask/L_AspectMask.png' width='32'> **[L_AspectMask](/Views/L_AspectMask/README.md)** : Apply standard formats overlay over an image.
 
+### V_Tools
+- <img src='/V_Tools/V_CheckMatte/V_CheckMatte.png' width='24'> **[V_CheckMatte](/Views/V_CheckMatte/README.md)** : Utility to evaluate a matte and help working with mattes and masks.
+
 
 ![Image](Resources/community-plugins-logo.png)
