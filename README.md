@@ -533,7 +533,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Merge/ZCombine/ZCombine.png' width='32'> **[ZCombine](/Merge/ZCombine/README.md)** : Mix two images according to their Zbuffer.
 
-- <img src='/Merge/Proxy File/proxyfile_icon.png' width='32'> **[ProxyFile](/Merge/Proxy File/README.md)** : Various Lens Flare presets to use and make new presets.
+- <img src='/Merge/Proxy%20File/proxyfile_icon.png' width='32'> **[ProxyFile](/Merge/Proxy%20File/README.md)** : Creates Proxy File
 ### mS
 - <img src='/mS/mS_MarkerRemoval_Advanced/mS_MarkerRemoval_Advanced.png' width='32'> **[mS_MarkerRemoval_Advanced](/mS/mS_MarkerRemoval_Advanced/README.md)** : This PyPlug lets you easily remove tracking markers from backing screens without the hassle of painting, even when they intersect with the foreground elements.
 
