@@ -1,6 +1,6 @@
-#Cryptomatte_Keyer
+-Cryptomatte_Keyer
 
 Extracts up to 15 mattes per node using Cryptomatte pass.
 
-#Demo/Tutorial
+-Demo/Tutorial
 https://youtu.be/15uOsJDmhHw
