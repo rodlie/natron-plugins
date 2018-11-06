@@ -487,7 +487,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Transform/Crop_GL/Crop_GL.png' width='24'> **[Crop_GL](/GLSL/Transform/Crop_GL/README.md)** : A simple image cropper with built-in 2D texture offset and borders.
 
 ### Keyer
-- <img src='/Keyer/Cryptomatte_Keyer/Cryptomatte_Keyer.png' width='24'> **[AdditiveKeyer](Keyer/Cryptomatte_Keyer/README.md)** : Extracts up to 15 mattes per node using Cryptomatte pass.
+- <img src='/Keyer/Cryptomatte_Keyer/Cryptomatte_Keyer.png' width='24'> **[Cryptomatte_Keyer](Keyer/Cryptomatte_Keyer/README.md)** : Extracts up to 15 mattes per node using Cryptomatte pass.
 - <img src='/Keyer/AdditiveKeyer/AdditiveKeyer.png' width='24'> **[AdditiveKeyer](/Keyer/AdditiveKeyer/README.md)** : This is not a keyer, It is very good for separating translucent fine details (such as motion blur, dust or hair) that a keyers with mattes might have difficulties extracting.
 
 - <img src='/Keyer/BS_AlphaGrainEdge/BS_AlphaGrainEdge.png' width='32'> **[BS_AlphaGrainEdge](/Keyer/BS_AlphaGrainEdge/README.md)** : This basic PyPlug simply adds some noise to your alphas around the areas that aren't solid.
