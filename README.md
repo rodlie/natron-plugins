@@ -20,11 +20,20 @@ To install a snapshot of the repository, download it as a ZIP file via https://g
  
 Unzip into any PyPlug folder but the recommended locations are...
  
-    Windows: "C:\Program Files\Common Files\Natron\Plugins"
+    Windows: "C:\Program Files\INRIA\Natron-2.X.XX\Plugins\PyPlugs"
     
-    OSX:     "/Library/Application Support/Natron/Plugins"
+    OSX:     "/Library/Application Support/Natron2/Plugins/PyPlugs"
     
-    Linux:   "/usr/share/Natron/Plugins"
+    Linux:   "[YOUR INSTALLATION DIRECTORY]/Natron2/Plugins/PyPlugs"
+
+For Shadertoy prestes:
+    copy the natron-plugins-master/Shadertoy contents and replace it in the following links:
+    
+    Windows: "C:\Program Files\INRIA\Natron-2.3.14\Plugins\OFX\Natron\Shadertoy.ofx.bundle\Contents\Resources\presets\default"
+    
+    OSX:     "/Library/Application Support/Natron2/Plugins//OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default"
+    
+    Linux:   "[YOUR INSTALLATION DIRECTORY]Natron2/Plugins/OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default"
     
 
 Finally edit the plugins location in Natron preferences to allow it to find them during startup, if it's not already.
