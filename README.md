@@ -29,7 +29,7 @@ Unzip into any PyPlug folder but the recommended locations are...
 For Shadertoy prestes:
     copy the natron-plugins-master/Shadertoy contents and replace it in the following links:
     
-    Windows: "C:\Program Files\INRIA\Natron-2.3.14\Plugins\OFX\Natron\Shadertoy.ofx.bundle\Contents\Resources\presets\default"
+    Windows: "C:\Program Files\INRIA\Natron-2.X.XX\Plugins\OFX\Natron\Shadertoy.ofx.bundle\Contents\Resources\presets\default"
     
     OSX:     "/Library/Application Support/Natron2/Plugins//OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default"
     
