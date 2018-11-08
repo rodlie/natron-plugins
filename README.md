@@ -21,7 +21,7 @@ download it as a ZIP file via https://github.com/NatronGitHub/natron-plugins/arc
 Extract it anywhere.
 
 open Natron>
-    Edit>preference>plugins>pyplug search path>add>the exracted file location
+>Edit>preference>plugins>pyplug search path>add>the exracted file location
 >save
 
 Restart Natron.
