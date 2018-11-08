@@ -43,7 +43,7 @@ For Shadertoy prestes:
     
     Windows: "C:\Program Files\INRIA\Natron-2.X.XX\Plugins\OFX\Natron\Shadertoy.ofx.bundle\Contents\Resources\presets\default"
     
-    OSX:     "/Library/Application Support/Natron2/Plugins//OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default"
+    OSX:     "/Library/Application Support/Natron2/Plugins/OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default"
     
     Linux:   "[YOUR INSTALLATION DIRECTORY]Natron2/Plugins/OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default"
     
