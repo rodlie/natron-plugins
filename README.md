@@ -13,6 +13,18 @@ Later, the plugins can be updated at any time by pulling updates:
   
     cd /usr/share/Natron/Plugins/natron-plugins
     git pull
+    
+### Install directly from Natron
+
+download it as a ZIP file via https://github.com/NatronGitHub/natron-plugins/archive/master.zip
+
+Extract it anywhere.
+
+open Natron>
+Edit>preference>plugins>pyplug search path>add>the exracted file location
+>save
+
+Restart Natron.
  
 ### One-Time Install
 
@@ -24,7 +36,7 @@ Unzip into any PyPlug folder but the recommended locations are...
     
     OSX:     "/Library/Application Support/Natron2/Plugins/PyPlugs"
     
-    Linux:   "[YOUR INSTALLATION DIRECTORY]/Natron2/Plugins/PyPlugs"
+    Linux:   "[/usr/share] or [YOUR INSTALLATION DIRECTORY]/Natron2/Plugins/PyPlugs"
 
 For Shadertoy prestes:
     copy the natron-plugins-master/Shadertoy contents and replace it in the following links:
