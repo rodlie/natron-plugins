@@ -73,6 +73,7 @@ def createInstance(app,group):
     lastNode.param.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat1 = param
@@ -90,6 +91,7 @@ def createInstance(app,group):
     lastNode.param.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat2 = param
@@ -103,6 +105,7 @@ def createInstance(app,group):
     lastNode.param.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat3 = param
@@ -116,6 +119,7 @@ def createInstance(app,group):
     lastNode.param.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat4 = param
@@ -129,6 +133,7 @@ def createInstance(app,group):
     lastNode.param.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat5 = param
@@ -142,6 +147,7 @@ def createInstance(app,group):
     lastNode.param.addParam(param)
 
     # Set param properties
+    param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat6 = param
@@ -456,17 +462,17 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shadertoy2"
 
-    # Start of node "Input1"
+    # Start of node "Source"
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
-    lastNode.setScriptName("Input1")
-    lastNode.setLabel("Shadertoy2_Source")
+    lastNode.setScriptName("Source")
+    lastNode.setLabel("Source")
     lastNode.setPosition(469, 156)
-    lastNode.setSize(104, 31)
+    lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
-    groupInput1 = lastNode
+    groupSource = lastNode
 
     del lastNode
-    # End of node "Input1"
+    # End of node "Source"
 
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
@@ -480,7 +486,7 @@ def createInstance(app,group):
     # End of node "Output1"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupShadertoy2.connectInput(0, groupInput1)
+    groupShadertoy2.connectInput(0, groupSource)
     groupOutput1.connectInput(0, groupShadertoy2)
 
     param = groupShadertoy2.getParam("paramValueInt0")
