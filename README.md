@@ -161,6 +161,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Filter/lp_roughenEdges/lp_roughenEdges.png' width='32'> **[lp_roughenEdges](/Filter/lp_roughenEdges/README.md)** : Roughens the edges of a given alpha channel based on an adjustable noise.
 
+- <img src='/Filter//kaleidoscope/kaleidoscope.png' width='32'> **[Kaleidoscope](/Filter//kaleidoscope)** : creates kaleidoscope effect.
+
 ### Filter/Duck
 - <img src='/Filter/DUCK_Alpha_Edge/DUCK_Alpha_Edge.png' width='32'> **[DUCK_Alpha_Edge](/Filter/DUCK_Alpha_Edge/README.md)** : It gives edge of a roto or a key, you have the possibility to dilate or erode, blur or multiply the edge differently inside and outside. Simply the best alpha edge you can find for free.
 
