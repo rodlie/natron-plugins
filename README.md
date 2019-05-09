@@ -137,6 +137,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Filter/FireflyKiller/FireflyKiller.png' width='32'> **[FireflyKiller](/Filter/FireflyKiller/README.md)** : Removes fireflies, very bright, nervously jumping around pixels.
 
+- <img src='/Filter/kaleidoscope/kaleidoscope.png' width='32'> **[kaleidoscope](/Filter/kaleidoscope/README.md)** : Creates kaleidoscope effect.
+
 - <img src='/Filter/Mosaic/Mosaic.png' width='32'> **[Mosaic](/Filter/Mosaic/README.md)** : A basic mosaic effect.
 
 - <img src='/Filter/Orton/Orton.png' width='32'> **[Orton](/Filter/Orton/README.md)** : Orton Effect.
