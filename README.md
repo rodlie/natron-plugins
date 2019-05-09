@@ -96,6 +96,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Channel/Copy_N/Copy_N.png' width='32'> **[Copy_N](/Channel/Copy_N/README.md)** : Nuke Copy node.
 
+- <img src='/Channel/EasyExtract/EasyExtract.png' width='32'> **[EasyExtract](/Channel/EasyExtract/README.md)** : Easily extracts an image channel.
+
 - <img src='/Channel/L_ChannelSolo/L_ChannelSolo.png' width='32'> **[L_ChannelSolo](/Channel/L_ChannelSolo/README.md)** : Easy to use channel selector.
 
 - <img src='/Channel/Shuffle_N/Shuffle_N.png' width='32'> **[Shuffle_N](/Channel/Shuffle_N/README.md)** : Inverted Shuffle node.
