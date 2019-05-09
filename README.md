@@ -88,19 +88,19 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/BL/Warp/bl_Bulge/bl_Bulge.png' width='24'> **[bl_Bulge](/BL/Warp/bl_Bulge/README.md)** : The Bulge function is a copy of the Bulge inside AfterEffect. This PyPlug is basicaly creating a drop/buble effect on a picture.
 
 ### Channel
-- <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
+- <img src='/Channel/ChannelOffset/ChannelOffset.png' width='24'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
 
-- <img src='/Channel/ChannelMerge/ChannelMerge.png' width='32'> **[ChannelMerge](/Channel/ChannelMerge/README.md)** : ChannelMerge that mimics Nuke's one.
+- <img src='/Channel/ChannelMerge/ChannelMerge.png' width='24'> **[ChannelMerge](/Channel/ChannelMerge/README.md)** : ChannelMerge that mimics Nuke's one.
 
-- <img src='/Channel/Copy_Layer/Copy_Layer.png' width='32'> **[Copy_Layer](/Channel/Copy_Layer/README.md)** : Copy RGBA channels from the A input to any layer of the B branch.
+- <img src='/Channel/Copy_Layer/Copy_Layer.png' width='24'> **[Copy_Layer](/Channel/Copy_Layer/README.md)** : Copy RGBA channels from the A input to any layer of the B branch.
 
-- <img src='/Channel/Copy_N/Copy_N.png' width='32'> **[Copy_N](/Channel/Copy_N/README.md)** : Nuke Copy node.
+- <img src='/Channel/Copy_N/Copy_N.png' width='24'> **[Copy_N](/Channel/Copy_N/README.md)** : Nuke Copy node.
 
-- <img src='/Channel/EasyExtract/EasyExtract.png' width='32'> **[EasyExtract](/Channel/EasyExtract/README.md)** : Easily extracts an image channel.
+- <img src='/Channel/EasyExtract/EasyExtract.png' width='24'> **[EasyExtract](/Channel/EasyExtract/README.md)** : Easily extracts an image channel.
 
 - <img src='/Channel/L_ChannelSolo/L_ChannelSolo.png' width='32'> **[L_ChannelSolo](/Channel/L_ChannelSolo/README.md)** : Easy to use channel selector.
 
-- <img src='/Channel/Shuffle_N/Shuffle_N.png' width='32'> **[Shuffle_N](/Channel/Shuffle_N/README.md)** : Inverted Shuffle node.
+- <img src='/Channel/Shuffle_N/Shuffle_N.png' width='24'> **[Shuffle_N](/Channel/Shuffle_N/README.md)** : Inverted Shuffle node.
 
 - <img src='/Channel/Zmatte/Zmatte.png' width='32'> **[Zmatte](/Channel/Zmatte/README.md)** : Creates a smooth matte from z-depth pass.
 
