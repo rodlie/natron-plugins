@@ -53,4 +53,4 @@ This shader performs a chromatic adaptation. It also takes care of any necessary
 #### Options
 
 * Method : Adaptation method.
-* Filter : Texture filter of the input.
+* Filter : Texture filter for the input.
