@@ -10,9 +10,9 @@ source = connect the image you want to apply the effect onto.
 
 #### Input
 
-Input Colour Space : Input colour space. Note that the input must be linear in all cases.
-Input White Type : Input white point type.
-Input Illuminant : Input white point illuminant.
+* Input Colour Space : Input colour space. Note that the input must be linear in all cases.
+* Input White Type : Input white point type.
+* Input Illuminant : Input white point illuminant.
 
 ------------------------------------------------------------------------------------------------------------
 
