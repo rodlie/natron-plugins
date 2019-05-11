@@ -1,0 +1,10 @@
+<?xml version="1.01" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Chromatic_adaptation_GL</DisplayName>
+    <Description>This shader performs a chromatic adaptation. It also takes care of any necessary color space conversions.</Description>
+    <Version>1.01</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.Chromatic_adaptation_GL</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
