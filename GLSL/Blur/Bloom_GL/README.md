@@ -3,7 +3,7 @@
 GPU accelerated Bloom effect based on Shadertoy.
 
 ### INPUTS :
-- Source : source input (RGBA)
+- Source : Connect the image you want to apply the effect onto. (RGB)
 
 
 ### PARAMETERS :
