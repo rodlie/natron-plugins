@@ -11,8 +11,23 @@ This shader performs a chromatic adaptation. It also takes care of any necessary
 #### Input
 
 * Input Colour Space : Input colour space. Note that the input must be linear in all cases.
+  - ACEScg
+  - ACES2065-1
+  - Rec. 709
+  - Rec. 2020
+  - P3D65
+  - XYZ
 * Input White Type : Input white point type.
+  - Native
+  - Illuminant
+  - Colour Temperature
+  - XY Coordinates
+  - from Colour
 * Input Illuminant : Input white point illuminant.
+  - ACES
+  - HD D65
+  - DCI
+  - Equal Energy
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -32,8 +47,23 @@ This shader performs a chromatic adaptation. It also takes care of any necessary
 #### Output
 
 * Output Colour Space : Output colour space. Note that the output must be linear in all cases.
+  - ACEScg
+  - ACES2065-1
+  - Rec. 709
+  - Rec. 2020
+  - P3D65
+  - XYZ
 * Output White Type : Output white point type.
+  - Native
+  - Illuminant
+  - Colour Temperature
+  - XY Coordinates
+  - from Colour
 * Output Illuminant : Output white point illuminant.
+  - ACES
+  - HD D65
+  - DCI
+  - Equal Energy
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -53,7 +83,15 @@ This shader performs a chromatic adaptation. It also takes care of any necessary
 #### Options
 
 * Method : Adaptation method.
+  - CAT02
+  - CAT02 (simple)
+  - Bradford
+  - Von Kries
 * Filter : Texture filter for the input.
+  - Nearest
+  - Linear
+  - Mipmap
+  - Anisotropic
 
 ------------------------------------------------------------------------------------------------------------
 
