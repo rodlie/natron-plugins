@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>y_mult_div_GL</DisplayName>
-    <Description>Another multiply and divide an image by it's matte shader.</Description>
+    <Description>Another multiply and divide an image by its matte shader.</Description>
     <Version>1.0</Version>
     <ReleaseDate>@DATE@</ReleaseDate>
     <Name>natron.community.plugins.y_mult_div_GL</Name>

@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/GLSL/Channel"
 
 def getPluginDescription():
-    return "Another multiply and divide an image by it's matte shader."
+    return "Another multiply and divide an image by its matte shader."
 
 def createInstance(app,group):
     # Create all nodes in the group
