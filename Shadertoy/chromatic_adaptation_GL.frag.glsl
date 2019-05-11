@@ -59,32 +59,32 @@
 */
 
 
-uniform int input_cs = 0; 									// Input Colour Space : (input colour space note that the input must be linear in all cases), min=0, max=5
-uniform int input_white_type = 0; 							// Input White Type : (input white point type), min=0, max=4
-uniform int input_illuminant = 0; 							// Input Illuminant : (input white point illuminant), min=0, max=3
+uniform int input_cs = 0; 									// Input Colour Space : (Input colour space. Note that the input must be linear in all cases.), min=0, max=5
+uniform int input_white_type = 0; 							// Input White Type : (Input white point type.), min=0, max=4
+uniform int input_illuminant = 0; 							// Input Illuminant : (Input white point illuminant.), min=0, max=3
 
 uniform vec2 InTempTint = vec2(6000.0,0.0);					// Input Temp and Tint : 
 
-uniform bool input_temperature_shift = false; 				// Input Temp Shift : (applies a scaling of the colour temperature by a factor of 1.4388/1.438 to mimic the CIE D-series behavior instead of maintaining the physical exact correlated colour temperature)
-uniform vec2 input_coordinates = vec2(0.32168,0.33767); 	// Input Coordinates : (CIE 1931 xy coordinates of the input white point)
-uniform vec3 input_colour = vec3(1.0,1.0,1.0); 				// Input Colour : (colour representation of the input white point)
-uniform int input_surround = 0; 							// Input Surround : (viewing conditions), min=0, max=2
+uniform bool input_temperature_shift = false; 				// Input Temp Shift : (Applies a scaling of the colour temperature by a factor of 1.4388/1.438 to mimic the CIE D-series behavior instead of maintaining the physical exact correlated colour temperature.)
+uniform vec2 input_coordinates = vec2(0.32168,0.33767); 	// Input Coordinates : (CIE 1931 xy coordinates of the input white point.)
+uniform vec3 input_colour = vec3(1.0,1.0,1.0); 				// Input Colour : (Colour representation of the input white point.)
+uniform int input_surround = 0; 							// Input Surround : (Viewing conditions.), min=0, max=2
 
 uniform vec2 InLumBack = vec2(20.0,1.0);					// Input Field Lum / Rel BG : 
 
-uniform int output_cs = 0; 									// Output Colour Space : (output colour space note that the output must be linear in all cases), min=0, max=5
-uniform int output_white_type = 0; 							// Output White Type : (output white point type), min=0, max=4
-uniform int output_illuminant = 0; 							// Output Illuminant : (output white point illuminant), min=0, max=3
+uniform int output_cs = 0; 									// Output Colour Space : (Output colour space note that the output must be linear in all cases.), min=0, max=5
+uniform int output_white_type = 0; 							// Output White Type : (Output white point type.), min=0, max=4
+uniform int output_illuminant = 0; 							// Output Illuminant : (Output white point illuminant.), min=0, max=3
 
 uniform vec2 OutTempTint = vec2(6000.0,0.0);				// Output Temp and Tint : 
 
-uniform bool output_temperature_shift = false; 				// Output Temp Shift : (applies a scaling of the colour temperature by a factor of 1.4388/1.438 to mimic the CIE D-series behavior instead of maintaining the physical exact correlated colour temperature)
-uniform vec2 output_coordinates = vec2(0.32168,0.33767); 	// Output Coordinates : (CIE 1931 xy coordinates of the output white point)
-uniform vec3 output_colour = vec3(1.0,1.0,1.0); 			// Output Colour : (colour representation of the output white point)
-uniform int output_surround = 0; 							// Output Surround : (viewing conditions), min=0, max=2
-uniform float output_field_luminance = 20.0; 				// Output Field Luminance : (output field luminance), min=0.0000001, max=1000000.0
-uniform float output_rel_background = 1.0; 					// Output Rel BG : (relative output background brightness compared to the scene white), min=0.0000001, max=1000000.0
-uniform int method = 0; 									// Method : (Adaptation method), min=0, max=3
+uniform bool output_temperature_shift = false; 				// Output Temp Shift : (Applies a scaling of the colour temperature by a factor of 1.4388/1.438 to mimic the CIE D-series behavior instead of maintaining the physical exact correlated colour temperature.)
+uniform vec2 output_coordinates = vec2(0.32168,0.33767); 	// Output Coordinates : (CIE 1931 xy coordinates of the output white point.)
+uniform vec3 output_colour = vec3(1.0,1.0,1.0); 			// Output Colour : (Colour representation of the output white point.)
+uniform int output_surround = 0; 							// Output Surround : (Viewing conditions.), min=0, max=2
+uniform float output_field_luminance = 20.0; 				// Output Field Luminance : (Output field luminance.), min=0.0000001, max=1000000.0
+uniform float output_rel_background = 1.0; 					// Output Rel BG : (Relative output background brightness compared to the scene white.), min=0.0000001, max=1000000.0
+uniform int method = 0; 									// Method : (Adaptation method.), min=0, max=3
 
 
 
