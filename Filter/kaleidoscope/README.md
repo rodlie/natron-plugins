@@ -24,4 +24,6 @@ Creates kaleidoscope effects.
 
 * Mirror Multiplayer : Can be used for multiplying direction. USE WITH CARE.
 
+------------------------------------------------------------------------------------------------------------
+
 ### Demo: https://youtu.be/lSEwgEFNBGQ
