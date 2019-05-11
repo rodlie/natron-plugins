@@ -47,3 +47,10 @@ source = connect the image you want to apply the effect onto.
 * Output Surround : Viewing conditions.
 * Output Field Luminance : Output field luminance.
 * Output Relative BG : Relative output background brightness compared to the scene white.
+
+------------------------------------------------------------------------------------------------------------
+
+#### Options
+
+* Method : Adaptation method.
+* Filter : Texture filter of the input.
