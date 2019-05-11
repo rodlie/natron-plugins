@@ -31,7 +31,7 @@ def getGrouping():
     return "Community/Filter"
 
 def getPluginDescription():
-    return "Creates kaleidoscope effects"
+    return "Creates kaleidoscope effects."
 
 def createInstance(app,group):
     # Create all nodes in the group
@@ -41,7 +41,48 @@ def createInstance(app,group):
     lastNode.setColor(0.7, 0.7, 0.7)
 
     # Create the user parameters
-    lastNode.param = lastNode.createPageParam("param", "Parameter")
+    lastNode.param = lastNode.createPageParam("param", "Controls")
+    param = lastNode.createStringParam("sep01", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep01 = param
+    del param
+
+    param = lastNode.createStringParam("sep02", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep02 = param
+    del param
+
+    param = lastNode.createSeparatorParam("SETUP", "Setup")
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.SETUP = param
+    del param
+
     param = lastNode.createChoiceParam("KL_type", "Type")
     entries = [ ("Type 1", ""),
     ("Type 2", ""),
@@ -61,7 +102,35 @@ def createInstance(app,group):
     lastNode.KL_type = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat1", "Fractal Scale")
+    param = lastNode.createStringParam("sep03", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep03 = param
+    del param
+
+    param = lastNode.createStringParam("sep04", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep04 = param
+    del param
+
+    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat1", "Fractal Scale : ")
     param.setMinimum(0, 0)
     param.setMaximum(10, 0)
     param.setDisplayMinimum(0, 0)
@@ -73,13 +142,13 @@ def createInstance(app,group):
     lastNode.param.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("Fractal scale.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat1 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat2", "Size")
+    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat2", "Size : ")
     param.setMinimum(0.09999999999999999, 0)
     param.setMaximum(10, 0)
     param.setDisplayMinimum(0.09999999999999999, 0)
@@ -91,57 +160,115 @@ def createInstance(app,group):
     lastNode.param.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("Size.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat2 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat3", "Distort X")
-    param.setMinimum(0, 0)
-    param.setDisplayMinimum(0, 0)
+    param = lastNode.createStringParam("sep05", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
     lastNode.param.addParam(param)
 
     # Set param properties
     param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep05 = param
+    del param
+
+    param = lastNode.createStringParam("sep06", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep06 = param
+    del param
+
+    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat3", "Distort X : ")
+    param.setMinimum(0, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1000, 0)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("Distorsion in the X direction.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat3 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat4", "Distort Y")
+    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat4", "Distort Y : ")
     param.setMinimum(0, 0)
     param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1000, 0)
 
     # Add the param to the page
     lastNode.param.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("Distorsion in the Y direction.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat4 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat5", "Rotation")
-    param.setMinimum(0, 0)
-    param.setDisplayMinimum(0, 0)
+    param = lastNode.createStringParam("sep07", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
     lastNode.param.addParam(param)
 
     # Set param properties
     param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep07 = param
+    del param
+
+    param = lastNode.createStringParam("sep08", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep08 = param
+    del param
+
+    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat5", "Rotation : ")
+    param.setMinimum(0, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(3600, 0)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("Rotation.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat5 = param
     del param
 
-    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat6", "Mirror Multiplyer")
-    param.setMinimum(0, 0)
-    param.setDisplayMinimum(0, 0)
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
     lastNode.param.addParam(param)
@@ -149,15 +276,101 @@ def createInstance(app,group):
     # Set param properties
     param.setHelp("")
     param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
+    del param
+
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
+    del param
+
+    param = lastNode.createDoubleParam("Shadertoy2paramValueFloat6", "Mirror Multiplyer : ")
+    param.setMinimum(0, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(100, 0)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("Mirror repetition.")
+    param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.Shadertoy2paramValueFloat6 = param
     del param
 
-    lastNode.credit = lastNode.createPageParam("credit", "credit")
+    param = lastNode.createStringParam("sep11", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep11 = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.param.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    lastNode.CREDITS = lastNode.createPageParam("CREDITS", "Credits")
+    param = lastNode.createStringParam("sep101", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.CREDITS.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep101 = param
+    del param
+
+    param = lastNode.createStringParam("sep102", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.CREDITS.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep102 = param
+    del param
+
     param = lastNode.createSeparatorParam("sp", "Implemented by CGVIRUS")
 
     # Add the param to the page
-    lastNode.credit.addParam(param)
+    lastNode.CREDITS.addParam(param)
 
     # Set param properties
     param.setHelp("")
@@ -167,21 +380,77 @@ def createInstance(app,group):
     lastNode.sp = param
     del param
 
-    param = lastNode.createSeparatorParam("sp2", "")
+    param = lastNode.createStringParam("sep103", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
-    lastNode.credit.addParam(param)
+    lastNode.CREDITS.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep103 = param
+    del param
+
+    param = lastNode.createStringParam("sep104", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.CREDITS.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep104 = param
+    del param
+
+    param = lastNode.createSeparatorParam("LINE101", "")
+
+    # Add the param to the page
+    lastNode.CREDITS.addParam(param)
 
     # Set param properties
     param.setHelp("")
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.sp2 = param
+    lastNode.LINE101 = param
+    del param
+
+    param = lastNode.createStringParam("sep015", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.CREDITS.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep015 = param
+    del param
+
+    param = lastNode.createStringParam("sep106", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.CREDITS.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep106 = param
     del param
 
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['param', 'Settings', 'credit', 'Node'])
+    lastNode.setPagesOrder(['param', 'Settings', 'CREDITS', 'Node'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
