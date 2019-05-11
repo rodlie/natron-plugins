@@ -4,51 +4,51 @@ This is an alternative glow gizmo to Nuke's standard glow node. Features include
 
 
 ### INPUTS
-rgba = connect the image you want to apply the glow onto.
+* rgba = connect the image you want to apply the glow onto.
 
-mask = the mask you want to apply the glow through.
+* mask = the mask you want to apply the glow through.
 
 
 ### HOW TO USE IT
-glow operation : choose between 'plus/screen/under' blending mode ('under' work only if input has an alpha).
+* glow operation : choose between 'plus/screen/under' blending mode ('under' work only if input has an alpha).
 
 ------------------------------------------------------------------------------------------------------------
 
-Color tint : glow color
+* Color tint : glow color
 
 ------------------------------------------------------------------------------------------------------------
 
-tolerance : a treshold that defines what range of values the glow will be applied to.
+* tolerance : a treshold that defines what range of values the glow will be applied to.
 
-fallof : lift the white point of the source.
+* fallof : lift the white point of the source.
 
-gain : boost the glow brightness.
-
-------------------------------------------------------------------------------------------------------------
-
-glow radius : speaks for itself.
-
-saturation : glow saturation.
+* gain : boost the glow brightness.
 
 ------------------------------------------------------------------------------------------------------------
 
-anamorphic stretch : horizontaly stretch the glow.
+* glow radius : speaks for itself.
+
+* saturation : glow saturation.
 
 ------------------------------------------------------------------------------------------------------------
 
-effect only : outputs the glow only.
-
-preserve alpha : output the same alpha as the input image.
-
-invert mask : inverts the mask input, if there's one.
-
-clamp white : obvious.
-
-clamp black : obvious.
+* anamorphic stretch : horizontaly stretch the glow.
 
 ------------------------------------------------------------------------------------------------------------
 
-glow opacity : adjusts the glow opacity
+* effect only : outputs the glow only.
+
+* preserve alpha : output the same alpha as the input image.
+
+* invert mask : inverts the mask input, if there's one.
+
+* clamp white : obvious.
+
+* clamp black : obvious.
+
+------------------------------------------------------------------------------------------------------------
+
+* glow opacity : adjusts the glow opacity
 
 
 ![Screenshot](fxT_Glowy_snap.png)
