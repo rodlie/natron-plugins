@@ -4,7 +4,7 @@ This shader performs a chromatic adaptation. It also takes care of any necessary
 
 
 ### INPUTS
-* source : Connect the image you want to apply the effect onto.
+* Source : Connect the image you want to apply the effect onto.
 
 ### HOW TO USE IT
 
