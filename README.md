@@ -242,7 +242,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 ### GLSL/Color
 - <img src='/GLSL/Color/AFX_Grade_GL/AFX_Grade_GL.png' width='24'> **[AFX_Grade_GL](/GLSL/Color/AFX_Grade_GL/README.md)** : Based off the Nuke grade node.
 
-- <img src='/GLSL/Color/Chromatic_adaptation_GL/Chromatic_adaptation_GL.png' width='24'> **[Chromatic_adaptation_GL](/GLSL/Color/Chromatic_adaptation_GL/README.md)** : This shader performs a chromatic adaptation. It also takes care of any necessary color space conversions.
+- <img src='/GLSL/Color/Chromatic_adaptation_GL/Chromatic_adaptation_GL.png' width='24'> **[Chromatic_adaptation_GL](/GLSL/Color/Chromatic_adaptation_GL/README.md)** : This shader performs a chromatic adaptation.
 
 - <img src='/GLSL/Color/Crok_2color_GL/Crok_2color_GL.png' width='24'> **[Crok_2color_GL](/GLSL/Color/Crok_2color_GL/README.md)** : Simulates a 2 color look.
 
