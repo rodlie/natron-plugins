@@ -39,9 +39,9 @@ This shader performs a chromatic adaptation. It also takes care of any necessary
 * Input Colour : Colour representation of the input white point.
 
 * Input Surround : Viewing conditions.
-  - Average
-  - Dim
-  - Dark
+	- Average
+	- Dim
+	- Dark
 * Input Field Luminance : Input field luminance.
 * Input Relative BG : Relative input background brightness compared to the scene white.
 
@@ -78,9 +78,9 @@ This shader performs a chromatic adaptation. It also takes care of any necessary
 * Output Colour : Colour representation of the output white point.
 
 * Output Surround : Viewing conditions.
-  - Average
-  - Dim
-  - Dark
+	- Average
+	- Dim
+	- Dark
 * Output Field Luminance : Output field luminance.
 * Output Relative BG : Relative output background brightness compared to the scene white.
 
