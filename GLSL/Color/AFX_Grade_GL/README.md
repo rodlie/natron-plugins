@@ -32,4 +32,4 @@ Based off the Nuke grade node.
 
 #### Source
 
-* Mix : Mix original image and final result.
+* Mix : Mix original image with final result.
