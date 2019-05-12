@@ -68,7 +68,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 	vec2 uv = vec2(fragCoord.xy / vec2( iResolution.x, iResolution.y ));
 	vec3 	source 	= texture2D(iChannel0, uv).rgb;
-	float 	alpha	= texture2D(iChannel1, uv).r;
+	float 	alpha	= texture2D(iChannel1, uv).a;
 	vec4	original = texture2D(iChannel0, uv);
 	vec4	tempResult = texture2D(iChannel0, uv);
 	
