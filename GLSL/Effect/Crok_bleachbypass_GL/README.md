@@ -16,3 +16,6 @@ GPU accelerated bleachbypass effect for Shadertoy.
 
 * Keep original alpha : Replace the generated alpha by this original one.
 * Source is premultiplied : Checked if source image is premultiplied.
+
+### OUTPUT
+* RGBA

@@ -25,7 +25,7 @@ Creates a dithering effect.
 * Size : Pixelisation size.
 * C64 blend : Blend with original image.
 
-#### OPTIONS
+#### Options
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
