@@ -2,7 +2,7 @@
 
 Based off the Nuke grade node.
 
-### INPUTS
+### INPUT(S)
 * Source : Connect the image you want to apply the effect onto. (RGBA)
 * Mask : Connect an image to apply the effect in a specific portion of the image. (A)
 
