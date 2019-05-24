@@ -55,7 +55,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 	vec4 color1 = vec4( texture2D(iChannel0, pix_uv ).rgba);
 	vec4 original = vec4( texture2D(iChannel0, uv ) );
-	vec4 matte =  vec4( texture2D(iChannel1, pix_uv).a);
+	vec4 matte =  vec4( texture2D(iChannel1, pix_uv));
 
 	if(maskChannel == 0)
 		matte.a = matte.r;
