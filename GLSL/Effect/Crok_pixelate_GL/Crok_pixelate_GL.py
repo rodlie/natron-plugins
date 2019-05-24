@@ -210,7 +210,7 @@ def createInstance(app,group):
     lastNode.Shadertoy1_2paramValueBool2 = param
     del param
 
-    param = lastNode.createChoiceParam("channelChoice", "")
+    param = lastNode.createChoiceParam("channelChoice", "Channel : ")
     entries = [ ("Red", ""),
     ("Green", ""),
     ("Blue", ""),
@@ -299,7 +299,7 @@ def createInstance(app,group):
     lastNode.sep12 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool1", "keep aspect ratio : ")
+    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool1", "Keep aspect ratio : ")
     param.setDefaultValue(True)
     param.restoreDefaultValue()
 
