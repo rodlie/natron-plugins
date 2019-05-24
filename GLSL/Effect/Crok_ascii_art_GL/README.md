@@ -2,8 +2,8 @@
 
 Generates ascii art.
 
-### INPUTS
-* Source : Connect the image you want to apply the effect onto. (RGB)
+### INPUT(S)
+* Source : Connect the image you want to apply the effect onto. (RGBA)
 * Mask : Connect an image to modulate the effect. (R)
 
 ### HOW TO USE IT
@@ -13,3 +13,6 @@ Generates ascii art.
 * Pixel Size : Pixel size.
 * Saturation : Saturation intensity.
 * Noise : Noise size.
+
+### OUTPUT
+* RGBA

@@ -2,8 +2,8 @@
 
 GPU accelerated Anaglyphic effect for Shadertoy.
 
-### INPUTS
-* Source : Connect the image you want to apply the effect onto.
+### INPUT(S)
+* Source : Connect the image you want to apply the effect onto. (RGB)
 * Modulate : Connect an image to modulate the effect.
 
 ### HOW TO USE IT

@@ -3,7 +3,7 @@
 This shader performs a chromatic adaptation. It also takes care of any necessary color space conversions.
 
 
-### INPUTS
+### INPUT(S)
 * Source : Connect the image you want to apply the effect onto. (RGB)
 
 ### HOW TO USE IT
