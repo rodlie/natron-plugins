@@ -28,7 +28,7 @@ This shader gives you the typical Instagram looks.
   - X-Pro II
 
 * Saturation : Overall saturation.
-* Contrast : Overall Contrast
+* Contrast : Overall Contrast.
 * Gamma : Overall gamma.
 
 #### Slope
