@@ -9,6 +9,24 @@ This shader gives you the typical Instagram looks.
 
 #### Overall
 
+* Look :
+  - None
+  - 1977
+  - Apollo
+  - Brannan
+  - Early Birds
+  - Gotham
+  - Hefe
+  - Inkwell
+  - Lily
+  - Lomo-Fi
+  - Lord Kelvin
+  - Nashville
+  - Poprocket
+  - Sutro
+  - Walden
+  - X-Pro II
+
 * Saturation : Overall saturation.
 * Contrast : Overall Contrast
 * Gamma : Overall gamma.
