@@ -10,7 +10,7 @@ Simulates NES, SEGA and Gameboy video out.
 #### Setup
 
 * Brightness : Adjust brightness.
-* Graphic mode : Adjust saturation
+* Graphic mode :
   - NES
   - GAMEBOY
   - EGA
