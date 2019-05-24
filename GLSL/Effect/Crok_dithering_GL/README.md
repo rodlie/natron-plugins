@@ -10,7 +10,7 @@ Creates a dithering effect.
 #### Dithering
 
 * Enable : Enable dithering.
-* Scale : Dithering scale
+* Scale : Dithering scale.
 * Dithering blend : Blend with original image.
 
 #### Pixelisation
