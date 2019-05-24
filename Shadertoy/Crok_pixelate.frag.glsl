@@ -30,13 +30,14 @@
 // Original code : crok_pixelate Matchbox for Autodesk Flame
 
 
-// iChannel0: Source, filter = nearest
-// iChannel1: Modulate, filter = nearest
+// iChannel0: Source, filter = nearest, wrap = clamp
+// iChannel1: Mask, filter = nearest, wrap = clamp
 // BBox: iChannel0
 
 uniform float Detail = 100; // details : (details), min=0., max=500.
 uniform bool Aspect = true; // keep aspect ratio : (keep aspect ratio).
 uniform bool perpixel_matte = true; // Modulate (Modulate the amplitude by multiplying it by the first channel of the Modulate input)
+uniform int maskChannel = 3; // Channel : (Channel used as mask.), min=0, max=3
 
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
@@ -55,6 +56,15 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec4 color1 = vec4( texture2D(iChannel0, pix_uv ).rgba);
 	vec4 original = vec4( texture2D(iChannel0, uv ) );
 	vec4 matte =  vec4( texture2D(iChannel1, pix_uv).a);
+
+	if(maskChannel == 0)
+		matte.a = matte.r;
+	if(maskChannel == 1)
+		matte.a = matte.g;
+	if(maskChannel == 2)
+		matte.a = matte.b;
+
+
 
 	if (perpixel_matte)
 		fragColor = vec4 (mix(original.rgb, color1.rgb, matte.a) , mix(original.a, color1.a, matte.a) );
