@@ -237,7 +237,6 @@ def createInstance(app,group):
     param.setHelp("Source is premultiplied.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(True)
     lastNode.isPremult = param
     del param
 
@@ -615,7 +614,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("disableNode")
     if param is not None:
-        param.setValue(False)
+        param.setValue(True)
         del param
 
     del lastNode
@@ -656,7 +655,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("disableNode")
     if param is not None:
-        param.setValue(False)
+        param.setValue(True)
         del param
 
     del lastNode
