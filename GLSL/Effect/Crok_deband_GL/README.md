@@ -17,5 +17,9 @@ Reduces banding.
 * Mask : Use mask input.
 * Channel : Channel to use as mask.
 
+#### OPTIONS
+
+* Source is premultiplied : Checked if source image is premultiplied.
+
 ### OUTPUT
 * RGBA
