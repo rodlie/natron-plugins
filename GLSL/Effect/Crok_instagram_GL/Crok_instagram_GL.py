@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_instagram_GL"
 
 def getVersion():
-    return 1
+    return 1.1
 
 def getIconPath():
     return "Crok_instagram_GL.png"
@@ -733,6 +733,87 @@ def createInstance(app,group):
     lastNode.sep28 = param
     del param
 
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OPTIONS = param
+    del param
+
+    param = lastNode.createStringParam("sep29", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep29 = param
+    del param
+
+    param = lastNode.createStringParam("sep30", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep30 = param
+    del param
+
+    param = lastNode.createBooleanParam("isPremult", "Source is premultiplied : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Source is premultiplied.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.isPremult = param
+    del param
+
+    param = lastNode.createStringParam("sep31", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep31 = param
+    del param
+
+    param = lastNode.createStringParam("sep32", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep32 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -762,7 +843,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "Crok_instagram_GL v1.0")
+    param = lastNode.createSeparatorParam("NAME", "Crok_instagram_GL v1.1")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -885,7 +966,7 @@ def createInstance(app,group):
     lastNode.sep108 = param
     del param
 
-    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2018)")
+    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2019)")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -934,8 +1015,8 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4035, 4387)
-    lastNode.setSize(90, 33)
+    lastNode.setPosition(4035, 4443)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
 
@@ -947,7 +1028,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Input1")
     lastNode.setLabel("Source")
     lastNode.setPosition(4035, 4070)
-    lastNode.setSize(90, 26)
+    lastNode.setSize(80, 22)
     lastNode.setColor(1, 1, 1)
     groupInput1 = lastNode
 
@@ -959,7 +1040,7 @@ def createInstance(app,group):
     lastNode.setScriptName("pass1")
     lastNode.setLabel("pass1")
     lastNode.setPosition(4165, 4236)
-    lastNode.setSize(90, 36)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass1 = lastNode
 
@@ -1066,9 +1147,74 @@ def createInstance(app,group):
     lastNode.setScriptName("pass2")
     lastNode.setLabel("pass2")
     lastNode.setPosition(4035, 4236)
-    lastNode.setSize(90, 36)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     grouppass2 = lastNode
+
+    param = lastNode.getParam("paramValueFloat0")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat1")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat2")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat3")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat4")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat5")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat6")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat7")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat8")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat9")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat10")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat11")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("paramValueFloat12")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
@@ -1503,11 +1649,47 @@ def createInstance(app,group):
     del lastNode
     # End of node "pass2"
 
+    # Start of node "Unpremult1"
+    lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
+    lastNode.setScriptName("Unpremult1")
+    lastNode.setLabel("Unpremult1")
+    lastNode.setPosition(4035, 4163)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupUnpremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Unpremult1"
+
+    # Start of node "Premult1"
+    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
+    lastNode.setScriptName("Premult1")
+    lastNode.setLabel("Premult1")
+    lastNode.setPosition(4035, 4330)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupPremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Premult1"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, grouppass2)
-    grouppass1.connectInput(0, groupInput1)
-    grouppass2.connectInput(0, groupInput1)
+    groupOutput1.connectInput(0, groupPremult1)
+    grouppass1.connectInput(0, groupUnpremult1)
+    grouppass2.connectInput(0, groupUnpremult1)
     grouppass2.connectInput(1, grouppass1)
+    groupUnpremult1.connectInput(0, groupInput1)
+    groupPremult1.connectInput(0, grouppass2)
 
     param = grouppass1.getParam("paramValueInt0")
     param.setExpression("thisGroup.lookChoice.get()", False, 0)
@@ -1550,6 +1732,12 @@ def createInstance(app,group):
     del param
     param = grouppass2.getParam("paramValueFloat12")
     group.getParam("pass2paramValueFloat12").setAsAlias(param)
+    del param
+    param = groupUnpremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.isPremult.get()", False, 0)
+    del param
+    param = groupPremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.isPremult.get()", False, 0)
     del param
 
     try:

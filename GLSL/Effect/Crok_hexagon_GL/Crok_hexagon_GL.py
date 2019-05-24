@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_hexagon_GL"
 
 def getVersion():
-    return 1.0
+    return 1.1
 
 def getIconPath():
     return "Crok_hexagon_GL.png"
@@ -125,7 +125,6 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(100, 0)
     lastNode.Shadertoy1paramValueFloat0 = param
     del param
 
@@ -303,6 +302,87 @@ def createInstance(app,group):
     lastNode.sep12 = param
     del param
 
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OPTIONS = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
+    param = lastNode.createBooleanParam("isPremult", "Source is premultiplied : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Source is premultiplied.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.isPremult = param
+    del param
+
+    param = lastNode.createStringParam("sep15", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep15 = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -332,7 +412,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "Crok_hexagon_GL v1.0")
+    param = lastNode.createSeparatorParam("NAME", "Crok_hexagon_GL v1.1")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -455,7 +535,7 @@ def createInstance(app,group):
     lastNode.sep108 = param
     del param
 
-    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2018)")
+    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2019)")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -505,7 +585,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
     lastNode.setPosition(4139, 4192)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -517,7 +597,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
     lastNode.setPosition(4139, 3653)
-    lastNode.setSize(80, 44)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -528,8 +608,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3931)
-    lastNode.setSize(80, 44)
+    lastNode.setPosition(4139, 3932)
+    lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -551,12 +631,17 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_hexagon Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_hexagon Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n// based on https://www.shadertoy.com/view/ls23Dc by pyalot\n// http://www.gamedev.net/page/resources/_/technical/game-programming/coordinates-in-hexagon-based-tile-maps-r1800\n// nearest hexagon sampling, not quite sure if it\'s correct\n\n\n\nuniform float size = 100.0; // Size : (size), min=0.0, max=10000.0\nuniform float edge = 1.0; // Edge : (edge), min=-100.9, max=100.0\n\nuniform vec2 offset = vec2(0.0,0.0); // Offset : (offset)\n\n\n\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\n\n\nfloat PI = 3.14159265359;\nfloat TAU = 2.0*PI;\nfloat deg30 = TAU/12.0;\n\nfloat hexDist(vec2 a, vec2 b){\n\tvec2 p = abs(b-a);\n\tfloat s = sin(deg30);\n\tfloat c = cos(deg30);\n\n\tfloat diagDist = s*p.x + c*p.y;\n\treturn max(diagDist, p.x)/c;\n}\n\nvec2 nearestHex(float s, vec2 st)\n{\n\tfloat h = sin(deg30)*s;\n\tfloat r = cos(deg30)*s;\n\tfloat b = s + 2.0*h;\n\tfloat a = 2.0*r;\n\tfloat m = h/r;\n\n\tvec2 sect = st/vec2(2.0*r, h+s);\n\tvec2 sectPxl = mod(st, vec2(2.0*r, h+s));\n\n\tfloat aSection = mod(floor(sect.y), 2.0);\n\n\tvec2 coord = floor(sect);\n\tif(aSection > 0.0){\n\t\tif(sectPxl.y < (h-sectPxl.x*m)){\n\t\t\tcoord -= 1.0;\n\t\t}\n\t\telse if(sectPxl.y < (-h + sectPxl.x*m)){\n\t\t\tcoord.y -= 1.0;\n\t\t}\n\n\t}\n\telse{\n\t\tif(sectPxl.x > r){\n\t\t\tif(sectPxl.y < (2.0*h - sectPxl.x * m)){\n\t\t\t\tcoord.y -= 1.0;\n\t\t\t}\n\t\t}\n\t\telse{\n\t\t\tif(sectPxl.y < (sectPxl.x*m)){\n\t\t\t\tcoord.y -= 1.0;\n\t\t\t}\n\t\t\telse{\n\t\t\t\tcoord.x -= 1.0;\n\t\t\t}\n\t\t}\n\t}\n\n\tfloat xoff = mod(coord.y, 2.0)*r;\n\treturn vec2(coord.x*2.*r-xoff, coord.y*(h+s))+vec2(r*2.0, s);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tfloat s = resolution.x / size;\n\tvec2 offs = resolution * 0.5 + offset;\n\tvec2 nearest = nearestHex(s, fragCoord.xy - offs);\n\tvec4 texel = texture2D(iChannel0, (nearest + offs)/resolution.xy);\n\tfloat dist = hexDist(fragCoord.xy - offs, nearest);\n\tfloat interiorSize = s;\n\tfloat interior = 1.0 - smoothstep(interiorSize - edge, interiorSize, dist * edge);\n\tfragColor = vec4(texel.rgb*interior, 1.0);\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_hexagon Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_hexagon Matchbox for Autodesk Flame\n\n// based on https://www.shadertoy.com/view/ls23Dc by pyalot\n// http://www.gamedev.net/page/resources/_/technical/game-programming/coordinates-in-hexagon-based-tile-maps-r1800\n// nearest hexagon sampling, not quite sure if it\'s correct\n\n\n\n\n// iChannel0: Source, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n\n\n\nuniform float size = 100.0; // Size : (size), min=0.0, max=10000.0\nuniform float edge = 1.0; // Edge : (edge), min=-100.9, max=100.0\n\nuniform vec2 offset = vec2(0.0,0.0); // Offset : (offset)\n\n\n\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\n\n\nfloat PI = 3.14159265359;\nfloat TAU = 2.0*PI;\nfloat deg30 = TAU/12.0;\n\nfloat hexDist(vec2 a, vec2 b){\n\tvec2 p = abs(b-a);\n\tfloat s = sin(deg30);\n\tfloat c = cos(deg30);\n\n\tfloat diagDist = s*p.x + c*p.y;\n\treturn max(diagDist, p.x)/c;\n}\n\nvec2 nearestHex(float s, vec2 st)\n{\n\tfloat h = sin(deg30)*s;\n\tfloat r = cos(deg30)*s;\n\tfloat b = s + 2.0*h;\n\tfloat a = 2.0*r;\n\tfloat m = h/r;\n\n\tvec2 sect = st/vec2(2.0*r, h+s);\n\tvec2 sectPxl = mod(st, vec2(2.0*r, h+s));\n\n\tfloat aSection = mod(floor(sect.y), 2.0);\n\n\tvec2 coord = floor(sect);\n\tif(aSection > 0.0){\n\t\tif(sectPxl.y < (h-sectPxl.x*m)){\n\t\t\tcoord -= 1.0;\n\t\t}\n\t\telse if(sectPxl.y < (-h + sectPxl.x*m)){\n\t\t\tcoord.y -= 1.0;\n\t\t}\n\n\t}\n\telse{\n\t\tif(sectPxl.x > r){\n\t\t\tif(sectPxl.y < (2.0*h - sectPxl.x * m)){\n\t\t\t\tcoord.y -= 1.0;\n\t\t\t}\n\t\t}\n\t\telse{\n\t\t\tif(sectPxl.y < (sectPxl.x*m)){\n\t\t\t\tcoord.y -= 1.0;\n\t\t\t}\n\t\t\telse{\n\t\t\t\tcoord.x -= 1.0;\n\t\t\t}\n\t\t}\n\t}\n\n\tfloat xoff = mod(coord.y, 2.0)*r;\n\treturn vec2(coord.x*2.*r-xoff, coord.y*(h+s))+vec2(r*2.0, s);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tfloat s = resolution.x / size;\n\tvec2 offs = resolution * 0.5 + offset;\n\tvec2 nearest = nearestHex(s, fragCoord.xy - offs);\n\tvec4 texel = texture2D(iChannel0, (nearest + offs)/resolution.xy);\n\tfloat dist = hexDist(fragCoord.xy - offs, nearest);\n\tfloat interiorSize = s;\n\tfloat interior = 1.0 - smoothstep(interiorSize - edge, interiorSize, dist * edge);\n\tfragColor = vec4(texel.rgba*interior);\n}")
         del param
 
     param = lastNode.getParam("mipmap0")
     if param is not None:
         param.set("nearest")
+        del param
+
+    param = lastNode.getParam("wrap0")
+    if param is not None:
+        param.set("clamp")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -692,9 +777,45 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shadertoy1"
 
+    # Start of node "Unpremult1"
+    lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
+    lastNode.setScriptName("Unpremult1")
+    lastNode.setLabel("Unpremult1")
+    lastNode.setPosition(4139, 3801)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupUnpremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Unpremult1"
+
+    # Start of node "Premult1"
+    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
+    lastNode.setScriptName("Premult1")
+    lastNode.setLabel("Premult1")
+    lastNode.setPosition(4139, 4039)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupPremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Premult1"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1)
-    groupShadertoy1.connectInput(0, groupSource)
+    groupOutput2.connectInput(0, groupPremult1)
+    groupShadertoy1.connectInput(0, groupUnpremult1)
+    groupUnpremult1.connectInput(0, groupSource)
+    groupPremult1.connectInput(0, groupShadertoy1)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
@@ -705,6 +826,12 @@ def createInstance(app,group):
     param = groupShadertoy1.getParam("paramValueVec22")
     param.setExpression("thisGroup.xPos.get()", False, 0)
     param.setExpression("thisGroup.yPos.get()", False, 1)
+    del param
+    param = groupUnpremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.isPremult.get()", False, 0)
+    del param
+    param = groupPremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.isPremult.get()", False, 0)
     del param
 
     try:

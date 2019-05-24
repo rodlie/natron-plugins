@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_dithering_GL"
 
 def getVersion():
-    return 1.0
+    return 1.1
 
 def getIconPath():
     return "Crok_dithering_GL.png"
@@ -467,6 +467,87 @@ def createInstance(app,group):
     lastNode.sep19 = param
     del param
 
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OPTIONS = param
+    del param
+
+    param = lastNode.createStringParam("sep20", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep20 = param
+    del param
+
+    param = lastNode.createStringParam("sep21", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep21 = param
+    del param
+
+    param = lastNode.createBooleanParam("isPremult", "Source is premultiplied : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Source is premultiplied.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.isPremult = param
+    del param
+
+    param = lastNode.createStringParam("sep22", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep22 = param
+    del param
+
+    param = lastNode.createStringParam("sep23", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep23 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -496,7 +577,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "Crok_dithering_GL v1.0")
+    param = lastNode.createSeparatorParam("NAME", "Crok_dithering_GL v1.1")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -668,8 +749,8 @@ def createInstance(app,group):
     # Start of node "Output2"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4139, 4048)
-    lastNode.setSize(90, 50)
+    lastNode.setPosition(4139, 4201)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -680,8 +761,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3645)
-    lastNode.setSize(90, 50)
+    lastNode.setPosition(4139, 3502)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -692,8 +773,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3864)
-    lastNode.setSize(90, 50)
+    lastNode.setPosition(4139, 3863)
+    lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -744,7 +825,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\r\n//\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//                        MM.                          .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\r\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\r\n//                   MM.  .MmM              MMMM      MMM.  .MM\r\n//                  MM.  .MMM                 MM       MMM.  .MM\r\n//                 MM.  .MMM                   M        MMM.  .MM\r\n//                MM.  .MMM                              MMM.  .MM\r\n//                 MM.  .MMM                            MMM.  .MM\r\n//                  MM.  .MMM       M                  MMM.  .MM\r\n//                   MM.  .MMM      MM                MMM.  .MM\r\n//                    MM.  .MMM     MMM              MMM.  .MM\r\n//                     MM.  .MMM    MMMM            MMM.  .MM\r\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\r\n//                        MM.                          .MM\r\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\r\n//\r\n//\r\n//\r\n//\r\n// Adaptation pour Natron par F. Fernandez\r\n// Code original : crok_dithering Matchbox pour Autodesk Flame\r\n\r\n// Adapted to Natron by F.Fernandez\r\n// Original code : crok_dithering Matchbox for Autodesk Flame\r\n\r\n// Dithering code based on: http://devlog-martinsh.blogspot.se/2011/03/glsl-8x8-bayer-matrix-dithering.html\r\n// C64 look effect based on: http://oos.moxiecode.com/js_webgl/c64_shader/  by @oosmoxiecode\r\n\r\n// BBox: iChannel0\r\n\r\nuniform float size = 150; // Size : (size), min=1, max=10000\r\nuniform float scale = 1.0; // Scale : (scale), min=0.1, max=1\r\nuniform float d_blend = 1.0; // Dithering blend : (dithering blend), min=0.0, max=1\r\nuniform float p_blend = 1.0; // Pixelation blend : (pixelisation blend), min=0.0, max=1\r\nuniform float c64_blend = 1.0; // C64 blend : (C64 blend), min=0.0, max=1\r\n\r\n\r\n\r\nuniform bool dithering = true; // Enable : (enable dithering)\r\nuniform bool pixelation = false; // Enable : (enable pixelisation)\r\nuniform bool c64 = false; // Enable : (enable C64)\r\n\r\n\r\n\r\n\r\nfloat softLight( float s, float d )\r\n{\r\n\treturn (s < 0.5) ? d - (1.0 - 2.0 * s) * d * (1.0 - d) \r\n\t\t: (d < 0.25) ? d + (2.0 * s - 1.0) * d * ((16.0 * d - 12.0) * d + 3.0) \r\n\t\t\t\t\t : d + (2.0 * s - 1.0) * (sqrt(d) - d);\r\n}\r\n\r\nvec3 softLight( vec3 s, vec3 d )\r\n{\r\n\tvec3 c;\r\n\tc.x = softLight(s.x,d.x);\r\n\tc.y = softLight(s.y,d.y);\r\n\tc.z = softLight(s.z,d.z);\r\n\treturn c;\r\n}\r\n\r\n\r\n// dithering \r\nfloat find_closest(int x, int y, float c0) {\r\n\tint dither[64];\r\n\r\n\tdither[0] = 0; \r\n\tdither[1] = 32; \r\n\tdither[2] = 8; \r\n\tdither[3] = 40; \r\n\tdither[4] = 2; \r\n\tdither[5] = 32; \r\n\tdither[6] = 10; \r\n\tdither[7] = 42; \r\n\tdither[8] = 48; \r\n\tdither[9] = 16; \r\n\tdither[10] = 56; \r\n\tdither[11] = 24; \r\n\tdither[12] = 50; \r\n\tdither[13] = 18; \r\n\tdither[14] = 58; \r\n\tdither[15] = 26; \r\n\tdither[16] = 12; \r\n\tdither[17] = 44; \r\n\tdither[18] = 4; \r\n\tdither[19] = 36; \r\n\tdither[20] = 14; \r\n\tdither[21] = 46; \r\n\tdither[22] = 6; \r\n\tdither[23] = 38; \r\n\tdither[24] = 60; \r\n\tdither[25] = 28; \r\n\tdither[26] = 52; \r\n\tdither[27] = 20; \r\n\tdither[28] = 62; \r\n\tdither[29] = 30; \r\n\tdither[30] = 54; \r\n\tdither[31] = 22; \r\n\tdither[32] = 3; \r\n\tdither[33] = 35; \r\n\tdither[34] = 11; \r\n\tdither[35] = 43; \r\n\tdither[36] = 1; \r\n\tdither[37] = 33; \r\n\tdither[38] = 9; \r\n\tdither[39] = 41; \r\n\tdither[40] = 51; \r\n\tdither[41] = 19; \r\n\tdither[42] = 59; \r\n\tdither[43] = 27; \r\n\tdither[44] = 49; \r\n\tdither[45] = 17; \r\n\tdither[46] = 57; \r\n\tdither[47] = 25; \r\n\tdither[48] = 15; \r\n\tdither[49] = 47; \r\n\tdither[50] = 7; \r\n\tdither[51] = 39; \r\n\tdither[52] = 13; \r\n\tdither[53] = 45; \r\n\tdither[54] = 5; \r\n\tdither[55] = 37; \r\n\tdither[56] = 63; \r\n\tdither[57] = 31; \r\n\tdither[58] = 55; \r\n\tdither[59] = 23; \r\n\tdither[60] = 61; \r\n\tdither[61] = 29; \r\n\tdither[62] = 53; \r\n\tdither[63] = 21; \r\n\t\r\n\tfloat limit = 0.0; \r\n\tif(x < 8) {\r\n\t\tint index = x + y*8; \r\n\r\n\t\tif (index == 0) {limit = float(dither[0]+1)/64.0;}; \r\n\t\tif (index == 1) {limit = float(dither[1]+1)/64.0;}; \r\n\t\tif (index == 2) {limit = float(dither[2]+1)/64.0;}; \r\n\t\tif (index == 3) {limit = float(dither[3]+1)/64.0;}; \r\n\t\tif (index == 4) {limit = float(dither[4]+1)/64.0;}; \r\n\t\tif (index == 5) {limit = float(dither[5]+1)/64.0;}; \r\n\t\tif (index == 6) {limit = float(dither[6]+1)/64.0;}; \r\n\t\tif (index == 7) {limit = float(dither[7]+1)/64.0;}; \r\n\t\tif (index == 8) {limit = float(dither[8]+1)/64.0;}; \r\n\t\tif (index == 9) {limit = float(dither[9]+1)/64.0;}; \r\n\t\tif (index == 10) {limit = float(dither[10]+1)/64.0;}; \r\n\t\tif (index == 11) {limit = float(dither[11]+1)/64.0;}; \r\n\t\tif (index == 12) {limit = float(dither[12]+1)/64.0;}; \r\n\t\tif (index == 13) {limit = float(dither[13]+1)/64.0;}; \r\n\t\tif (index == 14) {limit = float(dither[14]+1)/64.0;}; \r\n\t\tif (index == 15) {limit = float(dither[15]+1)/64.0;}; \r\n\t\tif (index == 16) {limit = float(dither[16]+1)/64.0;}; \r\n\t\tif (index == 17) {limit = float(dither[17]+1)/64.0;}; \r\n\t\tif (index == 18) {limit = float(dither[18]+1)/64.0;}; \r\n\t\tif (index == 19) {limit = float(dither[19]+1)/64.0;}; \r\n\t\tif (index == 20) {limit = float(dither[20]+1)/64.0;}; \r\n\t\tif (index == 21) {limit = float(dither[21]+1)/64.0;}; \r\n\t\tif (index == 22) {limit = float(dither[22]+1)/64.0;}; \r\n\t\tif (index == 23) {limit = float(dither[23]+1)/64.0;}; \r\n\t\tif (index == 24) {limit = float(dither[24]+1)/64.0;}; \r\n\t\tif (index == 25) {limit = float(dither[25]+1)/64.0;}; \r\n\t\tif (index == 26) {limit = float(dither[26]+1)/64.0;}; \r\n\t\tif (index == 27) {limit = float(dither[27]+1)/64.0;}; \r\n\t\tif (index == 28) {limit = float(dither[28]+1)/64.0;}; \r\n\t\tif (index == 29) {limit = float(dither[29]+1)/64.0;}; \r\n\t\tif (index == 30) {limit = float(dither[30]+1)/64.0;}; \r\n\t\tif (index == 31) {limit = float(dither[31]+1)/64.0;}; \r\n\t\tif (index == 32) {limit = float(dither[32]+1)/64.0;}; \r\n\t\tif (index == 33) {limit = float(dither[33]+1)/64.0;}; \r\n\t\tif (index == 34) {limit = float(dither[34]+1)/64.0;}; \r\n\t\tif (index == 35) {limit = float(dither[35]+1)/64.0;}; \r\n\t\tif (index == 36) {limit = float(dither[36]+1)/64.0;}; \r\n\t\tif (index == 37) {limit = float(dither[37]+1)/64.0;}; \r\n\t\tif (index == 38) {limit = float(dither[38]+1)/64.0;}; \r\n\t\tif (index == 39) {limit = float(dither[39]+1)/64.0;}; \r\n\t\tif (index == 40) {limit = float(dither[40]+1)/64.0;}; \r\n\t\tif (index == 41) {limit = float(dither[41]+1)/64.0;}; \r\n\t\tif (index == 42) {limit = float(dither[42]+1)/64.0;}; \r\n\t\tif (index == 43) {limit = float(dither[43]+1)/64.0;}; \r\n\t\tif (index == 44) {limit = float(dither[44]+1)/64.0;}; \r\n\t\tif (index == 45) {limit = float(dither[45]+1)/64.0;}; \r\n\t\tif (index == 46) {limit = float(dither[46]+1)/64.0;}; \r\n\t\tif (index == 47) {limit = float(dither[47]+1)/64.0;}; \r\n\t\tif (index == 48) {limit = float(dither[48]+1)/64.0;}; \r\n\t\tif (index == 49) {limit = float(dither[49]+1)/64.0;}; \r\n\t\tif (index == 50) {limit = float(dither[50]+1)/64.0;}; \r\n\t\tif (index == 51) {limit = float(dither[51]+1)/64.0;}; \r\n\t\tif (index == 52) {limit = float(dither[52]+1)/64.0;}; \r\n\t\tif (index == 53) {limit = float(dither[53]+1)/64.0;}; \r\n\t\tif (index == 54) {limit = float(dither[54]+1)/64.0;}; \r\n\t\tif (index == 55) {limit = float(dither[55]+1)/64.0;}; \r\n\t\tif (index == 56) {limit = float(dither[56]+1)/64.0;}; \r\n\t\tif (index == 57) {limit = float(dither[57]+1)/64.0;}; \r\n\t\tif (index == 58) {limit = float(dither[58]+1)/64.0;}; \r\n\t\tif (index == 59) {limit = float(dither[59]+1)/64.0;}; \r\n\t\tif (index == 60) {limit = float(dither[60]+1)/64.0;}; \r\n\t\tif (index == 61) {limit = float(dither[61]+1)/64.0;}; \r\n\t\tif (index == 62) {limit = float(dither[62]+1)/64.0;}; \r\n\t\tif (index == 63) {limit = float(dither[63]+1)/64.0;}; \r\n\t} \r\n\r\n\tif(c0 < limit) \r\n\treturn 0.0; \r\n\treturn 1.0; \r\n} \r\n\t\t \r\n\r\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\r\n{ \r\n\tvec2 uv = fragCoord.xy / iResolution.xy;\r\n\tvec2 xy = fragCoord.xy * scale;\r\n\tvec3 col = texture2D(iChannel0, uv).rgb;\r\n\t\r\n\tif ( pixelation )\r\n\t{\r\n\t\tvec2 div = vec2(iResolution.x * size / iResolution.y, size); \r\n\t\tvec2 pixel = floor(uv * div)/div;\r\n\t\tvec3 p_col = texture2D(iChannel0, pixel).rgb;\r\n\t\tcol = mix(col, p_col, p_blend);\r\n\t\t\r\n\t}\r\n\r\n\tif ( dithering )\r\n\t{\r\n\t\tint x = int(mod(xy.x, 8.0)); \r\n\t\tint y = int(mod(xy.y, 8.0)); \r\n\t\tvec3 d_col; \r\n\t\td_col.r = find_closest(x, y, col.r); \r\n\t\td_col.g = find_closest(x, y, col.g); \r\n\t\td_col.b = find_closest(x, y, col.b); \r\n\t\t// overaly the dithered output on top of the pixelated one\r\n\t\tvec3 o_col = softLight(d_col, col);\r\n\t\tcol = mix(col, o_col, d_blend);\r\n\t\t\r\n\t}\r\n\r\n\tif ( c64 )\r\n\t{\r\n\t\tvec3 c64col[16];\r\n\t\tc64col[0] = vec3(0.0,0.0,0.0);\r\n\t\tc64col[1] = vec3(62.0,49.0,162.0);\r\n\t\tc64col[2] = vec3(87.0,66.0,0.0);\r\n\t\tc64col[3] = vec3(140.0,62.0,52.0);\r\n\t\tc64col[4] = vec3(84.0,84.0,84.0);\r\n\t\tc64col[5] = vec3(141.0,71.0,179.0);\r\n\t\tc64col[6] = vec3(144.0,95.0,37.0);\r\n\t\tc64col[7] = vec3(124.0,112.0,218.0);\r\n\t\tc64col[8] = vec3(128.0,128.0,129.0);\r\n\t\tc64col[9] = vec3(104.0,169.0,65.0);\r\n\t\tc64col[10] = vec3(187.0,119.0,109.0);\r\n\t\tc64col[11] = vec3(122.0,191.0,199.0);\r\n\t\tc64col[12] = vec3(171.0,171.0,171.0);\r\n\t\tc64col[13] = vec3(208.0,220.0,113.0);\r\n\t\tc64col[14] = vec3(172.0,234.0,136.0);\r\n\t\tc64col[15] = vec3(255.0,255.0,255.0);\r\n\t\t\r\n\t\tvec3 match = vec3(0.0,0.0,0.0);\r\n\t\tfloat best_dot = 8.0;\r\n\t\r\n\t\tfor (int c6=15;c6>=0;c6--) \r\n\t{\r\n\t\tfloat this_dot = distance(c64col[c6]/255.0, col);\r\n\t\tif (this_dot<best_dot) {\r\n\t\t\tbest_dot=this_dot;\r\n\t\t\tmatch=c64col[c6];\r\n\t\t}\r\n\t}\r\n\tvec3 c64_c = vec3(match/255.0);\r\n\tcol = mix(col, c64_c, c64_blend);\r\n}\r\n\r\n\tfragColor = vec4(col, 1.0); \r\n} \r\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_dithering Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_dithering Matchbox for Autodesk Flame\n\n// Dithering code based on: http://devlog-martinsh.blogspot.se/2011/03/glsl-8x8-bayer-matrix-dithering.html\n// C64 look effect based on: http://oos.moxiecode.com/js_webgl/c64_shader/  by @oosmoxiecode\n\n// BBox: iChannel0\n\nuniform float size = 150; // Size : (size), min=1, max=10000\nuniform float scale = 1.0; // Scale : (scale), min=0.1, max=1\nuniform float d_blend = 1.0; // Dithering blend : (dithering blend), min=0.0, max=1\nuniform float p_blend = 1.0; // Pixelation blend : (pixelisation blend), min=0.0, max=1\nuniform float c64_blend = 1.0; // C64 blend : (C64 blend), min=0.0, max=1\n\n\n\nuniform bool dithering = true; // Enable : (enable dithering)\nuniform bool pixelation = false; // Enable : (enable pixelisation)\nuniform bool c64 = false; // Enable : (enable C64)\n\n\n\n\nfloat softLight( float s, float d )\n{\n\treturn (s < 0.5) ? d - (1.0 - 2.0 * s) * d * (1.0 - d) \n\t\t: (d < 0.25) ? d + (2.0 * s - 1.0) * d * ((16.0 * d - 12.0) * d + 3.0) \n\t\t\t\t\t : d + (2.0 * s - 1.0) * (sqrt(d) - d);\n}\n\nvec3 softLight( vec3 s, vec3 d )\n{\n\tvec3 c;\n\tc.x = softLight(s.x,d.x);\n\tc.y = softLight(s.y,d.y);\n\tc.z = softLight(s.z,d.z);\n\treturn c;\n}\n\n\n// dithering \nfloat find_closest(int x, int y, float c0) {\n\tint dither[64];\n\n\tdither[0] = 0; \n\tdither[1] = 32; \n\tdither[2] = 8; \n\tdither[3] = 40; \n\tdither[4] = 2; \n\tdither[5] = 32; \n\tdither[6] = 10; \n\tdither[7] = 42; \n\tdither[8] = 48; \n\tdither[9] = 16; \n\tdither[10] = 56; \n\tdither[11] = 24; \n\tdither[12] = 50; \n\tdither[13] = 18; \n\tdither[14] = 58; \n\tdither[15] = 26; \n\tdither[16] = 12; \n\tdither[17] = 44; \n\tdither[18] = 4; \n\tdither[19] = 36; \n\tdither[20] = 14; \n\tdither[21] = 46; \n\tdither[22] = 6; \n\tdither[23] = 38; \n\tdither[24] = 60; \n\tdither[25] = 28; \n\tdither[26] = 52; \n\tdither[27] = 20; \n\tdither[28] = 62; \n\tdither[29] = 30; \n\tdither[30] = 54; \n\tdither[31] = 22; \n\tdither[32] = 3; \n\tdither[33] = 35; \n\tdither[34] = 11; \n\tdither[35] = 43; \n\tdither[36] = 1; \n\tdither[37] = 33; \n\tdither[38] = 9; \n\tdither[39] = 41; \n\tdither[40] = 51; \n\tdither[41] = 19; \n\tdither[42] = 59; \n\tdither[43] = 27; \n\tdither[44] = 49; \n\tdither[45] = 17; \n\tdither[46] = 57; \n\tdither[47] = 25; \n\tdither[48] = 15; \n\tdither[49] = 47; \n\tdither[50] = 7; \n\tdither[51] = 39; \n\tdither[52] = 13; \n\tdither[53] = 45; \n\tdither[54] = 5; \n\tdither[55] = 37; \n\tdither[56] = 63; \n\tdither[57] = 31; \n\tdither[58] = 55; \n\tdither[59] = 23; \n\tdither[60] = 61; \n\tdither[61] = 29; \n\tdither[62] = 53; \n\tdither[63] = 21; \n\t\n\tfloat limit = 0.0; \n\tif(x < 8) {\n\t\tint index = x + y*8; \n\n\t\tif (index == 0) {limit = float(dither[0]+1)/64.0;}; \n\t\tif (index == 1) {limit = float(dither[1]+1)/64.0;}; \n\t\tif (index == 2) {limit = float(dither[2]+1)/64.0;}; \n\t\tif (index == 3) {limit = float(dither[3]+1)/64.0;}; \n\t\tif (index == 4) {limit = float(dither[4]+1)/64.0;}; \n\t\tif (index == 5) {limit = float(dither[5]+1)/64.0;}; \n\t\tif (index == 6) {limit = float(dither[6]+1)/64.0;}; \n\t\tif (index == 7) {limit = float(dither[7]+1)/64.0;}; \n\t\tif (index == 8) {limit = float(dither[8]+1)/64.0;}; \n\t\tif (index == 9) {limit = float(dither[9]+1)/64.0;}; \n\t\tif (index == 10) {limit = float(dither[10]+1)/64.0;}; \n\t\tif (index == 11) {limit = float(dither[11]+1)/64.0;}; \n\t\tif (index == 12) {limit = float(dither[12]+1)/64.0;}; \n\t\tif (index == 13) {limit = float(dither[13]+1)/64.0;}; \n\t\tif (index == 14) {limit = float(dither[14]+1)/64.0;}; \n\t\tif (index == 15) {limit = float(dither[15]+1)/64.0;}; \n\t\tif (index == 16) {limit = float(dither[16]+1)/64.0;}; \n\t\tif (index == 17) {limit = float(dither[17]+1)/64.0;}; \n\t\tif (index == 18) {limit = float(dither[18]+1)/64.0;}; \n\t\tif (index == 19) {limit = float(dither[19]+1)/64.0;}; \n\t\tif (index == 20) {limit = float(dither[20]+1)/64.0;}; \n\t\tif (index == 21) {limit = float(dither[21]+1)/64.0;}; \n\t\tif (index == 22) {limit = float(dither[22]+1)/64.0;}; \n\t\tif (index == 23) {limit = float(dither[23]+1)/64.0;}; \n\t\tif (index == 24) {limit = float(dither[24]+1)/64.0;}; \n\t\tif (index == 25) {limit = float(dither[25]+1)/64.0;}; \n\t\tif (index == 26) {limit = float(dither[26]+1)/64.0;}; \n\t\tif (index == 27) {limit = float(dither[27]+1)/64.0;}; \n\t\tif (index == 28) {limit = float(dither[28]+1)/64.0;}; \n\t\tif (index == 29) {limit = float(dither[29]+1)/64.0;}; \n\t\tif (index == 30) {limit = float(dither[30]+1)/64.0;}; \n\t\tif (index == 31) {limit = float(dither[31]+1)/64.0;}; \n\t\tif (index == 32) {limit = float(dither[32]+1)/64.0;}; \n\t\tif (index == 33) {limit = float(dither[33]+1)/64.0;}; \n\t\tif (index == 34) {limit = float(dither[34]+1)/64.0;}; \n\t\tif (index == 35) {limit = float(dither[35]+1)/64.0;}; \n\t\tif (index == 36) {limit = float(dither[36]+1)/64.0;}; \n\t\tif (index == 37) {limit = float(dither[37]+1)/64.0;}; \n\t\tif (index == 38) {limit = float(dither[38]+1)/64.0;}; \n\t\tif (index == 39) {limit = float(dither[39]+1)/64.0;}; \n\t\tif (index == 40) {limit = float(dither[40]+1)/64.0;}; \n\t\tif (index == 41) {limit = float(dither[41]+1)/64.0;}; \n\t\tif (index == 42) {limit = float(dither[42]+1)/64.0;}; \n\t\tif (index == 43) {limit = float(dither[43]+1)/64.0;}; \n\t\tif (index == 44) {limit = float(dither[44]+1)/64.0;}; \n\t\tif (index == 45) {limit = float(dither[45]+1)/64.0;}; \n\t\tif (index == 46) {limit = float(dither[46]+1)/64.0;}; \n\t\tif (index == 47) {limit = float(dither[47]+1)/64.0;}; \n\t\tif (index == 48) {limit = float(dither[48]+1)/64.0;}; \n\t\tif (index == 49) {limit = float(dither[49]+1)/64.0;}; \n\t\tif (index == 50) {limit = float(dither[50]+1)/64.0;}; \n\t\tif (index == 51) {limit = float(dither[51]+1)/64.0;}; \n\t\tif (index == 52) {limit = float(dither[52]+1)/64.0;}; \n\t\tif (index == 53) {limit = float(dither[53]+1)/64.0;}; \n\t\tif (index == 54) {limit = float(dither[54]+1)/64.0;}; \n\t\tif (index == 55) {limit = float(dither[55]+1)/64.0;}; \n\t\tif (index == 56) {limit = float(dither[56]+1)/64.0;}; \n\t\tif (index == 57) {limit = float(dither[57]+1)/64.0;}; \n\t\tif (index == 58) {limit = float(dither[58]+1)/64.0;}; \n\t\tif (index == 59) {limit = float(dither[59]+1)/64.0;}; \n\t\tif (index == 60) {limit = float(dither[60]+1)/64.0;}; \n\t\tif (index == 61) {limit = float(dither[61]+1)/64.0;}; \n\t\tif (index == 62) {limit = float(dither[62]+1)/64.0;}; \n\t\tif (index == 63) {limit = float(dither[63]+1)/64.0;}; \n\t} \n\n\tif(c0 < limit) \n\treturn 0.0; \n\treturn 1.0; \n} \n\t\t \n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{ \n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec2 xy = fragCoord.xy * scale;\n\tvec3 col = texture2D(iChannel0, uv).rgb;\n\tvec4 finalResult = texture2D(iChannel0, uv);\n\t\n\tif ( pixelation )\n\t{\n\t\tvec2 div = vec2(iResolution.x * size / iResolution.y, size); \n\t\tvec2 pixel = floor(uv * div)/div;\n\t\tvec3 p_col = texture2D(iChannel0, pixel).rgb;\n\t\tcol = mix(col, p_col, p_blend);\n\t\t\n\t}\n\n\tif ( dithering )\n\t{\n\t\tint x = int(mod(xy.x, 8.0)); \n\t\tint y = int(mod(xy.y, 8.0)); \n\t\tvec3 d_col; \n\t\td_col.r = find_closest(x, y, col.r); \n\t\td_col.g = find_closest(x, y, col.g); \n\t\td_col.b = find_closest(x, y, col.b); \n\t\t// overaly the dithered output on top of the pixelated one\n\t\tvec3 o_col = softLight(d_col, col);\n\t\tcol = mix(col, o_col, d_blend);\n\t\t\n\t}\n\n\tif ( c64 )\n\t{\n\t\tvec3 c64col[16];\n\t\tc64col[0] = vec3(0.0,0.0,0.0);\n\t\tc64col[1] = vec3(62.0,49.0,162.0);\n\t\tc64col[2] = vec3(87.0,66.0,0.0);\n\t\tc64col[3] = vec3(140.0,62.0,52.0);\n\t\tc64col[4] = vec3(84.0,84.0,84.0);\n\t\tc64col[5] = vec3(141.0,71.0,179.0);\n\t\tc64col[6] = vec3(144.0,95.0,37.0);\n\t\tc64col[7] = vec3(124.0,112.0,218.0);\n\t\tc64col[8] = vec3(128.0,128.0,129.0);\n\t\tc64col[9] = vec3(104.0,169.0,65.0);\n\t\tc64col[10] = vec3(187.0,119.0,109.0);\n\t\tc64col[11] = vec3(122.0,191.0,199.0);\n\t\tc64col[12] = vec3(171.0,171.0,171.0);\n\t\tc64col[13] = vec3(208.0,220.0,113.0);\n\t\tc64col[14] = vec3(172.0,234.0,136.0);\n\t\tc64col[15] = vec3(255.0,255.0,255.0);\n\t\t\n\t\tvec3 match = vec3(0.0,0.0,0.0);\n\t\tfloat best_dot = 8.0;\n\t\n\t\tfor (int c6=15;c6>=0;c6--) \n\t{\n\t\tfloat this_dot = distance(c64col[c6]/255.0, col);\n\t\tif (this_dot<best_dot) {\n\t\t\tbest_dot=this_dot;\n\t\t\tmatch=c64col[c6];\n\t\t}\n\t}\n\tvec3 c64_c = vec3(match/255.0);\n\tcol = mix(col, c64_c, c64_blend);\n}\n\n\tfragColor = vec4(col, finalResult.a); \n} \n")
         del param
 
     param = lastNode.getParam("inputEnable1")
@@ -1025,9 +1106,58 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shadertoy1"
 
+    # Start of node "Unpremult1"
+    lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
+    lastNode.setScriptName("Unpremult1")
+    lastNode.setLabel("Unpremult1")
+    lastNode.setPosition(4139, 3749)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupUnpremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Unpremult1"
+
+    # Start of node "Premult1"
+    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
+    lastNode.setScriptName("Premult1")
+    lastNode.setLabel("Premult1")
+    lastNode.setPosition(4139, 4055)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupPremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Premult1"
+
+    # Start of node "Dot2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2")
+    lastNode.setLabel("Dot2")
+    lastNode.setPosition(4172, 3647)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2 = lastNode
+
+    del lastNode
+    # End of node "Dot2"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1)
-    groupShadertoy1.connectInput(0, groupSource)
+    groupOutput2.connectInput(0, groupPremult1)
+    groupShadertoy1.connectInput(0, groupUnpremult1)
+    groupUnpremult1.connectInput(0, groupDot2)
+    groupPremult1.connectInput(0, groupShadertoy1)
+    groupDot2.connectInput(0, groupSource)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
@@ -1052,6 +1182,12 @@ def createInstance(app,group):
     del param
     param = groupShadertoy1.getParam("paramValueBool7")
     group.getParam("Shadertoy1paramValueBool7").setAsAlias(param)
+    del param
+    param = groupUnpremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.isPremult.get()", False, 0)
+    del param
+    param = groupPremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.isPremult.get()", False, 0)
     del param
 
     try:

@@ -29,13 +29,16 @@
 // Adapted to Natron by F.Fernandez
 // Original code : crok_hexagon Matchbox for Autodesk Flame
 
+// based on https://www.shadertoy.com/view/ls23Dc by pyalot
+// http://www.gamedev.net/page/resources/_/technical/game-programming/coordinates-in-hexagon-based-tile-maps-r1800
+// nearest hexagon sampling, not quite sure if it's correct
+
+
+
 
 // iChannel0: Source, filter=nearest, wrap=clamp
 // BBox: iChannel0
 
-// based on https://www.shadertoy.com/view/ls23Dc by pyalot
-// http://www.gamedev.net/page/resources/_/technical/game-programming/coordinates-in-hexagon-based-tile-maps-r1800
-// nearest hexagon sampling, not quite sure if it's correct
 
 
 
@@ -116,5 +119,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	float dist = hexDist(fragCoord.xy - offs, nearest);
 	float interiorSize = s;
 	float interior = 1.0 - smoothstep(interiorSize - edge, interiorSize, dist * edge);
-	fragColor = vec4(texel.rgb*interior, 1.0);
+	fragColor = vec4(texel.rgba*interior);
 }

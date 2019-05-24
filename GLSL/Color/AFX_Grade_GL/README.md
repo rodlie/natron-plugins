@@ -3,7 +3,7 @@
 Based off the Nuke grade node.
 
 ### INPUTS
-* Source : Connect the image you want to apply the effect onto. (RGB)
+* Source : Connect the image you want to apply the effect onto. (RGBA)
 * Mask : Connect an image to apply the effect in a specific portion of the image. (A)
 
 ### HOW TO USE IT
@@ -25,7 +25,6 @@ Based off the Nuke grade node.
 * Multiply : Multiply adjustment.
 * RGB Offset : RGB multiply adjustment.
 
-
 #### Source
 
 * Premultiplied : enable if the input image is premultiplied.
@@ -33,3 +32,6 @@ Based off the Nuke grade node.
 #### Source
 
 * Mix : Mix original image with final result.
+
+### OUTPUT
+* RGBA

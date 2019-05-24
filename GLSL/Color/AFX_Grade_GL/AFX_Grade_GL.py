@@ -22,7 +22,7 @@ def getLabel():
     return "AFX_Grade_GL"
 
 def getVersion():
-    return 1
+    return 1.1
 
 def getIconPath():
     return "AFX_Grade_GL.png"
@@ -754,7 +754,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "AFX_Grade_GL v1.0")
+    param = lastNode.createSeparatorParam("NAME", "AFX_Grade_GL v1.1")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -877,7 +877,7 @@ def createInstance(app,group):
     lastNode.sep108 = param
     del param
 
-    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2018)")
+    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2019)")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

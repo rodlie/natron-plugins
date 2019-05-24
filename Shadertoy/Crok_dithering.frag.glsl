@@ -216,6 +216,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec2 uv = fragCoord.xy / iResolution.xy;
 	vec2 xy = fragCoord.xy * scale;
 	vec3 col = texture2D(iChannel0, uv).rgb;
+	vec4 finalResult = texture2D(iChannel0, uv);
 	
 	if ( pixelation )
 	{
@@ -275,5 +276,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	col = mix(col, c64_c, c64_blend);
 }
 
-	fragColor = vec4(col, 1.0); 
+	fragColor = vec4(col, finalResult.a); 
 } 
