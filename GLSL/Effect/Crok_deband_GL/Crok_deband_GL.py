@@ -337,6 +337,92 @@ def createInstance(app,group):
     lastNode.sep14 = param
     del param
 
+    param = lastNode.createSeparatorParam("MIX", "Mix")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MIX = param
+    del param
+
+    param = lastNode.createStringParam("sep15", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep15 = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
+    del param
+
+    param = lastNode.createDoubleParam("Dissolve1which", "Mix : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(1, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Dissolve1which = param
+    del param
+
+    param = lastNode.createStringParam("sep17", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep17 = param
+    del param
+
+    param = lastNode.createStringParam("sep18", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep18 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -538,7 +624,7 @@ def createInstance(app,group):
     # Start of node "Output2"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4138, 4035)
+    lastNode.setPosition(4139, 4232)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
@@ -550,7 +636,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3672)
+    lastNode.setPosition(4139, 3165)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
@@ -744,7 +830,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
-    lastNode.setPosition(4298, 3670)
+    lastNode.setPosition(4298, 3521)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
@@ -756,7 +842,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
     lastNode.setScriptName("Crop_Strength")
     lastNode.setLabel("Crop_Strength")
-    lastNode.setPosition(4298, 3842)
+    lastNode.setPosition(4298, 3711)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_Strength = lastNode
@@ -789,7 +875,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(4298, 3747)
+    lastNode.setPosition(4298, 3610)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
@@ -856,14 +942,72 @@ def createInstance(app,group):
     del lastNode
     # End of node "Premult1"
 
+    # Start of node "Dot1"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot1")
+    lastNode.setLabel("Dot1")
+    lastNode.setPosition(4172, 3433)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot1 = lastNode
+
+    del lastNode
+    # End of node "Dot1"
+
+    # Start of node "Dissolve1"
+    lastNode = app.createNode("net.sf.openfx.DissolvePlugin", 1, group)
+    lastNode.setScriptName("Dissolve1")
+    lastNode.setLabel("Dissolve1")
+    lastNode.setPosition(4139, 4046)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupDissolve1 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    del lastNode
+    # End of node "Dissolve1"
+
+    # Start of node "Dot2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2")
+    lastNode.setLabel("Dot2")
+    lastNode.setPosition(4416, 3433)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2 = lastNode
+
+    del lastNode
+    # End of node "Dot2"
+
+    # Start of node "Dot3"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot3")
+    lastNode.setLabel("Dot3")
+    lastNode.setPosition(4416, 4056)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot3 = lastNode
+
+    del lastNode
+    # End of node "Dot3"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupPremult1)
+    groupOutput2.connectInput(0, groupDissolve1)
     groupShadertoy2.connectInput(0, groupUnpremult1)
     groupShadertoy2.connectInput(1, groupCrop_Strength)
     groupCrop_Strength.connectInput(0, groupBlur1)
     groupBlur1.connectInput(0, groupMask)
-    groupUnpremult1.connectInput(0, groupSource)
+    groupUnpremult1.connectInput(0, groupDot1)
     groupPremult1.connectInput(0, groupShadertoy2)
+    groupDot1.connectInput(0, groupSource)
+    groupDissolve1.connectInput(0, groupDot3)
+    groupDissolve1.connectInput(1, groupPremult1)
+    groupDot2.connectInput(0, groupDot1)
+    groupDot3.connectInput(0, groupDot2)
 
     param = groupShadertoy2.getParam("paramValueFloat0")
     group.getParam("Shadertoy2paramValueFloat0").setAsAlias(param)
@@ -883,6 +1027,9 @@ def createInstance(app,group):
     del param
     param = groupPremult1.getParam("disableNode")
     param.setExpression("not thisGroup.isPremult.get()", False, 0)
+    del param
+    param = groupDissolve1.getParam("which")
+    group.getParam("Dissolve1which").setAsAlias(param)
     del param
 
     try:
