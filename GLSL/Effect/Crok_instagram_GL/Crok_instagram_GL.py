@@ -814,6 +814,92 @@ def createInstance(app,group):
     lastNode.sep32 = param
     del param
 
+    param = lastNode.createSeparatorParam("MIX", "Mix")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MIX = param
+    del param
+
+    param = lastNode.createStringParam("sep33", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep33 = param
+    del param
+
+    param = lastNode.createStringParam("sep34", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep34 = param
+    del param
+
+    param = lastNode.createDoubleParam("Dissolve2which", "Mix : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(1, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Dissolve2which = param
+    del param
+
+    param = lastNode.createStringParam("sep35", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep35 = param
+    del param
+
+    param = lastNode.createStringParam("sep36", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep36 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -1015,7 +1101,7 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4035, 4443)
+    lastNode.setPosition(4035, 4671)
     lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
@@ -1027,7 +1113,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Input1")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4035, 4070)
+    lastNode.setPosition(4035, 3829)
     lastNode.setSize(80, 22)
     lastNode.setColor(1, 1, 1)
     groupInput1 = lastNode
@@ -1683,13 +1769,71 @@ def createInstance(app,group):
     del lastNode
     # End of node "Premult1"
 
+    # Start of node "Dot1"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot1")
+    lastNode.setLabel("Dot1")
+    lastNode.setPosition(4068, 3999)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot1 = lastNode
+
+    del lastNode
+    # End of node "Dot1"
+
+    # Start of node "Dot2_2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2_2")
+    lastNode.setLabel("Dot2_2")
+    lastNode.setPosition(4401, 3998)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2_2 = lastNode
+
+    del lastNode
+    # End of node "Dot2_2"
+
+    # Start of node "Dot5"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot5")
+    lastNode.setLabel("Dot5")
+    lastNode.setPosition(4401, 4507)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot5 = lastNode
+
+    del lastNode
+    # End of node "Dot5"
+
+    # Start of node "Dissolve2"
+    lastNode = app.createNode("net.sf.openfx.DissolvePlugin", 1, group)
+    lastNode.setScriptName("Dissolve2")
+    lastNode.setLabel("Dissolve2")
+    lastNode.setPosition(4035, 4505)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupDissolve2 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    del lastNode
+    # End of node "Dissolve2"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput1.connectInput(0, groupPremult1)
+    groupOutput1.connectInput(0, groupDissolve2)
     grouppass1.connectInput(0, groupUnpremult1)
     grouppass2.connectInput(0, groupUnpremult1)
     grouppass2.connectInput(1, grouppass1)
-    groupUnpremult1.connectInput(0, groupInput1)
+    groupUnpremult1.connectInput(0, groupDot1)
     groupPremult1.connectInput(0, grouppass2)
+    groupDot1.connectInput(0, groupInput1)
+    groupDot2_2.connectInput(0, groupDot1)
+    groupDot5.connectInput(0, groupDot2_2)
+    groupDissolve2.connectInput(0, groupDot5)
+    groupDissolve2.connectInput(1, groupPremult1)
 
     param = grouppass1.getParam("paramValueInt0")
     param.setExpression("thisGroup.lookChoice.get()", False, 0)
@@ -1738,6 +1882,9 @@ def createInstance(app,group):
     del param
     param = groupPremult1.getParam("disableNode")
     param.setExpression("not thisGroup.isPremult.get()", False, 0)
+    del param
+    param = groupDissolve2.getParam("which")
+    group.getParam("Dissolve2which").setAsAlias(param)
     del param
 
     try:

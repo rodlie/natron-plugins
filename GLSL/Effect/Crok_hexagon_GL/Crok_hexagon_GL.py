@@ -955,6 +955,7 @@ def createInstance(app,group):
     groupShadertoy1.connectInput(0, groupUnpremult1)
     groupUnpremult1.connectInput(0, groupSource)
     groupPremult1.connectInput(0, groupShadertoy1)
+    groupDot2.connectInput(0, groupDot1)
     groupDissolve1.connectInput(0, groupDot5)
     groupDissolve1.connectInput(1, groupPremult1)
     groupDot5.connectInput(0, groupDot2)
