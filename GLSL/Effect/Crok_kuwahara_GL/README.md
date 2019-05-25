@@ -16,5 +16,9 @@ Radius : Effect radius.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
+#### MIX
+
+* Mix : Mix result with original image.
+
 ### OUTPUT
 * RGBA
