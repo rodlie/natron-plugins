@@ -725,35 +725,9 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
 
-    param = lastNode.getParam("paramValueVec20")
-    if param is not None:
-        param.setValue(959.9999999999999, 0)
-        param.setValue(540, 1)
-        del param
-
-    param = lastNode.getParam("paramValueFloat1")
-    if param is not None:
-        param.setValue(20, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat2")
-    if param is not None:
-        param.setValue(1, 0)
-        del param
-
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
         param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueFloat4")
-    if param is not None:
-        param.setValue(0, 0)
-        del param
-
-    param = lastNode.getParam("paramValueBool5")
-    if param is not None:
-        param.setValue(False)
         del param
 
     param = lastNode.getParam("imageShaderFileName")

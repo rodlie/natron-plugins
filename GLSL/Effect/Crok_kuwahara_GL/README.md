@@ -9,8 +9,7 @@ Simulates anisotropic kuwahara filtering.
 
 #### Setup
 
-* 
-Radius : Effect radius.
+* Radius : Effect radius.
 
 #### Options
 
