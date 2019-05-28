@@ -4,7 +4,7 @@ Generates ascii art.
 
 ### INPUT(S)
 * Source : Connect the image you want to apply the effect onto. (RGBA)
-* Mask : Connect an image to modulate the effect. (R)
+* Mask : Connect an image to modulate the effect. (RGBA)
 
 ### HOW TO USE IT
 
