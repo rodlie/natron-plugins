@@ -32,6 +32,7 @@
 
 // setting inputs names and filtering options
 // iChannel0: Source, filter = linear
+// iChannel1: Mask, filter = nearest
 // BBox: iChannel0
 
 
@@ -40,6 +41,7 @@ uniform float pMax = 4; // maximum : (maximum), min=0., max=20.
 
 uniform float pDotsize = 3; // gain : (gain), min=0., max=20.
 uniform float pScale = 8; // scale : (scale), min=0., max=20.
+uniform bool useMask = false; // Use mask : (Use mask input.)
 
 float currentFrame = iFrame *.5;
 
@@ -105,6 +107,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	}
 	
 	vec2 fc = fragCoord.xy-ORIGIN;
+	vec2 uv = fragCoord.xy / iResolution.xy;
+	vec4 original = vec4( texture2D(iChannel0, uv ) );
+	vec4 mask = vec4( texture2D(iChannel1, uv ) );
 	
 	mat2 mc = rotm(R+D2R(15.0));
 	mat2 mm = rotm(R+D2R(75.0));
@@ -118,5 +123,10 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 		halftone(fc,my).b,
 		halftone(fc,mk).a
 	)));
-	fragColor = c;
+
+	if (useMask)
+		fragColor = vec4 (mix(original.rgb, c.rgb, mask.a) , mix(original.a, c.a, mask.a) );
+		
+    else
+    	fragColor = c;
 }

@@ -32,6 +32,7 @@
 
 
 // iChannel0: Source, filter=nearest, wrap=clamp
+// iChannel1: Mask, filter=nearest, wrap=clamp
 // BBox: iChannel0
 
 // https://www.shadertoy.com/view/MdfXDH#
@@ -43,6 +44,7 @@ uniform int graphicMode = 0; // Graphic mode : (graphic mode), min=0, max=2
 uniform bool NES = true; // NES : (NES)
 uniform bool GAMEBOY = false; // GAMEBOY : (GAMEBOY)
 uniform bool EGA = false; // EGA : (EGA)
+uniform bool useMask = false; // Use mask : (Use mask input.)
 
 
 
@@ -178,6 +180,17 @@ vec3 dither (vec3 color, vec2 uv) {
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
 	vec2 uv = fragCoord.xy / iResolution.xy;
-	vec3 tc = texture2D(iChannel0, uv).xyz;
-	fragColor =  vec4 (dither (tc, fragCoord.xy),1.0);	
+	vec4 tc = texture2D(iChannel0, uv);
+	vec4 mask = texture2D(iChannel1, uv);
+	vec4 result = texture2D(iChannel0, uv);
+
+	if (useMask == true)
+	{
+		result = vec4 (dither (tc.rgb, fragCoord.xy),tc.a);
+		fragColor = vec4 (mix(tc.rgb, result.rgb, mask.a) , mix(tc.a, result.a, mask.a) );
+	}
+	else
+	{
+		fragColor = vec4 (dither (tc.rgb, fragCoord.xy),tc.a);
+	}
 }

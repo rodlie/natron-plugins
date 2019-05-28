@@ -16,7 +16,7 @@ GPU accelerated mosaic effect for Shadertoy.
 * Use mask : Use mask input.
 * Channel : Channel to use as mask.
 
-#### Mask
+#### Options
 
 * Keep aspect ratio : Pixels aspect ratio to 1.
 * Source is premultiplied : Checked if source image is premultiplied.

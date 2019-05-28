@@ -19,5 +19,13 @@ Simulates NES, SEGA and Gameboy video out.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
+#### Mask
+
+* Channel : Channel to use as mask.
+
+#### MIX
+
+* Mix : Mix result with original image.
+
 ### OUTPUT
 * RGBA

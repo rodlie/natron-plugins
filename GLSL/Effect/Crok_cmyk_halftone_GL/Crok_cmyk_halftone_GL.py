@@ -926,7 +926,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult1")
     lastNode.setLabel("Premult1")
-    lastNode.setPosition(4139, 3825)
+    lastNode.setPosition(4139, 3884)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1 = lastNode
@@ -951,6 +951,47 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot1"
 
+    # Start of node "Shuffle1"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Shuffle1")
+    lastNode.setLabel("Shuffle1")
+    lastNode.setPosition(4139, 3820)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupShuffle1 = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.A")
+        del param
+
+    del lastNode
+    # End of node "Shuffle1"
+
+    # Start of node "Dot4"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot4")
+    lastNode.setLabel("Dot4")
+    lastNode.setPosition(4040, 3614)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot4 = lastNode
+
+    del lastNode
+    # End of node "Dot4"
+
+    # Start of node "Dot5"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot5")
+    lastNode.setLabel("Dot5")
+    lastNode.setPosition(4040, 3830)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot5 = lastNode
+
+    del lastNode
+    # End of node "Dot5"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupDissolve1)
     groupShadertoy1_2.connectInput(0, groupUnpremult1)
@@ -959,8 +1000,12 @@ def createInstance(app,group):
     groupDot2.connectInput(0, groupDot1)
     groupDot3.connectInput(0, groupDot2)
     groupUnpremult1.connectInput(0, groupDot1)
-    groupPremult1.connectInput(0, groupShadertoy1_2)
+    groupPremult1.connectInput(0, groupShuffle1)
     groupDot1.connectInput(0, groupSource)
+    groupShuffle1.connectInput(0, groupShadertoy1_2)
+    groupShuffle1.connectInput(1, groupDot5)
+    groupDot4.connectInput(0, groupDot1)
+    groupDot5.connectInput(0, groupDot4)
 
     param = groupShadertoy1_2.getParam("paramValueFloat0")
     group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)

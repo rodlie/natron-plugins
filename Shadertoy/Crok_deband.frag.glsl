@@ -41,7 +41,7 @@
 float time = iTime *.05;
 
 uniform float amount = 100.0; // Amount : (amount), min=0, max=100000
-uniform bool useMask = false; // Mask : (Use mask.)
+uniform bool useMask = false; // Use mask : (Use mask input.)
 uniform int maskChannel = 3; // Channel : (channel used as mask.), min=0, max=3
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
