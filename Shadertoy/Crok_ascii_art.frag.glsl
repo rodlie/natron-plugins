@@ -91,7 +91,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	vec2 uv2 = fragCoord.xy / resolution.xy;
   vec2 cursor_position = (floor(uv/8.0)*8.0+0.5)/resolution.xy; //slight blur
 	vec4 col = texture2D(iChannel0, cursor_position);
-	float m = texture2D(iChannel1, uv2).r;
+	float m = texture2D(iChannel1, uv2).a;
 
   float luma = dot(col.rgb,vec3(0.2126, 0.7152, 0.0722)) * m;
 

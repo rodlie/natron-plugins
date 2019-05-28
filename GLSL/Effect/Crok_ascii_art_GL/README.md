@@ -14,5 +14,14 @@ Generates ascii art.
 * Saturation : Saturation intensity.
 * Noise : Noise size.
 
+#### Options
+
+* Black and white : Outputs a black and white version of the result.
+* Source is premultiplied : Checked if source image is premultiplied.
+
+#### MIX
+
+* Mix : Mix result with original image.
+
 ### OUTPUT
 * RGBA

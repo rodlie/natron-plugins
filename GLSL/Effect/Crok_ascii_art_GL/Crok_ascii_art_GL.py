@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_ascii_art_GL"
 
 def getVersion():
-    return 1.1
+    return 1
 
 def getIconPath():
     return "Crok_ascii_art_GL.png"
@@ -282,7 +282,7 @@ def createInstance(app,group):
     lastNode.sep11 = param
     del param
 
-    param = lastNode.createSeparatorParam("MIX", "Mix")
+    param = lastNode.createSeparatorParam("MASK", "Mask")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -292,7 +292,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.MIX = param
+    lastNode.MASK = param
     del param
 
     param = lastNode.createStringParam("sep12", "")
@@ -323,21 +323,36 @@ def createInstance(app,group):
     lastNode.sep13 = param
     del param
 
-    param = lastNode.createDoubleParam("Dissolve1which", "Mix : ")
-    param.setMinimum(0, 0)
-    param.setMaximum(1, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1, 0)
-    param.setDefaultValue(1, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createBooleanParam("useMask", "Use mask : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("Use mask.")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Dissolve1which = param
+    param.setAnimationEnabled(False)
+    lastNode.useMask = param
+    del param
+
+    param = lastNode.createChoiceParam("channelChoose", "Channel : ")
+    entries = [ ("Red", ""),
+    ("Green", ""),
+    ("Blue", ""),
+    ("Alpha", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Alpha")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Channel used as mask.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.channelChoose = param
     del param
 
     param = lastNode.createStringParam("sep14", "")
@@ -366,6 +381,93 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep15 = param
+    del param
+
+    param = lastNode.createSeparatorParam("MIX", "Mix")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MIX = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
+    del param
+
+    param = lastNode.createStringParam("sep17", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep17 = param
+    del param
+
+    param = lastNode.createDoubleParam("Dissolve1which", "Mix : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(1, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Dissolve1which = param
+    del param
+
+    param = lastNode.createStringParam("sep18", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep18 = param
+    del param
+
+    param = lastNode.createStringParam("sep19", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep19 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -569,7 +671,7 @@ def createInstance(app,group):
     # Start of node "Output1"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4139, 4337)
+    lastNode.setPosition(4142, 4541)
     lastNode.setSize(80, 30)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput1 = lastNode
@@ -581,7 +683,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3573)
+    lastNode.setPosition(4139, 3329)
     lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
@@ -593,8 +695,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3939)
-    lastNode.setSize(80, 32)
+    lastNode.setPosition(4139, 3934)
+    lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -615,7 +717,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_ascii_art Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_ascii_art Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter=nearest, wrap=clamp\n// iChannel1: Mask, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n\n// based on https://www.shadertoy.com/view/lsBXzD by CeeJayDK\n//A fork of https://www.shadertoy.com/view/lssGDj\n\n/*\nldexp and frexp are available in GLSL with OpenGL 4.0 and up,\nin HLSL with SM2.x and up,\nbut not in OpenGL ES / WebGL.\nBut we can make our own:\n*/\n\n\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\nfloat time = iTime*.01;\n\nuniform float size = 0.5; // Look : (look), min=0.01, max=1.0\nuniform float brightness = 0.5; // Brightness : (brightness), min=0.0, max=1.0\nuniform bool bw = true;\n\nfloat ldexp (float mantissa, float exponent)\n{\n\treturn exp2(exponent) * mantissa;\n}\n\nfloat frexp (float f, out float exponent)\n{\n\texponent = ceil(log2(f));\n\tfloat mantissa = exp2(-exponent) * f;\n\treturn mantissa;\n}\n\nfloat character(float n, vec2 p) // some compilers have the word \"char\" reserved\n{\n  p = floor(p * vec2(8.0,-8.0) + (vec2(-4.0,4.0) + vec2(1.0)) );\n\n\tif (clamp(p.x, 0.0, 4.0) == p.x && clamp(p.y, 0.0, 4.0) == p.y)\n\t{\n    \tfloat x = (5.0 * p.y + p.x);\n      float signbit = (n < 0.0)\n          ? 1.0\n          : 0.0 ;\n        signbit = (x == 0.0)\n          ? signbit\n          : 0.0 ;\n\t\t\t\t\treturn ( fract( abs( n*exp2(-x-1.0))) >= 0.5) ? 1.0 : signbit; //works on AMD and intel\n\t}\n  return 0.0;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy - 0.5;\n\tvec2 uv2 = fragCoord.xy / resolution.xy;\n  vec2 cursor_position = (floor(uv/8.0)*8.0+0.5)/resolution.xy; //slight blur\n\tvec4 col = texture2D(iChannel0, cursor_position);\n\tfloat m = texture2D(iChannel1, uv2).r;\n\n  float luma = dot(col.rgb,vec3(0.2126, 0.7152, 0.0722)) * m;\n\n\tfloat gray = smoothstep(0.0,1.0,luma); //increase contrast\n  float num_of_chars = 16. ;\n  float n12   = (gray < (1./num_of_chars))  ? 0.        : 4194304. ; //   or .\n\tfloat n34   = (gray < (3./num_of_chars))  ? 131200.   : 324.     ; // : or ^\n  float n56   = (gray < (5./num_of_chars))  ? 330.      : 283712.  ; // \" or ~\n  float n78   = (gray < (7./num_of_chars))  ? 12650880. : 4532768. ; // c or v\n  float n910  = (gray < (9./num_of_chars))  ? 13191552. : 10648704.; // o or *\n  float n1112 = (gray < (11./num_of_chars)) ? 11195936. : 15218734.; // w or S\n  float n1314 = (gray < (13./num_of_chars)) ? 15255086. : 15252014.; // O or 8\n  float n1516 = (gray < (15./num_of_chars)) ? 15324974. : 11512810.; // 0 or # //forgot about Q\n\n  float n1234     = (gray < (2./num_of_chars))  ? n12   : n34;\n  float n5678     = (gray < (6./num_of_chars))  ? n56   : n78;\n  float n9101112  = (gray < (10./num_of_chars)) ? n910  : n1112;\n  float n13141516 = (gray < (14./num_of_chars)) ? n1314 : n1516;\n  float n12345678 = (gray < (4./num_of_chars)) ? n1234 : n5678;\n  float n910111213141516 = (gray < (12./num_of_chars)) ? n9101112 : n13141516;\n  float n = (gray < (8./num_of_chars)) ? n12345678 : n910111213141516;\n\n  vec2 p = fract(uv * 0.25 * size);\n\n\tcol = col *character(n, p) * (brightness + 1.0);\n\tif ( bw )\n\t\tcol = mix(vec4(character(n, p)), luma * vec4(character(n, p)), brightness * - 1.0 + 1.0);\n\n\tfragColor = col;\n}\n")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_ascii_art Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_ascii_art Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter=nearest, wrap=clamp\n// iChannel1: Mask, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n\n// based on https://www.shadertoy.com/view/lsBXzD by CeeJayDK\n//A fork of https://www.shadertoy.com/view/lssGDj\n\n/*\nldexp and frexp are available in GLSL with OpenGL 4.0 and up,\nin HLSL with SM2.x and up,\nbut not in OpenGL ES / WebGL.\nBut we can make our own:\n*/\n\n\n\n\nvec2 resolution = vec2(iResolution.x, iResolution.y);\nfloat time = iTime*.01;\n\nuniform float size = 0.5; // Look : (look), min=0.01, max=1.0\nuniform float brightness = 0.5; // Brightness : (brightness), min=0.0, max=1.0\nuniform bool bw = true;\n\nfloat ldexp (float mantissa, float exponent)\n{\n\treturn exp2(exponent) * mantissa;\n}\n\nfloat frexp (float f, out float exponent)\n{\n\texponent = ceil(log2(f));\n\tfloat mantissa = exp2(-exponent) * f;\n\treturn mantissa;\n}\n\nfloat character(float n, vec2 p) // some compilers have the word \"char\" reserved\n{\n  p = floor(p * vec2(8.0,-8.0) + (vec2(-4.0,4.0) + vec2(1.0)) );\n\n\tif (clamp(p.x, 0.0, 4.0) == p.x && clamp(p.y, 0.0, 4.0) == p.y)\n\t{\n    \tfloat x = (5.0 * p.y + p.x);\n      float signbit = (n < 0.0)\n          ? 1.0\n          : 0.0 ;\n        signbit = (x == 0.0)\n          ? signbit\n          : 0.0 ;\n\t\t\t\t\treturn ( fract( abs( n*exp2(-x-1.0))) >= 0.5) ? 1.0 : signbit; //works on AMD and intel\n\t}\n  return 0.0;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy - 0.5;\n\tvec2 uv2 = fragCoord.xy / resolution.xy;\n  vec2 cursor_position = (floor(uv/8.0)*8.0+0.5)/resolution.xy; //slight blur\n\tvec4 col = texture2D(iChannel0, cursor_position);\n\tfloat m = texture2D(iChannel1, uv2).a;\n\n  float luma = dot(col.rgb,vec3(0.2126, 0.7152, 0.0722)) * m;\n\n\tfloat gray = smoothstep(0.0,1.0,luma); //increase contrast\n  float num_of_chars = 16. ;\n  float n12   = (gray < (1./num_of_chars))  ? 0.        : 4194304. ; //   or .\n\tfloat n34   = (gray < (3./num_of_chars))  ? 131200.   : 324.     ; // : or ^\n  float n56   = (gray < (5./num_of_chars))  ? 330.      : 283712.  ; // \" or ~\n  float n78   = (gray < (7./num_of_chars))  ? 12650880. : 4532768. ; // c or v\n  float n910  = (gray < (9./num_of_chars))  ? 13191552. : 10648704.; // o or *\n  float n1112 = (gray < (11./num_of_chars)) ? 11195936. : 15218734.; // w or S\n  float n1314 = (gray < (13./num_of_chars)) ? 15255086. : 15252014.; // O or 8\n  float n1516 = (gray < (15./num_of_chars)) ? 15324974. : 11512810.; // 0 or # //forgot about Q\n\n  float n1234     = (gray < (2./num_of_chars))  ? n12   : n34;\n  float n5678     = (gray < (6./num_of_chars))  ? n56   : n78;\n  float n9101112  = (gray < (10./num_of_chars)) ? n910  : n1112;\n  float n13141516 = (gray < (14./num_of_chars)) ? n1314 : n1516;\n  float n12345678 = (gray < (4./num_of_chars)) ? n1234 : n5678;\n  float n910111213141516 = (gray < (12./num_of_chars)) ? n9101112 : n13141516;\n  float n = (gray < (8./num_of_chars)) ? n12345678 : n910111213141516;\n\n  vec2 p = fract(uv * 0.25 * size);\n\n\tcol = col *character(n, p) * (brightness + 1.0);\n\tif ( bw )\n\t\tcol = mix(vec4(character(n, p)), luma * vec4(character(n, p)), brightness * - 1.0 + 1.0);\n\n\tfragColor = col;\n}\n")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -625,7 +727,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("wrap0")
     if param is not None:
-        param.set("mirror")
+        param.set("clamp")
         del param
 
     param = lastNode.getParam("inputLabel0")
@@ -775,7 +877,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
-    lastNode.setPosition(4024, 3940)
+    lastNode.setPosition(3347, 3378)
     lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
@@ -787,7 +889,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
     lastNode.setScriptName("Unpremult1")
     lastNode.setLabel("Unpremult1")
-    lastNode.setPosition(4139, 3878)
+    lastNode.setPosition(4139, 3857)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupUnpremult1 = lastNode
@@ -804,7 +906,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult1")
     lastNode.setLabel("Premult1")
-    lastNode.setPosition(4139, 4008)
+    lastNode.setPosition(4139, 4024)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1 = lastNode
@@ -821,7 +923,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.DissolvePlugin", 1, group)
     lastNode.setScriptName("Dissolve1")
     lastNode.setLabel("Dissolve1")
-    lastNode.setPosition(4139, 4119)
+    lastNode.setPosition(4139, 4323)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupDissolve1 = lastNode
@@ -838,7 +940,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1")
     lastNode.setLabel("Dot1")
-    lastNode.setPosition(4172, 3794)
+    lastNode.setPosition(4172, 3550)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1 = lastNode
@@ -850,7 +952,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
-    lastNode.setPosition(4368, 3794)
+    lastNode.setPosition(4368, 3550)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
@@ -862,7 +964,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot3")
     lastNode.setLabel("Dot3")
-    lastNode.setPosition(4368, 4129)
+    lastNode.setPosition(4371, 4333)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot3 = lastNode
@@ -870,10 +972,206 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot3"
 
+    # Start of node "Alpha"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Alpha")
+    lastNode.setLabel("Alpha")
+    lastNode.setPosition(3504, 3750)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupAlpha = lastNode
+
+    del lastNode
+    # End of node "Alpha"
+
+    # Start of node "SwitchMask"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("SwitchMask")
+    lastNode.setLabel("SwitchMask")
+    lastNode.setPosition(3705, 3936)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(1, 1, 1)
+    groupSwitchMask = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "SwitchMask"
+
+    # Start of node "Red"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Red")
+    lastNode.setLabel("Red")
+    lastNode.setPosition(3160, 3744)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupRed = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
+        del param
+
+    del lastNode
+    # End of node "Red"
+
+    # Start of node "Dot4"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot4")
+    lastNode.setLabel("Dot4")
+    lastNode.setPosition(3738, 3550)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot4 = lastNode
+
+    del lastNode
+    # End of node "Dot4"
+
+    # Start of node "Green"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Green")
+    lastNode.setLabel("Green")
+    lastNode.setPosition(3281, 3747)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupGreen = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
+        del param
+
+    del lastNode
+    # End of node "Green"
+
+    # Start of node "Blue"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Blue")
+    lastNode.setLabel("Blue")
+    lastNode.setPosition(3403, 3747)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupBlue = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
+        del param
+
+    del lastNode
+    # End of node "Blue"
+
+    # Start of node "SwitchChannel"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("SwitchChannel")
+    lastNode.setLabel("SwitchChannel")
+    lastNode.setPosition(3329, 3934)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(1, 1, 1)
+    groupSwitchChannel = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
+    del lastNode
+    # End of node "SwitchChannel"
+
+    # Start of node "Shuffle1"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Shuffle1")
+    lastNode.setLabel("Shuffle1")
+    lastNode.setPosition(3705, 3756)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupShuffle1 = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("1")
+        del param
+
+    del lastNode
+    # End of node "Shuffle1"
+
+    # Start of node "Crop"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop")
+    lastNode.setLabel("Crop")
+    lastNode.setPosition(3351, 3584)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(400, 0)
+        param.setValue(445, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop"
+
+    # Start of node "Blur1_2"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("Blur1_2")
+    lastNode.setLabel("Blur1")
+    lastNode.setPosition(3347, 3484)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlur1_2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Blur1_2"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupDissolve1)
     groupShadertoy1.connectInput(0, groupUnpremult1)
-    groupShadertoy1.connectInput(1, groupMask)
+    groupShadertoy1.connectInput(1, groupSwitchMask)
     groupUnpremult1.connectInput(0, groupDot1)
     groupPremult1.connectInput(0, groupShadertoy1)
     groupDissolve1.connectInput(0, groupDot3)
@@ -881,6 +1179,20 @@ def createInstance(app,group):
     groupDot1.connectInput(0, groupSource)
     groupDot2.connectInput(0, groupDot1)
     groupDot3.connectInput(0, groupDot2)
+    groupAlpha.connectInput(0, groupCrop)
+    groupSwitchMask.connectInput(0, groupShuffle1)
+    groupSwitchMask.connectInput(1, groupSwitchChannel)
+    groupRed.connectInput(0, groupCrop)
+    groupDot4.connectInput(0, groupDot1)
+    groupGreen.connectInput(0, groupCrop)
+    groupBlue.connectInput(0, groupCrop)
+    groupSwitchChannel.connectInput(0, groupRed)
+    groupSwitchChannel.connectInput(1, groupGreen)
+    groupSwitchChannel.connectInput(2, groupBlue)
+    groupSwitchChannel.connectInput(3, groupAlpha)
+    groupShuffle1.connectInput(0, groupDot4)
+    groupCrop.connectInput(0, groupBlur1_2)
+    groupBlur1_2.connectInput(0, groupMask)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
@@ -899,6 +1211,16 @@ def createInstance(app,group):
     del param
     param = groupDissolve1.getParam("which")
     group.getParam("Dissolve1which").setAsAlias(param)
+    del param
+    param = groupSwitchMask.getParam("which")
+    param.setExpression("thisGroup.useMask.get()", False, 0)
+    del param
+    param = groupSwitchChannel.getParam("which")
+    param.setExpression("thisGroup.channelChoose.get()", False, 0)
+    del param
+    param = groupCrop.getParam("size")
+    param.setExpression("myWidth = Blur1_2.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myHeight = Blur1_2.getOutputFormat().height()\nret = myHeight", True, 1)
     del param
 
     try:
