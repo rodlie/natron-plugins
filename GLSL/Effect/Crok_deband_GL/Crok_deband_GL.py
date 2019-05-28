@@ -197,7 +197,7 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy2paramValueBool1", "Mask : ")
+    param = lastNode.createBooleanParam("Shadertoy2paramValueBool1", "Use mask : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
