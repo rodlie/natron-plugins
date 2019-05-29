@@ -22,7 +22,7 @@ def getLabel():
     return "Crok_contour_GL"
 
 def getVersion():
-    return 1.0
+    return 1.1
 
 def getIconPath():
     return "Crok_contour_GL.png"
@@ -187,6 +187,274 @@ def createInstance(app,group):
     lastNode.sep07 = param
     del param
 
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.OPTIONS = param
+    del param
+
+    param = lastNode.createStringParam("sep08", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep08 = param
+    del param
+
+    param = lastNode.createStringParam("sep09", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep09 = param
+    del param
+
+    param = lastNode.createBooleanParam("isPremult", "Source is premultiplied : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Source is premultiplied.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.isPremult = param
+    del param
+
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
+    del param
+
+    param = lastNode.createStringParam("sep11", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep11 = param
+    del param
+
+    param = lastNode.createSeparatorParam("MASK", "Mask")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MASK = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createBooleanParam("useMask", "Use mask : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Use mask input.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.useMask = param
+    del param
+
+    param = lastNode.createChoiceParam("channelChoice", "Channel : ")
+    entries = [ ("Red", ""),
+    ("Green", ""),
+    ("Blue", ""),
+    ("Alpha", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Alpha")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Channel used as input.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.channelChoice = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
+    param = lastNode.createStringParam("sep15", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep15 = param
+    del param
+
+    param = lastNode.createSeparatorParam("MIX", "Mix")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MIX = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
+    del param
+
+    param = lastNode.createStringParam("sep17", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep17 = param
+    del param
+
+    param = lastNode.createDoubleParam("Dissolve2which", "Mix : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(1, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Dissolve2which = param
+    del param
+
+    param = lastNode.createStringParam("sep18", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep18 = param
+    del param
+
+    param = lastNode.createStringParam("sep19", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep19 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -216,7 +484,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "Crok_contour_GL v1.0")
+    param = lastNode.createSeparatorParam("NAME", "Crok_contour_GL v1.1")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -339,7 +607,7 @@ def createInstance(app,group):
     lastNode.sep108 = param
     del param
 
-    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2018)")
+    param = lastNode.createSeparatorParam("CONVERSION", " (Fabrice Fernandez - 2019)")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)
@@ -388,8 +656,8 @@ def createInstance(app,group):
     # Start of node "Output2"
     lastNode = app.createNode("fr.inria.built-in.Output", 1, group)
     lastNode.setLabel("Output2")
-    lastNode.setPosition(4139, 3997)
-    lastNode.setSize(90, 36)
+    lastNode.setPosition(4139, 4557)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupOutput2 = lastNode
 
@@ -400,8 +668,8 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Source")
     lastNode.setLabel("Source")
-    lastNode.setPosition(4139, 3697)
-    lastNode.setSize(90, 36)
+    lastNode.setPosition(4139, 3378)
+    lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupSource = lastNode
 
@@ -412,8 +680,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3855)
-    lastNode.setSize(90, 36)
+    lastNode.setPosition(4139, 3905)
+    lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
 
@@ -465,11 +733,6 @@ def createInstance(app,group):
     param = lastNode.getParam("bbox")
     if param is not None:
         param.set("iChannel0")
-        del param
-
-    param = lastNode.getParam("NatronParamFormatChoice")
-    if param is not None:
-        param.set("PC_Video")
         del param
 
     param = lastNode.getParam("mouseParams")
@@ -555,15 +818,391 @@ def createInstance(app,group):
     del lastNode
     # End of node "Shadertoy1"
 
+    # Start of node "Unpremult1"
+    lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
+    lastNode.setScriptName("Unpremult1")
+    lastNode.setLabel("Unpremult1")
+    lastNode.setPosition(4139, 3845)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupUnpremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Unpremult1"
+
+    # Start of node "Premult1"
+    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
+    lastNode.setScriptName("Premult1")
+    lastNode.setLabel("Premult1")
+    lastNode.setPosition(4139, 4017)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupPremult1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Premult1"
+
+    # Start of node "Shuffle1"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Shuffle1")
+    lastNode.setLabel("Shuffle1")
+    lastNode.setPosition(4139, 3962)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupShuffle1 = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.A")
+        del param
+
+    del lastNode
+    # End of node "Shuffle1"
+
+    # Start of node "Dot1"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot1")
+    lastNode.setLabel("Dot1")
+    lastNode.setPosition(4171, 3757)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot1 = lastNode
+
+    del lastNode
+    # End of node "Dot1"
+
+    # Start of node "Dot2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2")
+    lastNode.setLabel("Dot2")
+    lastNode.setPosition(4313, 3757)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2 = lastNode
+
+    del lastNode
+    # End of node "Dot2"
+
+    # Start of node "Dot3"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot3")
+    lastNode.setLabel("Dot3")
+    lastNode.setPosition(4310, 3968)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot3 = lastNode
+
+    del lastNode
+    # End of node "Dot3"
+
+    # Start of node "Mask"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Mask")
+    lastNode.setLabel("Mask")
+    lastNode.setPosition(3643, 3391)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupMask = lastNode
+
+    del lastNode
+    # End of node "Mask"
+
+    # Start of node "Merge1"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge1")
+    lastNode.setLabel("Merge1")
+    lastNode.setPosition(3621, 4189)
+    lastNode.setSize(80, 60)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge1 = lastNode
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("multiply")
+        del param
+
+    del lastNode
+    # End of node "Merge1"
+
+    # Start of node "Shuffle1_2"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Shuffle1_2")
+    lastNode.setLabel("Shuffle1_2")
+    lastNode.setPosition(3621, 4031)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupShuffle1_2 = lastNode
+
+    param = lastNode.getParam("outputR")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.A")
+        del param
+
+    param = lastNode.getParam("outputG")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.A")
+        del param
+
+    param = lastNode.getParam("outputB")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.A")
+        del param
+
+    del lastNode
+    # End of node "Shuffle1_2"
+
+    # Start of node "Alpha"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Alpha")
+    lastNode.setLabel("Alpha")
+    lastNode.setPosition(3797, 3785)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupAlpha = lastNode
+
+    del lastNode
+    # End of node "Alpha"
+
+    # Start of node "Red"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Red")
+    lastNode.setLabel("Red")
+    lastNode.setPosition(3453, 3779)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupRed = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
+        del param
+
+    del lastNode
+    # End of node "Red"
+
+    # Start of node "Green"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Green")
+    lastNode.setLabel("Green")
+    lastNode.setPosition(3573, 3782)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupGreen = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
+        del param
+
+    del lastNode
+    # End of node "Green"
+
+    # Start of node "Blue"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Blue")
+    lastNode.setLabel("Blue")
+    lastNode.setPosition(3695, 3782)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupBlue = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
+        del param
+
+    del lastNode
+    # End of node "Blue"
+
+    # Start of node "SwitchChannel"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("SwitchChannel")
+    lastNode.setLabel("SwitchChannel")
+    lastNode.setPosition(3621, 3969)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitchChannel = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
+    del lastNode
+    # End of node "SwitchChannel"
+
+    # Start of node "Crop"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop")
+    lastNode.setLabel("Crop")
+    lastNode.setPosition(3643, 3621)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(640, 0)
+        param.setValue(480, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop"
+
+    # Start of node "Blur1"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("Blur1")
+    lastNode.setLabel("Blur1")
+    lastNode.setPosition(3643, 3513)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlur1 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Blur1"
+
+    # Start of node "Merge2"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge2")
+    lastNode.setLabel("Merge2")
+    lastNode.setPosition(4139, 4189)
+    lastNode.setSize(80, 60)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge2 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Merge2"
+
+    # Start of node "Dissolve2"
+    lastNode = app.createNode("net.sf.openfx.DissolvePlugin", 1, group)
+    lastNode.setScriptName("Dissolve2")
+    lastNode.setLabel("Dissolve2")
+    lastNode.setPosition(4144, 4301)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupDissolve2 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    del lastNode
+    # End of node "Dissolve2"
+
+    # Start of node "Dot5"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot5")
+    lastNode.setLabel("Dot5")
+    lastNode.setPosition(4510, 4311)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot5 = lastNode
+
+    del lastNode
+    # End of node "Dot5"
+
+    # Start of node "Dot2_2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot2_2")
+    lastNode.setLabel("Dot2_2")
+    lastNode.setPosition(4510, 3755)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot2_2 = lastNode
+
+    del lastNode
+    # End of node "Dot2_2"
+
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupShadertoy1)
-    groupShadertoy1.connectInput(0, groupSource)
+    groupOutput2.connectInput(0, groupDissolve2)
+    groupShadertoy1.connectInput(0, groupUnpremult1)
+    groupUnpremult1.connectInput(0, groupDot1)
+    groupPremult1.connectInput(0, groupShuffle1)
+    groupShuffle1.connectInput(0, groupShadertoy1)
+    groupShuffle1.connectInput(1, groupDot3)
+    groupDot1.connectInput(0, groupSource)
+    groupDot2.connectInput(0, groupDot1)
+    groupDot3.connectInput(0, groupDot2)
+    groupMerge1.connectInput(0, groupDot1)
+    groupMerge1.connectInput(1, groupShuffle1_2)
+    groupShuffle1_2.connectInput(0, groupSwitchChannel)
+    groupAlpha.connectInput(0, groupCrop)
+    groupRed.connectInput(0, groupCrop)
+    groupGreen.connectInput(0, groupCrop)
+    groupBlue.connectInput(0, groupCrop)
+    groupSwitchChannel.connectInput(0, groupRed)
+    groupSwitchChannel.connectInput(1, groupGreen)
+    groupSwitchChannel.connectInput(2, groupBlue)
+    groupSwitchChannel.connectInput(3, groupAlpha)
+    groupCrop.connectInput(0, groupBlur1)
+    groupBlur1.connectInput(0, groupMask)
+    groupMerge2.connectInput(0, groupPremult1)
+    groupMerge2.connectInput(1, groupMerge1)
+    groupDissolve2.connectInput(0, groupDot5)
+    groupDissolve2.connectInput(1, groupMerge2)
+    groupDot5.connectInput(0, groupDot2_2)
+    groupDot2_2.connectInput(0, groupDot1)
 
     param = groupShadertoy1.getParam("paramValueInt0")
     group.getParam("Shadertoy1paramValueInt0").setAsAlias(param)
     del param
     param = groupShadertoy1.getParam("paramValueInt1")
     group.getParam("Shadertoy1paramValueInt1").setAsAlias(param)
+    del param
+    param = groupUnpremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.isPremult.get()", False, 0)
+    del param
+    param = groupPremult1.getParam("disableNode")
+    param.setExpression("not thisGroup.isPremult.get()", False, 0)
+    del param
+    param = groupSwitchChannel.getParam("which")
+    param.setExpression("thisGroup.channelChoice.get()", False, 0)
+    del param
+    param = groupCrop.getParam("size")
+    param.setExpression("myWidth = Blur1.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myHeight = Blur1.getOutputFormat().height()\nret = myHeight", True, 1)
+    del param
+    param = groupMerge2.getParam("disableNode")
+    param.setExpression("not thisGroup.useMask.get()", False, 0)
+    del param
+    param = groupDissolve2.getParam("which")
+    group.getParam("Dissolve2which").setAsAlias(param)
     del param
 
     try:
