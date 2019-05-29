@@ -12,3 +12,14 @@ Simulates the color palette of a VIC-2 or better known as on of the famous C64 c
 * Pixel Size : Pixel size.
 * Saturation : Saturation intensity.
 * Noise : Noise size.
+
+#### Options
+
+* Source is premultiplied : Checked if source image is premultiplied.
+
+#### Mix
+
+* Mix : Mix result with original image.
+
+### OUTPUT
+* RGB

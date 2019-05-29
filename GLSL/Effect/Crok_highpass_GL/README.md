@@ -24,7 +24,7 @@ GPU accelerated highpass filter for Shadertoy.
 * Use mak : Use mask input.
 * Channel : Channel used as mask.
 
-#### MIX
+#### Mix
 
 * Mix : Mix result with original image.
 

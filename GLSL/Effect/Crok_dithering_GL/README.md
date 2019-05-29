@@ -29,5 +29,9 @@ Creates a dithering effect.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
+#### Mix
+
+* Mix : Mix result with original image.
+
 ### OUTPUT
 * RGBA

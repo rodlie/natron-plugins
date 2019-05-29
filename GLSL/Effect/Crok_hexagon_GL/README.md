@@ -21,7 +21,7 @@ Generates hexagon patterns.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
-#### MIX
+#### Mix
 
 * Mix : Mix result with original image.
 

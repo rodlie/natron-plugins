@@ -21,7 +21,7 @@ GPU accelerated mosaic effect for Shadertoy.
 * Keep aspect ratio : Pixels aspect ratio to 1.
 * Source is premultiplied : Checked if source image is premultiplied.
 
-#### MIX
+#### Mix
 
 * Mix : Mix result with original image.
 

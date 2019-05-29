@@ -17,11 +17,11 @@ Reduces banding.
 * Mask : Use mask input.
 * Channel : Channel to use as mask.
 
-#### OPTIONS
+#### Options
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
-#### MIX
+#### Mix
 
 * Mix : Mix result with original image.
 
