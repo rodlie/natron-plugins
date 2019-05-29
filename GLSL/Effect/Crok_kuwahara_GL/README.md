@@ -15,7 +15,7 @@ Simulates anisotropic kuwahara filtering.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
-#### MIX
+#### Mix
 
 * Mix : Mix result with original image.
 
