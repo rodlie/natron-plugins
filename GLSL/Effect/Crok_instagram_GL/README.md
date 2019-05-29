@@ -53,6 +53,11 @@ This shader gives you the typical Instagram looks.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
+#### Mask
+
+* Use mask : Use mask input.
+* Channel : Channel to use as mask.
+
 #### Mix
 
 * Mix : Mix result with original image.
