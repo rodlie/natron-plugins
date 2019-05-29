@@ -720,11 +720,6 @@ def createInstance(app,group):
         param.setValue(100, 0)
         del param
 
-    param = lastNode.getParam("paramValueBool1")
-    if param is not None:
-        param.setValue(True)
-        del param
-
     param = lastNode.getParam("paramValueBool2")
     if param is not None:
         param.setValue(False)

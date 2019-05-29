@@ -15,7 +15,7 @@ Reduces banding.
 #### Mask
 
 * Mask : Use mask input.
-* Channel : Channel to use as mask.
+* Channel : Channel used as mask.
 
 #### Options
 

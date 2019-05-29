@@ -17,7 +17,7 @@ Generates hexagon patterns.
 * Offest x : Offset pattern horizontaly.
 * Offset y : Offset pattern verticaly.
 
-#### OPTIONS
+#### Options
 
 * Source is premultiplied : Checked if source image is premultiplied.
 

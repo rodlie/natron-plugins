@@ -56,7 +56,7 @@ This shader gives you the typical Instagram looks.
 #### Mask
 
 * Use mask : Use mask input.
-* Channel : Channel to use as mask.
+* Channel : Channel used as mask.
 
 #### Mix
 
