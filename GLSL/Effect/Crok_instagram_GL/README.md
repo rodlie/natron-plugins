@@ -49,7 +49,7 @@ This shader gives you the typical Instagram looks.
 * Green : Green value multiplicator.
 * Blue : Blue value multiplicator.
 
-#### OPTIONS
+#### Options
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
