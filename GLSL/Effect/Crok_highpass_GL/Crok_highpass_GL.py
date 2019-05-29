@@ -306,7 +306,7 @@ def createInstance(app,group):
     lastNode.sep15 = param
     del param
 
-    param = lastNode.createSeparatorParam("MIX", "Mix")
+    param = lastNode.createSeparatorParam("MASK", "Mask")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -316,7 +316,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.MIX = param
+    lastNode.MASK = param
     del param
 
     param = lastNode.createStringParam("sep16", "")
@@ -347,13 +347,7 @@ def createInstance(app,group):
     lastNode.sep17 = param
     del param
 
-    param = lastNode.createDoubleParam("Dissolve1which", "Mix : ")
-    param.setMinimum(0, 0)
-    param.setMaximum(1, 0)
-    param.setDisplayMinimum(0, 0)
-    param.setDisplayMaximum(1, 0)
-    param.setDefaultValue(1, 0)
-    param.restoreDefaultValue(0)
+    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool4", "Use mask : ")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -361,7 +355,27 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    lastNode.Dissolve1which = param
+    lastNode.Shadertoy1_2paramValueBool4 = param
+    del param
+
+    param = lastNode.createChoiceParam("channelChoose", "Channel : ")
+    entries = [ ("Red", ""),
+    ("Green", ""),
+    ("Blue", ""),
+    ("Alpha", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Alpha")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Channel used as mask.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.channelChoose = param
     del param
 
     param = lastNode.createStringParam("sep18", "")
@@ -390,6 +404,92 @@ def createInstance(app,group):
     param.setEvaluateOnChange(False)
     param.setAnimationEnabled(False)
     lastNode.sep19 = param
+    del param
+
+    param = lastNode.createSeparatorParam("MIX", "Mix")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MIX = param
+    del param
+
+    param = lastNode.createStringParam("sep20", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep20 = param
+    del param
+
+    param = lastNode.createStringParam("sep21", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep21 = param
+    del param
+
+    param = lastNode.createDoubleParam("Dissolve1which", "Mix : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(1, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Dissolve1which = param
+    del param
+
+    param = lastNode.createStringParam("sep22", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep22 = param
+    del param
+
+    param = lastNode.createStringParam("sep23", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep23 = param
     del param
 
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
@@ -617,7 +717,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1_2")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3789)
+    lastNode.setPosition(4137, 3789)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1_2 = lastNode
@@ -642,9 +742,14 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("paramValueBool4")
+    if param is not None:
+        param.setValue(False)
+        del param
+
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM            \t   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                                                                \n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_highpass Matchbox pour Autodesk Flame\n//\n// Adapted to Natron by F.Fernandez\n// Original code : crok_highpass Matchbox for Autodesk Flame\n//\n// based on: http://www.ozone3d.net/smf/index.php?topic=68.0\n\n\n\n// setting inputs names and filtering options\n// iChannel0: Source, filter=Nearest, wrap=Clamp\n// BBox: iChannel0\n\n\n\nuniform float contrast = 1; // contrast : (contrast), min=0., max=20.\nuniform float saturation = 1; // saturation : (saturation), min=0., max=1.\nuniform bool clamp_values;\nuniform bool comp_on_bg;\n\n\nfloat step_w = 1.0 / iResolution.x;\nfloat step_h = 1.0 / iResolution.y;\n\n\nfloat overlay( float s, float d )\n{\n\treturn (d < 0.5) ? 2.0 * s * d : 1.0 - 2.0 * (1.0 - s) * (1.0 - d);\n}\n\nvec3 overlay( vec3 s, vec3 d )\n{\n\tvec3 c;\n\tc.x = overlay(s.x,d.x);\n\tc.y = overlay(s.y,d.y);\n\tc.z = overlay(s.z,d.z);\n\treturn c;\n}\n\nvec3 czm_saturation(vec3 rgb, float adjustment)\n{\n    // Algorithm from Chapter 16 of OpenGL Shading Language\n    const vec3 W = vec3(0.2125, 0.7154, 0.0721);\n    vec3 intensity = vec3(dot(rgb, W));\n    return mix(intensity, rgb, adjustment);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec3 original = texture2D(iChannel0, uv).rgb;\n\n\tvec2 offset[9];\n\tfloat kernel[ 9 ];\n\n\toffset[ 0 ] = vec2(-step_w, -step_h);\n\toffset[ 1 ] = vec2(0.0, -step_h);\n\toffset[ 2 ] = vec2(step_w, -step_h);\n\toffset[ 3 ] = vec2(-step_w, 0.0);\n\toffset[ 4 ] = vec2(0.0, 0.0);\n\toffset[ 5 ] = vec2(step_w, 0.0);\n\toffset[ 6 ] = vec2(-step_w, step_h);\n\toffset[ 7 ] = vec2(0.0, step_h);\n\toffset[ 8 ] = vec2(step_w, step_h);\n\tkernel[ 0 ] = -1.;\n\tkernel[ 1 ] = -1.;\n\tkernel[ 2 ] = -1.;\n\tkernel[ 3 ] = -1.;\n\tkernel[ 4 ] = 8.;\n\tkernel[ 5 ] = -1.;\n\tkernel[ 6 ] = -1.;\n\tkernel[ 7 ] = -1.;\n\tkernel[ 8 ] = -1.;\n\n\n   int i = 0;\n   vec3 col = vec3(0.0);\n\n   for( int i=0; i<9; i++ )\n   {\n    vec4 tmp = texture2D(iChannel0, uv + offset[i]);\n    col += tmp.rgb * kernel[i];\n   }\n   col = col * contrast + 0.5;\n\n   col = czm_saturation(col, saturation);\n   \n   if ( clamp_values )\n\t   col = clamp(col, 0.0, 1.0);\n   \n   if ( comp_on_bg )\n\t   col =  overlay(col, original);\n   \n   fragColor = vec4(col, 1.0);\n}")
+        param.setValue("//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_highpass Matchbox pour Autodesk Flame\n//\n// Adapted to Natron by F.Fernandez\n// Original code : crok_highpass Matchbox for Autodesk Flame\n//\n// based on: http://www.ozone3d.net/smf/index.php?topic=68.0\n\n\n\n// setting inputs names and filtering options\n// iChannel0: Source, filter=nearest, wrap=clamp\n// iChannel1: Mask, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n\n\nuniform float contrast = 1; // contrast : (contrast), min=0., max=20.\nuniform float saturation = 1; // saturation : (saturation), min=0., max=1.\nuniform bool clamp_values;\nuniform bool comp_on_bg;\nuniform bool useMask = false; // Use mask : (Use mask input.)\n\n\nfloat step_w = 1.0 / iResolution.x;\nfloat step_h = 1.0 / iResolution.y;\n\n\nfloat overlay( float s, float d )\n{\n\treturn (d < 0.5) ? 2.0 * s * d : 1.0 - 2.0 * (1.0 - s) * (1.0 - d);\n}\n\nvec3 overlay( vec3 s, vec3 d )\n{\n\tvec3 c;\n\tc.x = overlay(s.x,d.x);\n\tc.y = overlay(s.y,d.y);\n\tc.z = overlay(s.z,d.z);\n\treturn c;\n}\n\nvec3 czm_saturation(vec3 rgb, float adjustment)\n{\n    // Algorithm from Chapter 16 of OpenGL Shading Language\n    const vec3 W = vec3(0.2125, 0.7154, 0.0721);\n    vec3 intensity = vec3(dot(rgb, W));\n    return mix(intensity, rgb, adjustment);\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec4 original = texture2D(iChannel0, uv);\n\tvec4 mask = texture2D(iChannel1, uv);\n\tvec4 result = texture2D(iChannel0, uv);\t\n\n\tvec2 offset[9];\n\tfloat kernel[ 9 ];\n\n\toffset[ 0 ] = vec2(-step_w, -step_h);\n\toffset[ 1 ] = vec2(0.0, -step_h);\n\toffset[ 2 ] = vec2(step_w, -step_h);\n\toffset[ 3 ] = vec2(-step_w, 0.0);\n\toffset[ 4 ] = vec2(0.0, 0.0);\n\toffset[ 5 ] = vec2(step_w, 0.0);\n\toffset[ 6 ] = vec2(-step_w, step_h);\n\toffset[ 7 ] = vec2(0.0, step_h);\n\toffset[ 8 ] = vec2(step_w, step_h);\n\tkernel[ 0 ] = -1.;\n\tkernel[ 1 ] = -1.;\n\tkernel[ 2 ] = -1.;\n\tkernel[ 3 ] = -1.;\n\tkernel[ 4 ] = 8.;\n\tkernel[ 5 ] = -1.;\n\tkernel[ 6 ] = -1.;\n\tkernel[ 7 ] = -1.;\n\tkernel[ 8 ] = -1.;\n\n\n   int i = 0;\n   vec3 col = vec3(0.0);\n\n   for( int i=0; i<9; i++ )\n   {\n    vec4 tmp = texture2D(iChannel0, uv + offset[i]);\n    col += tmp.rgb * kernel[i];\n   }\n   col = col * contrast + 0.5;\n\n   col = czm_saturation(col, saturation);\n   \n   if ( clamp_values )\n\t   col = clamp(col, 0.0, 1.0);\n   \n   if ( comp_on_bg )\n\t   col =  overlay(col.rgb, original.rgb);\n\n\tif (useMask == true)\n\t{\n\t\tfragColor = vec4 (mix(original.rgb, col.rgb, mask.a) , mix(original.rgb, col.rgb, mask.a) );\n\t}\n\telse\n\t{\n\t\tfragColor = vec4(col.rgb,original.a);\n\t}\n}")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -662,9 +767,19 @@ def createInstance(app,group):
         param.setValue("Source")
         del param
 
-    param = lastNode.getParam("inputEnable1")
+    param = lastNode.getParam("mipmap1")
     if param is not None:
-        param.setValue(False)
+        param.set("nearest")
+        del param
+
+    param = lastNode.getParam("wrap1")
+    if param is not None:
+        param.set("clamp")
+        del param
+
+    param = lastNode.getParam("inputLabel1")
+    if param is not None:
+        param.setValue("Mask")
         del param
 
     param = lastNode.getParam("inputEnable2")
@@ -694,7 +809,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(4, 0)
+        param.setValue(5, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -797,6 +912,26 @@ def createInstance(app,group):
         param.setValue("comp_on_bg")
         del param
 
+    param = lastNode.getParam("paramType4")
+    if param is not None:
+        param.set("bool")
+        del param
+
+    param = lastNode.getParam("paramName4")
+    if param is not None:
+        param.setValue("useMask")
+        del param
+
+    param = lastNode.getParam("paramLabel4")
+    if param is not None:
+        param.setValue("Use mask :")
+        del param
+
+    param = lastNode.getParam("paramHint4")
+    if param is not None:
+        param.setValue("Use mask input.")
+        del param
+
     del lastNode
     # End of node "Shadertoy1_2"
 
@@ -891,7 +1026,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot1_2")
     lastNode.setLabel("Dot1_2")
-    lastNode.setPosition(4415, 3491)
+    lastNode.setPosition(4415, 3483)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot1_2 = lastNode
@@ -928,9 +1063,172 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot3_2"
 
+    # Start of node "Mask"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Mask")
+    lastNode.setLabel("Mask")
+    lastNode.setPosition(3817, 3260)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupMask = lastNode
+
+    del lastNode
+    # End of node "Mask"
+
+    # Start of node "Alpha"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Alpha")
+    lastNode.setLabel("Alpha")
+    lastNode.setPosition(3956, 3607)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupAlpha = lastNode
+
+    del lastNode
+    # End of node "Alpha"
+
+    # Start of node "Red"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Red")
+    lastNode.setLabel("Red")
+    lastNode.setPosition(3612, 3601)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupRed = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
+        del param
+
+    del lastNode
+    # End of node "Red"
+
+    # Start of node "Green"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Green")
+    lastNode.setLabel("Green")
+    lastNode.setPosition(3732, 3604)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupGreen = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
+        del param
+
+    del lastNode
+    # End of node "Green"
+
+    # Start of node "Blue"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Blue")
+    lastNode.setLabel("Blue")
+    lastNode.setPosition(3854, 3604)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupBlue = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
+        del param
+
+    del lastNode
+    # End of node "Blue"
+
+    # Start of node "SwitchChannel"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("SwitchChannel")
+    lastNode.setLabel("SwitchChannel")
+    lastNode.setPosition(3781, 3789)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(1, 1, 1)
+    groupSwitchChannel = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
+    del lastNode
+    # End of node "SwitchChannel"
+
+    # Start of node "Crop"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop")
+    lastNode.setLabel("Crop")
+    lastNode.setPosition(3803, 3441)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(400, 0)
+        param.setValue(445, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Crop"
+
+    # Start of node "Blur1_2"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("Blur1_2")
+    lastNode.setLabel("Blur1")
+    lastNode.setPosition(3809, 3350)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlur1_2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Blur1_2"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupDissolve1)
     groupShadertoy1_2.connectInput(0, groupUnpremult1)
+    groupShadertoy1_2.connectInput(1, groupSwitchChannel)
     groupUnpremult1.connectInput(0, groupDot1)
     groupPremult1.connectInput(0, groupShuffle1)
     groupShuffle1.connectInput(0, groupShadertoy1_2)
@@ -942,6 +1240,16 @@ def createInstance(app,group):
     groupDissolve1.connectInput(0, groupDot3_2)
     groupDissolve1.connectInput(1, groupPremult1)
     groupDot3_2.connectInput(0, groupDot1_2)
+    groupAlpha.connectInput(0, groupCrop)
+    groupRed.connectInput(0, groupCrop)
+    groupGreen.connectInput(0, groupCrop)
+    groupBlue.connectInput(0, groupCrop)
+    groupSwitchChannel.connectInput(0, groupRed)
+    groupSwitchChannel.connectInput(1, groupGreen)
+    groupSwitchChannel.connectInput(2, groupBlue)
+    groupSwitchChannel.connectInput(3, groupAlpha)
+    groupCrop.connectInput(0, groupBlur1_2)
+    groupBlur1_2.connectInput(0, groupMask)
 
     param = groupShadertoy1_2.getParam("paramValueFloat0")
     group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
@@ -955,6 +1263,9 @@ def createInstance(app,group):
     param = groupShadertoy1_2.getParam("paramValueBool3")
     group.getParam("Shadertoy1_2paramValueBool3").setAsAlias(param)
     del param
+    param = groupShadertoy1_2.getParam("paramValueBool4")
+    group.getParam("Shadertoy1_2paramValueBool4").setAsAlias(param)
+    del param
     param = groupUnpremult1.getParam("disableNode")
     param.setExpression("not thisGroup.isPremult.get()", False, 0)
     del param
@@ -963,6 +1274,13 @@ def createInstance(app,group):
     del param
     param = groupDissolve1.getParam("which")
     group.getParam("Dissolve1which").setAsAlias(param)
+    del param
+    param = groupSwitchChannel.getParam("which")
+    param.setExpression("thisGroup.channelChoose.get()", False, 0)
+    del param
+    param = groupCrop.getParam("size")
+    param.setExpression("myWidth = Blur1_2.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myHeight = Blur1_2.getOutputFormat().height()\nret = myHeight", True, 1)
     del param
 
     try:

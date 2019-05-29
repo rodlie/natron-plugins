@@ -34,7 +34,8 @@
 
 
 // setting inputs names and filtering options
-// iChannel0: Source, filter=Nearest, wrap=Clamp
+// iChannel0: Source, filter=nearest, wrap=clamp
+// iChannel1: Mask, filter=nearest, wrap=clamp
 // BBox: iChannel0
 
 
@@ -43,6 +44,7 @@ uniform float contrast = 1; // contrast : (contrast), min=0., max=20.
 uniform float saturation = 1; // saturation : (saturation), min=0., max=1.
 uniform bool clamp_values;
 uniform bool comp_on_bg;
+uniform bool useMask = false; // Use mask : (Use mask input.)
 
 
 float step_w = 1.0 / iResolution.x;
@@ -74,7 +76,9 @@ vec3 czm_saturation(vec3 rgb, float adjustment)
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
 	vec2 uv = fragCoord.xy / iResolution.xy;
-	vec3 original = texture2D(iChannel0, uv).rgb;
+	vec4 original = texture2D(iChannel0, uv);
+	vec4 mask = texture2D(iChannel1, uv);
+	vec4 result = texture2D(iChannel0, uv);	
 
 	vec2 offset[9];
 	float kernel[ 9 ];
@@ -115,7 +119,14 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	   col = clamp(col, 0.0, 1.0);
    
    if ( comp_on_bg )
-	   col =  overlay(col, original);
-   
-   fragColor = vec4(col, 1.0);
+	   col =  overlay(col.rgb, original.rgb);
+
+	if (useMask == true)
+	{
+		fragColor = vec4 (mix(original.rgb, col.rgb, mask.a) , mix(original.rgb, col.rgb, mask.a) );
+	}
+	else
+	{
+		fragColor = vec4(col.rgb,original.a);
+	}
 }

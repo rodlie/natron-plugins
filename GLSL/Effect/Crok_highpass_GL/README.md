@@ -19,6 +19,11 @@ GPU accelerated highpass filter for Shadertoy.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
+#### Mask
+
+* Use mak : Use mask input.
+* Channel : Channel used as mask.
+
 #### MIX
 
 * Mix : Mix result with original image.
