@@ -21,7 +21,7 @@ This shader simulates JPEG compression.
 
 * Use mask : Use mask input.
 * Invert mask : Invert mask input.
-* Channel : Channel to use as mask.
+* Channel : Channel used as mask.
 
 #### Mix
 
