@@ -112,9 +112,9 @@ def createInstance(app,group):
     del param
 
     param = lastNode.createIntParam("pass1paramValueInt0", "Resolution : ")
-    param.setMinimum(0, 0)
+    param.setMinimum(1, 0)
     param.setMaximum(16, 0)
-    param.setDisplayMinimum(0, 0)
+    param.setDisplayMinimum(1, 0)
     param.setDisplayMaximum(16, 0)
     param.setDefaultValue(16, 0)
     param.restoreDefaultValue(0)
@@ -123,6 +123,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("Overall image resolution.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass1paramValueInt0 = param
@@ -154,6 +155,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
+    param.setHelp("Amount of applied compression.")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
     lastNode.pass1paramValueFloat1 = param
@@ -327,7 +329,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("Invert mask.")
+    param.setHelp("Invert mask input.")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.invertMask = param
@@ -347,7 +349,7 @@ def createInstance(app,group):
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("Channel used as mask.")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
     lastNode.channelChoice = param
