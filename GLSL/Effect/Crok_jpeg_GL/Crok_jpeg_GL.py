@@ -940,7 +940,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult1")
     lastNode.setLabel("Premult1")
-    lastNode.setPosition(4139, 4025)
+    lastNode.setPosition(4139, 4024)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1 = lastNode
@@ -1018,28 +1018,11 @@ def createInstance(app,group):
     del lastNode
     # End of node "Mask"
 
-    # Start of node "Merge1"
-    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
-    lastNode.setScriptName("Merge1")
-    lastNode.setLabel("Merge1")
-    lastNode.setPosition(3622, 4162)
-    lastNode.setSize(80, 60)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupMerge1 = lastNode
-
-    param = lastNode.getParam("operation")
-    if param is not None:
-        param.set("multiply")
-        del param
-
-    del lastNode
-    # End of node "Merge1"
-
     # Start of node "Shuffle1_2"
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
     lastNode.setScriptName("Shuffle1_2")
     lastNode.setLabel("Shuffle1_2")
-    lastNode.setPosition(3622, 4006)
+    lastNode.setPosition(3622, 4005)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1_2 = lastNode
@@ -1196,6 +1179,16 @@ def createInstance(app,group):
     lastNode.setColor(0.3, 0.37, 0.776)
     groupMerge2 = lastNode
 
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("copy")
+        del param
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(True)
+        del param
+
     param = lastNode.getParam("disableNode")
     if param is not None:
         param.setValue(True)
@@ -1245,35 +1238,11 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot5"
 
-    # Start of node "Unpremult2"
-    lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
-    lastNode.setScriptName("Unpremult2")
-    lastNode.setLabel("Unpremult2")
-    lastNode.setPosition(3789, 4175)
-    lastNode.setSize(80, 34)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupUnpremult2 = lastNode
-
-    del lastNode
-    # End of node "Unpremult2"
-
-    # Start of node "Premult2"
-    lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
-    lastNode.setScriptName("Premult2")
-    lastNode.setLabel("Premult2")
-    lastNode.setPosition(3933, 4175)
-    lastNode.setSize(80, 34)
-    lastNode.setColor(0.3, 0.37, 0.776)
-    groupPremult2 = lastNode
-
-    del lastNode
-    # End of node "Premult2"
-
     # Start of node "Invert1"
     lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
     lastNode.setScriptName("Invert1")
     lastNode.setLabel("Invert1")
-    lastNode.setPosition(3622, 4082)
+    lastNode.setPosition(3622, 4170)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.48, 0.66, 1)
     groupInvert1 = lastNode
@@ -1297,8 +1266,6 @@ def createInstance(app,group):
     groupDot1.connectInput(0, groupSource)
     groupDot2.connectInput(0, groupDot1)
     groupDot3.connectInput(0, groupDot2)
-    groupMerge1.connectInput(0, groupDot1)
-    groupMerge1.connectInput(1, groupInvert1)
     groupShuffle1_2.connectInput(0, groupSwitchChannel)
     groupAlpha.connectInput(0, groupCrop)
     groupRed.connectInput(0, groupCrop)
@@ -1311,13 +1278,12 @@ def createInstance(app,group):
     groupCrop.connectInput(0, groupBlur1)
     groupBlur1.connectInput(0, groupMask)
     groupMerge2.connectInput(0, groupPremult1)
-    groupMerge2.connectInput(1, groupPremult2)
+    groupMerge2.connectInput(1, groupDot1)
+    groupMerge2.connectInput(2, groupInvert1)
     groupDissolve1.connectInput(0, groupDot5)
     groupDissolve1.connectInput(1, groupMerge2)
     groupDot4.connectInput(0, groupDot2)
     groupDot5.connectInput(0, groupDot4)
-    groupUnpremult2.connectInput(0, groupMerge1)
-    groupPremult2.connectInput(0, groupUnpremult2)
     groupInvert1.connectInput(0, groupShuffle1_2)
 
     param = grouppass1.getParam("paramValueInt0")
