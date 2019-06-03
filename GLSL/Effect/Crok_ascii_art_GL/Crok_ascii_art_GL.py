@@ -335,6 +335,18 @@ def createInstance(app,group):
     lastNode.useMask = param
     del param
 
+    param = lastNode.createBooleanParam("invertMask", "Invert mask : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Invert mask input.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.invertMask = param
+    del param
+
     param = lastNode.createChoiceParam("channelChoose", "Channel : ")
     entries = [ ("Red", ""),
     ("Green", ""),
@@ -877,7 +889,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
-    lastNode.setPosition(3347, 3378)
+    lastNode.setPosition(3347, 3452)
     lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
@@ -890,7 +902,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Unpremult1")
     lastNode.setLabel("Unpremult1")
     lastNode.setPosition(4139, 3857)
-    lastNode.setSize(80, 34)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupUnpremult1 = lastNode
 
@@ -906,8 +918,8 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult1")
     lastNode.setLabel("Premult1")
-    lastNode.setPosition(4139, 4024)
-    lastNode.setSize(80, 34)
+    lastNode.setPosition(4139, 4110)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1 = lastNode
 
@@ -924,7 +936,7 @@ def createInstance(app,group):
     lastNode.setScriptName("Dissolve1")
     lastNode.setLabel("Dissolve1")
     lastNode.setPosition(4139, 4323)
-    lastNode.setSize(80, 34)
+    lastNode.setSize(80, 30)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupDissolve1 = lastNode
 
@@ -976,7 +988,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
     lastNode.setScriptName("Alpha")
     lastNode.setLabel("Alpha")
-    lastNode.setPosition(3504, 3750)
+    lastNode.setPosition(3504, 3825)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupAlpha = lastNode
@@ -988,7 +1000,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("SwitchMask")
     lastNode.setLabel("SwitchMask")
-    lastNode.setPosition(3705, 3936)
+    lastNode.setPosition(3705, 4009)
     lastNode.setSize(80, 34)
     lastNode.setColor(1, 1, 1)
     groupSwitchMask = lastNode
@@ -1005,7 +1017,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
     lastNode.setScriptName("Red")
     lastNode.setLabel("Red")
-    lastNode.setPosition(3160, 3744)
+    lastNode.setPosition(3160, 3819)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupRed = lastNode
@@ -1034,7 +1046,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
     lastNode.setScriptName("Green")
     lastNode.setLabel("Green")
-    lastNode.setPosition(3281, 3747)
+    lastNode.setPosition(3281, 3822)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupGreen = lastNode
@@ -1051,7 +1063,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
     lastNode.setScriptName("Blue")
     lastNode.setLabel("Blue")
-    lastNode.setPosition(3403, 3747)
+    lastNode.setPosition(3403, 3822)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupBlue = lastNode
@@ -1068,7 +1080,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
     lastNode.setScriptName("SwitchChannel")
     lastNode.setLabel("SwitchChannel")
-    lastNode.setPosition(3329, 3934)
+    lastNode.setPosition(3329, 4009)
     lastNode.setSize(80, 34)
     lastNode.setColor(1, 1, 1)
     groupSwitchChannel = lastNode
@@ -1085,7 +1097,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
     lastNode.setScriptName("Shuffle1")
     lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(3705, 3756)
+    lastNode.setPosition(3705, 3830)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.6, 0.24, 0.39)
     groupShuffle1 = lastNode
@@ -1102,7 +1114,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
     lastNode.setScriptName("Crop")
     lastNode.setLabel("Crop")
-    lastNode.setPosition(3351, 3584)
+    lastNode.setPosition(3351, 3659)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop = lastNode
@@ -1135,7 +1147,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(3347, 3484)
+    lastNode.setPosition(3347, 3558)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2 = lastNode
@@ -1168,12 +1180,82 @@ def createInstance(app,group):
     del lastNode
     # End of node "Blur1_2"
 
+    # Start of node "Invert1"
+    lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
+    lastNode.setScriptName("Invert1")
+    lastNode.setLabel("Invert1")
+    lastNode.setPosition(3521, 4009)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupInvert1 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    del lastNode
+    # End of node "Invert1"
+
+    # Start of node "Merge2"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge2")
+    lastNode.setLabel("Merge2")
+    lastNode.setPosition(4139, 3996)
+    lastNode.setSize(80, 60)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge2 = lastNode
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("copy")
+        del param
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Merge2"
+
+    # Start of node "Dot5"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot5")
+    lastNode.setLabel("Dot5")
+    lastNode.setPosition(3920, 3587)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot5 = lastNode
+
+    del lastNode
+    # End of node "Dot5"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput1.connectInput(0, groupDissolve1)
     groupShadertoy1.connectInput(0, groupUnpremult1)
-    groupShadertoy1.connectInput(1, groupSwitchMask)
     groupUnpremult1.connectInput(0, groupDot1)
-    groupPremult1.connectInput(0, groupShadertoy1)
+    groupPremult1.connectInput(0, groupMerge2)
     groupDissolve1.connectInput(0, groupDot3)
     groupDissolve1.connectInput(1, groupPremult1)
     groupDot1.connectInput(0, groupSource)
@@ -1181,7 +1263,7 @@ def createInstance(app,group):
     groupDot3.connectInput(0, groupDot2)
     groupAlpha.connectInput(0, groupCrop)
     groupSwitchMask.connectInput(0, groupShuffle1)
-    groupSwitchMask.connectInput(1, groupSwitchChannel)
+    groupSwitchMask.connectInput(1, groupInvert1)
     groupRed.connectInput(0, groupCrop)
     groupDot4.connectInput(0, groupDot1)
     groupGreen.connectInput(0, groupCrop)
@@ -1193,6 +1275,11 @@ def createInstance(app,group):
     groupShuffle1.connectInput(0, groupDot4)
     groupCrop.connectInput(0, groupBlur1_2)
     groupBlur1_2.connectInput(0, groupMask)
+    groupInvert1.connectInput(0, groupSwitchChannel)
+    groupMerge2.connectInput(0, groupShadertoy1)
+    groupMerge2.connectInput(1, groupDot5)
+    groupMerge2.connectInput(2, groupSwitchMask)
+    groupDot5.connectInput(0, groupDot1)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
@@ -1221,6 +1308,12 @@ def createInstance(app,group):
     param = groupCrop.getParam("size")
     param.setExpression("myWidth = Blur1_2.getOutputFormat().width()\nret = myWidth", True, 0)
     param.setExpression("myHeight = Blur1_2.getOutputFormat().height()\nret = myHeight", True, 1)
+    del param
+    param = groupInvert1.getParam("disableNode")
+    param.setExpression("thisGroup.invertMask.get()", False, 0)
+    del param
+    param = groupMerge2.getParam("disableNode")
+    param.setExpression("not thisGroup.useMask.get()", False, 0)
     del param
 
     try:
