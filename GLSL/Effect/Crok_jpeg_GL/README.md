@@ -17,7 +17,7 @@ This shader simulates JPEG compression.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
-#### Options
+#### Mask
 
 * Use mask : Use mask input.
 * Invert mask : Invert mask input.
