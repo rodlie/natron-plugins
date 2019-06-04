@@ -355,7 +355,20 @@ def createInstance(app,group):
     # Set param properties
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(True)
     lastNode.Shadertoy1_2paramValueBool4 = param
+    del param
+
+    param = lastNode.createBooleanParam("invertMask", "Invert mask : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Invert mask input.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.invertMask = param
     del param
 
     param = lastNode.createChoiceParam("channelChoose", "Channel : ")
@@ -744,7 +757,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueBool4")
     if param is not None:
-        param.setValue(False)
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("imageShaderSource")
@@ -1067,7 +1080,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
-    lastNode.setPosition(3817, 3260)
+    lastNode.setPosition(3809, 3231)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
@@ -1159,7 +1172,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
     lastNode.setScriptName("Crop")
     lastNode.setLabel("Crop")
-    lastNode.setPosition(3803, 3441)
+    lastNode.setPosition(3809, 3442)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop = lastNode
@@ -1192,7 +1205,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1_2")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(3809, 3350)
+    lastNode.setPosition(3809, 3321)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1_2 = lastNode
@@ -1225,10 +1238,42 @@ def createInstance(app,group):
     del lastNode
     # End of node "Blur1_2"
 
+    # Start of node "Invert1"
+    lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
+    lastNode.setScriptName("Invert1")
+    lastNode.setLabel("Invert1")
+    lastNode.setPosition(3945, 3789)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupInvert1 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Invert1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupDissolve1)
     groupShadertoy1_2.connectInput(0, groupUnpremult1)
-    groupShadertoy1_2.connectInput(1, groupSwitchChannel)
+    groupShadertoy1_2.connectInput(1, groupInvert1)
     groupUnpremult1.connectInput(0, groupDot1)
     groupPremult1.connectInput(0, groupShuffle1)
     groupShuffle1.connectInput(0, groupShadertoy1_2)
@@ -1250,6 +1295,7 @@ def createInstance(app,group):
     groupSwitchChannel.connectInput(3, groupAlpha)
     groupCrop.connectInput(0, groupBlur1_2)
     groupBlur1_2.connectInput(0, groupMask)
+    groupInvert1.connectInput(0, groupSwitchChannel)
 
     param = groupShadertoy1_2.getParam("paramValueFloat0")
     group.getParam("Shadertoy1_2paramValueFloat0").setAsAlias(param)
@@ -1281,6 +1327,9 @@ def createInstance(app,group):
     param = groupCrop.getParam("size")
     param.setExpression("myWidth = Blur1_2.getOutputFormat().width()\nret = myWidth", True, 0)
     param.setExpression("myHeight = Blur1_2.getOutputFormat().height()\nret = myHeight", True, 1)
+    del param
+    param = groupInvert1.getParam("disableNode")
+    param.setExpression("not thisGroup.invertMask.get()", False, 0)
     del param
 
     try:
