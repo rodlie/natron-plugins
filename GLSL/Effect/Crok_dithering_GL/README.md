@@ -29,6 +29,12 @@ Creates a dithering effect.
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
+#### Mask
+
+* Mask : Use mask input.
+* Invert mask : Invert input mask.
+* Channel : Channel used as mask.
+
 #### Mix
 
 * Mix : Mix result with original image.

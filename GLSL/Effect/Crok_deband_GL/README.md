@@ -19,7 +19,7 @@ Reduces banding.
 #### Mask
 
 * Mask : Use mask input.
-Invert mask : Invert input mask.
+* Invert mask : Invert input mask.
 * Channel : Channel used as mask.
 
 #### Mix
