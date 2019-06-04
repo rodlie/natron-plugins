@@ -157,7 +157,7 @@ def createInstance(app,group):
     lastNode.sep06 = param
     del param
 
-    param = lastNode.createSeparatorParam("MASK", "Mask")
+    param = lastNode.createSeparatorParam("OPTIONS", "Options")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -167,7 +167,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.MASK = param
+    lastNode.OPTIONS = param
     del param
 
     param = lastNode.createStringParam("sep07", "")
@@ -198,36 +198,30 @@ def createInstance(app,group):
     lastNode.sep08 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool2", "Use mask : ")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("Modulate the amplitude by multiplying it by the first channel of the Modulate input.")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueBool2 = param
-    del param
-
-    param = lastNode.createChoiceParam("channelChoice", "Channel : ")
-    entries = [ ("Red", ""),
-    ("Green", ""),
-    ("Blue", ""),
-    ("Alpha", "")]
-    param.setOptions(entries)
-    del entries
-    param.setDefaultValue("Alpha")
+    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool1", "Keep aspect ratio : ")
+    param.setDefaultValue(True)
     param.restoreDefaultValue()
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("")
+    param.setHelp("Keep aspect ratio.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1_2paramValueBool1 = param
+    del param
+
+    param = lastNode.createBooleanParam("isPremult", "Source is premultiplied : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Source is premultiplied.")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
-    lastNode.channelChoice = param
+    lastNode.isPremult = param
     del param
 
     param = lastNode.createStringParam("sep09", "")
@@ -258,7 +252,7 @@ def createInstance(app,group):
     lastNode.sep10 = param
     del param
 
-    param = lastNode.createSeparatorParam("OPTIONS", "Options")
+    param = lastNode.createSeparatorParam("MASK", "Mask")
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -268,7 +262,7 @@ def createInstance(app,group):
     param.setAddNewLine(True)
     param.setPersistent(False)
     param.setEvaluateOnChange(False)
-    lastNode.OPTIONS = param
+    lastNode.MASK = param
     del param
 
     param = lastNode.createStringParam("sep11", "")
@@ -299,30 +293,48 @@ def createInstance(app,group):
     lastNode.sep12 = param
     del param
 
-    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool1", "Keep aspect ratio : ")
-    param.setDefaultValue(True)
+    param = lastNode.createBooleanParam("Shadertoy1_2paramValueBool2", "Use mask : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Modulate the amplitude by multiplying it by the first channel of the Modulate input.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Shadertoy1_2paramValueBool2 = param
+    del param
+
+    param = lastNode.createBooleanParam("invertMask", "Invert mask : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Invert mask input.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.invertMask = param
+    del param
+
+    param = lastNode.createChoiceParam("channelChoice", "Channel : ")
+    entries = [ ("Red", ""),
+    ("Green", ""),
+    ("Blue", ""),
+    ("Alpha", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Alpha")
     param.restoreDefaultValue()
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
 
     # Set param properties
-    param.setHelp("Keep aspect ratio.")
-    param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
-    lastNode.Shadertoy1_2paramValueBool1 = param
-    del param
-
-    param = lastNode.createBooleanParam("isPremult", "Source is premultiplied : ")
-
-    # Add the param to the page
-    lastNode.Controls.addParam(param)
-
-    # Set param properties
-    param.setHelp("Source is premultiplied.")
+    param.setHelp("")
     param.setAddNewLine(False)
     param.setAnimationEnabled(False)
-    lastNode.isPremult = param
+    lastNode.channelChoice = param
     del param
 
     param = lastNode.createStringParam("sep13", "")
@@ -664,7 +676,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
     lastNode.setScriptName("Mask")
     lastNode.setLabel("Mask")
-    lastNode.setPosition(4310, 3629)
+    lastNode.setPosition(4269, 3554)
     lastNode.setSize(80, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupMask = lastNode
@@ -718,6 +730,11 @@ def createInstance(app,group):
     param = lastNode.getParam("paramValueFloat0")
     if param is not None:
         param.setValue(100, 0)
+        del param
+
+    param = lastNode.getParam("paramValueBool1")
+    if param is not None:
+        param.setValue(True)
         del param
 
     param = lastNode.getParam("paramValueBool2")
@@ -912,7 +929,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
     lastNode.setScriptName("Crop_Strength")
     lastNode.setLabel("Crop_Strength")
-    lastNode.setPosition(4309, 3842)
+    lastNode.setPosition(4268, 3768)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.7, 0.3, 0.1)
     groupCrop_Strength = lastNode
@@ -945,7 +962,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
     lastNode.setScriptName("Blur1")
     lastNode.setLabel("Blur1")
-    lastNode.setPosition(4309, 3748)
+    lastNode.setPosition(4268, 3673)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.8, 0.5, 0.3)
     groupBlur1 = lastNode
@@ -999,7 +1016,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot2")
     lastNode.setLabel("Dot2")
-    lastNode.setPosition(4414, 3437)
+    lastNode.setPosition(4609, 3437)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot2 = lastNode
@@ -1011,7 +1028,7 @@ def createInstance(app,group):
     lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
     lastNode.setScriptName("Dot3")
     lastNode.setLabel("Dot3")
-    lastNode.setPosition(4414, 4068)
+    lastNode.setPosition(4609, 4068)
     lastNode.setSize(15, 15)
     lastNode.setColor(0.7, 0.7, 0.7)
     groupDot3 = lastNode
@@ -1031,6 +1048,28 @@ def createInstance(app,group):
     del lastNode
     # End of node "Dot1"
 
+    # Start of node "Invert1"
+    lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
+    lastNode.setScriptName("Invert1")
+    lastNode.setLabel("Invert1")
+    lastNode.setPosition(4268, 3843)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupInvert1 = lastNode
+
+    param = lastNode.getParam("premult")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Invert1"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupOutput2.connectInput(0, groupDissolve1)
     groupUnpremult1.connectInput(0, groupDot1)
@@ -1044,6 +1083,7 @@ def createInstance(app,group):
     groupDot2.connectInput(0, groupDot1)
     groupDot3.connectInput(0, groupDot2)
     groupDot1.connectInput(0, groupSource)
+    groupInvert1.connectInput(0, groupCrop_Strength)
 
     param = groupUnpremult1.getParam("disableNode")
     param.setExpression("not thisGroup.isPremult.get()", False, 0)
@@ -1069,6 +1109,9 @@ def createInstance(app,group):
     del param
     param = groupDissolve1.getParam("which")
     group.getParam("Dissolve1which").setAsAlias(param)
+    del param
+    param = groupInvert1.getParam("disableNode")
+    param.setExpression("not thisGroup.invertMask.get()", False, 0)
     del param
 
     try:
