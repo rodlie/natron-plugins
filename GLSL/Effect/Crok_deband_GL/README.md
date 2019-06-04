@@ -12,14 +12,15 @@ Reduces banding.
 
 * Amount : Effect amount.
 
-#### Mask
-
-* Mask : Use mask input.
-* Channel : Channel used as mask.
-
 #### Options
 
 * Source is premultiplied : Checked if source image is premultiplied.
+
+#### Mask
+
+* Mask : Use mask input.
+Invert mask : Invert input mask.
+* Channel : Channel used as mask.
 
 #### Mix
 
