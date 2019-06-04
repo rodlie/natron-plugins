@@ -719,7 +719,8 @@ def createInstance(app,group):
     lastNode.Dissolve1which = param
     del param
 
-    param = lastNode.createBooleanParam("sep30", "")
+    param = lastNode.createStringParam("sep30", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
 
     # Add the param to the page
     lastNode.Controls.addParam(param)
@@ -727,7 +728,8 @@ def createInstance(app,group):
     # Set param properties
     param.setHelp("")
     param.setAddNewLine(True)
-    param.setAnimationEnabled(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
     lastNode.sep30 = param
     del param
 
