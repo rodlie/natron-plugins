@@ -17,6 +17,12 @@ Simulates the color palette of a VIC-2 or better known as on of the famous C64 c
 
 * Source is premultiplied : Checked if source image is premultiplied.
 
+#### Mask
+
+* Use mask : Use mask input.
+* Invert mask : Invert mask input.
+* Channel : Channel used as mask.
+
 #### Mix
 
 * Mix : Mix result with original image.
