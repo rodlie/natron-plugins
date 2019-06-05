@@ -4,6 +4,7 @@ Simulates the color palette of a VIC-2 or better known as on of the famous C64 c
 
 ### INPUT(S)
 * Source : Connect the image you want to apply the effect onto. (RGB)
+* Mask : Connect an image to apply the effect in a specific portion of the image. (RGBA)
 
 ### HOW TO USE IT
 
