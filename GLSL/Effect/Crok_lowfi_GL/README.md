@@ -22,6 +22,8 @@ Simulates NES, SEGA and Gameboy video out.
 
 #### Mask
 
+* Use mask : Use mask input.
+* Invert mask : Invert mask input.
 * Channel : Channel used as mask.
 
 #### Mix

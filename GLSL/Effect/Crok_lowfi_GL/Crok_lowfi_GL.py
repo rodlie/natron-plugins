@@ -240,6 +240,233 @@ def createInstance(app,group):
     lastNode.isPremult = param
     del param
 
+    param = lastNode.createStringParam("sep10", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep10 = param
+    del param
+
+    param = lastNode.createStringParam("sep11", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep11 = param
+    del param
+
+    param = lastNode.createSeparatorParam("MASK", "Mask")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MASK = param
+    del param
+
+    param = lastNode.createStringParam("sep12", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep12 = param
+    del param
+
+    param = lastNode.createStringParam("sep13", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep13 = param
+    del param
+
+    param = lastNode.createBooleanParam("useMask", "Use mask : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Use mask input.")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(False)
+    lastNode.useMask = param
+    del param
+
+    param = lastNode.createBooleanParam("invertMask", "Invert mask : ")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Invert mask input.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.invertMask = param
+    del param
+
+    param = lastNode.createChoiceParam("channelChoose", "Channel : ")
+    entries = [ ("Red", ""),
+    ("Green", ""),
+    ("Blue", ""),
+    ("Alpha", "")]
+    param.setOptions(entries)
+    del entries
+    param.setDefaultValue("Alpha")
+    param.restoreDefaultValue()
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("Channel used as mask.")
+    param.setAddNewLine(False)
+    param.setAnimationEnabled(False)
+    lastNode.channelChoose = param
+    del param
+
+    param = lastNode.createStringParam("sep14", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep14 = param
+    del param
+
+    param = lastNode.createStringParam("sep15", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep15 = param
+    del param
+
+    param = lastNode.createSeparatorParam("MIX", "Mix")
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setPersistent(False)
+    param.setEvaluateOnChange(False)
+    lastNode.MIX = param
+    del param
+
+    param = lastNode.createStringParam("sep16", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep16 = param
+    del param
+
+    param = lastNode.createStringParam("sep17", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep17 = param
+    del param
+
+    param = lastNode.createDoubleParam("Dissolve1which", "Mix : ")
+    param.setMinimum(0, 0)
+    param.setMaximum(1, 0)
+    param.setDisplayMinimum(0, 0)
+    param.setDisplayMaximum(1, 0)
+    param.setDefaultValue(1, 0)
+    param.restoreDefaultValue(0)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.Dissolve1which = param
+    del param
+
+    param = lastNode.createStringParam("sep18", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep18 = param
+    del param
+
+    param = lastNode.createStringParam("sep19", "")
+    param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
+
+    # Add the param to the page
+    lastNode.Controls.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setEvaluateOnChange(False)
+    param.setAnimationEnabled(False)
+    lastNode.sep19 = param
+    del param
+
     lastNode.Credits = lastNode.createPageParam("Credits", "Credits")
     param = lastNode.createStringParam("sep101", "")
     param.setType(NatronEngine.StringParam.TypeEnum.eStringTypeLabel)
@@ -465,7 +692,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Shadertoy", 1, group)
     lastNode.setScriptName("Shadertoy1")
     lastNode.setLabel("Shadertoy1")
-    lastNode.setPosition(4139, 3866)
+    lastNode.setPosition(4138, 3864)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupShadertoy1 = lastNode
@@ -487,7 +714,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("imageShaderSource")
     if param is not None:
-        param.setValue("\n//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_lowfi Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_lowfi Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n// https://www.shadertoy.com/view/MdfXDH#\n\nuniform float brightness = 1.0; // Brightness : (brightness), min =0.0, max=10.0\n\nuniform int graphicMode = 0; // Graphic mode : (graphic mode), min=0, max=2\n\nuniform bool NES = true; // NES : (NES)\nuniform bool GAMEBOY = false; // GAMEBOY : (GAMEBOY)\nuniform bool EGA = false; // EGA : (EGA)\n\n\n\nvec3 find_closest_nes (vec3 ref) {\t\n\tvec3 old_nes = vec3 (100.0 *255.0);\t\t\n\t#define TRY_COLOR(new) old_nes = mix (new, old_nes, step (length (old_nes-ref), length (new-ref)));\t\n\tTRY_COLOR (vec3 (0.0, 88.0, 0.0));\n\tTRY_COLOR (vec3 (80.0, 48.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 104.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 64.0, 88.0));\n\tTRY_COLOR (vec3 (0.0, 120.0, 0.0));\n\tTRY_COLOR (vec3 (136.0, 020.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 168.0, 0.0));\n\tTRY_COLOR (vec3 (168.0, 16.0, 0.0));\n\tTRY_COLOR (vec3 (168.0, 0.0, 32.0));\n\tTRY_COLOR (vec3 (0.0, 168.0, 68.0));\n\tTRY_COLOR (vec3 (0.0, 184.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 0.0, 188.0));\n\tTRY_COLOR (vec3 (0.0, 136.0, 136.0));\n\tTRY_COLOR (vec3 (148.0, 0.0, 132.0));\n\tTRY_COLOR (vec3 (68.0, 40.0, 188.0));\n\tTRY_COLOR (vec3 (120.0, 120.0, 120.0));\n\tTRY_COLOR (vec3 (172.0, 124.0, 0.0));\n\tTRY_COLOR (vec3 (124.0, 124.0, 124.0));\n\tTRY_COLOR (vec3 (228.0, 0.0, 88.0));\n\tTRY_COLOR (vec3 (228.0, 92.0, 16.0));\n\tTRY_COLOR (vec3 (88.0, 216.0, 84.0));\n\tTRY_COLOR (vec3 (0.0, 0.0, 252.0));\n\tTRY_COLOR (vec3 (248.0, 56.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 88.0, 248.0));\n\tTRY_COLOR (vec3 (0.0, 120.0, 248.0));\n\tTRY_COLOR (vec3 (104.0, 68.0, 252.0));\n\tTRY_COLOR (vec3 (248.0, 120.0, 88.0));\n\tTRY_COLOR (vec3 (216.0, 0.0, 204.0));\n\tTRY_COLOR (vec3 (88.0, 248.0, 152.0));\n\tTRY_COLOR (vec3 (248.0, 88.0, 152.0));\n\tTRY_COLOR (vec3 (104.0, 136.0, 252.0));\n\tTRY_COLOR (vec3 (252.0, 160.0, 68.0));\n\tTRY_COLOR (vec3 (248.0, 184.0, 0.0));\n\tTRY_COLOR (vec3 (184.0, 248.0, 24.0));\n\tTRY_COLOR (vec3 (152.0, 120.0, 248.0));\n\tTRY_COLOR (vec3 (0.0, 232.0, 216.0));\n\tTRY_COLOR (vec3 (60.0, 188.0, 252.0));\n\tTRY_COLOR (vec3 (188.0, 188.0, 188.0));\n\tTRY_COLOR (vec3 (216.0, 248.0, 120.0));\n\tTRY_COLOR (vec3 (248.0, 216.0, 120.0));\n\tTRY_COLOR (vec3 (248.0, 164.0, 192.0));\n\tTRY_COLOR (vec3 (0.0, 252.0, 252.0));\n\tTRY_COLOR (vec3 (184.0, 184.0, 248.0));\n\tTRY_COLOR (vec3 (184.0, 248.0, 184.0));\n\tTRY_COLOR (vec3 (240.0, 208.0, 176.0));\n\tTRY_COLOR (vec3 (248.0, 120.0, 248.0));\n\tTRY_COLOR (vec3 (252.0, 224.0, 168.0));\n\tTRY_COLOR (vec3 (184.0, 248.0, 216.0));\n\tTRY_COLOR (vec3 (216.0, 184.0, 248.0));\n\tTRY_COLOR (vec3 (164.0, 228.0, 252.0));\n\tTRY_COLOR (vec3 (248.0, 184.0, 248.0));\n\tTRY_COLOR (vec3 (248.0, 216.0, 248.0));\n\tTRY_COLOR (vec3 (248.0, 248.0, 248.0));\n\tTRY_COLOR (vec3 (252.0, 252.0, 252.0));\t\n\n\treturn old_nes ;\n}\n\nvec3 find_closest_gb (vec3 ref_gb) {\t\n\tvec3 old_gb = vec3 (100.0 *255.0);\t\t\n\t#define TRY_COLOR_gb(new) old_gb = mix (new, old_gb, step (length (old_gb-ref_gb), length (new-ref_gb)));\t\n\tTRY_COLOR_gb (vec3 (156.0, 189.0, 15.0));\n\tTRY_COLOR_gb (vec3 (140.0, 173.0, 15.0));\n\tTRY_COLOR_gb (vec3 (48.0, 98.0, 48.0));\n\tTRY_COLOR_gb (vec3 (15.0, 56.0, 15.0));\n\t\n\treturn old_gb ;\n}\n\nvec3 find_closest_ega (vec3 ref_ega) {\t\n\tvec3 old_ega = vec3 (100.0 *255.0);\t\t\n\t#define TRY_COLOR_ega(new) old_ega = mix (new, old_ega, step (length (old_ega-ref_ega), length (new-ref_ega)));\t\n    TRY_COLOR_ega (vec3 (0.0, 0.0, 0.0)); \n    TRY_COLOR_ega (vec3 (255.0,255.0,255.0)); \n    TRY_COLOR_ega (vec3 (255.0,  0.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,255.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,  0.0,255.0)); \n    TRY_COLOR_ega (vec3 (255.0,255.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,255.0,255.0)); \n    TRY_COLOR_ega (vec3 (255.0,  0.0,255.0)); \n    TRY_COLOR_ega (vec3 (128.0,  0.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,128.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,  0.0,128.0)); \n    TRY_COLOR_ega (vec3 (128.0,128.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,128.0,128.0)); \n    TRY_COLOR_ega (vec3 (128.0,  0.0,128.0)); \n    TRY_COLOR_ega (vec3 (128.0,128.0,128.0)); \n    TRY_COLOR_ega (vec3 (255.0,128.0,128.0)); \n\n\treturn old_ega ;\n}\n\n\nfloat dither_matrix (float x, float y) {\n\treturn mix(mix(mix(mix(mix(mix(0.0,32.0,step(1.0,y)),mix(8.0,40.0,step(3.0,y)),step(2.0,y)),mix(mix(2.0,34.0,step(5.0,y)),mix(10.0,42.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),mix(mix(mix(48.0,16.0,step(1.0,y)),mix(56.0,24.0,step(3.0,y)),step(2.0,y)),mix(mix(50.0,18.0,step(5.0,y)),mix(58.0,26.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),step(1.0,x)),mix(mix(mix(mix(12.0,44.0,step(1.0,y)),mix(4.0,36.0,step(3.0,y)),step(2.0,y)),mix(mix(14.0,46.0,step(5.0,y)),mix(6.0,38.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),mix(mix(mix(60.0,28.0,step(1.0,y)),mix(52.0,20.0,step(3.0,y)),step(2.0,y)),mix(mix(62.0,30.0,step(5.0,y)),mix(54.0,22.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),step(3.0,x)),step(2.0,x)),mix(mix(mix(mix(mix(3.0,35.0,step(1.0,y)),mix(11.0,43.0,step(3.0,y)),step(2.0,y)),mix(mix(1.0,33.0,step(5.0,y)),mix(9.0,41.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),mix(mix(mix(51.0,19.0,step(1.0,y)),mix(59.0,27.0,step(3.0,y)),step(2.0,y)),mix(mix(49.0,17.0,step(5.0,y)),mix(57.0,25.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),step(5.0,x)),mix(mix(mix(mix(15.0,47.0,step(1.0,y)),mix(7.0,39.0,step(3.0,y)),step(2.0,y)),mix(mix(13.0,45.0,step(5.0,y)),mix(5.0,37.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),mix(mix(mix(63.0,31.0,step(1.0,y)),mix(55.0,23.0,step(3.0,y)),step(2.0,y)),mix(mix(61.0,29.0,step(5.0,y)),mix(53.0,21.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),step(7.0,x)),step(6.0,x)),step(4.0,x));\n}\n\nvec3 dither (vec3 color, vec2 uv) {\t\n\n\t\n\tif ( graphicMode==0 )\n\t{\n\t\tcolor *= 255.0 * 0.8* brightness;\t\n\t\tcolor += dither_matrix (mod (uv.x, 8.0), mod (uv.y, 8.0 )) ;\n\t\tcolor = find_closest_nes (clamp (color, 0.0, 255.0));\n\t\treturn color / 255.0;\n}\n\n\tif ( graphicMode==1 )\n\t{\n\t\tcolor *= 255.0 * 0.55* brightness;\n\t\tcolor += dither_matrix (mod (uv.x, 8.0), mod (uv.y, 8.0 )) ;\n\t\tcolor = find_closest_gb (clamp (color, 0.0, 255.0));\n\t\treturn color / 255.0;\n\t}\n\n\tif ( graphicMode==2 )\n\t{\n\t\tcolor *= 255.0 * 0.9* brightness;\n\t\tcolor += dither_matrix (mod (uv.x, 8.0), mod (uv.y, 8.0 )) ;\n\t\tcolor = find_closest_ega (clamp (color, 0.0, 255.0));\n\t\treturn color / 255.0;\n\t}\n\t\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec3 tc = texture2D(iChannel0, uv).xyz;\n\tfragColor =  vec4 (dither (tc, fragCoord.xy),1.0);\t\n}")
+        param.setValue("\n//\n//\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//                        MM.                          .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                     MM.  .MMMM        MMMMMMM    MMM.  .MM\n//                    MM.  .MMM           MMMMMM     MMM.  .MM\n//                   MM.  .MmM              MMMM      MMM.  .MM\n//                  MM.  .MMM                 MM       MMM.  .MM\n//                 MM.  .MMM                   M        MMM.  .MM\n//                MM.  .MMM                              MMM.  .MM\n//                 MM.  .MMM                            MMM.  .MM\n//                  MM.  .MMM       M                  MMM.  .MM\n//                   MM.  .MMM      MM                MMM.  .MM\n//                    MM.  .MMM     MMM              MMM.  .MM\n//                     MM.  .MMM    MMMM            MMM.  .MM\n//                      MM.  .MMMMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                       MM.  .MMMMMMMMMMMMMMMMMMMMMM.  .MM\n//                        MM.                          .MM\n//                          MMMMMMMMMMMMMMMMMMMMMMMMMMMM\n//\n//\n//\n//\n// Adaptation pour Natron par F. Fernandez\n// Code original : crok_lowfi Matchbox pour Autodesk Flame\n\n// Adapted to Natron by F.Fernandez\n// Original code : crok_lowfi Matchbox for Autodesk Flame\n\n\n// iChannel0: Source, filter=nearest, wrap=clamp\n// iChannel1: Mask, filter=nearest, wrap=clamp\n// BBox: iChannel0\n\n// https://www.shadertoy.com/view/MdfXDH#\n\nuniform float brightness = 1.0; // Brightness : (brightness), min =0.0, max=10.0\n\nuniform int graphicMode = 0; // Graphic mode : (graphic mode), min=0, max=2\n\nuniform bool NES = true; // NES : (NES)\nuniform bool GAMEBOY = false; // GAMEBOY : (GAMEBOY)\nuniform bool EGA = false; // EGA : (EGA)\nuniform bool useMask = false; // Use mask : (Use mask input.)\n\n\n\nvec3 find_closest_nes (vec3 ref) {\t\n\tvec3 old_nes = vec3 (100.0 *255.0);\t\t\n\t#define TRY_COLOR(new) old_nes = mix (new, old_nes, step (length (old_nes-ref), length (new-ref)));\t\n\tTRY_COLOR (vec3 (0.0, 88.0, 0.0));\n\tTRY_COLOR (vec3 (80.0, 48.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 104.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 64.0, 88.0));\n\tTRY_COLOR (vec3 (0.0, 120.0, 0.0));\n\tTRY_COLOR (vec3 (136.0, 020.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 168.0, 0.0));\n\tTRY_COLOR (vec3 (168.0, 16.0, 0.0));\n\tTRY_COLOR (vec3 (168.0, 0.0, 32.0));\n\tTRY_COLOR (vec3 (0.0, 168.0, 68.0));\n\tTRY_COLOR (vec3 (0.0, 184.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 0.0, 188.0));\n\tTRY_COLOR (vec3 (0.0, 136.0, 136.0));\n\tTRY_COLOR (vec3 (148.0, 0.0, 132.0));\n\tTRY_COLOR (vec3 (68.0, 40.0, 188.0));\n\tTRY_COLOR (vec3 (120.0, 120.0, 120.0));\n\tTRY_COLOR (vec3 (172.0, 124.0, 0.0));\n\tTRY_COLOR (vec3 (124.0, 124.0, 124.0));\n\tTRY_COLOR (vec3 (228.0, 0.0, 88.0));\n\tTRY_COLOR (vec3 (228.0, 92.0, 16.0));\n\tTRY_COLOR (vec3 (88.0, 216.0, 84.0));\n\tTRY_COLOR (vec3 (0.0, 0.0, 252.0));\n\tTRY_COLOR (vec3 (248.0, 56.0, 0.0));\n\tTRY_COLOR (vec3 (0.0, 88.0, 248.0));\n\tTRY_COLOR (vec3 (0.0, 120.0, 248.0));\n\tTRY_COLOR (vec3 (104.0, 68.0, 252.0));\n\tTRY_COLOR (vec3 (248.0, 120.0, 88.0));\n\tTRY_COLOR (vec3 (216.0, 0.0, 204.0));\n\tTRY_COLOR (vec3 (88.0, 248.0, 152.0));\n\tTRY_COLOR (vec3 (248.0, 88.0, 152.0));\n\tTRY_COLOR (vec3 (104.0, 136.0, 252.0));\n\tTRY_COLOR (vec3 (252.0, 160.0, 68.0));\n\tTRY_COLOR (vec3 (248.0, 184.0, 0.0));\n\tTRY_COLOR (vec3 (184.0, 248.0, 24.0));\n\tTRY_COLOR (vec3 (152.0, 120.0, 248.0));\n\tTRY_COLOR (vec3 (0.0, 232.0, 216.0));\n\tTRY_COLOR (vec3 (60.0, 188.0, 252.0));\n\tTRY_COLOR (vec3 (188.0, 188.0, 188.0));\n\tTRY_COLOR (vec3 (216.0, 248.0, 120.0));\n\tTRY_COLOR (vec3 (248.0, 216.0, 120.0));\n\tTRY_COLOR (vec3 (248.0, 164.0, 192.0));\n\tTRY_COLOR (vec3 (0.0, 252.0, 252.0));\n\tTRY_COLOR (vec3 (184.0, 184.0, 248.0));\n\tTRY_COLOR (vec3 (184.0, 248.0, 184.0));\n\tTRY_COLOR (vec3 (240.0, 208.0, 176.0));\n\tTRY_COLOR (vec3 (248.0, 120.0, 248.0));\n\tTRY_COLOR (vec3 (252.0, 224.0, 168.0));\n\tTRY_COLOR (vec3 (184.0, 248.0, 216.0));\n\tTRY_COLOR (vec3 (216.0, 184.0, 248.0));\n\tTRY_COLOR (vec3 (164.0, 228.0, 252.0));\n\tTRY_COLOR (vec3 (248.0, 184.0, 248.0));\n\tTRY_COLOR (vec3 (248.0, 216.0, 248.0));\n\tTRY_COLOR (vec3 (248.0, 248.0, 248.0));\n\tTRY_COLOR (vec3 (252.0, 252.0, 252.0));\t\n\n\treturn old_nes ;\n}\n\nvec3 find_closest_gb (vec3 ref_gb) {\t\n\tvec3 old_gb = vec3 (100.0 *255.0);\t\t\n\t#define TRY_COLOR_gb(new) old_gb = mix (new, old_gb, step (length (old_gb-ref_gb), length (new-ref_gb)));\t\n\tTRY_COLOR_gb (vec3 (156.0, 189.0, 15.0));\n\tTRY_COLOR_gb (vec3 (140.0, 173.0, 15.0));\n\tTRY_COLOR_gb (vec3 (48.0, 98.0, 48.0));\n\tTRY_COLOR_gb (vec3 (15.0, 56.0, 15.0));\n\t\n\treturn old_gb ;\n}\n\nvec3 find_closest_ega (vec3 ref_ega) {\t\n\tvec3 old_ega = vec3 (100.0 *255.0);\t\t\n\t#define TRY_COLOR_ega(new) old_ega = mix (new, old_ega, step (length (old_ega-ref_ega), length (new-ref_ega)));\t\n    TRY_COLOR_ega (vec3 (0.0, 0.0, 0.0)); \n    TRY_COLOR_ega (vec3 (255.0,255.0,255.0)); \n    TRY_COLOR_ega (vec3 (255.0,  0.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,255.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,  0.0,255.0)); \n    TRY_COLOR_ega (vec3 (255.0,255.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,255.0,255.0)); \n    TRY_COLOR_ega (vec3 (255.0,  0.0,255.0)); \n    TRY_COLOR_ega (vec3 (128.0,  0.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,128.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,  0.0,128.0)); \n    TRY_COLOR_ega (vec3 (128.0,128.0,  0.0)); \n    TRY_COLOR_ega (vec3 (  0.0,128.0,128.0)); \n    TRY_COLOR_ega (vec3 (128.0,  0.0,128.0)); \n    TRY_COLOR_ega (vec3 (128.0,128.0,128.0)); \n    TRY_COLOR_ega (vec3 (255.0,128.0,128.0)); \n\n\treturn old_ega ;\n}\n\n\nfloat dither_matrix (float x, float y) {\n\treturn mix(mix(mix(mix(mix(mix(0.0,32.0,step(1.0,y)),mix(8.0,40.0,step(3.0,y)),step(2.0,y)),mix(mix(2.0,34.0,step(5.0,y)),mix(10.0,42.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),mix(mix(mix(48.0,16.0,step(1.0,y)),mix(56.0,24.0,step(3.0,y)),step(2.0,y)),mix(mix(50.0,18.0,step(5.0,y)),mix(58.0,26.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),step(1.0,x)),mix(mix(mix(mix(12.0,44.0,step(1.0,y)),mix(4.0,36.0,step(3.0,y)),step(2.0,y)),mix(mix(14.0,46.0,step(5.0,y)),mix(6.0,38.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),mix(mix(mix(60.0,28.0,step(1.0,y)),mix(52.0,20.0,step(3.0,y)),step(2.0,y)),mix(mix(62.0,30.0,step(5.0,y)),mix(54.0,22.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),step(3.0,x)),step(2.0,x)),mix(mix(mix(mix(mix(3.0,35.0,step(1.0,y)),mix(11.0,43.0,step(3.0,y)),step(2.0,y)),mix(mix(1.0,33.0,step(5.0,y)),mix(9.0,41.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),mix(mix(mix(51.0,19.0,step(1.0,y)),mix(59.0,27.0,step(3.0,y)),step(2.0,y)),mix(mix(49.0,17.0,step(5.0,y)),mix(57.0,25.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),step(5.0,x)),mix(mix(mix(mix(15.0,47.0,step(1.0,y)),mix(7.0,39.0,step(3.0,y)),step(2.0,y)),mix(mix(13.0,45.0,step(5.0,y)),mix(5.0,37.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),mix(mix(mix(63.0,31.0,step(1.0,y)),mix(55.0,23.0,step(3.0,y)),step(2.0,y)),mix(mix(61.0,29.0,step(5.0,y)),mix(53.0,21.0,step(7.0,y)),step(6.0,y)),step(4.0,y)),step(7.0,x)),step(6.0,x)),step(4.0,x));\n}\n\nvec3 dither (vec3 color, vec2 uv) {\t\n\n\t\n\tif ( graphicMode==0 )\n\t{\n\t\tcolor *= 255.0 * 0.8* brightness;\t\n\t\tcolor += dither_matrix (mod (uv.x, 8.0), mod (uv.y, 8.0 )) ;\n\t\tcolor = find_closest_nes (clamp (color, 0.0, 255.0));\n\t\treturn color / 255.0;\n}\n\n\tif ( graphicMode==1 )\n\t{\n\t\tcolor *= 255.0 * 0.55* brightness;\n\t\tcolor += dither_matrix (mod (uv.x, 8.0), mod (uv.y, 8.0 )) ;\n\t\tcolor = find_closest_gb (clamp (color, 0.0, 255.0));\n\t\treturn color / 255.0;\n\t}\n\n\tif ( graphicMode==2 )\n\t{\n\t\tcolor *= 255.0 * 0.9* brightness;\n\t\tcolor += dither_matrix (mod (uv.x, 8.0), mod (uv.y, 8.0 )) ;\n\t\tcolor = find_closest_ega (clamp (color, 0.0, 255.0));\n\t\treturn color / 255.0;\n\t}\n\t\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 uv = fragCoord.xy / iResolution.xy;\n\tvec4 tc = texture2D(iChannel0, uv);\n\tvec4 mask = texture2D(iChannel1, uv);\n\tvec4 result = texture2D(iChannel0, uv);\n\n\tif (useMask == true)\n\t{\n\t\tresult = vec4 (dither (tc.rgb, fragCoord.xy),tc.a);\n\t\tfragColor = vec4 (mix(tc.rgb, result.rgb, mask.a) , mix(tc.a, result.a, mask.a) );\n\t}\n\telse\n\t{\n\t\tfragColor = vec4 (dither (tc.rgb, fragCoord.xy),tc.a);\n\t}\n}")
         del param
 
     param = lastNode.getParam("mipmap0")
@@ -500,9 +727,14 @@ def createInstance(app,group):
         param.setValue("Source")
         del param
 
-    param = lastNode.getParam("inputEnable1")
+    param = lastNode.getParam("mipmap1")
     if param is not None:
-        param.setValue(False)
+        param.set("nearest")
+        del param
+
+    param = lastNode.getParam("inputLabel1")
+    if param is not None:
+        param.setValue("Mask")
         del param
 
     param = lastNode.getParam("inputEnable2")
@@ -532,7 +764,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramCount")
     if param is not None:
-        param.setValue(2, 0)
+        param.setValue(3, 0)
         del param
 
     param = lastNode.getParam("paramType0")
@@ -600,6 +832,26 @@ def createInstance(app,group):
         param.setValue(2, 0)
         del param
 
+    param = lastNode.getParam("paramType2")
+    if param is not None:
+        param.set("bool")
+        del param
+
+    param = lastNode.getParam("paramName2")
+    if param is not None:
+        param.setValue("useMask")
+        del param
+
+    param = lastNode.getParam("paramLabel2")
+    if param is not None:
+        param.setValue("Use mask :")
+        del param
+
+    param = lastNode.getParam("paramHint2")
+    if param is not None:
+        param.setValue("Use mask input.")
+        del param
+
     del lastNode
     # End of node "Shadertoy1"
 
@@ -607,7 +859,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.Unpremult", 2, group)
     lastNode.setScriptName("Unpremult1")
     lastNode.setLabel("Unpremult1")
-    lastNode.setPosition(4138, 3712)
+    lastNode.setPosition(4139, 3799)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupUnpremult1 = lastNode
@@ -620,35 +872,11 @@ def createInstance(app,group):
     del lastNode
     # End of node "Unpremult1"
 
-    # Start of node "Dot1"
-    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
-    lastNode.setScriptName("Dot1")
-    lastNode.setLabel("Dot1")
-    lastNode.setPosition(4171, 3607)
-    lastNode.setSize(15, 15)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupDot1 = lastNode
-
-    del lastNode
-    # End of node "Dot1"
-
-    # Start of node "Dot2"
-    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
-    lastNode.setScriptName("Dot2")
-    lastNode.setLabel("Dot2")
-    lastNode.setPosition(4319, 3607)
-    lastNode.setSize(15, 15)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupDot2 = lastNode
-
-    del lastNode
-    # End of node "Dot2"
-
     # Start of node "Premult1"
     lastNode = app.createNode("net.sf.openfx.Premult", 2, group)
     lastNode.setScriptName("Premult1")
     lastNode.setLabel("Premult1")
-    lastNode.setPosition(4140, 4148)
+    lastNode.setPosition(4138, 3942)
     lastNode.setSize(80, 34)
     lastNode.setColor(0.3, 0.37, 0.776)
     groupPremult1 = lastNode
@@ -661,45 +889,302 @@ def createInstance(app,group):
     del lastNode
     # End of node "Premult1"
 
-    # Start of node "Shuffle1"
-    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
-    lastNode.setScriptName("Shuffle1")
-    lastNode.setLabel("Shuffle1")
-    lastNode.setPosition(4140, 4021)
+    # Start of node "Mask"
+    lastNode = app.createNode("fr.inria.built-in.Input", 1, group)
+    lastNode.setScriptName("Mask")
+    lastNode.setLabel("Mask")
+    lastNode.setPosition(3519, 3092)
     lastNode.setSize(80, 34)
-    lastNode.setColor(0.6, 0.24, 0.39)
-    groupShuffle1 = lastNode
+    lastNode.setColor(0.3, 0.5, 0.2)
+    groupMask = lastNode
 
-    param = lastNode.getParam("outputA")
+    del lastNode
+    # End of node "Mask"
+
+    # Start of node "Crop"
+    lastNode = app.createNode("net.sf.openfx.CropPlugin", 1, group)
+    lastNode.setScriptName("Crop")
+    lastNode.setLabel("Crop")
+    lastNode.setPosition(3524, 3294)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.7, 0.3, 0.1)
+    groupCrop = lastNode
+
+    param = lastNode.getParam("rectangleInteractEnable")
     if param is not None:
-        param.set("A.uk.co.thefoundry.OfxImagePlaneColour.A")
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronParamFormatChoice")
+    if param is not None:
+        param.set("PC_Video")
+        del param
+
+    param = lastNode.getParam("size")
+    if param is not None:
+        param.setValue(400, 0)
+        param.setValue(445, 1)
+        del param
+
+    param = lastNode.getParam("reformat")
+    if param is not None:
+        param.setValue(True)
         del param
 
     del lastNode
-    # End of node "Shuffle1"
+    # End of node "Crop"
 
-    # Start of node "Dot3"
-    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
-    lastNode.setScriptName("Dot3")
-    lastNode.setLabel("Dot3")
-    lastNode.setPosition(4317, 4031)
-    lastNode.setSize(15, 15)
-    lastNode.setColor(0.7, 0.7, 0.7)
-    groupDot3 = lastNode
+    # Start of node "Blur1_2"
+    lastNode = app.createNode("net.sf.cimg.CImgBlur", 4, group)
+    lastNode.setScriptName("Blur1_2")
+    lastNode.setLabel("Blur1")
+    lastNode.setPosition(3519, 3194)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.8, 0.5, 0.3)
+    groupBlur1_2 = lastNode
+
+    param = lastNode.getParam("NatronOfxParamProcessR")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessG")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessB")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("NatronOfxParamProcessA")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
 
     del lastNode
-    # End of node "Dot3"
+    # End of node "Blur1_2"
+
+    # Start of node "Alpha"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Alpha")
+    lastNode.setLabel("Alpha")
+    lastNode.setPosition(3698, 3461)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupAlpha = lastNode
+
+    del lastNode
+    # End of node "Alpha"
+
+    # Start of node "Red"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Red")
+    lastNode.setLabel("Red")
+    lastNode.setPosition(3354, 3455)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupRed = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.R")
+        del param
+
+    del lastNode
+    # End of node "Red"
+
+    # Start of node "Green"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Green")
+    lastNode.setLabel("Green")
+    lastNode.setPosition(3474, 3458)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupGreen = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.G")
+        del param
+
+    del lastNode
+    # End of node "Green"
+
+    # Start of node "Blue"
+    lastNode = app.createNode("net.sf.openfx.ShufflePlugin", 3, group)
+    lastNode.setScriptName("Blue")
+    lastNode.setLabel("Blue")
+    lastNode.setPosition(3596, 3458)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.6, 0.24, 0.39)
+    groupBlue = lastNode
+
+    param = lastNode.getParam("outputA")
+    if param is not None:
+        param.set("B.uk.co.thefoundry.OfxImagePlaneColour.B")
+        del param
+
+    del lastNode
+    # End of node "Blue"
+
+    # Start of node "SwitchChannel"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("SwitchChannel")
+    lastNode.setLabel("SwitchChannel")
+    lastNode.setPosition(3524, 3645)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitchChannel = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(3, 0)
+        del param
+
+    del lastNode
+    # End of node "SwitchChannel"
+
+    # Start of node "Dissolve1"
+    lastNode = app.createNode("net.sf.openfx.DissolvePlugin", 1, group)
+    lastNode.setScriptName("Dissolve1")
+    lastNode.setLabel("Dissolve1")
+    lastNode.setPosition(4141, 4120)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupDissolve1 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(1, 0)
+        del param
+
+    del lastNode
+    # End of node "Dissolve1"
+
+    # Start of node "Dot4"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot4")
+    lastNode.setLabel("Dot4")
+    lastNode.setPosition(4172, 3573)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot4 = lastNode
+
+    del lastNode
+    # End of node "Dot4"
+
+    # Start of node "Dot5"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot5")
+    lastNode.setLabel("Dot5")
+    lastNode.setPosition(4394, 3573)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot5 = lastNode
+
+    del lastNode
+    # End of node "Dot5"
+
+    # Start of node "Dot6"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot6")
+    lastNode.setLabel("Dot6")
+    lastNode.setPosition(4396, 4130)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot6 = lastNode
+
+    del lastNode
+    # End of node "Dot6"
+
+    # Start of node "Invert1_2"
+    lastNode = app.createNode("net.sf.openfx.Invert", 2, group)
+    lastNode.setScriptName("Invert1_2")
+    lastNode.setLabel("Invert1")
+    lastNode.setPosition(3524, 4035)
+    lastNode.setSize(80, 34)
+    lastNode.setColor(0.48, 0.66, 1)
+    groupInvert1_2 = lastNode
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(False)
+        del param
+
+    del lastNode
+    # End of node "Invert1_2"
+
+    # Start of node "Merge2"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge2")
+    lastNode.setLabel("Merge2")
+    lastNode.setPosition(4141, 4022)
+    lastNode.setSize(80, 60)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge2 = lastNode
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("copy")
+        del param
+
+    param = lastNode.getParam("enableMask_Mask")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    param = lastNode.getParam("disableNode")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "Merge2"
+
+    # Start of node "Dot6_2"
+    lastNode = app.createNode("fr.inria.built-in.Dot", 1, group)
+    lastNode.setScriptName("Dot6_2")
+    lastNode.setLabel("Dot6_2")
+    lastNode.setPosition(3869, 3571)
+    lastNode.setSize(15, 15)
+    lastNode.setColor(0.7, 0.7, 0.7)
+    groupDot6_2 = lastNode
+
+    del lastNode
+    # End of node "Dot6_2"
 
     # Now that all nodes are created we can connect them together, restore expressions
-    groupOutput2.connectInput(0, groupPremult1)
+    groupOutput2.connectInput(0, groupDissolve1)
     groupShadertoy1.connectInput(0, groupUnpremult1)
-    groupUnpremult1.connectInput(0, groupDot1)
-    groupDot1.connectInput(0, groupSource)
-    groupDot2.connectInput(0, groupDot1)
-    groupPremult1.connectInput(0, groupShuffle1)
-    groupShuffle1.connectInput(0, groupShadertoy1)
-    groupShuffle1.connectInput(1, groupDot3)
-    groupDot3.connectInput(0, groupDot2)
+    groupUnpremult1.connectInput(0, groupDot4)
+    groupPremult1.connectInput(0, groupShadertoy1)
+    groupCrop.connectInput(0, groupBlur1_2)
+    groupBlur1_2.connectInput(0, groupMask)
+    groupAlpha.connectInput(0, groupCrop)
+    groupRed.connectInput(0, groupCrop)
+    groupGreen.connectInput(0, groupCrop)
+    groupBlue.connectInput(0, groupCrop)
+    groupSwitchChannel.connectInput(0, groupRed)
+    groupSwitchChannel.connectInput(1, groupGreen)
+    groupSwitchChannel.connectInput(2, groupBlue)
+    groupSwitchChannel.connectInput(3, groupAlpha)
+    groupDissolve1.connectInput(0, groupDot6)
+    groupDissolve1.connectInput(1, groupMerge2)
+    groupDot4.connectInput(0, groupSource)
+    groupDot5.connectInput(0, groupDot4)
+    groupDot6.connectInput(0, groupDot5)
+    groupInvert1_2.connectInput(0, groupSwitchChannel)
+    groupMerge2.connectInput(0, groupPremult1)
+    groupMerge2.connectInput(1, groupDot6_2)
+    groupMerge2.connectInput(2, groupInvert1_2)
+    groupDot6_2.connectInput(0, groupDot4)
 
     param = groupShadertoy1.getParam("paramValueFloat0")
     group.getParam("Shadertoy1paramValueFloat0").setAsAlias(param)
@@ -712,6 +1197,22 @@ def createInstance(app,group):
     del param
     param = groupPremult1.getParam("disableNode")
     param.setExpression("not thisGroup.isPremult.get()", False, 0)
+    del param
+    param = groupCrop.getParam("size")
+    param.setExpression("myWidth = Blur1_2.getOutputFormat().width()\nret = myWidth", True, 0)
+    param.setExpression("myHeight = Blur1_2.getOutputFormat().height()\nret = myHeight", True, 1)
+    del param
+    param = groupSwitchChannel.getParam("which")
+    param.setExpression("thisGroup.channelChoose.get()", False, 0)
+    del param
+    param = groupDissolve1.getParam("which")
+    group.getParam("Dissolve1which").setAsAlias(param)
+    del param
+    param = groupInvert1_2.getParam("disableNode")
+    param.setExpression("thisGroup.invertMask.get()", False, 0)
+    del param
+    param = groupMerge2.getParam("disableNode")
+    param.setExpression("not thisGroup.useMask.get()", False, 0)
     del param
 
     try:
