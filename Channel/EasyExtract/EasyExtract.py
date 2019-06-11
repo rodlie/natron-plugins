@@ -22,7 +22,7 @@ def getLabel():
     return "EasyExtract"
 
 def getVersion():
-    return 1
+    return 1.0
 
 def getIconPath():
     return "EasyExtract.png"
@@ -186,7 +186,7 @@ def createInstance(app,group):
     lastNode.sep102 = param
     del param
 
-    param = lastNode.createSeparatorParam("NAME", "EasyExtract")
+    param = lastNode.createSeparatorParam("NAME", "EasyExtract v1.0")
 
     # Add the param to the page
     lastNode.Credits.addParam(param)

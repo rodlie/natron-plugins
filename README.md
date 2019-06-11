@@ -20,7 +20,7 @@ download it as a ZIP file via https://github.com/NatronGitHub/natron-plugins/arc
 
 Extract it anywhere.
 
-open Natron>
+open Natron
 >Edit>preference>plugins>pyplug search path>add>the exracted file location
 >>save
 
@@ -38,7 +38,7 @@ Unzip into any PyPlug folder but the recommended locations are...
     
     Linux:   "[/usr/share] or [YOUR INSTALLATION DIRECTORY]/Natron2/Plugins/PyPlugs"
 
-For Shadertoy prestes:
+For Shadertoy presets:
     copy the natron-plugins-master/Shadertoy contents and replace it in the following links:
     
     Windows: "C:\Program Files\INRIA\Natron-2.X.XX\Plugins\OFX\Natron\Shadertoy.ofx.bundle\Contents\Resources\presets\default"
