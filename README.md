@@ -616,6 +616,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Transform/lp_NoiseDistort/lp_NoiseDistort.png' width='32'> **[lp_NoiseDistort](/Transform/lp_NoiseDistort/README.md)** : Distorts an image based on two different noise-layer for a more dynamic feel.
 
+- <img src='/Transform/Wiggle/Wiggle.png' width='32'> **[Wiggle](/Transform/Wiggle/README.md)** : Camera shake effect.
+
 ### Utility
 - <img src='/Utility/Onion_S/Onion_S.png' width='32'> **[Onion_S](/Utility/Onion_S/README.md)** : This is a simple Onion Skin utility node. It supports 5 fames of fixed interval onion skin in the forward and backward directions with user selectable colors, and two blending modes.
 

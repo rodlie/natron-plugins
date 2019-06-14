@@ -1,0 +1,4 @@
+# Wiggle
+
+Camera shake effect.
+
