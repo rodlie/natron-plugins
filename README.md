@@ -120,6 +120,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Draw/Lightning_Bolt/bolticon.png' width='32'> **[Lightning Bolt](/Draw/Lightning_Bolt/README.md)** : Creates Lightning & Bolts
 
+- <img src='/Draw/Audio_VLC/audioVlcIcon.png' width='32'> **[Audio_VLC](/Draw/Audio_VLC/README.md)** : Creates Lightning & Bolts
+
 ### Filter
 - <img src='Filter/Light%20Sweep/lighsweep_icon.png' width='32'> **[Light Sweep](/Filter/Light%20Sweep/README.md)** : Creates Light Sweep.
 
