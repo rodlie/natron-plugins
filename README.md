@@ -152,6 +152,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Filter/Volume_Rays/Volume_Rays.png' width='32'> **[Volume_Rays](/Filter/Volume_Rays/README.md)** : Enhanced version of Natron's native GodRays, featuring advanced options.
 
+- <img src='/Filter/zDefocus/zDefocus.png' width='32'> **[zDefocus](/Filter/zDefocus/README.md)** : zDefocus node for Natron.
+
 - <img src='/Filter/fxT_Glowy/fxT_Glowy.png' width='32'> **[fxT_Glowy](/Filter/fxT_Glowy/README.md)** : This is an alternative glow effect that mimics the feature of the same gizmo in Nuke.
 
 - <img src='/Filter/L_BlurHue/L_BlurHue.png' width='32'> **[L_BlurHue](/Filter/L_BlurHue/README.md)** : A simple hue blur filter.

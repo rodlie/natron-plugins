@@ -25,7 +25,7 @@ def getVersion():
     return 1.2
 
 def getIconPath():
-    return "Defocus.png"
+    return "zDefocus.png"
 
 def getGrouping():
     return "Community/Filter"
