@@ -272,7 +272,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 - <img src='/GLSL/Color/y_linear_GL/y_linear_GL.png' width='24'> **[y_linear_GL](/GLSL/Color/y_linear_GL/README.md)** : Convert footage to linear and back with ease.
 
 ### GLSL/Distort
-- <img src='/GLSL/Distort/Bulge_GL/Bulge_GL.png' width='24'> **[Bulge_GL](/GLSL/Distort/Bulge_GL/README.md)** : Creates chromatic aberrations and a barrel distortion.
+- <img src='/GLSL/Distort/Bulge_GL/Bulge_GL.png' width='24'> **[Bulge_GL](/GLSL/Distort/Bulge_GL/README.md)** : Bulge effect.
 
 - <img src='/GLSL/Distort/Crok_chroma_warp_GL/Crok_chroma_warp_GL.png' width='24'> **[Crok_chroma_warp_GL](/GLSL/Distort/Crok_chroma_warp_GL/README.md)** : Creates chromatic aberrations and a barrel distortion.
 
