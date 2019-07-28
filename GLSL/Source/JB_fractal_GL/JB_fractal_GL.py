@@ -16,16 +16,22 @@ except ImportError:
     pass
 
 def getPluginID():
-    return "JB_fractal_GL"
+    return "natron.community.plugins.JB_fractal_GL"
 
 def getLabel():
     return "JB_fractal_GL"
 
 def getVersion():
-    return 1
+    return 1.0
+
+def getIconPath():
+    return "JB_fractal_GL.png"
 
 def getGrouping():
-    return ""
+    return "Community/GLSL/Source"
+
+def getPluginDescription():
+    return "Simple fractal generator."
 
 def createInstance(app,group):
     # Create all nodes in the group
