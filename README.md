@@ -11,7 +11,7 @@ Extract it anywhere.
 
 open Natron
 >Edit>preference>plugins>pyplug search path>add>the exracted file location
->>save
+>save
 
 Restart Natron.
 
