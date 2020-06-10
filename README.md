@@ -2,6 +2,19 @@
 # Natron Community Plugins
 ### A collection of Natron plugins made by the community
 ## Installation
+
+### Install directly from Natron
+
+download it as a ZIP file via https://github.com/NatronGitHub/natron-plugins/archive/master.zip
+
+Extract it anywhere.
+
+open Natron
+>Edit>preference>plugins>pyplug search path>add>the exracted file location
+>>save
+
+Restart Natron.
+
 ### Upgradable Install
 
 The plugins can be installed by simply cloning the github repository at the right location, for example on Linux:
@@ -14,17 +27,6 @@ Later, the plugins can be updated at any time by pulling updates:
     cd /usr/share/Natron/Plugins/natron-plugins
     git pull
     
-### Install directly from Natron
-
-download it as a ZIP file via https://github.com/NatronGitHub/natron-plugins/archive/master.zip
-
-Extract it anywhere.
-
-open Natron
->Edit>preference>plugins>pyplug search path>add>the exracted file location
->>save
-
-Restart Natron.
  
 ### One-Time Install
 
