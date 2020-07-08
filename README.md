@@ -515,6 +515,8 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/GLSL/Source/Rolling_fire_GL/Rolling_fire_GL.png' width='24'> **[Rolling_fire_GL](/GLSL/Source/Rolling_fire_GL)** : Creates a rolling fire effect.
 
+- <img src='/GLSL/Source//Lightning_GL/Lightning_GL.png' width='24'> **[Lightning_GL_GL](/GLSL/Source/Lightning_GL)** : Lightning effect.
+
 ### GLSL/Transform
 - <img src='/GLSL/Transform/Crok_seamless_GL/Crok_seamless_GL.png' width='24'> **[Crok_seamless_GL](/GLSL/Transform/Crok_seamless_GL)** : Creates seamless textures.
 
