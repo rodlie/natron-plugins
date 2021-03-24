@@ -4,7 +4,7 @@ include(GNUInstallDirs)
 install(DIRECTORY
     BL Channel Color Draw Filter GLSL Keyer Merge mS Relight SB Time Transform Utility Views V_Tools
     DESTINATION
-    ${CMAKE_INSTALL_DATAROOTDIR}/Natron/Plugins/PyPlugs
+    ${CMAKE_INSTALL_DATAROOTDIR}/Natron/Plugins
 )
 install(FILES
     Licenses/GPL-2.0
