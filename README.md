@@ -140,7 +140,7 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Filter/FireflyKiller/FireflyKiller.png' width='32'> **[FireflyKiller](/Filter/FireflyKiller)** : Removes fireflies, very bright, nervously jumping around pixels.
 
-- **[Grain_Advanced](/Filter/Grain_Advanced) : Applies user-definable film grain to an image.
+- **[Grain_Advanced](/Filter/Grain_Advanced)** : Applies user-definable film grain to an image.
 
 - <img src='/Filter/kaleidoscope/kaleidoscope.png' width='32'> **[kaleidoscope](/Filter/kaleidoscope)** : Creates kaleidoscope effect.
 
