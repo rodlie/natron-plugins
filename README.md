@@ -23,32 +23,32 @@ The plugins can be installed by simply cloning the github repository at the righ
     git clone https://github.com/NatronGitHub/natron-plugins.git
 
 Later, the plugins can be updated at any time by pulling updates:
-  
+
     cd /usr/share/Natron/Plugins/natron-plugins
     git pull
-    
- 
+
+
 ### One-Time Install
 
 To install a snapshot of the repository, download it as a ZIP file via https://github.com/NatronGitHub/natron-plugins/archive/master.zip
- 
+
 Unzip into any PyPlug folder but the recommended locations are...
- 
+
     Windows: "C:\Program Files\INRIA\Natron-2.X.XX\Plugins\PyPlugs"
-    
+
     OSX:     "/Library/Application Support/Natron2/Plugins/PyPlugs"
-    
+
     Linux:   "[/usr/share] or [YOUR INSTALLATION DIRECTORY]/Natron2/Plugins/PyPlugs"
 
 For Shadertoy presets:
     copy the natron-plugins-master/Shadertoy contents and replace it in the following links:
-    
+
     Windows: "C:\Program Files\INRIA\Natron-2.X.XX\Plugins\OFX\Natron\Shadertoy.ofx.bundle\Contents\Resources\presets\default"
-    
+
     OSX:     "/Library/Application Support/Natron2/Plugins/OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default"
-    
+
     Linux:   "[YOUR INSTALLATION DIRECTORY]Natron2/Plugins/OFX/Natron/Shadertoy.ofx.bundle/Contents/Resources/presets/default"
-    
+
 
 Finally edit the plugins location in Natron preferences to allow it to find them during startup, if it's not already.
 If you want a particular folder only you can use http://kinolien.github.io/gitzip/ and put the URL to the folder you want there. Also you can install individual .py files (and their accompanied png icon files).
@@ -130,15 +130,17 @@ https://github.com/NatronGitHub/natron-plugins/wiki/Guidelines-for-plugins
 
 - <img src='/Filter/Antialiasing/AntiAliasing.png' width='32'> **[AntiAliasing](/Filter/Antialiasing)** : Antialiasing filter based on FXAA
 
-- <img src='/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png' width='32'> **[ChromaticAberrationPP](/Filter/ChromaticAberrationPP)** : A filter designed to match real camera chromatic aberration 
+- <img src='/Filter/ChromaticAberrationPP/ChromaticAberrationPP.png' width='32'> **[ChromaticAberrationPP](/Filter/ChromaticAberrationPP)** : A filter designed to match real camera chromatic aberration
 
 - <img src='/Filter/Chromatic_Aberration/Chromatic_Aberration.png' width='32'> **[Chromatic_Aberration](/Filter/Chromatic_Aberration)** : Create a stylised Chromatic Aberration effect, similar to the one found in Blender.
 
-- <img src='/Filter/DePepper/DePepper.png' width='32'> **[DePepper](/Filter/DePepper)** : Remove Salt and Pepper noise 
+- <img src='/Filter/DePepper/DePepper.png' width='32'> **[DePepper](/Filter/DePepper)** : Remove Salt and Pepper noise
 
 - <img src='/Filter/Defocus/Defocus.png' width='32'> **[Defocus](/Filter/Defocus)** : Add a bokeh blur to the image. You can use an image to guide blur size, note that it's not intended to act as a ZBlur plugin.
 
 - <img src='/Filter/FireflyKiller/FireflyKiller.png' width='32'> **[FireflyKiller](/Filter/FireflyKiller)** : Removes fireflies, very bright, nervously jumping around pixels.
+
+- **[Grain_Advanced](/Filter/Grain_Advanced) : Applies user-definable film grain to an image.
 
 - <img src='/Filter/kaleidoscope/kaleidoscope.png' width='32'> **[kaleidoscope](/Filter/kaleidoscope)** : Creates kaleidoscope effect.
 
