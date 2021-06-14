@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(natron-plugins VERSION 20210310)
+project(natron-plugins VERSION 20210614)
 include(GNUInstallDirs)
 install(DIRECTORY
     BL Channel Color Draw Filter GLSL Keyer Merge mS Relight SB Time Transform Utility Views V_Tools
