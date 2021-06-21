@@ -26,7 +26,7 @@ def getVersion():
     return 1
 
 def getGrouping():
-    return "Filters"
+    return "Community/Filter"
 
 def getPluginDescription():
     return "Applies user-definable film grain to an image\t"
