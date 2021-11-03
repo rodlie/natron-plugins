@@ -3,7 +3,7 @@ from sys import platform
 import subprocess
 from NatronEngine import*
 from NatronGui import *
-from PySide.QtGui import *
+# from PySide.QtGui import *
 
 
 
